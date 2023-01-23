@@ -1,0 +1,2186 @@
+{
+  "projectVersion": 1,
+  "files": [
+    "game-lib.jar"
+  ],
+  "treeExpansions": [
+    [
+      "源代码"
+    ],
+    [
+      "com",
+      "源代码"
+    ],
+    [
+      "corrodinggames",
+      "com",
+      "源代码"
+    ],
+    [
+      "rts",
+      "corrodinggames",
+      "com",
+      "源代码"
+    ],
+    [
+      "gameFramework",
+      "rts",
+      "corrodinggames",
+      "com",
+      "源代码"
+    ],
+    [
+      "net",
+      "gameFramework",
+      "rts",
+      "corrodinggames",
+      "com",
+      "源代码"
+    ],
+    [
+      "a.a",
+      "源代码",
+      "game-lib.jar"
+    ],
+    [
+      "源代码",
+      "game-lib.jar"
+    ]
+  ],
+  "codeData": {
+    "comments": [
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.h"
+        },
+        "comment": "RelayForwardedSocket \u003d RFS (Abbreviation)"
+      }
+    ],
+    "renames": [
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.b",
+          "shortId": "a:[B"
+        },
+        "newName": "data"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.c",
+          "shortId": "a:[I"
+        },
+        "newName": "data"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.h",
+          "shortId": "a:I"
+        },
+        "newName": "flags"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.h",
+          "shortId": "b:I"
+        },
+        "newName": "hlen"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.h",
+          "shortId": "c:I"
+        },
+        "newName": "seqn"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "a.a.a.h",
+          "shortId": "e:I"
+        },
+        "newName": "nretx"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.d",
+          "shortId": "a()Ljava/lang/String;"
+        },
+        "newName": "type"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "a(I)V"
+        },
+        "newName": "setAck"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "a(III)V"
+        },
+        "newName": "init"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "a([BII)V"
+        },
+        "newName": "parseBytes"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "b([BII)La/a/a/h;"
+        },
+        "newName": "parse"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "d()[B"
+        },
+        "newName": "getBytes"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "n()I"
+        },
+        "newName": "getAck"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "a.a.a.h",
+          "shortId": "o()I"
+        },
+        "newName": "getRetxCounter"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.a"
+        },
+        "newName": "ACKSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.b"
+        },
+        "newName": "DATSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.c"
+        },
+        "newName": "EAKSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.d"
+        },
+        "newName": "FINSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.e"
+        },
+        "newName": "NULSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.f"
+        },
+        "newName": "RSTSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.g"
+        },
+        "newName": "SYNSegment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.h"
+        },
+        "newName": "Segment"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.a.i"
+        },
+        "newName": "Timer"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.b"
+        },
+        "newName": "ReliableServerSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.h"
+        },
+        "newName": "ReliableSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.o"
+        },
+        "newName": "ReliableSocketInputStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.q"
+        },
+        "newName": "ReliableSocketOutputStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.r"
+        },
+        "newName": "ReliableSocketProfile"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.s"
+        },
+        "newName": "ReliableSocketStateListener"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "a.a.b"
+        },
+        "newName": "RUDPServerSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.game.e"
+        },
+        "newName": "Player"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.game.n"
+        },
+        "newName": "PlayerData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.e"
+        },
+        "newName": "SyncPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.e.c"
+        },
+        "newName": "FileLoader"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j"
+        },
+        "newName": "FileChangeEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad"
+        },
+        "newName": "GameNetEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ae"
+        },
+        "newName": "EnterPasswordCallback"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ah"
+        },
+        "newName": "GameMapData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ai"
+        },
+        "newName": "MapType"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ak"
+        },
+        "newName": "CheckSumData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.am"
+        },
+        "newName": "Server_type"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao"
+        },
+        "newName": "ServerAcceptRunnable"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ap"
+        },
+        "newName": "ServerAcceptData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.aq"
+        },
+        "newName": "APIEncryption"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as"
+        },
+        "newName": "GameOutputStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.at"
+        },
+        "newName": "GzipDataOutStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.au"
+        },
+        "newName": "Packet"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.av"
+        },
+        "newName": "PingTask"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c"
+        },
+        "newName": "PlayerConnect"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.d"
+        },
+        "newName": "ReciveSocketInStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.e"
+        },
+        "newName": "SendSocketOutStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.f"
+        },
+        "newName": "Unknown_GameOutBlockStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.g"
+        },
+        "newName": "ListRoomInfo"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.h"
+        },
+        "newName": "RelayForwardedSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.i"
+        },
+        "newName": "RFSInStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k"
+        },
+        "newName": "GameInputStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.n"
+        },
+        "newName": "GameNetAPIOperate"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.r"
+        },
+        "newName": "HTTPService"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.v"
+        },
+        "newName": "SendErrorLogToGameDev"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.x"
+        },
+        "newName": "GameConnectStatusType"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.y"
+        },
+        "newName": "ListOperate_AddRoom"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.z"
+        },
+        "newName": "ListOperate_RemoveRoom"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.l"
+        },
+        "newName": "GameEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.gameFramework.o.a"
+        },
+        "newName": "SteamEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.a.a"
+        },
+        "newName": "ImageData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.b"
+        },
+        "newName": "RWAppGameContainer"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.a"
+        },
+        "newName": "SteamData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.b"
+        },
+        "newName": "SteamEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.c"
+        },
+        "newName": "SteamUtilsCallback"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.d"
+        },
+        "newName": "SteamFriendsCallback"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.e"
+        },
+        "newName": "SteamMatchmakingCallback"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.f"
+        },
+        "newName": "SteamNetworkingCallback"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.h"
+        },
+        "newName": "SteamPublicData_2"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.i"
+        },
+        "newName": "SteamPublicData_1"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.k"
+        },
+        "newName": "SteamSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.l"
+        },
+        "newName": "SteamSocketInStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.c.m"
+        },
+        "newName": "SteamSocketOutStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.d.a"
+        },
+        "newName": "SlickLibRocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.j"
+        },
+        "newName": "StartLwjgl"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.k"
+        },
+        "newName": "HTTP"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.m"
+        },
+        "newName": "LoadMusic"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.s"
+        },
+        "newName": "LoadImage"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.t"
+        },
+        "newName": "ImageData"
+      },
+      {
+        "nodeRef": {
+          "refType": "CLASS",
+          "declClass": "com.corrodinggames.rts.java.u"
+        },
+        "newName": "RWBasicGame"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "android.graphics.PointF",
+          "shortId": "a:F"
+        },
+        "newName": "x"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "android.graphics.PointF",
+          "shortId": "b:F"
+        },
+        "newName": "y"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.game.n",
+          "shortId": "as:[Lcom/corrodinggames/rts/game/n;"
+        },
+        "newName": "playerArray"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.game.n",
+          "shortId": "v:Ljava/lang/String;"
+        },
+        "newName": "name"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.c",
+          "shortId": "b:Ljava/util/ArrayList;"
+        },
+        "newName": "commandList"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.e",
+          "shortId": "c:I"
+        },
+        "newName": "localTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "C:Z"
+        },
+        "newName": "isServer"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "X:I"
+        },
+        "newName": "loaclTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aD:Ljava/lang/Thread;"
+        },
+        "newName": "tcpThread"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aE:Lcom/corrodinggames/rts/gameFramework/j/ao;"
+        },
+        "newName": "tcpAccept"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aF:Ljava/lang/Thread;"
+        },
+        "newName": "udpThread"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aG:Lcom/corrodinggames/rts/gameFramework/j/ao;"
+        },
+        "newName": "udpAccept"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aH:Ljava/util/Timer;"
+        },
+        "newName": "PingTaskTimer"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aI:Lcom/corrodinggames/rts/gameFramework/j/av;"
+        },
+        "newName": "pingTask"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "aM:Ljava/util/concurrent/ConcurrentLinkedQueue;"
+        },
+        "newName": "socketList"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "am:Lcom/corrodinggames/rts/gameFramework/j/ak;"
+        },
+        "newName": "checkSumData"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "ay:Lcom/corrodinggames/rts/gameFramework/j/ah;"
+        },
+        "newName": "gameMapData"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "bI:F"
+        },
+        "newName": "currentStepRate"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "bn:F"
+        },
+        "newName": "playerTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "bq:I"
+        },
+        "newName": "lastSyncTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "g:Z"
+        },
+        "newName": "debug"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "m:I"
+        },
+        "newName": "port"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "n:Ljava/lang/String;"
+        },
+        "newName": "passwd"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "o:Z"
+        },
+        "newName": "useMods"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "q:Z"
+        },
+        "newName": "publicRoom"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ah",
+          "shortId": "o:Z"
+        },
+        "newName": "spectators"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ak",
+          "shortId": "a:J"
+        },
+        "newName": "allSum"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "d:Ljava/net/ServerSocket;"
+        },
+        "newName": "serverSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "e:I"
+        },
+        "newName": "port"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "r:Lcom/corrodinggames/rts/gameFramework/j/ad;"
+        },
+        "newName": "netEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a:Ljava/io/DataOutputStream;"
+        },
+        "newName": "dataStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "b:Ljava/io/ByteArrayOutputStream;"
+        },
+        "newName": "byteStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "c:Ljava/io/DataOutputStream;"
+        },
+        "newName": "useStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "d:I"
+        },
+        "newName": "packetVersion"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.au",
+          "shortId": "a:Lcom/corrodinggames/rts/gameFramework/j/c;"
+        },
+        "newName": "playerConnect"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.au",
+          "shortId": "b:I"
+        },
+        "newName": "type"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.au",
+          "shortId": "c:[B"
+        },
+        "newName": "bytes"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.au",
+          "shortId": "d:I"
+        },
+        "newName": "type"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.av",
+          "shortId": "c:Lcom/corrodinggames/rts/gameFramework/j/ad;"
+        },
+        "newName": "gameNetEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c",
+          "shortId": "v:Z"
+        },
+        "newName": "desyncCountFlag"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c",
+          "shortId": "w:Z"
+        },
+        "newName": "fastSyncFlag"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c",
+          "shortId": "y:I"
+        },
+        "newName": "desyncCount"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c",
+          "shortId": "z:Lcom/corrodinggames/rts/game/e;"
+        },
+        "newName": "player"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "a:Ljava/io/ByteArrayInputStream;"
+        },
+        "newName": "byteStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "e:Ljava/io/DataInputStream;"
+        },
+        "newName": "dataStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "f:Ljava/io/DataInputStream;"
+        },
+        "newName": "useStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.n",
+          "shortId": "c:[Ljava/lang/String;"
+        },
+        "newName": "urlList"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "al:Lcom/corrodinggames/rts/gameFramework/l;"
+        },
+        "newName": "gameEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "bQ:Lcom/corrodinggames/rts/gameFramework/SettingsEngine;"
+        },
+        "newName": "settingsEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "bx:I"
+        },
+        "newName": "tick"
+      },
+      {
+        "nodeRef": {
+          "refType": "FIELD",
+          "declClass": "com.corrodinggames.rts.gameFramework.o.a",
+          "shortId": "a:Lcom/corrodinggames/rts/gameFramework/o/a;"
+        },
+        "newName": "steamEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "android.graphics.PointF",
+          "shortId": "a(FF)V"
+        },
+        "newName": "setSite"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "android.graphics.PointF",
+          "shortId": "a(Landroid/graphics/PointF;)V"
+        },
+        "newName": "setSite"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "android.graphics.PointF",
+          "shortId": "b(FF)V"
+        },
+        "newName": "moveAdd"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.librocket.scripts.Root",
+          "shortId": "hostStartWithPasswordAndMods(ZLjava/lang/String;Z)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 393216
+        },
+        "newName": "publicRoom"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.librocket.scripts.Root",
+          "shortId": "hostStartWithPasswordAndMods(ZLjava/lang/String;Z)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 458752
+        },
+        "newName": "passwd"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.librocket.scripts.Root",
+          "shortId": "hostStartWithPasswordAndMods(ZLjava/lang/String;Z)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 524288
+        },
+        "newName": "useMods"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.game.n",
+          "shortId": "G()I"
+        },
+        "newName": "getNullSite"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.game.n",
+          "shortId": "H()I"
+        },
+        "newName": "getNullSite"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.e",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/as;)V"
+        },
+        "newName": "write"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.e",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/k;)V"
+        },
+        "newName": "read"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.e",
+          "shortId": "f()Lcom/corrodinggames/rts/gameFramework/e;"
+        },
+        "newName": "clone"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(FLjava/lang/String;)V"
+        },
+        "newName": "setCurrentStepRate"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/game/n;I)V"
+        },
+        "newName": "setPlayerTeam"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/e;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 262144
+        },
+        "newName": "syncPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 14
+        },
+        "newName": "reciveTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 49
+        },
+        "newName": "desyncCountFlag"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "newName": "resolveSystemCommandPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 84
+        },
+        "newName": "server"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 86
+        },
+        "newName": "client"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 105
+        },
+        "newName": "syncTick"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(Ljava/net/Socket;)Z"
+        },
+        "newName": "bindSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a(ZZZ)V"
+        },
+        "newName": "resync"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "a([BLcom/corrodinggames/rts/gameFramework/j/c;)V"
+        },
+        "newName": "updateDeSync"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "newName": "getSocketAndResolveIp"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 327680
+        },
+        "newName": "ip"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 393216
+        },
+        "newName": "forceTcp"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 655363
+        },
+        "newName": "ip"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 720899
+        },
+        "newName": "port"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 851970
+        },
+        "newName": "socket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Ljava/lang/String;Z)Ljava/net/Socket;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 917504
+        },
+        "newName": "timeOut"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "b(Z)Z"
+        },
+        "newName": "startNet"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "c()F"
+        },
+        "newName": "getCurrentStepRate"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "c(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "newName": "resolveCommandPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "d(Ljava/lang/String;)V"
+        },
+        "newName": "printLog"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "e(F)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 393216
+        },
+        "newName": "tick"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "e(F)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 589824
+        },
+        "newName": "syncFlag"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "e(Lcom/corrodinggames/rts/gameFramework/j/c;)V"
+        },
+        "newName": "sendTeamData"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "g(Lcom/corrodinggames/rts/gameFramework/j/au;)V"
+        },
+        "newName": "sendPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ad",
+          "shortId": "v()V"
+        },
+        "newName": "fasySync"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "a(Z)V"
+        },
+        "newName": "startServerSocket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "a(Z)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 524288
+        },
+        "newName": "udp"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.ao",
+          "shortId": "run()V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 589826
+        },
+        "newName": "ip"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a()V"
+        },
+        "newName": "flashAll"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(D)V"
+        },
+        "newName": "writeDouble"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(F)V"
+        },
+        "newName": "writeFloat"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(I)V"
+        },
+        "newName": "writeInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(J)V"
+        },
+        "newName": "writeLong"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Landroid/graphics/PointF;)V"
+        },
+        "newName": "writeIsPointF"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Ljava/lang/Enum;)V"
+        },
+        "newName": "writeEnum"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Ljava/lang/Integer;)V"
+        },
+        "newName": "writeIsInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Ljava/lang/String;)V"
+        },
+        "newName": "endBlock"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Ljava/lang/String;Z)V"
+        },
+        "newName": "startBlock"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "a(Z)V"
+        },
+        "newName": "writeBoolean"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "b(I)Lcom/corrodinggames/rts/gameFramework/j/au;"
+        },
+        "newName": "getPacket"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "b(I)Lcom/corrodinggames/rts/gameFramework/j/au;"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 327680
+        },
+        "newName": "type"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "b(Ljava/lang/String;)V"
+        },
+        "newName": "writeIsString"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "c()Ljava/lang/String;"
+        },
+        "newName": "toString"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "c(I)V"
+        },
+        "newName": "writeByte"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "c(Ljava/lang/String;)V"
+        },
+        "newName": "writeString"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "d()[B"
+        },
+        "newName": "toByteArray"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.as",
+          "shortId": "g()I"
+        },
+        "newName": "getPacketVersion"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.c",
+          "shortId": "e()Ljava/lang/String;"
+        },
+        "newName": "getName"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "a()V"
+        },
+        "newName": "setMainStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "a(Ljava/lang/String;)V"
+        },
+        "newName": "checkMark"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "b(I)V"
+        },
+        "newName": "setCacheInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "b(Ljava/lang/String;)V"
+        },
+        "newName": "startBlock"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "c()I"
+        },
+        "newName": "getCacheInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "c(Ljava/lang/String;)[B"
+        },
+        "newName": "getBytesAndCheckMark"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "d()B"
+        },
+        "newName": "readByte"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "d(Ljava/lang/String;)V"
+        },
+        "newName": "endBlock"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "e()Z"
+        },
+        "newName": "readBoolean"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "f()I"
+        },
+        "newName": "readInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "g()F"
+        },
+        "newName": "readFloat"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "h()D"
+        },
+        "newName": "readDouble"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "i()J"
+        },
+        "newName": "readLong"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "j()Ljava/lang/String;"
+        },
+        "newName": "isReadString"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "k()Ljava/lang/Integer;"
+        },
+        "newName": "isReadInt"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "l()Ljava/lang/String;"
+        },
+        "newName": "readString"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "n()J"
+        },
+        "newName": "readLong"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "t()[B"
+        },
+        "newName": "readBytes"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "v()S"
+        },
+        "newName": "readShort"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "w()Ljava/io/InputStream;"
+        },
+        "newName": "getUseStream"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.k",
+          "shortId": "y()Landroid/graphics/PointF;"
+        },
+        "newName": "getPointF"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.n",
+          "shortId": "a(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 458752
+        },
+        "newName": "key"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.n",
+          "shortId": "a(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V"
+        },
+        "newName": "listAddBasicNameValuePair"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.j.n",
+          "shortId": "a(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V"
+        },
+        "codeRef": {
+          "attachType": "VAR",
+          "index": 524288
+        },
+        "newName": "value"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "B()Lcom/corrodinggames/rts/gameFramework/l;"
+        },
+        "newName": "getGameEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "b(Ljava/lang/String;)V"
+        },
+        "newName": "print"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.l",
+          "shortId": "e(Ljava/lang/String;)V"
+        },
+        "newName": "print"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.gameFramework.o.a",
+          "shortId": "a()Lcom/corrodinggames/rts/gameFramework/o/a;"
+        },
+        "newName": "getSteamEngine"
+      },
+      {
+        "nodeRef": {
+          "refType": "METHOD",
+          "declClass": "com.corrodinggames.rts.java.Main",
+          "shortId": "b()V"
+        },
+        "newName": "startGame"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "a",
+          "shortId": ""
+        },
+        "newName": "net"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "a.a",
+          "shortId": ""
+        },
+        "newName": "rudp"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.c",
+          "shortId": ""
+        },
+        "newName": "writeErrorFile"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.e",
+          "shortId": ""
+        },
+        "newName": "file"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.g",
+          "shortId": ""
+        },
+        "newName": "player"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.h",
+          "shortId": ""
+        },
+        "newName": "translations"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.i",
+          "shortId": ""
+        },
+        "newName": "mod"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.j",
+          "shortId": ""
+        },
+        "newName": "net"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.m",
+          "shortId": ""
+        },
+        "newName": "unitAction"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.n",
+          "shortId": ""
+        },
+        "newName": "status"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.gameFramework.o",
+          "shortId": ""
+        },
+        "newName": "steam"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.java.a",
+          "shortId": ""
+        },
+        "newName": "image"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.java.c",
+          "shortId": ""
+        },
+        "newName": "steam"
+      },
+      {
+        "nodeRef": {
+          "refType": "PKG",
+          "declClass": "com.corrodinggames.rts.java.d",
+          "shortId": ""
+        },
+        "newName": "librocket"
+      }
+    ]
+  },
+  "openTabs": [
+    {
+      "type": "class",
+      "tabPath": "a.a.a.g",
+      "subPath": "java",
+      "caret": 109,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.h",
+      "subPath": "java",
+      "caret": 196,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.f",
+      "subPath": "java",
+      "caret": 78,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.e",
+      "subPath": "java",
+      "caret": 78,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.c",
+      "subPath": "java",
+      "caret": 78,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.a",
+      "subPath": "java",
+      "caret": 78,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.a.b",
+      "subPath": "java",
+      "caret": 78,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.d",
+      "subPath": "java",
+      "caret": 346,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.i",
+      "subPath": "java",
+      "caret": 139,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.h",
+      "subPath": "java",
+      "caret": 885,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.q",
+      "subPath": "java",
+      "caret": 99,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.r",
+      "subPath": "java",
+      "caret": 105,
+      "view": {
+        "x": 0,
+        "y": 336
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.m",
+      "subPath": "java",
+      "caret": 170,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.j",
+      "subPath": "java",
+      "caret": 139,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "a.a.f",
+      "subPath": "java",
+      "caret": 170,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "activeTab": 14,
+  "cacheDir": "game-lib.jar.cache",
+  "enableLiveReload": false,
+  "searchHistory": [
+    "106",
+    "start",
+    "no free",
+    "self_",
+    "-team",
+    "setDocument",
+    "team",
+    "move",
+    "self_move",
+    "addAi",
+    "Engine",
+    "Socket",
+    "networking already started",
+    "unset",
+    "we are out of frame range, fast forwarding",
+    "nextBlockingFrame",
+    "got remoteSyncFrame for",
+    "sync",
+    "35)",
+    "startGame",
+    "fastSync",
+    "desync:",
+    "got remoteSyncFrame",
+    "ah",
+    "New nextBlockingFrame",
+    "Z",
+    "ByteBuffer.allocateDirect",
+    "10000"
+  ]
+}
