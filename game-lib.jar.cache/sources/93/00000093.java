@@ -2,8 +2,7 @@ package com.codedisaster.steamworks;
 
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamGameServerStatsCallbackAdapter.class */
 class SteamGameServerStatsCallbackAdapter extends SteamCallbackAdapter {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamGameServerStatsCallbackAdapter(SteamGameServerStatsCallback steamGameServerStatsCallback) {
+    SteamGameServerStatsCallbackAdapter(SteamGameServerStatsCallback steamGameServerStatsCallback) {
         super(steamGameServerStatsCallback);
     }
 

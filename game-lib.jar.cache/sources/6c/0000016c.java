@@ -1,52 +1,63 @@
-package com.corrodinggames.rts.game.a;
+package com.corrodinggames.rts.game.p010a;
 
-import com.corrodinggames.rts.game.units.as;
-import com.corrodinggames.rts.game.units.y;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
 import java.util.HashMap;
 
+/* renamed from: com.corrodinggames.rts.game.a.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/c.class */
-public class c {
+public class C0158c {
 
-    /* renamed from: a  reason: collision with root package name */
-    HashMap f136a = new HashMap();
-    HashMap b = new HashMap();
-    HashMap c = new HashMap();
+    /* renamed from: a */
+    HashMap f647a = new HashMap();
 
-    public Integer a(boolean z, as asVar, boolean z2) {
+    /* renamed from: b */
+    HashMap f648b = new HashMap();
+
+    /* renamed from: c */
+    HashMap f649c = new HashMap();
+
+    /* renamed from: a */
+    public Integer m4789a(boolean z, InterfaceC0303as interfaceC0303as, boolean z2) {
         if (z) {
-            return (Integer) this.c.get(asVar);
+            return (Integer) this.f649c.get(interfaceC0303as);
         }
         if (!z2) {
-            return (Integer) this.b.get(asVar);
+            return (Integer) this.f648b.get(interfaceC0303as);
         }
-        return (Integer) this.f136a.get(asVar);
+        return (Integer) this.f647a.get(interfaceC0303as);
     }
 
-    public void a(boolean z, as asVar, boolean z2, Integer num) {
+    /* renamed from: a */
+    public void m4788a(boolean z, InterfaceC0303as interfaceC0303as, boolean z2, Integer num) {
         if (z) {
-            this.c.put(asVar, num);
+            this.f649c.put(interfaceC0303as, num);
         } else if (!z2) {
-            this.b.put(asVar, num);
+            this.f648b.put(interfaceC0303as, num);
         } else {
-            this.f136a.put(asVar, num);
+            this.f647a.put(interfaceC0303as, num);
         }
     }
 
-    public void a() {
-        this.f136a.clear();
-        this.b.clear();
+    /* renamed from: a */
+    public void m4792a() {
+        this.f647a.clear();
+        this.f648b.clear();
     }
 
-    public void a(as asVar) {
-        this.f136a.put(asVar, null);
-        this.b.put(asVar, null);
+    /* renamed from: a */
+    public void m4791a(InterfaceC0303as interfaceC0303as) {
+        this.f647a.put(interfaceC0303as, null);
+        this.f648b.put(interfaceC0303as, null);
     }
 
-    public void a(y yVar) {
-        this.c.put(yVar.dz, null);
+    /* renamed from: a */
+    public void m4790a(AbstractC0629y abstractC0629y) {
+        this.f649c.put(abstractC0629y.f1694dz, null);
     }
 
-    public void b() {
-        this.c.clear();
+    /* renamed from: b */
+    public void m4787b() {
+        this.f649c.clear();
     }
 }

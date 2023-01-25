@@ -1,47 +1,56 @@
-package com.corrodinggames.rts.game.units.a;
+package com.corrodinggames.rts.game.units.p013a;
 
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
 import java.util.HashMap;
 
+/* renamed from: com.corrodinggames.rts.game.units.a.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/a/c.class */
-public class c {
-    private static final HashMap c = new HashMap();
+public class C0208c {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final c f175a = a("-1");
-    String b;
+    /* renamed from: c */
+    private static final HashMap f1431c = new HashMap();
 
-    public static c a(String str) {
-        c cVar = (c) c.get(str);
-        if (cVar != null) {
-            return cVar;
+    /* renamed from: a */
+    public static final C0208c f1432a = m4336a("-1");
+
+    /* renamed from: b */
+    String f1433b;
+
+    /* renamed from: a */
+    public static C0208c m4336a(String str) {
+        C0208c c0208c = (C0208c) f1431c.get(str);
+        if (c0208c != null) {
+            return c0208c;
         }
-        c cVar2 = new c(str);
-        c.put(str, cVar2);
-        return cVar2;
+        C0208c c0208c2 = new C0208c(str);
+        f1431c.put(str, c0208c2);
+        return c0208c2;
     }
 
-    public String a() {
-        return this.b;
+    /* renamed from: a */
+    public String m4340a() {
+        return this.f1433b;
     }
 
-    private c(String str) {
-        this.b = str;
+    private C0208c(String str) {
+        this.f1433b = str;
     }
 
-    public static void a(GameOutputStream gameOutputStream, c cVar) {
+    /* renamed from: a */
+    public static void m4338a(GameOutputStream gameOutputStream, C0208c c0208c) {
         String str = null;
-        if (cVar != null) {
-            str = cVar.b;
+        if (c0208c != null) {
+            str = c0208c.f1433b;
         }
         gameOutputStream.writeIsString(str);
     }
 
-    public static c a(GameInputStream gameInputStream) {
+    /* renamed from: a */
+    public static C0208c m4337a(GameInputStream gameInputStream) {
         String isReadString = gameInputStream.isReadString();
         if (isReadString != null) {
-            return a(isReadString);
+            return m4336a(isReadString);
         }
         return null;
     }
@@ -51,14 +60,15 @@ public class c {
     }
 
     public int hashCode() {
-        return this.b.hashCode();
+        return this.f1433b.hashCode();
     }
 
     public String toString() {
-        return "ActionId(" + this.b + ")";
+        return "ActionId(" + this.f1433b + ")";
     }
 
-    public final boolean a(c cVar) {
-        return this == cVar;
+    /* renamed from: a */
+    public final boolean m4339a(C0208c c0208c) {
+        return this == c0208c;
     }
 }

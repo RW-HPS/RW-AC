@@ -1,12 +1,23 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
+import com.corrodinggames.rts.game.units.custom.p021e.C0444f;
+
+/* renamed from: com.corrodinggames.rts.gameFramework.f.ao */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/ao.class */
-public class ao {
+public class C0811ao {
 
-    /* renamed from: a  reason: collision with root package name */
-    long f503a;
-    int b;
-    int c;
-    int d;
-    com.corrodinggames.rts.game.units.custom.e.f e = new com.corrodinggames.rts.game.units.custom.e.f();
+    /* renamed from: a */
+    long f5207a;
+
+    /* renamed from: b */
+    int f5208b;
+
+    /* renamed from: c */
+    int f5209c;
+
+    /* renamed from: d */
+    int f5210d;
+
+    /* renamed from: e */
+    C0444f f5211e = new C0444f();
 }

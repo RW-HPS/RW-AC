@@ -1,64 +1,81 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.p013a.AbstractC0224s;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Iterator;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.f.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/c.class */
-public class c {
+class C0819c {
 
-    /* renamed from: a  reason: collision with root package name */
-    com.corrodinggames.rts.game.units.am f508a;
-    com.corrodinggames.rts.game.units.a.s b;
-    float c;
-    boolean d;
-    boolean e;
-    static com.corrodinggames.rts.gameFramework.utility.m f = new com.corrodinggames.rts.gameFramework.utility.m();
+    /* renamed from: a */
+    AbstractC0244am f5226a;
 
-    c() {
+    /* renamed from: b */
+    AbstractC0224s f5227b;
+
+    /* renamed from: c */
+    float f5228c;
+
+    /* renamed from: d */
+    boolean f5229d;
+
+    /* renamed from: e */
+    boolean f5230e;
+
+    /* renamed from: f */
+    static C1136m f5231f = new C1136m();
+
+    C0819c() {
     }
 
-    public static void a(com.corrodinggames.rts.game.units.am amVar, com.corrodinggames.rts.game.units.a.s sVar, boolean z, boolean z2) {
-        c a2 = a(amVar, sVar, z2);
-        if (a2 == null) {
-            a2 = new c();
-            f.add(a2);
+    /* renamed from: a */
+    public static void m1929a(AbstractC0244am abstractC0244am, AbstractC0224s abstractC0224s, boolean z, boolean z2) {
+        C0819c m1930a = m1930a(abstractC0244am, abstractC0224s, z2);
+        if (m1930a == null) {
+            m1930a = new C0819c();
+            f5231f.add(m1930a);
         }
-        a2.f508a = amVar;
-        a2.b = sVar;
-        a2.c = 10.0f;
-        a2.d = z;
-        a2.e = z2;
+        m1930a.f5226a = abstractC0244am;
+        m1930a.f5227b = abstractC0224s;
+        m1930a.f5228c = 10.0f;
+        m1930a.f5229d = z;
+        m1930a.f5230e = z2;
     }
 
-    public static c a(com.corrodinggames.rts.game.units.am amVar, com.corrodinggames.rts.game.units.a.s sVar, boolean z) {
-        Iterator it = f.iterator();
+    /* renamed from: a */
+    public static C0819c m1930a(AbstractC0244am abstractC0244am, AbstractC0224s abstractC0224s, boolean z) {
+        Iterator it = f5231f.iterator();
         while (it.hasNext()) {
-            c cVar = (c) it.next();
-            if (cVar.f508a == amVar && cVar.b == sVar && cVar.e == z) {
-                return cVar;
+            C0819c c0819c = (C0819c) it.next();
+            if (c0819c.f5226a == abstractC0244am && c0819c.f5227b == abstractC0224s && c0819c.f5230e == z) {
+                return c0819c;
             }
         }
         return null;
     }
 
-    public static float b(com.corrodinggames.rts.game.units.am amVar, com.corrodinggames.rts.game.units.a.s sVar, boolean z) {
-        c a2 = a(amVar, sVar, z);
-        if (a2 != null) {
-            float f2 = a2.c / 10.0f;
-            if (a2.d) {
-                f2 = -f2;
+    /* renamed from: b */
+    public static float m1928b(AbstractC0244am abstractC0244am, AbstractC0224s abstractC0224s, boolean z) {
+        C0819c m1930a = m1930a(abstractC0244am, abstractC0224s, z);
+        if (m1930a != null) {
+            float f = m1930a.f5228c / 10.0f;
+            if (m1930a.f5229d) {
+                f = -f;
             }
-            return f2;
+            return f;
         }
         return 0.0f;
     }
 
-    public static void a(float f2) {
-        for (int size = f.size() - 1; size >= 0; size--) {
-            c cVar = (c) f.get(size);
-            cVar.c -= f2;
-            if (cVar.c <= 0.0f) {
-                f.remove(size);
+    /* renamed from: a */
+    public static void m1931a(float f) {
+        for (int size = f5231f.size() - 1; size >= 0; size--) {
+            C0819c c0819c = (C0819c) f5231f.get(size);
+            c0819c.f5228c -= f;
+            if (c0819c.f5228c <= 0.0f) {
+                f5231f.remove(size);
             }
         }
     }

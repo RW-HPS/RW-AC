@@ -2,39 +2,45 @@ package com.corrodinggames.rts.gameFramework;
 
 import android.os.Process;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.z */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/z.class */
-public class z extends Thread {
+public class C1158z extends Thread {
 
-    /* renamed from: a  reason: collision with root package name */
-    static int f705a = 0;
-    public boolean b;
-    long c;
+    /* renamed from: a */
+    static int f7182a = 0;
 
-    public synchronized void a(boolean z) {
-        this.b = z;
+    /* renamed from: b */
+    public boolean f7183b;
+
+    /* renamed from: c */
+    long f7184c;
+
+    /* renamed from: a */
+    public synchronized void m416a(boolean z) {
+        this.f7183b = z;
     }
 
-    public z() {
-        super("GameThread" + f705a);
-        this.b = true;
-        f705a++;
+    public C1158z() {
+        super("GameThread" + f7182a);
+        this.f7183b = true;
+        f7182a++;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         long j;
-        GameEngine.aq();
-        if (!GameEngine.aU) {
+        GameEngine.m1033aq();
+        if (!GameEngine.f6418aU) {
             Process.setThreadPriority(-4);
         }
-        a();
-        long j2 = this.c;
+        m417a();
+        long j2 = this.f7184c;
         GameEngine gameEngine = GameEngine.getGameEngine();
-        while (this.b) {
+        while (this.f7183b) {
             long nanoTime = System.nanoTime();
-            long j3 = this.c;
-            a();
-            gameEngine.a(((float) (this.c - j3)) * 0.060000002f, (int) (this.c - j3));
+            long j3 = this.f7184c;
+            m417a();
+            gameEngine.mo1079a(((float) (this.f7184c - j3)) * 0.060000002f, (int) (this.f7184c - j3));
             if (!gameEngine.settingsEngine.batterySaving) {
             }
             if (gameEngine.settingsEngine.batterySaving) {
@@ -63,7 +69,8 @@ public class z extends Thread {
         }
     }
 
-    public void a() {
-        this.c = System.currentTimeMillis();
+    /* renamed from: a */
+    public void m417a() {
+        this.f7184c = System.currentTimeMillis();
     }
 }

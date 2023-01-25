@@ -3,26 +3,29 @@ package com.corrodinggames.rts.game.units.custom;
 import com.corrodinggames.rts.gameFramework.FileChangeEngine;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.units.custom.aa */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/aa.class */
-public class aa {
+class C0343aa {
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f236a = a(true);
-    public String b;
+    /* renamed from: a */
+    public long f2165a = m4048a(true);
 
-    public aa(String str) {
-        this.b = str;
+    /* renamed from: b */
+    public String f2166b;
+
+    public C0343aa(String str) {
+        this.f2166b = str;
     }
 
-    public long a(boolean z) {
-        if (GameEngine.au()) {
+    /* renamed from: a */
+    public long m4048a(boolean z) {
+        if (GameEngine.m1029au()) {
             return 0L;
         }
-        long a2 = FileChangeEngine.a(this.b, z);
-        if (z && a2 == 0) {
-            GameEngine.m328e("Failed to watch: " + this.b);
+        long m1642a = FileChangeEngine.m1642a(this.f2166b, z);
+        if (z && m1642a == 0) {
+            GameEngine.m5460e("Failed to watch: " + this.f2166b);
         }
-        return a2;
+        return m1642a;
     }
 }

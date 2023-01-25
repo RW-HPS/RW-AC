@@ -1,8 +1,11 @@
-package com.corrodinggames.rts.gameFramework.b;
+package com.corrodinggames.rts.gameFramework.p031b;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.b.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/h.class */
-public interface h {
-    String a();
+public interface InterfaceC0706h {
+    /* renamed from: a */
+    String mo2612a();
 
-    String b();
+    /* renamed from: b */
+    String mo2611b();
 }

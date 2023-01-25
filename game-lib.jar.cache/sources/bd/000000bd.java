@@ -148,8 +148,7 @@ class SteamSharedLibraryLoader {
         return Long.toHexString(crc32.getValue());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean loadLibraries(String str) {
+    static boolean loadLibraries(String str) {
         if (alreadyLoaded) {
             return true;
         }

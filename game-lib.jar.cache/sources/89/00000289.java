@@ -1,18 +1,21 @@
-package com.corrodinggames.rts.game.units.custom.e;
+package com.corrodinggames.rts.game.units.custom.p021e;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.e.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/e/e.class */
-public final class e {
+public final class C0443e {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final a f296a;
-    public double b;
+    /* renamed from: a */
+    public final C0433a f2827a;
 
-    public e(a aVar) {
-        this.f296a = aVar;
+    /* renamed from: b */
+    public double f2828b;
+
+    public C0443e(C0433a c0433a) {
+        this.f2827a = c0433a;
     }
 
-    public e(a aVar, double d) {
-        this.f296a = aVar;
-        this.b = d;
+    public C0443e(C0433a c0433a, double d) {
+        this.f2827a = c0433a;
+        this.f2828b = d;
     }
 }

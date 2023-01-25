@@ -3,90 +3,118 @@ package com.corrodinggames.rts.gameFramework;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/a.class */
-public class a {
-    ArrayList n = new ArrayList();
+public class C0632a {
 
-    /* renamed from: a  reason: collision with root package name */
-    public b f392a = a((byte) 1);
-    public b b = a((byte) 2);
-    public b c = a((byte) 3);
-    public b d = a((byte) 4);
-    public b e = a((byte) 10);
-    public b f = a((byte) 11);
-    public b g = a((byte) 13);
-    public b h = a((byte) 21);
-    public b i = a((byte) 35);
-    public b j = a((byte) 40);
-    public b k = a((byte) 45);
-    public b l = a((byte) 52);
-    public b m = a((byte) 60);
+    /* renamed from: n */
+    ArrayList f4036n = new ArrayList();
 
-    public a() {
-        b bVar = this.f392a;
-        bVar.a(bVar);
-        bVar.a(a((byte) 3));
-        bVar.a(a((byte) 4));
-        bVar.a(a((byte) 10));
-        bVar.a(a((byte) 11));
-        bVar.a(a((byte) 13));
-        bVar.a(a((byte) 21));
-        this.k.a(a((byte) 52));
-        b bVar2 = this.m;
-        bVar2.a(bVar2);
-        bVar2.a(a((byte) 3));
-        bVar2.a(a((byte) 4));
-        bVar2.a(a((byte) 10));
-        bVar2.a(a((byte) 11));
-        bVar2.a(a((byte) 13));
-        bVar2.a(a((byte) 21));
-        b a2 = a((byte) 10);
-        a2.a(a((byte) 3));
-        a2.a(a((byte) 4));
-        a2.a(a((byte) 10));
-        a2.a(a((byte) 13));
-        a2.a(a((byte) 40));
-        b a3 = a((byte) 11);
-        a3.a(a((byte) 3));
-        a3.a(a((byte) 10));
-        a3.a(a((byte) 13));
-        a3.a(a((byte) 40));
-        b a4 = a((byte) 3);
-        a4.a(a((byte) 3));
-        a4.a(a((byte) 4));
-        a4.a(a((byte) 10));
-        a4.a(a((byte) 13));
-        b a5 = a((byte) 4);
-        a5.a(a((byte) 3));
-        a5.a(a((byte) 4));
-        a5.a(a((byte) 10));
-        a5.a(a((byte) 13));
-        b a6 = a((byte) 13);
-        a6.a(a((byte) 3));
-        a6.a(a((byte) 4));
-        a6.a(a((byte) 10));
-        a6.a(a((byte) 13));
-        b a7 = a((byte) 21);
-        a7.a(a((byte) 3));
-        a7.a(a((byte) 4));
-        a7.a(a((byte) 10));
-        a7.a(a((byte) 13));
-        b bVar3 = this.i;
-        bVar3.a(a((byte) 10));
-        bVar3.a(a((byte) 13));
+    /* renamed from: a */
+    public C0675b f4037a = m2819a((byte) 1);
+
+    /* renamed from: b */
+    public C0675b f4038b = m2819a((byte) 2);
+
+    /* renamed from: c */
+    public C0675b f4039c = m2819a((byte) 3);
+
+    /* renamed from: d */
+    public C0675b f4040d = m2819a((byte) 4);
+
+    /* renamed from: e */
+    public C0675b f4041e = m2819a((byte) 10);
+
+    /* renamed from: f */
+    public C0675b f4042f = m2819a((byte) 11);
+
+    /* renamed from: g */
+    public C0675b f4043g = m2819a((byte) 13);
+
+    /* renamed from: h */
+    public C0675b f4044h = m2819a((byte) 21);
+
+    /* renamed from: i */
+    public C0675b f4045i = m2819a((byte) 35);
+
+    /* renamed from: j */
+    public C0675b f4046j = m2819a((byte) 40);
+
+    /* renamed from: k */
+    public C0675b f4047k = m2819a((byte) 45);
+
+    /* renamed from: l */
+    public C0675b f4048l = m2819a((byte) 52);
+
+    /* renamed from: m */
+    public C0675b f4049m = m2819a((byte) 60);
+
+    public C0632a() {
+        C0675b c0675b = this.f4037a;
+        c0675b.m2723a(c0675b);
+        c0675b.m2723a(m2819a((byte) 3));
+        c0675b.m2723a(m2819a((byte) 4));
+        c0675b.m2723a(m2819a((byte) 10));
+        c0675b.m2723a(m2819a((byte) 11));
+        c0675b.m2723a(m2819a((byte) 13));
+        c0675b.m2723a(m2819a((byte) 21));
+        this.f4047k.m2723a(m2819a((byte) 52));
+        C0675b c0675b2 = this.f4049m;
+        c0675b2.m2723a(c0675b2);
+        c0675b2.m2723a(m2819a((byte) 3));
+        c0675b2.m2723a(m2819a((byte) 4));
+        c0675b2.m2723a(m2819a((byte) 10));
+        c0675b2.m2723a(m2819a((byte) 11));
+        c0675b2.m2723a(m2819a((byte) 13));
+        c0675b2.m2723a(m2819a((byte) 21));
+        C0675b m2819a = m2819a((byte) 10);
+        m2819a.m2723a(m2819a((byte) 3));
+        m2819a.m2723a(m2819a((byte) 4));
+        m2819a.m2723a(m2819a((byte) 10));
+        m2819a.m2723a(m2819a((byte) 13));
+        m2819a.m2723a(m2819a((byte) 40));
+        C0675b m2819a2 = m2819a((byte) 11);
+        m2819a2.m2723a(m2819a((byte) 3));
+        m2819a2.m2723a(m2819a((byte) 10));
+        m2819a2.m2723a(m2819a((byte) 13));
+        m2819a2.m2723a(m2819a((byte) 40));
+        C0675b m2819a3 = m2819a((byte) 3);
+        m2819a3.m2723a(m2819a((byte) 3));
+        m2819a3.m2723a(m2819a((byte) 4));
+        m2819a3.m2723a(m2819a((byte) 10));
+        m2819a3.m2723a(m2819a((byte) 13));
+        C0675b m2819a4 = m2819a((byte) 4);
+        m2819a4.m2723a(m2819a((byte) 3));
+        m2819a4.m2723a(m2819a((byte) 4));
+        m2819a4.m2723a(m2819a((byte) 10));
+        m2819a4.m2723a(m2819a((byte) 13));
+        C0675b m2819a5 = m2819a((byte) 13);
+        m2819a5.m2723a(m2819a((byte) 3));
+        m2819a5.m2723a(m2819a((byte) 4));
+        m2819a5.m2723a(m2819a((byte) 10));
+        m2819a5.m2723a(m2819a((byte) 13));
+        C0675b m2819a6 = m2819a((byte) 21);
+        m2819a6.m2723a(m2819a((byte) 3));
+        m2819a6.m2723a(m2819a((byte) 4));
+        m2819a6.m2723a(m2819a((byte) 10));
+        m2819a6.m2723a(m2819a((byte) 13));
+        C0675b c0675b3 = this.f4045i;
+        c0675b3.m2723a(m2819a((byte) 10));
+        c0675b3.m2723a(m2819a((byte) 13));
     }
 
-    public b a(byte b) {
-        Iterator it = this.n.iterator();
+    /* renamed from: a */
+    public C0675b m2819a(byte b) {
+        Iterator it = this.f4036n.iterator();
         while (it.hasNext()) {
-            b bVar = (b) it.next();
-            if (bVar.f416a == b) {
-                return bVar;
+            C0675b c0675b = (C0675b) it.next();
+            if (c0675b.f4266a == b) {
+                return c0675b;
             }
         }
-        b bVar2 = new b();
-        bVar2.f416a = b;
-        this.n.add(bVar2);
-        return bVar2;
+        C0675b c0675b2 = new C0675b();
+        c0675b2.f4266a = b;
+        this.f4036n.add(c0675b2);
+        return c0675b2;
     }
 }

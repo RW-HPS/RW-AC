@@ -1,61 +1,69 @@
 package com.corrodinggames.rts.gameFramework.net;
 
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
 import java.io.BufferedReader;
 import java.net.UnknownHostException;
 import java.util.List;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.corrodinggames.rts.gameFramework.j.u */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/u.class */
-public class u implements Runnable {
+class RunnableC0924u implements Runnable {
 
     /* renamed from: a */
-    int f594a;
-    List b;
-    s c;
-    String d;
-    boolean e;
+    int f6112a;
 
-    public u(List list, s sVar, String str, boolean z, int i) {
-        this.f594a = i;
-        this.b = list;
-        this.c = sVar;
-        this.d = str;
-        this.e = z;
+    /* renamed from: b */
+    List f6113b;
+
+    /* renamed from: c */
+    AbstractC0922s f6114c;
+
+    /* renamed from: d */
+    String f6115d;
+
+    /* renamed from: e */
+    boolean f6116e;
+
+    public RunnableC0924u(List list, AbstractC0922s abstractC0922s, String str, boolean z, int i) {
+        this.f6112a = i;
+        this.f6113b = list;
+        this.f6114c = abstractC0922s;
+        this.f6115d = str;
+        this.f6116e = z;
     }
 
+    @Override // java.lang.Runnable
     public void run() {
         GameEngine gameEngine = GameEngine.getGameEngine();
         try {
-            if (GameNetAPIOperate.f587a) {
-                GameEngine.b("LoadFromMasterServer", this.f594a + ": Started doSingleRequest");
+            if (GameNetAPIOperate.f6091a) {
+                GameEngine.m1015b("LoadFromMasterServer", this.f6112a + ": Started doSingleRequest");
             }
-            BufferedReader bufferedReader = GameNetAPIOperate.a(this.b, this.d, this.e).f593a;
-            if (GameNetAPIOperate.f587a) {
-                GameEngine.b("LoadFromMasterServer", this.f594a + ": Ended doSingleRequest");
+            BufferedReader bufferedReader = GameNetAPIOperate.m1271a(this.f6113b, this.f6115d, this.f6116e).f6109a;
+            if (GameNetAPIOperate.f6091a) {
+                GameEngine.m1015b("LoadFromMasterServer", this.f6112a + ": Ended doSingleRequest");
             }
-            this.c.a(bufferedReader, this.f594a, this.d);
+            this.f6114c.mo1256a(bufferedReader, this.f6112a, this.f6115d);
         } catch (Exception e) {
             e.printStackTrace();
-            String a2 = f.a(e, true);
+            String m2188a = C0773f.m2188a(e, true);
             if (e instanceof UnknownHostException) {
-                a2 = "DNS lookup failed, check your internet connection";
+                m2188a = "DNS lookup failed, check your internet connection";
             }
-            if (a2 != null && a2.contains("Cleartext HTTP traffic")) {
-                a2 = a2 + " ( Broken apk file? - " + gameEngine.l() + ")";
+            if (m2188a != null && m2188a.contains("Cleartext HTTP traffic")) {
+                m2188a = m2188a + " ( Broken apk file? - " + gameEngine.mo981l() + ")";
             }
-            this.c.d = "#" + this.f594a + ": " + a2;
-            GameEngine.m2e("Error getting game list from server #" + this.f594a);
-            if (gameEngine.p()) {
-                gameEngine.a("Error getting game list from server #" + this.f594a, 1);
+            this.f6114c.f6106d = "#" + this.f6112a + ": " + m2188a;
+            GameEngine.m5460e("Error getting game list from server #" + this.f6112a);
+            if (gameEngine.mo974p()) {
+                gameEngine.m1065a("Error getting game list from server #" + this.f6112a, 1);
             }
         }
-        synchronized (this.c) {
-            this.c.f--;
-            if (this.c.f == 0) {
-                this.c.a();
+        synchronized (this.f6114c) {
+            this.f6114c.f6108f--;
+            if (this.f6114c.f6108f == 0) {
+                this.f6114c.mo1257a();
             }
         }
     }

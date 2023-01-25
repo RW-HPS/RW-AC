@@ -1,9 +1,9 @@
 package com.corrodinggames.rts.gameFramework.status;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.b.f;
-import com.corrodinggames.rts.game.units.ar;
-import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.p012b.C0179f;
+import com.corrodinggames.rts.game.units.EnumC0249ar;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.ArrayList;
@@ -13,32 +13,49 @@ import java.util.regex.Pattern;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.n.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/g.class */
-public class g {
+public class C1086g {
 
     /* renamed from: a */
-    public ArrayList f651a = new ArrayList();
-    public boolean b;
-    public boolean c;
-    public float d;
-    public int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    final /* synthetic */ f i;
+    public ArrayList f6919a = new ArrayList();
 
-    public g(f fVar) {
-        this.i = fVar;
+    /* renamed from: b */
+    public boolean f6920b;
+
+    /* renamed from: c */
+    public boolean f6921c;
+
+    /* renamed from: d */
+    public float f6922d;
+
+    /* renamed from: e */
+    public int f6923e;
+
+    /* renamed from: f */
+    public String f6924f;
+
+    /* renamed from: g */
+    public boolean f6925g;
+
+    /* renamed from: h */
+    public boolean f6926h;
+
+    /* renamed from: i */
+    final /* synthetic */ C1085f f6927i;
+
+    public C1086g(C1085f c1085f) {
+        this.f6927i = c1085f;
     }
 
-    public boolean a(String str) {
+    /* renamed from: a */
+    public boolean m762a(String str) {
         String group;
         String str2;
         String trim = str.trim();
-        GameEngine.m2e("Got:" + trim);
+        GameEngine.m5777e("Got:" + trim);
         if (trim.length() == 0) {
             return false;
         }
-        GameEngine.m2e("..");
+        GameEngine.m5777e("..");
         String str3 = null;
         String str4 = null;
         String str5 = null;
@@ -49,19 +66,19 @@ public class g {
                 str4 = matcher.group(2);
                 group = matcher.group(4);
                 str5 = matcher.group(5);
-                GameEngine.m2e("Got o:" + group + " d:" + str3 + " dn:" + str4 + " units:" + str5);
+                GameEngine.m5777e("Got o:" + group + " d:" + str3 + " dn:" + str4 + " units:" + str5);
             } else {
-                throw new f("Unknown wave line in map: " + trim);
+                throw new C0179f("Unknown wave line in map: " + trim);
             }
         } else if (trim.startsWith("!")) {
             Matcher matcher2 = Pattern.compile("\\!(.*)").matcher(trim);
             if (matcher2.matches()) {
                 group = matcher2.group(1);
             } else {
-                throw new f("Unknown wave line in map: " + trim);
+                throw new C0179f("Unknown wave line in map: " + trim);
             }
         } else {
-            throw new f("Unknown wave format: " + trim);
+            throw new C0179f("Unknown wave format: " + trim);
         }
         if (str3 != null) {
             String[] split = str3.trim().split(":");
@@ -72,17 +89,17 @@ public class g {
                 str6 = split[0];
                 str2 = split[1];
             } else {
-                throw new f("Unknown time format in wave: " + trim);
+                throw new C0179f("Unknown time format in wave: " + trim);
             }
             try {
-                this.d = Integer.parseInt(str2) + (Integer.parseInt(str6) * 60);
+                this.f6922d = Integer.parseInt(str2) + (Integer.parseInt(str6) * 60);
             } catch (NumberFormatException e) {
-                throw new f("Failed to parse time on: " + trim, e);
+                throw new C0179f("Failed to parse time on: " + trim, e);
             }
         }
         if (str4 != null) {
-            this.f = str4.trim();
-            this.h = true;
+            this.f6924f = str4.trim();
+            this.f6926h = true;
         }
         if (group != null) {
             for (String str7 : group.split(",")) {
@@ -92,13 +109,13 @@ public class g {
                     split2[1].trim();
                 }
                 if ("lockSpawn".equalsIgnoreCase(trim2)) {
-                    this.b = true;
+                    this.f6920b = true;
                 } else if ("unlockSpawn".equalsIgnoreCase(trim2)) {
-                    this.c = true;
+                    this.f6921c = true;
                 } else if ("noTimer".equalsIgnoreCase(trim2)) {
-                    this.g = true;
+                    this.f6925g = true;
                 } else if (!"paused".equalsIgnoreCase(trim2) && !"win".equalsIgnoreCase(trim2) && !VariableScope.nullOrMissingString.equalsIgnoreCase(trim2)) {
-                    throw new f("Unknown wave option '" + trim2 + "' in: " + trim);
+                    throw new C0179f("Unknown wave option '" + trim2 + "' in: " + trim);
                 }
             }
         }
@@ -110,22 +127,22 @@ public class g {
             for (String str8 : trim3.split(",")) {
                 String trim4 = str8.trim();
                 if (!trim4.contains(" ")) {
-                    throw new f("Unknown wave format '" + trim4 + "' in: " + trim);
+                    throw new C0179f("Unknown wave format '" + trim4 + "' in: " + trim);
                 }
                 int indexOf = trim4.indexOf(" ");
                 String trim5 = trim4.substring(0, indexOf).trim();
                 String trim6 = trim4.substring(indexOf + 1).trim();
                 try {
                     int parseInt = Integer.parseInt(trim5);
-                    as a2 = ar.a(trim6);
-                    if (a2 == null) {
-                        throw new f("Could not find unit '" + trim6 + "' in: " + trim);
+                    InterfaceC0303as m4174a = EnumC0249ar.m4174a(trim6);
+                    if (m4174a == null) {
+                        throw new C0179f("Could not find unit '" + trim6 + "' in: " + trim);
                     }
-                    i iVar = new i(this.i);
-                    iVar.b(a2, parseInt);
-                    this.f651a.add(iVar);
+                    C1088i c1088i = new C1088i(this.f6927i);
+                    c1088i.m759b(m4174a, parseInt);
+                    this.f6919a.add(c1088i);
                 } catch (NumberFormatException e2) {
-                    throw new f("Expected starting number in wave format '" + trim4 + "' in: " + trim);
+                    throw new C0179f("Expected starting number in wave format '" + trim4 + "' in: " + trim);
                 }
             }
             return true;
@@ -133,24 +150,25 @@ public class g {
         return true;
     }
 
-    public void a() {
-        GameEngine.m2e("Activating wave");
-        if (!this.i.R) {
-            this.i.e();
+    /* renamed from: a */
+    public void m763a() {
+        GameEngine.m5777e("Activating wave");
+        if (!this.f6927i.f6916R) {
+            this.f6927i.m772e();
         }
-        PointF pointF = this.i.P;
-        Iterator it = this.f651a.iterator();
+        PointF pointF = this.f6927i.f6914P;
+        Iterator it = this.f6919a.iterator();
         while (it.hasNext()) {
-            ((i) it.next()).a(pointF.x, pointF.y);
+            ((C1088i) it.next()).m761a(pointF.x, pointF.y);
         }
-        if (!this.i.Q) {
-            this.i.e();
+        if (!this.f6927i.f6915Q) {
+            this.f6927i.m772e();
         }
-        if (this.b) {
-            this.i.Q = true;
+        if (this.f6920b) {
+            this.f6927i.f6915Q = true;
         }
-        if (this.c) {
-            this.i.Q = false;
+        if (this.f6921c) {
+            this.f6927i.f6915Q = false;
         }
     }
 }

@@ -11,24 +11,31 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class RFSInStream extends InputStream {
 
     /* renamed from: a */
-    LinkedBlockingDeque f583a = new LinkedBlockingDeque();
-    boolean b = true;
-    byte[] c = new byte[1];
-    final /* synthetic */ RelayForwardedSocket d;
+    LinkedBlockingDeque f6070a = new LinkedBlockingDeque();
+
+    /* renamed from: b */
+    boolean f6071b = true;
+
+    /* renamed from: c */
+    byte[] f6072c = new byte[1];
+
+    /* renamed from: d */
+    final /* synthetic */ RelayForwardedSocket f6073d;
 
     public RFSInStream(RelayForwardedSocket relayForwardedSocket) {
-        this.d = relayForwardedSocket;
+        this.f6073d = relayForwardedSocket;
     }
 
-    public void a(byte[] bArr) {
-        this.f583a.add(ByteBuffer.wrap(bArr));
+    /* renamed from: a */
+    public void m1321a(byte[] bArr) {
+        this.f6070a.add(ByteBuffer.wrap(bArr));
     }
 
     @Override // java.io.InputStream
     public int read() {
         do {
-        } while (read(this.c, 0, 1) <= 0);
-        return this.c[0] & 255;
+        } while (read(this.f6072c, 0, 1) <= 0);
+        return this.f6072c[0] & 255;
     }
 
     @Override // java.io.InputStream
@@ -39,19 +46,19 @@ public class RFSInStream extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) {
         int i3;
-        if (this.d.c) {
+        if (this.f6073d.f6067c) {
             throw new IOException("closed");
         }
         int i4 = 0;
         int i5 = i2;
         int i6 = i;
-        while (!this.d.c) {
+        while (!this.f6073d.f6067c) {
             try {
-                ByteBuffer byteBuffer = (ByteBuffer) this.f583a.take();
+                ByteBuffer byteBuffer = (ByteBuffer) this.f6070a.take();
                 if (byteBuffer != null) {
-                    if (this.b) {
-                        this.b = false;
-                        GameEngine.m2e("First packet from forwarded:" + this.d.b);
+                    if (this.f6071b) {
+                        this.f6071b = false;
+                        GameEngine.m5460e("First packet from forwarded:" + this.f6073d.f6066b);
                     }
                     if (byteBuffer.remaining() <= i5) {
                         i3 = byteBuffer.remaining();
@@ -59,7 +66,7 @@ public class RFSInStream extends InputStream {
                     } else {
                         i3 = i5;
                         byteBuffer.get(bArr, i6, i5);
-                        this.f583a.addFirst(byteBuffer);
+                        this.f6070a.addFirst(byteBuffer);
                     }
                     i4 += i3;
                     i5 -= i3;

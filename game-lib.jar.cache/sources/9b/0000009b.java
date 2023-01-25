@@ -16,8 +16,7 @@ public class SteamID extends SteamNativeHandle {
         super(steamID.handle);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamID(long j) {
+    SteamID(long j) {
         super(j);
     }
 

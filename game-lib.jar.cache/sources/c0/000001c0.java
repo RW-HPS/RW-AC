@@ -1,14 +1,20 @@
 package com.corrodinggames.rts.game.units;
 
+/* renamed from: com.corrodinggames.rts.game.units.ak */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/ak.class */
-public interface ak {
-    int bB();
+public interface InterfaceC0242ak {
+    /* renamed from: bB */
+    int mo2916bB();
 
-    boolean bA();
+    /* renamed from: bA */
+    boolean mo2917bA();
 
-    boolean f();
+    /* renamed from: f */
+    boolean mo3240f();
 
-    boolean j();
+    /* renamed from: j */
+    boolean mo3238j();
 
-    void e(am amVar);
+    /* renamed from: e */
+    void mo3242e(AbstractC0244am abstractC0244am);
 }

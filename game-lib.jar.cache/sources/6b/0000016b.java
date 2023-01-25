@@ -1,8 +1,8 @@
-package com.corrodinggames.rts.game.a;
+package com.corrodinggames.rts.game.p010a;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/b.class */
-public enum b {
-    include,
-    exclude
+enum EnumC0157b {
+    f644a,
+    f645b
 }

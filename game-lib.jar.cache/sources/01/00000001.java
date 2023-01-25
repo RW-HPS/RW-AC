@@ -1,18 +1,19 @@
-package a.a.a;
+package net.rudp.p002a;
 
+/* renamed from: a.a.a.a */
 /* loaded from: game-lib.jar:a/a/a/a.class */
-public class a extends h {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public a() {
+public class ACKSegment extends Segment {
+    protected ACKSegment() {
     }
 
-    public a(int i, int i2) {
-        a(64, i, 6);
-        a(i2);
+    public ACKSegment(int i, int i2) {
+        init(64, i, 6);
+        setAck(i2);
     }
 
-    @Override // a.a.a.h
-    public String a() {
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: a */
+    public String type() {
         return "ACK";
     }
 }

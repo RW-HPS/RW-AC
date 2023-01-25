@@ -1,7 +1,8 @@
 package com.corrodinggames.rts.game;
 
+/* renamed from: com.corrodinggames.rts.game.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/m.class */
-public enum m {
-    normal,
-    nuke
+public enum EnumC0196m {
+    f1304a,
+    f1305b
 }

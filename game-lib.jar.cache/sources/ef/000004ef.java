@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -8,18 +8,19 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import java.util.ArrayList;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.v */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/v.class */
-public class v implements Menu {
+public class MenuC0841v implements Menu {
 
-    /* renamed from: a  reason: collision with root package name */
-    public ArrayList f528a = new ArrayList();
+    /* renamed from: a */
+    public ArrayList f5555a = new ArrayList();
 
     @Override // android.view.Menu
     public MenuItem add(CharSequence charSequence) {
-        w wVar = new w();
-        wVar.setTitle(charSequence);
-        this.f528a.add(wVar);
-        return wVar;
+        MenuItemC0842w menuItemC0842w = new MenuItemC0842w();
+        menuItemC0842w.setTitle(charSequence);
+        this.f5555a.add(menuItemC0842w);
+        return menuItemC0842w;
     }
 
     @Override // android.view.Menu
@@ -29,11 +30,11 @@ public class v implements Menu {
 
     @Override // android.view.Menu
     public MenuItem add(int i, int i2, int i3, CharSequence charSequence) {
-        w wVar = new w();
-        wVar.setTitle(charSequence);
-        wVar.a(i2);
-        this.f528a.add(wVar);
-        return wVar;
+        MenuItemC0842w menuItemC0842w = new MenuItemC0842w();
+        menuItemC0842w.setTitle(charSequence);
+        menuItemC0842w.m1751a(i2);
+        this.f5555a.add(menuItemC0842w);
+        return menuItemC0842w;
     }
 
     @Override // android.view.Menu
@@ -68,12 +69,12 @@ public class v implements Menu {
 
     @Override // android.view.Menu
     public void clear() {
-        this.f528a.clear();
+        this.f5555a.clear();
     }
 
     @Override // android.view.Menu
     public MenuItem getItem(int i) {
-        return (MenuItem) this.f528a.get(i);
+        return (MenuItem) this.f5555a.get(i);
     }
 
     @Override // android.view.Menu
@@ -138,6 +139,6 @@ public class v implements Menu {
 
     @Override // android.view.Menu
     public int size() {
-        return this.f528a.size();
+        return this.f5555a.size();
     }
 }

@@ -1,41 +1,51 @@
-package com.corrodinggames.rts.game.units.a;
+package com.corrodinggames.rts.game.units.p013a;
 
-import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
 
+/* renamed from: com.corrodinggames.rts.game.units.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/a/a.class */
-public class a {
+public class C0206a {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f174a = new a();
+    /* renamed from: a */
+    public static final C0206a f1430a = new C0206a();
 
-    public boolean a(am amVar) {
+    /* renamed from: a */
+    public boolean mo4090a(AbstractC0244am abstractC0244am) {
         return false;
     }
 
-    public boolean b(am amVar) {
+    /* renamed from: b */
+    public boolean mo4083b(AbstractC0244am abstractC0244am) {
         return false;
     }
 
-    public String c(am amVar) {
+    /* renamed from: c */
+    public String mo4082c(AbstractC0244am abstractC0244am) {
         return null;
     }
 
-    public boolean a(am amVar, boolean z) {
+    /* renamed from: a */
+    public boolean mo4087a(AbstractC0244am abstractC0244am, boolean z) {
         return true;
     }
 
-    public boolean d(am amVar) {
+    /* renamed from: d */
+    public boolean mo4081d(AbstractC0244am abstractC0244am) {
         return false;
     }
 
-    public com.corrodinggames.rts.game.units.custom.d.b a() {
+    /* renamed from: a */
+    public C0429b mo4091a() {
         return null;
     }
 
-    public com.corrodinggames.rts.game.units.custom.d.b b() {
+    /* renamed from: b */
+    public C0429b mo4084b() {
         return null;
     }
 
-    public void a(am amVar, am amVar2) {
+    /* renamed from: a */
+    public void mo4088a(AbstractC0244am abstractC0244am, AbstractC0244am abstractC0244am2) {
     }
 }

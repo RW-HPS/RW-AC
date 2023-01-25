@@ -1,57 +1,73 @@
 package com.corrodinggames.rts.gameFramework;
 
 import com.corrodinggames.rts.game.PlayerData;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
 import java.util.ArrayList;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.bg */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/bg.class */
-public class bg {
-    bo b = new bo();
-    bo[] c = new bo[PlayerData.e];
-    int d;
-    boolean e;
+public class C0731bg {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f451a = true;
-    public static bl f = new bl();
+    /* renamed from: b */
+    C0739bo f4617b = new C0739bo();
 
-    public void a(GameOutputStream gameOutputStream) {
-        gameOutputStream.e("stats");
+    /* renamed from: c */
+    C0739bo[] f4618c = new C0739bo[PlayerData.f1369e];
+
+    /* renamed from: d */
+    int f4619d;
+
+    /* renamed from: e */
+    boolean f4620e;
+
+    /* renamed from: a */
+    public static boolean f4621a = true;
+
+    /* renamed from: f */
+    public static C0736bl f4622f = new C0736bl();
+
+    /* renamed from: a */
+    public void m2462a(GameOutputStream gameOutputStream) {
+        gameOutputStream.mo1366e("stats");
         gameOutputStream.writeByte(0);
-        int i = PlayerData.c;
+        int i = PlayerData.f1367c;
         gameOutputStream.writeInt(i);
         for (int i2 = 0; i2 < i; i2++) {
-            this.c[i2].a(gameOutputStream);
+            this.f4618c[i2].m2442a(gameOutputStream);
         }
         gameOutputStream.endBlock("stats");
     }
 
-    public void a(GameInputStream gameInputStream, boolean z) {
+    /* renamed from: a */
+    public void m2461a(GameInputStream gameInputStream, boolean z) {
         gameInputStream.startBlock("stats");
         gameInputStream.readByte();
         int readInt = gameInputStream.readInt();
-        this.c = new bo[PlayerData.e];
+        this.f4618c = new C0739bo[PlayerData.f1369e];
         for (int i = 0; i < readInt; i++) {
-            this.c[i] = new bo();
-            this.c[i].a(gameInputStream);
+            this.f4618c[i] = new C0739bo();
+            this.f4618c[i].m2441a(gameInputStream);
         }
         gameInputStream.endBlock("stats");
     }
 
-    public void a() {
-        this.b = new bo();
-        this.c = new bo[PlayerData.e];
-        for (int i = 0; i < this.c.length; i++) {
-            this.c[i] = new bo();
+    /* renamed from: a */
+    public void m2467a() {
+        this.f4617b = new C0739bo();
+        this.f4618c = new C0739bo[PlayerData.f1369e];
+        for (int i = 0; i < this.f4618c.length; i++) {
+            this.f4618c[i] = new C0739bo();
         }
-        this.d = 0;
-        this.e = f451a;
+        this.f4619d = 0;
+        this.f4620e = f4621a;
     }
 
-    public void b() {
-        int i = GameEngine.getGameEngine().by;
-        if (this.e && this.d <= i) {
+    /* renamed from: b */
+    public void m2460b() {
+        int i = GameEngine.getGameEngine().f6315by;
+        if (this.f4620e && this.f4619d <= i) {
             int i2 = 5000;
             if (i < 60000) {
                 i2 = 1000;
@@ -63,76 +79,82 @@ public class bg {
                 i2 = 30000;
             }
             int i3 = i2 + i2;
-            a(i, false, false);
+            m2466a(i, false, false);
         }
     }
 
-    private void a(int i, boolean z, boolean z2) {
-        for (int i2 = 0; i2 < PlayerData.c; i2++) {
-            PlayerData k = PlayerData.k(i2);
-            if (k != null) {
-                bn bnVar = this.c[i2].l;
-                if (!z || bnVar.c()) {
-                    bnVar.a(k, i, z2);
-                    bnVar.a(i2);
+    /* renamed from: a */
+    private void m2466a(int i, boolean z, boolean z2) {
+        for (int i2 = 0; i2 < PlayerData.f1367c; i2++) {
+            PlayerData m4365k = PlayerData.m4365k(i2);
+            if (m4365k != null) {
+                C0738bn c0738bn = this.f4618c[i2].f4645l;
+                if (!z || c0738bn.m2443c()) {
+                    c0738bn.m2451a(m4365k, i, z2);
+                    c0738bn.m2452a(i2);
                 }
             }
         }
     }
 
-    public void c() {
-        this.e = false;
-        a(GameEngine.getGameEngine().by, true, true);
+    /* renamed from: c */
+    public void m2459c() {
+        this.f4620e = false;
+        m2466a(GameEngine.getGameEngine().f6315by, true, true);
     }
 
-    public ArrayList d() {
+    /* renamed from: d */
+    public ArrayList m2458d() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < PlayerData.c; i++) {
-            if (this.c[i].l.c()) {
-                arrayList.add(this.c[i]);
+        for (int i = 0; i < PlayerData.f1367c; i++) {
+            if (this.f4618c[i].f4645l.m2443c()) {
+                arrayList.add(this.f4618c[i]);
             }
         }
         return arrayList;
     }
 
-    public bo a(com.corrodinggames.rts.game.units.am amVar) {
-        return a(amVar.bX);
+    /* renamed from: a */
+    public C0739bo m2464a(AbstractC0244am abstractC0244am) {
+        return m2465a(abstractC0244am.f1614bX);
     }
 
-    public bo a(PlayerData playerData) {
-        int i = playerData.k;
-        if (i < 0 || i >= this.c.length) {
-            return this.b;
+    /* renamed from: a */
+    public C0739bo m2465a(PlayerData playerData) {
+        int i = playerData.site;
+        if (i < 0 || i >= this.f4618c.length) {
+            return this.f4617b;
         }
-        bo boVar = this.c[i];
-        if (boVar == null) {
-            return this.b;
+        C0739bo c0739bo = this.f4618c[i];
+        if (c0739bo == null) {
+            return this.f4617b;
         }
-        return boVar;
+        return c0739bo;
     }
 
-    public void a(com.corrodinggames.rts.game.units.am amVar, com.corrodinggames.rts.game.units.am amVar2, float f2) {
-        if (amVar != null) {
-            boolean z = amVar2.bV;
-            bo a2 = a(amVar);
-            bo a3 = a(amVar2);
+    /* renamed from: a */
+    public void m2463a(AbstractC0244am abstractC0244am, AbstractC0244am abstractC0244am2, float f) {
+        if (abstractC0244am != null) {
+            boolean z = abstractC0244am2.f1612bV;
+            C0739bo m2464a = m2464a(abstractC0244am);
+            C0739bo m2464a2 = m2464a(abstractC0244am2);
             if (z) {
-                f.a(amVar, amVar2);
-                if (amVar2.bI()) {
-                    a2.d++;
-                    a3.g++;
-                } else if (amVar2.dd()) {
-                    a2.e++;
-                    a3.h++;
+                f4622f.m2454a(abstractC0244am, abstractC0244am2);
+                if (abstractC0244am2.mo3397bI()) {
+                    m2464a.f4637d++;
+                    m2464a2.f4640g++;
+                } else if (abstractC0244am2.mo3267dd()) {
+                    m2464a.f4638e++;
+                    m2464a2.f4641h++;
                 } else {
-                    a2.c++;
-                    a3.f++;
+                    m2464a.f4636c++;
+                    m2464a2.f4639f++;
                 }
             }
         }
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (amVar2.bX == gameEngine.bs) {
-            gameEngine.a(amVar2, f2);
+        if (abstractC0244am2.f1614bX == gameEngine.f6312bs) {
+            gameEngine.m1070a(abstractC0244am2, f);
         }
     }
 }

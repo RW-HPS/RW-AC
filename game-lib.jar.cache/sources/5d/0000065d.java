@@ -1,8 +1,8 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
 import com.corrodinggames.rts.java.audio.AudioDevice;
-import com.corrodinggames.rts.java.audio.a.c;
-import com.corrodinggames.rts.java.audio.a.m;
+import com.corrodinggames.rts.java.audio.p051a.C1167c;
+import com.corrodinggames.rts.java.audio.p051a.C1177m;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import org.lwjgl.BufferUtils;
@@ -63,12 +63,12 @@ public class OpenALAudioDevice implements AudioDevice {
         int min = Math.min(i + i2, fArr.length);
         int i3 = 0;
         for (int i4 = i; i4 < min; i4++) {
-            int a2 = (int) (m.a(fArr[i4], -1.0f, 1.0f) * 32767.0f);
+            int m331a = (int) (C1177m.m331a(fArr[i4], -1.0f, 1.0f) * 32767.0f);
             int i5 = i3;
             int i6 = i3 + 1;
-            this.bytes[i5] = (byte) (a2 & 255);
+            this.bytes[i5] = (byte) (m331a & 255);
             i3 = i6 + 1;
-            this.bytes[i6] = (byte) ((a2 >> 8) & 255);
+            this.bytes[i6] = (byte) ((m331a >> 8) & 255);
         }
         writeSamples(this.bytes, 0, i2 * 2);
     }
@@ -86,7 +86,7 @@ public class OpenALAudioDevice implements AudioDevice {
                 this.buffers = BufferUtils.createIntBuffer(this.bufferCount);
                 AL10.alGenBuffers(this.buffers);
                 if (AL10.alGetError() != 0) {
-                    throw new c("Unabe to allocate audio buffers.");
+                    throw new C1167c("Unabe to allocate audio buffers.");
                 }
             }
             AL10.alSourcei(this.sourceID, 4103, 0);

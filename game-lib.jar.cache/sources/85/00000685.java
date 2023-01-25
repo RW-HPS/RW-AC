@@ -1,126 +1,146 @@
 package com.corrodinggames.rts.java;
 
+import com.corrodinggames.rts.gameFramework.AbstractC0663ar;
+import com.corrodinggames.rts.gameFramework.AbstractC0664as;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.ar;
-import com.corrodinggames.rts.gameFramework.as;
 import com.corrodinggames.rts.java.audio.Music;
 
+/* renamed from: com.corrodinggames.rts.java.n */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/n.class */
-public class n extends as {
+public class C1219n extends AbstractC0664as {
 
     /* renamed from: a */
-    LoadMusic f752a;
-    l b;
-    Music c;
-    boolean d = false;
-    boolean e = false;
-    boolean f = false;
+    LoadMusic f7450a;
 
-    public n(l lVar) {
-        this.b = lVar;
+    /* renamed from: b */
+    C1217l f7451b;
+
+    /* renamed from: c */
+    Music f7452c;
+
+    /* renamed from: d */
+    boolean f7453d = false;
+
+    /* renamed from: e */
+    boolean f7454e = false;
+
+    /* renamed from: f */
+    boolean f7455f = false;
+
+    public C1219n(C1217l c1217l) {
+        this.f7451b = c1217l;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void a(ar arVar) {
-        this.f752a = (LoadMusic) arVar;
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: a */
+    public void mo89a(AbstractC0663ar abstractC0663ar) {
+        this.f7450a = (LoadMusic) abstractC0663ar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void a(boolean z) {
-        synchronized (this.b.f()) {
-            this.d = true;
-            this.e = z;
-            this.f = false;
-            GameEngine.m2e("Queued:" + this.f752a.b);
-            if (this.c != null) {
-                GameEngine.m2e("startPlaying: Stopping old music");
-                this.c.stop();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: a */
+    public void mo88a(boolean z) {
+        synchronized (this.f7451b.m92f()) {
+            this.f7453d = true;
+            this.f7454e = z;
+            this.f7455f = false;
+            GameEngine.m5460e("Queued:" + this.f7450a.f4249b);
+            if (this.f7452c != null) {
+                GameEngine.m5460e("startPlaying: Stopping old music");
+                this.f7452c.stop();
             }
-            this.c = this.f752a.c;
+            this.f7452c = this.f7450a.f7449c;
         }
     }
 
-    public void f() {
-        if (this.f) {
+    /* renamed from: f */
+    public void m83f() {
+        if (this.f7455f) {
             return;
         }
-        synchronized (this.b.f()) {
-            if (this.c != null) {
-                GameEngine.m2e("Now playing:" + this.f752a.b);
-                if (this.e) {
-                    this.c.setVolume(this.c.getVolume());
-                    this.c.setLooping(true);
-                    this.c.play();
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null) {
+                GameEngine.m5460e("Now playing:" + this.f7450a.f4249b);
+                if (this.f7454e) {
+                    this.f7452c.setVolume(this.f7452c.getVolume());
+                    this.f7452c.setLooping(true);
+                    this.f7452c.play();
                 } else {
-                    this.c.setVolume(this.c.getVolume());
-                    this.c.play();
+                    this.f7452c.setVolume(this.f7452c.getVolume());
+                    this.f7452c.play();
                 }
-                this.f = true;
+                this.f7455f = true;
             } else {
-                GameEngine.m2e("realPlay: playingMusic==null");
+                GameEngine.m5460e("realPlay: playingMusic==null");
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void a() {
-        synchronized (this.b.f()) {
-            if (this.c != null) {
-                this.c.pause();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: a */
+    public void mo91a() {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null) {
+                this.f7452c.pause();
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void b() {
-        synchronized (this.b.f()) {
-            if (this.c != null && !this.c.isPlaying()) {
-                this.c.play();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: b */
+    public void mo87b() {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null && !this.f7452c.isPlaying()) {
+                this.f7452c.play();
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void d() {
-        synchronized (this.b.f()) {
-            if (this.c != null) {
-                this.c.stop();
-                this.f = false;
-                this.d = false;
-                this.c = null;
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: d */
+    public void mo85d() {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null) {
+                this.f7452c.stop();
+                this.f7455f = false;
+                this.f7453d = false;
+                this.f7452c = null;
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void e() {
-        synchronized (this.b.f()) {
-            if (this.c != null) {
-                this.c.stop();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: e */
+    public void mo84e() {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null) {
+                this.f7452c.stop();
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public boolean c() {
-        synchronized (this.b.f()) {
-            if (this.f && this.c != null) {
-                return this.c.isPlaying();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: c */
+    public boolean mo86c() {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7455f && this.f7452c != null) {
+                return this.f7452c.isPlaying();
             }
             return false;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.as
-    public void a(float f) {
-        synchronized (this.b.f()) {
-            if (this.c != null) {
-                if (f > 0.05f && !this.f && this.d) {
-                    f();
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
+    /* renamed from: a */
+    public void mo90a(float f) {
+        synchronized (this.f7451b.m92f()) {
+            if (this.f7452c != null) {
+                if (f > 0.05f && !this.f7455f && this.f7453d) {
+                    m83f();
                 }
-                this.c.setVolume(f);
+                this.f7452c.setVolume(f);
             } else {
-                GameEngine.m2e("setVolume: playingMusic==null");
+                GameEngine.m5460e("setVolume: playingMusic==null");
             }
         }
     }

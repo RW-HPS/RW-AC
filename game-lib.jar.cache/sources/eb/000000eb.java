@@ -1,33 +1,37 @@
 package com.corrodinggames.librocket.scripts;
 
-import com.corrodinggames.rts.a.a;
-import com.corrodinggames.rts.a.a.b;
-import com.corrodinggames.rts.a.a.n;
+import com.corrodinggames.rts.debug.ScriptServerSocket;
+import com.corrodinggames.rts.debug.test.C0085n;
+import com.corrodinggames.rts.debug.test.TestNewSocket;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.b.f;
-import com.corrodinggames.rts.game.units.a.s;
-import com.corrodinggames.rts.game.units.al;
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.ao;
-import com.corrodinggames.rts.game.units.ar;
-import com.corrodinggames.rts.game.units.as;
-import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.game.p012b.C0173b;
+import com.corrodinggames.rts.game.p012b.C0179f;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.AbstractC0249ar;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.C0243al;
+import com.corrodinggames.rts.game.units.EnumC0246ao;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
+import com.corrodinggames.rts.game.units.custom.C0458l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.game.units.y;
+import com.corrodinggames.rts.game.units.p013a.AbstractC0224s;
+import com.corrodinggames.rts.game.units.p024d.InterfaceC0506l;
+import com.corrodinggames.rts.gameFramework.AbstractC1155w;
+import com.corrodinggames.rts.gameFramework.C0742br;
+import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.gameFramework.C1157y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.SyncPacket;
-import com.corrodinggames.rts.gameFramework.br;
-import com.corrodinggames.rts.gameFramework.k.d;
-import com.corrodinggames.rts.gameFramework.k.k;
-import com.corrodinggames.rts.gameFramework.k.m;
-import com.corrodinggames.rts.gameFramework.k.p;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameMapData;
 import com.corrodinggames.rts.gameFramework.net.GameNetEngine;
 import com.corrodinggames.rts.gameFramework.net.MapType;
 import com.corrodinggames.rts.gameFramework.net.PlayerConnect;
 import com.corrodinggames.rts.gameFramework.net.ServerAcceptRunnable;
-import com.corrodinggames.rts.gameFramework.w;
+import com.corrodinggames.rts.gameFramework.p043k.C0935d;
+import com.corrodinggames.rts.gameFramework.p043k.C0942k;
+import com.corrodinggames.rts.gameFramework.p043k.C0944m;
+import com.corrodinggames.rts.gameFramework.p043k.C0947p;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -41,7 +45,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import net.rudp.h;
+import net.rudp.ReliableSocket;
 import sun.management.VMManagement;
 
 /* loaded from: game-lib.jar:com/corrodinggames/librocket/scripts/Debug.class */
@@ -50,11 +54,18 @@ public class Debug extends ScriptContext {
     boolean allFeatures;
     ConcurrentLinkedQueue backgroundClientConnections;
     Thread backgroundConnectionThread;
-    Runnable backgroundConnectionRunnable = new AnonymousClass1();
+    Runnable backgroundConnectionRunnable = new Runnable() { // from class: com.corrodinggames.librocket.scripts.Debug.1
+        @Override // java.lang.Runnable
+        public void run() {
+            Iterator it = Debug.this.backgroundClientConnections.iterator();
+            while (it.hasNext()) {
+                PlayerConnect playerConnect = (PlayerConnect) it.next();
+            }
+        }
+    };
     boolean forceNonThreaded = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Debug(Root root) {
+    Debug(Root root) {
         this.root = root;
     }
 
@@ -74,15 +85,15 @@ public class Debug extends ScriptContext {
     }
 
     public void setLocalPlayerName(String str) {
-        GameEngine.getGameEngine().bX.a(str);
+        GameEngine.getGameEngine().netEngine.m1689a(str);
     }
 
     public void setDdosProtection(boolean z) {
-        ServerAcceptRunnable.b = z;
+        ServerAcceptRunnable.f5908b = z;
     }
 
     public void lookAt(float f, float f2) {
-        GameEngine.getGameEngine().b(f, f2);
+        GameEngine.getGameEngine().m1136b(f, f2);
     }
 
     public void createManyUnits(String str, float f, float f2, int i, boolean z, int i2) {
@@ -102,53 +113,53 @@ public class Debug extends ScriptContext {
 
     public Long createUnit(String str, float f, float f2, int i, boolean z) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        as a = ar.a(str);
-        if (a == null) {
+        InterfaceC0303as m4604a = AbstractC0249ar.m4604a(str);
+        if (m4604a == null) {
             this.root.logWarn("Could not find type:" + str);
             return null;
         }
-        am a2 = a.a();
-        a2.eo = f;
-        a2.ep = f2;
+        AbstractC0244am mo4466a = m4604a.mo4466a();
+        mo4466a.f7172eo = f;
+        mo4466a.f7173ep = f2;
         try {
-            a2.Q(i);
-            PlayerData.c(a2);
-            a2.cK = true;
+            mo4466a.m4690Q(i);
+            PlayerData.m4839c(mo4466a);
+            mo4466a.f1653cK = true;
             if (z) {
-                gameEngine.b(f, f2);
+                gameEngine.m1136b(f, f2);
             }
-            return Long.valueOf(a2.eh);
-        } catch (f e) {
+            return Long.valueOf(mo4466a.f7166eh);
+        } catch (C0179f e) {
             throw new RuntimeException(e);
         }
     }
 
     public int getMaxCustomUnitTypeId() {
-        return l.d.size();
+        return C0458l.f3219d.size();
     }
 
     public Long createCustomUnitFromTypeId(int i, float f, float f2, int i2, boolean z) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        am a = ((l) l.d.get(i)).a();
-        a.eo = f;
-        a.ep = f2;
+        AbstractC0244am mo4466a = ((C0458l) C0458l.f3219d.get(i)).mo4466a();
+        mo4466a.f7172eo = f;
+        mo4466a.f7173ep = f2;
         try {
-            a.Q(i2);
-            PlayerData.c(a);
-            a.cK = true;
+            mo4466a.m4690Q(i2);
+            PlayerData.m4839c(mo4466a);
+            mo4466a.f1653cK = true;
             if (z) {
-                gameEngine.b(f, f2);
+                gameEngine.m1136b(f, f2);
             }
-            return Long.valueOf(a.eh);
-        } catch (f e) {
+            return Long.valueOf(mo4466a.f7166eh);
+        } catch (C0179f e) {
             throw new RuntimeException(e);
         }
     }
 
     public void enableFeatures(String str) {
-        if (com.corrodinggames.rts.gameFramework.f.e(str).startsWith("221FC410BD29D786")) {
+        if (C0773f.m2263e(str).startsWith("221FC410BD29D786")) {
             this.allFeatures = true;
-            a.d = true;
+            ScriptServerSocket.f390d = true;
             return;
         }
         throw new RuntimeException("unknown");
@@ -156,59 +167,44 @@ public class Debug extends ScriptContext {
 
     public void selectNextUnit() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        am amVar = null;
+        AbstractC0244am abstractC0244am = null;
         boolean z = false;
-        Iterator it = am.bF().iterator();
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            am amVar2 = (am) it.next();
-            if ((amVar2 instanceof am) && !(amVar2 instanceof al) && !amVar2.t()) {
-                if (amVar == null) {
-                    amVar = amVar2;
+            AbstractC0244am abstractC0244am2 = (AbstractC0244am) it.next();
+            if ((abstractC0244am2 instanceof AbstractC0244am) && !(abstractC0244am2 instanceof C0243al) && !abstractC0244am2.mo1879t()) {
+                if (abstractC0244am == null) {
+                    abstractC0244am = abstractC0244am2;
                 }
                 if (z) {
-                    amVar = amVar2;
+                    abstractC0244am = abstractC0244am2;
                     break;
                 }
-                z = amVar2.cG;
+                z = abstractC0244am2.f1649cG;
             }
         }
-        gameEngine.bS.y();
-        if (amVar != null) {
-            gameEngine.bS.j(amVar);
+        gameEngine.f6330bS.m1922y();
+        if (abstractC0244am != null) {
+            gameEngine.f6330bS.m1945j(abstractC0244am);
         }
     }
 
     public void removeAllUnits() {
-        Iterator it = w.dK().iterator();
+        Iterator it = AbstractC1155w.m456dK().iterator();
         while (it.hasNext()) {
-            ((w) it.next()).a();
+            ((AbstractC1155w) it.next()).mo467a();
         }
     }
 
     public void killAllUnits() {
-        Iterator it = am.bF().iterator();
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (it.hasNext()) {
-            am amVar = (am) it.next();
-            if (amVar instanceof am) {
-                amVar.cu = -1.0f;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.corrodinggames.librocket.scripts.Debug$1 */
-    /* loaded from: game-lib.jar:com/corrodinggames/librocket/scripts/Debug$1.class */
-    public class AnonymousClass1 implements Runnable {
-        AnonymousClass1() {
-        }
-
-        public void run() {
-            Iterator it = Debug.this.backgroundClientConnections.iterator();
-            while (it.hasNext()) {
-                PlayerConnect playerConnect = (PlayerConnect) it.next();
+            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
+            if (abstractC0244am instanceof AbstractC0244am) {
+                abstractC0244am.f1637cu = -1.0f;
             }
         }
     }
@@ -216,10 +212,10 @@ public class Debug extends ScriptContext {
     public boolean backgroundCurrentClientConnection() {
         if (this.allFeatures) {
             GameEngine gameEngine = GameEngine.getGameEngine();
-            if (!gameEngine.bX.B) {
-                GameEngine.m2e("Not networked");
+            if (!gameEngine.netEngine.f5782B) {
+                GameEngine.m5925e("Not networked");
                 return false;
-            } else if (gameEngine.bX.isServer) {
+            } else if (gameEngine.netEngine.isServer) {
                 throw new RuntimeException("server=true");
             } else {
                 if (this.backgroundConnectionThread == null) {
@@ -229,15 +225,15 @@ public class Debug extends ScriptContext {
                 if (this.backgroundClientConnections == null) {
                     this.backgroundClientConnections = new ConcurrentLinkedQueue();
                 }
-                Iterator it = gameEngine.bX.socketList.iterator();
+                Iterator it = gameEngine.netEngine.socketList.iterator();
                 while (it.hasNext()) {
                     PlayerConnect playerConnect = (PlayerConnect) it.next();
-                    playerConnect.t = true;
+                    playerConnect.f5996t = true;
                     this.backgroundClientConnections.add(playerConnect);
-                    gameEngine.bX.socketList.remove(playerConnect);
+                    gameEngine.netEngine.socketList.remove(playerConnect);
                 }
-                gameEngine.bX.b("backgrounded");
-                gameEngine.bX.B = true;
+                gameEngine.netEngine.closeServer("backgrounded");
+                gameEngine.netEngine.f5782B = true;
                 return true;
             }
         }
@@ -245,132 +241,132 @@ public class Debug extends ScriptContext {
     }
 
     public boolean isTeamWipedOut(int i) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return true;
         }
-        return k.G;
+        return playerData.f1332G;
     }
 
     public boolean isTeamDefeated(int i) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return true;
         }
-        return k.G;
+        return playerData.f1332G;
     }
 
     public boolean isTeamInVictory(int i) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return false;
         }
-        return k.H;
+        return playerData.f1333H;
     }
 
     public String getPlayerName(int i) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return null;
         }
-        return k.name;
+        return playerData.name;
     }
 
     public String getQueryStringOfPlayer(int i) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return null;
         }
-        PlayerConnect c = gameEngine.bX.c(k);
-        if (c == null) {
+        PlayerConnect m1627c = gameEngine.netEngine.m1627c(playerData);
+        if (m1627c == null) {
             this.root.logWarn("Found team but could not find connection for team:" + i);
             return null;
         }
-        return c.o;
+        return m1627c.f5991o;
     }
 
     public boolean setTeamCredits(int i, int i2) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return false;
         }
-        k.o = i2;
+        playerData.credits = i2;
         return true;
     }
 
     public boolean setTeamAllyGroup(int i, int i2) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return false;
         }
-        k.r = i2;
+        playerData.team = i2;
         return true;
     }
 
     public void giveUpgradeToAllUnits() {
-        Iterator it = am.bF().iterator();
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (it.hasNext()) {
-            am amVar = (am) it.next();
-            if (amVar instanceof y) {
-                y yVar = (y) amVar;
-                s a = yVar.a(yVar.cm());
+            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
+            if (abstractC0244am instanceof AbstractC0629y) {
+                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
+                AbstractC0224s a = abstractC0629y.mo3926a(abstractC0629y.mo3504cm());
                 if (a != null) {
-                    yVar.a(a, false);
+                    abstractC0629y.mo3309a(a, false);
                 }
             }
         }
     }
 
     public void giveAllActionsToAllUnits() {
-        Iterator it = am.bF().iterator();
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (it.hasNext()) {
-            am amVar = (am) it.next();
-            if (amVar instanceof y) {
-                y yVar = (y) amVar;
-                Iterator it2 = yVar.N().iterator();
+            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
+            if (abstractC0244am instanceof AbstractC0629y) {
+                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
+                Iterator it2 = abstractC0629y.mo3310N().iterator();
                 while (it2.hasNext()) {
-                    yVar.a((s) it2.next(), false);
+                    abstractC0629y.mo3309a((AbstractC0224s) it2.next(), false);
                 }
             }
         }
     }
 
     public void completeAllUnitsQueues() {
-        Iterator it = am.bF().iterator();
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (it.hasNext()) {
-            am amVar = (am) it.next();
-            if (amVar instanceof com.corrodinggames.rts.game.units.d.l) {
-                ((com.corrodinggames.rts.game.units.d.l) amVar).dz();
+            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
+            if (abstractC0244am instanceof InterfaceC0506l) {
+                ((InterfaceC0506l) abstractC0244am).mo3548dz();
             }
         }
     }
 
     public boolean moveAllUnitsOnTeam(int i, float f, float f2) {
-        PlayerData k = PlayerData.k(i);
-        if (k == null) {
+        PlayerData playerData = PlayerData.getPlayerData(i);
+        if (playerData == null) {
             this.root.logWarn("Could not find team:" + i);
             return false;
         }
-        SyncPacket b = GameEngine.getGameEngine().cf.b(k);
-        Iterator it = am.bF().iterator();
+        SyncPacket m2553b = GameEngine.getGameEngine().f6343cf.m2553b(playerData);
+        Iterator it = AbstractC0244am.m4670bF().iterator();
         while (it.hasNext()) {
-            am amVar = (am) it.next();
-            if (amVar instanceof y) {
-                y yVar = (y) amVar;
-                if (yVar.bX == k) {
-                    b.a(yVar);
+            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
+            if (abstractC0244am instanceof AbstractC0629y) {
+                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
+                if (abstractC0629y.f1614bX == playerData) {
+                    m2553b.m2461a(abstractC0629y);
                 }
             }
         }
-        b.a(f, f2);
+        m2553b.m2471a(f, f2);
         return true;
     }
 
@@ -379,67 +375,67 @@ public class Debug extends ScriptContext {
         if (str == null || str.trim().equals(VariableScope.nullOrMissingString)) {
             return;
         }
-        gameEngine.bX.m(str.replace("\\n", "\n"));
+        gameEngine.netEngine.m1571m(str.replace("\\n", "\n"));
     }
 
     public String unicodeTest1() {
-        return "start ¥123 \u061c end";
+        return "start \u00a5123 \u061c end";
     }
 
     public void setZoom(float f) {
-        GameEngine.getGameEngine().cV = f;
+        GameEngine.getGameEngine().f6468cV = f;
     }
 
     public boolean isNetworkGameActive() {
-        return GameEngine.getGameEngine().N();
+        return GameEngine.getGameEngine().m1209N();
     }
 
     public int getLocalPlayerId() {
-        return GameEngine.getGameEngine().bX.z.k;
+        return GameEngine.getGameEngine().netEngine.f5700z.site;
     }
 
     public int numberOfHumanPlayers() {
-        return GameEngine.getGameEngine().bX.an();
+        return GameEngine.getGameEngine().netEngine.m1659an();
     }
 
     public int numberOfPlayersPlusAI() {
-        return GameEngine.getGameEngine().bX.ao();
+        return GameEngine.getGameEngine().netEngine.m1658ao();
     }
 
     public int numberOfPlayerConnections() {
-        return GameEngine.getGameEngine().bX.B();
+        return GameEngine.getGameEngine().netEngine.m1746B();
     }
 
     public boolean enableFastSync() {
-        GameEngine.getGameEngine().bX.ai = 30;
+        GameEngine.getGameEngine().netEngine.f5794ai = 30;
         return true;
     }
 
     public boolean enableExtraNetworkDebug() {
-        GameEngine.getGameEngine().bX.debug = true;
+        GameEngine.getGameEngine().netEngine.debug = true;
         return true;
     }
 
     public boolean throwIfAnyPlayerNotInSync() {
-        GameEngine.getGameEngine().bX.x();
+        GameEngine.getGameEngine().netEngine.m1556x();
         return true;
     }
 
     public boolean enableFastResyncTimer() {
-        GameNetEngine.c = true;
+        GameNetEngine.f5771c = true;
         return true;
     }
 
     public boolean enablePauseOnDesync() {
-        GameEngine.getGameEngine().bX.aj = true;
+        GameEngine.getGameEngine().netEngine.f5724aj = true;
         return true;
     }
 
     public boolean networkSetIncomeMultiplier(float f) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        GameMapData e = gameEngine.bX.e();
-        e.h = f;
-        gameEngine.bX.a(e);
+        GameMapData m1610e = gameEngine.netEngine.m1610e();
+        m1610e.income = f;
+        gameEngine.netEngine.m1706a(m1610e);
         return true;
     }
 
@@ -454,82 +450,82 @@ public class Debug extends ScriptContext {
     }
 
     public boolean networkDisconnect() {
-        GameEngine.getGameEngine().bX.b("debug");
+        GameEngine.getGameEngine().netEngine.closeServer("debug");
         return true;
     }
 
     public boolean networkAbort() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        Iterator it = gameEngine.bX.socketList.iterator();
+        Iterator it = gameEngine.netEngine.socketList.iterator();
         while (it.hasNext()) {
             PlayerConnect playerConnect = (PlayerConnect) it.next();
-            if (playerConnect.d instanceof h) {
-                GameEngine.m2e("Closing: " + playerConnect.g());
-                ((h) playerConnect.d).d();
+            if (playerConnect.socket instanceof ReliableSocket) {
+                GameEngine.m5925e("Closing: " + playerConnect.m1465g());
+                ((ReliableSocket) playerConnect.socket).m5850d();
             }
         }
-        gameEngine.bX.b("debug");
+        gameEngine.netEngine.closeServer("debug");
         return true;
     }
 
     public boolean disableNetworkOwnInfo() {
-        GameNetEngine.r = false;
+        GameNetEngine.f5772r = false;
         return true;
     }
 
     public boolean networkPause() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.bX.aj = true;
-        gameEngine.bX.ak = true;
+        gameEngine.netEngine.f5724aj = true;
+        gameEngine.netEngine.f5725ak = true;
         return true;
     }
 
     public boolean plainTextDebugSave(boolean z) {
         GameEngine.getGameEngine();
-        com.corrodinggames.rts.gameFramework.y.f704a = z;
+        C1157y.f7178a = z;
         return true;
     }
 
     public boolean checkDesync(int i) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (gameEngine.bX.ap != 0) {
-            throw new RuntimeException("numberOfDesyncErrors==" + gameEngine.bX.ap);
+        if (gameEngine.netEngine.f5728ap != 0) {
+            throw new RuntimeException("numberOfDesyncErrors==" + gameEngine.netEngine.f5728ap);
         }
-        if (gameEngine.bX.aq < i) {
-            throw new RuntimeException("game.network.numberOfDesyncPasses:" + gameEngine.bX.aq + "<" + i);
+        if (gameEngine.netEngine.f5729aq < i) {
+            throw new RuntimeException("game.network.numberOfDesyncPasses:" + gameEngine.netEngine.f5729aq + "<" + i);
         }
-        this.root.logDebug("numberOfDesyncPasses:" + gameEngine.bX.aq);
+        this.root.logDebug("numberOfDesyncPasses:" + gameEngine.netEngine.f5729aq);
         return true;
     }
 
     public int getNumberOfDesyncErrors() {
-        return GameEngine.getGameEngine().bX.ap;
+        return GameEngine.getGameEngine().netEngine.f5728ap;
     }
 
     public int getNumberOfDesyncPasses() {
-        return GameEngine.getGameEngine().bX.aq;
+        return GameEngine.getGameEngine().netEngine.f5729aq;
     }
 
     public int getNumberOfResyncSendsOrRecv() {
-        return GameEngine.getGameEngine().bX.ar;
+        return GameEngine.getGameEngine().netEngine.f5730ar;
     }
 
     public boolean setMultiplayerMap(int i, String str) {
-        GameMapData gameMapData = GameEngine.getGameEngine().bX.gameMapData;
-        gameMapData.f562a = MapType.values()[i];
-        gameMapData.b = str;
+        GameMapData gameMapData = GameEngine.getGameEngine().netEngine.gameMapData;
+        gameMapData.f5852a = MapType.values()[i];
+        gameMapData.f5853b = str;
         return true;
     }
 
     public boolean setMultiplayerSave(String str) {
-        GameMapData gameMapData = GameEngine.getGameEngine().bX.gameMapData;
-        gameMapData.f562a = MapType.savedGame;
-        gameMapData.b = str;
+        GameMapData gameMapData = GameEngine.getGameEngine().netEngine.gameMapData;
+        gameMapData.f5852a = MapType.f5869c;
+        gameMapData.f5853b = str;
         return true;
     }
 
     public void generateNewClientId() {
-        GameEngine.getGameEngine().bX.Y();
+        GameEngine.getGameEngine().netEngine.m1723Y();
     }
 
     public void disableFog() {
@@ -537,7 +533,7 @@ public class Debug extends ScriptContext {
     }
 
     public void overrideDeltaSpeed(float f) {
-        GameEngine.getGameEngine().bu = f;
+        GameEngine.getGameEngine().f6451bu = f;
     }
 
     public void setGameSetting(String str, String str2) {
@@ -546,44 +542,44 @@ public class Debug extends ScriptContext {
 
     public void setNetworkaiDifficulty(int i) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        GameMapData e = gameEngine.bX.e();
-        e.f = i;
-        gameEngine.bX.a(e);
+        GameMapData m1610e = gameEngine.netEngine.m1610e();
+        m1610e.aidiff = i;
+        gameEngine.netEngine.m1706a(m1610e);
     }
 
     public void setNetworkStartingUnits(int i) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        GameMapData e = gameEngine.bX.e();
-        e.g = i;
-        gameEngine.bX.a(e);
+        GameMapData m1610e = gameEngine.netEngine.m1610e();
+        m1610e.initUnit = i;
+        gameEngine.netEngine.m1706a(m1610e);
     }
 
     public void startRandomUnitDesyncTest() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        SyncPacket b = gameEngine.cf.b();
-        b.i = PlayerData.i;
-        b.r = true;
-        b.u = 1;
-        gameEngine.bX.a(b);
+        SyncPacket m2554b = gameEngine.f6343cf.m2554b();
+        m2554b.f4923i = PlayerData.f1373i;
+        m2554b.f4931r = true;
+        m2554b.f4934u = 1;
+        gameEngine.netEngine.m1708a(m2554b);
     }
 
     public void startRandomUnitStressTest() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        SyncPacket b = gameEngine.cf.b();
-        b.i = PlayerData.i;
-        b.r = true;
-        b.u = 2;
-        gameEngine.bX.a(b);
+        SyncPacket m2554b = gameEngine.f6343cf.m2554b();
+        m2554b.f4923i = PlayerData.f1373i;
+        m2554b.f4931r = true;
+        m2554b.f4934u = 2;
+        gameEngine.netEngine.m1708a(m2554b);
     }
 
     public void runAllUnitTests() {
         this.root.logWarn("Running unit tests..");
-        new n().a();
+        new C0085n().m5421a();
     }
 
     public void runAllLeakTests() {
         this.root.logWarn("Running leak tests..");
-        new b().a();
+        new TestNewSocket().start();
     }
 
     public boolean loadSaveFromSystemPath(String str) {
@@ -592,22 +588,22 @@ public class Debug extends ScriptContext {
             FileInputStream fileInputStream = new FileInputStream(new File(str));
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
             DataInputStream dataInputStream = new DataInputStream(bufferedInputStream);
-            boolean a = gameEngine.ca.a(new GameInputStream(dataInputStream), false, false, false);
+            boolean m448a = gameEngine.f6338ca.m448a(new GameInputStream(dataInputStream), false, false, false);
             dataInputStream.close();
             bufferedInputStream.close();
             fileInputStream.close();
-            return a;
+            return m448a;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void checkTeamCaches() {
-        Iterator it = PlayerData.c().iterator();
+        Iterator it = PlayerData.m4844c().iterator();
         while (it.hasNext()) {
             PlayerData playerData = (PlayerData) it.next();
-            if (playerData.t()) {
-                throw new RuntimeException("Team cache difference on team:" + playerData.k);
+            if (playerData.m4794t()) {
+                throw new RuntimeException("Team cache difference on team:" + playerData.site);
             }
         }
     }
@@ -618,69 +614,69 @@ public class Debug extends ScriptContext {
 
     public float getPathSpeed(int i, float f, float f2, float f3, float f4) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        com.corrodinggames.rts.game.b.b bVar = gameEngine.bL;
+        C0173b c0173b = gameEngine.f6323bL;
         ArrayList arrayList = new ArrayList();
-        bVar.a(f3, f4);
-        int i2 = bVar.T;
-        int i3 = bVar.U;
-        long a = br.a();
-        d.f601a = 0;
-        d.b = 0;
-        d.c = 0;
-        d.d = 0;
-        d.e = 0;
-        d.f = 0;
-        d.g = 0;
-        d.h = 0.0d;
-        d.i = 0.0d;
-        m.c = 0;
-        d.u = 0;
+        c0173b.m5127a(f3, f4);
+        int i2 = c0173b.f802T;
+        int i3 = c0173b.f803U;
+        long m2574a = C0742br.m2574a();
+        C0935d.f6133a = 0;
+        C0935d.f6134b = 0;
+        C0935d.f6135c = 0;
+        C0935d.f6136d = 0;
+        C0935d.f6137e = 0;
+        C0935d.f6138f = 0;
+        C0935d.f6139g = 0;
+        C0935d.f6140h = 0.0d;
+        C0935d.f6141i = 0.0d;
+        C0944m.f6253c = 0;
+        C0935d.f6153u = 0;
         for (int i4 = 0; i4 < i; i4++) {
-            k a2 = gameEngine.bU.a(false);
-            bVar.a(f, f2);
-            a2.a(ao.LAND, (short) bVar.T, (short) bVar.U, null, false);
-            bVar.a(f3, f4);
-            a2.a((short) bVar.T, (short) bVar.U, (short) 0);
-            a2.p = true;
-            a2.q = 0;
-            a2.r = false;
-            gameEngine.bU.a(a2, false, this.forceNonThreaded);
-            arrayList.add(a2);
+            C0942k m1282a = gameEngine.f6332bU.m1282a(false);
+            c0173b.m5127a(f, f2);
+            m1282a.m1308a(EnumC0246ao.f1709b, (short) c0173b.f802T, (short) c0173b.f803U, null, false);
+            c0173b.m5127a(f3, f4);
+            m1282a.m1303a((short) c0173b.f802T, (short) c0173b.f803U, (short) 0);
+            m1282a.f6200p = true;
+            m1282a.f6201q = 0;
+            m1282a.f6202r = false;
+            gameEngine.f6332bU.m1284a(m1282a, false, this.forceNonThreaded);
+            arrayList.add(m1282a);
         }
         if (!this.forceNonThreaded) {
             return -1.0f;
         }
-        float a3 = br.a(a);
+        float m2572a = C0742br.m2572a(m2574a);
         int i5 = -1;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            LinkedList a4 = ((k) it.next()).a();
+            LinkedList mo1346a = ((C0942k) it.next()).mo1346a();
             int i6 = 0;
-            Iterator it2 = a4.iterator();
+            Iterator it2 = mo1346a.iterator();
             while (it2.hasNext()) {
-                p pVar = (p) it2.next();
+                C0947p c0947p = (C0947p) it2.next();
                 i6++;
             }
             if (i5 != -1 && i5 != i6) {
                 GameEngine.print("pathDistance inconsistency detected:" + i5 + "!=" + i6);
             }
-            p pVar2 = (p) a4.getLast();
-            if (pVar2.f612a != i2 || pVar2.b != i3) {
-                GameEngine.print("path did not react goal, got to:" + ((int) pVar2.f612a) + "," + ((int) pVar2.b) + " (vs " + i2 + ", " + i3 + ")");
+            C0947p c0947p2 = (C0947p) mo1346a.getLast();
+            if (c0947p2.f6289a != i2 || c0947p2.f6290b != i3) {
+                GameEngine.print("path did not react goal, got to:" + ((int) c0947p2.f6289a) + "," + ((int) c0947p2.f6290b) + " (vs " + i2 + ", " + i3 + ")");
             }
             i5 = i6;
         }
-        GameEngine.print("hotBufferWatermark:" + d.f601a + ", nodesAdded:" + d.d + ", mainQueueWatermark:" + d.b + ", backlogWatermark:" + d.c + ", scannedA:" + d.e + ", scannedB:" + d.f + ", scannedC:" + d.g + ", time:" + br.a(d.i) + "/" + br.a(d.h) + ", dirtyPeak:" + d.u + ", dis:" + i5);
-        if (m.c != 0) {
-            GameEngine.print("newNodesCreated:" + m.c);
+        GameEngine.print("hotBufferWatermark:" + C0935d.f6133a + ", nodesAdded:" + C0935d.f6136d + ", mainQueueWatermark:" + C0935d.f6134b + ", backlogWatermark:" + C0935d.f6135c + ", scannedA:" + C0935d.f6137e + ", scannedB:" + C0935d.f6138f + ", scannedC:" + C0935d.f6139g + ", time:" + C0742br.m2573a(C0935d.f6141i) + "/" + C0742br.m2573a(C0935d.f6140h) + ", dirtyPeak:" + C0935d.f6153u + ", dis:" + i5);
+        if (C0944m.f6253c != 0) {
+            GameEngine.print("newNodesCreated:" + C0944m.f6253c);
         }
-        return a3;
+        return m2572a;
     }
 
     public void muteSounds() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.bM.b = true;
-        gameEngine.bN.f();
+        gameEngine.f6324bM.f4068b = true;
+        gameEngine.f6325bN.m2887f();
     }
 
     public void pong() {

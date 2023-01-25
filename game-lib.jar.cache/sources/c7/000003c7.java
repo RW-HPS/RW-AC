@@ -1,26 +1,29 @@
-package com.corrodinggames.rts.game.units.f;
+package com.corrodinggames.rts.game.units.p027f;
 
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.gameFramework.utility.u;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.gameFramework.utility.C1147u;
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.game.units.f.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/f/f.class */
-public class f implements Iterable, Iterator {
+public class C0546f implements Iterable, Iterator {
 
-    /* renamed from: a  reason: collision with root package name */
-    int f362a;
-    am[] b;
+    /* renamed from: a */
+    int f3764a;
+
+    /* renamed from: b */
+    AbstractC0244am[] f3765b;
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.f362a > 0;
+        return this.f3764a > 0;
     }
 
     @Override // java.util.Iterator
     /* renamed from: a */
-    public am next() {
-        this.f362a--;
-        return this.b[this.f362a];
+    public AbstractC0244am mo3197a() {
+        this.f3764a--;
+        return this.f3765b[this.f3764a];
     }
 
     @Override // java.util.Iterator
@@ -33,8 +36,9 @@ public class f implements Iterable, Iterator {
         return this;
     }
 
-    public void a(u uVar) {
-        this.b = uVar.a();
-        this.f362a = uVar.b;
+    /* renamed from: a */
+    public void m3196a(C1147u c1147u) {
+        this.f3765b = c1147u.m499a();
+        this.f3764a = c1147u.f7137b;
     }
 }

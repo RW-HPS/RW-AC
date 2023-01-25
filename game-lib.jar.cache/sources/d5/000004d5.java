@@ -1,40 +1,46 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.corrodinggames.rts.gameFramework.translations.C0855a;
+
+/* renamed from: com.corrodinggames.rts.gameFramework.f.as */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/as.class */
-public class as extends au {
+class C0815as extends AbstractC0817au {
 
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f506a;
+    /* renamed from: a */
+    private boolean f5217a;
 
-    public as(float f, float f2, boolean z) {
+    public C0815as(float f, float f2, boolean z) {
         super(f, f2);
-        this.f506a = z;
+        this.f5217a = z;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.au
-    public boolean a(au auVar) {
-        return super.a(auVar) && (auVar instanceof as) && ((as) auVar).f506a == this.f506a;
+    @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0817au
+    /* renamed from: a */
+    public boolean mo1936a(AbstractC0817au abstractC0817au) {
+        return super.mo1936a(abstractC0817au) && (abstractC0817au instanceof C0815as) && ((C0815as) abstractC0817au).f5217a == this.f5217a;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.au
-    public void b(au auVar) {
+    @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0817au
+    /* renamed from: b */
+    public void mo1934b(AbstractC0817au abstractC0817au) {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.au
-    protected long b() {
+    @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0817au
+    /* renamed from: b */
+    protected long mo1935b() {
         return 20000L;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.au
-    public String a() {
-        if (this.g == null) {
-            if (this.f506a) {
-                this.g = com.corrodinggames.rts.gameFramework.h.a.a("gui.log.baseDamaged", new Object[0]);
+    @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0817au
+    /* renamed from: a */
+    public String mo1937a() {
+        if (this.f5222g == null) {
+            if (this.f5217a) {
+                this.f5222g = C0855a.m1714a("gui.log.baseDamaged", new Object[0]);
             } else {
-                this.g = com.corrodinggames.rts.gameFramework.h.a.a("gui.log.unitDamaged", new Object[0]);
+                this.f5222g = C0855a.m1714a("gui.log.unitDamaged", new Object[0]);
             }
         }
-        return this.g;
+        return this.f5222g;
     }
 }

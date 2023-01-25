@@ -1,15 +1,18 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+
+/* renamed from: com.corrodinggames.rts.gameFramework.f.u */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/u.class */
-public class u {
+class C0840u {
 
-    /* renamed from: a  reason: collision with root package name */
-    com.corrodinggames.rts.game.units.am f527a;
-    final /* synthetic */ o b;
+    /* renamed from: a */
+    AbstractC0244am f5553a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(o oVar) {
-        this.b = oVar;
+    /* renamed from: b */
+    final /* synthetic */ C0833o f5554b;
+
+    C0840u(C0833o c0833o) {
+        this.f5554b = c0833o;
     }
 }

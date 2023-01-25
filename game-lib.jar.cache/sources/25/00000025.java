@@ -7,13 +7,21 @@ import java.io.InputStream;
 
 /* loaded from: game-lib.jar:android/content/res/AssetManager.class */
 public final class AssetManager {
-    private static final Object b = new Object();
 
-    /* renamed from: a  reason: collision with root package name */
-    static AssetManager f27a = null;
-    private final long[] c = new long[2];
-    private int d = 1;
-    private boolean e = true;
+    /* renamed from: b */
+    private static final Object f117b = new Object();
+
+    /* renamed from: a */
+    static AssetManager f118a = null;
+
+    /* renamed from: c */
+    private final long[] f119c = new long[2];
+
+    /* renamed from: d */
+    private int f120d = 1;
+
+    /* renamed from: e */
+    private boolean f121e = true;
 
     private final native ParcelFileDescriptor openAssetFd(String str, long[] jArr);
 
@@ -32,14 +40,16 @@ public final class AssetManager {
     /* JADX INFO: Access modifiers changed from: private */
     public final native long getAssetRemainingLength(int i);
 
-    public final InputStream a(String str) {
-        return a(str, 2);
+    /* renamed from: a */
+    public final InputStream m5296a(String str) {
+        return m5295a(str, 2);
     }
 
-    public final InputStream a(String str, int i) {
+    /* renamed from: a */
+    public final InputStream m5295a(String str, int i) {
         FileInputStream fileInputStream;
         synchronized (this) {
-            if (!this.e) {
+            if (!this.f121e) {
                 throw new RuntimeException("Assetmanager has been closed");
             }
             fileInputStream = new FileInputStream("assets/" + str);
@@ -47,26 +57,28 @@ public final class AssetManager {
         return fileInputStream;
     }
 
-    public final AssetFileDescriptor b(String str) {
+    /* renamed from: b */
+    public final AssetFileDescriptor m5293b(String str) {
         synchronized (this) {
-            if (!this.e) {
+            if (!this.f121e) {
                 throw new RuntimeException("Assetmanager has been closed");
             }
-            ParcelFileDescriptor openAssetFd = openAssetFd(str, this.c);
+            ParcelFileDescriptor openAssetFd = openAssetFd(str, this.f119c);
             if (openAssetFd != null) {
-                return new AssetFileDescriptor(openAssetFd, this.c[0], this.c[1]);
+                return new AssetFileDescriptor(openAssetFd, this.f119c[0], this.f119c[1]);
             }
             throw new FileNotFoundException("Asset file: " + str);
         }
     }
 
-    public final String[] c(String str) {
+    /* renamed from: c */
+    public final String[] m5291c(String str) {
         return new String[0];
     }
 
     protected void finalize() {
         try {
-            a();
+            m5301a();
         } finally {
             super.finalize();
         }
@@ -74,16 +86,22 @@ public final class AssetManager {
 
     /* loaded from: game-lib.jar:android/content/res/AssetManager$AssetInputStream.class */
     public final class AssetInputStream extends InputStream {
-        private int b;
-        private long c;
-        private long d;
 
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ AssetManager f28a;
+        /* renamed from: b */
+        private int f122b;
+
+        /* renamed from: c */
+        private long f123c;
+
+        /* renamed from: d */
+        private long f124d;
+
+        /* renamed from: a */
+        final /* synthetic */ AssetManager f125a;
 
         @Override // java.io.InputStream
         public final int read() {
-            return this.f28a.readAssetChar(this.b);
+            return this.f125a.readAssetChar(this.f122b);
         }
 
         @Override // java.io.InputStream
@@ -93,7 +111,7 @@ public final class AssetManager {
 
         @Override // java.io.InputStream
         public final int available() {
-            long assetRemainingLength = this.f28a.getAssetRemainingLength(this.b);
+            long assetRemainingLength = this.f125a.getAssetRemainingLength(this.f122b);
             if (assetRemainingLength > 2147483647L) {
                 return Integer.MAX_VALUE;
             }
@@ -102,43 +120,43 @@ public final class AssetManager {
 
         @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public final void close() {
-            synchronized (this.f28a) {
-                if (this.b != 0) {
-                    this.f28a.destroyAsset(this.b);
-                    this.b = 0;
-                    this.f28a.a(hashCode());
+            synchronized (this.f125a) {
+                if (this.f122b != 0) {
+                    this.f125a.destroyAsset(this.f122b);
+                    this.f122b = 0;
+                    this.f125a.m5300a(hashCode());
                 }
             }
         }
 
         @Override // java.io.InputStream
         public final void mark(int i) {
-            this.d = this.f28a.seekAsset(this.b, 0L, 0);
+            this.f124d = this.f125a.seekAsset(this.f122b, 0L, 0);
         }
 
         @Override // java.io.InputStream
         public final void reset() {
-            this.f28a.seekAsset(this.b, this.d, -1);
+            this.f125a.seekAsset(this.f122b, this.f124d, -1);
         }
 
         @Override // java.io.InputStream
         public final int read(byte[] bArr) {
-            return this.f28a.readAsset(this.b, bArr, 0, bArr.length);
+            return this.f125a.readAsset(this.f122b, bArr, 0, bArr.length);
         }
 
         @Override // java.io.InputStream
         public final int read(byte[] bArr, int i, int i2) {
-            return this.f28a.readAsset(this.b, bArr, i, i2);
+            return this.f125a.readAsset(this.f122b, bArr, i, i2);
         }
 
         @Override // java.io.InputStream
         public final long skip(long j) {
-            long seekAsset = this.f28a.seekAsset(this.b, 0L, 0);
-            if (seekAsset + j > this.c) {
-                j = this.c - seekAsset;
+            long seekAsset = this.f125a.seekAsset(this.f122b, 0L, 0);
+            if (seekAsset + j > this.f123c) {
+                j = this.f123c - seekAsset;
             }
             if (j > 0) {
-                this.f28a.seekAsset(this.b, j, 0);
+                this.f125a.seekAsset(this.f122b, j, 0);
             }
             return j;
         }
@@ -148,14 +166,16 @@ public final class AssetManager {
         }
     }
 
-    private final void a() {
+    /* renamed from: a */
+    private final void m5301a() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void a(int i) {
-        this.d--;
-        if (this.d == 0) {
-            a();
+    /* renamed from: a */
+    public final void m5300a(int i) {
+        this.f120d--;
+        if (this.f120d == 0) {
+            m5301a();
         }
     }
 }

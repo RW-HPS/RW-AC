@@ -1,44 +1,56 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.ad */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/ad.class */
-public class ad {
+public class C0794ad {
 
-    /* renamed from: a  reason: collision with root package name */
-    private int f494a;
-    private int[] b;
-    private int c;
+    /* renamed from: a */
+    private int f5162a;
 
-    public ad(int i) {
-        this.c = -1;
-        this.f494a = 0;
-        this.b = new int[i];
+    /* renamed from: b */
+    private int[] f5163b;
+
+    /* renamed from: c */
+    private int f5164c;
+
+    /* renamed from: a */
+    static /* synthetic */ int m1985a(C0794ad c0794ad) {
+        return c0794ad.f5162a;
     }
 
-    public ad(int i, ad adVar) {
-        this.c = -1;
-        this.f494a = i;
-        this.b = new int[adVar.b.length];
-        for (int i2 = 0; i2 < this.b.length; i2++) {
-            this.b[i2] = adVar.b[i2];
+    public C0794ad(int i) {
+        this.f5164c = -1;
+        this.f5162a = 0;
+        this.f5163b = new int[i];
+    }
+
+    public C0794ad(int i, C0794ad c0794ad) {
+        this.f5164c = -1;
+        this.f5162a = i;
+        this.f5163b = new int[c0794ad.f5163b.length];
+        for (int i2 = 0; i2 < this.f5163b.length; i2++) {
+            this.f5163b[i2] = c0794ad.f5163b[i2];
         }
     }
 
-    public void a(int i, int i2) {
-        this.b[i] = i2;
+    /* renamed from: a */
+    public void m1986a(int i, int i2) {
+        this.f5163b[i] = i2;
     }
 
-    public float a(int i) {
-        if (this.c < 0) {
-            this.c = 0;
-            for (int i2 = 0; i2 < this.b.length; i2++) {
-                if (this.b[i2] > 0) {
-                    this.c += this.b[i2];
+    /* renamed from: a */
+    public float m1987a(int i) {
+        if (this.f5164c < 0) {
+            this.f5164c = 0;
+            for (int i2 = 0; i2 < this.f5163b.length; i2++) {
+                if (this.f5163b[i2] > 0) {
+                    this.f5164c += this.f5163b[i2];
                 }
             }
         }
-        if (this.c == 0 || this.b[i] <= 0) {
+        if (this.f5164c == 0 || this.f5163b[i] <= 0) {
             return 0.0f;
         }
-        return this.b[i] / this.c;
+        return this.f5163b[i] / this.f5164c;
     }
 }

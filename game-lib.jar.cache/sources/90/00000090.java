@@ -5,8 +5,7 @@ import com.codedisaster.steamworks.SteamGameServer;
 
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamGameServerCallbackAdapter.class */
 class SteamGameServerCallbackAdapter extends SteamCallbackAdapter {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamGameServerCallbackAdapter(SteamGameServerCallback steamGameServerCallback) {
+    SteamGameServerCallbackAdapter(SteamGameServerCallback steamGameServerCallback) {
         super(steamGameServerCallback);
     }
 

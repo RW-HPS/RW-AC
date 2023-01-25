@@ -12,25 +12,27 @@ import java.nio.ByteBuffer;
 public class SteamSocketOutStream extends OutputStream {
 
     /* renamed from: a */
-    boolean f741a = true;
-    final /* synthetic */ SteamSocket b;
+    boolean f7358a = true;
+
+    /* renamed from: b */
+    final /* synthetic */ SteamSocket f7359b;
 
     public SteamSocketOutStream(SteamSocket steamSocket) {
-        this.b = steamSocket;
+        this.f7359b = steamSocket;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) {
-        GameEngine.g("SteamSocketOutputStream: Slow write: " + i);
+        GameEngine.m990g("SteamSocketOutputStream: Slow write: " + i);
         write(new byte[]{(byte) i});
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) {
-        if (this.b.b) {
-            GameEngine.m2e("cannot write steam socket closed");
+        if (this.f7359b.f7350b) {
+            GameEngine.m5460e("cannot write steam socket closed");
         } else if (i2 > 307200) {
-            GameEngine.m2e("Steam spliting large packet to:" + this.b.e + " len:" + i2);
+            GameEngine.m5460e("Steam spliting large packet to:" + this.f7359b.f7353e + " len:" + i2);
             int i3 = i2;
             do {
                 int i4 = i3;
@@ -45,14 +47,14 @@ public class SteamSocketOutStream extends OutputStream {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2);
             allocateDirect.put(bArr, i, i2);
             allocateDirect.flip();
-            synchronized (this.b.f739a) {
+            synchronized (this.f7359b.f7349a) {
                 try {
-                    if (this.f741a) {
-                        this.f741a = false;
-                        GameEngine.m2e("First packet to:" + this.b.e);
+                    if (this.f7358a) {
+                        this.f7358a = false;
+                        GameEngine.m5460e("First packet to:" + this.f7359b.f7353e);
                     }
-                    if (!this.b.f739a.h.sendP2PPacket(this.b.e, allocateDirect, SteamNetworking.P2PSend.Reliable, 0)) {
-                        GameEngine.m2e("steam sendP2PPacket failed (size: " + i2 + " to:" + this.b.e + ")");
+                    if (!this.f7359b.f7349a.f7316h.sendP2PPacket(this.f7359b.f7353e, allocateDirect, SteamNetworking.P2PSend.Reliable, 0)) {
+                        GameEngine.m5460e("steam sendP2PPacket failed (size: " + i2 + " to:" + this.f7359b.f7353e + ")");
                     }
                 } catch (SteamException e) {
                     throw new IOException(e);

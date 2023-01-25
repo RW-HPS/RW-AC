@@ -118,8 +118,7 @@ public class SteamController extends SteamInterface {
         
         private static final SourceMode[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static SourceMode byOrdinal(int i) {
+        static SourceMode byOrdinal(int i) {
             return values[i];
         }
     }

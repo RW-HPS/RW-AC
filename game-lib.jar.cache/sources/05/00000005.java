@@ -1,17 +1,18 @@
-package a.a.a;
+package net.rudp.p002a;
 
+/* renamed from: a.a.a.e */
 /* loaded from: game-lib.jar:a/a/a/e.class */
-public class e extends h {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public e() {
+public class NULSegment extends Segment {
+    protected NULSegment() {
     }
 
-    public e(int i) {
-        a(8, i, 6);
+    public NULSegment(int i) {
+        init(8, i, 6);
     }
 
-    @Override // a.a.a.h
-    public String a() {
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: a */
+    public String type() {
         return "NUL";
     }
 }

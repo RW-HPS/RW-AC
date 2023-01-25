@@ -2,24 +2,41 @@ package com.corrodinggames.librocket;
 
 import com.ElementDocument;
 
+/* renamed from: com.corrodinggames.librocket.d */
 /* loaded from: game-lib.jar:com/corrodinggames/librocket/d.class */
-public class d {
+public class C0050d {
 
-    /* renamed from: a  reason: collision with root package name */
-    ElementDocument f73a;
-    public String b;
-    public String c;
-    public String d;
-    public Object e;
-    public Object f;
-    public boolean g = true;
-    public boolean h = true;
-    public Runnable i;
+    /* renamed from: a */
+    ElementDocument f375a;
 
-    public d() {
+    /* renamed from: b */
+    public String f376b;
+
+    /* renamed from: c */
+    public String f377c;
+
+    /* renamed from: d */
+    public String f378d;
+
+    /* renamed from: e */
+    public Object f379e;
+
+    /* renamed from: f */
+    public Object f380f;
+
+    /* renamed from: g */
+    public boolean f381g = true;
+
+    /* renamed from: h */
+    public boolean f382h = true;
+
+    /* renamed from: i */
+    public Runnable f383i;
+
+    public C0050d() {
     }
 
-    public d(ElementDocument elementDocument) {
-        this.f73a = elementDocument;
+    public C0050d(ElementDocument elementDocument) {
+        this.f375a = elementDocument;
     }
 }

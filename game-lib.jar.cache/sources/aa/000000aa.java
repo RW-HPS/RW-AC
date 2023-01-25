@@ -6,8 +6,7 @@ import com.codedisaster.steamworks.SteamMatchmaking;
 class SteamMatchmakingCallbackAdapter extends SteamCallbackAdapter {
     private static final SteamMatchmaking.ChatMemberStateChange[] stateChangeValues = SteamMatchmaking.ChatMemberStateChange.values();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamMatchmakingCallbackAdapter(SteamMatchmakingCallback steamMatchmakingCallback) {
+    SteamMatchmakingCallbackAdapter(SteamMatchmakingCallback steamMatchmakingCallback) {
         super(steamMatchmakingCallback);
     }
 

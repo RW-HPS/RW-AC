@@ -8,35 +8,39 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.appFramework.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/r.class */
-public class r implements Comparator {
+class C0132r implements Comparator {
 
-    /* renamed from: a  reason: collision with root package name */
-    Pattern f117a = Pattern.compile(".*\\((.*)\\).*");
+    /* renamed from: a */
+    Pattern f544a = Pattern.compile(".*\\((.*)\\).*");
+
+    C0132r() {
+    }
 
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(String str, String str2) {
-        Date a2 = a(str);
-        Date a3 = a(str2);
-        if (a2 == null && a3 == null) {
+        Date m4884a = m4884a(str);
+        Date m4884a2 = m4884a(str2);
+        if (m4884a == null && m4884a2 == null) {
             return str.compareTo(str2);
         }
-        if (a2 != null && a3 != null) {
-            return a3.compareTo(a2);
+        if (m4884a != null && m4884a2 != null) {
+            return m4884a2.compareTo(m4884a);
         }
-        if (a2 == null && a3 != null) {
+        if (m4884a == null && m4884a2 != null) {
             return -1;
         }
-        if (a2 != null && a3 == null) {
+        if (m4884a != null && m4884a2 == null) {
             return 1;
         }
         return 0;
     }
 
-    public Date a(String str) {
-        Matcher matcher = this.f117a.matcher(str);
+    /* renamed from: a */
+    public Date m4884a(String str) {
+        Matcher matcher = this.f544a.matcher(str);
         if (matcher.matches()) {
             String group = matcher.group(1);
             try {

@@ -14,8 +14,7 @@ public class SteamAuth {
         
         private static final BeginAuthSessionResult[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static BeginAuthSessionResult byOrdinal(int i) {
+        static BeginAuthSessionResult byOrdinal(int i) {
             return values[i];
         }
     }
@@ -35,8 +34,7 @@ public class SteamAuth {
         
         private static final AuthSessionResponse[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static AuthSessionResponse byOrdinal(int i) {
+        static AuthSessionResponse byOrdinal(int i) {
             return values[i];
         }
     }
@@ -49,8 +47,7 @@ public class SteamAuth {
         
         private static final UserHasLicenseForAppResult[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static UserHasLicenseForAppResult byOrdinal(int i) {
+        static UserHasLicenseForAppResult byOrdinal(int i) {
             return values[i];
         }
     }

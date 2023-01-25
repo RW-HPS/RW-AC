@@ -1,8 +1,8 @@
 package com.corrodinggames.rts.game.units.custom;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.units.custom.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/d.class */
-public enum d {
+enum EnumC0427d {
     frame,
     scale,
     legX,

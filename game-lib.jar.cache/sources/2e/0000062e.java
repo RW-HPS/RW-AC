@@ -1,11 +1,14 @@
 package com.corrodinggames.rts.gameFramework;
 
 import android.content.Context;
+import com.corrodinggames.rts.game.C0191i;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.v */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/v.class */
-public class v extends o {
-    @Override // com.corrodinggames.rts.gameFramework.o
-    public GameEngine a(Context context) {
-        return new com.corrodinggames.rts.game.i(context);
+public class C1154v extends AbstractC1093o {
+    @Override // com.corrodinggames.rts.gameFramework.AbstractC1093o
+    /* renamed from: a */
+    public GameEngine mo449a(Context context) {
+        return new C0191i(context);
     }
 }

@@ -2,373 +2,395 @@ package com.corrodinggames.rts.game.units.custom;
 
 import android.graphics.Color;
 import android.graphics.PointF;
+import com.corrodinggames.rts.game.C0188f;
+import com.corrodinggames.rts.game.C0189g;
+import com.corrodinggames.rts.game.C0190h;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
+import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
+import com.corrodinggames.rts.gameFramework.AbstractC1155w;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+import com.corrodinggames.rts.gameFramework.utility.C1107ab;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.bh */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/bh.class */
-public class bh extends com.corrodinggames.rts.game.g {
-    public String bh;
-    public int bi;
-    public l bj;
+public class C0410bh extends C0189g {
 
-    public static void a(bh bhVar, l lVar, com.corrodinggames.rts.gameFramework.utility.ab abVar, String str) {
-        Integer b = abVar.b(str, "directDamage", (Integer) null);
-        Integer b2 = abVar.b(str, "areaDamage", (Integer) null);
-        if (b == null && b2 == null) {
+    /* renamed from: bh */
+    public String f2538bh;
+
+    /* renamed from: bi */
+    public int f2539bi;
+
+    /* renamed from: bj */
+    public C0458l f2540bj;
+
+    /* renamed from: a */
+    public static void m3898a(C0410bh c0410bh, C0458l c0458l, C1107ab c1107ab, String str) {
+        Integer m667b = c1107ab.m667b(str, "directDamage", (Integer) null);
+        Integer m667b2 = c1107ab.m667b(str, "areaDamage", (Integer) null);
+        if (m667b == null && m667b2 == null) {
             throw new RuntimeException("[" + str + "]: directDamage or areaDamage must be set");
         }
-        bhVar.s = abVar.a(str, "targetGround", Boolean.valueOf(bhVar.s)).booleanValue();
-        bhVar.t = abVar.a(str, "targetGround_includeTargetHeight", Boolean.valueOf(bhVar.t)).booleanValue();
-        Integer b3 = abVar.b(str, "areaRadius", (Integer) null);
-        if (b3 != null) {
-            bhVar.i = b3.intValue();
+        c0410bh.f1118s = c1107ab.m685a(str, "targetGround", Boolean.valueOf(c0410bh.f1118s)).booleanValue();
+        c0410bh.f1119t = c1107ab.m685a(str, "targetGround_includeTargetHeight", Boolean.valueOf(c0410bh.f1119t)).booleanValue();
+        Integer m667b3 = c1107ab.m667b(str, "areaRadius", (Integer) null);
+        if (m667b3 != null) {
+            c0410bh.f1108i = m667b3.intValue();
         }
-        bhVar.b = abVar.b(str, "directDamage", Integer.valueOf(bhVar.b)).intValue();
-        bhVar.c = abVar.b(str, "areaDamage", Integer.valueOf(bhVar.c)).intValue();
-        bhVar.d = abVar.a(str, "interceptProjectile_removeTargetLifeOnly", Boolean.valueOf(bhVar.d)).booleanValue();
-        bhVar.g = abVar.a(str, "areaDamageNoFalloff", Boolean.valueOf(bhVar.g)).booleanValue();
-        bhVar.j = abVar.a(str, "areaIgnoreUnitsCloserThan", Float.valueOf(bhVar.j)).floatValue();
-        bhVar.h = abVar.a(str, "areaRadiusFromEdge", Boolean.valueOf(bhVar.h)).booleanValue();
-        if ("only-ignoreEnemy".equalsIgnoreCase(abVar.b(str, "friendlyFire", (String) null))) {
-            bhVar.l = true;
+        c0410bh.f1101b = c1107ab.m667b(str, "directDamage", Integer.valueOf(c0410bh.f1101b)).intValue();
+        c0410bh.f1102c = c1107ab.m667b(str, "areaDamage", Integer.valueOf(c0410bh.f1102c)).intValue();
+        c0410bh.f1103d = c1107ab.m685a(str, "interceptProjectile_removeTargetLifeOnly", Boolean.valueOf(c0410bh.f1103d)).booleanValue();
+        c0410bh.f1106g = c1107ab.m685a(str, "areaDamageNoFalloff", Boolean.valueOf(c0410bh.f1106g)).booleanValue();
+        c0410bh.f1109j = c1107ab.m683a(str, "areaIgnoreUnitsCloserThan", Float.valueOf(c0410bh.f1109j)).floatValue();
+        c0410bh.f1107h = c1107ab.m685a(str, "areaRadiusFromEdge", Boolean.valueOf(c0410bh.f1107h)).booleanValue();
+        if ("only-ignoreEnemy".equalsIgnoreCase(c1107ab.m666b(str, "friendlyFire", (String) null))) {
+            c0410bh.f1111l = true;
         } else {
-            Boolean a2 = abVar.a(str, "friendlyFire", (Boolean) null);
-            if (a2 != null) {
-                bhVar.l = false;
-                bhVar.k = a2.booleanValue();
+            Boolean m685a = c1107ab.m685a(str, "friendlyFire", (Boolean) null);
+            if (m685a != null) {
+                c0410bh.f1111l = false;
+                c0410bh.f1110k = m685a.booleanValue();
             }
         }
-        bhVar.m = abVar.a(str, "areaHitAirAndLandAtSameTime", Boolean.valueOf(bhVar.m)).booleanValue();
-        bhVar.n = abVar.a(str, "areaHitUnderwaterAlways", Boolean.valueOf(bhVar.n)).booleanValue();
-        bhVar.o = abVar.a(str, "deflectionPower", Float.valueOf(bhVar.o)).floatValue();
-        bhVar.p = abVar.a(str, "nukeWeapon", Boolean.valueOf(bhVar.p)).booleanValue();
-        bhVar.q = abVar.a(str, "shouldRevealFog", Boolean.valueOf(bhVar.q)).booleanValue();
-        bhVar.r = abVar.a(str, "alwaysVisibleInFog", Boolean.valueOf(bhVar.r)).booleanValue();
-        bhVar.v = abVar.h(str, "life").floatValue();
-        bhVar.u = abVar.b(str, "delayedStartTimer", Float.valueOf(0.0f)).floatValue();
-        bhVar.w = abVar.a(str, "speed", Float.valueOf(bhVar.w)).floatValue();
-        bhVar.x = abVar.a(str, "frame", Short.valueOf(bhVar.x)).shortValue();
-        bhVar.y = abVar.a(str, "drawType", Short.valueOf(bhVar.y)).shortValue();
-        bhVar.z = abVar.a(str, "shadowFrame", Short.valueOf(bhVar.z)).shortValue();
-        com.corrodinggames.rts.gameFramework.m.e a3 = lVar.a(abVar, str, "image");
-        if (a3 != null) {
-            bhVar.B = a3;
+        c0410bh.f1112m = c1107ab.m685a(str, "areaHitAirAndLandAtSameTime", Boolean.valueOf(c0410bh.f1112m)).booleanValue();
+        c0410bh.f1113n = c1107ab.m685a(str, "areaHitUnderwaterAlways", Boolean.valueOf(c0410bh.f1113n)).booleanValue();
+        c0410bh.f1114o = c1107ab.m683a(str, "deflectionPower", Float.valueOf(c0410bh.f1114o)).floatValue();
+        c0410bh.f1115p = c1107ab.m685a(str, "nukeWeapon", Boolean.valueOf(c0410bh.f1115p)).booleanValue();
+        c0410bh.f1116q = c1107ab.m685a(str, "shouldRevealFog", Boolean.valueOf(c0410bh.f1116q)).booleanValue();
+        c0410bh.f1117r = c1107ab.m685a(str, "alwaysVisibleInFog", Boolean.valueOf(c0410bh.f1117r)).booleanValue();
+        c0410bh.f1121v = c1107ab.m645h(str, "life").floatValue();
+        c0410bh.f1120u = c1107ab.m668b(str, "delayedStartTimer", Float.valueOf(0.0f)).floatValue();
+        c0410bh.f1122w = c1107ab.m683a(str, "speed", Float.valueOf(c0410bh.f1122w)).floatValue();
+        c0410bh.f1123x = c1107ab.m680a(str, "frame", Short.valueOf(c0410bh.f1123x)).shortValue();
+        c0410bh.f1124y = c1107ab.m680a(str, "drawType", Short.valueOf(c0410bh.f1124y)).shortValue();
+        c0410bh.f1125z = c1107ab.m680a(str, "shadowFrame", Short.valueOf(c0410bh.f1125z)).shortValue();
+        C0970e m3547a = c0458l.m3547a(c1107ab, str, "image");
+        if (m3547a != null) {
+            c0410bh.f1127B = m3547a;
         }
-        com.corrodinggames.rts.gameFramework.m.e a4 = lVar.a(abVar, str, "shadowImage");
-        if (a4 != null) {
-            bhVar.C = a4;
+        C0970e m3547a2 = c0458l.m3547a(c1107ab, str, "shadowImage");
+        if (m3547a2 != null) {
+            c0410bh.f1128C = m3547a2;
         }
-        bhVar.ad = abVar.a(str, "beamImageOffsetRate", Float.valueOf(bhVar.ad)).floatValue();
-        com.corrodinggames.rts.gameFramework.m.e a5 = lVar.a(abVar, str, "beamImage");
-        if (a5 != null) {
-            bhVar.Y = a5;
-            bhVar.X = true;
-            if (a5.q < 20 && !GameEngine.ax()) {
+        c0410bh.f1155ad = c1107ab.m683a(str, "beamImageOffsetRate", Float.valueOf(c0410bh.f1155ad)).floatValue();
+        C0970e m3547a3 = c0458l.m3547a(c1107ab, str, "beamImage");
+        if (m3547a3 != null) {
+            c0410bh.f1150Y = m3547a3;
+            c0410bh.f1149X = true;
+            if (m3547a3.f6623q < 20 && !GameEngine.m1026ax()) {
                 throw new RuntimeException("beamImage height must currently be 20 pixels or greater (performance when tiling)");
             }
         }
-        com.corrodinggames.rts.gameFramework.m.e a6 = lVar.a(abVar, str, "beamImageStart");
-        if (a6 != null) {
-            bhVar.Z = a6;
-            if (a5 == null) {
+        C0970e m3547a4 = c0458l.m3547a(c1107ab, str, "beamImageStart");
+        if (m3547a4 != null) {
+            c0410bh.f1151Z = m3547a4;
+            if (m3547a3 == null) {
                 throw new RuntimeException("beamImageStart requires beamImage to be set");
             }
         }
-        bhVar.aa = abVar.a(str, "beamImageStartRotated", (Boolean) false).booleanValue();
-        com.corrodinggames.rts.gameFramework.m.e a7 = lVar.a(abVar, str, "beamImageEnd");
-        if (a7 != null) {
-            bhVar.ab = a7;
-            if (a5 == null) {
+        c0410bh.f1152aa = c1107ab.m685a(str, "beamImageStartRotated", (Boolean) false).booleanValue();
+        C0970e m3547a5 = c0458l.m3547a(c1107ab, str, "beamImageEnd");
+        if (m3547a5 != null) {
+            c0410bh.f1153ab = m3547a5;
+            if (m3547a3 == null) {
                 throw new RuntimeException("beamImageEnd requires beamImage to be set");
             }
         }
-        bhVar.ac = abVar.a(str, "beamImageEndRotated", (Boolean) false).booleanValue();
-        bhVar.A = abVar.a(str, "invisible", Boolean.valueOf(bhVar.A)).booleanValue();
-        bhVar.D = abVar.a(str, "initialUnguidedSpeedHeight", Float.valueOf(bhVar.D)).floatValue();
-        bhVar.E = abVar.a(str, "initialUnguidedSpeedX", Float.valueOf(bhVar.E)).floatValue();
-        bhVar.F = abVar.a(str, "initialUnguidedSpeedY", Float.valueOf(bhVar.F)).floatValue();
-        bhVar.G = abVar.a(str, "gravity", Float.valueOf(bhVar.G)).floatValue();
-        bhVar.H = abVar.a(str, "trueGravity", Float.valueOf(bhVar.H)).floatValue();
-        bhVar.I = abVar.a(str, "instant", Boolean.valueOf(bhVar.I)).booleanValue();
-        bhVar.L = abVar.a(str, "instantReuseLast", Boolean.valueOf(bhVar.L)).booleanValue();
-        bhVar.M = abVar.a(str, "instantReuseLast_alsoChangeTurretAim", Boolean.valueOf(bhVar.M)).booleanValue();
-        if (bhVar.M) {
-            if (!bhVar.L) {
+        c0410bh.f1154ac = c1107ab.m685a(str, "beamImageEndRotated", (Boolean) false).booleanValue();
+        c0410bh.f1126A = c1107ab.m685a(str, "invisible", Boolean.valueOf(c0410bh.f1126A)).booleanValue();
+        c0410bh.f1129D = c1107ab.m683a(str, "initialUnguidedSpeedHeight", Float.valueOf(c0410bh.f1129D)).floatValue();
+        c0410bh.f1130E = c1107ab.m683a(str, "initialUnguidedSpeedX", Float.valueOf(c0410bh.f1130E)).floatValue();
+        c0410bh.f1131F = c1107ab.m683a(str, "initialUnguidedSpeedY", Float.valueOf(c0410bh.f1131F)).floatValue();
+        c0410bh.f1132G = c1107ab.m683a(str, "gravity", Float.valueOf(c0410bh.f1132G)).floatValue();
+        c0410bh.f1133H = c1107ab.m683a(str, "trueGravity", Float.valueOf(c0410bh.f1133H)).floatValue();
+        c0410bh.f1134I = c1107ab.m685a(str, "instant", Boolean.valueOf(c0410bh.f1134I)).booleanValue();
+        c0410bh.f1137L = c1107ab.m685a(str, "instantReuseLast", Boolean.valueOf(c0410bh.f1137L)).booleanValue();
+        c0410bh.f1138M = c1107ab.m685a(str, "instantReuseLast_alsoChangeTurretAim", Boolean.valueOf(c0410bh.f1138M)).booleanValue();
+        if (c0410bh.f1138M) {
+            if (!c0410bh.f1137L) {
                 throw new RuntimeException("[" + str + "]instantReuseLast_alsoChangeTurretAim also requires instantReuseLast");
             }
-            lVar.eA = true;
+            c0458l.f3219eA = true;
         }
-        bhVar.N = abVar.a(str, "instantReuseLast_keepAreaDamageList", Boolean.valueOf(bhVar.N)).booleanValue();
-        bhVar.T = abVar.a(str, "moveWithParent", Boolean.valueOf(bhVar.T)).booleanValue();
-        bhVar.J = abVar.a(str, "disableLeadTargeting", Boolean.valueOf(bhVar.J)).booleanValue();
-        bhVar.K = abVar.a(str, "leadTargetingSpeedCalculation", Float.valueOf(bhVar.K)).floatValue();
-        bhVar.ae = abVar.a(str, "ballistic", Boolean.valueOf(bhVar.ae)).booleanValue();
-        String b4 = abVar.b(str, "trailEffect", (String) null);
-        if (b4 != null) {
-            if (b4.equalsIgnoreCase("true")) {
-                bhVar.af = true;
-            } else if (b4.equalsIgnoreCase("false")) {
-                bhVar.af = false;
+        c0410bh.f1139N = c1107ab.m685a(str, "instantReuseLast_keepAreaDamageList", Boolean.valueOf(c0410bh.f1139N)).booleanValue();
+        c0410bh.f1145T = c1107ab.m685a(str, "moveWithParent", Boolean.valueOf(c0410bh.f1145T)).booleanValue();
+        c0410bh.f1135J = c1107ab.m685a(str, "disableLeadTargeting", Boolean.valueOf(c0410bh.f1135J)).booleanValue();
+        c0410bh.f1136K = c1107ab.m683a(str, "leadTargetingSpeedCalculation", Float.valueOf(c0410bh.f1136K)).floatValue();
+        c0410bh.f1156ae = c1107ab.m685a(str, "ballistic", Boolean.valueOf(c0410bh.f1156ae)).booleanValue();
+        String m666b = c1107ab.m666b(str, "trailEffect", (String) null);
+        if (m666b != null) {
+            if (m666b.equalsIgnoreCase("true")) {
+                c0410bh.f1157af = true;
+            } else if (m666b.equalsIgnoreCase("false")) {
+                c0410bh.f1157af = false;
             } else {
-                bhVar.af = false;
-                bhVar.ah = lVar.a(b4, (z) null);
+                c0410bh.f1157af = false;
+                c0410bh.f1159ah = c0458l.m3542a(m666b, (C0473z) null);
             }
         }
-        String b5 = abVar.b(str, "effectOnCreate", (String) null);
-        if (b5 != null) {
-            bhVar.ai = lVar.a(b5, (z) null);
+        String m666b2 = c1107ab.m666b(str, "effectOnCreate", (String) null);
+        if (m666b2 != null) {
+            c0410bh.f1160ai = c0458l.m3542a(m666b2, (C0473z) null);
         }
-        bhVar.ag = abVar.a(str, "trailEffectRate", Float.valueOf(bhVar.ag)).floatValue();
-        if (bhVar.af) {
-            bhVar.ao = -1118720;
+        c0410bh.f1158ag = c1107ab.m683a(str, "trailEffectRate", Float.valueOf(c0410bh.f1158ag)).floatValue();
+        if (c0410bh.f1157af) {
+            c0410bh.f1166ao = -1118720;
         }
-        bhVar.am = abVar.a(str, "wobbleAmplitude", Float.valueOf(bhVar.am)).floatValue();
-        bhVar.an = abVar.b(str, "wobbleFrequency", Float.valueOf(bhVar.an)).floatValue();
-        if (bhVar.an <= 0.0f) {
+        c0410bh.f1164am = c1107ab.m683a(str, "wobbleAmplitude", Float.valueOf(c0410bh.f1164am)).floatValue();
+        c0410bh.f1165an = c1107ab.m668b(str, "wobbleFrequency", Float.valueOf(c0410bh.f1165an)).floatValue();
+        if (c0410bh.f1165an <= 0.0f) {
             throw new RuntimeException("wobbleFrequency must be greater than 0");
         }
-        bhVar.ak = bi.a(lVar, abVar, str, "spawnProjectilesOnEndOfLife", (bi) null);
-        bhVar.aj = bi.a(lVar, abVar, str, "spawnProjectilesOnExplode", (bi) null);
-        bhVar.al = bi.a(lVar, abVar, str, "spawnProjectilesOnCreate", (bi) null);
-        bhVar.ao = abVar.a(str, "lightColor", Integer.valueOf(bhVar.ao)).intValue();
-        bhVar.ap = abVar.a(str, "lightSize", Float.valueOf(bhVar.ap)).floatValue();
-        bhVar.aq = abVar.a(str, "lightCastOnGround", Boolean.valueOf(bhVar.aq)).booleanValue();
-        bhVar.ar = abVar.a(str, "largeHitEffect", Boolean.valueOf(bhVar.ar)).booleanValue();
-        bhVar.O = abVar.a(str, "turnSpeed", Float.valueOf(bhVar.O)).floatValue();
-        bhVar.P = abVar.a(str, "turnSpeedWhenNear", Float.valueOf(bhVar.P)).floatValue();
-        bhVar.Q = abVar.a(str, "sweepSpeed", Float.valueOf(bhVar.Q)).floatValue();
-        bhVar.R = abVar.a(str, "sweepOffset", Float.valueOf(bhVar.R)).floatValue();
-        bhVar.S = abVar.a(str, "sweepOffsetFromTargetRadius", Float.valueOf(bhVar.S)).floatValue();
-        bhVar.U = abVar.a(str, "drawUnderUnits", Boolean.valueOf(bhVar.U)).booleanValue();
-        bhVar.V = abVar.a(str, "lightingEffect", Boolean.valueOf(bhVar.V)).booleanValue();
-        bhVar.W = abVar.a(str, "laserEffect", Boolean.valueOf(bhVar.W)).booleanValue();
-        if (bhVar.W && bhVar.Y == null) {
-            bhVar.aE = Color.a(80, 255, 0, 0);
+        c0410bh.f1162ak = C0411bi.m3892a(c0458l, c1107ab, str, "spawnProjectilesOnEndOfLife", (C0411bi) null);
+        c0410bh.f1161aj = C0411bi.m3892a(c0458l, c1107ab, str, "spawnProjectilesOnExplode", (C0411bi) null);
+        c0410bh.f1163al = C0411bi.m3892a(c0458l, c1107ab, str, "spawnProjectilesOnCreate", (C0411bi) null);
+        c0410bh.f1166ao = c1107ab.m681a(str, "lightColor", Integer.valueOf(c0410bh.f1166ao)).intValue();
+        c0410bh.f1167ap = c1107ab.m683a(str, "lightSize", Float.valueOf(c0410bh.f1167ap)).floatValue();
+        c0410bh.f1168aq = c1107ab.m685a(str, "lightCastOnGround", Boolean.valueOf(c0410bh.f1168aq)).booleanValue();
+        c0410bh.f1169ar = c1107ab.m685a(str, "largeHitEffect", Boolean.valueOf(c0410bh.f1169ar)).booleanValue();
+        c0410bh.f1140O = c1107ab.m683a(str, "turnSpeed", Float.valueOf(c0410bh.f1140O)).floatValue();
+        c0410bh.f1141P = c1107ab.m683a(str, "turnSpeedWhenNear", Float.valueOf(c0410bh.f1141P)).floatValue();
+        c0410bh.f1142Q = c1107ab.m683a(str, "sweepSpeed", Float.valueOf(c0410bh.f1142Q)).floatValue();
+        c0410bh.f1143R = c1107ab.m683a(str, "sweepOffset", Float.valueOf(c0410bh.f1143R)).floatValue();
+        c0410bh.f1144S = c1107ab.m683a(str, "sweepOffsetFromTargetRadius", Float.valueOf(c0410bh.f1144S)).floatValue();
+        c0410bh.f1146U = c1107ab.m685a(str, "drawUnderUnits", Boolean.valueOf(c0410bh.f1146U)).booleanValue();
+        c0410bh.f1147V = c1107ab.m685a(str, "lightingEffect", Boolean.valueOf(c0410bh.f1147V)).booleanValue();
+        c0410bh.f1148W = c1107ab.m685a(str, "laserEffect", Boolean.valueOf(c0410bh.f1148W)).booleanValue();
+        if (c0410bh.f1148W && c0410bh.f1150Y == null) {
+            c0410bh.f1182aE = Color.m5237a(80, 255, 0, 0);
         }
-        if (bhVar.V && bhVar.s) {
+        if (c0410bh.f1147V && c0410bh.f1118s) {
             throw new RuntimeException("lightingEffect must be targeted, cannot be targetGround");
         }
-        if (bhVar.W && bhVar.s) {
+        if (c0410bh.f1148W && c0410bh.f1118s) {
             throw new RuntimeException("laserEffect must be targeted, cannot be targetGround");
         }
-        bhVar.as = abVar.a(str, "ballistic_delaymove_height", Float.valueOf(bhVar.as)).floatValue();
-        bhVar.at = abVar.a(str, "ballistic_height", Float.valueOf(bhVar.at)).floatValue();
-        bhVar.au = abVar.a(str, "targetSpeed", Float.valueOf(bhVar.au)).floatValue();
-        bhVar.av = abVar.a(str, "targetSpeedAcceleration", Float.valueOf(bhVar.av)).floatValue();
-        bhVar.aw = abVar.a(str, "autoTargetingOnDeadTarget", Boolean.valueOf(bhVar.aw)).booleanValue();
-        bhVar.ax = abVar.a(str, "autoTargetingOnDeadTargetRange", Float.valueOf(bhVar.ax)).floatValue();
-        bhVar.ay = abVar.a(str, "autoTargetingOnDeadTargetLead", Float.valueOf(bhVar.ay)).floatValue();
-        bhVar.az = abVar.a(str, "retargetingInFlight", Boolean.valueOf(bhVar.az)).booleanValue();
-        bhVar.aA = abVar.a(str, "retargetingInFlightSearchDelay", Float.valueOf(bhVar.aA)).floatValue();
-        bhVar.aB = abVar.a(str, "retargetingInFlightSearchRange", Float.valueOf(bhVar.aB)).floatValue();
-        bhVar.aC = abVar.a(str, "retargetingInFlightSearchLead", Float.valueOf(bhVar.aC)).floatValue();
-        bhVar.aD = abVar.a(lVar, str, "retargetingInFlightSearchOnlyTags", (h) null);
-        if (bhVar.ax > 1500.0f) {
+        c0410bh.f1170as = c1107ab.m683a(str, "ballistic_delaymove_height", Float.valueOf(c0410bh.f1170as)).floatValue();
+        c0410bh.f1171at = c1107ab.m683a(str, "ballistic_height", Float.valueOf(c0410bh.f1171at)).floatValue();
+        c0410bh.f1172au = c1107ab.m683a(str, "targetSpeed", Float.valueOf(c0410bh.f1172au)).floatValue();
+        c0410bh.f1173av = c1107ab.m683a(str, "targetSpeedAcceleration", Float.valueOf(c0410bh.f1173av)).floatValue();
+        c0410bh.f1174aw = c1107ab.m685a(str, "autoTargetingOnDeadTarget", Boolean.valueOf(c0410bh.f1174aw)).booleanValue();
+        c0410bh.f1175ax = c1107ab.m683a(str, "autoTargetingOnDeadTargetRange", Float.valueOf(c0410bh.f1175ax)).floatValue();
+        c0410bh.f1176ay = c1107ab.m683a(str, "autoTargetingOnDeadTargetLead", Float.valueOf(c0410bh.f1176ay)).floatValue();
+        c0410bh.f1177az = c1107ab.m685a(str, "retargetingInFlight", Boolean.valueOf(c0410bh.f1177az)).booleanValue();
+        c0410bh.f1178aA = c1107ab.m683a(str, "retargetingInFlightSearchDelay", Float.valueOf(c0410bh.f1178aA)).floatValue();
+        c0410bh.f1179aB = c1107ab.m683a(str, "retargetingInFlightSearchRange", Float.valueOf(c0410bh.f1179aB)).floatValue();
+        c0410bh.f1180aC = c1107ab.m683a(str, "retargetingInFlightSearchLead", Float.valueOf(c0410bh.f1180aC)).floatValue();
+        c0410bh.f1181aD = c1107ab.m705a(c0458l, str, "retargetingInFlightSearchOnlyTags", (C0454h) null);
+        if (c0410bh.f1175ax > 1500.0f) {
             throw new RuntimeException("for performance autoTargetingOnDeadTargetRange cannot be >1500");
         }
-        if (bhVar.aB > 1500.0f) {
+        if (c0410bh.f1179aB > 1500.0f) {
             throw new RuntimeException("for performance retargetingInFlightSearchRange cannot be >1500");
         }
-        bhVar.aE = abVar.a(str, "color", Integer.valueOf(bhVar.aE)).intValue();
-        bhVar.aG = abVar.a(str, "teamColorRatio", Float.valueOf(bhVar.aG)).floatValue();
-        if (bhVar.aG < 0.0f || bhVar.aG > 1.0f) {
-            throw new RuntimeException("teamColorRatio should be between 0-1 got:" + bhVar.aG);
+        c0410bh.f1182aE = c1107ab.m681a(str, "color", Integer.valueOf(c0410bh.f1182aE)).intValue();
+        c0410bh.f1184aG = c1107ab.m683a(str, "teamColorRatio", Float.valueOf(c0410bh.f1184aG)).floatValue();
+        if (c0410bh.f1184aG < 0.0f || c0410bh.f1184aG > 1.0f) {
+            throw new RuntimeException("teamColorRatio should be between 0-1 got:" + c0410bh.f1184aG);
         }
-        bhVar.aH = abVar.a(str, "teamColorRatio_sourceRatio", Float.valueOf(1.0f - bhVar.aG)).floatValue();
-        if (bhVar.aH < 0.0f || bhVar.aH > 1.0f) {
-            throw new RuntimeException("teamColorRatio_sourceRatio should be between 0-1 got:" + bhVar.aH);
+        c0410bh.f1185aH = c1107ab.m683a(str, "teamColorRatio_sourceRatio", Float.valueOf(1.0f - c0410bh.f1184aG)).floatValue();
+        if (c0410bh.f1185aH < 0.0f || c0410bh.f1185aH > 1.0f) {
+            throw new RuntimeException("teamColorRatio_sourceRatio should be between 0-1 got:" + c0410bh.f1185aH);
         }
-        if (bhVar.aG == 0.0f && bhVar.aH != 1.0f) {
+        if (c0410bh.f1184aG == 0.0f && c0410bh.f1185aH != 1.0f) {
             throw new RuntimeException("teamColorRatio_sourceRatio requires teamColorRatio");
         }
-        bhVar.aF = abVar.a(str, "drawSize", Float.valueOf(bhVar.aF)).floatValue();
-        bhVar.aI = abVar.a(str, "flameWeapon", Boolean.valueOf(bhVar.aI)).booleanValue();
-        bhVar.aJ = abVar.a(str, "hitSound", Boolean.valueOf(bhVar.aJ)).booleanValue();
-        bhVar.aL = abVar.a(str, "targetGroundHeightOffset", Float.valueOf(bhVar.aL)).floatValue();
-        bhVar.aK = abVar.a(str, "targetGroundSpread", Float.valueOf(bhVar.aK)).floatValue();
-        bhVar.aM = abVar.a(str, "speedSpread", Float.valueOf(bhVar.aM)).floatValue();
-        bhVar.aO = abVar.a(str, "explodeOnEndOfLife", Boolean.valueOf(bhVar.aO)).booleanValue();
-        bhVar.aN = abVar.a(str, "ignoreParentShootDamageMultiplier", Boolean.valueOf(bhVar.aN)).booleanValue();
-        bhVar.aP = abVar.a(str, "pushForce", Float.valueOf(bhVar.aP)).floatValue();
-        bhVar.aQ = abVar.a(str, "pushVelocity", Float.valueOf(bhVar.aQ)).floatValue();
-        bhVar.aR = abVar.a(str, "buildingDamageMultiplier", Float.valueOf(bhVar.aR)).floatValue();
-        bhVar.aS = abVar.a(str, "shieldDamageMultiplier", Float.valueOf(bhVar.aS)).floatValue();
-        bhVar.aT = abVar.a(str, "shieldDefectionMultiplier", Float.valueOf(bhVar.aT)).floatValue();
-        bhVar.aU = abVar.a(str, "hullDamageMultiplier", Float.valueOf(bhVar.aU)).floatValue();
-        bhVar.aV = abVar.a(str, "armourIgnoreAmount", Float.valueOf(bhVar.aV)).floatValue();
-        bhVar.aW = abVar.a(str, "areaExpandTime", Float.valueOf(bhVar.aW)).floatValue();
-        String b6 = abVar.b(str, "explodeEffect", (String) null);
-        if (b6 != null) {
-            bhVar.aX = lVar.a(b6, (z) null);
+        c0410bh.f1183aF = c1107ab.m683a(str, "drawSize", Float.valueOf(c0410bh.f1183aF)).floatValue();
+        c0410bh.f1186aI = c1107ab.m685a(str, "flameWeapon", Boolean.valueOf(c0410bh.f1186aI)).booleanValue();
+        c0410bh.f1187aJ = c1107ab.m685a(str, "hitSound", Boolean.valueOf(c0410bh.f1187aJ)).booleanValue();
+        c0410bh.f1189aL = c1107ab.m683a(str, "targetGroundHeightOffset", Float.valueOf(c0410bh.f1189aL)).floatValue();
+        c0410bh.f1188aK = c1107ab.m683a(str, "targetGroundSpread", Float.valueOf(c0410bh.f1188aK)).floatValue();
+        c0410bh.f1190aM = c1107ab.m683a(str, "speedSpread", Float.valueOf(c0410bh.f1190aM)).floatValue();
+        c0410bh.f1192aO = c1107ab.m685a(str, "explodeOnEndOfLife", Boolean.valueOf(c0410bh.f1192aO)).booleanValue();
+        c0410bh.f1191aN = c1107ab.m685a(str, "ignoreParentShootDamageMultiplier", Boolean.valueOf(c0410bh.f1191aN)).booleanValue();
+        c0410bh.f1193aP = c1107ab.m683a(str, "pushForce", Float.valueOf(c0410bh.f1193aP)).floatValue();
+        c0410bh.f1194aQ = c1107ab.m683a(str, "pushVelocity", Float.valueOf(c0410bh.f1194aQ)).floatValue();
+        c0410bh.f1195aR = c1107ab.m683a(str, "buildingDamageMultiplier", Float.valueOf(c0410bh.f1195aR)).floatValue();
+        c0410bh.f1196aS = c1107ab.m683a(str, "shieldDamageMultiplier", Float.valueOf(c0410bh.f1196aS)).floatValue();
+        c0410bh.f1197aT = c1107ab.m683a(str, "shieldDefectionMultiplier", Float.valueOf(c0410bh.f1197aT)).floatValue();
+        c0410bh.f1198aU = c1107ab.m683a(str, "hullDamageMultiplier", Float.valueOf(c0410bh.f1198aU)).floatValue();
+        c0410bh.f1199aV = c1107ab.m683a(str, "armourIgnoreAmount", Float.valueOf(c0410bh.f1199aV)).floatValue();
+        c0410bh.f1200aW = c1107ab.m683a(str, "areaExpandTime", Float.valueOf(c0410bh.f1200aW)).floatValue();
+        String m666b3 = c1107ab.m666b(str, "explodeEffect", (String) null);
+        if (m666b3 != null) {
+            c0410bh.f1201aX = c0458l.m3542a(m666b3, (C0473z) null);
         }
-        String b7 = abVar.b(str, "explodeEffectOnShield", (String) null);
-        if (b7 != null) {
-            bhVar.aY = lVar.a(b7, (z) null);
+        String m666b4 = c1107ab.m666b(str, "explodeEffectOnShield", (String) null);
+        if (m666b4 != null) {
+            c0410bh.f1202aY = c0458l.m3542a(m666b4, (C0473z) null);
         }
-        bp a8 = bp.a(lVar, abVar, str, "spawnUnit");
-        if (a8 != null && !a8.b()) {
-            bhVar.aZ = a8;
+        C0418bp m3877a = C0418bp.m3877a(c0458l, c1107ab, str, "spawnUnit");
+        if (m3877a != null && !m3877a.m3872b()) {
+            c0410bh.f1203aZ = m3877a;
         }
-        bhVar.ba = abVar.b(str, "unloadUpToXUnitsFromSource", Integer.valueOf(bhVar.ba)).intValue();
-        bhVar.bb = abVar.a(str, "teleportSource", Boolean.valueOf(bhVar.bb)).booleanValue();
-        bhVar.bc = abVar.a(str, "convertHitToSourceTeam", Boolean.valueOf(bhVar.bc)).booleanValue();
-        bhVar.bd = g.a(abVar.b(str, "tags", (String) null));
-        com.corrodinggames.rts.gameFramework.utility.m k = abVar.k(str, "mutator");
-        com.corrodinggames.rts.gameFramework.utility.m mVar = new com.corrodinggames.rts.gameFramework.utility.m();
-        Iterator it = k.iterator();
+        c0410bh.f1204ba = c1107ab.m667b(str, "unloadUpToXUnitsFromSource", Integer.valueOf(c0410bh.f1204ba)).intValue();
+        c0410bh.f1205bb = c1107ab.m685a(str, "teleportSource", Boolean.valueOf(c0410bh.f1205bb)).booleanValue();
+        c0410bh.f1206bc = c1107ab.m685a(str, "convertHitToSourceTeam", Boolean.valueOf(c0410bh.f1206bc)).booleanValue();
+        c0410bh.f1207bd = C0453g.m3681a(c1107ab.m666b(str, "tags", (String) null));
+        C1136m m639k = c1107ab.m639k(str, "mutator");
+        C1136m c1136m = new C1136m();
+        Iterator it = m639k.iterator();
         while (it.hasNext()) {
             String[] split = ((String) it.next()).split("_");
             if (split.length > 1) {
                 String str2 = split[0];
                 String str3 = str2 + "_";
-                if (!mVar.contains(str3) && str2.length() > "mutator".length()) {
-                    mVar.add(str3);
+                if (!c1136m.contains(str3) && str2.length() > "mutator".length()) {
+                    c1136m.add(str3);
                 }
             }
         }
-        Iterator it2 = mVar.iterator();
+        Iterator it2 = c1136m.iterator();
         while (it2.hasNext()) {
             String str4 = (String) it2.next();
-            com.corrodinggames.rts.game.h hVar = new com.corrodinggames.rts.game.h();
-            hVar.f159a = g.a(abVar.b(str, str4 + "ifUnitWithTags", (String) null));
-            hVar.b = g.a(abVar.b(str, str4 + "ifUnitWithoutTags", (String) null));
-            if (hVar.f159a == null && hVar.b == null) {
+            C0190h c0190h = new C0190h();
+            c0190h.f1211a = C0453g.m3681a(c1107ab.m666b(str, str4 + "ifUnitWithTags", (String) null));
+            c0190h.f1212b = C0453g.m3681a(c1107ab.m666b(str, str4 + "ifUnitWithoutTags", (String) null));
+            if (c0190h.f1211a == null && c0190h.f1212b == null) {
                 throw new RuntimeException("[" + str + "]" + str4 + " requires: unitWithTags and/or unitWithoutTags");
             }
-            hVar.c = abVar.a(str, str4 + "directDamageMultiplier", Float.valueOf(1.0f)).floatValue();
-            hVar.d = abVar.a(str, str4 + "areaDamageMultiplier", Float.valueOf(1.0f)).floatValue();
-            com.corrodinggames.rts.game.units.custom.d.b a9 = com.corrodinggames.rts.game.units.custom.d.b.a(lVar, abVar, str, str4 + "addResourcesDirectHit", true);
-            if (a9 != null && a9.d()) {
-                hVar.e = a9;
-                if (bhVar.s) {
+            c0190h.f1213c = c1107ab.m683a(str, str4 + "directDamageMultiplier", Float.valueOf(1.0f)).floatValue();
+            c0190h.f1214d = c1107ab.m683a(str, str4 + "areaDamageMultiplier", Float.valueOf(1.0f)).floatValue();
+            C0429b m3840a = C0429b.m3840a(c0458l, c1107ab, str, str4 + "addResourcesDirectHit", true);
+            if (m3840a != null && m3840a.m3817d()) {
+                c0190h.f1215e = m3840a;
+                if (c0410bh.f1118s) {
                     throw new RuntimeException("[" + str + "]" + str4 + "addResourcesDirectHit doesn't work with targetGround, as it will never get direct hits (use addResourcesAreaHit)");
                 }
             }
-            com.corrodinggames.rts.game.units.custom.d.b a10 = com.corrodinggames.rts.game.units.custom.d.b.a(lVar, abVar, str, str4 + "addResourcesAreaHit", true);
-            if (a10 != null && a10.d()) {
-                hVar.f = a10;
-                if (b3 == null) {
+            C0429b m3840a2 = C0429b.m3840a(c0458l, c1107ab, str, str4 + "addResourcesAreaHit", true);
+            if (m3840a2 != null && m3840a2.m3817d()) {
+                c0190h.f1216f = m3840a2;
+                if (m667b3 == null) {
                     throw new RuntimeException("[" + str + "]" + str4 + "addResourcesAreaHit requires areaRadius to be set");
                 }
             }
-            String b8 = abVar.b(str, str4 + "changedExplodeEffect", (String) null);
-            if (b8 != null) {
-                hVar.g = lVar.a(b8, (z) null);
-                if (hVar.g != null && !hVar.g.a()) {
-                    hVar.g = null;
+            String m666b5 = c1107ab.m666b(str, str4 + "changedExplodeEffect", (String) null);
+            if (m666b5 != null) {
+                c0190h.f1217g = c0458l.m3542a(m666b5, (C0473z) null);
+                if (c0190h.f1217g != null && !c0190h.f1217g.m3466a()) {
+                    c0190h.f1217g = null;
                 }
             }
             boolean z = false;
             boolean z2 = false;
-            if (!com.corrodinggames.rts.gameFramework.f.k(hVar.c, 1.0f)) {
+            if (!C0773f.m2106k(c0190h.f1213c, 1.0f)) {
                 z = true;
             }
-            if (!com.corrodinggames.rts.gameFramework.f.k(hVar.d, 1.0f) && bhVar.c != 0 && bhVar.i > 0) {
+            if (!C0773f.m2106k(c0190h.f1214d, 1.0f) && c0410bh.f1102c != 0 && c0410bh.f1108i > 0) {
                 z2 = true;
             }
-            if (hVar.e != null) {
+            if (c0190h.f1215e != null) {
                 z = true;
             }
-            if (hVar.f != null) {
+            if (c0190h.f1216f != null) {
                 z2 = true;
             }
             if (z) {
-                if (bhVar.be == null) {
-                    bhVar.be = new com.corrodinggames.rts.gameFramework.utility.m();
+                if (c0410bh.f1208be == null) {
+                    c0410bh.f1208be = new C1136m();
                 }
-                bhVar.be.add(hVar);
+                c0410bh.f1208be.add(c0190h);
             }
             if (z2) {
-                if (bhVar.bf == null) {
-                    bhVar.bf = new com.corrodinggames.rts.gameFramework.utility.m();
+                if (c0410bh.f1209bf == null) {
+                    c0410bh.f1209bf = new C1136m();
                 }
-                bhVar.e = true;
-                bhVar.bf.add(hVar);
+                c0410bh.f1104e = true;
+                c0410bh.f1209bf.add(c0190h);
             }
-            if (hVar.g != null) {
-                if (bhVar.bg == null) {
-                    bhVar.bg = new com.corrodinggames.rts.gameFramework.utility.m();
+            if (c0190h.f1217g != null) {
+                if (c0410bh.f1210bg == null) {
+                    c0410bh.f1210bg = new C1136m();
                 }
-                bhVar.bg.add(hVar);
+                c0410bh.f1210bg.add(c0190h);
             }
         }
-        if (bhVar.c != 0 && bhVar.i > 0) {
-            bhVar.e = true;
+        if (c0410bh.f1102c != 0 && c0410bh.f1108i > 0) {
+            c0410bh.f1104e = true;
         }
-        if ((bhVar.aP != 0.0f || bhVar.aQ != 0.0f) && bhVar.i > 0) {
-            bhVar.e = true;
+        if ((c0410bh.f1193aP != 0.0f || c0410bh.f1194aQ != 0.0f) && c0410bh.f1108i > 0) {
+            c0410bh.f1104e = true;
         }
-        bhVar.f = !bhVar.e;
-        lVar.fT.add(bhVar);
+        c0410bh.f1105f = !c0410bh.f1104e;
+        c0458l.f3290fT.add(c0410bh);
     }
 
-    public static void a(bh bhVar, GameOutputStream gameOutputStream) {
-        gameOutputStream.a(bhVar.bj);
-        gameOutputStream.writeString(bhVar.bh);
+    /* renamed from: a */
+    public static void m3897a(C0410bh c0410bh, GameOutputStream gameOutputStream) {
+        gameOutputStream.mo1386a(c0410bh.f2540bj);
+        gameOutputStream.writeString(c0410bh.f2538bh);
     }
 
-    public static com.corrodinggames.rts.game.g b(GameInputStream gameInputStream) {
-        com.corrodinggames.rts.game.units.as q = gameInputStream.q();
+    /* renamed from: b */
+    public static C0189g m3896b(GameInputStream gameInputStream) {
+        InterfaceC0303as m1291q = gameInputStream.m1291q();
         String readString = gameInputStream.readString();
-        if (q == null) {
+        if (m1291q == null) {
             return null;
         }
-        if (!(q instanceof l)) {
-            GameEngine.print("ProjectileTemplate:readInLinkCustom: Got non CustomUnitMetadata object of:" + q.i() + " loading real_meta");
+        if (!(m1291q instanceof C0458l)) {
+            GameEngine.print("ProjectileTemplate:readInLinkCustom: Got non CustomUnitMetadata object of:" + m1291q.mo3513i() + " loading real_meta");
             return null;
         }
-        bh f = ((l) q).f(readString);
-        if (f == null) {
+        C0410bh m3518f = ((C0458l) m1291q).m3518f(readString);
+        if (m3518f == null) {
             GameEngine.print("ProjectileTemplate:readInLinkCustom: Could not find projectile with name:" + readString);
             return null;
         }
-        return f;
+        return m3518f;
     }
 
-    public void a(com.corrodinggames.rts.game.units.am amVar, com.corrodinggames.rts.game.f fVar, com.corrodinggames.rts.game.units.am amVar2, float f, float f2, float f3) {
-        if (amVar2 == null) {
-            fVar.aC = true;
-            fVar.n = f;
-            fVar.o = f2;
-            if (this.aK != 0.0f) {
-                fVar.n += com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) amVar, (int) ((-this.aK) * 100.0f), (int) (this.aK * 100.0f), 2) / 100.0f;
-                amVar.bC = (int) (amVar.bC + fVar.n);
-                fVar.o += com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) amVar, (int) ((-this.aK) * 100.0f), (int) (this.aK * 100.0f), 3) / 100.0f;
-                amVar.bC = (int) (amVar.bC + fVar.o);
+    /* renamed from: a */
+    public void m3899a(AbstractC0244am abstractC0244am, C0188f c0188f, AbstractC0244am abstractC0244am2, float f, float f2, float f3) {
+        if (abstractC0244am2 == null) {
+            c0188f.f1063aC = true;
+            c0188f.f996n = f;
+            c0188f.f997o = f2;
+            if (this.f1188aK != 0.0f) {
+                c0188f.f996n += C0773f.m2195a((AbstractC1155w) abstractC0244am, (int) ((-this.f1188aK) * 100.0f), (int) (this.f1188aK * 100.0f), 2) / 100.0f;
+                abstractC0244am.f1592bC = (int) (abstractC0244am.f1592bC + c0188f.f996n);
+                c0188f.f997o += C0773f.m2195a((AbstractC1155w) abstractC0244am, (int) ((-this.f1188aK) * 100.0f), (int) (this.f1188aK * 100.0f), 3) / 100.0f;
+                abstractC0244am.f1592bC = (int) (abstractC0244am.f1592bC + c0188f.f997o);
             }
-            fVar.p = 0.0f;
-            fVar.p += this.aL;
-        } else if (fVar.m) {
-            fVar.aC = true;
-            if (!this.J) {
-                float f4 = fVar.t;
-                if (this.au != -1.0f) {
-                    f4 = this.au;
+            c0188f.f998p = 0.0f;
+            c0188f.f998p += this.f1189aL;
+        } else if (c0188f.f995m) {
+            c0188f.f1063aC = true;
+            if (!this.f1135J) {
+                float f4 = c0188f.f1002t;
+                if (this.f1172au != -1.0f) {
+                    f4 = this.f1172au;
                 }
-                if (this.K >= 0.0f) {
-                    f4 = this.K;
+                if (this.f1136K >= 0.0f) {
+                    f4 = this.f1136K;
                 }
-                PointF a2 = amVar2.a(fVar.eo, fVar.ep, f4, fVar.h, f3);
-                fVar.n = a2.x;
-                fVar.o = a2.y;
+                PointF m4252a = abstractC0244am2.m4252a(c0188f.f7173eo, c0188f.f7174ep, f4, c0188f.f990h, f3);
+                c0188f.f996n = m4252a.x;
+                c0188f.f997o = m4252a.y;
             } else {
-                fVar.n = amVar2.eo;
-                fVar.o = amVar2.ep;
+                c0188f.f996n = abstractC0244am2.f7173eo;
+                c0188f.f997o = abstractC0244am2.f7174ep;
             }
-            if (this.t) {
-                fVar.p = amVar2.eq;
+            if (this.f1119t) {
+                c0188f.f998p = abstractC0244am2.f7175eq;
             } else {
-                fVar.p = 0.0f;
+                c0188f.f998p = 0.0f;
             }
-            fVar.p += this.aL;
-            if (this.aK != 0.0f) {
-                fVar.n += com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) amVar, (int) ((-this.aK) * 100.0f), (int) (this.aK * 100.0f), 2) / 100.0f;
-                fVar.o += com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) amVar, (int) ((-this.aK) * 100.0f), (int) (this.aK * 100.0f), 7) / 100.0f;
+            c0188f.f998p += this.f1189aL;
+            if (this.f1188aK != 0.0f) {
+                c0188f.f996n += C0773f.m2195a((AbstractC1155w) abstractC0244am, (int) ((-this.f1188aK) * 100.0f), (int) (this.f1188aK * 100.0f), 2) / 100.0f;
+                c0188f.f997o += C0773f.m2195a((AbstractC1155w) abstractC0244am, (int) ((-this.f1188aK) * 100.0f), (int) (this.f1188aK * 100.0f), 7) / 100.0f;
             }
         } else {
-            fVar.l = amVar2;
+            c0188f.f994l = abstractC0244am2;
         }
     }
 }

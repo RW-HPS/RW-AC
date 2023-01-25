@@ -1,19 +1,21 @@
 package com.corrodinggames.rts.gameFramework.status;
 
-import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.corrodinggames.rts.gameFramework.n.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/k.class */
-public class k {
+class C1090k {
 
     /* renamed from: a */
-    as f655a;
-    float b = 1.0f;
-    final /* synthetic */ f c;
+    InterfaceC0303as f6936a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(f fVar) {
-        this.c = fVar;
+    /* renamed from: b */
+    float f6937b = 1.0f;
+
+    /* renamed from: c */
+    final /* synthetic */ C1085f f6938c;
+
+    C1090k(C1085f c1085f) {
+        this.f6938c = c1085f;
     }
 }

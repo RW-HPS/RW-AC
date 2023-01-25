@@ -2,13 +2,17 @@ package com.corrodinggames.rts.gameFramework.net;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.ay */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/ay.class */
-public class ay extends Packet {
-    public Packet f;
-    public int g;
+public class C0901ay extends Packet {
 
-    public ay(int i, Packet packet) {
+    /* renamed from: f */
+    public Packet f5972f;
+
+    /* renamed from: g */
+    public int f5973g;
+
+    public C0901ay(int i, Packet packet) {
         super(175);
-        this.g = i;
-        this.f = packet;
+        this.f5973g = i;
+        this.f5972f = packet;
     }
 }

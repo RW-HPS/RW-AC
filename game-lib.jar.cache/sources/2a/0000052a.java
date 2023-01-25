@@ -8,38 +8,48 @@ import java.io.PrintStream;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.ax */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/ax.class */
-public class ax {
+public class C0900ax {
 
-    /* renamed from: a  reason: collision with root package name */
-    public BufferedOutputStream f575a;
-    public String b;
-    public PrintStream d;
-    public boolean e = false;
-    public ByteArrayOutputStream c = new ByteArrayOutputStream();
+    /* renamed from: a */
+    public BufferedOutputStream f5967a;
 
-    public void a() {
-        this.d.flush();
-        if (this.f575a != null) {
-            this.f575a.flush();
+    /* renamed from: b */
+    public String f5968b;
+
+    /* renamed from: d */
+    public PrintStream f5969d;
+
+    /* renamed from: e */
+    public boolean f5970e = false;
+
+    /* renamed from: c */
+    public ByteArrayOutputStream f5971c = new ByteArrayOutputStream();
+
+    /* renamed from: a */
+    public void m1364a() {
+        this.f5969d.flush();
+        if (this.f5967a != null) {
+            this.f5967a.flush();
         }
     }
 
-    public void b() {
-        if (!this.e) {
-            this.d.close();
+    /* renamed from: b */
+    public void m1363b() {
+        if (!this.f5970e) {
+            this.f5969d.close();
         } else {
-            GameEngine.g("TODO: Cannot yet close wrapped stream");
+            GameEngine.m990g("TODO: Cannot yet close wrapped stream");
         }
     }
 
-    public ax(boolean z) {
+    public C0900ax(boolean z) {
         OutputStream outputStream;
         if (z) {
-            this.f575a = new BufferedOutputStream(this.c);
-            outputStream = this.f575a;
+            this.f5967a = new BufferedOutputStream(this.f5971c);
+            outputStream = this.f5967a;
         } else {
-            outputStream = this.c;
+            outputStream = this.f5971c;
         }
-        this.d = new PrintStream(outputStream);
+        this.f5969d = new PrintStream(outputStream);
     }
 }

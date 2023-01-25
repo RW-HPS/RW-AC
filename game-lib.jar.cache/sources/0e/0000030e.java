@@ -1,16 +1,16 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.custom.C0458l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.CompareJoinerBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference;
-import com.corrodinggames.rts.game.units.y;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
-import com.corrodinggames.rts.gameFramework.utility.al;
-import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.utility.C1118al;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -45,7 +45,7 @@ public class LogicBooleanLoader {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanLoader$LogicBooleanContext.class */
     public interface LogicBooleanContext {
-        LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean);
+        LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean);
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanLoader$ParameterMapping.class */
@@ -127,24 +127,24 @@ public class LogicBooleanLoader {
         return true;
     }
 
-    public static LogicBoolean parseNumberBlock(l lVar, String str) {
-        LogicBoolean parseBooleanBlock = parseBooleanBlock(lVar, str, false);
+    public static LogicBoolean parseNumberBlock(C0458l c0458l, String str) {
+        LogicBoolean parseBooleanBlock = parseBooleanBlock(c0458l, str, false);
         if (parseBooleanBlock != null && parseBooleanBlock.getReturnType() != LogicBoolean.ReturnType.number) {
             throw new RuntimeException("Expected number for: '" + str + "' got a " + parseBooleanBlock.getReturnType() + " type");
         }
         return parseBooleanBlock;
     }
 
-    public static LogicBoolean parseBooleanBlock(l lVar, String str, boolean z) {
+    public static LogicBoolean parseBooleanBlock(C0458l c0458l, String str, boolean z) {
         String str2;
-        int b;
-        ArrayList a2;
-        int a3 = al.a(str);
-        if (a3 != 0) {
-            if (a3 > 0) {
+        int m575b;
+        ArrayList m581a;
+        int m590a = C1118al.m590a(str);
+        if (m590a != 0) {
+            if (m590a > 0) {
                 throw new RuntimeException("Brackets unbalanced for: '" + str + "'. A '(' was not closed.");
             }
-            if (a3 < 0) {
+            if (m590a < 0) {
                 throw new RuntimeException("Brackets unbalanced for: '" + str + "'. Too many ')'.");
             }
         }
@@ -167,7 +167,7 @@ public class LogicBooleanLoader {
         int length = strArr2.length;
         for (int i2 = 0; i2 < length; i2++) {
             String str3 = strArr2[i2];
-            if (f.c(lowerCase, str3)) {
+            if (C0773f.m2143c(lowerCase, str3)) {
                 boolean z3 = false;
                 boolean z4 = false;
                 if (str3.equals("and") || str3.equals("or")) {
@@ -175,41 +175,41 @@ public class LogicBooleanLoader {
                     z4 = true;
                 }
                 if (str3.equals("<>")) {
-                    int a4 = al.a(breakOuterLayerBrackets, 0, strArr);
-                    a2 = new ArrayList();
-                    a2.add(breakOuterLayerBrackets.substring(0, a4));
-                    int i3 = a4 + 2;
+                    int m587a = C1118al.m587a(breakOuterLayerBrackets, 0, strArr);
+                    m581a = new ArrayList();
+                    m581a.add(breakOuterLayerBrackets.substring(0, m587a));
+                    int i3 = m587a + 2;
                     if (i3 > breakOuterLayerBrackets.length() - 1) {
                         i3 = breakOuterLayerBrackets.length() - 1;
                     }
-                    String substring = breakOuterLayerBrackets.substring(a4, i3);
+                    String substring = breakOuterLayerBrackets.substring(m587a, i3);
                     if (!substring.endsWith("=")) {
                         substring = substring.substring(0, 1);
                     }
-                    a2.add(breakOuterLayerBrackets.substring(a4 + substring.length()));
+                    m581a.add(breakOuterLayerBrackets.substring(m587a + substring.length()));
                     str3 = substring;
                 } else if (z4) {
-                    a2 = al.a(breakOuterLayerBrackets, str3, z3, true);
+                    m581a = C1118al.m581a(breakOuterLayerBrackets, str3, z3, true);
                 } else {
-                    a2 = al.a(breakOuterLayerBrackets, str3, z3, false);
+                    m581a = C1118al.m581a(breakOuterLayerBrackets, str3, z3, false);
                 }
-                if (a2.size() == 1) {
+                if (m581a.size() == 1) {
                     continue;
                 } else if (str3.equals("=")) {
                     throw new RuntimeException("Unexpected assignment operator: '=', use '==' for comparison");
                 } else {
-                    if (!((String) a2.get(0)).equals(VariableScope.nullOrMissingString) || a2.size() != 2 || (!str3.equals("+") && !str3.equals("-"))) {
+                    if (!((String) m581a.get(0)).equals(VariableScope.nullOrMissingString) || m581a.size() != 2 || (!str3.equals("+") && !str3.equals("-"))) {
                         ArrayList arrayList = new ArrayList();
                         LogicBoolean.JoinerBoolean newJoiner = LogicBoolean.JoinerBoolean.getNewJoiner(str3);
                         boolean requireBooleanChildren = newJoiner.requireBooleanChildren();
                         if (requireBooleanChildren && ((newJoiner instanceof CompareJoinerBoolean.CompareNotEqualBoolean) || (newJoiner instanceof CompareJoinerBoolean.CompareEqualBoolean))) {
-                            GameEngine.m328e(newJoiner.type() + " was set to require boolean. Workaround triggered. requireBooleanChildren:" + newJoiner.requireBooleanChildren());
+                            GameEngine.m5460e(newJoiner.type() + " was set to require boolean. Workaround triggered. requireBooleanChildren:" + newJoiner.requireBooleanChildren());
                             requireBooleanChildren = false;
                         }
                         int i4 = -1;
                         if (str3.equals("+") || str3.equals("-")) {
                             boolean z5 = false;
-                            Iterator it = a2.iterator();
+                            Iterator it = m581a.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (isEmptyIgnoringPlusMinus((String) it.next())) {
@@ -223,7 +223,7 @@ public class LogicBooleanLoader {
                             if (z5) {
                                 ArrayList arrayList2 = new ArrayList();
                                 String str4 = VariableScope.nullOrMissingString;
-                                Iterator it2 = a2.iterator();
+                                Iterator it2 = m581a.iterator();
                                 while (it2.hasNext()) {
                                     String str5 = (String) it2.next();
                                     if (isEmptyIgnoringPlusMinus(str5)) {
@@ -239,11 +239,11 @@ public class LogicBooleanLoader {
                                 if (!str4.equals(VariableScope.nullOrMissingString)) {
                                     throw new RuntimeException("Unexpected empty last element using: " + str3);
                                 }
-                                a2 = arrayList2;
+                                m581a = arrayList2;
                             }
                         }
-                        if (a2.size() != 1) {
-                            Iterator it3 = a2.iterator();
+                        if (m581a.size() != 1) {
+                            Iterator it3 = m581a.iterator();
                             while (it3.hasNext()) {
                                 String str6 = (String) it3.next();
                                 i4++;
@@ -254,7 +254,7 @@ public class LogicBooleanLoader {
                                     throw new RuntimeException("Unexpected empty element after: " + str3);
                                 }
                                 try {
-                                    LogicBoolean parseBooleanBlock = parseBooleanBlock(lVar, str6, requireBooleanChildren);
+                                    LogicBoolean parseBooleanBlock = parseBooleanBlock(c0458l, str6, requireBooleanChildren);
                                     if (parseBooleanBlock == null) {
                                         throw new RuntimeException("null on:'" + breakOuterLayerBrackets + "'");
                                     }
@@ -272,26 +272,26 @@ public class LogicBooleanLoader {
         }
         if (lowerCase.startsWith("not ")) {
             String substring2 = breakOuterLayerBrackets.substring("not ".length());
-            return new LogicBoolean.NotBoolean(parseBooleanBlock(lVar, substring2, true)).validateAndOptimize("not", VariableScope.nullOrMissingString, substring2, null, z);
+            return new LogicBoolean.NotBoolean(parseBooleanBlock(c0458l, substring2, true)).validateAndOptimize("not", VariableScope.nullOrMissingString, substring2, null, z);
         }
         if (breakOuterLayerBrackets.length() > 0) {
             String str7 = breakOuterLayerBrackets;
             if (str7.startsWith("+")) {
                 str7 = str7.substring(1).trim();
             }
-            String c = al.c(str7);
-            if (f.r(c)) {
+            String m573c = C1118al.m573c(str7);
+            if (C0773f.m2098r(m573c)) {
                 if (z) {
-                    throw new RuntimeException("Expected a boolean type here, not number: " + c);
+                    throw new RuntimeException("Expected a boolean type here, not number: " + m573c);
                 }
-                return LogicBoolean.StaticValueBoolean.getStaticNumber(c);
+                return LogicBoolean.StaticValueBoolean.getStaticNumber(m573c);
             }
-            String p = f.p(breakOuterLayerBrackets);
-            if (p != null) {
+            String m2100p = C0773f.m2100p(breakOuterLayerBrackets);
+            if (m2100p != null) {
                 if (z) {
                     throw new RuntimeException("Expected a boolean type here, not string: " + breakOuterLayerBrackets);
                 }
-                return new LogicString.StaticString(p);
+                return new LogicString.StaticString(m2100p);
             }
         }
         boolean z6 = false;
@@ -300,39 +300,39 @@ public class LogicBooleanLoader {
             breakOuterLayerBrackets = breakOuterLayerBrackets.substring("self.".length());
             z6 = true;
         }
-        String[] b2 = al.b(breakOuterLayerBrackets, ".", false);
-        m mVar = new m();
+        String[] m574b = C1118al.m574b(breakOuterLayerBrackets, ".", false);
+        C1136m c1136m = new C1136m();
         LogicBoolean logicBoolean = null;
         String str8 = null;
         LogicBooleanContext logicBooleanContext = defaultContextReader;
         String str9 = null;
         int i5 = 0;
-        while (i5 < b2.length) {
+        while (i5 < m574b.length) {
             if (str9 != null) {
                 str2 = str9;
                 str9 = null;
             } else {
-                str2 = b2[i5];
+                str2 = m574b[i5];
             }
-            if (f.b(str2, '[') && (b = al.b(str2, "[", 0)) != -1) {
-                if (b == 0) {
-                    int b3 = al.b(str2, "]", 0);
-                    if (b3 == -1 || b >= b3) {
+            if (C0773f.m2158b(str2, '[') && (m575b = C1118al.m575b(str2, "[", 0)) != -1) {
+                if (m575b == 0) {
+                    int m575b2 = C1118al.m575b(str2, "]", 0);
+                    if (m575b2 == -1 || m575b >= m575b2) {
                         throw new RuntimeException("Unexpected use of square brankets:'" + str2 + "'");
                     }
-                    if (b3 < str2.length() - 1 && b3 > 0) {
-                        String substring3 = str2.substring(b, b3 + 1);
-                        str9 = str2.substring(b3 + 1);
+                    if (m575b2 < str2.length() - 1 && m575b2 > 0) {
+                        String substring3 = str2.substring(m575b, m575b2 + 1);
+                        str9 = str2.substring(m575b2 + 1);
                         i5--;
                         str2 = substring3;
                     }
-                    if (b != 0 || b3 != str2.length() - 1 || str2.length() < 2) {
+                    if (m575b != 0 || m575b2 != str2.length() - 1 || str2.length() < 2) {
                         throw new RuntimeException("Error reading square brankets:'" + str2 + "'");
                     }
                     str2 = "get(" + str2.substring(1, str2.length() - 1) + ")";
                 } else {
-                    String substring4 = str2.substring(0, b);
-                    str9 = str2.substring(b);
+                    String substring4 = str2.substring(0, m575b);
+                    str9 = str2.substring(m575b);
                     i5--;
                     str2 = substring4;
                 }
@@ -341,14 +341,14 @@ public class LogicBooleanLoader {
                 if (z7) {
                     throw new RuntimeException("No field:'" + str2 + "' globals");
                 }
-                if (b2.length == 1) {
+                if (m574b.length == 1) {
                     return UnitReference.selfUnitReference;
                 }
                 z6 = true;
             } else if (i5 == 0 && str2.equalsIgnoreCase("game")) {
                 z7 = true;
             } else {
-                boolean z8 = i5 == b2.length - 1;
+                boolean z8 = i5 == m574b.length - 1;
                 String str10 = null;
                 if (z6) {
                     str10 = "self.";
@@ -363,23 +363,23 @@ public class LogicBooleanLoader {
                 if (logicBoolean != null) {
                     logicBooleanContext = logicBoolean.createContext();
                 }
-                LogicBoolean parseNextElementInChain = logicBooleanContext.parseNextElementInChain(str10, lVar, str2, z9, breakOuterLayerBrackets, str8, logicBoolean);
+                LogicBoolean parseNextElementInChain = logicBooleanContext.parseNextElementInChain(str10, c0458l, str2, z9, breakOuterLayerBrackets, str8, logicBoolean);
                 if (parseNextElementInChain == null) {
                     throw new RuntimeException("Null function or field:'" + str2 + "'");
                 }
                 logicBoolean = parseNextElementInChain;
                 str8 = str2;
                 z6 = true;
-                mVar.add(parseNextElementInChain);
+                c1136m.add(parseNextElementInChain);
             }
             i5++;
         }
-        if (mVar.size() == 0) {
+        if (c1136m.size() == 0) {
             throw new RuntimeException("Unknown function:'" + breakOuterLayerBrackets + "'");
         }
         LogicBoolean logicBoolean2 = null;
-        for (int i6 = mVar.f689a - 1; i6 >= 0; i6--) {
-            LogicBoolean logicBoolean3 = (LogicBoolean) mVar.get(i6);
+        for (int i6 = c1136m.f7109a - 1; i6 >= 0; i6--) {
+            LogicBoolean logicBoolean3 = (LogicBoolean) c1136m.get(i6);
             if (logicBoolean2 != null) {
                 logicBoolean3 = logicBoolean3.setChild(logicBoolean2);
             }
@@ -415,7 +415,7 @@ public class LogicBooleanLoader {
         return null;
     }
 
-    public static void setArgumentsWithMapping(ParameterMapping parameterMapping, Object obj, String str, l lVar, String str2) {
+    public static void setArgumentsWithMapping(ParameterMapping parameterMapping, Object obj, String str, C0458l c0458l, String str2) {
         String str3;
         String str4;
         if (str2 == null) {
@@ -425,13 +425,13 @@ public class LogicBooleanLoader {
         if (str != null && !VariableScope.nullOrMissingString.equals(str)) {
             int i = 0;
             boolean z = false;
-            Iterator it = al.a(str, ",", false).iterator();
+            Iterator it = C1118al.m582a(str, ",", false).iterator();
             while (it.hasNext()) {
                 String str5 = (String) it.next();
-                int a2 = al.a(str5, "=");
-                if (a2 > 0) {
-                    str3 = str5.substring(0, a2);
-                    str4 = str5.substring(a2 + 1);
+                int m586a = C1118al.m586a(str5, "=");
+                if (m586a > 0) {
+                    str3 = str5.substring(0, m586a);
+                    str4 = str5.substring(m586a + 1);
                     z = true;
                 } else if (z) {
                     throw new BooleanParseException(str2 + "(): SyntaxError: Cannot use non-keyword arg after keyword arg");
@@ -466,7 +466,7 @@ public class LogicBooleanLoader {
                 }
                 arrayList.add(lowerCase);
                 try {
-                    setArgumentWithMapping(parameterMapping, obj, lowerCase, str4, lVar);
+                    setArgumentWithMapping(parameterMapping, obj, lowerCase, str4, c0458l);
                     i++;
                 } catch (BooleanParseException e) {
                     throw e;
@@ -496,20 +496,20 @@ public class LogicBooleanLoader {
                 return "<error>";
             }
         } else if (fieldOrMethod != null && fieldOrMethod.method != null) {
-            GameEngine.m328e("getArgumentTextWithMapping: method not supported");
+            GameEngine.m5460e("getArgumentTextWithMapping: method not supported");
             return "<method>";
         } else {
-            GameEngine.m328e("getArgumentTextWithMapping: No method or field");
+            GameEngine.m5460e("getArgumentTextWithMapping: No method or field");
             return "<error>";
         }
     }
 
-    public static void setArgumentWithMapping(ParameterMapping parameterMapping, Object obj, String str, String str2, l lVar) {
+    public static void setArgumentWithMapping(ParameterMapping parameterMapping, Object obj, String str, String str2, C0458l c0458l) {
         String message;
         String message2;
         ParameterMapping.FieldOrMethod fieldOrMethod = (ParameterMapping.FieldOrMethod) parameterMapping.parameters.get(str);
         if (fieldOrMethod != null && fieldOrMethod.field != null) {
-            Object convertParameterData = convertParameterData(str2, fieldOrMethod.type, lVar, fieldOrMethod.returnType, str);
+            Object convertParameterData = convertParameterData(str2, fieldOrMethod.type, c0458l, fieldOrMethod.returnType, str);
             if (convertParameterData == null && fieldOrMethod.required) {
                 throw new BooleanParseException("SyntaxError: Cannot set required argument: '" + str + "' to null");
             }
@@ -526,7 +526,7 @@ public class LogicBooleanLoader {
             }
         } else if (fieldOrMethod != null && fieldOrMethod.method != null) {
             try {
-                fieldOrMethod.method.invoke(obj, convertParameterData(str2, fieldOrMethod.type, lVar, fieldOrMethod.returnType, str));
+                fieldOrMethod.method.invoke(obj, convertParameterData(str2, fieldOrMethod.type, c0458l, fieldOrMethod.returnType, str));
             } catch (IllegalAccessException e3) {
                 throw new BooleanParseException("Error setting parameter:'" + str + "' on " + obj.getClass().getSimpleName(), e3);
             } catch (IllegalArgumentException e4) {
@@ -553,7 +553,7 @@ public class LogicBooleanLoader {
         return list;
     }
 
-    public static Object convertParameterData(String str, Class cls, l lVar, LogicBoolean.ReturnType returnType, String str2) {
+    public static Object convertParameterData(String str, Class cls, C0458l c0458l, LogicBoolean.ReturnType returnType, String str2) {
         LogicBoolean.ReturnType returnType2;
         if (str == null) {
             return null;
@@ -563,13 +563,13 @@ public class LogicBooleanLoader {
             return null;
         }
         if (cls == LogicBoolean.class) {
-            LogicBoolean parseBooleanBlock = parseBooleanBlock(lVar, trim, false);
+            LogicBoolean parseBooleanBlock = parseBooleanBlock(c0458l, trim, false);
             if (parseBooleanBlock != null && returnType != null && returnType != (returnType2 = parseBooleanBlock.getReturnType())) {
                 throw new BooleanParseException("Wrong type. Expected type: '" + returnType + "' for dynamic parameter '" + str2 + "' instead got type:'" + returnType2 + "' (parsing: " + trim + ")");
             }
             return parseBooleanBlock;
-        } else if (f.s(trim)) {
-            if (!f.c(trim, ".")) {
+        } else if (C0773f.m2097s(trim)) {
+            if (!C0773f.m2143c(trim, ".")) {
                 if (cls == String.class) {
                     return trim;
                 }
@@ -589,11 +589,11 @@ public class LogicBooleanLoader {
             }
             Matcher match = match(patternSingleQuote, trim);
             if (match != null) {
-                return f.q(match.group(1));
+                return C0773f.m2099q(match.group(1));
             }
             Matcher match2 = match(patternDoubleQuote, trim);
             if (match2 != null) {
-                return f.q(match2.group(1));
+                return C0773f.m2099q(match2.group(1));
             }
             Matcher match3 = match(patternInteger, trim);
             if (match3 != null) {
@@ -635,11 +635,11 @@ public class LogicBooleanLoader {
 
     public static String breakOuterLayerBrackets(String str) {
         if (str.startsWith("(") && str.endsWith(")")) {
-            int a2 = al.a(str, 0);
-            if (a2 == -1) {
+            int m588a = C1118al.m588a(str, 0);
+            if (m588a == -1) {
                 throw new RuntimeException("Brackets unbalanced. Starting '(' in '" + str + "' was not closed.");
             }
-            if (a2 == str.length() - 1) {
+            if (m588a == str.length() - 1) {
                 str = breakOuterLayerBrackets(str.substring(1, str.length() - 1).trim());
             }
         }
@@ -659,7 +659,7 @@ public class LogicBooleanLoader {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(y yVar) {
+        public boolean read(AbstractC0629y abstractC0629y) {
             return false;
         }
 
@@ -669,7 +669,7 @@ public class LogicBooleanLoader {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(y yVar) {
+        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
             return "<scope>";
         }
     }
@@ -677,14 +677,14 @@ public class LogicBooleanLoader {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanLoader$LogicBooleanContextWithDefault.class */
     public abstract class LogicBooleanContextWithDefault implements LogicBooleanContext {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContext
-        public LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
-            return defaultParseNextElementInChain(this, str, lVar, str2, z, str3, str4, logicBoolean, LogicBoolean.booleans);
+        public LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
+            return defaultParseNextElementInChain(this, str, c0458l, str2, z, str3, str4, logicBoolean, LogicBoolean.booleans);
         }
 
-        public static LogicBoolean defaultParseNextElementInChain(LogicBooleanContext logicBooleanContext, String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean, HashMap hashMap) {
+        public static LogicBoolean defaultParseNextElementInChain(LogicBooleanContext logicBooleanContext, String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean, HashMap hashMap) {
             String lowerCase;
             String substring;
-            UnitReference parseSingleUnitReferenceElement = UnitReference.parseSingleUnitReferenceElement(lVar, str2);
+            UnitReference parseSingleUnitReferenceElement = UnitReference.parseSingleUnitReferenceElement(c0458l, str2);
             if (parseSingleUnitReferenceElement != null) {
                 return parseSingleUnitReferenceElement;
             }
@@ -702,7 +702,7 @@ public class LogicBooleanLoader {
             LogicBoolean logicBoolean2 = (LogicBoolean) hashMap.get(lowerCase);
             if (logicBoolean2 != null) {
                 String fixArguments = LogicBooleanLoader.fixArguments(substring);
-                return logicBoolean2.with(lVar, fixArguments, lowerCase).validateAndOptimize(lowerCase, fixArguments, str3, logicBooleanContext, z);
+                return logicBoolean2.with(c0458l, fixArguments, lowerCase).validateAndOptimize(lowerCase, fixArguments, str3, logicBooleanContext, z);
             }
             String str5 = VariableScope.nullOrMissingString;
             if (hashMap != null && hashMap.size() < 8 && hashMap.size() > 0) {
@@ -733,7 +733,7 @@ public class LogicBooleanLoader {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContextWithDefault, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContext
-        public LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
+        public LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
             if (str4 != null) {
                 if (this.debugType != null) {
                     throw new RuntimeException("No field:'" + str2 + "' in '" + str4 + "' (" + this.debugType + ")");
@@ -796,14 +796,14 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public void setArgumentsRaw(String str, l lVar, String str2) {
+            public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
                 if (str == null || VariableScope.nullOrMissingString.equals(str)) {
                     validateNumberOfArguments(0);
                     return;
                 }
-                ArrayList a2 = al.a(str, ",", false);
-                validateNumberOfArguments(a2.size());
-                this.index = LogicBooleanLoader.parseNumberBlock(lVar, (String) a2.get(0));
+                ArrayList m582a = C1118al.m582a(str, ",", false);
+                validateNumberOfArguments(m582a.size());
+                this.index = LogicBooleanLoader.parseNumberBlock(c0458l, (String) m582a.get(0));
                 if (this.index == null) {
                     throw new BooleanParseException("Expected non-null argument");
                 }
@@ -828,40 +828,40 @@ public class LogicBooleanLoader {
                 return this.elementType;
             }
 
-            LogicBoolean readElement(y yVar) {
-                int readNumber = (int) this.index.readNumber(yVar);
+            LogicBoolean readElement(AbstractC0629y abstractC0629y) {
+                int readNumber = (int) this.index.readNumber(abstractC0629y);
                 if (this.targetArray == null) {
                     GameEngine.print("ArrayGet readElement targetArray==null");
                     return null;
                 }
-                return this.targetArray.readArrayElement(yVar, readNumber);
+                return this.targetArray.readArrayElement(abstractC0629y, readNumber);
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public boolean read(y yVar) {
-                LogicBoolean readElement = readElement(yVar);
+            public boolean read(AbstractC0629y abstractC0629y) {
+                LogicBoolean readElement = readElement(abstractC0629y);
                 if (readElement == null) {
                     return false;
                 }
-                return readElement.read(yVar);
+                return readElement.read(abstractC0629y);
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public float readNumber(y yVar) {
-                LogicBoolean readElement = readElement(yVar);
+            public float readNumber(AbstractC0629y abstractC0629y) {
+                LogicBoolean readElement = readElement(abstractC0629y);
                 if (readElement == null) {
                     return 0.0f;
                 }
-                return readElement.readNumber(yVar);
+                return readElement.readNumber(abstractC0629y);
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public am readUnit(y yVar) {
-                LogicBoolean readElement = readElement(yVar);
+            public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
+                LogicBoolean readElement = readElement(abstractC0629y);
                 if (readElement == null) {
                     return null;
                 }
-                return readElement.readUnit(yVar);
+                return readElement.readUnit(abstractC0629y);
             }
 
             public String getName() {
@@ -869,19 +869,19 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public String getMatchFailReasonForPlayer(y yVar) {
+            public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
                 String str;
-                LogicBoolean readElement = readElement(yVar);
-                int readNumber = (int) this.index.readNumber(yVar);
+                LogicBoolean readElement = readElement(abstractC0629y);
+                int readNumber = (int) this.index.readNumber(abstractC0629y);
                 String str2 = VariableScope.nullOrMissingString;
                 if (this.targetArray != null) {
-                    str2 = str2 + this.targetArray.getMatchFailReasonForPlayer(yVar);
+                    str2 = str2 + this.targetArray.getMatchFailReasonForPlayer(abstractC0629y);
                 }
                 String str3 = str2 + "." + getName() + "(" + readNumber + ")";
                 if (readElement == null) {
                     str = str3 + "=null";
                 } else {
-                    str = str3 + "=" + readElement.getMatchFailReasonForPlayer(yVar);
+                    str = str3 + "=" + readElement.getMatchFailReasonForPlayer(abstractC0629y);
                 }
                 return str;
             }
@@ -902,13 +902,13 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public boolean read(y yVar) {
+            public boolean read(AbstractC0629y abstractC0629y) {
                 return false;
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public float readNumber(y yVar) {
-                return this.targetArray.getArraySize(yVar);
+            public float readNumber(AbstractC0629y abstractC0629y) {
+                return this.targetArray.getArraySize(abstractC0629y);
             }
 
             public String getName() {
@@ -916,12 +916,12 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public String getMatchFailReasonForPlayer(y yVar) {
+            public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
                 String str = VariableScope.nullOrMissingString;
                 if (this.targetArray != null) {
-                    str = str + this.targetArray.getMatchFailReasonForPlayer(yVar);
+                    str = str + this.targetArray.getMatchFailReasonForPlayer(abstractC0629y);
                 }
-                return str + getName() + "(=" + readNumber(yVar) + ")";
+                return str + getName() + "(=" + readNumber(abstractC0629y) + ")";
             }
         }
 
@@ -946,14 +946,14 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public void setArgumentsRaw(String str, l lVar, String str2) {
+            public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
                 if (str == null || VariableScope.nullOrMissingString.equals(str)) {
                     validateNumberOfArguments(0);
                     return;
                 }
-                ArrayList a2 = al.a(str, ",", false);
-                validateNumberOfArguments(a2.size());
-                this.value = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a2.get(0), false);
+                ArrayList m582a = C1118al.m582a(str, ",", false);
+                validateNumberOfArguments(m582a.size());
+                this.value = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(0), false);
                 if (this.value == null) {
                     throw new BooleanParseException("Expected non-null argument");
                 }
@@ -979,48 +979,48 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public boolean read(y yVar) {
-                return indexOf(yVar, this.targetArray, this.value) != -1;
+            public boolean read(AbstractC0629y abstractC0629y) {
+                return indexOf(abstractC0629y, this.targetArray, this.value) != -1;
             }
 
-            public static final int indexOf(y yVar, LogicBoolean logicBoolean, LogicBoolean logicBoolean2) {
-                int arraySize = logicBoolean.getArraySize(yVar);
+            public static final int indexOf(AbstractC0629y abstractC0629y, LogicBoolean logicBoolean, LogicBoolean logicBoolean2) {
+                int arraySize = logicBoolean.getArraySize(abstractC0629y);
                 LogicBoolean.ReturnType returnType = logicBoolean2.getReturnType();
                 if (returnType == LogicBoolean.ReturnType.bool) {
-                    boolean read = logicBoolean2.read(yVar);
+                    boolean read = logicBoolean2.read(abstractC0629y);
                     for (int i = 0; i < arraySize; i++) {
-                        if (logicBoolean.readArrayElement(yVar, i).read(yVar) == read) {
+                        if (logicBoolean.readArrayElement(abstractC0629y, i).read(abstractC0629y) == read) {
                             return i;
                         }
                     }
                     return -1;
                 } else if (returnType == LogicBoolean.ReturnType.number) {
-                    float readNumber = logicBoolean2.readNumber(yVar);
+                    float readNumber = logicBoolean2.readNumber(abstractC0629y);
                     for (int i2 = 0; i2 < arraySize; i2++) {
-                        if (f.j(readNumber, logicBoolean.readArrayElement(yVar, i2).readNumber(yVar))) {
+                        if (C0773f.m2109j(readNumber, logicBoolean.readArrayElement(abstractC0629y, i2).readNumber(abstractC0629y))) {
                             return i2;
                         }
                     }
                     return -1;
                 } else if (returnType == LogicBoolean.ReturnType.unit) {
-                    am readUnit = logicBoolean2.readUnit(yVar);
+                    AbstractC0244am readUnit = logicBoolean2.readUnit(abstractC0629y);
                     if (VariableScope.isMarker(readUnit)) {
                         if (readUnit == null) {
                             return -1;
                         }
-                        float f = readUnit.eo;
-                        float f2 = readUnit.ep;
-                        int i3 = readUnit.bX.k;
+                        float f = readUnit.f7172eo;
+                        float f2 = readUnit.f7173ep;
+                        int i3 = readUnit.f1614bX.site;
                         for (int i4 = 0; i4 < arraySize; i4++) {
-                            am readUnit2 = logicBoolean.readArrayElement(yVar, i4).readUnit(yVar);
-                            if (readUnit2 != null && f.j(f, readUnit2.eo) && f.j(f2, readUnit2.ep) && i3 == readUnit2.bX.k) {
+                            AbstractC0244am readUnit2 = logicBoolean.readArrayElement(abstractC0629y, i4).readUnit(abstractC0629y);
+                            if (readUnit2 != null && C0773f.m2109j(f, readUnit2.f7172eo) && C0773f.m2109j(f2, readUnit2.f7173ep) && i3 == readUnit2.f1614bX.site) {
                                 return i4;
                             }
                         }
                         return -1;
                     }
                     for (int i5 = 0; i5 < arraySize; i5++) {
-                        if (readUnit == logicBoolean.readArrayElement(yVar, i5).readUnit(yVar)) {
+                        if (readUnit == logicBoolean.readArrayElement(abstractC0629y, i5).readUnit(abstractC0629y)) {
                             return i5;
                         }
                     }
@@ -1035,16 +1035,16 @@ public class LogicBooleanLoader {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public String getMatchFailReasonForPlayer(y yVar) {
+            public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
                 String str = VariableScope.nullOrMissingString;
                 if (this.targetArray != null) {
-                    str = str + this.targetArray.getMatchFailReasonForPlayer(yVar);
+                    str = str + this.targetArray.getMatchFailReasonForPlayer(abstractC0629y);
                 }
                 String str2 = null;
                 if (0 != 0) {
-                    str2 = this.value.getMatchFailReasonForPlayer(yVar);
+                    str2 = this.value.getMatchFailReasonForPlayer(abstractC0629y);
                 }
-                return (str + "." + getName() + "(" + str2 + ")") + "=" + valueToStringDebug(yVar);
+                return (str + "." + getName() + "(" + str2 + ")") + "=" + valueToStringDebug(abstractC0629y);
             }
         }
 
@@ -1071,12 +1071,12 @@ public class LogicBooleanLoader {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContextWithDefault, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContext
-        public LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
+        public LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
             LogicBoolean defaultParseNextElementInChain;
             if (this.arrayType == LogicBoolean.ReturnType.unitArray) {
-                defaultParseNextElementInChain = defaultParseNextElementInChain(this, null, lVar, str2, z, str3, str4, logicBoolean, arrayFunctionsUnit);
+                defaultParseNextElementInChain = defaultParseNextElementInChain(this, null, c0458l, str2, z, str3, str4, logicBoolean, arrayFunctionsUnit);
             } else {
-                defaultParseNextElementInChain = defaultParseNextElementInChain(this, null, lVar, str2, z, str3, str4, logicBoolean, arrayFunctions);
+                defaultParseNextElementInChain = defaultParseNextElementInChain(this, null, c0458l, str2, z, str3, str4, logicBoolean, arrayFunctions);
             }
             if (defaultParseNextElementInChain == null) {
                 return null;

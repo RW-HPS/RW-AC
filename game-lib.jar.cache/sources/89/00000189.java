@@ -11,13 +11,14 @@ public class Player extends PlayerData {
         super(i, z);
     }
 
-    public Player(int i, boolean z, String str) {
+    public Player(int i, boolean z, String name) {
         super(i, z);
-        this.name = str;
+        this.name = name;
     }
 
     @Override // com.corrodinggames.rts.game.PlayerData
-    public void a(float f) {
-        super.a(f);
+    /* renamed from: a */
+    public void mo4339a(float f) {
+        super.mo4339a(f);
     }
 }

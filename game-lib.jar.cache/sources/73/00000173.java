@@ -1,14 +1,14 @@
-package com.corrodinggames.rts.game.a;
+package com.corrodinggames.rts.game.p010a;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.a.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/j.class */
-public enum j {
-    Pre,
-    Prepare,
-    Active;
+enum EnumC0165j {
+    f732a,
+    f733b,
+    f734c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int a() {
+    /* renamed from: a */
+    int m4695a() {
         return ordinal();
     }
 }

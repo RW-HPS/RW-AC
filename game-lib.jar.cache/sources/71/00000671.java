@@ -7,8 +7,14 @@ import com.codedisaster.steamworks.SteamPublishedFileID;
 public class SteamPublicData_2 {
 
     /* renamed from: a */
-    SteamPublishedFileID f736a;
-    long b;
-    boolean c;
-    String d;
+    SteamPublishedFileID f7342a;
+
+    /* renamed from: b */
+    long f7343b;
+
+    /* renamed from: c */
+    boolean f7344c;
+
+    /* renamed from: d */
+    String f7345d;
 }

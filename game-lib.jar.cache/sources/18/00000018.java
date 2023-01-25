@@ -1,31 +1,32 @@
-package a.a;
+package net.rudp;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import net.rudp.p002a.Segment;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: a.a.n */
 /* loaded from: game-lib.jar:a/a/n.class */
-public class n implements Runnable {
+class RunnableC0024n implements Runnable {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f21a;
+    /* renamed from: a */
+    final /* synthetic */ ReliableSocket f92a;
 
-    private n(h hVar) {
-        this.f21a = hVar;
+    private RunnableC0024n(ReliableSocket reliableSocket) {
+        this.f92a = reliableSocket;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ArrayList arrayList;
         ArrayList arrayList2;
-        arrayList = this.f21a.u;
+        arrayList = this.f92a.f66u;
         synchronized (arrayList) {
-            arrayList2 = this.f21a.u;
+            arrayList2 = this.f92a.f66u;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 try {
-                    this.f21a.f((a.a.a.h) it.next());
+                    this.f92a.m5379f((Segment) it.next());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

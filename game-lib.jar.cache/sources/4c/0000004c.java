@@ -2,21 +2,25 @@ package android.net.http;
 
 import android.util.Log;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: android.net.http.b */
 /* loaded from: game-lib.jar:android/net/http/b.class */
-public class b {
+class C0037b {
 
-    /* renamed from: a  reason: collision with root package name */
-    private final String f55a;
-    private final int b;
+    /* renamed from: a */
+    private final String f266a;
+
+    /* renamed from: b */
+    private final int f267b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a() {
-        return Log.isLoggable(this.f55a, this.b);
+    /* renamed from: a */
+    public boolean m5126a() {
+        return Log.isLoggable(this.f266a, this.f267b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        Log.a(this.b, this.f55a, str);
+    /* renamed from: a */
+    public void m5123a(String str) {
+        Log.m5078a(this.f267b, this.f266a, str);
     }
 }

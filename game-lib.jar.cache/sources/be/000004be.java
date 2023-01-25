@@ -1,87 +1,94 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
-import com.corrodinggames.rts.gameFramework.bh;
-import com.corrodinggames.rts.gameFramework.bi;
-import com.corrodinggames.rts.gameFramework.bj;
+import com.corrodinggames.rts.gameFramework.C0732bh;
+import com.corrodinggames.rts.gameFramework.C0733bi;
+import com.corrodinggames.rts.gameFramework.EnumC0734bj;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.ab */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/ab.class */
-public class ab {
+public class C0792ab {
 
-    /* renamed from: a  reason: collision with root package name */
-    private bj f492a;
-    private int b;
-    private int c;
-    private int d;
-    private ArrayList e = new ArrayList();
+    /* renamed from: a */
+    private EnumC0734bj f5149a;
 
-    public ab(bj bjVar, ArrayList arrayList) {
-        this.f492a = bjVar;
+    /* renamed from: b */
+    private int f5150b;
+
+    /* renamed from: c */
+    private int f5151c;
+
+    /* renamed from: d */
+    private int f5152d;
+
+    /* renamed from: e */
+    private ArrayList f5153e = new ArrayList();
+
+    public C0792ab(EnumC0734bj enumC0734bj, ArrayList arrayList) {
+        this.f5149a = enumC0734bj;
         ArrayList arrayList2 = new ArrayList();
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            bi a2 = ((aa) it.next()).f491a.a(bjVar);
-            arrayList2.add(a2);
-            Iterator it2 = a2.iterator();
+            C0733bi m2449a = ((C0791aa) it.next()).f5144a.m2449a(enumC0734bj);
+            arrayList2.add(m2449a);
+            Iterator it2 = m2449a.iterator();
             while (it2.hasNext()) {
-                bh bhVar = (bh) it2.next();
-                if (bhVar.b > this.b) {
-                    this.b = bhVar.b;
+                C0732bh c0732bh = (C0732bh) it2.next();
+                if (c0732bh.f4624b > this.f5150b) {
+                    this.f5150b = c0732bh.f4624b;
                 }
-                if (bhVar.b < this.c) {
-                    this.c = bhVar.b;
+                if (c0732bh.f4624b < this.f5151c) {
+                    this.f5151c = c0732bh.f4624b;
                 }
-                if (bhVar.f452a > this.d) {
-                    this.d = bhVar.f452a;
+                if (c0732bh.f4623a > this.f5152d) {
+                    this.f5152d = c0732bh.f4623a;
                 }
             }
         }
-        a(arrayList2);
+        m1993a(arrayList2);
     }
 
-    private void a(ArrayList arrayList) {
+    /* renamed from: a */
+    private void m1993a(ArrayList arrayList) {
         boolean z;
-        int i;
         int size = arrayList.size();
-        ad adVar = new ad(size);
+        C0794ad c0794ad = new C0794ad(size);
         int[] iArr = new int[size];
-        int i2 = 0;
+        int i = 0;
         do {
-            i2++;
-            if (i2 > 1000000) {
-                throw new RuntimeException("loopIndex: " + i2);
+            i++;
+            if (i > 1000000) {
+                throw new RuntimeException("loopIndex: " + i);
             }
             boolean z2 = true;
-            for (int i3 = 0; i3 < size; i3++) {
-                bi biVar = (bi) arrayList.get(i3);
-                if (iArr[i3] < biVar.size()) {
-                    bh bhVar = (bh) biVar.get(iArr[i3]);
-                    int i4 = bhVar.f452a;
-                    i = adVar.f494a;
-                    if (i4 <= i) {
-                        adVar.a(i3, bhVar.b);
-                        int i5 = i3;
-                        iArr[i5] = iArr[i5] + 1;
+            for (int i2 = 0; i2 < size; i2++) {
+                C0733bi c0733bi = (C0733bi) arrayList.get(i2);
+                if (iArr[i2] < c0733bi.size()) {
+                    C0732bh c0732bh = (C0732bh) c0733bi.get(iArr[i2]);
+                    if (c0732bh.f4623a <= C0794ad.m1985a(c0794ad)) {
+                        c0794ad.m1986a(i2, c0732bh.f4624b);
+                        int i3 = i2;
+                        iArr[i3] = iArr[i3] + 1;
                         z2 = false;
                     }
                 }
             }
             z = z2;
-            int i6 = Integer.MAX_VALUE;
+            int i4 = Integer.MAX_VALUE;
             if (z2) {
-                this.e.add(adVar);
-                for (int i7 = 0; i7 < size; i7++) {
-                    bi biVar2 = (bi) arrayList.get(i7);
-                    if (iArr[i7] < biVar2.size()) {
-                        bh bhVar2 = (bh) biVar2.get(iArr[i7]);
-                        if (bhVar2.f452a < i6) {
-                            i6 = bhVar2.f452a;
+                this.f5153e.add(c0794ad);
+                for (int i5 = 0; i5 < size; i5++) {
+                    C0733bi c0733bi2 = (C0733bi) arrayList.get(i5);
+                    if (iArr[i5] < c0733bi2.size()) {
+                        C0732bh c0732bh2 = (C0732bh) c0733bi2.get(iArr[i5]);
+                        if (c0732bh2.f4623a < i4) {
+                            i4 = c0732bh2.f4623a;
                             z = false;
                         }
                     }
                 }
-                adVar = new ad(i6, adVar);
+                c0794ad = new C0794ad(i4, c0794ad);
             }
         } while (!z);
     }

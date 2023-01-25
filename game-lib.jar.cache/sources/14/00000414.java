@@ -1,14 +1,17 @@
 package com.corrodinggames.rts.game.units;
 
+/* renamed from: com.corrodinggames.rts.game.units.s */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/s.class */
-public class s {
+public class C0623s {
 
-    /* renamed from: a  reason: collision with root package name */
-    int f388a;
-    int b;
+    /* renamed from: a */
+    int f3913a;
 
-    public s(int i, int i2) {
-        this.f388a = i;
-        this.b = i2;
+    /* renamed from: b */
+    int f3914b;
+
+    public C0623s(int i, int i2) {
+        this.f3913a = i;
+        this.f3914b = i2;
     }
 }

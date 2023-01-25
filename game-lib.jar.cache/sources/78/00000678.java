@@ -3,15 +3,15 @@ package com.corrodinggames.rts.java.librocket;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import com.LibRocket;
-import com.corrodinggames.librocket.b;
+import com.corrodinggames.librocket.AbstractC0048b;
 import com.corrodinggames.librocket.scripts.ScriptEngine;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.ar;
+import com.corrodinggames.rts.game.units.EnumC0249ar;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.gameFramework.EnumC1100u;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
-import com.corrodinggames.rts.gameFramework.u;
-import com.corrodinggames.rts.gameFramework.unitAction.y;
+import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -23,36 +23,42 @@ import org.newdawn.slick.opengl.renderer.SGL;
 
 /* renamed from: com.corrodinggames.rts.java.d.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/d/a.class */
-public class SlickLibRocket extends b {
-    private static SGL k = Renderer.get();
-    Graphics j;
+public class SlickLibRocket extends AbstractC0048b {
 
-    @Override // com.corrodinggames.librocket.b
-    public void a() {
+    /* renamed from: k */
+    private static SGL f7367k = Renderer.get();
+
+    /* renamed from: j */
+    Graphics f7368j;
+
+    @Override // com.corrodinggames.librocket.AbstractC0048b
+    /* renamed from: a */
+    public void mo235a() {
         throw new RuntimeException("startNewFrame() not supported on SlickLibRocket");
     }
 
-    public void a(Graphics graphics) {
-        this.j = graphics;
-        super.a();
+    /* renamed from: a */
+    public void m234a(Graphics graphics) {
+        this.f7368j = graphics;
+        super.mo235a();
     }
 
     @Override // com.LibRocket
     public boolean GenerateTexture(int i, byte[] bArr) {
         try {
-            b bVar = (b) findTextureHolder(i);
-            ImageBuffer imageBuffer = new ImageBuffer(bVar.width, bVar.height);
+            C1207b c1207b = (C1207b) findTextureHolder(i);
+            ImageBuffer imageBuffer = new ImageBuffer(c1207b.width, c1207b.height);
             byte[] rgba = imageBuffer.getRGBA();
             for (int i2 = 0; i2 < bArr.length; i2++) {
                 rgba[i2] = bArr[i2];
             }
-            bVar.h = new Image(imageBuffer);
-            if (bVar.h == null) {
+            c1207b.f7369h = new Image(imageBuffer);
+            if (c1207b.f7369h == null) {
                 throw new RuntimeException("slickTextureHolder.image==null");
             }
             return true;
         } catch (OutOfMemoryError e) {
-            GameEngine.a(u.uiImage, e);
+            GameEngine.m1068a(EnumC1100u.uiImage, e);
             return false;
         } catch (Throwable th) {
             ScriptEngine.throwDelayedException("GenerateTexture Failed", th);
@@ -67,9 +73,9 @@ public class SlickLibRocket extends b {
                 System.out.println("SlickLibRocket:RenderGeometry(" + fArr.length + "," + i + ")");
                 System.out.println("indices.length=" + iArr2.length + VariableScope.nullOrMissingString);
             }
-            b bVar = null;
+            C1207b c1207b = null;
             if (i != 0) {
-                bVar = (b) findTextureHolder(i);
+                c1207b = (C1207b) findTextureHolder(i);
             }
             RectF rectF = null;
             if (compiledGeometry != null) {
@@ -83,80 +89,80 @@ public class SlickLibRocket extends b {
                         int i5 = iArr2[i2 + i4];
                         float f3 = fArr[(i5 * 2) + 0];
                         float f4 = fArr[(i5 * 2) + 1];
-                        if (rectF.a()) {
-                            rectF.a(f3, f4, f3 + 1.0f, f4 + 1.0f);
+                        if (rectF.m5160a()) {
+                            rectF.m5158a(f3, f4, f3 + 1.0f, f4 + 1.0f);
                         } else {
-                            rectF.c(f3, f4);
+                            rectF.m5148c(f3, f4);
                         }
                     }
                 }
-                rectF.g();
+                rectF.m5144g();
                 if (compiledGeometry != null) {
                     compiledGeometry.bbox = rectF;
                 }
             }
             RectF rectF2 = new RectF(rectF);
-            rectF2.a(f, f2);
-            if (this.h && !f.a(rectF2, this.g)) {
+            rectF2.m5159a(f, f2);
+            if (this.f365h && !C0773f.m2198a(rectF2, this.f364g)) {
                 boolean z = true;
-                if (bVar != null && bVar.h == null && bVar.b && bVar.f == null) {
+                if (c1207b != null && c1207b.f7369h == null && c1207b.f369b && c1207b.f373f == null) {
                     z = false;
                 }
                 if (z) {
                     return;
                 }
             }
-            if (bVar != null && bVar.j != null) {
-                System.out.println("Loading image for: " + bVar.index);
-                bVar.h = new Image(bVar.j);
-                if (bVar.h == null) {
+            if (c1207b != null && c1207b.f7371j != null) {
+                System.out.println("Loading image for: " + c1207b.index);
+                c1207b.f7369h = new Image(c1207b.f7371j);
+                if (c1207b.f7369h == null) {
                     throw new RuntimeException("slickTextureHolder.image==null");
                 }
-                bVar.j = null;
+                c1207b.f7371j = null;
             }
-            this.j.pushTransform();
-            this.j.setDrawMode(Graphics.MODE_NORMAL);
-            this.j.translate(f, f2);
+            this.f7368j.pushTransform();
+            this.f7368j.setDrawMode(Graphics.MODE_NORMAL);
+            this.f7368j.translate(f, f2);
             float f5 = 1.0f;
             float f6 = 1.0f;
             boolean z2 = false;
             float f7 = 1.0f;
             boolean z3 = false;
-            if (bVar != null) {
-                z2 = bVar.d;
-                f7 = bVar.e;
+            if (c1207b != null) {
+                z2 = c1207b.f371d;
+                f7 = c1207b.f372e;
                 TextureImpl.getLastBind();
-                if (bVar.h == null && bVar.b) {
-                    if (bVar.f != null) {
-                        y yVar = GameEngine.getGameEngine().bO;
-                        this.j.pushTransform();
-                        yVar.i();
-                        float f8 = (((GameEngine.getGameEngine().bA / 1000.0f) / 10.0f) * 360.0f) % 360.0f;
-                        this.j.translate(-f, -f2);
-                        Rect rect = new Rect(this.f.f47a, this.f.b, this.f.c, this.f.d);
-                        this.j.setClip((Rectangle) null);
-                        this.j.setWorldClip((Rectangle) null);
-                        yVar.a(rect);
-                        PlayerData k2 = PlayerData.k(0);
-                        if (k2 == null) {
-                            k2 = PlayerData.i;
+                if (c1207b.f7369h == null && c1207b.f369b) {
+                    if (c1207b.f373f != null) {
+                        InterfaceC1063y interfaceC1063y = GameEngine.getGameEngine().f6326bO;
+                        this.f7368j.pushTransform();
+                        interfaceC1063y.mo138i();
+                        float f8 = (((GameEngine.getGameEngine().f6317bA / 1000.0f) / 10.0f) * 360.0f) % 360.0f;
+                        this.f7368j.translate(-f, -f2);
+                        Rect rect = new Rect(this.f363f.f230a, this.f363f.f231b, this.f363f.f232c, this.f363f.f233d);
+                        this.f7368j.setClip((Rectangle) null);
+                        this.f7368j.setWorldClip((Rectangle) null);
+                        interfaceC1063y.mo209a(rect);
+                        PlayerData m4365k = PlayerData.m4365k(0);
+                        if (m4365k == null) {
+                            m4365k = PlayerData.f1373i;
                         }
-                        ar.a(bVar.f, rectF2.d(), rectF2.e(), f8, 3.0f, k2, rectF2.c() * 0.6f, rectF2.c(), false, false, 1, null);
-                        yVar.p();
+                        EnumC0249ar.m4177a(c1207b.f373f, rectF2.m5147d(), rectF2.m5146e(), f8, 3.0f, m4365k, rectF2.m5149c() * 0.6f, rectF2.m5149c(), false, false, 1, null);
+                        interfaceC1063y.mo131p();
                         f7 = 0.0f;
-                        yVar.j();
-                        this.j.popTransform();
-                    } else if (this.d < 1) {
-                        bVar.a();
-                        this.d++;
+                        interfaceC1063y.mo137j();
+                        this.f7368j.popTransform();
+                    } else if (this.f362d < 1) {
+                        c1207b.mo233a();
+                        this.f362d++;
                     }
                 }
-                if (bVar.h != null) {
-                    bVar.h.getTexture().bind();
-                    f5 = bVar.h.getTextureWidth();
-                    f6 = bVar.h.getTextureHeight();
+                if (c1207b.f7369h != null) {
+                    c1207b.f7369h.getTexture().bind();
+                    f5 = c1207b.f7369h.getTextureWidth();
+                    f6 = c1207b.f7369h.getTextureHeight();
                     z3 = true;
-                } else if (bVar.b) {
+                } else if (c1207b.f369b) {
                     f7 = 0.1f;
                 }
             }
@@ -164,8 +170,8 @@ public class SlickLibRocket extends b {
                 TextureImpl.bindNone();
             }
             Color color = new Color(1.0f, 1.0f, 1.0f, f7);
-            this.j.setColor(color);
-            k.glBegin(4);
+            this.f7368j.setColor(color);
+            f7367k.glBegin(4);
             for (int i6 = 0; i6 < iArr2.length; i6 += 3) {
                 int i7 = iArr2[i6];
                 if (!z2) {
@@ -179,12 +185,12 @@ public class SlickLibRocket extends b {
                 }
                 for (int i9 = 0; i9 <= 2; i9++) {
                     int i10 = iArr2[i6 + i9];
-                    k.glTexCoord2f(fArr2[(i10 * 2) + 0] * f5, fArr2[(i10 * 2) + 1] * f6);
-                    k.glVertex2f(fArr[(i10 * 2) + 0], fArr[(i10 * 2) + 1]);
+                    f7367k.glTexCoord2f(fArr2[(i10 * 2) + 0] * f5, fArr2[(i10 * 2) + 1] * f6);
+                    f7367k.glVertex2f(fArr[(i10 * 2) + 0], fArr[(i10 * 2) + 1]);
                 }
             }
-            k.glEnd();
-            this.j.popTransform();
+            f7367k.glEnd();
+            this.f7368j.popTransform();
         } catch (Throwable th) {
             ScriptEngine.throwDelayedException("UI Render Failed", th);
         }
@@ -192,17 +198,17 @@ public class SlickLibRocket extends b {
 
     @Override // com.LibRocket
     public LibRocket.TextureHolder getFromTextureHolderFactory() {
-        return new b(this);
+        return new C1207b(this);
     }
 
-    @Override // com.corrodinggames.librocket.b, com.LibRocket
+    @Override // com.corrodinggames.librocket.AbstractC0048b, com.LibRocket
     public void EnableScissorRegion(boolean z) {
         if (z) {
-            this.j.setWorldClip(this.f.f47a, this.f.b, this.f.b(), this.f.c());
-            this.h = true;
+            this.f7368j.setWorldClip(this.f363f.f230a, this.f363f.f231b, this.f363f.m5170b(), this.f363f.m5166c());
+            this.f365h = true;
             return;
         }
-        this.j.clearWorldClip();
-        this.h = false;
+        this.f7368j.clearWorldClip();
+        this.f365h = false;
     }
 }

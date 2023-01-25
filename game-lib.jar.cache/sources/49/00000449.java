@@ -2,14 +2,18 @@ package com.corrodinggames.rts.gameFramework;
 
 import java.util.HashMap;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b.class */
-public class b {
+public class C0675b {
 
-    /* renamed from: a  reason: collision with root package name */
-    public byte f416a;
-    HashMap b = new HashMap();
+    /* renamed from: a */
+    public byte f4266a;
 
-    public void a(b bVar) {
-        this.b.put(Byte.valueOf(bVar.f416a), bVar);
+    /* renamed from: b */
+    HashMap f4267b = new HashMap();
+
+    /* renamed from: a */
+    public void m2723a(C0675b c0675b) {
+        this.f4267b.put(Byte.valueOf(c0675b.f4266a), c0675b);
     }
 }

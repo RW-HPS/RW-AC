@@ -1,17 +1,18 @@
-package a.a;
+package net.rudp;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import net.rudp.p002a.NULSegment;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: a.a.l */
 /* loaded from: game-lib.jar:a/a/l.class */
-public class l implements Runnable {
+class RunnableC0022l implements Runnable {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f19a;
+    /* renamed from: a */
+    final /* synthetic */ ReliableSocket f90a;
 
-    private l(h hVar) {
-        this.f19a = hVar;
+    private RunnableC0022l(ReliableSocket reliableSocket) {
+        this.f90a = reliableSocket;
     }
 
     @Override // java.lang.Runnable
@@ -19,17 +20,17 @@ public class l implements Runnable {
         ArrayList arrayList;
         ArrayList arrayList2;
         boolean z;
-        i iVar;
-        arrayList = this.f19a.u;
+        C0019i c0019i;
+        arrayList = this.f90a.f66u;
         synchronized (arrayList) {
-            arrayList2 = this.f19a.u;
+            arrayList2 = this.f90a.f66u;
             if (arrayList2.isEmpty()) {
                 try {
-                    h hVar = this.f19a;
-                    iVar = this.f19a.y;
-                    hVar.e(new a.a.a.e(iVar.a()));
+                    ReliableSocket reliableSocket = this.f90a;
+                    c0019i = this.f90a.f70y;
+                    reliableSocket.m5382e(new NULSegment(c0019i.m5359a()));
                 } catch (IOException e) {
-                    z = h.I;
+                    z = ReliableSocket.f81I;
                     if (z) {
                         e.printStackTrace();
                     }

@@ -9,84 +9,89 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.RandomAccess;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/m.class */
-public final class m extends AbstractList implements Serializable, Cloneable, RandomAccess {
+public final class C1136m extends AbstractList implements Serializable, Cloneable, RandomAccess {
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f689a;
-    transient Object[] b;
+    /* renamed from: a */
+    public int f7109a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int d(m mVar) {
-        int i = mVar.modCount + 1;
-        mVar.modCount = i;
+    /* renamed from: b */
+    transient Object[] f7110b;
+
+    /* renamed from: d */
+    static /* synthetic */ int m526d(C1136m c1136m) {
+        int i = c1136m.modCount + 1;
+        c1136m.modCount = i;
         return i;
     }
 
-    public m(int i) {
+    public C1136m(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("capacity < 0: " + i);
         }
-        this.b = i == 0 ? x.g : new Object[i];
+        this.f7110b = i == 0 ? C1151x.f7151g : new Object[i];
     }
 
-    public m() {
-        this.b = x.g;
+    public C1136m() {
+        this.f7110b = C1151x.f7151g;
     }
 
-    public Object[] a() {
-        return this.b;
+    /* renamed from: a */
+    public Object[] m535a() {
+        return this.f7110b;
     }
 
-    public m(Collection collection) {
+    public C1136m(Collection collection) {
         Object[] array = collection.toArray();
         if (array.getClass() != Object[].class) {
             Object[] objArr = new Object[array.length];
             System.arraycopy(array, 0, objArr, 0, array.length);
             array = objArr;
         }
-        this.b = array;
-        this.f689a = array.length;
+        this.f7110b = array;
+        this.f7109a = array.length;
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean add(Object obj) {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         if (i == objArr.length) {
             Object[] objArr2 = new Object[i + (i < 6 ? 12 : i >> 1)];
             System.arraycopy(objArr, 0, objArr2, 0, i);
             objArr = objArr2;
-            this.b = objArr2;
+            this.f7110b = objArr2;
         }
         objArr[i] = obj;
-        this.f689a = i + 1;
+        this.f7109a = i + 1;
         this.modCount++;
         return true;
     }
 
     @Override // java.util.AbstractList, java.util.List
     public void add(int i, Object obj) {
-        Object[] objArr = this.b;
-        int i2 = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i2 = this.f7109a;
         if (i > i2 || i < 0) {
-            a(i, i2);
+            m533a(i, i2);
         }
         if (i2 < objArr.length) {
             System.arraycopy(objArr, i, objArr, i + 1, i2 - i);
         } else {
-            Object[] objArr2 = new Object[b(i2)];
+            Object[] objArr2 = new Object[m530b(i2)];
             System.arraycopy(objArr, 0, objArr2, 0, i);
             System.arraycopy(objArr, i, objArr2, i + 1, i2 - i);
             objArr = objArr2;
-            this.b = objArr2;
+            this.f7110b = objArr2;
         }
         objArr[i] = obj;
-        this.f689a = i2 + 1;
+        this.f7109a = i2 + 1;
         this.modCount++;
     }
 
-    private static int b(int i) {
+    /* renamed from: b */
+    private static int m530b(int i) {
         return i + (i < 6 ? 12 : i >> 1);
     }
 
@@ -97,67 +102,68 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
         if (length == 0) {
             return false;
         }
-        Object[] objArr = this.b;
-        int i = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         int i2 = i + length;
         if (i2 > objArr.length) {
-            Object[] objArr2 = new Object[b(i2 - 1)];
+            Object[] objArr2 = new Object[m530b(i2 - 1)];
             System.arraycopy(objArr, 0, objArr2, 0, i);
             objArr = objArr2;
-            this.b = objArr2;
+            this.f7110b = objArr2;
         }
         System.arraycopy(array, 0, objArr, i, length);
-        this.f689a = i2;
+        this.f7109a = i2;
         this.modCount++;
         return true;
     }
 
     @Override // java.util.AbstractList, java.util.List
     public boolean addAll(int i, Collection collection) {
-        int i2 = this.f689a;
+        int i2 = this.f7109a;
         if (i > i2 || i < 0) {
-            a(i, i2);
+            m533a(i, i2);
         }
         Object[] array = collection.toArray();
         int length = array.length;
         if (length == 0) {
             return false;
         }
-        Object[] objArr = this.b;
+        Object[] objArr = this.f7110b;
         int i3 = i2 + length;
         if (i3 <= objArr.length) {
             System.arraycopy(objArr, i, objArr, i + length, i2 - i);
         } else {
-            Object[] objArr2 = new Object[b(i3 - 1)];
+            Object[] objArr2 = new Object[m530b(i3 - 1)];
             System.arraycopy(objArr, 0, objArr2, 0, i);
             System.arraycopy(objArr, i, objArr2, i + length, i2 - i);
             objArr = objArr2;
-            this.b = objArr2;
+            this.f7110b = objArr2;
         }
         System.arraycopy(array, 0, objArr, i, length);
-        this.f689a = i3;
+        this.f7109a = i3;
         this.modCount++;
         return true;
     }
 
-    static IndexOutOfBoundsException a(int i, int i2) {
+    /* renamed from: a */
+    static IndexOutOfBoundsException m533a(int i, int i2) {
         throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + i2);
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public void clear() {
-        if (this.f689a != 0) {
-            Arrays.fill(this.b, 0, this.f689a, (Object) null);
-            this.f689a = 0;
+        if (this.f7109a != 0) {
+            Arrays.fill(this.f7110b, 0, this.f7109a, (Object) null);
+            this.f7109a = 0;
             this.modCount++;
         }
     }
 
     public Object clone() {
         try {
-            m mVar = (m) super.clone();
-            mVar.b = (Object[]) this.b.clone();
-            return mVar;
+            C1136m c1136m = (C1136m) super.clone();
+            c1136m.f7110b = (Object[]) this.f7110b.clone();
+            return c1136m;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
@@ -165,30 +171,31 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public Object get(int i) {
-        if (i >= this.f689a) {
-            a(i, this.f689a);
+        if (i >= this.f7109a) {
+            m533a(i, this.f7109a);
         }
-        return this.b[i];
+        return this.f7110b[i];
     }
 
-    public final Object a(int i) {
-        return this.b[i];
+    /* renamed from: a */
+    public final Object m534a(int i) {
+        return this.f7110b[i];
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
-        return this.f689a;
+        return this.f7109a;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean isEmpty() {
-        return this.f689a == 0;
+        return this.f7109a == 0;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean contains(Object obj) {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
                 if (obj.equals(objArr[i2])) {
@@ -207,8 +214,8 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public int indexOf(Object obj) {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
                 if (obj.equals(objArr[i2])) {
@@ -227,16 +234,16 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public int lastIndexOf(Object obj) {
-        Object[] objArr = this.b;
+        Object[] objArr = this.f7110b;
         if (obj != null) {
-            for (int i = this.f689a - 1; i >= 0; i--) {
+            for (int i = this.f7109a - 1; i >= 0; i--) {
                 if (obj.equals(objArr[i])) {
                     return i;
                 }
             }
             return -1;
         }
-        for (int i2 = this.f689a - 1; i2 >= 0; i2--) {
+        for (int i2 = this.f7109a - 1; i2 >= 0; i2--) {
             if (objArr[i2] == null) {
                 return i2;
             }
@@ -246,56 +253,58 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public Object remove(int i) {
-        Object[] objArr = this.b;
-        int i2 = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i2 = this.f7109a;
         if (i >= i2) {
-            a(i, i2);
+            m533a(i, i2);
         }
         Object obj = objArr[i];
         int i3 = i2 - 1;
         System.arraycopy(objArr, i + 1, objArr, i, i3 - i);
         objArr[i3] = null;
-        this.f689a = i3;
+        this.f7109a = i3;
         this.modCount++;
         return obj;
     }
 
-    public Object b() {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+    /* renamed from: b */
+    public Object m531b() {
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         int i2 = i - 1;
         if (i == 0) {
-            a(i2, i);
+            m533a(i2, i);
         }
         Object obj = objArr[i2];
         int i3 = i - 1;
         objArr[i3] = null;
-        this.f689a = i3;
+        this.f7109a = i3;
         this.modCount++;
         return obj;
     }
 
-    public Object c() {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+    /* renamed from: c */
+    public Object m528c() {
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         Object obj = objArr[i - 1];
         int i2 = i - 1;
         objArr[i2] = null;
-        this.f689a = i2;
+        this.f7109a = i2;
         return obj;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean remove(Object obj) {
-        Object[] objArr = this.b;
-        int i = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i = this.f7109a;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
                 if (obj.equals(objArr[i2])) {
                     int i3 = i - 1;
                     System.arraycopy(objArr, i2 + 1, objArr, i2, i3 - i2);
                     objArr[i3] = null;
-                    this.f689a = i3;
+                    this.f7109a = i3;
                     this.modCount++;
                     return true;
                 }
@@ -307,7 +316,7 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
                 int i5 = i - 1;
                 System.arraycopy(objArr, i4 + 1, objArr, i4, i5 - i4);
                 objArr[i5] = null;
-                this.f689a = i5;
+                this.f7109a = i5;
                 this.modCount++;
                 return true;
             }
@@ -320,13 +329,13 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
         if (i == i2) {
             return;
         }
-        Object[] objArr = this.b;
-        int i3 = this.f689a;
+        Object[] objArr = this.f7110b;
+        int i3 = this.f7109a;
         if (i >= i3) {
-            throw new IndexOutOfBoundsException("fromIndex " + i + " >= size " + this.f689a);
+            throw new IndexOutOfBoundsException("fromIndex " + i + " >= size " + this.f7109a);
         }
         if (i2 > i3) {
-            throw new IndexOutOfBoundsException("toIndex " + i2 + " > size " + this.f689a);
+            throw new IndexOutOfBoundsException("toIndex " + i2 + " > size " + this.f7109a);
         }
         if (i > i2) {
             throw new IndexOutOfBoundsException("fromIndex " + i + " > toIndex " + i2);
@@ -334,15 +343,15 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
         System.arraycopy(objArr, i2, objArr, i, i3 - i2);
         int i4 = i2 - i;
         Arrays.fill(objArr, i3 - i4, i3, (Object) null);
-        this.f689a = i3 - i4;
+        this.f7109a = i3 - i4;
         this.modCount++;
     }
 
     @Override // java.util.AbstractList, java.util.List
     public Object set(int i, Object obj) {
-        Object[] objArr = this.b;
-        if (i >= this.f689a) {
-            a(i, this.f689a);
+        Object[] objArr = this.f7110b;
+        if (i >= this.f7109a) {
+            m533a(i, this.f7109a);
         }
         Object obj2 = objArr[i];
         objArr[i] = obj;
@@ -351,19 +360,19 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public Object[] toArray() {
-        int i = this.f689a;
+        int i = this.f7109a;
         Object[] objArr = new Object[i];
-        System.arraycopy(this.b, 0, objArr, 0, i);
+        System.arraycopy(this.f7110b, 0, objArr, 0, i);
         return objArr;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public Object[] toArray(Object[] objArr) {
-        int i = this.f689a;
+        int i = this.f7109a;
         if (objArr.length < i) {
             objArr = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), i);
         }
-        System.arraycopy(this.b, 0, objArr, 0, i);
+        System.arraycopy(this.f7110b, 0, objArr, 0, i);
         if (objArr.length > i) {
             objArr[i] = null;
         }
@@ -372,14 +381,14 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.List
     public Iterator iterator() {
-        return new n(this);
+        return new C1138n(this);
     }
 
     @Override // java.util.AbstractList, java.util.Collection, java.util.List
     public int hashCode() {
-        Object[] objArr = this.b;
+        Object[] objArr = this.f7110b;
         int i = 1;
-        int i2 = this.f689a;
+        int i2 = this.f7109a;
         for (int i3 = 0; i3 < i2; i3++) {
             Object obj = objArr[i3];
             i = (31 * i) + (obj == null ? 0 : obj.hashCode());
@@ -396,11 +405,11 @@ public final class m extends AbstractList implements Serializable, Cloneable, Ra
             return false;
         }
         List list = (List) obj;
-        int i = this.f689a;
+        int i = this.f7109a;
         if (list.size() != i) {
             return false;
         }
-        Object[] objArr = this.b;
+        Object[] objArr = this.f7110b;
         if (list instanceof RandomAccess) {
             for (int i2 = 0; i2 < i; i2++) {
                 Object obj2 = objArr[i2];

@@ -4,8 +4,7 @@ import com.codedisaster.steamworks.SteamHTTP;
 
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamHTTPCallbackAdapter.class */
 class SteamHTTPCallbackAdapter extends SteamCallbackAdapter {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamHTTPCallbackAdapter(SteamHTTPCallback steamHTTPCallback) {
+    SteamHTTPCallbackAdapter(SteamHTTPCallback steamHTTPCallback) {
         super(steamHTTPCallback);
     }
 

@@ -10,70 +10,83 @@ import java.io.FileOutputStream;
 /* loaded from: game-lib.jar:android/content/ServerContext.class */
 public class ServerContext extends Context {
 
-    /* renamed from: a  reason: collision with root package name */
-    AssetManager f26a = new AssetManager();
+    /* renamed from: a */
+    AssetManager f116a = new AssetManager();
 
     @Override // android.content.Context
-    public AssetManager d() {
-        return this.f26a;
+    /* renamed from: d */
+    public AssetManager mo5308d() {
+        return this.f116a;
     }
 
     @Override // android.content.Context
-    public Resources e() {
+    /* renamed from: e */
+    public Resources mo5307e() {
         return null;
     }
 
     @Override // android.content.Context
-    public PackageManager f() {
+    /* renamed from: f */
+    public PackageManager mo5306f() {
         return null;
     }
 
     @Override // android.content.Context
-    public Context g() {
+    /* renamed from: g */
+    public Context mo5305g() {
         return this;
     }
 
     @Override // android.content.Context
-    public String h() {
+    /* renamed from: h */
+    public String mo5304h() {
         return null;
     }
 
     @Override // android.content.Context
-    public SharedPreferences a(String str, int i) {
+    /* renamed from: a */
+    public SharedPreferences mo5312a(String str, int i) {
         return null;
     }
 
     @Override // android.content.Context
-    public FileInputStream a(String str) {
+    /* renamed from: a */
+    public FileInputStream mo5313a(String str) {
         return null;
     }
 
     @Override // android.content.Context
-    public FileOutputStream b(String str, int i) {
+    /* renamed from: b */
+    public FileOutputStream mo5310b(String str, int i) {
         return null;
     }
 
     @Override // android.content.Context
-    public File b(String str) {
+    /* renamed from: b */
+    public File mo5311b(String str) {
         return null;
     }
 
     @Override // android.content.Context
-    public File i() {
+    /* renamed from: i */
+    public File mo5303i() {
         return null;
     }
 
     @Override // android.content.Context
-    public File j() {
+    /* renamed from: j */
+    public File mo5302j() {
         return null;
     }
 
     @Override // android.content.Context
-    public void a(Intent intent) {
+    /* renamed from: a */
+    public void mo5314a(Intent intent) {
     }
 
     @Override // android.content.Context
-    public Object c(String str) {
+    /* renamed from: c */
+    public Object mo5309c(String str) {
         return null;
     }
 }

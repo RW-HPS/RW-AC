@@ -1,24 +1,26 @@
-package com.corrodinggames.rts.gameFramework.b;
+package com.corrodinggames.rts.gameFramework.p031b;
 
 import android.opengl.GLES20;
 import android.util.Log;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.b.o */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/o.class */
-class o extends q {
-    public o(String str) {
+class C0713o extends AbstractC0715q {
+    public C0713o(String str) {
         super(str);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.b.q
-    public void a(int i) {
+    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0715q
+    /* renamed from: a */
+    public void mo2531a(int i) {
         String str;
-        if (this.c != i) {
-            this.f438a = GLES20.glGetAttribLocation(i, this.b);
-            this.c = i;
-            n.r();
-            if (this.f438a == -1) {
-                str = n.G;
-                Log.d(str, "loadHandle: Failed to find: " + this.b);
+        if (this.f4500c != i) {
+            this.f4498a = GLES20.glGetAttribLocation(i, this.f4499b);
+            this.f4500c = i;
+            C0712n.m2538r();
+            if (this.f4498a == -1) {
+                str = C0712n.f4440G;
+                Log.m5069d(str, "loadHandle: Failed to find: " + this.f4499b);
             }
         }
     }

@@ -1,55 +1,59 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
 import android.graphics.Paint;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.ag */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/ag.class */
-public class ag extends ai {
+public class C0797ag extends C0799ai {
 
-    /* renamed from: a  reason: collision with root package name */
-    public Paint f496a;
-    public int b;
-    final /* synthetic */ ae c;
+    /* renamed from: a */
+    public Paint f5174a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b */
+    public int f5175b;
+
+    /* renamed from: c */
+    final /* synthetic */ C0795ae f5176c;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(ae aeVar, String str, Paint paint) {
-        super(aeVar, str);
-        this.c = aeVar;
-        this.b = 0;
-        this.f496a = paint;
+    C0797ag(C0795ae c0795ae, String str, Paint paint) {
+        super(c0795ae, str);
+        this.f5176c = c0795ae;
+        this.f5175b = 0;
+        this.f5174a = paint;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(ae aeVar, String str, Paint paint, int i) {
-        super(aeVar, str);
-        this.c = aeVar;
-        this.b = 0;
-        this.f496a = paint;
-        this.b = i;
+    C0797ag(C0795ae c0795ae, String str, Paint paint, int i) {
+        super(c0795ae, str);
+        this.f5176c = c0795ae;
+        this.f5175b = 0;
+        this.f5174a = paint;
+        this.f5175b = i;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.ai
-    public Paint b(Paint paint) {
-        if (this.f496a == null) {
-            if (this.b != 0) {
-                ae.f.a(paint);
-                ae.f.b(this.b);
-                return ae.f;
+    @Override // com.corrodinggames.rts.gameFramework.p037f.C0799ai
+    /* renamed from: b */
+    public Paint mo1969b(Paint paint) {
+        if (this.f5174a == null) {
+            if (this.f5175b != 0) {
+                C0795ae.f5169f.m5220a(paint);
+                C0795ae.f5169f.m5206b(this.f5175b);
+                return C0795ae.f5169f;
             }
             return paint;
-        } else if (this.b != 0) {
-            ae.f.a(this.f496a);
-            ae.f.b(this.b);
-            return ae.f;
+        } else if (this.f5175b != 0) {
+            C0795ae.f5169f.m5220a(this.f5174a);
+            C0795ae.f5169f.m5206b(this.f5175b);
+            return C0795ae.f5169f;
         } else {
-            return this.f496a;
+            return this.f5174a;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.ai
+    @Override // com.corrodinggames.rts.gameFramework.p037f.C0799ai
     /* renamed from: a */
-    public ag b(String str) {
-        return new ag(this.c, str, this.f496a, this.b);
+    public C0797ag mo1968b(String str) {
+        return new C0797ag(this.f5176c, str, this.f5174a, this.f5175b);
     }
 }

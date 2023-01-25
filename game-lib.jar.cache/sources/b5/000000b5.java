@@ -155,8 +155,7 @@ public class SteamRemoteStorage extends SteamInterface {
         
         private static final WorkshopFileType[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static WorkshopFileType byOrdinal(int i) {
+        static WorkshopFileType byOrdinal(int i) {
             return values[i];
         }
     }

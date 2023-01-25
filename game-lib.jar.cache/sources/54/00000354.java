@@ -1,22 +1,22 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.custom.bo;
-import com.corrodinggames.rts.game.units.custom.k;
-import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.C0624t;
+import com.corrodinggames.rts.game.units.custom.C0417bo;
+import com.corrodinggames.rts.game.units.custom.C0457k;
+import com.corrodinggames.rts.game.units.custom.C0458l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference;
-import com.corrodinggames.rts.game.units.t;
-import com.corrodinggames.rts.game.units.y;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
-import com.corrodinggames.rts.gameFramework.utility.ab;
-import com.corrodinggames.rts.gameFramework.utility.al;
-import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.utility.C1107ab;
+import com.corrodinggames.rts.gameFramework.utility.C1118al;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,7 +34,7 @@ public class VariableScope {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$MemoryNames.class */
     public class MemoryNames {
-        public m names = new m();
+        public C1136m names = new C1136m();
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$VariableDefinition.class */
@@ -68,7 +68,7 @@ public class VariableScope {
         String str = nullOrMissingString;
         for (int i = 0; i < this.variableData.length; i++) {
             if (this.variableData[i] != null) {
-                String str2 = str + this.variableNames[i].id + "=" + variableData.valueToStringDebug(null);
+                String str2 = str + this.variableNames[i].f3343id + "=" + variableData.valueToStringDebug(null);
                 if (z2) {
                     str2 = str2 + " (" + variableData.getReturnType().name() + ")";
                 }
@@ -151,13 +151,13 @@ public class VariableScope {
         this.variableNames = emptyNames;
     }
 
-    public void setUnit(VariableDefinition variableDefinition, am amVar) {
+    public void setUnit(VariableDefinition variableDefinition, AbstractC0244am abstractC0244am) {
         if (variableDefinition.type != LogicBoolean.ReturnType.unit) {
         }
-        setDataRaw(variableDefinition.name, new VariableDataUnit(amVar));
+        setDataRaw(variableDefinition.name, new VariableDataUnit(abstractC0244am));
     }
 
-    am getUnit(VariableName variableName) {
+    AbstractC0244am getUnit(VariableName variableName) {
         return getDataObjectRaw(variableName).readUnit(null);
     }
 
@@ -165,22 +165,22 @@ public class VariableScope {
         return getDataObjectRaw(variableName);
     }
 
-    public void setFromLogicBoolean(VariableName variableName, y yVar, LogicBoolean logicBoolean, LogicBoolean logicBoolean2) {
+    public void setFromLogicBoolean(VariableName variableName, AbstractC0629y abstractC0629y, LogicBoolean logicBoolean, LogicBoolean logicBoolean2) {
         VariableDataBoolean variableDataBoolean = null;
         if (logicBoolean != null) {
             LogicBoolean.ReturnType returnType = logicBoolean.getReturnType();
             if (returnType == LogicBoolean.ReturnType.bool) {
-                variableDataBoolean = new VariableDataBoolean(logicBoolean.read(yVar));
+                variableDataBoolean = new VariableDataBoolean(logicBoolean.read(abstractC0629y));
             } else if (returnType == LogicBoolean.ReturnType.unit) {
-                variableDataBoolean = new VariableDataUnit(getSafeUnitReferenceForStorage(logicBoolean.readUnit(yVar)));
+                variableDataBoolean = new VariableDataUnit(getSafeUnitReferenceForStorage(logicBoolean.readUnit(abstractC0629y)));
             } else if (returnType == LogicBoolean.ReturnType.number) {
-                variableDataBoolean = new VariableDataNumber(logicBoolean.readNumber(yVar));
+                variableDataBoolean = new VariableDataNumber(logicBoolean.readNumber(abstractC0629y));
             } else if (returnType == LogicBoolean.ReturnType.string) {
-                variableDataBoolean = new VariableDataString(logicBoolean.readString(yVar));
+                variableDataBoolean = new VariableDataString(logicBoolean.readString(abstractC0629y));
             }
         }
         if (logicBoolean2 != null) {
-            setArrayDataRaw(variableName, variableDataBoolean, (int) logicBoolean2.readNumber(yVar));
+            setArrayDataRaw(variableName, variableDataBoolean, (int) logicBoolean2.readNumber(abstractC0629y));
             return;
         }
         setDataRaw(variableName, variableDataBoolean);
@@ -200,8 +200,8 @@ public class VariableScope {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$VariableMapping.class */
     public class VariableMapping {
-        l meta;
-        m mapping = new m();
+        C0458l meta;
+        C1136m mapping = new C1136m();
 
         public VariableDefinition create(String str, LogicBoolean.ReturnType returnType) {
             VariableName variableName = VariableName.get(str);
@@ -262,23 +262,23 @@ public class VariableScope {
             return str;
         }
 
-        public void addDefineKey(ab abVar, l lVar, String str, String str2, String str3) {
-            String b = abVar.b(str2, str3, (String) null);
-            if (b != null && !b.equals(VariableScope.nullOrMissingString)) {
+        public void addDefineKey(C1107ab c1107ab, C0458l c0458l, String str, String str2, String str3) {
+            String m666b = c1107ab.m666b(str2, str3, (String) null);
+            if (m666b != null && !m666b.equals(VariableScope.nullOrMissingString)) {
                 throw new RuntimeException("[" + str2 + "]" + str + ": Unexpected format");
             }
             defineVariablesRaw(str, str2, str3);
         }
 
-        public void addDefineValue(l lVar, String str, String str2, String str3) {
+        public void addDefineValue(C0458l c0458l, String str, String str2, String str3) {
             defineVariablesRaw(str2, str, str3);
         }
 
-        public void defineVariables(l lVar, String str) {
+        public void defineVariables(C0458l c0458l, String str) {
             defineVariablesRaw("define", VariableScope.nullOrMissingString, str);
         }
 
-        public void addSingleDefine(l lVar, String str, String str2, String str3, String str4) {
+        public void addSingleDefine(C0458l c0458l, String str, String str2, String str3, String str4) {
             String lowerCase = str2.trim().toLowerCase(Locale.ROOT);
             String trim = str.toLowerCase(Locale.ROOT).trim();
             LogicBoolean.ReturnType userType = VariableScope.getUserType(lowerCase);
@@ -297,7 +297,7 @@ public class VariableScope {
         }
 
         public void defineVariablesRaw(String str, String str2, String str3) {
-            for (String str4 : f.c(str3, ',')) {
+            for (String str4 : C0773f.m2145c(str3, ',')) {
                 String trim = str4.trim();
                 if (!trim.equals(VariableScope.nullOrMissingString)) {
                     int indexOf = trim.indexOf(" ");
@@ -335,7 +335,9 @@ public class VariableScope {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$VariableName.class */
     public class VariableName {
         private static HashMap existingVariableName = new HashMap();
-        private String id;
+
+        /* renamed from: id */
+        private String f3343id;
 
         public static VariableName getExistingOrNull(String str) {
             synchronized (existingVariableName) {
@@ -354,18 +356,18 @@ public class VariableScope {
                     return variableName;
                 }
                 VariableName variableName2 = new VariableName();
-                variableName2.id = str;
+                variableName2.f3343id = str;
                 existingVariableName.put(str, variableName2);
                 return variableName2;
             }
         }
 
         public String getId() {
-            return this.id;
+            return this.f3343id;
         }
 
         public String toString() {
-            return this.id;
+            return this.f3343id;
         }
     }
 
@@ -375,22 +377,22 @@ public class VariableScope {
         public abstract LogicBoolean.ReturnType getReturnType();
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(y yVar) {
+        public boolean read(AbstractC0629y abstractC0629y) {
             return false;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(y yVar) {
+        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
             return "Data(" + valueToStringDebug(null) + ")";
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(y yVar) {
+        public float readNumber(AbstractC0629y abstractC0629y) {
             return 0.0f;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(y yVar) {
+        public String readString(AbstractC0629y abstractC0629y) {
             return VariableScope.nullOrMissingString;
         }
     }
@@ -403,17 +405,17 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(y yVar) {
+        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
             return "null";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$VariableDataUnit.class */
     public class VariableDataUnit extends VariableData {
-        am unit;
+        AbstractC0244am unit;
 
-        public VariableDataUnit(am amVar) {
-            this.unit = amVar;
+        public VariableDataUnit(AbstractC0244am abstractC0244am) {
+            this.unit = abstractC0244am;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -422,7 +424,7 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public am readUnit(y yVar) {
+        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
             return this.unit;
         }
     }
@@ -441,7 +443,7 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(y yVar) {
+        public boolean read(AbstractC0629y abstractC0629y) {
             return this.bool;
         }
     }
@@ -460,7 +462,7 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(y yVar) {
+        public String readString(AbstractC0629y abstractC0629y) {
             return this.text;
         }
     }
@@ -479,7 +481,7 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(y yVar) {
+        public float readNumber(AbstractC0629y abstractC0629y) {
             return (float) this.number;
         }
     }
@@ -502,12 +504,12 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public int getArraySize(y yVar) {
+        public int getArraySize(AbstractC0629y abstractC0629y) {
             return this.size;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public LogicBoolean readArrayElement(y yVar, int i) {
+        public LogicBoolean readArrayElement(AbstractC0629y abstractC0629y, int i) {
             return readDataAtIndex(i);
         }
 
@@ -519,7 +521,7 @@ public class VariableScope {
             return 0.0f;
         }
 
-        public am readUnitIndex(int i) {
+        public AbstractC0244am readUnitIndex(int i) {
             return null;
         }
     }
@@ -676,7 +678,7 @@ public class VariableScope {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$VariableDataUnitArray.class */
     public class VariableDataUnitArray extends VariableDataArray {
-        am[] dataArray;
+        AbstractC0244am[] dataArray;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableDataArray, com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableData, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
         public LogicBoolean.ReturnType getReturnType() {
@@ -689,17 +691,17 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.VariableDataArray
-        public am readUnitIndex(int i) {
+        public AbstractC0244am readUnitIndex(int i) {
             if (i < 0 || i >= this.size) {
                 return null;
             }
             return this.dataArray[i];
         }
 
-        public void setUnitIndex(int i, am amVar) {
+        public void setUnitIndex(int i, AbstractC0244am abstractC0244am) {
             if (i >= 0 && i <= 10000) {
                 if (this.dataArray == null) {
-                    this.dataArray = new am[i + 1];
+                    this.dataArray = new AbstractC0244am[i + 1];
                 }
                 if (i >= this.dataArray.length) {
                     int length = this.dataArray.length;
@@ -707,9 +709,9 @@ public class VariableScope {
                     if (i2 < i + 1) {
                         i2 = i + 1;
                     }
-                    am[] amVarArr = new am[i2];
-                    System.arraycopy(this.dataArray, 0, amVarArr, 0, length);
-                    this.dataArray = amVarArr;
+                    AbstractC0244am[] abstractC0244amArr = new AbstractC0244am[i2];
+                    System.arraycopy(this.dataArray, 0, abstractC0244amArr, 0, length);
+                    this.dataArray = abstractC0244amArr;
                 }
                 if (this.size < i + 1) {
                     this.size = i + 1;
@@ -717,7 +719,7 @@ public class VariableScope {
                         throw new RuntimeException("size:" + this.size + ", dataArray.length:" + this.dataArray.length);
                     }
                 }
-                this.dataArray[i] = amVar;
+                this.dataArray[i] = abstractC0244am;
             }
         }
 
@@ -735,8 +737,8 @@ public class VariableScope {
         public void shrink() {
             int i = 0;
             while (i < this.size) {
-                am amVar = this.dataArray[i];
-                if (amVar == null || (!VariableScope.isMarker(amVar) && amVar.bV)) {
+                AbstractC0244am abstractC0244am = this.dataArray[i];
+                if (abstractC0244am == null || (!VariableScope.isMarker(abstractC0244am) && abstractC0244am.f1612bV)) {
                     for (int i2 = i + 1; i2 < this.size; i2++) {
                         this.dataArray[i2 - 1] = this.dataArray[i2];
                     }
@@ -756,11 +758,11 @@ public class VariableScope {
             gameOutputStream.writeByte(-1);
         } else {
             gameOutputStream.writeByte(0);
-            gameOutputStream.a((short) variableScope.variableData.length);
+            gameOutputStream.mo1331a((short) variableScope.variableData.length);
             int length = variableScope.variableData.length;
             for (int i = 0; i < length; i++) {
                 VariableData variableData = variableScope.variableData[i];
-                gameOutputStream.writeString(variableScope.variableNames[i].id);
+                gameOutputStream.writeString(variableScope.variableNames[i].f3343id);
                 gameOutputStream.writeBoolean(false);
                 if (0 == 0) {
                     writeOutDynamicData(gameOutputStream, variableData);
@@ -785,18 +787,18 @@ public class VariableScope {
         return variableScope;
     }
 
-    public static void writeOutUnitOrPlaceholder(GameOutputStream gameOutputStream, am amVar) {
-        if (amVar instanceof t) {
+    public static void writeOutUnitOrPlaceholder(GameOutputStream gameOutputStream, AbstractC0244am abstractC0244am) {
+        if (abstractC0244am instanceof C0624t) {
             gameOutputStream.writeByte(1);
-            gameOutputStream.writeFloat(amVar.eo);
-            gameOutputStream.writeFloat(amVar.ep);
-            gameOutputStream.writeFloat(amVar.eq);
-            gameOutputStream.writeFloat(amVar.cg);
-            gameOutputStream.a(amVar.bX);
+            gameOutputStream.writeFloat(abstractC0244am.f7172eo);
+            gameOutputStream.writeFloat(abstractC0244am.f7173ep);
+            gameOutputStream.writeFloat(abstractC0244am.f7174eq);
+            gameOutputStream.writeFloat(abstractC0244am.f1623cg);
+            gameOutputStream.mo1387a(abstractC0244am.f1614bX);
             return;
         }
         gameOutputStream.writeByte(0);
-        gameOutputStream.b(amVar);
+        gameOutputStream.mo1375b(abstractC0244am);
     }
 
     public static void writeOutDynamicData(GameOutputStream gameOutputStream, VariableData variableData) {
@@ -840,29 +842,29 @@ public class VariableScope {
         }
     }
 
-    public static am readInUnitOrPlaceholder(GameInputStream gameInputStream) {
-        t o;
+    public static AbstractC0244am readInUnitOrPlaceholder(GameInputStream gameInputStream) {
+        C0624t m1293o;
         byte readByte = gameInputStream.readByte();
         if (readByte == 1) {
             float readFloat = gameInputStream.readFloat();
             float readFloat2 = gameInputStream.readFloat();
             float readFloat3 = gameInputStream.readFloat();
             float readFloat4 = gameInputStream.readFloat();
-            o = t.a(gameInputStream.s());
-            o.eo = readFloat;
-            o.ep = readFloat2;
-            o.eq = readFloat3;
-            o.cg = readFloat4;
+            m1293o = C0624t.m3081a(gameInputStream.m1289s());
+            m1293o.f7172eo = readFloat;
+            m1293o.f7173ep = readFloat2;
+            m1293o.f7174eq = readFloat3;
+            m1293o.f1623cg = readFloat4;
         } else if (readByte == 0) {
-            o = gameInputStream.o();
+            m1293o = gameInputStream.m1293o();
         } else {
             throw new IOException("Unhandled unit type: " + ((int) readByte));
         }
-        return o;
+        return m1293o;
     }
 
     public static VariableData readInDynamicData(GameInputStream gameInputStream) {
-        LogicBoolean.ReturnType returnType = (LogicBoolean.ReturnType) gameInputStream.b(LogicBoolean.ReturnType.class);
+        LogicBoolean.ReturnType returnType = (LogicBoolean.ReturnType) gameInputStream.m1309b(LogicBoolean.ReturnType.class);
         if (returnType == null) {
             return null;
         }
@@ -982,55 +984,55 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(y yVar) {
-            if (yVar.bw == null) {
+        public boolean read(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return false;
             }
-            return yVar.bw.getBoolean(this.name);
+            return abstractC0629y.f1586bw.getBoolean(this.name);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(y yVar) {
-            if (yVar.bw == null) {
+        public float readNumber(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return 0.0f;
             }
-            return (float) yVar.bw.getNumber(this.name);
+            return (float) abstractC0629y.f1586bw.getNumber(this.name);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(y yVar) {
-            return yVar.bw == null ? VariableScope.nullOrMissingString : yVar.bw.getString(this.name);
+        public String readString(AbstractC0629y abstractC0629y) {
+            return abstractC0629y.f1586bw == null ? VariableScope.nullOrMissingString : abstractC0629y.f1586bw.getString(this.name);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public am readUnit(y yVar) {
-            if (yVar.bw == null) {
+        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return null;
             }
-            return yVar.bw.getUnit(this.name);
+            return abstractC0629y.f1586bw.getUnit(this.name);
         }
 
-        public LogicBoolean readAsLogicBoolean(y yVar) {
-            if (yVar.bw == null) {
+        public LogicBoolean readAsLogicBoolean(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return null;
             }
-            return yVar.bw.getAsLogicBoolean(this.name);
+            return abstractC0629y.f1586bw.getAsLogicBoolean(this.name);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public int getArraySize(y yVar) {
-            if (yVar.bw == null) {
+        public int getArraySize(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return 0;
             }
-            return yVar.bw.getDataObjectRaw(this.name).getArraySize(yVar);
+            return abstractC0629y.f1586bw.getDataObjectRaw(this.name).getArraySize(abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public LogicBoolean readArrayElement(y yVar, int i) {
-            if (yVar.bw == null) {
+        public LogicBoolean readArrayElement(AbstractC0629y abstractC0629y, int i) {
+            if (abstractC0629y.f1586bw == null) {
                 return null;
             }
-            return yVar.bw.getDataObjectRaw(this.name).readArrayElement(yVar, i);
+            return abstractC0629y.f1586bw.getDataObjectRaw(this.name).readArrayElement(abstractC0629y, i);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1039,27 +1041,27 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(y yVar) {
-            LogicBoolean readAsLogicBoolean = readAsLogicBoolean(yVar);
+        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+            LogicBoolean readAsLogicBoolean = readAsLogicBoolean(abstractC0629y);
             if (readAsLogicBoolean == null) {
-                return "memory(" + this.name.id + "=null)";
+                return "memory(" + this.name.f3343id + "=null)";
             }
             String str = VariableScope.nullOrMissingString;
             if (this.type != readAsLogicBoolean.getReturnType() && readAsLogicBoolean.getReturnType() != LogicBoolean.ReturnType.voidReturn) {
                 str = "(TYPE MISMATCH GOT: " + readAsLogicBoolean.getReturnType().name() + ")";
             }
-            return "memory(" + this.name.id + "=" + readAsLogicBoolean.getMatchFailReasonForPlayer(yVar) + str + ")";
+            return "memory(" + this.name.f3343id + "=" + readAsLogicBoolean.getMatchFailReasonForPlayer(abstractC0629y) + str + ")";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$ReadEventMemoryLogicBoolean.class */
     public class ReadEventMemoryLogicBoolean extends ReadUnitMemoryLogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.ReadUnitMemoryLogicBoolean
-        public LogicBoolean getUnitMemory(y yVar) {
-            k kVar = LogicBoolean.activeEvent;
+        public LogicBoolean getUnitMemory(AbstractC0629y abstractC0629y) {
+            C0457k c0457k = LogicBoolean.activeEvent;
             VariableScope variableScope = null;
-            if (kVar != null) {
-                variableScope = kVar.e;
+            if (c0457k != null) {
+                variableScope = c0457k.f2932e;
             }
             if (variableScope == null) {
                 return this.defaultValue;
@@ -1105,16 +1107,16 @@ public class VariableScope {
             }
         }
 
-        public LogicBoolean getUnitMemory(y yVar) {
-            if (yVar.bw == null) {
+        public LogicBoolean getUnitMemory(AbstractC0629y abstractC0629y) {
+            if (abstractC0629y.f1586bw == null) {
                 return this.defaultValue;
             }
-            LogicBoolean asLogicBoolean = yVar.bw.getAsLogicBoolean(this._name);
+            LogicBoolean asLogicBoolean = abstractC0629y.f1586bw.getAsLogicBoolean(this._name);
             if (asLogicBoolean == null) {
                 return this.defaultValue;
             }
             if (this.index != null) {
-                LogicBoolean readArrayElement = asLogicBoolean.readArrayElement(yVar, (int) this.index.readNumber(yVar));
+                LogicBoolean readArrayElement = asLogicBoolean.readArrayElement(abstractC0629y, (int) this.index.readNumber(abstractC0629y));
                 if (readArrayElement == null) {
                     return this.defaultValue;
                 }
@@ -1124,34 +1126,34 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(y yVar) {
-            return getUnitMemory(yVar).read(yVar);
+        public boolean read(AbstractC0629y abstractC0629y) {
+            return getUnitMemory(abstractC0629y).read(abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(y yVar) {
-            return getUnitMemory(yVar).readNumber(yVar);
+        public float readNumber(AbstractC0629y abstractC0629y) {
+            return getUnitMemory(abstractC0629y).readNumber(abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(y yVar) {
-            LogicBoolean unitMemory = getUnitMemory(yVar);
-            return LogicString.StringCast.castToString(unitMemory.getReturnType(), unitMemory, yVar);
+        public String readString(AbstractC0629y abstractC0629y) {
+            LogicBoolean unitMemory = getUnitMemory(abstractC0629y);
+            return LogicString.StringCast.castToString(unitMemory.getReturnType(), unitMemory, abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public am readUnit(y yVar) {
-            return getUnitMemory(yVar).readUnit(yVar);
+        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
+            return getUnitMemory(abstractC0629y).readUnit(abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public int getArraySize(y yVar) {
-            return getUnitMemory(yVar).getArraySize(yVar);
+        public int getArraySize(AbstractC0629y abstractC0629y) {
+            return getUnitMemory(abstractC0629y).getArraySize(abstractC0629y);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public LogicBoolean readArrayElement(y yVar, int i) {
-            return getUnitMemory(yVar).readArrayElement(yVar, i);
+        public LogicBoolean readArrayElement(AbstractC0629y abstractC0629y, int i) {
+            return getUnitMemory(abstractC0629y).readArrayElement(abstractC0629y, i);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1160,27 +1162,27 @@ public class VariableScope {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(y yVar) {
+        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
             if (this._type == null || this._name == null) {
                 return "<memory with type/name == null>";
             }
-            LogicBoolean unitMemory = getUnitMemory(yVar);
+            LogicBoolean unitMemory = getUnitMemory(abstractC0629y);
             if (unitMemory == null) {
-                return "memory(" + this._name.id + " as " + this._type.name() + ")";
+                return "memory(" + this._name.f3343id + " as " + this._type.name() + ")";
             }
             String str = VariableScope.nullOrMissingString;
             if (this._type != unitMemory.getReturnType() && unitMemory.getReturnType() != LogicBoolean.ReturnType.voidReturn) {
                 str = "(TYPE MISMATCH GOT: " + unitMemory.getReturnType().name() + ")";
             }
-            return "memory(" + this._name.id + " as " + this._type.name() + "=" + unitMemory.getMatchFailReasonForPlayer(yVar) + str + ")";
+            return "memory(" + this._name.f3343id + " as " + this._type.name() + "=" + unitMemory.getMatchFailReasonForPlayer(abstractC0629y) + str + ")";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$KnownMemoryScopeLogicBoolean.class */
     public class KnownMemoryScopeLogicBoolean extends LogicBooleanLoader.LogicBooleanScopeOnly {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContext
-        public LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
-            VariableDefinition variableDefinition = lVar.r.get(str2.toLowerCase(Locale.ROOT));
+        public LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
+            VariableDefinition variableDefinition = c0458l.f3237r.get(str2.toLowerCase(Locale.ROOT));
             if (variableDefinition == null) {
                 throw new RuntimeException("Unknown variable:'" + str2 + "' in '" + str4 + "'");
             }
@@ -1188,30 +1190,30 @@ public class VariableScope {
         }
     }
 
-    public static MemoryWriter createGenericKeyValueWriter(String str, l lVar, String str2, String str3) {
+    public static MemoryWriter createGenericKeyValueWriter(String str, C0458l c0458l, String str2, String str3) {
         try {
             MemoryWriter memoryWriter = new MemoryWriter();
-            memoryWriter.addWriterElements(str, new MemoryWriterFactory(lVar, null));
+            memoryWriter.addWriterElements(str, new MemoryWriterFactory(c0458l, null));
             return memoryWriter;
-        } catch (bo e) {
+        } catch (C0417bo e) {
             throw new RuntimeException("[" + str2 + "]" + str3 + ": " + e.getMessage(), e);
         }
     }
 
-    public static MemoryWriter createMemoryWriter(String str, l lVar, String str2, String str3) {
+    public static MemoryWriter createMemoryWriter(String str, C0458l c0458l, String str2, String str3) {
         try {
             MemoryWriter memoryWriter = new MemoryWriter();
-            memoryWriter.addWriterElements(str, new MemoryWriterFactory(lVar));
+            memoryWriter.addWriterElements(str, new MemoryWriterFactory(c0458l));
             return memoryWriter;
-        } catch (bo e) {
+        } catch (C0417bo e) {
             throw new RuntimeException("[" + str2 + "]" + str3 + ": " + e.getMessage(), e);
         }
     }
 
-    public static MemoryNames createMemoryNameList(String str, l lVar, LogicBoolean.ReturnType returnType, String str2, String str3) {
+    public static MemoryNames createMemoryNameList(String str, C0458l c0458l, LogicBoolean.ReturnType returnType, String str2, String str3) {
         try {
             MemoryWriter memoryWriter = new MemoryWriter();
-            MemoryWriterFactory memoryWriterFactory = new MemoryWriterFactory(lVar);
+            MemoryWriterFactory memoryWriterFactory = new MemoryWriterFactory(c0458l);
             memoryWriterFactory.noValues = true;
             memoryWriter.addWriterElements(str, memoryWriterFactory);
             MemoryNames memoryNames = new MemoryNames();
@@ -1219,54 +1221,54 @@ public class VariableScope {
             while (it.hasNext()) {
                 CachedWriter.WriterElement writerElement = (CachedWriter.WriterElement) it.next();
                 if (!(writerElement instanceof MemoryWriterFactory.MemoryWriterElement)) {
-                    throw new bo("Unexpected element reading: " + str, str2, str3);
+                    throw new C0417bo("Unexpected element reading: " + str, str2, str3);
                 }
                 MemoryWriterFactory.MemoryWriterElement memoryWriterElement = (MemoryWriterFactory.MemoryWriterElement) writerElement;
                 if (memoryWriterElement instanceof MemoryWriterFactory.MemoryWriterElementIndex) {
-                    throw new bo("Expected memory name without an index got: " + str, str2, str3);
+                    throw new C0417bo("Expected memory name without an index got: " + str, str2, str3);
                 }
                 if (returnType != null) {
-                    VariableDefinition variableDefinition = lVar.r.get(memoryWriterElement.name);
+                    VariableDefinition variableDefinition = c0458l.f3237r.get(memoryWriterElement.name);
                     if (variableDefinition == null) {
-                        throw new bo("Failed to find defined memory: " + str, str2, str3);
+                        throw new C0417bo("Failed to find defined memory: " + str, str2, str3);
                     }
                     if (variableDefinition.type != returnType) {
-                        throw new bo("Memory: " + str + " is type: " + variableDefinition.type + " expected: " + returnType, str2, str3);
+                        throw new C0417bo("Memory: " + str + " is type: " + variableDefinition.type + " expected: " + returnType, str2, str3);
                     }
                 }
                 memoryNames.names.add(memoryWriterElement.name);
             }
             return memoryNames;
-        } catch (bo e) {
+        } catch (C0417bo e) {
             throw new RuntimeException("[" + str2 + "]" + str3 + ": " + e.getMessage(), e);
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$MemoryWriter.class */
     public class MemoryWriter extends CachedWriter {
-        public void writeToMemory(VariableScope variableScope, y yVar) {
+        public void writeToMemory(VariableScope variableScope, AbstractC0629y abstractC0629y) {
             Iterator it = this.writers.iterator();
             while (it.hasNext()) {
-                ((MemoryWriterFactory.MemoryWriterElement) ((CachedWriter.WriterElement) it.next())).writeToMemory(variableScope, yVar);
+                ((MemoryWriterFactory.MemoryWriterElement) ((CachedWriter.WriterElement) it.next())).writeToMemory(variableScope, abstractC0629y);
             }
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$MemoryWriterFactory.class */
     public class MemoryWriterFactory extends CachedWriter.WriterFactory {
-        l meta;
+        C0458l meta;
         VariableMapping target;
         boolean noValues;
 
-        public MemoryWriterFactory(l lVar, VariableMapping variableMapping) {
-            this.meta = lVar;
+        public MemoryWriterFactory(C0458l c0458l, VariableMapping variableMapping) {
+            this.meta = c0458l;
             this.target = variableMapping;
         }
 
-        public MemoryWriterFactory(l lVar) {
-            this.meta = lVar;
-            if (lVar != null) {
-                this.target = lVar.r;
+        public MemoryWriterFactory(C0458l c0458l) {
+            this.meta = c0458l;
+            if (c0458l != null) {
+                this.target = c0458l.f3237r;
             }
         }
 
@@ -1276,15 +1278,15 @@ public class VariableScope {
             public LogicBoolean value;
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.CachedWriter.WriterElement
-            public void writeToUnit(y yVar) {
-                if (yVar.bw == null) {
-                    yVar.bw = new VariableScope();
+            public void writeToUnit(AbstractC0629y abstractC0629y) {
+                if (abstractC0629y.f1586bw == null) {
+                    abstractC0629y.f1586bw = new VariableScope();
                 }
-                yVar.bw.setFromLogicBoolean(this.name, yVar, this.value, null);
+                abstractC0629y.f1586bw.setFromLogicBoolean(this.name, abstractC0629y, this.value, null);
             }
 
-            public void writeToMemory(VariableScope variableScope, y yVar) {
-                variableScope.setFromLogicBoolean(this.name, yVar, this.value, null);
+            public void writeToMemory(VariableScope variableScope, AbstractC0629y abstractC0629y) {
+                variableScope.setFromLogicBoolean(this.name, abstractC0629y, this.value, null);
             }
         }
 
@@ -1293,16 +1295,16 @@ public class VariableScope {
             public LogicBoolean nameIndex;
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.MemoryWriterFactory.MemoryWriterElement, com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.CachedWriter.WriterElement
-            public void writeToUnit(y yVar) {
-                if (yVar.bw == null) {
-                    yVar.bw = new VariableScope();
+            public void writeToUnit(AbstractC0629y abstractC0629y) {
+                if (abstractC0629y.f1586bw == null) {
+                    abstractC0629y.f1586bw = new VariableScope();
                 }
-                yVar.bw.setFromLogicBoolean(this.name, yVar, this.value, this.nameIndex);
+                abstractC0629y.f1586bw.setFromLogicBoolean(this.name, abstractC0629y, this.value, this.nameIndex);
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope.MemoryWriterFactory.MemoryWriterElement
-            public void writeToMemory(VariableScope variableScope, y yVar) {
-                variableScope.setFromLogicBoolean(this.name, yVar, this.value, this.nameIndex);
+            public void writeToMemory(VariableScope variableScope, AbstractC0629y abstractC0629y) {
+                variableScope.setFromLogicBoolean(this.name, abstractC0629y, this.value, this.nameIndex);
             }
         }
 
@@ -1314,14 +1316,14 @@ public class VariableScope {
             LogicBoolean.ReturnType returnType;
             MemoryWriterElementIndex memoryWriterElementIndex;
             if (!str2.equals("=")) {
-                throw new bo("Only '=' is supported here, got:" + str2);
+                throw new C0417bo("Only '=' is supported here, got:" + str2);
             }
             if (!this.noValues) {
                 if (str3 == null) {
-                    throw new bo("Expected a value for: " + str + " (likely missing '=')");
+                    throw new C0417bo("Expected a value for: " + str + " (likely missing '=')");
                 }
             } else if (str3 != null) {
-                throw new bo("Expected no value for: " + str + " (Remove '=" + str3 + "')");
+                throw new C0417bo("Expected no value for: " + str + " (Remove '=" + str3 + "')");
             }
             LogicBoolean logicBoolean = null;
             if (str3 != null) {
@@ -1334,7 +1336,7 @@ public class VariableScope {
             if (this.target != null) {
                 VariableDefinition variableDefinition = this.target.get(str);
                 if (variableDefinition == null) {
-                    throw new bo("Unknown variable: " + str + " (has it been defined in this unit?)");
+                    throw new C0417bo("Unknown variable: " + str + " (has it been defined in this unit?)");
                 }
                 variableName = variableDefinition.name;
                 returnType = variableDefinition.type;
@@ -1347,7 +1349,7 @@ public class VariableScope {
             if (str4 != null) {
                 if (!LogicBoolean.ReturnType.isArrayType(returnType)) {
                     if (returnType != LogicBoolean.ReturnType.undefined) {
-                        throw new bo("Variable: " + str + " is not an array type " + returnType + " cannot use [] index on it.");
+                        throw new C0417bo("Variable: " + str + " is not an array type " + returnType + " cannot use [] index on it.");
                     }
                 } else {
                     returnType2 = LogicBoolean.ReturnType.getArrayBaseType(returnType);
@@ -1364,7 +1366,7 @@ public class VariableScope {
                     throw new RuntimeException("Error reading " + str + "[] array index: " + e2.getMessage() + ", [parsing: '" + str4 + "']", e2);
                 }
             } else if (!this.noValues && LogicBoolean.ReturnType.isArrayType(returnType) && (str3 == null || !"null".equalsIgnoreCase(str3.trim()))) {
-                throw new bo("Variable " + str + " is an array type. Expected: NAME[INDEX]=VALUE format (or NAME=null)");
+                throw new C0417bo("Variable " + str + " is an array type. Expected: NAME[INDEX]=VALUE format (or NAME=null)");
             }
             if (logicBoolean2 == null) {
                 memoryWriterElementIndex = new MemoryWriterElement();
@@ -1380,10 +1382,10 @@ public class VariableScope {
             if (returnType2 != LogicBoolean.ReturnType.undefined && logicBoolean != null && logicBoolean.getReturnType() != returnType2) {
                 if (LogicBoolean.isStaticNull(logicBoolean)) {
                     if (!LogicBoolean.ReturnType.canBeNull(returnType2)) {
-                        throw new bo("Variable: " + str + " of type " + returnType2 + " cannot be set to null.");
+                        throw new C0417bo("Variable: " + str + " of type " + returnType2 + " cannot be set to null.");
                     }
                 } else {
-                    throw new bo("Variable: " + str + " expects " + LogicBoolean.ReturnType.toUserString(returnType2) + " type getting: " + LogicBoolean.ReturnType.toUserString(logicBoolean.getReturnType()) + " from: " + str3);
+                    throw new C0417bo("Variable: " + str + " expects " + LogicBoolean.ReturnType.toUserString(returnType2) + " type getting: " + LogicBoolean.ReturnType.toUserString(logicBoolean.getReturnType()) + " from: " + str3);
                 }
             }
             return memoryWriterElementIndex;
@@ -1392,7 +1394,7 @@ public class VariableScope {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$CachedWriter.class */
     public class CachedWriter {
-        m writers = new m();
+        C1136m writers = new C1136m();
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$CachedWriter$Operator.class */
         public enum Operator {
@@ -1403,7 +1405,7 @@ public class VariableScope {
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$CachedWriter$WriterElement.class */
         public abstract class WriterElement {
-            public abstract void writeToUnit(y yVar);
+            public abstract void writeToUnit(AbstractC0629y abstractC0629y);
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/VariableScope$CachedWriter$WriterFactory.class */
@@ -1411,10 +1413,10 @@ public class VariableScope {
             public abstract WriterElement createWriterElement(String str, String str2, String str3, String str4);
         }
 
-        public void writeToUnit(y yVar) {
+        public void writeToUnit(AbstractC0629y abstractC0629y) {
             Iterator it = this.writers.iterator();
             while (it.hasNext()) {
-                ((WriterElement) it.next()).writeToUnit(yVar);
+                ((WriterElement) it.next()).writeToUnit(abstractC0629y);
             }
         }
 
@@ -1427,33 +1429,33 @@ public class VariableScope {
         public void addWriterElements(String str, WriterFactory writerFactory) {
             String str2;
             String str3;
-            Iterator it = al.a(str, ",", false, false).iterator();
+            Iterator it = C1118al.m581a(str, ",", false, false).iterator();
             while (it.hasNext()) {
                 String str4 = (String) it.next();
-                String[] c = al.c(str4, "=");
-                if (c == null) {
+                String[] m572c = C1118al.m572c(str4, "=");
+                if (m572c == null) {
                     str2 = str4;
                     str3 = null;
                 } else {
-                    str2 = c[0];
-                    str3 = c[1];
+                    str2 = m572c[0];
+                    str3 = m572c[1];
                 }
                 String str5 = null;
-                if (f.c(str2, "[")) {
+                if (C0773f.m2143c(str2, "[")) {
                     int indexOf = str2.indexOf(91);
-                    int b = al.b(str2, "]", indexOf);
-                    if (indexOf == -1 || b == -1) {
-                        throw new bo("Unexpected array[] format for: " + str2);
+                    int m575b = C1118al.m575b(str2, "]", indexOf);
+                    if (indexOf == -1 || m575b == -1) {
+                        throw new C0417bo("Unexpected array[] format for: " + str2);
                     }
-                    str5 = str2.substring(indexOf + 1, b);
+                    str5 = str2.substring(indexOf + 1, m575b);
                     if (str5.trim().equals(VariableScope.nullOrMissingString)) {
-                        throw new bo("Array [] index in: " + str2 + " is empty");
+                        throw new C0417bo("Array [] index in: " + str2 + " is empty");
                     }
-                    String substring = str2.substring(b + 1, str2.length());
+                    String substring = str2.substring(m575b + 1, str2.length());
                     for (int i = 0; i < substring.length(); i++) {
                         char charAt = substring.charAt(i);
                         if (charAt != '+' && charAt != '=' && charAt != '-' && charAt != '*' && charAt != '/' && charAt != ' ') {
-                            throw new bo("Unexpected text:'" + substring + "' after [] index of: " + str2);
+                            throw new C0417bo("Unexpected text:'" + substring + "' after [] index of: " + str2);
                         }
                         if (charAt == '=') {
                             break;
@@ -1468,47 +1470,47 @@ public class VariableScope {
                     trim = trim.substring(0, trim.length() - 1).trim();
                 }
                 if (trim.contains(" ")) {
-                    throw new bo("Key cannot contain spaces for: " + str4);
+                    throw new C0417bo("Key cannot contain spaces for: " + str4);
                 }
                 if (trim.contains("[")) {
-                    throw new bo("Key cannot contain [ for: " + str4);
+                    throw new C0417bo("Key cannot contain [ for: " + str4);
                 }
                 if (trim.contains("]")) {
-                    throw new bo("Key cannot contain ] for: " + str4);
+                    throw new C0417bo("Key cannot contain ] for: " + str4);
                 }
                 if (trim.contains("(")) {
-                    throw new bo("Key cannot contain ( for: " + str4);
+                    throw new C0417bo("Key cannot contain ( for: " + str4);
                 }
                 if (trim.contains(")")) {
-                    throw new bo("Key cannot contain ) for: " + str4);
+                    throw new C0417bo("Key cannot contain ) for: " + str4);
                 }
                 if (trim.contains(".")) {
-                    throw new bo("Key cannot contain . for: " + str4);
+                    throw new C0417bo("Key cannot contain . for: " + str4);
                 }
                 this.writers.add(writerFactory.createWriterElement(trim, str6, str3, str5));
             }
         }
     }
 
-    public static boolean isMarker(am amVar) {
-        if (amVar == null) {
+    public static boolean isMarker(AbstractC0244am abstractC0244am) {
+        if (abstractC0244am == null) {
             return false;
         }
-        return amVar instanceof t;
+        return abstractC0244am instanceof C0624t;
     }
 
-    public static am getSafeUnitReferenceForStorage(am amVar) {
-        if (amVar == null) {
+    public static AbstractC0244am getSafeUnitReferenceForStorage(AbstractC0244am abstractC0244am) {
+        if (abstractC0244am == null) {
             return null;
         }
-        if (amVar instanceof t) {
-            t a2 = t.a(amVar.bX);
-            a2.eo = amVar.eo;
-            a2.ep = amVar.ep;
-            a2.eq = amVar.eq;
-            a2.cg = amVar.cg;
-            return a2;
+        if (abstractC0244am instanceof C0624t) {
+            C0624t m3081a = C0624t.m3081a(abstractC0244am.f1614bX);
+            m3081a.f7172eo = abstractC0244am.f7172eo;
+            m3081a.f7173ep = abstractC0244am.f7173ep;
+            m3081a.f7174eq = abstractC0244am.f7174eq;
+            m3081a.f1623cg = abstractC0244am.f1623cg;
+            return m3081a;
         }
-        return amVar;
+        return abstractC0244am;
     }
 }

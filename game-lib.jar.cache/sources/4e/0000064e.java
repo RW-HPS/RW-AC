@@ -1,183 +1,212 @@
-package com.corrodinggames.rts.java.audio.a;
+package com.corrodinggames.rts.java.audio.p051a;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 
+/* renamed from: com.corrodinggames.rts.java.audio.a.o */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/o.class */
-public class o implements Iterable {
+public class C1179o implements Iterable {
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f722a;
-    Object[] b;
-    Object[] c;
-    int d;
-    int e;
-    private float f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private p l;
-    private p m;
+    /* renamed from: a */
+    public int f7275a;
 
-    public o() {
+    /* renamed from: b */
+    Object[] f7276b;
+
+    /* renamed from: c */
+    Object[] f7277c;
+
+    /* renamed from: d */
+    int f7278d;
+
+    /* renamed from: e */
+    int f7279e;
+
+    /* renamed from: f */
+    private float f7280f;
+
+    /* renamed from: g */
+    private int f7281g;
+
+    /* renamed from: h */
+    private int f7282h;
+
+    /* renamed from: i */
+    private int f7283i;
+
+    /* renamed from: j */
+    private int f7284j;
+
+    /* renamed from: k */
+    private int f7285k;
+
+    /* renamed from: l */
+    private C1180p f7286l;
+
+    /* renamed from: m */
+    private C1180p f7287m;
+
+    public C1179o() {
         this(51, 0.8f);
     }
 
-    public o(int i, float f) {
+    public C1179o(int i, float f) {
         if (i < 0) {
             throw new IllegalArgumentException("initialCapacity must be >= 0: " + i);
         }
-        int b = m.b((int) Math.ceil(i / f));
-        if (b > 1073741824) {
-            throw new IllegalArgumentException("initialCapacity is too large: " + b);
+        int m328b = C1177m.m328b((int) Math.ceil(i / f));
+        if (m328b > 1073741824) {
+            throw new IllegalArgumentException("initialCapacity is too large: " + m328b);
         }
-        this.d = b;
+        this.f7278d = m328b;
         if (f <= 0.0f) {
             throw new IllegalArgumentException("loadFactor must be > 0: " + f);
         }
-        this.f = f;
-        this.i = (int) (this.d * f);
-        this.h = this.d - 1;
-        this.g = 31 - Integer.numberOfTrailingZeros(this.d);
-        this.j = Math.max(3, ((int) Math.ceil(Math.log(this.d))) * 2);
-        this.k = Math.max(Math.min(this.d, 8), ((int) Math.sqrt(this.d)) / 8);
-        this.b = new Object[this.d + this.j];
-        this.c = new Object[this.b.length];
+        this.f7280f = f;
+        this.f7283i = (int) (this.f7278d * f);
+        this.f7282h = this.f7278d - 1;
+        this.f7281g = 31 - Integer.numberOfTrailingZeros(this.f7278d);
+        this.f7284j = Math.max(3, ((int) Math.ceil(Math.log(this.f7278d))) * 2);
+        this.f7285k = Math.max(Math.min(this.f7278d, 8), ((int) Math.sqrt(this.f7278d)) / 8);
+        this.f7276b = new Object[this.f7278d + this.f7284j];
+        this.f7277c = new Object[this.f7276b.length];
     }
 
-    public Object a(Object obj, Object obj2) {
+    /* renamed from: a */
+    public Object m324a(Object obj, Object obj2) {
         if (obj == null) {
             throw new IllegalArgumentException("key cannot be null.");
         }
-        return b(obj, obj2);
+        return m318b(obj, obj2);
     }
 
-    private Object b(Object obj, Object obj2) {
-        Object[] objArr = this.b;
+    /* renamed from: b */
+    private Object m318b(Object obj, Object obj2) {
+        Object[] objArr = this.f7276b;
         int hashCode = obj.hashCode();
-        int i = hashCode & this.h;
+        int i = hashCode & this.f7282h;
         Object obj3 = objArr[i];
         if (obj.equals(obj3)) {
-            Object obj4 = this.c[i];
-            this.c[i] = obj2;
+            Object obj4 = this.f7277c[i];
+            this.f7277c[i] = obj2;
             return obj4;
         }
-        int c = c(hashCode);
-        Object obj5 = objArr[c];
+        int m317c = m317c(hashCode);
+        Object obj5 = objArr[m317c];
         if (obj.equals(obj5)) {
-            Object obj6 = this.c[c];
-            this.c[c] = obj2;
+            Object obj6 = this.f7277c[m317c];
+            this.f7277c[m317c] = obj2;
             return obj6;
         }
-        int d = d(hashCode);
-        Object obj7 = objArr[d];
+        int m314d = m314d(hashCode);
+        Object obj7 = objArr[m314d];
         if (obj.equals(obj7)) {
-            Object obj8 = this.c[d];
-            this.c[d] = obj2;
+            Object obj8 = this.f7277c[m314d];
+            this.f7277c[m314d] = obj2;
             return obj8;
         }
-        int i2 = this.d;
-        int i3 = i2 + this.e;
+        int i2 = this.f7278d;
+        int i3 = i2 + this.f7279e;
         while (i2 < i3) {
             if (!obj.equals(objArr[i2])) {
                 i2++;
             } else {
-                Object obj9 = this.c[i2];
-                this.c[i2] = obj2;
+                Object obj9 = this.f7277c[i2];
+                this.f7277c[i2] = obj2;
                 return obj9;
             }
         }
         if (obj3 == null) {
             objArr[i] = obj;
-            this.c[i] = obj2;
-            int i4 = this.f722a;
-            this.f722a = i4 + 1;
-            if (i4 >= this.i) {
-                b(this.d << 1);
+            this.f7277c[i] = obj2;
+            int i4 = this.f7275a;
+            this.f7275a = i4 + 1;
+            if (i4 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return null;
             }
             return null;
         } else if (obj5 == null) {
-            objArr[c] = obj;
-            this.c[c] = obj2;
-            int i5 = this.f722a;
-            this.f722a = i5 + 1;
-            if (i5 >= this.i) {
-                b(this.d << 1);
+            objArr[m317c] = obj;
+            this.f7277c[m317c] = obj2;
+            int i5 = this.f7275a;
+            this.f7275a = i5 + 1;
+            if (i5 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return null;
             }
             return null;
         } else if (obj7 == null) {
-            objArr[d] = obj;
-            this.c[d] = obj2;
-            int i6 = this.f722a;
-            this.f722a = i6 + 1;
-            if (i6 >= this.i) {
-                b(this.d << 1);
+            objArr[m314d] = obj;
+            this.f7277c[m314d] = obj2;
+            int i6 = this.f7275a;
+            this.f7275a = i6 + 1;
+            if (i6 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return null;
             }
             return null;
         } else {
-            a(obj, obj2, i, obj3, c, obj5, d, obj7);
+            m323a(obj, obj2, i, obj3, m317c, obj5, m314d, obj7);
             return null;
         }
     }
 
-    private void c(Object obj, Object obj2) {
+    /* renamed from: c */
+    private void m315c(Object obj, Object obj2) {
         int hashCode = obj.hashCode();
-        int i = hashCode & this.h;
-        Object obj3 = this.b[i];
+        int i = hashCode & this.f7282h;
+        Object obj3 = this.f7276b[i];
         if (obj3 == null) {
-            this.b[i] = obj;
-            this.c[i] = obj2;
-            int i2 = this.f722a;
-            this.f722a = i2 + 1;
-            if (i2 >= this.i) {
-                b(this.d << 1);
+            this.f7276b[i] = obj;
+            this.f7277c[i] = obj2;
+            int i2 = this.f7275a;
+            this.f7275a = i2 + 1;
+            if (i2 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return;
             }
             return;
         }
-        int c = c(hashCode);
-        Object obj4 = this.b[c];
+        int m317c = m317c(hashCode);
+        Object obj4 = this.f7276b[m317c];
         if (obj4 == null) {
-            this.b[c] = obj;
-            this.c[c] = obj2;
-            int i3 = this.f722a;
-            this.f722a = i3 + 1;
-            if (i3 >= this.i) {
-                b(this.d << 1);
+            this.f7276b[m317c] = obj;
+            this.f7277c[m317c] = obj2;
+            int i3 = this.f7275a;
+            this.f7275a = i3 + 1;
+            if (i3 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return;
             }
             return;
         }
-        int d = d(hashCode);
-        Object obj5 = this.b[d];
+        int m314d = m314d(hashCode);
+        Object obj5 = this.f7276b[m314d];
         if (obj5 == null) {
-            this.b[d] = obj;
-            this.c[d] = obj2;
-            int i4 = this.f722a;
-            this.f722a = i4 + 1;
-            if (i4 >= this.i) {
-                b(this.d << 1);
+            this.f7276b[m314d] = obj;
+            this.f7277c[m314d] = obj2;
+            int i4 = this.f7275a;
+            this.f7275a = i4 + 1;
+            if (i4 >= this.f7283i) {
+                m320b(this.f7278d << 1);
                 return;
             }
             return;
         }
-        a(obj, obj2, i, obj3, c, obj4, d, obj5);
+        m323a(obj, obj2, i, obj3, m317c, obj4, m314d, obj5);
     }
 
-    private void a(Object obj, Object obj2, int i, Object obj3, int i2, Object obj4, int i3, Object obj5) {
+    /* renamed from: a */
+    private void m323a(Object obj, Object obj2, int i, Object obj3, int i2, Object obj4, int i3, Object obj5) {
         Object obj6;
         Object obj7;
-        Object[] objArr = this.b;
-        Object[] objArr2 = this.c;
-        int i4 = this.h;
+        Object[] objArr = this.f7276b;
+        Object[] objArr2 = this.f7277c;
+        int i4 = this.f7282h;
         int i5 = 0;
-        int i6 = this.k;
+        int i6 = this.f7285k;
         while (true) {
-            switch (m.a(2)) {
+            switch (C1177m.m330a(2)) {
                 case 0:
                     obj6 = obj3;
                     obj7 = objArr2[i];
@@ -203,36 +232,36 @@ public class o implements Iterable {
             if (obj3 == null) {
                 objArr[i] = obj6;
                 objArr2[i] = obj7;
-                int i7 = this.f722a;
-                this.f722a = i7 + 1;
-                if (i7 >= this.i) {
-                    b(this.d << 1);
+                int i7 = this.f7275a;
+                this.f7275a = i7 + 1;
+                if (i7 >= this.f7283i) {
+                    m320b(this.f7278d << 1);
                     return;
                 }
                 return;
             }
-            i2 = c(hashCode);
+            i2 = m317c(hashCode);
             obj4 = objArr[i2];
             if (obj4 == null) {
                 objArr[i2] = obj6;
                 objArr2[i2] = obj7;
-                int i8 = this.f722a;
-                this.f722a = i8 + 1;
-                if (i8 >= this.i) {
-                    b(this.d << 1);
+                int i8 = this.f7275a;
+                this.f7275a = i8 + 1;
+                if (i8 >= this.f7283i) {
+                    m320b(this.f7278d << 1);
                     return;
                 }
                 return;
             }
-            i3 = d(hashCode);
+            i3 = m314d(hashCode);
             obj5 = objArr[i3];
             if (obj5 == null) {
                 objArr[i3] = obj6;
                 objArr2[i3] = obj7;
-                int i9 = this.f722a;
-                this.f722a = i9 + 1;
-                if (i9 >= this.i) {
-                    b(this.d << 1);
+                int i9 = this.f7275a;
+                this.f7275a = i9 + 1;
+                if (i9 >= this.f7283i) {
+                    m320b(this.f7278d << 1);
                     return;
                 }
                 return;
@@ -242,84 +271,89 @@ public class o implements Iterable {
                 obj = obj6;
                 obj2 = obj7;
             } else {
-                d(obj6, obj7);
+                m313d(obj6, obj7);
                 return;
             }
         }
     }
 
-    private void d(Object obj, Object obj2) {
-        if (this.e == this.j) {
-            b(this.d << 1);
-            b(obj, obj2);
+    /* renamed from: d */
+    private void m313d(Object obj, Object obj2) {
+        if (this.f7279e == this.f7284j) {
+            m320b(this.f7278d << 1);
+            m318b(obj, obj2);
             return;
         }
-        int i = this.d + this.e;
-        this.b[i] = obj;
-        this.c[i] = obj2;
-        this.e++;
-        this.f722a++;
+        int i = this.f7278d + this.f7279e;
+        this.f7276b[i] = obj;
+        this.f7277c[i] = obj2;
+        this.f7279e++;
+        this.f7275a++;
     }
 
-    public Object a(Object obj) {
+    /* renamed from: a */
+    public Object m325a(Object obj) {
         int hashCode = obj.hashCode();
-        int i = hashCode & this.h;
-        if (!obj.equals(this.b[i])) {
-            i = c(hashCode);
-            if (!obj.equals(this.b[i])) {
-                i = d(hashCode);
-                if (!obj.equals(this.b[i])) {
-                    return e(obj, null);
+        int i = hashCode & this.f7282h;
+        if (!obj.equals(this.f7276b[i])) {
+            i = m317c(hashCode);
+            if (!obj.equals(this.f7276b[i])) {
+                i = m314d(hashCode);
+                if (!obj.equals(this.f7276b[i])) {
+                    return m312e(obj, null);
                 }
             }
         }
-        return this.c[i];
+        return this.f7277c[i];
     }
 
-    private Object e(Object obj, Object obj2) {
-        Object[] objArr = this.b;
-        int i = this.d;
-        int i2 = i + this.e;
+    /* renamed from: e */
+    private Object m312e(Object obj, Object obj2) {
+        Object[] objArr = this.f7276b;
+        int i = this.f7278d;
+        int i2 = i + this.f7279e;
         while (i < i2) {
             if (obj.equals(objArr[i])) {
-                return this.c[i];
+                return this.f7277c[i];
             }
             i++;
         }
         return obj2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i) {
-        this.e--;
-        int i2 = this.d + this.e;
+    /* renamed from: a */
+    void m326a(int i) {
+        this.f7279e--;
+        int i2 = this.f7278d + this.f7279e;
         if (i < i2) {
-            this.b[i] = this.b[i2];
-            this.c[i] = this.c[i2];
-            this.c[i2] = null;
+            this.f7276b[i] = this.f7276b[i2];
+            this.f7277c[i] = this.f7277c[i2];
+            this.f7277c[i2] = null;
             return;
         }
-        this.c[i] = null;
+        this.f7277c[i] = null;
     }
 
-    public boolean b(Object obj) {
+    /* renamed from: b */
+    public boolean m319b(Object obj) {
         int hashCode = obj.hashCode();
-        if (!obj.equals(this.b[hashCode & this.h])) {
-            if (!obj.equals(this.b[c(hashCode)])) {
-                if (obj.equals(this.b[d(hashCode)])) {
+        if (!obj.equals(this.f7276b[hashCode & this.f7282h])) {
+            if (!obj.equals(this.f7276b[m317c(hashCode)])) {
+                if (obj.equals(this.f7276b[m314d(hashCode)])) {
                     return true;
                 }
-                return c(obj);
+                return m316c(obj);
             }
             return true;
         }
         return true;
     }
 
-    private boolean c(Object obj) {
-        Object[] objArr = this.b;
-        int i = this.d;
-        int i2 = i + this.e;
+    /* renamed from: c */
+    private boolean m316c(Object obj) {
+        Object[] objArr = this.f7276b;
+        int i = this.f7278d;
+        int i2 = i + this.f7279e;
         while (i < i2) {
             if (obj.equals(objArr[i])) {
                 return true;
@@ -329,46 +363,49 @@ public class o implements Iterable {
         return false;
     }
 
-    private void b(int i) {
-        int i2 = this.d + this.e;
-        this.d = i;
-        this.i = (int) (i * this.f);
-        this.h = i - 1;
-        this.g = 31 - Integer.numberOfTrailingZeros(i);
-        this.j = Math.max(3, ((int) Math.ceil(Math.log(i))) * 2);
-        this.k = Math.max(Math.min(i, 8), ((int) Math.sqrt(i)) / 8);
-        Object[] objArr = this.b;
-        Object[] objArr2 = this.c;
-        this.b = new Object[i + this.j];
-        this.c = new Object[i + this.j];
-        int i3 = this.f722a;
-        this.f722a = 0;
-        this.e = 0;
+    /* renamed from: b */
+    private void m320b(int i) {
+        int i2 = this.f7278d + this.f7279e;
+        this.f7278d = i;
+        this.f7283i = (int) (i * this.f7280f);
+        this.f7282h = i - 1;
+        this.f7281g = 31 - Integer.numberOfTrailingZeros(i);
+        this.f7284j = Math.max(3, ((int) Math.ceil(Math.log(i))) * 2);
+        this.f7285k = Math.max(Math.min(i, 8), ((int) Math.sqrt(i)) / 8);
+        Object[] objArr = this.f7276b;
+        Object[] objArr2 = this.f7277c;
+        this.f7276b = new Object[i + this.f7284j];
+        this.f7277c = new Object[i + this.f7284j];
+        int i3 = this.f7275a;
+        this.f7275a = 0;
+        this.f7279e = 0;
         if (i3 > 0) {
             for (int i4 = 0; i4 < i2; i4++) {
                 Object obj = objArr[i4];
                 if (obj != null) {
-                    c(obj, objArr2[i4]);
+                    m315c(obj, objArr2[i4]);
                 }
             }
         }
     }
 
-    private int c(int i) {
+    /* renamed from: c */
+    private int m317c(int i) {
         int i2 = i * (-1262997959);
-        return (i2 ^ (i2 >>> this.g)) & this.h;
+        return (i2 ^ (i2 >>> this.f7281g)) & this.f7282h;
     }
 
-    private int d(int i) {
+    /* renamed from: d */
+    private int m314d(int i) {
         int i2 = i * (-825114047);
-        return (i2 ^ (i2 >>> this.g)) & this.h;
+        return (i2 ^ (i2 >>> this.f7281g)) & this.f7282h;
     }
 
     public int hashCode() {
         int i = 0;
-        Object[] objArr = this.b;
-        Object[] objArr2 = this.c;
-        int i2 = this.d + this.e;
+        Object[] objArr = this.f7276b;
+        Object[] objArr2 = this.f7277c;
+        int i2 = this.f7278d + this.f7279e;
         for (int i3 = 0; i3 < i2; i3++) {
             Object obj = objArr[i3];
             if (obj != null) {
@@ -386,23 +423,23 @@ public class o implements Iterable {
         if (obj == this) {
             return true;
         }
-        if (obj instanceof o) {
-            o oVar = (o) obj;
-            if (oVar.f722a != this.f722a) {
+        if (obj instanceof C1179o) {
+            C1179o c1179o = (C1179o) obj;
+            if (c1179o.f7275a != this.f7275a) {
                 return false;
             }
-            Object[] objArr = this.b;
-            Object[] objArr2 = this.c;
-            int i = this.d + this.e;
+            Object[] objArr = this.f7276b;
+            Object[] objArr2 = this.f7277c;
+            int i = this.f7278d + this.f7279e;
             for (int i2 = 0; i2 < i; i2++) {
                 Object obj2 = objArr[i2];
                 if (obj2 != null) {
                     Object obj3 = objArr2[i2];
                     if (obj3 == null) {
-                        if (!oVar.b(obj2) || oVar.a(obj2) != null) {
+                        if (!c1179o.m319b(obj2) || c1179o.m325a(obj2) != null) {
                             return false;
                         }
-                    } else if (!obj3.equals(oVar.a(obj2))) {
+                    } else if (!obj3.equals(c1179o.m325a(obj2))) {
                         return false;
                     }
                 }
@@ -413,19 +450,20 @@ public class o implements Iterable {
     }
 
     public String toString() {
-        return a(", ", true);
+        return m322a(", ", true);
     }
 
-    private String a(String str, boolean z) {
-        if (this.f722a == 0) {
+    /* renamed from: a */
+    private String m322a(String str, boolean z) {
+        if (this.f7275a == 0) {
             return z ? "{}" : VariableScope.nullOrMissingString;
         }
         StringBuilder sb = new StringBuilder(32);
         if (z) {
             sb.append('{');
         }
-        Object[] objArr = this.b;
-        Object[] objArr2 = this.c;
+        Object[] objArr = this.f7276b;
+        Object[] objArr2 = this.f7277c;
         int length = objArr.length;
         while (true) {
             int i = length;
@@ -464,24 +502,25 @@ public class o implements Iterable {
 
     @Override // java.lang.Iterable
     /* renamed from: a */
-    public p iterator() {
-        return b();
+    public C1180p iterator() {
+        return m321b();
     }
 
-    public p b() {
-        if (this.l == null) {
-            this.l = new p(this);
-            this.m = new p(this);
+    /* renamed from: b */
+    public C1180p m321b() {
+        if (this.f7286l == null) {
+            this.f7286l = new C1180p(this);
+            this.f7287m = new C1180p(this);
         }
-        if (!this.l.f) {
-            this.l.c();
-            this.l.f = true;
-            this.m.f = false;
-            return this.l;
+        if (!this.f7286l.f7295f) {
+            this.f7286l.mo309c();
+            this.f7286l.f7295f = true;
+            this.f7287m.f7295f = false;
+            return this.f7286l;
         }
-        this.m.c();
-        this.m.f = true;
-        this.l.f = false;
-        return this.m;
+        this.f7287m.mo309c();
+        this.f7287m.f7295f = true;
+        this.f7286l.f7295f = false;
+        return this.f7287m;
     }
 }

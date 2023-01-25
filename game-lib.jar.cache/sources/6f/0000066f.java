@@ -10,18 +10,18 @@ import java.io.IOException;
 public class SteamNetworkingCallback implements com.codedisaster.steamworks.SteamNetworkingCallback {
 
     /* renamed from: a */
-    SteamEngine f734a;
+    SteamEngine f7330a;
 
     public SteamNetworkingCallback(SteamEngine steamEngine) {
-        this.f734a = steamEngine;
+        this.f7330a = steamEngine;
     }
 
     @Override // com.codedisaster.steamworks.SteamNetworkingCallback
     public void onP2PSessionConnectFail(SteamID steamID, SteamNetworking.P2PSessionError p2PSessionError) {
-        GameEngine.m2e("onP2PSessionConnectFail:" + p2PSessionError);
-        SteamSocket steamSocket = (SteamSocket) this.f734a.l.get(steamID);
+        GameEngine.m5777e("onP2PSessionConnectFail:" + p2PSessionError);
+        SteamSocket steamSocket = (SteamSocket) this.f7330a.f7320l.get(steamID);
         if (steamSocket != null && !steamSocket.isClosed()) {
-            GameEngine.m2e("onP2PSessionConnectFail: closing active socket");
+            GameEngine.m5777e("onP2PSessionConnectFail: closing active socket");
             try {
                 steamSocket.close();
             } catch (IOException e) {
@@ -32,7 +32,7 @@ public class SteamNetworkingCallback implements com.codedisaster.steamworks.Stea
 
     @Override // com.codedisaster.steamworks.SteamNetworkingCallback
     public void onP2PSessionRequest(SteamID steamID) {
-        GameEngine.m2e("onP2PSessionRequest:" + steamID);
-        this.f734a.h.acceptP2PSessionWithUser(steamID);
+        GameEngine.m5777e("onP2PSessionRequest:" + steamID);
+        this.f7330a.f7316h.acceptP2PSessionWithUser(steamID);
     }
 }

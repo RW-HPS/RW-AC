@@ -1,17 +1,21 @@
-package com.corrodinggames.rts.a.a;
+package com.corrodinggames.rts.debug.test;
 
+/* renamed from: com.corrodinggames.rts.a.a.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/a/a/i.class */
-public class i {
+public class C0080i {
 
-    /* renamed from: a  reason: collision with root package name */
-    int f82a;
-    final /* synthetic */ f b;
+    /* renamed from: a */
+    int f415a;
 
-    public i(f fVar) {
-        this.b = fVar;
+    /* renamed from: b */
+    final /* synthetic */ TestMiscPerformance f416b;
+
+    public C0080i(TestMiscPerformance testMiscPerformance) {
+        this.f416b = testMiscPerformance;
     }
 
-    public int a() {
-        return this.f82a;
+    /* renamed from: a */
+    public int mo5430a() {
+        return this.f415a;
     }
 }

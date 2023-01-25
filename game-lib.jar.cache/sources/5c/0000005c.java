@@ -1,30 +1,40 @@
 package android.util;
 
+import com.p005a.p006a.p007a.C0042a;
+
 /* loaded from: game-lib.jar:android/util/SparseArray.class */
 public class SparseArray implements Cloneable {
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final Object f61a = new Object();
-    private boolean b;
-    private int[] c;
-    private Object[] d;
-    private int e;
+    /* renamed from: a */
+    private static final Object f303a = new Object();
+
+    /* renamed from: b */
+    private boolean f304b;
+
+    /* renamed from: c */
+    private int[] f305c;
+
+    /* renamed from: d */
+    private Object[] f306d;
+
+    /* renamed from: e */
+    private int f307e;
 
     public SparseArray() {
         this(10);
     }
 
     public SparseArray(int i) {
-        this.b = false;
+        this.f304b = false;
         if (i == 0) {
-            this.c = a.b;
-            this.d = a.d;
+            this.f305c = C0040a.f309b;
+            this.f306d = C0040a.f311d;
         } else {
-            int c = com.a.a.a.a.c(i);
-            this.c = new int[c];
-            this.d = new Object[c];
+            int m5047c = C0042a.m5047c(i);
+            this.f305c = new int[m5047c];
+            this.f306d = new Object[m5047c];
         }
-        this.e = 0;
+        this.f307e = 0;
     }
 
     /* renamed from: a */
@@ -32,33 +42,36 @@ public class SparseArray implements Cloneable {
         SparseArray sparseArray = null;
         try {
             sparseArray = (SparseArray) super.clone();
-            sparseArray.c = (int[]) this.c.clone();
-            sparseArray.d = (Object[]) this.d.clone();
+            sparseArray.f305c = (int[]) this.f305c.clone();
+            sparseArray.f306d = (Object[]) this.f306d.clone();
         } catch (CloneNotSupportedException e) {
         }
         return sparseArray;
     }
 
-    public Object a(int i) {
-        return a(i, null);
+    /* renamed from: a */
+    public Object m5066a(int i) {
+        return m5065a(i, null);
     }
 
-    public Object a(int i, Object obj) {
-        int a2 = a.a(this.c, this.e, i);
-        if (a2 < 0 || this.d[a2] == f61a) {
+    /* renamed from: a */
+    public Object m5065a(int i, Object obj) {
+        int m5058a = C0040a.m5058a(this.f305c, this.f307e, i);
+        if (m5058a < 0 || this.f306d[m5058a] == f303a) {
             return obj;
         }
-        return this.d[a2];
+        return this.f306d[m5058a];
     }
 
-    private void c() {
-        int i = this.e;
+    /* renamed from: c */
+    private void m5061c() {
+        int i = this.f307e;
         int i2 = 0;
-        int[] iArr = this.c;
-        Object[] objArr = this.d;
+        int[] iArr = this.f305c;
+        Object[] objArr = this.f306d;
         for (int i3 = 0; i3 < i; i3++) {
             Object obj = objArr[i3];
-            if (obj != f61a) {
+            if (obj != f303a) {
                 if (i3 != i2) {
                     iArr[i2] = iArr[i3];
                     objArr[i2] = obj;
@@ -67,103 +80,108 @@ public class SparseArray implements Cloneable {
                 i2++;
             }
         }
-        this.b = false;
-        this.e = i2;
+        this.f304b = false;
+        this.f307e = i2;
     }
 
-    public void b(int i, Object obj) {
-        int a2 = a.a(this.c, this.e, i);
-        if (a2 >= 0) {
-            this.d[a2] = obj;
+    /* renamed from: b */
+    public void m5062b(int i, Object obj) {
+        int m5058a = C0040a.m5058a(this.f305c, this.f307e, i);
+        if (m5058a >= 0) {
+            this.f306d[m5058a] = obj;
             return;
         }
-        int i2 = a2 ^ (-1);
-        if (i2 < this.e && this.d[i2] == f61a) {
-            this.c[i2] = i;
-            this.d[i2] = obj;
+        int i2 = m5058a ^ (-1);
+        if (i2 < this.f307e && this.f306d[i2] == f303a) {
+            this.f305c[i2] = i;
+            this.f306d[i2] = obj;
             return;
         }
-        if (this.b && this.e >= this.c.length) {
-            c();
-            i2 = a.a(this.c, this.e, i) ^ (-1);
+        if (this.f304b && this.f307e >= this.f305c.length) {
+            m5061c();
+            i2 = C0040a.m5058a(this.f305c, this.f307e, i) ^ (-1);
         }
-        if (this.e >= this.c.length) {
-            int c = com.a.a.a.a.c(this.e + 1);
-            int[] iArr = new int[c];
-            Object[] objArr = new Object[c];
-            System.arraycopy(this.c, 0, iArr, 0, this.c.length);
-            System.arraycopy(this.d, 0, objArr, 0, this.d.length);
-            this.c = iArr;
-            this.d = objArr;
+        if (this.f307e >= this.f305c.length) {
+            int m5047c = C0042a.m5047c(this.f307e + 1);
+            int[] iArr = new int[m5047c];
+            Object[] objArr = new Object[m5047c];
+            System.arraycopy(this.f305c, 0, iArr, 0, this.f305c.length);
+            System.arraycopy(this.f306d, 0, objArr, 0, this.f306d.length);
+            this.f305c = iArr;
+            this.f306d = objArr;
         }
-        if (this.e - i2 != 0) {
-            System.arraycopy(this.c, i2, this.c, i2 + 1, this.e - i2);
-            System.arraycopy(this.d, i2, this.d, i2 + 1, this.e - i2);
+        if (this.f307e - i2 != 0) {
+            System.arraycopy(this.f305c, i2, this.f305c, i2 + 1, this.f307e - i2);
+            System.arraycopy(this.f306d, i2, this.f306d, i2 + 1, this.f307e - i2);
         }
-        this.c[i2] = i;
-        this.d[i2] = obj;
-        this.e++;
+        this.f305c[i2] = i;
+        this.f306d[i2] = obj;
+        this.f307e++;
     }
 
-    public int b() {
-        if (this.b) {
-            c();
+    /* renamed from: b */
+    public int m5064b() {
+        if (this.f304b) {
+            m5061c();
         }
-        return this.e;
+        return this.f307e;
     }
 
-    public int b(int i) {
-        if (this.b) {
-            c();
+    /* renamed from: b */
+    public int m5063b(int i) {
+        if (this.f304b) {
+            m5061c();
         }
-        return this.c[i];
+        return this.f305c[i];
     }
 
-    public Object c(int i) {
-        if (this.b) {
-            c();
+    /* renamed from: c */
+    public Object m5060c(int i) {
+        if (this.f304b) {
+            m5061c();
         }
-        return this.d[i];
+        return this.f306d[i];
     }
 
-    public void c(int i, Object obj) {
-        if (this.e != 0 && i <= this.c[this.e - 1]) {
-            b(i, obj);
+    /* renamed from: c */
+    public void m5059c(int i, Object obj) {
+        if (this.f307e != 0 && i <= this.f305c[this.f307e - 1]) {
+            m5062b(i, obj);
             return;
         }
-        if (this.b && this.e >= this.c.length) {
-            c();
+        if (this.f304b && this.f307e >= this.f305c.length) {
+            m5061c();
         }
-        int i2 = this.e;
-        if (i2 >= this.c.length) {
-            int c = com.a.a.a.a.c(i2 + 1);
-            int[] iArr = new int[c];
-            Object[] objArr = new Object[c];
-            System.arraycopy(this.c, 0, iArr, 0, this.c.length);
-            System.arraycopy(this.d, 0, objArr, 0, this.d.length);
-            this.c = iArr;
-            this.d = objArr;
+        int i2 = this.f307e;
+        if (i2 >= this.f305c.length) {
+            int m5047c = C0042a.m5047c(i2 + 1);
+            int[] iArr = new int[m5047c];
+            Object[] objArr = new Object[m5047c];
+            System.arraycopy(this.f305c, 0, iArr, 0, this.f305c.length);
+            System.arraycopy(this.f306d, 0, objArr, 0, this.f306d.length);
+            this.f305c = iArr;
+            this.f306d = objArr;
         }
-        this.c[i2] = i;
-        this.d[i2] = obj;
-        this.e = i2 + 1;
+        this.f305c[i2] = i;
+        this.f306d[i2] = obj;
+        this.f307e = i2 + 1;
     }
 
     public String toString() {
-        if (b() <= 0) {
+        if (m5064b() <= 0) {
             return "{}";
         }
-        StringBuilder sb = new StringBuilder(this.e * 28);
+        StringBuilder sb = new StringBuilder(this.f307e * 28);
         sb.append('{');
-        for (int i = 0; i < this.e; i++) {
+        for (int i = 0; i < this.f307e; i++) {
             if (i > 0) {
                 sb.append(", ");
             }
-            sb.append(b(i));
+            sb.append(m5063b(i));
             sb.append('=');
-            Object c = c(i);
-            if (c != this) {
-                sb.append(c);
+            Object m5060c = m5060c(i);
+            if (m5060c != this) {
+                sb.append(m5060c);
             } else {
                 sb.append("(this Map)");
             }

@@ -1,34 +1,33 @@
 package com.corrodinggames.rts.gameFramework;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.au */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/au.class */
-public class au extends Thread {
+class C0669au extends Thread {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f412a;
+    /* renamed from: a */
+    final /* synthetic */ C0654am f4255a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(am amVar) {
-        this.f412a = amVar;
+    C0669au(C0654am c0654am) {
+        this.f4255a = c0654am;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         float f;
         while (true) {
-            synchronized (this.f412a.c) {
-                this.f412a.g = true;
-                if (!this.f412a.f) {
+            synchronized (this.f4255a.f4224c) {
+                this.f4255a.f4227g = true;
+                if (!this.f4255a.f4226f) {
                     try {
-                        this.f412a.c.wait(am.f403a.e());
+                        this.f4255a.f4224c.wait(C0654am.f4220a.mo93e());
                     } catch (InterruptedException e) {
                     }
                 }
-                this.f412a.f = false;
-                f = this.f412a.d;
+                this.f4255a.f4226f = false;
+                f = this.f4255a.f4225d;
             }
-            synchronized (this.f412a.b) {
-                if (!this.f412a.b(f)) {
+            synchronized (this.f4255a.f4223b) {
+                if (!this.f4255a.m2746b(f)) {
                     return;
                 }
             }

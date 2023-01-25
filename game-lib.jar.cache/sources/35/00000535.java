@@ -5,28 +5,30 @@ import java.io.OutputStream;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/j.class */
-public class j extends OutputStream {
+public class RFSOutStream extends OutputStream {
 
     /* renamed from: a */
-    boolean f584a = true;
-    final /* synthetic */ RelayForwardedSocket b;
+    boolean f6074a = true;
 
-    public j(RelayForwardedSocket relayForwardedSocket) {
-        this.b = relayForwardedSocket;
+    /* renamed from: b */
+    final /* synthetic */ RelayForwardedSocket f6075b;
+
+    public RFSOutStream(RelayForwardedSocket relayForwardedSocket) {
+        this.f6075b = relayForwardedSocket;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) {
-        GameEngine.g("SteamSocketOutputStream: Slow write: " + i);
+        GameEngine.m990g("SteamSocketOutputStream: Slow write: " + i);
         write(new byte[]{(byte) i});
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) {
-        if (this.b.c) {
-            GameEngine.m2e("cannot write steam socket closed");
+        if (this.f6075b.f6067c) {
+            GameEngine.m5460e("cannot write steam socket closed");
         } else {
-            GameEngine.m2e("Forwarded message to client: " + this.b.b + " with old method");
+            GameEngine.m5460e("Forwarded message to client: " + this.f6075b.f6066b + " with old method");
         }
     }
 

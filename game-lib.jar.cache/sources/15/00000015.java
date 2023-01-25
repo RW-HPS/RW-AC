@@ -1,18 +1,18 @@
-package a.a;
+package net.rudp;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: a.a.k */
 /* loaded from: game-lib.jar:a/a/k.class */
-public class k implements Runnable {
+class RunnableC0021k implements Runnable {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f18a;
+    /* renamed from: a */
+    final /* synthetic */ ReliableSocket f89a;
 
-    private k(h hVar) {
-        this.f18a = hVar;
+    private RunnableC0021k(ReliableSocket reliableSocket) {
+        this.f89a = reliableSocket;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f18a.m();
+        this.f89a.m5365m();
     }
 }

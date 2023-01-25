@@ -3,24 +3,28 @@ package com.corrodinggames.rts.gameFramework.net;
 /* renamed from: com.corrodinggames.rts.gameFramework.j.ai */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/ai.class */
 public enum MapType {
-    skirmishMap { // from class: com.corrodinggames.rts.gameFramework.j.ai.1
+    f5867a { // from class: com.corrodinggames.rts.gameFramework.j.ai.1
         @Override // com.corrodinggames.rts.gameFramework.net.MapType
-        public String a() {
+        /* renamed from: a */
+        public String mo1420a() {
             return "Skirmish Map";
         }
     },
-    customMap { // from class: com.corrodinggames.rts.gameFramework.j.ai.2
+    f5868b { // from class: com.corrodinggames.rts.gameFramework.j.ai.2
         @Override // com.corrodinggames.rts.gameFramework.net.MapType
-        public String a() {
+        /* renamed from: a */
+        public String mo1420a() {
             return "Custom Map";
         }
     },
-    savedGame { // from class: com.corrodinggames.rts.gameFramework.j.ai.3
+    f5869c { // from class: com.corrodinggames.rts.gameFramework.j.ai.3
         @Override // com.corrodinggames.rts.gameFramework.net.MapType
-        public String a() {
+        /* renamed from: a */
+        public String mo1420a() {
             return "Saved Game";
         }
     };
 
-    public abstract String a();
+    /* renamed from: a */
+    public abstract String mo1420a();
 }

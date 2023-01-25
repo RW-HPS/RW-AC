@@ -4,8 +4,7 @@ package com.codedisaster.steamworks;
 abstract class SteamCallbackAdapter {
     protected final Object callback;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamCallbackAdapter(Object obj) {
+    SteamCallbackAdapter(Object obj) {
         this.callback = obj;
     }
 }

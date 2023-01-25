@@ -1,25 +1,52 @@
 package com.corrodinggames.rts.game.units.custom;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.bk */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/bk.class */
-public class bk {
+public class C0413bk {
 
-    /* renamed from: a  reason: collision with root package name */
-    x f275a;
-    float i;
-    float j;
-    float k;
-    float l;
-    float m;
-    int b = 1;
-    float c = 1.0f;
-    int d = Integer.MAX_VALUE;
-    float e = 0.0f;
-    float f = 0.0f;
-    float g = 0.0f;
-    float h = 0.0f;
-    int n = 3;
+    /* renamed from: a */
+    C0471x f2548a;
 
-    public bk(x xVar) {
-        this.f275a = xVar;
+    /* renamed from: i */
+    float f2549i;
+
+    /* renamed from: j */
+    float f2550j;
+
+    /* renamed from: k */
+    float f2551k;
+
+    /* renamed from: l */
+    float f2552l;
+
+    /* renamed from: m */
+    float f2553m;
+
+    /* renamed from: b */
+    int f2554b = 1;
+
+    /* renamed from: c */
+    float f2555c = 1.0f;
+
+    /* renamed from: d */
+    int f2556d = Integer.MAX_VALUE;
+
+    /* renamed from: e */
+    float f2557e = 0.0f;
+
+    /* renamed from: f */
+    float f2558f = 0.0f;
+
+    /* renamed from: g */
+    float f2559g = 0.0f;
+
+    /* renamed from: h */
+    float f2560h = 0.0f;
+
+    /* renamed from: n */
+    int f2561n = 3;
+
+    public C0413bk(C0471x c0471x) {
+        this.f2548a = c0471x;
     }
 }

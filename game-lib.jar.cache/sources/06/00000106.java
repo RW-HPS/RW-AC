@@ -1,14 +1,17 @@
 package com.corrodinggames.rts;
 
+/* renamed from: com.corrodinggames.rts.R */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/R.class */
-public final class R {
+public final class AssetsID {
 
+    /* renamed from: com.corrodinggames.rts.R$anim */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$anim.class */
     public final class anim {
         public static int mainfadein = 2130968576;
         public static int splashfadeout = 2130968577;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$array */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$array.class */
     public final class array {
         public static int aidifficulty_array = 2131165186;
@@ -27,6 +30,7 @@ public final class R {
         public static int unitcap_array = 2131165188;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$attr */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$attr.class */
     public final class attr {
         public static int horizontalSpacing = 2130771968;
@@ -35,6 +39,7 @@ public final class R {
         public static int verticalSpacing = 2130771969;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$color */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$color.class */
     public final class color {
         public static int framecolour = 2131296257;
@@ -44,6 +49,7 @@ public final class R {
         public static int whitecolour = 2131296258;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$drawable */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$drawable.class */
     public final class drawable {
         public static int air_factory = 2130837504;
@@ -309,8 +315,9 @@ public final class R {
         public static int zoom_button = 2130837764;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$id */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$id.class */
-    public final class id {
+    public final class C0068id {
         public static int IntroSurfaceView = 2131230729;
         public static int LevelTextTop = 2131230737;
         public static int LinearLayout01 = 2131230726;
@@ -499,6 +506,7 @@ public final class R {
         public static int watchReplayButton = 2131230811;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$layout */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$layout.class */
     public final class layout {
         public static int alert_chat = 2130903040;
@@ -523,6 +531,7 @@ public final class R {
         public static int settings_keyboard = 2130903059;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$raw */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$raw.class */
     public final class raw {
         public static int attack = 2131099648;
@@ -557,6 +566,7 @@ public final class R {
         public static int warning = 2131099677;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$string */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$string.class */
     public final class string {
         public static int aidifficulty_prompt = 2131361794;
@@ -575,6 +585,7 @@ public final class R {
         public static int unitcap_prompt = 2131361796;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$style */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$style.class */
     public final class style {
         public static int CustomButton = 2131427336;
@@ -588,6 +599,7 @@ public final class R {
         public static int SpinnerTheme = 2131427328;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$styleable */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$styleable.class */
     public final class styleable {
         public static final int[] FlowLayout = {2130771968, 2130771969};
@@ -600,6 +612,7 @@ public final class R {
         public static int GalleryTheme_android_galleryItemBackground = 0;
     }
 
+    /* renamed from: com.corrodinggames.rts.R$xml */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$xml.class */
     public final class xml {
         public static int provider_paths = 2131034112;

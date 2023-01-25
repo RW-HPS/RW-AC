@@ -4,10 +4,14 @@ import java.io.BufferedReader;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.t */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/t.class */
-public class t {
+public class C0923t {
 
-    /* renamed from: a  reason: collision with root package name */
-    public BufferedReader f593a;
-    public boolean b;
-    public boolean c;
+    /* renamed from: a */
+    public BufferedReader f6109a;
+
+    /* renamed from: b */
+    public boolean f6110b;
+
+    /* renamed from: c */
+    public boolean f6111c;
 }

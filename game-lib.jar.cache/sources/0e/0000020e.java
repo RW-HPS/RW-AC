@@ -1,26 +1,32 @@
 package com.corrodinggames.rts.game.units.custom;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.units.custom.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/a.class */
-public class a implements Comparable {
+class C0320a implements Comparable {
 
-    /* renamed from: a  reason: collision with root package name */
-    public float f216a;
-    public float b;
-    public float c;
-    public float d;
+    /* renamed from: a */
+    public float f1912a;
 
-    public a(float f, float f2) {
-        this.f216a = f;
-        this.b = f2;
+    /* renamed from: b */
+    public float f1913b;
+
+    /* renamed from: c */
+    public float f1914c;
+
+    /* renamed from: d */
+    public float f1915d;
+
+    public C0320a(float f, float f2) {
+        this.f1912a = f;
+        this.f1913b = f2;
     }
 
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int compareTo(a aVar) {
-        if (this.f216a == aVar.f216a) {
+    public int compareTo(C0320a c0320a) {
+        if (this.f1912a == c0320a.f1912a) {
             return 0;
         }
-        return this.f216a > aVar.f216a ? 1 : -1;
+        return this.f1912a > c0320a.f1912a ? 1 : -1;
     }
 }

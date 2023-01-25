@@ -2,138 +2,175 @@ package com.corrodinggames.rts.game.units;
 
 import android.graphics.Paint;
 import android.graphics.PointF;
+import com.corrodinggames.rts.game.C0188f;
 import com.corrodinggames.rts.game.PlayerData;
+import com.corrodinggames.rts.game.p012b.C0179f;
+import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.p026e.AbstractC0534j;
+import com.corrodinggames.rts.game.units.p026e.C0524b;
+import com.corrodinggames.rts.gameFramework.AbstractC1155w;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.p030a.C0637e;
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
 
+/* renamed from: com.corrodinggames.rts.game.units.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/g.class */
-public class g extends com.corrodinggames.rts.game.units.e.j implements d {
+public class C0551g extends AbstractC0534j implements InterfaceC0474d {
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f365a;
-    PointF[] b;
-    PointF[] c;
-    static Paint d;
-    static Paint e;
-    static Paint f;
-    int g;
-    float h;
-    float i;
-    int j;
+    /* renamed from: a */
+    public boolean f3776a;
 
-    @Override // com.corrodinggames.rts.game.units.am
+    /* renamed from: b */
+    PointF[] f3777b;
+
+    /* renamed from: c */
+    PointF[] f3778c;
+
+    /* renamed from: d */
+    static Paint f3779d;
+
+    /* renamed from: e */
+    static Paint f3780e;
+
     /* renamed from: f */
-    public ar r() {
-        return ar.builder;
+    static Paint f3781f;
+
+    /* renamed from: g */
+    int f3782g;
+
+    /* renamed from: h */
+    float f3783h;
+
+    /* renamed from: i */
+    float f3784i;
+
+    /* renamed from: j */
+    int f3785j;
+
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: f */
+    public EnumC0249ar mo5458r() {
+        return EnumC0249ar.f1747h;
     }
 
-    @Override // com.corrodinggames.rts.game.units.d
-    public PointF[] b() {
-        return this.b;
+    @Override // com.corrodinggames.rts.game.units.InterfaceC0474d
+    /* renamed from: b */
+    public PointF[] mo3146b() {
+        return this.f3777b;
     }
 
-    @Override // com.corrodinggames.rts.game.units.d
-    public PointF[] e_() {
-        return this.c;
+    @Override // com.corrodinggames.rts.game.units.InterfaceC0474d
+    /* renamed from: e_ */
+    public PointF[] mo3145e_() {
+        return this.f3778c;
     }
 
-    @Override // com.corrodinggames.rts.game.units.e.j, com.corrodinggames.rts.game.units.am
-    public com.corrodinggames.rts.gameFramework.m.e v() {
-        if (this.bX.k == -1) {
+    @Override // com.corrodinggames.rts.game.units.p026e.AbstractC0534j, com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: v */
+    public C0970e mo3066v() {
+        if (this.f1614bX.site == -1) {
             return null;
         }
-        return dN[this.bX.R()];
+        return f3681dN[this.f1614bX.m4454R()];
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public boolean a(am amVar) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: a */
+    public boolean mo3011a(AbstractC0244am abstractC0244am) {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public com.corrodinggames.rts.gameFramework.m.e d() {
-        if (this.bV) {
-            return com.corrodinggames.rts.game.units.e.b.b;
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: d */
+    public C0970e mo2879d() {
+        if (this.f1612bV) {
+            return C0524b.f3618b;
         }
-        return com.corrodinggames.rts.game.units.e.b.d[this.bX.R()];
+        return C0524b.f3620d[this.f1614bX.m4454R()];
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public com.corrodinggames.rts.gameFramework.m.e k() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: k */
+    public C0970e mo2853k() {
         return null;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public com.corrodinggames.rts.gameFramework.m.e d(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: d */
+    public C0970e mo2876d(int i) {
         return null;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public boolean e() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: e */
+    public boolean mo3071e() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.bR.b(this.eo, this.ep, this.eq);
-        this.M = com.corrodinggames.rts.game.units.e.b.b;
-        S(0);
-        this.bT = false;
-        gameEngine.bM.a(com.corrodinggames.rts.gameFramework.a.e.o, 0.8f, this.eo, this.ep);
-        bq();
+        gameEngine.f6329bR.m2370b(this.f7172eo, this.f7173ep, this.f7174eq);
+        this.f3917M = C0524b.f3618b;
+        m448S(0);
+        this.f1610bT = false;
+        gameEngine.f6324bM.m2812a(C0637e.f4081o, 0.8f, this.f7172eo, this.f7173ep);
+        mo2895bq();
         return true;
     }
 
-    public g(boolean z) {
+    public C0551g(boolean z) {
         super(z);
-        this.b = new PointF[6];
-        this.c = new PointF[this.b.length];
-        d = new Paint();
-        d.a(40, 0, 255, 0);
-        d.a(true);
-        d.a(2.0f);
-        d.a(Paint.Cap.ROUND);
-        e = new Paint();
-        e.a(d);
-        e.a(55, 255, 60, 60);
-        f = new Paint();
-        f.a(60, 255, 255, 255);
-        T(20);
-        U(20);
-        this.cj = 10.0f;
-        this.eo = -1000.0f;
-        this.ep = -1000.0f;
-        this.ck = this.cj;
-        this.cv = 170000.0f;
-        this.cu = this.cv;
-        this.M = com.corrodinggames.rts.game.units.e.b.b;
-        for (int i = 0; i < this.b.length; i++) {
-            this.b[i] = new PointF();
-            this.c[i] = new PointF();
+        this.f3777b = new PointF[6];
+        this.f3778c = new PointF[this.f3777b.length];
+        f3779d = new Paint();
+        f3779d.m5228a(40, 0, 255, 0);
+        f3779d.mo914a(true);
+        f3779d.m5231a(2.0f);
+        f3779d.m5223a(Paint.Cap.f201b);
+        f3780e = new Paint();
+        f3780e.m5220a(f3779d);
+        f3780e.m5228a(55, 255, 60, 60);
+        f3781f = new Paint();
+        f3781f.m5228a(60, 255, 255, 255);
+        m2729T(20);
+        m2728U(20);
+        this.f1626cj = 10.0f;
+        this.f7172eo = -1000.0f;
+        this.f7173ep = -1000.0f;
+        this.f1627ck = this.f1626cj;
+        this.f1638cv = 170000.0f;
+        this.f1637cu = this.f1638cv;
+        this.f3917M = C0524b.f3618b;
+        for (int i = 0; i < this.f3777b.length; i++) {
+            this.f3777b[i] = new PointF();
+            this.f3778c[i] = new PointF();
         }
     }
 
-    public static void a(float f2, d dVar) {
-        y yVar = (y) dVar;
-        PointF[] b = dVar.b();
-        PointF[] e_ = dVar.e_();
-        am X = yVar.X();
-        yVar.aN = X != null;
-        if (X != null) {
-            for (int i = 0; i < b.length; i++) {
-                PointF pointF = b[i];
-                PointF pointF2 = e_[i];
-                pointF.x = com.corrodinggames.rts.gameFramework.f.a(pointF.x, pointF2.x, 0.1f * f2);
-                pointF.y = com.corrodinggames.rts.gameFramework.f.a(pointF.y, pointF2.y, 0.1f * f2);
-                pointF.x += (pointF2.x - pointF.x) * 0.04f * f2;
-                pointF.y += (pointF2.y - pointF.y) * 0.04f * f2;
-                float f3 = X.cj * 0.75f;
-                if (com.corrodinggames.rts.gameFramework.f.c(pointF.x - pointF2.x) < 1.0f) {
-                    pointF2.x = com.corrodinggames.rts.gameFramework.f.d(-f3, f3);
+    /* renamed from: a */
+    public static void m3193a(float f, InterfaceC0474d interfaceC0474d) {
+        AbstractC0629y abstractC0629y = (AbstractC0629y) interfaceC0474d;
+        PointF[] mo3146b = interfaceC0474d.mo3146b();
+        PointF[] mo3145e_ = interfaceC0474d.mo3145e_();
+        AbstractC0244am m3036X = abstractC0629y.m3036X();
+        abstractC0629y.f3998aN = m3036X != null;
+        if (m3036X != null) {
+            for (int i = 0; i < mo3146b.length; i++) {
+                PointF pointF = mo3146b[i];
+                PointF pointF2 = mo3145e_[i];
+                pointF.x = C0773f.m2217a(pointF.x, pointF2.x, 0.1f * f);
+                pointF.y = C0773f.m2217a(pointF.y, pointF2.y, 0.1f * f);
+                pointF.x += (pointF2.x - pointF.x) * 0.04f * f;
+                pointF.y += (pointF2.y - pointF.y) * 0.04f * f;
+                float f2 = m3036X.f1626cj * 0.75f;
+                if (C0773f.m2152c(pointF.x - pointF2.x) < 1.0f) {
+                    pointF2.x = C0773f.m2140d(-f2, f2);
                 }
-                if (com.corrodinggames.rts.gameFramework.f.c(pointF.y - pointF2.y) < 1.0f) {
-                    pointF2.y = com.corrodinggames.rts.gameFramework.f.d(-f3, f3);
+                if (C0773f.m2152c(pointF.y - pointF2.y) < 1.0f) {
+                    pointF2.y = C0773f.m2140d(-f2, f2);
                 }
             }
-        } else if (b[0].x != 0.0f || b[0].y != 0.0f) {
-            for (int i2 = 0; i2 < b.length; i2++) {
-                PointF pointF3 = b[i2];
-                PointF pointF4 = e_[i2];
+        } else if (mo3146b[0].x != 0.0f || mo3146b[0].y != 0.0f) {
+            for (int i2 = 0; i2 < mo3146b.length; i2++) {
+                PointF pointF3 = mo3146b[i2];
+                PointF pointF4 = mo3145e_[i2];
                 pointF3.x = 0.0f;
                 pointF3.y = 0.0f;
                 pointF4.x = 0.0f;
@@ -142,203 +179,233 @@ public class g extends com.corrodinggames.rts.game.units.e.j implements d {
         }
     }
 
-    @Override // com.corrodinggames.rts.game.units.e.j, com.corrodinggames.rts.game.units.y, com.corrodinggames.rts.game.units.am, com.corrodinggames.rts.gameFramework.w
-    public void a(float f2) {
-        super.a(f2);
-        if (!this.bV) {
-            a(f2, this);
+    @Override // com.corrodinggames.rts.game.units.p026e.AbstractC0534j, com.corrodinggames.rts.game.units.AbstractC0629y, com.corrodinggames.rts.game.units.AbstractC0244am, com.corrodinggames.rts.gameFramework.AbstractC1155w
+    /* renamed from: a */
+    public void mo446a(float f) {
+        super.mo446a(f);
+        if (!this.f1612bV) {
+            m3193a(f, this);
         }
-        this.cu = this.cv;
-        this.g++;
-        this.h += f2;
-        this.i += f2;
+        this.f1637cu = this.f1638cv;
+        this.f3782g++;
+        this.f3783h += f;
+        this.f3784i += f;
         GameEngine.getGameEngine();
-        if (this.f365a) {
-            GameEngine.m328e("Stress test active");
+        if (this.f3776a) {
+            GameEngine.m5460e("Stress test active");
             for (int i = 0; i < 6000; i++) {
-                w();
+                m3191w();
             }
-            ci();
-        } else if (this.i > 3.0f) {
-            this.i = 0.0f;
-            w();
+            m4210ci();
+        } else if (this.f3784i > 3.0f) {
+            this.f3784i = 0.0f;
+            m3191w();
         }
     }
 
-    public void w() {
+    /* renamed from: w */
+    public void m3191w() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        this.j++;
-        as asVar = (as) ar.ae.get(com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) this, 0, ar.ae.size() - 1, 1 + this.j));
+        this.f3785j++;
+        InterfaceC0303as interfaceC0303as = (InterfaceC0303as) EnumC0249ar.f1796ae.get(C0773f.m2195a((AbstractC1155w) this, 0, EnumC0249ar.f1796ae.size() - 1, 1 + this.f3785j));
         boolean z = true;
-        if (com.corrodinggames.rts.game.units.custom.l.b == asVar) {
+        if (C0458l.f2933b == interfaceC0303as) {
             z = false;
         }
-        if (asVar == ar.spreadingFire) {
+        if (interfaceC0303as == EnumC0249ar.f1784S) {
             z = false;
         }
         if (z) {
-            am a2 = asVar.a();
-            a2.eo = com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) this, 200, ((int) gameEngine.bL.i()) - 200, 2 + this.g + this.j);
-            a2.ep = com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) this, 200, ((int) gameEngine.bL.j()) - 200, 3 + this.g + this.j + (this.j * 9));
+            AbstractC0244am mo3564a = interfaceC0303as.mo3564a();
+            mo3564a.f7172eo = C0773f.m2195a((AbstractC1155w) this, 200, ((int) gameEngine.f6323bL.m4601i()) - 200, 2 + this.f3782g + this.f3785j);
+            mo3564a.f7173ep = C0773f.m2195a((AbstractC1155w) this, 200, ((int) gameEngine.f6323bL.m4600j()) - 200, 3 + this.f3782g + this.f3785j + (this.f3785j * 9));
             try {
-                a2.Q(com.corrodinggames.rts.gameFramework.f.a((com.corrodinggames.rts.gameFramework.w) this, 0, 3, 4 + this.g + this.j + (this.j * 9)));
-                PlayerData.c(a2);
-                if (a2.u()) {
-                    a2.a();
+                mo3564a.m4253Q(C0773f.m2195a((AbstractC1155w) this, 0, 3, 4 + this.f3782g + this.f3785j + (this.f3785j * 9)));
+                PlayerData.m4401c(mo3564a);
+                if (mo3564a.mo1745u()) {
+                    mo3564a.mo447a();
                 }
-                if (a2.bO()) {
-                    a2.a();
+                if (mo3564a.mo3635bO()) {
+                    mo3564a.mo447a();
                 }
-            } catch (com.corrodinggames.rts.game.b.f e2) {
-                throw new RuntimeException(e2);
+            } catch (C0179f e) {
+                throw new RuntimeException(e);
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.game.units.am, com.corrodinggames.rts.gameFramework.w
-    public void a(float f2, boolean z) {
-        if (!this.bV) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am, com.corrodinggames.rts.gameFramework.AbstractC1155w
+    /* renamed from: a */
+    public void mo445a(float f, boolean z) {
+        if (!this.f1612bV) {
         }
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float e(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: e */
+    public float mo2872e(int i) {
         return 0.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float f(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: f */
+    public float mo2870f(int i) {
         return 0.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y, com.corrodinggames.rts.game.units.am, com.corrodinggames.rts.gameFramework.w
-    public boolean c(float f2) {
-        if (!super.c(f2)) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y, com.corrodinggames.rts.game.units.AbstractC0244am, com.corrodinggames.rts.gameFramework.AbstractC1155w
+    /* renamed from: c */
+    public boolean mo438c(float f) {
+        if (!super.mo438c(f)) {
             return false;
         }
         GameEngine.getGameEngine();
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public void a(am amVar, int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: a */
+    public void mo3008a(AbstractC0244am abstractC0244am, int i) {
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public boolean b_() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: b_ */
+    public boolean mo2912b_() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public int y() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: y */
+    public int mo3138y() {
         return 850000;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public float b(am amVar) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: b */
+    public float mo3164b(AbstractC0244am abstractC0244am) {
         return 1.0E7f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public float c(am amVar) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: c */
+    public float mo3163c(AbstractC0244am abstractC0244am) {
         return 1.0E7f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float m() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: m */
+    public float mo2846m() {
         return 30.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float b(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: b */
+    public float mo2930b(int i) {
         return 100.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float z() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: z */
+    public float mo2822z() {
         return 0.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float A() {
-        if (cK()) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: A */
+    public float mo3065A() {
+        if (m4215cK()) {
             return 4.7f;
         }
         return 4.8f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float B() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: B */
+    public float mo3063B() {
         return 0.35f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float c(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: c */
+    public float mo2883c(int i) {
         return 99.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public boolean l() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: l */
+    public boolean mo3067l() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float C() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: C */
+    public float mo3061C() {
         return 0.04f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float D() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: D */
+    public float mo3059D() {
         return 0.1f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public boolean E() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: E */
+    public boolean mo3057E() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float g(int i) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: g */
+    public float mo2866g(int i) {
         return 10.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public boolean F() {
-        return GameEngine.getGameEngine().settingsEngine.renderExtraShadows && !this.bV;
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: F */
+    public boolean mo3055F() {
+        return GameEngine.getGameEngine().settingsEngine.renderExtraShadows && !this.f1612bV;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float G() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: G */
+    public float mo3053G() {
         return 1.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.y
-    public float H() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: H */
+    public float mo3051H() {
         return 1.0f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public boolean u() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: u */
+    public boolean mo1745u() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.w, com.corrodinggames.rts.game.units.y
-    public boolean I() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0627w, com.corrodinggames.rts.game.units.AbstractC0629y
+    /* renamed from: I */
+    public boolean mo3049I() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public boolean d(am amVar) {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: d */
+    public boolean mo3072d(AbstractC0244am abstractC0244am) {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public boolean J() {
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: J */
+    public boolean mo3076J() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.am
-    public float a(am amVar, float f2, com.corrodinggames.rts.game.f fVar) {
-        return super.a(amVar, 0.0f, fVar);
+    @Override // com.corrodinggames.rts.game.units.AbstractC0244am
+    /* renamed from: a */
+    public float mo3073a(AbstractC0244am abstractC0244am, float f, C0188f c0188f) {
+        return super.mo3073a(abstractC0244am, 0.0f, c0188f);
     }
 }

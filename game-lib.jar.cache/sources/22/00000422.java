@@ -1,25 +1,26 @@
-package com.corrodinggames.rts.gameFramework.a;
+package com.corrodinggames.rts.gameFramework.p030a;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.a.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/a/d.class */
-public class d extends Thread {
+public class C0636d extends Thread {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f396a;
+    /* renamed from: a */
+    final /* synthetic */ C0633a f4066a;
 
-    public d(a aVar) {
-        this.f396a = aVar;
+    public C0636d(C0633a c0633a) {
+        this.f4066a = c0633a;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        GameEngine.aq();
+        GameEngine.m1033aq();
         while (true) {
             try {
-                c cVar = (c) this.f396a.f393a.take();
-                cVar.a();
-                this.f396a.c.a(cVar);
+                C0635c c0635c = (C0635c) this.f4066a.f4050a.take();
+                c0635c.m2817a();
+                this.f4066a.f4052c.m632a(c0635c);
             } catch (InterruptedException e) {
                 return;
             }

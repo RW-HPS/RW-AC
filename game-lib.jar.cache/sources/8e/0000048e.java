@@ -1,39 +1,40 @@
 package com.corrodinggames.rts.gameFramework;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.bs */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/bs.class */
-public enum bs {
-    total { // from class: com.corrodinggames.rts.gameFramework.bs.1
+public enum EnumC0744bs {
+    f4658a { // from class: com.corrodinggames.rts.gameFramework.bs.1
     },
-    update { // from class: com.corrodinggames.rts.gameFramework.bs.2
+    f4659b { // from class: com.corrodinggames.rts.gameFramework.bs.2
     },
-    draw { // from class: com.corrodinggames.rts.gameFramework.bs.3
+    f4660c { // from class: com.corrodinggames.rts.gameFramework.bs.3
     },
-    draw_game { // from class: com.corrodinggames.rts.gameFramework.bs.4
+    f4661d { // from class: com.corrodinggames.rts.gameFramework.bs.4
     },
-    draw_end,
-    draw_gui,
-    draw_game_effects,
-    update_game_shouldDraw,
-    update_game_sortRender,
-    update_do_all_collisions,
-    update_do_all_collisions2,
-    update_all_team_and_ai,
-    update_geo_indexes,
-    update_minimap,
-    update_groupcontroller,
-    draw_game_unit,
-    draw_setup,
-    draw_setup_fill,
-    draw_setup_clip,
-    draw_setup_drawMap,
-    surface_draw,
-    realdraw_in_drawthread,
-    update_waiting_on_draw,
-    draw_waiting_on_update,
-    load_total,
-    load_map,
-    load_units,
-    load_compression,
-    init_total,
-    init_unitcolour
+    f4662e,
+    f4663f,
+    f4664g,
+    f4665h,
+    f4666i,
+    f4667j,
+    f4668k,
+    f4669l,
+    f4670m,
+    f4671n,
+    f4672o,
+    f4673p,
+    f4674q,
+    f4675r,
+    f4676s,
+    f4677t,
+    f4678u,
+    f4679v,
+    f4680w,
+    f4681x,
+    f4682y,
+    f4683z,
+    f4684A,
+    f4685B,
+    f4686C,
+    f4687D
 }

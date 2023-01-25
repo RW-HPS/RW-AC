@@ -11,24 +11,31 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class SteamSocketInStream extends InputStream {
 
     /* renamed from: a */
-    LinkedBlockingDeque f740a = new LinkedBlockingDeque();
-    boolean b = true;
-    byte[] c = new byte[1];
-    final /* synthetic */ SteamSocket d;
+    LinkedBlockingDeque f7354a = new LinkedBlockingDeque();
+
+    /* renamed from: b */
+    boolean f7355b = true;
+
+    /* renamed from: c */
+    byte[] f7356c = new byte[1];
+
+    /* renamed from: d */
+    final /* synthetic */ SteamSocket f7357d;
 
     public SteamSocketInStream(SteamSocket steamSocket) {
-        this.d = steamSocket;
+        this.f7357d = steamSocket;
     }
 
-    public void a(byte[] bArr) {
-        this.f740a.add(ByteBuffer.wrap(bArr));
+    /* renamed from: a */
+    public void m257a(byte[] bArr) {
+        this.f7354a.add(ByteBuffer.wrap(bArr));
     }
 
     @Override // java.io.InputStream
     public int read() {
         do {
-        } while (read(this.c, 0, 1) <= 0);
-        return this.c[0] & 255;
+        } while (read(this.f7356c, 0, 1) <= 0);
+        return this.f7356c[0] & 255;
     }
 
     @Override // java.io.InputStream
@@ -39,19 +46,19 @@ public class SteamSocketInStream extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) {
         int i3;
-        if (this.d.b) {
+        if (this.f7357d.f7350b) {
             throw new IOException("closed");
         }
         int i4 = 0;
         int i5 = i2;
         int i6 = i;
-        while (!this.d.b) {
+        while (!this.f7357d.f7350b) {
             try {
-                ByteBuffer byteBuffer = (ByteBuffer) this.f740a.take();
+                ByteBuffer byteBuffer = (ByteBuffer) this.f7354a.take();
                 if (byteBuffer != null) {
-                    if (this.b) {
-                        this.b = false;
-                        GameEngine.m2e("First packet from:" + this.d.e);
+                    if (this.f7355b) {
+                        this.f7355b = false;
+                        GameEngine.m5460e("First packet from:" + this.f7357d.f7353e);
                     }
                     if (byteBuffer.remaining() <= i5) {
                         i3 = byteBuffer.remaining();
@@ -59,7 +66,7 @@ public class SteamSocketInStream extends InputStream {
                     } else {
                         i3 = i5;
                         byteBuffer.get(bArr, i6, i5);
-                        this.f740a.addFirst(byteBuffer);
+                        this.f7354a.addFirst(byteBuffer);
                     }
                     i4 += i3;
                     i5 -= i3;

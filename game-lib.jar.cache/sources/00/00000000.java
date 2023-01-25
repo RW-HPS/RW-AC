@@ -1,6 +1,8 @@
-package a.a;
+package net.rudp;
 
+/* renamed from: a.a.a */
 /* loaded from: game-lib.jar:a/a/a.class */
-public abstract class a {
-    public abstract void a(byte[] bArr, int i);
+public abstract class AbstractC0000a {
+    /* renamed from: a */
+    public abstract void m5449a(byte[] bArr, int i);
 }

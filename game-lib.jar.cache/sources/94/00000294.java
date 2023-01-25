@@ -2,38 +2,41 @@ package com.corrodinggames.rts.game.units.custom;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/h.class */
-public final class h {
+public final class C0454h {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final g[] f306a;
+    /* renamed from: a */
+    public final C0453g[] f2866a;
 
-    public h(g[] gVarArr) {
-        this.f306a = gVarArr;
+    public C0454h(C0453g[] c0453gArr) {
+        this.f2866a = c0453gArr;
     }
 
-    public boolean a() {
-        return this.f306a.length == 0;
+    /* renamed from: a */
+    public boolean m3676a() {
+        return this.f2866a.length == 0;
     }
 
-    public boolean a(h hVar) {
-        g[] gVarArr;
-        if (hVar == null) {
-            if (a()) {
+    /* renamed from: a */
+    public boolean m3675a(C0454h c0454h) {
+        C0453g[] c0453gArr;
+        if (c0454h == null) {
+            if (m3676a()) {
                 return true;
             }
             return false;
-        } else if (this.f306a.length != hVar.f306a.length) {
+        } else if (this.f2866a.length != c0454h.f2866a.length) {
             return false;
         } else {
-            for (g gVar : this.f306a) {
+            for (C0453g c0453g : this.f2866a) {
                 boolean z = false;
-                g[] gVarArr2 = hVar.f306a;
-                int length = gVarArr2.length;
+                C0453g[] c0453gArr2 = c0454h.f2866a;
+                int length = c0453gArr2.length;
                 int i = 0;
                 while (true) {
                     if (i < length) {
-                        if (gVar != gVarArr2[i]) {
+                        if (c0453g != c0453gArr2[i]) {
                             i++;
                         } else {
                             z = true;
@@ -51,20 +54,21 @@ public final class h {
         }
     }
 
-    public int b() {
-        return this.f306a.length;
+    /* renamed from: b */
+    public int m3674b() {
+        return this.f2866a.length;
     }
 
     public String toString() {
-        g[] gVarArr;
+        C0453g[] c0453gArr;
         String str = VariableScope.nullOrMissingString;
         boolean z = true;
-        for (g gVar : this.f306a) {
+        for (C0453g c0453g : this.f2866a) {
             if (!z) {
                 str = str + ", ";
             }
             z = false;
-            str = str + gVar.f305a;
+            str = str + c0453g.f2862a;
         }
         return "{" + str + "}";
     }

@@ -1,71 +1,78 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
+import com.corrodinggames.rts.game.units.AbstractC0244am;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.v */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/v.class */
-public class v implements Iterator {
-    private int b;
-    private int c;
-    private int d;
+class C1149v implements Iterator {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ u f698a;
+    /* renamed from: b */
+    private int f7139b;
 
-    private v(u uVar) {
+    /* renamed from: c */
+    private int f7140c;
+
+    /* renamed from: d */
+    private int f7141d;
+
+    /* renamed from: a */
+    final /* synthetic */ C1147u f7142a;
+
+    private C1149v(C1147u c1147u) {
         int i;
-        this.f698a = uVar;
-        this.b = this.f698a.b;
-        this.c = -1;
-        i = this.f698a.modCount;
-        this.d = i;
+        this.f7142a = c1147u;
+        this.f7139b = this.f7142a.f7137b;
+        this.f7140c = -1;
+        i = this.f7142a.modCount;
+        this.f7141d = i;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.b != 0;
+        return this.f7139b != 0;
     }
 
     @Override // java.util.Iterator
     /* renamed from: a */
-    public com.corrodinggames.rts.game.units.am next() {
+    public AbstractC0244am next() {
         int i;
-        u uVar = this.f698a;
-        int i2 = this.b;
-        i = uVar.modCount;
-        if (i != this.d) {
+        C1147u c1147u = this.f7142a;
+        int i2 = this.f7139b;
+        i = c1147u.modCount;
+        if (i != this.f7141d) {
             throw new ConcurrentModificationException();
         }
         if (i2 == 0) {
             throw new NoSuchElementException();
         }
-        this.b = i2 - 1;
-        com.corrodinggames.rts.game.units.am[] amVarArr = uVar.c;
-        int i3 = uVar.b - i2;
-        this.c = i3;
-        return amVarArr[i3];
+        this.f7139b = i2 - 1;
+        AbstractC0244am[] abstractC0244amArr = c1147u.f7138c;
+        int i3 = c1147u.f7137b - i2;
+        this.f7140c = i3;
+        return abstractC0244amArr[i3];
     }
 
     @Override // java.util.Iterator
     public void remove() {
         int i;
-        com.corrodinggames.rts.game.units.am[] amVarArr = this.f698a.c;
-        int i2 = this.c;
-        i = this.f698a.modCount;
-        if (i != this.d) {
+        AbstractC0244am[] abstractC0244amArr = this.f7142a.f7138c;
+        int i2 = this.f7140c;
+        i = this.f7142a.modCount;
+        if (i != this.f7141d) {
             throw new ConcurrentModificationException();
         }
         if (i2 < 0) {
             throw new IllegalStateException();
         }
-        System.arraycopy(amVarArr, i2 + 1, amVarArr, i2, this.b);
-        u uVar = this.f698a;
-        int i3 = uVar.b - 1;
-        uVar.b = i3;
-        amVarArr[i3] = null;
-        this.c = -1;
-        this.d = u.d(this.f698a);
+        System.arraycopy(abstractC0244amArr, i2 + 1, abstractC0244amArr, i2, this.f7139b);
+        C1147u c1147u = this.f7142a;
+        int i3 = c1147u.f7137b - 1;
+        c1147u.f7137b = i3;
+        abstractC0244amArr[i3] = null;
+        this.f7140c = -1;
+        this.f7141d = C1147u.m487d(this.f7142a);
     }
 }

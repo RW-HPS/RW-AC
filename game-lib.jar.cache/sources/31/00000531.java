@@ -1,6 +1,6 @@
 package com.corrodinggames.rts.gameFramework.net;
 
-import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.f */
@@ -8,52 +8,54 @@ import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 public class Unknown_GameOutBlockStream extends GameOutputStream {
 
     /* renamed from: a */
-    public String f580a = VariableScope.nullOrMissingString;
+    public String f6037a = VariableScope.nullOrMissingString;
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
     /* renamed from: a */
     public void writeInt(int i) {
-        this.f580a += "|" + i;
+        this.f6037a += "|" + i;
         super.writeInt(i);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
     /* renamed from: a */
     public void writeFloat(float f) {
-        this.f580a += "|" + f;
+        this.f6037a += "|" + f;
         super.writeFloat(f);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
-    public void a(short s) {
-        this.f580a += "|" + ((int) s);
-        super.a(s);
+    /* renamed from: a */
+    public void mo1331a(short s) {
+        this.f6037a += "|" + ((int) s);
+        super.mo1331a(s);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
     /* renamed from: a */
     public void writeBoolean(boolean z) {
-        this.f580a += "|" + z;
+        this.f6037a += "|" + z;
         super.writeBoolean(z);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
     /* renamed from: a */
     public void startBlock(String str, boolean z) {
-        this.f580a += "<" + str + ">";
+        this.f6037a += "<" + str + ">";
         super.startBlock(str, z);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
     /* renamed from: a */
     public void endBlock(String str) {
-        this.f580a += "</" + str + ">";
+        this.f6037a += "</" + str + ">";
         super.endBlock(str);
     }
 
     @Override // com.corrodinggames.rts.gameFramework.net.GameOutputStream
-    public void a(am amVar) {
-        this.f580a += "|u:" + amVar;
-        super.a(amVar);
+    /* renamed from: a */
+    public void mo1334a(AbstractC0244am abstractC0244am) {
+        this.f6037a += "|u:" + abstractC0244am;
+        super.mo1334a(abstractC0244am);
     }
 }

@@ -2,43 +2,41 @@ package com.corrodinggames.rts.gameFramework.writeErrorFile;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.corrodinggames.rts.gameFramework.c.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/c/c.class */
-public class c implements Runnable {
+class RunnableC0754c implements Runnable {
 
     /* renamed from: a */
-    final /* synthetic */ a f465a;
+    final /* synthetic */ RunnableC0752a f4718a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.f465a = aVar;
+    RunnableC0754c(RunnableC0752a runnableC0752a) {
+        this.f4718a = runnableC0752a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (this.f465a.f) {
-            this.f465a.f = false;
+        if (this.f4718a.f4711f) {
+            this.f4718a.f4711f = false;
             return;
         }
-        if (a.c) {
-            if (gameEngine.bL == null) {
+        if (RunnableC0752a.f4708c) {
+            if (gameEngine.f6371bL == null) {
                 return;
             }
-            gameEngine.bN.F = true;
-            if (!gameEngine.bN.j()) {
-                a.e += 1.0f;
+            gameEngine.f6373bN.f4227F = true;
+            if (!gameEngine.f6373bN.m2736j()) {
+                RunnableC0752a.f4710e += 1.0f;
             }
-            if (a.e > 5.0f) {
-                a.e = 0.0f;
+            if (RunnableC0752a.f4710e > 5.0f) {
+                RunnableC0752a.f4710e = 0.0f;
                 System.gc();
                 System.gc();
-                gameEngine.bN.e();
+                gameEngine.f6373bN.m2741e();
             }
         }
-        if (a.d && gameEngine.bL != null) {
-            gameEngine.bL.g();
+        if (RunnableC0752a.f4709d && gameEngine.f6371bL != null) {
+            gameEngine.f6371bL.m4602g();
         }
     }
 }

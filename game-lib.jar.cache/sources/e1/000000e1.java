@@ -4,13 +4,11 @@ package com.codedisaster.steamworks;
 class SteamUtilsCallbackAdapter extends SteamCallbackAdapter {
     private SteamAPIWarningMessageHook messageHook;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamUtilsCallbackAdapter(SteamUtilsCallback steamUtilsCallback) {
+    SteamUtilsCallbackAdapter(SteamUtilsCallback steamUtilsCallback) {
         super(steamUtilsCallback);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setWarningMessageHook(SteamAPIWarningMessageHook steamAPIWarningMessageHook) {
+    void setWarningMessageHook(SteamAPIWarningMessageHook steamAPIWarningMessageHook) {
         this.messageHook = steamAPIWarningMessageHook;
     }
 

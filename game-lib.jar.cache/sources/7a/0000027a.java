@@ -1,28 +1,35 @@
-package com.corrodinggames.rts.game.units.custom.d;
+package com.corrodinggames.rts.game.units.custom.p020d;
 
-import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.d.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/d/a.class */
-public abstract class a {
-    public abstract void a(am amVar);
+public abstract class AbstractC0428a {
+    /* renamed from: a */
+    public abstract void mo3806a(AbstractC0244am abstractC0244am);
 
-    public abstract boolean b(am amVar);
+    /* renamed from: b */
+    public abstract boolean mo3800b(AbstractC0244am abstractC0244am);
 
-    public abstract void a(am amVar, double d);
+    /* renamed from: a */
+    public abstract void mo3805a(AbstractC0244am abstractC0244am, double d);
 
-    public abstract boolean b(am amVar, double d);
+    /* renamed from: b */
+    public abstract boolean mo3799b(AbstractC0244am abstractC0244am, double d);
 
-    public boolean c(am amVar) {
-        if (b(amVar)) {
-            a(amVar);
+    /* renamed from: c */
+    public boolean m3854c(AbstractC0244am abstractC0244am) {
+        if (mo3800b(abstractC0244am)) {
+            mo3806a(abstractC0244am);
             return true;
         }
         return false;
     }
 
-    public boolean c(am amVar, double d) {
-        if (b(amVar, d)) {
-            a(amVar, d);
+    /* renamed from: c */
+    public boolean m3853c(AbstractC0244am abstractC0244am, double d) {
+        if (mo3799b(abstractC0244am, d)) {
+            mo3805a(abstractC0244am, d);
             return true;
         }
         return false;

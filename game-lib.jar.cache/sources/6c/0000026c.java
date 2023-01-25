@@ -5,67 +5,76 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.bl */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/bl.class */
-public class bl {
+public class C0414bl {
 
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f276a = new ArrayList();
-    int b;
+    /* renamed from: a */
+    ArrayList f2562a = new ArrayList();
 
-    public void a(float f) {
-        Iterator it = this.f276a.iterator();
+    /* renamed from: b */
+    int f2563b;
+
+    /* renamed from: a */
+    public void m3888a(float f) {
+        Iterator it = this.f2562a.iterator();
         while (it.hasNext()) {
-            ((bm) it.next()).b = f;
+            ((C0415bm) it.next()).f2565b = f;
         }
     }
 
-    public boolean a() {
-        return a(0.0f, 0.0f, 1.0f, true);
+    /* renamed from: a */
+    public boolean m3889a() {
+        return m3886a(0.0f, 0.0f, 1.0f, true);
     }
 
-    public boolean a(float f, float f2, float f3) {
-        return a(f, f2, f3, false);
+    /* renamed from: a */
+    public boolean m3887a(float f, float f2, float f3) {
+        return m3886a(f, f2, f3, false);
     }
 
-    public boolean a(float f, float f2, float f3, boolean z) {
-        if (this.f276a.size() == 0) {
+    /* renamed from: a */
+    public boolean m3886a(float f, float f2, float f3, boolean z) {
+        if (this.f2562a.size() == 0) {
             return false;
         }
-        if (this.b >= this.f276a.size()) {
-            this.b = 0;
+        if (this.f2563b >= this.f2562a.size()) {
+            this.f2563b = 0;
         }
-        bm bmVar = (bm) this.f276a.get(this.b);
+        C0415bm c0415bm = (C0415bm) this.f2562a.get(this.f2563b);
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (z) {
-            gameEngine.bM.c(bmVar.f277a, bmVar.b);
+            gameEngine.f6324bM.m2804c(c0415bm.f2564a, c0415bm.f2565b);
         } else {
-            gameEngine.bM.a(bmVar.f277a, bmVar.b, f, f2);
+            gameEngine.f6324bM.m2812a(c0415bm.f2564a, c0415bm.f2565b, f, f2);
         }
-        this.b++;
+        this.f2563b++;
         return true;
     }
 
-    public static bl a(l lVar, String str) {
-        return a(lVar, str, (bl) null);
+    /* renamed from: a */
+    public static C0414bl m3885a(C0458l c0458l, String str) {
+        return m3884a(c0458l, str, (C0414bl) null);
     }
 
-    public static bl a(l lVar, String str, bl blVar) {
-        if ((str == null || str.equals(VariableScope.nullOrMissingString)) && blVar != null) {
-            return blVar;
+    /* renamed from: a */
+    public static C0414bl m3884a(C0458l c0458l, String str, C0414bl c0414bl) {
+        if ((str == null || str.equals(VariableScope.nullOrMissingString)) && c0414bl != null) {
+            return c0414bl;
         }
-        return new bl(lVar, str);
+        return new C0414bl(c0458l, str);
     }
 
-    public bl() {
+    public C0414bl() {
     }
 
-    public bl(l lVar, String str) {
+    public C0414bl(C0458l c0458l, String str) {
         String[] split;
         if (str == null || str.equals(VariableScope.nullOrMissingString) || str.equalsIgnoreCase("NONE")) {
             return;
         }
         for (String str2 : str.split(",")) {
-            bm bmVar = new bm(this);
+            C0415bm c0415bm = new C0415bm(this);
             String trim = str2.trim();
             String str3 = VariableScope.nullOrMissingString;
             if (trim.startsWith("ROOT:")) {
@@ -88,14 +97,14 @@ public class bl {
             }
             if (str4 != null) {
                 try {
-                    bmVar.b = Float.parseFloat(str4);
+                    c0415bm.f2565b = Float.parseFloat(str4);
                 } catch (NumberFormatException e) {
                     throw new RuntimeException("Failed to parse volume float: '" + str4 + "' of sound: '" + trim + "'");
                 }
             }
-            bmVar.f277a = ag.a(lVar.F, str3 + trim2, lVar);
-            if (bmVar.f277a != null) {
-                this.f276a.add(bmVar);
+            c0415bm.f2564a = C0349ag.m4021a(c0458l.f2946F, str3 + trim2, c0458l);
+            if (c0415bm.f2564a != null) {
+                this.f2562a.add(c0415bm);
             }
         }
     }

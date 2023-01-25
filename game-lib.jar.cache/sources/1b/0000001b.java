@@ -1,32 +1,37 @@
-package a.a;
+package net.rudp;
 
 import java.io.OutputStream;
 
+/* renamed from: a.a.q */
 /* loaded from: game-lib.jar:a/a/q.class */
-class q extends OutputStream {
+class ReliableSocketOutputStream extends OutputStream {
 
-    /* renamed from: a  reason: collision with root package name */
-    protected h f23a;
-    protected byte[] b;
-    protected int c;
+    /* renamed from: a */
+    protected ReliableSocket f97a;
 
-    public q(h hVar) {
-        if (hVar == null) {
+    /* renamed from: b */
+    protected byte[] f98b;
+
+    /* renamed from: c */
+    protected int f99c;
+
+    public ReliableSocketOutputStream(ReliableSocket reliableSocket) {
+        if (reliableSocket == null) {
             throw new NullPointerException("sock");
         }
-        this.f23a = hVar;
-        this.b = new byte[this.f23a.getSendBufferSize()];
-        this.c = 0;
+        this.f97a = reliableSocket;
+        this.f98b = new byte[this.f97a.getSendBufferSize()];
+        this.f99c = 0;
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(int i) {
-        if (this.c >= this.b.length) {
+        if (this.f99c >= this.f98b.length) {
             flush();
         }
-        byte[] bArr = this.b;
-        int i2 = this.c;
-        this.c = i2 + 1;
+        byte[] bArr = this.f98b;
+        int i2 = this.f99c;
+        this.f99c = i2 + 1;
         bArr[i2] = (byte) (i & 255);
     }
 
@@ -47,12 +52,12 @@ class q extends OutputStream {
         while (true) {
             int i4 = i3;
             if (i4 < i2) {
-                int min = Math.min(this.b.length, i2 - i4);
-                if (min > this.b.length - this.c) {
+                int min = Math.min(this.f98b.length, i2 - i4);
+                if (min > this.f98b.length - this.f99c) {
                     flush();
                 }
-                System.arraycopy(bArr, i + i4, this.b, this.c, min);
-                this.c += min;
+                System.arraycopy(bArr, i + i4, this.f98b, this.f99c, min);
+                this.f99c += min;
                 i3 = i4 + min;
             } else {
                 return;
@@ -62,15 +67,15 @@ class q extends OutputStream {
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() {
-        if (this.c > 0) {
-            this.f23a.a(this.b, 0, this.c);
-            this.c = 0;
+        if (this.f99c > 0) {
+            this.f97a.m5398a(this.f98b, 0, this.f99c);
+            this.f99c = 0;
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
         flush();
-        this.f23a.shutdownOutput();
+        this.f97a.shutdownOutput();
     }
 }

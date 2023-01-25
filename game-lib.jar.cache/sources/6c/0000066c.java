@@ -5,10 +5,10 @@ package com.corrodinggames.rts.java.steam;
 public class SteamUtilsCallback implements com.codedisaster.steamworks.SteamUtilsCallback {
 
     /* renamed from: a */
-    final /* synthetic */ SteamEngine f731a;
+    final /* synthetic */ SteamEngine f7327a;
 
     public SteamUtilsCallback(SteamEngine steamEngine) {
-        this.f731a = steamEngine;
+        this.f7327a = steamEngine;
     }
 
     @Override // com.codedisaster.steamworks.SteamUtilsCallback

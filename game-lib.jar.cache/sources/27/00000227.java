@@ -1,15 +1,22 @@
 package com.corrodinggames.rts.game.units.custom;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.ac */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/ac.class */
-public class ac {
+public class C0345ac {
 
-    /* renamed from: a  reason: collision with root package name */
-    String f238a;
-    int b;
-    int c;
-    int d;
+    /* renamed from: a */
+    String f2173a;
 
-    public ac(String str) {
-        this.f238a = str;
+    /* renamed from: b */
+    int f2174b;
+
+    /* renamed from: c */
+    int f2175c;
+
+    /* renamed from: d */
+    int f2176d;
+
+    public C0345ac(String str) {
+        this.f2173a = str;
     }
 }

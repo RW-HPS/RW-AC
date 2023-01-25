@@ -1,157 +1,197 @@
-package android.os;
+package android.p003os;
 
 import android.os.Parcelable;
 
+/* renamed from: android.os.Message */
 /* loaded from: game-lib.jar:android/os/Message.class */
 public final class Message implements Parcelable {
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f58a;
-    public int b;
-    public int c;
-    public Object d;
-    public Messenger e;
-    public int f = -1;
-    int g;
-    long h;
-    Bundle i;
-    Handler j;
-    Runnable k;
-    Message l;
-    private static Message o;
-    private static final Object n = new Object();
-    private static int p = 0;
-    private static boolean q = true;
-    public static final Parcelable.Creator m = new Parcelable.Creator() { // from class: android.os.Message.1
+    /* renamed from: a */
+    public int f277a;
+
+    /* renamed from: b */
+    public int f278b;
+
+    /* renamed from: c */
+    public int f279c;
+
+    /* renamed from: d */
+    public Object f280d;
+
+    /* renamed from: e */
+    public Messenger f281e;
+
+    /* renamed from: f */
+    public int f282f = -1;
+
+    /* renamed from: g */
+    int f283g;
+
+    /* renamed from: h */
+    long f284h;
+
+    /* renamed from: i */
+    Bundle f285i;
+
+    /* renamed from: j */
+    Handler f286j;
+
+    /* renamed from: k */
+    Runnable f287k;
+
+    /* renamed from: l */
+    Message f288l;
+
+    /* renamed from: o */
+    private static Message f289o;
+
+    /* renamed from: n */
+    private static final Object f290n = new Object();
+
+    /* renamed from: p */
+    private static int f291p = 0;
+
+    /* renamed from: q */
+    private static boolean f292q = true;
+
+    /* renamed from: m */
+    public static final Parcelable.Creator f293m = new Parcelable.Creator() { // from class: android.os.Message.1
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public Message createFromParcel(Parcel parcel) {
-            Message a2 = Message.a();
-            a2.a(parcel);
-            return a2;
+        public Message mo5091a(Parcel parcel) {
+            Message m5104a = Message.m5104a();
+            m5104a.m5100a(parcel);
+            return m5104a;
         }
 
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public Message[] newArray(int i) {
+        public Message[] mo5092a(int i) {
             return new Message[i];
         }
     };
 
-    public static Message a() {
-        synchronized (n) {
-            if (o != null) {
-                Message message = o;
-                o = message.l;
-                message.l = null;
-                message.g = 0;
-                p--;
+    /* renamed from: a */
+    public static Message m5104a() {
+        synchronized (f290n) {
+            if (f289o != null) {
+                Message message = f289o;
+                f289o = message.f288l;
+                message.f288l = null;
+                message.f283g = 0;
+                f291p--;
                 return message;
             }
             return new Message();
         }
     }
 
-    public static Message a(Handler handler) {
-        Message a2 = a();
-        a2.j = handler;
-        return a2;
+    /* renamed from: a */
+    public static Message m5102a(Handler handler) {
+        Message m5104a = m5104a();
+        m5104a.f286j = handler;
+        return m5104a;
     }
 
-    public void b() {
-        if (f()) {
-            if (q) {
+    /* renamed from: b */
+    public void m5098b() {
+        if (m5094f()) {
+            if (f292q) {
                 throw new IllegalStateException("This message cannot be recycled because it is still in use.");
             }
             return;
         }
-        c();
+        m5097c();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        this.g = 1;
-        this.f58a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = -1;
-        this.h = 0L;
-        this.j = null;
-        this.k = null;
-        this.i = null;
-        synchronized (n) {
-            if (p < 50) {
-                this.l = o;
-                o = this;
-                p++;
+    /* renamed from: c */
+    void m5097c() {
+        this.f283g = 1;
+        this.f277a = 0;
+        this.f278b = 0;
+        this.f279c = 0;
+        this.f280d = null;
+        this.f281e = null;
+        this.f282f = -1;
+        this.f284h = 0L;
+        this.f286j = null;
+        this.f287k = null;
+        this.f285i = null;
+        synchronized (f290n) {
+            if (f291p < 50) {
+                this.f288l = f289o;
+                f289o = this;
+                f291p++;
             }
         }
     }
 
-    public Bundle d() {
-        if (this.i == null) {
-            this.i = new Bundle();
+    /* renamed from: d */
+    public Bundle m5096d() {
+        if (this.f285i == null) {
+            this.f285i = new Bundle();
         }
-        return this.i;
+        return this.f285i;
     }
 
-    public boolean e() {
-        return (this.g & 2) != 0;
+    /* renamed from: e */
+    public boolean m5095e() {
+        return (this.f283g & 2) != 0;
     }
 
-    public void a(boolean z) {
+    /* renamed from: a */
+    public void m5099a(boolean z) {
         if (z) {
-            this.g |= 2;
+            this.f283g |= 2;
         } else {
-            this.g &= -3;
+            this.f283g &= -3;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean f() {
-        return (this.g & 1) == 1;
+    /* renamed from: f */
+    boolean m5094f() {
+        return (this.f283g & 1) == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void g() {
-        this.g |= 1;
+    /* renamed from: g */
+    void m5093g() {
+        this.f283g |= 1;
     }
 
     public String toString() {
-        return a(SystemClock.a());
+        return m5103a(SystemClock.m5082a());
     }
 
-    String a(long j) {
+    /* renamed from: a */
+    String m5103a(long j) {
         StringBuilder sb = new StringBuilder();
         sb.append("{ when=");
         sb.append("corrodinggames-unsupported");
-        if (this.j != null) {
-            if (this.k != null) {
+        if (this.f286j != null) {
+            if (this.f287k != null) {
                 sb.append(" callback=");
-                sb.append(this.k.getClass().getName());
+                sb.append(this.f287k.getClass().getName());
             } else {
                 sb.append(" what=");
-                sb.append(this.f58a);
+                sb.append(this.f277a);
             }
-            if (this.b != 0) {
+            if (this.f278b != 0) {
                 sb.append(" arg1=");
-                sb.append(this.b);
+                sb.append(this.f278b);
             }
-            if (this.c != 0) {
+            if (this.f279c != 0) {
                 sb.append(" arg2=");
-                sb.append(this.c);
+                sb.append(this.f279c);
             }
-            if (this.d != null) {
+            if (this.f280d != null) {
                 sb.append(" obj=");
-                sb.append(this.d);
+                sb.append(this.f280d);
             }
             sb.append(" target=");
-            sb.append(this.j.getClass().getName());
+            sb.append(this.f286j.getClass().getName());
         } else {
             sb.append(" barrier=");
-            sb.append(this.b);
+            sb.append(this.f278b);
         }
         sb.append(" }");
         return sb.toString();
@@ -164,39 +204,40 @@ public final class Message implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        if (this.k != null) {
+        if (this.f287k != null) {
             throw new RuntimeException("Can't marshal callbacks across processes.");
         }
-        parcel.writeInt(this.f58a);
-        parcel.writeInt(this.b);
-        parcel.writeInt(this.c);
-        if (this.d != null) {
+        parcel.writeInt(this.f277a);
+        parcel.writeInt(this.f278b);
+        parcel.writeInt(this.f279c);
+        if (this.f280d != null) {
             try {
                 parcel.writeInt(1);
-                parcel.writeParcelable((Parcelable) this.d, i);
+                parcel.writeParcelable((Parcelable) this.f280d, i);
             } catch (ClassCastException e) {
                 throw new RuntimeException("Can't marshal non-Parcelable objects across processes.");
             }
         } else {
             parcel.writeInt(0);
         }
-        parcel.writeLong(this.h);
-        parcel.writeBundle(this.i);
-        Messenger.writeMessengerOrNullToParcel(this.e, parcel);
-        parcel.writeInt(this.f);
+        parcel.writeLong(this.f284h);
+        parcel.writeBundle(this.f285i);
+        Messenger.writeMessengerOrNullToParcel(this.f281e, parcel);
+        parcel.writeInt(this.f282f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Parcel parcel) {
-        this.f58a = parcel.readInt();
-        this.b = parcel.readInt();
-        this.c = parcel.readInt();
+    /* renamed from: a */
+    public void m5100a(Parcel parcel) {
+        this.f277a = parcel.readInt();
+        this.f278b = parcel.readInt();
+        this.f279c = parcel.readInt();
         if (parcel.readInt() != 0) {
-            this.d = parcel.readParcelable(getClass().getClassLoader());
+            this.f280d = parcel.readParcelable(getClass().getClassLoader());
         }
-        this.h = parcel.readLong();
-        this.i = parcel.readBundle();
-        this.e = Messenger.readMessengerOrNullFromParcel(parcel);
-        this.f = parcel.readInt();
+        this.f284h = parcel.readLong();
+        this.f285i = parcel.readBundle();
+        this.f281e = Messenger.readMessengerOrNullFromParcel(parcel);
+        this.f282f = parcel.readInt();
     }
 }

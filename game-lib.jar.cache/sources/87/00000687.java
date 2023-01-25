@@ -1,17 +1,29 @@
 package com.corrodinggames.rts.java;
 
+/* renamed from: com.corrodinggames.rts.java.p */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/p.class */
-public class p {
+public class C1221p {
 
-    /* renamed from: a  reason: collision with root package name */
-    q f754a;
-    float b;
-    float c;
-    int d;
-    int e;
-    float f;
+    /* renamed from: a */
+    C1222q f7462a;
 
-    public void a() {
-        this.f754a.b(this.b, this.c, this.d, this.e, this.f);
+    /* renamed from: b */
+    float f7463b;
+
+    /* renamed from: c */
+    float f7464c;
+
+    /* renamed from: d */
+    int f7465d;
+
+    /* renamed from: e */
+    int f7466e;
+
+    /* renamed from: f */
+    float f7467f;
+
+    /* renamed from: a */
+    public void m77a() {
+        this.f7462a.m74b(this.f7463b, this.f7464c, this.f7465d, this.f7466e, this.f7467f);
     }
 }

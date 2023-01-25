@@ -1,23 +1,27 @@
 package com.corrodinggames.rts.game.units.custom;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.bc */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/bc.class */
-public class bc {
+public class C0405bc {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f268a;
-    public String b;
+    /* renamed from: a */
+    public String f2510a;
 
-    public bc() {
+    /* renamed from: b */
+    public String f2511b;
+
+    public C0405bc() {
     }
 
-    public bc(String str, String str2) {
-        this.f268a = str;
-        this.b = str2;
+    public C0405bc(String str, String str2) {
+        this.f2510a = str;
+        this.f2511b = str2;
     }
 
-    public void a(String str, String str2) {
-        if (this.b != null) {
-            this.b = this.b.replaceAll(str, str2);
+    /* renamed from: a */
+    public void m3908a(String str, String str2) {
+        if (this.f2511b != null) {
+            this.f2511b = this.f2511b.replaceAll(str, str2);
         }
     }
 }

@@ -10,83 +10,105 @@ import java.util.Locale;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.c.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/c/a.class */
-public class a implements Runnable {
-    public static float e;
-    public ServerSocket h;
+public class RunnableC0752a implements Runnable {
+
+    /* renamed from: e */
+    public static float f4706e;
+
+    /* renamed from: h */
+    public ServerSocket f4707h;
 
     /* renamed from: a */
-    public static boolean f463a = false;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = false;
-    public static boolean g = true;
-    static ArrayList j = new ArrayList();
-    boolean f = true;
-    public boolean i = true;
+    public static boolean f4708a = false;
 
-    public static void a() {
-        if (!f463a) {
+    /* renamed from: b */
+    public static boolean f4709b = false;
+
+    /* renamed from: c */
+    public static boolean f4710c = false;
+
+    /* renamed from: d */
+    public static boolean f4711d = false;
+
+    /* renamed from: g */
+    public static boolean f4712g = true;
+
+    /* renamed from: j */
+    static ArrayList f4713j = new ArrayList();
+
+    /* renamed from: f */
+    boolean f4714f = true;
+
+    /* renamed from: i */
+    public boolean f4715i = true;
+
+    /* renamed from: a */
+    public static void m2415a() {
+        if (!f4708a) {
             return;
         }
-        GameEngine.m2e("-----");
-        GameEngine.m2e("-----");
-        GameEngine.m2e("----- Debug Active ----");
-        GameEngine.m2e("-----");
-        GameEngine.m2e("-----");
-        GameEngine.aV = true;
-        GameEngine.getGameEngine().s();
-        new a().b();
+        GameEngine.m5460e("-----");
+        GameEngine.m5460e("-----");
+        GameEngine.m5460e("----- Debug Active ----");
+        GameEngine.m5460e("-----");
+        GameEngine.m5460e("-----");
+        GameEngine.f6419aV = true;
+        GameEngine.getGameEngine().mo971s();
+        new RunnableC0752a().m2412b();
     }
 
-    public void b() {
-        if (b) {
-            a(5677, VariableScope.nullOrMissingString);
+    /* renamed from: b */
+    public void m2412b() {
+        if (f4709b) {
+            m2414a(5677, VariableScope.nullOrMissingString);
         }
-        GameEngine.getGameEngine().eb.a(new c(this));
+        GameEngine.getGameEngine().f6502eb.m752a(new RunnableC0754c(this));
     }
 
-    public void a(int i, String str) {
+    /* renamed from: a */
+    public void m2414a(int i, String str) {
         try {
-            g = true;
-            GameEngine.aT = true;
-            GameEngine.m2e(VariableScope.nullOrMissingString);
-            GameEngine.m2e("----- createDebugSocket ----");
-            GameEngine.m2e("port: " + i);
-            GameEngine.m2e("password: " + str);
-            GameEngine.m2e("------------------");
-            GameEngine.m2e(VariableScope.nullOrMissingString);
+            f4712g = true;
+            GameEngine.f6417aT = true;
+            GameEngine.m5460e(VariableScope.nullOrMissingString);
+            GameEngine.m5460e("----- createDebugSocket ----");
+            GameEngine.m5460e("port: " + i);
+            GameEngine.m5460e("password: " + str);
+            GameEngine.m5460e("------------------");
+            GameEngine.m5460e(VariableScope.nullOrMissingString);
             if (i != -1) {
-                this.h = new ServerSocket(i);
+                this.f4707h = new ServerSocket(i);
                 new Thread(this).start();
             }
-        } catch (IOException e2) {
-            throw new RuntimeException(e2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private a() {
+    private RunnableC0752a() {
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        while (this.i) {
+        while (this.f4715i) {
             try {
-                Socket accept = this.h.accept();
+                Socket accept = this.f4707h.accept();
                 try {
                     accept.setTcpNoDelay(true);
-                    new Thread(new b(this, accept)).run();
-                } catch (IOException e2) {
-                    GameEngine.m2e("Got IOException on debug connection");
-                    e2.printStackTrace();
-                    throw new RuntimeException(e2);
+                    new Thread(new RunnableC0753b(this, accept)).run();
+                } catch (IOException e) {
+                    GameEngine.m5460e("Got IOException on debug connection");
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
-            } catch (IOException e3) {
-                throw new RuntimeException(e3);
+            } catch (IOException e2) {
+                throw new RuntimeException(e2);
             }
         }
     }
 
-    public static String a(String str) {
+    /* renamed from: a */
+    public static String m2413a(String str) {
         int indexOf = str.indexOf(" ");
         if (indexOf == -1) {
             indexOf = str.length();

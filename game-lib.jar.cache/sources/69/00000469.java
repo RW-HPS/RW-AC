@@ -1,57 +1,67 @@
-package com.corrodinggames.rts.gameFramework.b;
+package com.corrodinggames.rts.gameFramework.p031b;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.List;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.b.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/i.class */
-public class i extends c {
+public class C0707i extends C0700c {
 
-    /* renamed from: a  reason: collision with root package name */
-    protected List f435a;
-    private final List b;
-    private b c;
-    private b d;
+    /* renamed from: a */
+    protected List f4435a;
 
-    private void a(b bVar) {
-        a();
-        for (int i = 0; i < this.f435a.size(); i++) {
-            this.b.add(new x(bVar.b(), bVar.c(), false));
+    /* renamed from: b */
+    private final List f4436b;
+
+    /* renamed from: c */
+    private AbstractC0699b f4437c;
+
+    /* renamed from: d */
+    private AbstractC0699b f4438d;
+
+    /* renamed from: a */
+    private void m2609a(AbstractC0699b abstractC0699b) {
+        m2610a();
+        for (int i = 0; i < this.f4435a.size(); i++) {
+            this.f4436b.add(new C0722x(abstractC0699b.mo2638b(), abstractC0699b.mo2637c(), false));
         }
     }
 
-    private void a() {
-        for (x xVar : this.b) {
-            xVar.j();
+    /* renamed from: a */
+    private void m2610a() {
+        for (C0722x c0722x : this.f4436b) {
+            c0722x.mo2632j();
         }
-        this.b.clear();
+        this.f4436b.clear();
     }
 
-    public b a(b bVar, k kVar, j jVar) {
-        if (bVar instanceof x) {
-            if (!((x) bVar).k()) {
-                return this.c;
+    /* renamed from: a */
+    public AbstractC0699b m2608a(AbstractC0699b abstractC0699b, InterfaceC0709k interfaceC0709k, InterfaceC0708j interfaceC0708j) {
+        if (abstractC0699b instanceof C0722x) {
+            if (!((C0722x) abstractC0699b).m2517k()) {
+                return this.f4437c;
             }
-        } else if (this.d == bVar && this.c != null) {
-            return this.c;
+        } else if (this.f4438d == abstractC0699b && this.f4437c != null) {
+            return this.f4437c;
         }
-        if (this.b.size() != this.f435a.size() || this.d != bVar) {
-            a(bVar);
+        if (this.f4436b.size() != this.f4435a.size() || this.f4438d != abstractC0699b) {
+            m2609a(abstractC0699b);
         }
-        this.d = bVar;
-        x xVar = bVar;
+        this.f4438d = abstractC0699b;
+        C0722x c0722x = abstractC0699b;
         int i = 0;
-        int size = this.b.size();
+        int size = this.f4436b.size();
         while (i < size) {
-            x xVar2 = (x) this.b.get(i);
-            af afVar = (af) this.f435a.get(i);
-            kVar.c(xVar2);
-            jVar.a(xVar, afVar, i == 0);
-            kVar.d();
-            xVar = xVar2;
-            GameEngine.m328e("FilterGroup: renderTarget");
+            C0722x c0722x2 = (C0722x) this.f4436b.get(i);
+            InterfaceC0691af interfaceC0691af = (InterfaceC0691af) this.f4435a.get(i);
+            interfaceC0709k.mo2556c(c0722x2);
+            interfaceC0708j.mo2607a(c0722x, interfaceC0691af, i == 0);
+            interfaceC0709k.mo2554d();
+            c0722x = c0722x2;
+            GameEngine.m5460e("FilterGroup: renderTarget");
             i++;
         }
-        this.c = xVar;
-        return xVar;
+        this.f4437c = c0722x;
+        return c0722x;
     }
 }

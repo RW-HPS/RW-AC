@@ -1,151 +1,211 @@
-package com.corrodinggames.rts.game.units.custom.e;
+package com.corrodinggames.rts.game.units.custom.p021e;
 
-import com.corrodinggames.rts.game.units.custom.ag;
-import com.corrodinggames.rts.game.units.custom.bb;
-import com.corrodinggames.rts.game.units.custom.bo;
-import com.corrodinggames.rts.game.units.custom.l;
-import com.corrodinggames.rts.gameFramework.utility.ab;
+import com.corrodinggames.rts.game.units.custom.C0349ag;
+import com.corrodinggames.rts.game.units.custom.C0404bb;
+import com.corrodinggames.rts.game.units.custom.C0417bo;
+import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+import com.corrodinggames.rts.gameFramework.utility.C1107ab;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.e.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/e/d.class */
-public class d {
+public class C0442d {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f295a;
-    public a b;
-    public float c;
-    public Integer d;
-    public boolean e;
-    public boolean f;
-    bb g;
-    bb h;
-    boolean i;
-    boolean j;
-    public boolean k;
-    public boolean l;
-    public float m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public b r = b.none;
-    public int s;
-    public bb t;
-    public bb u;
-    public String v;
-    public a w;
-    public boolean x;
-    public boolean y;
-    public String z;
-    public a A;
-    public com.corrodinggames.rts.gameFramework.m.e B;
-    public boolean C;
+    /* renamed from: a */
+    public String f2798a;
 
-    public d(boolean z) {
-        this.f = z;
+    /* renamed from: b */
+    public C0433a f2799b;
+
+    /* renamed from: c */
+    public float f2800c;
+
+    /* renamed from: d */
+    public Integer f2801d;
+
+    /* renamed from: e */
+    public boolean f2802e;
+
+    /* renamed from: f */
+    public boolean f2803f;
+
+    /* renamed from: g */
+    C0404bb f2804g;
+
+    /* renamed from: h */
+    C0404bb f2805h;
+
+    /* renamed from: i */
+    boolean f2806i;
+
+    /* renamed from: j */
+    boolean f2807j;
+
+    /* renamed from: k */
+    public boolean f2808k;
+
+    /* renamed from: l */
+    public boolean f2809l;
+
+    /* renamed from: m */
+    public float f2810m;
+
+    /* renamed from: n */
+    public boolean f2811n;
+
+    /* renamed from: o */
+    public boolean f2812o;
+
+    /* renamed from: p */
+    public boolean f2813p;
+
+    /* renamed from: q */
+    public boolean f2814q;
+
+    /* renamed from: r */
+    public EnumC0440b f2815r = EnumC0440b.none;
+
+    /* renamed from: s */
+    public int f2816s;
+
+    /* renamed from: t */
+    public C0404bb f2817t;
+
+    /* renamed from: u */
+    public C0404bb f2818u;
+
+    /* renamed from: v */
+    public String f2819v;
+
+    /* renamed from: w */
+    public C0433a f2820w;
+
+    /* renamed from: x */
+    public boolean f2821x;
+
+    /* renamed from: y */
+    public boolean f2822y;
+
+    /* renamed from: z */
+    public String f2823z;
+
+    /* renamed from: A */
+    public C0433a f2824A;
+
+    /* renamed from: B */
+    public C0970e f2825B;
+
+    /* renamed from: C */
+    public boolean f2826C;
+
+    public C0442d(boolean z) {
+        this.f2803f = z;
     }
 
-    public void a(l lVar, ab abVar, String str, String str2) {
-        this.f295a = str2;
-        this.g = ag.a(abVar, str, "displayName", (String) null);
-        this.h = ag.a(abVar, str, "displayNameShort", (String) null);
-        if (this.h == null) {
-            this.h = this.g;
+    /* renamed from: a */
+    public void m3753a(C0458l c0458l, C1107ab c1107ab, String str, String str2) {
+        this.f2798a = str2;
+        this.f2804g = C0349ag.m4031a(c1107ab, str, "displayName", (String) null);
+        this.f2805h = C0349ag.m4031a(c1107ab, str, "displayNameShort", (String) null);
+        if (this.f2805h == null) {
+            this.f2805h = this.f2804g;
         }
-        this.i = abVar.a(str, "displayNameHideWhenIconShownInHUD", (Boolean) false).booleanValue();
-        this.j = abVar.a(str, "displayNameHideWhenIconShownInText", (Boolean) false).booleanValue();
-        this.l = abVar.a(str, "hidden", (Boolean) false).booleanValue();
+        this.f2806i = c1107ab.m685a(str, "displayNameHideWhenIconShownInHUD", (Boolean) false).booleanValue();
+        this.f2807j = c1107ab.m685a(str, "displayNameHideWhenIconShownInText", (Boolean) false).booleanValue();
+        this.f2809l = c1107ab.m685a(str, "hidden", (Boolean) false).booleanValue();
         float f = 1.0f;
-        boolean booleanValue = abVar.a(str, "includeInStats", (Boolean) true).booleanValue();
+        boolean booleanValue = c1107ab.m685a(str, "includeInStats", (Boolean) true).booleanValue();
         if (!booleanValue) {
             f = 0.0f;
         }
-        if (this.l || !this.f) {
+        if (this.f2809l || !this.f2803f) {
             f = 0.0f;
         }
-        this.m = abVar.a(str, "valueInStats", Float.valueOf(f)).floatValue();
-        if (!booleanValue && this.m != 0.0f) {
-            throw new bo("[" + str + "]includeInStats==false expects valueInStats==0");
+        this.f2810m = c1107ab.m683a(str, "valueInStats", Float.valueOf(f)).floatValue();
+        if (!booleanValue && this.f2810m != 0.0f) {
+            throw new C0417bo("[" + str + "]includeInStats==false expects valueInStats==0");
         }
-        if (this.m < 0.0f) {
-            throw new bo("[" + str + "]valueInStats cannot be < 0 (is:" + this.m + ")");
+        if (this.f2810m < 0.0f) {
+            throw new C0417bo("[" + str + "]valueInStats cannot be < 0 (is:" + this.f2810m + ")");
         }
-        this.k = abVar.a(str, "stackHorizontal", (Boolean) false).booleanValue();
-        this.c = abVar.a(str, "priority", Float.valueOf(0.0f)).floatValue();
-        this.d = abVar.a(str, "displayColor", (Integer) null);
-        this.e = abVar.a(str, "displayColorUseInText", (Boolean) true).booleanValue();
-        this.n = abVar.a(str, "displayWithRounding", (Boolean) true).booleanValue();
-        this.o = abVar.a(str, "displayRoundedDown", (Boolean) false).booleanValue();
-        this.p = abVar.a(str, "displayWhenZero", (Boolean) false).booleanValue();
-        this.q = abVar.a(str, "displayInHud", Boolean.valueOf(!this.l && this.f)).booleanValue();
-        if (this.q && !this.f) {
-            throw new bo("[" + str + "]displayInHud:true currently only supported on global resources");
+        this.f2808k = c1107ab.m685a(str, "stackHorizontal", (Boolean) false).booleanValue();
+        this.f2800c = c1107ab.m683a(str, "priority", Float.valueOf(0.0f)).floatValue();
+        this.f2801d = c1107ab.m681a(str, "displayColor", (Integer) null);
+        this.f2802e = c1107ab.m685a(str, "displayColorUseInText", (Boolean) true).booleanValue();
+        this.f2811n = c1107ab.m685a(str, "displayWithRounding", (Boolean) true).booleanValue();
+        this.f2812o = c1107ab.m685a(str, "displayRoundedDown", (Boolean) false).booleanValue();
+        this.f2813p = c1107ab.m685a(str, "displayWhenZero", (Boolean) false).booleanValue();
+        this.f2814q = c1107ab.m685a(str, "displayInHud", Boolean.valueOf(!this.f2809l && this.f2803f)).booleanValue();
+        if (this.f2814q && !this.f2803f) {
+            throw new C0417bo("[" + str + "]displayInHud:true currently only supported on global resources");
         }
-        if (this.q && this.l) {
-            throw new bo("[" + str + "]displayInHud:true only supported non-hidden resources");
+        if (this.f2814q && this.f2809l) {
+            throw new C0417bo("[" + str + "]displayInHud:true only supported non-hidden resources");
         }
-        this.s = abVar.b(str, "displayPos", (Integer) 0).intValue();
-        this.r = (b) abVar.a(str, "displayDigitGrouping", b.none, b.class);
-        this.t = ag.a(abVar, str, "displayTextPrefix", (String) null);
-        this.u = ag.a(abVar, str, "displayTextPostfix", (String) null);
-        bb a2 = ag.a(abVar, str, "displayPrefixInHUD", (String) null);
-        if (a2 != null) {
-            if (this.t != null) {
-                throw new bo("[" + str + "]displayPrefixInHUD and displayTextPrefix are aliases, don't use both");
+        this.f2816s = c1107ab.m667b(str, "displayPos", (Integer) 0).intValue();
+        this.f2815r = (EnumC0440b) c1107ab.m684a(str, "displayDigitGrouping", EnumC0440b.none, EnumC0440b.class);
+        this.f2817t = C0349ag.m4031a(c1107ab, str, "displayTextPrefix", (String) null);
+        this.f2818u = C0349ag.m4031a(c1107ab, str, "displayTextPostfix", (String) null);
+        C0404bb m4031a = C0349ag.m4031a(c1107ab, str, "displayPrefixInHUD", (String) null);
+        if (m4031a != null) {
+            if (this.f2817t != null) {
+                throw new C0417bo("[" + str + "]displayPrefixInHUD and displayTextPrefix are aliases, don't use both");
             }
-            this.t = a2;
+            this.f2817t = m4031a;
         }
-        bb a3 = ag.a(abVar, str, "displayPostfixInHUD", (String) null);
-        if (a3 != null) {
-            if (this.u != null) {
-                throw new bo("[" + str + "]displayPostfixInHUD and displayTextPostfix are aliases, don't use both");
+        C0404bb m4031a2 = C0349ag.m4031a(c1107ab, str, "displayPostfixInHUD", (String) null);
+        if (m4031a2 != null) {
+            if (this.f2818u != null) {
+                throw new C0417bo("[" + str + "]displayPostfixInHUD and displayTextPostfix are aliases, don't use both");
             }
-            this.u = a3;
+            this.f2818u = m4031a2;
         }
-        this.v = abVar.b(str, "displayTextAppendResource", (String) null);
-        String b = abVar.b(str, "appendResourceInHUD", (String) null);
-        if (b != null) {
-            if (this.v != null) {
-                throw new bo("[" + str + "]displayTextAppendResource and appendResourceInHUD are aliases, don't use both");
+        this.f2819v = c1107ab.m666b(str, "displayTextAppendResource", (String) null);
+        String m666b = c1107ab.m666b(str, "appendResourceInHUD", (String) null);
+        if (m666b != null) {
+            if (this.f2819v != null) {
+                throw new C0417bo("[" + str + "]displayTextAppendResource and appendResourceInHUD are aliases, don't use both");
             }
-            this.v = b;
+            this.f2819v = m666b;
         }
-        this.x = abVar.a(str, "displayTextAppendResourceWithGap", (Boolean) false).booleanValue();
-        this.y = abVar.a(str, "appendResourceInHUD_whenThisZero", (Boolean) true).booleanValue();
-        this.B = lVar.a(abVar, str, "iconImage", true);
-        if (this.B != null && (this.B.m() > 100 || this.B.l() > 100)) {
-            throw new bo("[" + str + "]iconImage: Image is too big, keep under 100x100");
+        this.f2821x = c1107ab.m685a(str, "displayTextAppendResourceWithGap", (Boolean) false).booleanValue();
+        this.f2822y = c1107ab.m685a(str, "appendResourceInHUD_whenThisZero", (Boolean) true).booleanValue();
+        this.f2825B = c0458l.m3546a(c1107ab, str, "iconImage", true);
+        if (this.f2825B != null && (this.f2825B.mo387m() > 100 || this.f2825B.mo388l() > 100)) {
+            throw new C0417bo("[" + str + "]iconImage: Image is too big, keep under 100x100");
         }
-        this.C = abVar.a(str, "iconImageUseInText", (Boolean) true).booleanValue();
-        if (this.i && this.B == null) {
-            throw new bo("[" + str + "]displayNameHideWhenIconShownInHUD: Cannot use without iconImage");
+        this.f2826C = c1107ab.m685a(str, "iconImageUseInText", (Boolean) true).booleanValue();
+        if (this.f2806i && this.f2825B == null) {
+            throw new C0417bo("[" + str + "]displayNameHideWhenIconShownInHUD: Cannot use without iconImage");
         }
-        if (this.j && this.B == null) {
-            throw new bo("[" + str + "]displayNameHideWhenIconShownInText: Cannot use without iconImage");
+        if (this.f2807j && this.f2825B == null) {
+            throw new C0417bo("[" + str + "]displayNameHideWhenIconShownInText: Cannot use without iconImage");
         }
-        String str3 = (this.f ? "g_" : "l_") + this.f295a;
-        this.b = a.a(str3, false, this.f);
-        if (this.b.u) {
+        String str3 = (this.f2803f ? "g_" : "l_") + this.f2798a;
+        this.f2799b = C0433a.m3777a(str3, false, this.f2803f);
+        if (this.f2799b.f2779u) {
             throw new RuntimeException("Cannot define resource with a built-in name: " + str3);
         }
-        if (!this.f) {
-            this.z = abVar.b(str, "equivalentGlobalResourceForAI", (String) null);
+        if (!this.f2803f) {
+            this.f2823z = c1107ab.m666b(str, "equivalentGlobalResourceForAI", (String) null);
         }
     }
 
-    public void a(l lVar) {
-        if (this.z != null) {
-            this.A = lVar.k(this.z);
-            if (this.A == null) {
-                throw new bo("[resource]equivalentGlobalResourceForAI: Failed to find resource: " + this.z);
+    /* renamed from: a */
+    public void m3754a(C0458l c0458l) {
+        if (this.f2823z != null) {
+            this.f2824A = c0458l.m3508k(this.f2823z);
+            if (this.f2824A == null) {
+                throw new C0417bo("[resource]equivalentGlobalResourceForAI: Failed to find resource: " + this.f2823z);
             }
-            if (!this.A.t) {
-                throw new bo("[resource]equivalentGlobalResourceForAI: Expected global resource for: " + this.z);
+            if (!this.f2824A.f2778t) {
+                throw new C0417bo("[resource]equivalentGlobalResourceForAI: Expected global resource for: " + this.f2823z);
             }
         }
-        if (this.v != null) {
-            this.w = lVar.k(this.v);
-            if (this.w == null) {
-                throw new bo("[resource]displayTextAppendResource: Failed to find resource: " + this.v);
+        if (this.f2819v != null) {
+            this.f2820w = c0458l.m3508k(this.f2819v);
+            if (this.f2820w == null) {
+                throw new C0417bo("[resource]displayTextAppendResource: Failed to find resource: " + this.f2819v);
             }
         }
     }

@@ -110,8 +110,7 @@ public class SteamHTTP extends SteamInterface {
             this.code = i;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static HTTPStatusCode byValue(int i) {
+        static HTTPStatusCode byValue(int i) {
             HTTPStatusCode[] hTTPStatusCodeArr;
             for (HTTPStatusCode hTTPStatusCode : values) {
                 if (hTTPStatusCode.code == i) {

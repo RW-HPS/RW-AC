@@ -1,21 +1,21 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
-import com.corrodinggames.rts.game.units.a.b;
-import com.corrodinggames.rts.game.units.a.s;
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.custom.C0456j;
+import com.corrodinggames.rts.game.units.p013a.AbstractC0224s;
+import com.corrodinggames.rts.game.units.p013a.C0207b;
 
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanActionFilter.class */
-public class LogicBooleanActionFilter extends b {
+public class LogicBooleanActionFilter extends C0207b {
     LogicBoolean logicBoolean;
-    j target;
+    C0456j target;
 
-    public LogicBooleanActionFilter(LogicBoolean logicBoolean, j jVar) {
+    public LogicBooleanActionFilter(LogicBoolean logicBoolean, C0456j c0456j) {
         this.logicBoolean = logicBoolean;
     }
 
-    @Override // com.corrodinggames.rts.game.units.a.b
-    public boolean isAvailable(s sVar, am amVar) {
+    @Override // com.corrodinggames.rts.game.units.p013a.C0207b
+    public boolean isAvailable(AbstractC0224s abstractC0224s, AbstractC0244am abstractC0244am) {
         return this.logicBoolean.read(this.target);
     }
 }

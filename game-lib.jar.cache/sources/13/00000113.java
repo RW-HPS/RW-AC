@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.a;
+package com.corrodinggames.rts.debug;
 
 import com.corrodinggames.librocket.scripts.ScriptEngine;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
@@ -12,36 +12,48 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 
+/* renamed from: com.corrodinggames.rts.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/a/a.class */
-public class a implements Runnable {
+public class ScriptServerSocket implements Runnable {
 
-    /* renamed from: a  reason: collision with root package name */
-    public ServerSocket f75a;
-    public boolean b = true;
-    public static boolean c = false;
-    public static boolean d = false;
-    static ArrayList e = new ArrayList();
+    /* renamed from: a */
+    public ServerSocket f387a;
 
-    public static boolean a() {
-        return c;
+    /* renamed from: b */
+    public boolean f388b = true;
+
+    /* renamed from: c */
+    public static boolean f389c = false;
+
+    /* renamed from: d */
+    public static boolean f390d = false;
+
+    /* renamed from: e */
+    static ArrayList f391e = new ArrayList();
+
+    /* renamed from: a */
+    public static boolean m5461a() {
+        return f389c;
     }
 
-    public static void a(String str) {
-        c = true;
-        e.add(str);
+    /* renamed from: a */
+    public static void addScriptFilePath(String filePath) {
+        f389c = true;
+        f391e.add(filePath);
     }
 
-    public static void b() {
-        if (e.size() == 0) {
+    /* renamed from: b */
+    public static void m5458b() {
+        if (f391e.size() == 0) {
             return;
         }
         new Thread(new Runnable() { // from class: com.corrodinggames.rts.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = a.e.iterator();
+                Iterator it = ScriptServerSocket.f391e.iterator();
                 while (it.hasNext()) {
                     String str = (String) it.next();
-                    GameEngine.m328e("Running debug script:" + str);
+                    GameEngine.m5925e("Running debug script:" + str);
                     try {
                         FileReader fileReader = new FileReader(str);
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -52,58 +64,60 @@ public class a implements Runnable {
                             }
                             String trim = readLine.trim();
                             if (!trim.equals(VariableScope.nullOrMissingString) && !trim.startsWith("#")) {
-                                GameEngine.m328e("Running: " + trim);
-                                GameEngine.m328e("got: " + a.b("script " + trim).trim());
+                                GameEngine.m5925e("Running: " + trim);
+                                GameEngine.m5925e("got: " + ScriptServerSocket.m5457b("script " + trim).trim());
                             }
                         }
                         bufferedReader.close();
                         fileReader.close();
-                        GameEngine.m328e("End of:" + str);
-                    } catch (IOException e2) {
-                        throw new RuntimeException(e2);
+                        GameEngine.m5925e("End of:" + str);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }
         }).start();
     }
 
-    public static void a(int i, String str) {
+    /* renamed from: a */
+    public static void m5460a(int i, String str) {
         try {
-            c = true;
-            GameEngine.aT = true;
-            a aVar = new a();
+            f389c = true;
+            GameEngine.f6417aT = true;
+            ScriptServerSocket scriptServerSocket = new ScriptServerSocket();
             if (i != -1) {
-                aVar.f75a = new ServerSocket(i);
-                new Thread(aVar).start();
+                scriptServerSocket.f387a = new ServerSocket(i);
+                new Thread(scriptServerSocket).start();
             }
-        } catch (IOException e2) {
-            throw new RuntimeException(e2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private a() {
+    private ScriptServerSocket() {
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        while (this.b) {
+        while (this.f388b) {
             try {
-                Socket accept = this.f75a.accept();
+                Socket accept = this.f387a.accept();
                 try {
                     accept.setTcpNoDelay(true);
-                    new Thread(new b(this, accept)).run();
-                } catch (IOException e2) {
-                    GameEngine.m328e("Got IOException on debugSocket connection");
-                    e2.printStackTrace();
-                    throw new RuntimeException(e2);
+                    new Thread(new RunnableC0086b(this, accept)).run();
+                } catch (IOException e) {
+                    GameEngine.m5925e("Got IOException on debugSocket connection");
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
-            } catch (IOException e3) {
-                throw new RuntimeException(e3);
+            } catch (IOException e2) {
+                throw new RuntimeException(e2);
             }
         }
     }
 
-    public static String b(String str) {
+    /* renamed from: b */
+    public static String m5457b(String str) {
         String waitForCompletionOrCrash;
         String str2 = null;
         int indexOf = str.indexOf(" ");
@@ -127,8 +141,8 @@ public class a implements Runnable {
                 } else {
                     try {
                         Thread.sleep(100L);
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                     i++;
                 }
@@ -155,12 +169,12 @@ public class a implements Runnable {
             }
             final ScriptEngine scriptEngine = ScriptEngine.getInstance();
             final String str3 = str2;
-            c cVar = new c() { // from class: com.corrodinggames.rts.a.a.2
+            AbstractRunnableC0087c abstractRunnableC0087c = new AbstractRunnableC0087c() { // from class: com.corrodinggames.rts.a.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         ScriptEngine.inDebugScript = true;
-                        this.c = ScriptEngine.this.processArg(str3);
+                        this.f421c = ScriptEngine.this.processArg(str3);
                         ScriptEngine.inDebugScript = false;
                     } catch (Throwable th) {
                         ScriptEngine.inDebugScript = false;
@@ -168,16 +182,16 @@ public class a implements Runnable {
                     }
                 }
             };
-            ScriptEngine.Action addRunnableToQueue = scriptEngine.addRunnableToQueue(cVar);
+            ScriptEngine.Action addRunnableToQueue = scriptEngine.addRunnableToQueue(abstractRunnableC0087c);
             addRunnableToQueue.tryToCatchCrash = true;
             boolean z = false;
             if (lowerCase.equalsIgnoreCase("functionNoTimeout")) {
                 z = true;
             }
             if (addRunnableToQueue.waitForCompletionOrCrash(z) == null) {
-                return (cVar.c == null ? "ok\n<NULL>" : "ok\n" + VariableScope.nullOrMissingString + cVar.c) + "��";
+                return (abstractRunnableC0087c.f421c == null ? "ok\n<NULL>" : "ok\n" + VariableScope.nullOrMissingString + abstractRunnableC0087c.f421c) + "\ufffd\ufffd";
             }
-            return ("crash\n" + waitForCompletionOrCrash) + "��";
+            return ("crash\n" + waitForCompletionOrCrash) + "\ufffd\ufffd";
         } else {
             return "unknown command";
         }

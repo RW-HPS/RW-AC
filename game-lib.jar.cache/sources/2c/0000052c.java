@@ -2,60 +2,71 @@ package com.corrodinggames.rts.gameFramework.net;
 
 import com.corrodinggames.rts.game.PlayerData;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.C0773f;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/b.class */
-public class b {
+public class C0902b {
 
-    /* renamed from: a  reason: collision with root package name */
-    int f576a;
-    String b;
-    String c;
-    int d;
-    long e;
-    final /* synthetic */ a f;
+    /* renamed from: a */
+    int f5974a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, int i, String str, String str2, PlayerConnect playerConnect) {
-        this.f = aVar;
-        this.f576a = i;
-        this.b = str;
-        this.c = str2;
+    /* renamed from: b */
+    String f5975b;
+
+    /* renamed from: c */
+    String f5976c;
+
+    /* renamed from: d */
+    int f5977d;
+
+    /* renamed from: e */
+    long f5978e;
+
+    /* renamed from: f */
+    final /* synthetic */ C0862a f5979f;
+
+    C0902b(C0862a c0862a, int i, String str, String str2, PlayerConnect playerConnect) {
+        this.f5979f = c0862a;
+        this.f5974a = i;
+        this.f5975b = str;
+        this.f5976c = str2;
         if (playerConnect != null) {
-            this.d = playerConnect.c;
+            this.f5977d = playerConnect.connectIndex;
         }
-        this.e = System.nanoTime();
+        this.f5978e = System.nanoTime();
     }
 
-    public String a() {
+    /* renamed from: a */
+    public String m1362a() {
         String str;
-        if (this.b != null) {
-            str = this.b + ": " + this.c;
+        if (this.f5975b != null) {
+            str = this.f5975b + ": " + this.f5976c;
         } else {
-            str = this.c;
+            str = this.f5976c;
         }
         return str;
     }
 
-    public String b() {
+    /* renamed from: b */
+    public String m1361b() {
         String str = VariableScope.nullOrMissingString;
-        if (this.b != null) {
+        if (this.f5975b != null) {
             int i = -1;
-            if (this.f576a != -1) {
-                i = PlayerData.i(this.f576a);
+            if (this.f5974a != -1) {
+                i = PlayerData.m4369i(this.f5974a);
             }
-            str = "<strong> <font color='" + f.h(i) + "'>" + this.f.a(this.b) + ": </font></strong>";
+            str = "<strong> <font color='" + C0773f.m2115h(i) + "'>" + this.f5979f.m1636a(this.f5975b) + ": </font></strong>";
         }
         boolean z = true;
-        for (String str2 : this.c.split("\n")) {
+        for (String str2 : this.f5976c.split("\n")) {
             if (!str2.trim().equals(VariableScope.nullOrMissingString)) {
                 if (z) {
                     z = false;
                 } else {
                     str = str + "<br/>";
                 }
-                str = str + this.f.a(str2);
+                str = str + this.f5979f.m1636a(str2);
             }
         }
         return str;

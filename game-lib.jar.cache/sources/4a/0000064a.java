@@ -1,13 +1,16 @@
-package com.corrodinggames.rts.java.audio.a;
+package com.corrodinggames.rts.java.audio.p051a;
 
+/* renamed from: com.corrodinggames.rts.java.audio.a.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/k.class */
-public class k {
+public class C1175k {
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f718a;
-    public Object b;
+    /* renamed from: a */
+    public long f7266a;
+
+    /* renamed from: b */
+    public Object f7267b;
 
     public String toString() {
-        return this.f718a + "=" + this.b;
+        return this.f7266a + "=" + this.f7267b;
     }
 }

@@ -13,104 +13,97 @@ import java.util.HashMap;
 
 /* renamed from: a.a.b */
 /* loaded from: game-lib.jar:a/a/b.class */
-public class RUDPServerSocket extends ServerSocket {
+public class ReliableServerSocket extends ServerSocket {
 
     /* renamed from: a */
-    c f9a;
-    private DatagramSocket d;
-    private int e;
-    private int f;
-    private boolean g;
-    private ArrayList h;
-    private HashMap i;
-    private HashMap j;
-    private HashMap k;
-    long b;
-    int c;
-    private s l;
+    AbstractC0012c f28a;
 
-    static /* synthetic */ DatagramSocket a(RUDPServerSocket rUDPServerSocket) {
-        return rUDPServerSocket.d;
-    }
+    /* renamed from: d */
+    private DatagramSocket f29d;
 
-    static /* synthetic */ void a(RUDPServerSocket rUDPServerSocket, String str) {
-        rUDPServerSocket.a(str);
-    }
+    /* renamed from: e */
+    private int f30e;
 
-    static /* synthetic */ HashMap b(RUDPServerSocket rUDPServerSocket) {
-        return rUDPServerSocket.i;
-    }
+    /* renamed from: f */
+    private int f31f;
 
-    static /* synthetic */ HashMap c(RUDPServerSocket rUDPServerSocket) {
-        return rUDPServerSocket.k;
-    }
+    /* renamed from: g */
+    private boolean f32g;
 
-    static /* synthetic */ HashMap d(RUDPServerSocket rUDPServerSocket) {
-        return rUDPServerSocket.j;
-    }
+    /* renamed from: h */
+    private ArrayList f33h;
 
-    static /* synthetic */ void a(RUDPServerSocket rUDPServerSocket, SocketAddress socketAddress, e eVar) {
-        rUDPServerSocket.a(socketAddress, eVar);
-    }
+    /* renamed from: i */
+    private HashMap f34i;
 
-    static /* synthetic */ ArrayList e(RUDPServerSocket rUDPServerSocket) {
-        return rUDPServerSocket.h;
-    }
+    /* renamed from: j */
+    private HashMap f35j;
 
-    static /* synthetic */ e a(RUDPServerSocket rUDPServerSocket, SocketAddress socketAddress) {
-        return rUDPServerSocket.a(socketAddress);
-    }
+    /* renamed from: k */
+    private HashMap f36k;
 
-    public RUDPServerSocket() {
+    /* renamed from: b */
+    long f37b;
+
+    /* renamed from: c */
+    int f38c;
+
+    /* renamed from: l */
+    private ReliableSocketStateListener f39l;
+
+    public ReliableServerSocket() {
         this(new DatagramSocket((SocketAddress) null), 0);
     }
 
-    public RUDPServerSocket(int i, int i2, InetAddress inetAddress, boolean z) {
+    public ReliableServerSocket(int i, int i2, InetAddress inetAddress, boolean z) {
         DatagramSocket datagramSocket = new DatagramSocket((SocketAddress) null);
         datagramSocket.setReuseAddress(z);
         datagramSocket.bind(new InetSocketAddress(inetAddress, i));
-        a(datagramSocket, i2);
+        m5418a(datagramSocket, i2);
     }
 
-    public RUDPServerSocket(DatagramSocket datagramSocket, int i) {
-        a(datagramSocket, i);
+    public ReliableServerSocket(DatagramSocket datagramSocket, int i) {
+        m5418a(datagramSocket, i);
     }
 
-    public void a(DatagramSocket datagramSocket, int i) {
+    /* renamed from: a */
+    public void m5418a(DatagramSocket datagramSocket, int i) {
         if (datagramSocket == null) {
             throw new NullPointerException("sock");
         }
-        this.d = datagramSocket;
-        this.f = i <= 0 ? 50 : i;
-        this.h = new ArrayList(this.f);
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.k = new HashMap();
-        this.l = new f(this);
-        this.e = 0;
-        this.g = false;
-        new d(this).start();
+        this.f29d = datagramSocket;
+        this.f31f = i <= 0 ? 50 : i;
+        this.f33h = new ArrayList(this.f31f);
+        this.f34i = new HashMap();
+        this.f35j = new HashMap();
+        this.f36k = new HashMap();
+        this.f39l = new C0015f(this);
+        this.f30e = 0;
+        this.f32g = false;
+        new C0013d(this).start();
     }
 
-    public void a(c cVar) {
-        this.f9a = cVar;
+    /* renamed from: a */
+    public void m5420a(AbstractC0012c abstractC0012c) {
+        this.f28a = abstractC0012c;
     }
 
+    @Override // java.net.ServerSocket
     public Socket accept() {
         Socket socket;
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        synchronized (this.h) {
+        synchronized (this.f33h) {
             do {
-                if (this.h.isEmpty()) {
+                if (this.f33h.isEmpty()) {
                     try {
-                        if (this.e == 0) {
-                            this.h.wait();
+                        if (this.f30e == 0) {
+                            this.f33h.wait();
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            this.h.wait(this.e);
-                            if (System.currentTimeMillis() - currentTimeMillis >= this.e) {
+                            this.f33h.wait(this.f30e);
+                            if (System.currentTimeMillis() - currentTimeMillis >= this.f30e) {
                                 throw new SocketTimeoutException();
                                 break;
                             }
@@ -119,7 +112,7 @@ public class RUDPServerSocket extends ServerSocket {
                         e.printStackTrace();
                     }
                 } else {
-                    socket = (Socket) this.h.remove(0);
+                    socket = (Socket) this.f33h.remove(0);
                 }
             } while (!isClosed());
             throw new SocketException("Socket is closed");
@@ -127,95 +120,108 @@ public class RUDPServerSocket extends ServerSocket {
         return socket;
     }
 
+    @Override // java.net.ServerSocket
     public synchronized void bind(SocketAddress socketAddress) {
         bind(socketAddress, 0);
     }
 
+    @Override // java.net.ServerSocket
     public synchronized void bind(SocketAddress socketAddress, int i) {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        this.d.setReuseAddress(true);
-        this.d.bind(socketAddress);
+        this.f29d.setReuseAddress(true);
+        this.f29d.bind(socketAddress);
     }
 
+    @Override // java.net.ServerSocket, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
         if (isClosed()) {
             return;
         }
-        this.g = true;
-        synchronized (this.h) {
-            this.h.clear();
-            this.h.notify();
+        this.f32g = true;
+        synchronized (this.f33h) {
+            this.f33h.clear();
+            this.f33h.notify();
         }
-        synchronized (this.i) {
-            if (this.i.isEmpty()) {
-                this.d.close();
+        synchronized (this.f34i) {
+            if (this.f34i.isEmpty()) {
+                this.f29d.close();
             }
         }
     }
 
+    @Override // java.net.ServerSocket
     public InetAddress getInetAddress() {
-        return this.d.getInetAddress();
+        return this.f29d.getInetAddress();
     }
 
+    @Override // java.net.ServerSocket
     public int getLocalPort() {
-        return this.d.getLocalPort();
+        return this.f29d.getLocalPort();
     }
 
+    @Override // java.net.ServerSocket
     public SocketAddress getLocalSocketAddress() {
-        return this.d.getLocalSocketAddress();
+        return this.f29d.getLocalSocketAddress();
     }
 
+    @Override // java.net.ServerSocket
     public boolean isBound() {
-        return this.d.isBound();
+        return this.f29d.isBound();
     }
 
+    @Override // java.net.ServerSocket
     public boolean isClosed() {
-        return this.g;
+        return this.f32g;
     }
 
+    @Override // java.net.ServerSocket
     public void setSoTimeout(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("timeout < 0");
         }
-        this.e = i;
+        this.f30e = i;
     }
 
+    @Override // java.net.ServerSocket
     public int getSoTimeout() {
-        return this.e;
+        return this.f30e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(SocketAddress socketAddress, e eVar) {
-        synchronized (this.i) {
-            eVar.a(this.l);
-            this.i.put(socketAddress, eVar);
+    /* renamed from: a */
+    public void m5416a(SocketAddress socketAddress, C0014e c0014e) {
+        synchronized (this.f34i) {
+            c0014e.m5401a(this.f39l);
+            this.f34i.put(socketAddress, c0014e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e a(SocketAddress socketAddress) {
-        e eVar;
-        synchronized (this.i) {
-            eVar = (e) this.i.remove(socketAddress);
-            if (this.i.isEmpty() && isClosed()) {
-                this.d.close();
+    /* renamed from: a */
+    public C0014e m5417a(SocketAddress socketAddress) {
+        C0014e c0014e;
+        synchronized (this.f34i) {
+            c0014e = (C0014e) this.f34i.remove(socketAddress);
+            if (this.f34i.isEmpty() && isClosed()) {
+                this.f29d.close();
             }
         }
-        return eVar;
+        return c0014e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        if (this.b + 5000 < System.currentTimeMillis()) {
-            this.b = System.currentTimeMillis();
-            this.c = 0;
+    /* renamed from: a */
+    public void m5419a(String str) {
+        if (this.f37b + 5000 < System.currentTimeMillis()) {
+            this.f37b = System.currentTimeMillis();
+            this.f38c = 0;
         }
-        if (this.c > 20) {
+        if (this.f38c > 20) {
             return;
         }
-        this.c++;
+        this.f38c++;
         System.out.println(str);
     }
 }

@@ -12,40 +12,52 @@ import java.util.zip.GZIPOutputStream;
 public class GzipDataOutStream {
 
     /* renamed from: a */
-    public GZIPOutputStream f572a;
-    public BufferedOutputStream b;
-    public String c;
-    public DataOutputStream e;
-    public boolean f = false;
-    public ByteArrayOutputStream d = new ByteArrayOutputStream();
+    public GZIPOutputStream f5949a;
 
-    public void a() {
-        this.e.flush();
-        if (this.b != null) {
-            this.b.flush();
+    /* renamed from: b */
+    public BufferedOutputStream f5950b;
+
+    /* renamed from: c */
+    public String f5951c;
+
+    /* renamed from: e */
+    public DataOutputStream f5952e;
+
+    /* renamed from: f */
+    public boolean f5953f = false;
+
+    /* renamed from: d */
+    public ByteArrayOutputStream f5954d = new ByteArrayOutputStream();
+
+    /* renamed from: a */
+    public void m1393a() {
+        this.f5952e.flush();
+        if (this.f5950b != null) {
+            this.f5950b.flush();
         }
-        if (this.f572a != null) {
-            this.f572a.finish();
+        if (this.f5949a != null) {
+            this.f5949a.finish();
         }
     }
 
-    public void b() {
-        if (!this.f) {
-            this.e.close();
+    /* renamed from: b */
+    public void m1392b() {
+        if (!this.f5953f) {
+            this.f5952e.close();
         } else {
-            GameEngine.g("TODO: Cannot yet close wrapped stream");
+            GameEngine.m990g("TODO: Cannot yet close wrapped stream");
         }
     }
 
     public GzipDataOutStream(boolean z) {
         OutputStream outputStream;
         if (z) {
-            this.f572a = new GZIPOutputStream(this.d);
-            this.b = new BufferedOutputStream(this.f572a);
-            outputStream = this.b;
+            this.f5949a = new GZIPOutputStream(this.f5954d);
+            this.f5950b = new BufferedOutputStream(this.f5949a);
+            outputStream = this.f5950b;
         } else {
-            outputStream = this.d;
+            outputStream = this.f5954d;
         }
-        this.e = new DataOutputStream(outputStream);
+        this.f5952e = new DataOutputStream(outputStream);
     }
 }

@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.k;
+package com.corrodinggames.rts.gameFramework.p043k;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -9,171 +9,169 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.RandomAccess;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.k.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/k/a.class */
-public final class a extends AbstractList implements Serializable, Cloneable, RandomAccess {
+public final class C0931a extends AbstractList implements Serializable, Cloneable, RandomAccess {
 
     /* renamed from: a */
-    public static final n[] f599a = new n[0];
-    public int b;
-    transient n[] c;
+    public static final C0945n[] f6126a = new C0945n[0];
 
-    public static /* synthetic */ int a(a aVar) {
-        return aVar.modCount;
-    }
+    /* renamed from: b */
+    public int f6127b;
 
-    public static /* synthetic */ int b(a aVar) {
-        return aVar.modCount;
-    }
+    /* renamed from: c */
+    transient C0945n[] f6128c;
 
-    public static /* synthetic */ int c(a aVar) {
-        return aVar.modCount;
-    }
-
-    public static /* synthetic */ int d(a aVar) {
-        int i = aVar.modCount + 1;
-        aVar.modCount = i;
+    /* renamed from: d */
+    static /* synthetic */ int m1240d(C0931a c0931a) {
+        int i = c0931a.modCount + 1;
+        c0931a.modCount = i;
         return i;
     }
 
-    public a(int i) {
+    public C0931a(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("capacity < 0: " + i);
         }
-        this.c = i == 0 ? f599a : new n[i];
+        this.f6128c = i == 0 ? f6126a : new C0945n[i];
     }
 
-    public a() {
-        this.c = f599a;
+    public C0931a() {
+        this.f6128c = f6126a;
     }
 
-    public n[] a() {
-        return this.c;
+    /* renamed from: a */
+    public C0945n[] m1253a() {
+        return this.f6128c;
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
     /* renamed from: a */
-    public boolean add(n nVar) {
-        n[] nVarArr = this.c;
-        int i = this.b;
-        if (i == nVarArr.length) {
-            n[] nVarArr2 = new n[i + (i < 6 ? 12 : i >> 1)];
-            System.arraycopy(nVarArr, 0, nVarArr2, 0, i);
-            nVarArr = nVarArr2;
-            this.c = nVarArr2;
+    public boolean add(C0945n c0945n) {
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b;
+        if (i == c0945nArr.length) {
+            C0945n[] c0945nArr2 = new C0945n[i + (i < 6 ? 12 : i >> 1)];
+            System.arraycopy(c0945nArr, 0, c0945nArr2, 0, i);
+            c0945nArr = c0945nArr2;
+            this.f6128c = c0945nArr2;
         }
-        nVarArr[i] = nVar;
-        this.b = i + 1;
+        c0945nArr[i] = c0945n;
+        this.f6127b = i + 1;
         this.modCount++;
         return true;
     }
 
-    public void b(n nVar) {
-        n[] nVarArr = this.c;
-        int i = this.b;
-        if (i == nVarArr.length) {
-            n[] nVarArr2 = new n[i + (i < 6 ? 12 : i >> 1)];
-            System.arraycopy(nVarArr, 0, nVarArr2, 0, i);
-            nVarArr = nVarArr2;
-            this.c = nVarArr2;
+    /* renamed from: b */
+    public void m1243b(C0945n c0945n) {
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b;
+        if (i == c0945nArr.length) {
+            C0945n[] c0945nArr2 = new C0945n[i + (i < 6 ? 12 : i >> 1)];
+            System.arraycopy(c0945nArr, 0, c0945nArr2, 0, i);
+            c0945nArr = c0945nArr2;
+            this.f6128c = c0945nArr2;
         }
-        nVarArr[i] = nVar;
-        this.b = i + 1;
+        c0945nArr[i] = c0945n;
+        this.f6127b = i + 1;
     }
 
     @Override // java.util.AbstractList, java.util.List
     /* renamed from: a */
-    public void add(int i, n nVar) {
-        n[] nVarArr = this.c;
-        int i2 = this.b;
+    public void add(int i, C0945n c0945n) {
+        C0945n[] c0945nArr = this.f6128c;
+        int i2 = this.f6127b;
         if (i > i2 || i < 0) {
-            a(i, i2);
+            m1251a(i, i2);
         }
-        if (i2 < nVarArr.length) {
-            System.arraycopy(nVarArr, i, nVarArr, i + 1, i2 - i);
+        if (i2 < c0945nArr.length) {
+            System.arraycopy(c0945nArr, i, c0945nArr, i + 1, i2 - i);
         } else {
-            n[] nVarArr2 = new n[c(i2)];
-            System.arraycopy(nVarArr, 0, nVarArr2, 0, i);
-            System.arraycopy(nVarArr, i, nVarArr2, i + 1, i2 - i);
-            nVarArr = nVarArr2;
-            this.c = nVarArr2;
+            C0945n[] c0945nArr2 = new C0945n[m1242c(i2)];
+            System.arraycopy(c0945nArr, 0, c0945nArr2, 0, i);
+            System.arraycopy(c0945nArr, i, c0945nArr2, i + 1, i2 - i);
+            c0945nArr = c0945nArr2;
+            this.f6128c = c0945nArr2;
         }
-        nVarArr[i] = nVar;
-        this.b = i2 + 1;
+        c0945nArr[i] = c0945n;
+        this.f6127b = i2 + 1;
         this.modCount++;
     }
 
-    private static int c(int i) {
+    /* renamed from: c */
+    private static int m1242c(int i) {
         return i + (i < 6 ? 12 : i >> 1);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean addAll(Collection collection) {
-        n[] nVarArr = (n[]) collection.toArray();
-        int length = nVarArr.length;
+        C0945n[] c0945nArr = (C0945n[]) collection.toArray();
+        int length = c0945nArr.length;
         if (length == 0) {
             return false;
         }
-        n[] nVarArr2 = this.c;
-        int i = this.b;
+        C0945n[] c0945nArr2 = this.f6128c;
+        int i = this.f6127b;
         int i2 = i + length;
-        if (i2 > nVarArr2.length) {
-            n[] nVarArr3 = new n[c(i2 - 1)];
-            System.arraycopy(nVarArr2, 0, nVarArr3, 0, i);
-            nVarArr2 = nVarArr3;
-            this.c = nVarArr3;
+        if (i2 > c0945nArr2.length) {
+            C0945n[] c0945nArr3 = new C0945n[m1242c(i2 - 1)];
+            System.arraycopy(c0945nArr2, 0, c0945nArr3, 0, i);
+            c0945nArr2 = c0945nArr3;
+            this.f6128c = c0945nArr3;
         }
-        System.arraycopy(nVarArr, 0, nVarArr2, i, length);
-        this.b = i2;
+        System.arraycopy(c0945nArr, 0, c0945nArr2, i, length);
+        this.f6127b = i2;
         this.modCount++;
         return true;
     }
 
     @Override // java.util.AbstractList, java.util.List
     public boolean addAll(int i, Collection collection) {
-        int i2 = this.b;
+        int i2 = this.f6127b;
         if (i > i2 || i < 0) {
-            a(i, i2);
+            m1251a(i, i2);
         }
-        n[] nVarArr = (n[]) collection.toArray();
-        int length = nVarArr.length;
+        C0945n[] c0945nArr = (C0945n[]) collection.toArray();
+        int length = c0945nArr.length;
         if (length == 0) {
             return false;
         }
-        n[] nVarArr2 = this.c;
+        C0945n[] c0945nArr2 = this.f6128c;
         int i3 = i2 + length;
-        if (i3 <= nVarArr2.length) {
-            System.arraycopy(nVarArr2, i, nVarArr2, i + length, i2 - i);
+        if (i3 <= c0945nArr2.length) {
+            System.arraycopy(c0945nArr2, i, c0945nArr2, i + length, i2 - i);
         } else {
-            n[] nVarArr3 = new n[c(i3 - 1)];
-            System.arraycopy(nVarArr2, 0, nVarArr3, 0, i);
-            System.arraycopy(nVarArr2, i, nVarArr3, i + length, i2 - i);
-            nVarArr2 = nVarArr3;
-            this.c = nVarArr3;
+            C0945n[] c0945nArr3 = new C0945n[m1242c(i3 - 1)];
+            System.arraycopy(c0945nArr2, 0, c0945nArr3, 0, i);
+            System.arraycopy(c0945nArr2, i, c0945nArr3, i + length, i2 - i);
+            c0945nArr2 = c0945nArr3;
+            this.f6128c = c0945nArr3;
         }
-        System.arraycopy(nVarArr, 0, nVarArr2, i, length);
-        this.b = i3;
+        System.arraycopy(c0945nArr, 0, c0945nArr2, i, length);
+        this.f6127b = i3;
         this.modCount++;
         return true;
     }
 
-    static IndexOutOfBoundsException a(int i, int i2) {
+    /* renamed from: a */
+    static IndexOutOfBoundsException m1251a(int i, int i2) {
         throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + i2);
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public void clear() {
-        if (this.b != 0) {
-            Arrays.fill(this.c, 0, this.b, (Object) null);
-            this.b = 0;
+        if (this.f6127b != 0) {
+            Arrays.fill(this.f6128c, 0, this.f6127b, (Object) null);
+            this.f6127b = 0;
             this.modCount++;
         }
     }
 
     public Object clone() {
         try {
-            a aVar = (a) super.clone();
-            aVar.c = (n[]) this.c.clone();
-            return aVar;
+            C0931a c0931a = (C0931a) super.clone();
+            c0931a.f6128c = (C0945n[]) this.f6128c.clone();
+            return c0931a;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
@@ -181,37 +179,37 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     /* renamed from: a */
-    public n get(int i) {
-        if (i >= this.b) {
-            a(i, this.b);
+    public C0945n get(int i) {
+        if (i >= this.f6127b) {
+            m1251a(i, this.f6127b);
         }
-        return this.c[i];
+        return this.f6128c[i];
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public final int size() {
-        return this.b;
+        return this.f6127b;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public final boolean isEmpty() {
-        return this.b == 0;
+        return this.f6127b == 0;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean contains(Object obj) {
-        n[] nVarArr = this.c;
-        int i = this.b;
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
-                if (obj.equals(nVarArr[i2])) {
+                if (obj.equals(c0945nArr[i2])) {
                     return true;
                 }
             }
             return false;
         }
         for (int i3 = 0; i3 < i; i3++) {
-            if (nVarArr[i3] == null) {
+            if (c0945nArr[i3] == null) {
                 return true;
             }
         }
@@ -220,18 +218,18 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public int indexOf(Object obj) {
-        n[] nVarArr = this.c;
-        int i = this.b;
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
-                if (obj.equals(nVarArr[i2])) {
+                if (obj.equals(c0945nArr[i2])) {
                     return i2;
                 }
             }
             return -1;
         }
         for (int i3 = 0; i3 < i; i3++) {
-            if (nVarArr[i3] == null) {
+            if (c0945nArr[i3] == null) {
                 return i3;
             }
         }
@@ -240,17 +238,17 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     public int lastIndexOf(Object obj) {
-        n[] nVarArr = this.c;
+        C0945n[] c0945nArr = this.f6128c;
         if (obj != null) {
-            for (int i = this.b - 1; i >= 0; i--) {
-                if (obj.equals(nVarArr[i])) {
+            for (int i = this.f6127b - 1; i >= 0; i--) {
+                if (obj.equals(c0945nArr[i])) {
                     return i;
                 }
             }
             return -1;
         }
-        for (int i2 = this.b - 1; i2 >= 0; i2--) {
-            if (nVarArr[i2] == null) {
+        for (int i2 = this.f6127b - 1; i2 >= 0; i2--) {
+            if (c0945nArr[i2] == null) {
                 return i2;
             }
         }
@@ -259,41 +257,42 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.List
     /* renamed from: b */
-    public n remove(int i) {
-        n[] nVarArr = this.c;
-        int i2 = this.b;
+    public C0945n remove(int i) {
+        C0945n[] c0945nArr = this.f6128c;
+        int i2 = this.f6127b;
         if (i >= i2) {
-            a(i, i2);
+            m1251a(i, i2);
         }
-        n nVar = nVarArr[i];
+        C0945n c0945n = c0945nArr[i];
         int i3 = i2 - 1;
-        System.arraycopy(nVarArr, i + 1, nVarArr, i, i3 - i);
-        nVarArr[i3] = null;
-        this.b = i3;
+        System.arraycopy(c0945nArr, i + 1, c0945nArr, i, i3 - i);
+        c0945nArr[i3] = null;
+        this.f6127b = i3;
         this.modCount++;
-        return nVar;
+        return c0945n;
     }
 
-    public n b() {
-        n[] nVarArr = this.c;
-        int i = this.b - 1;
-        n nVar = nVarArr[i];
-        nVarArr[i] = null;
-        this.b = i;
-        return nVar;
+    /* renamed from: b */
+    public C0945n m1247b() {
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b - 1;
+        C0945n c0945n = c0945nArr[i];
+        c0945nArr[i] = null;
+        this.f6127b = i;
+        return c0945n;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean remove(Object obj) {
-        n[] nVarArr = this.c;
-        int i = this.b;
+        C0945n[] c0945nArr = this.f6128c;
+        int i = this.f6127b;
         if (obj != null) {
             for (int i2 = 0; i2 < i; i2++) {
-                if (obj.equals(nVarArr[i2])) {
+                if (obj.equals(c0945nArr[i2])) {
                     int i3 = i - 1;
-                    System.arraycopy(nVarArr, i2 + 1, nVarArr, i2, i3 - i2);
-                    nVarArr[i3] = null;
-                    this.b = i3;
+                    System.arraycopy(c0945nArr, i2 + 1, c0945nArr, i2, i3 - i2);
+                    c0945nArr[i3] = null;
+                    this.f6127b = i3;
                     this.modCount++;
                     return true;
                 }
@@ -301,11 +300,11 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
             return false;
         }
         for (int i4 = 0; i4 < i; i4++) {
-            if (nVarArr[i4] == null) {
+            if (c0945nArr[i4] == null) {
                 int i5 = i - 1;
-                System.arraycopy(nVarArr, i4 + 1, nVarArr, i4, i5 - i4);
-                nVarArr[i5] = null;
-                this.b = i5;
+                System.arraycopy(c0945nArr, i4 + 1, c0945nArr, i4, i5 - i4);
+                c0945nArr[i5] = null;
+                this.f6127b = i5;
                 this.modCount++;
                 return true;
             }
@@ -318,51 +317,51 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
         if (i == i2) {
             return;
         }
-        n[] nVarArr = this.c;
-        int i3 = this.b;
+        C0945n[] c0945nArr = this.f6128c;
+        int i3 = this.f6127b;
         if (i >= i3) {
-            throw new IndexOutOfBoundsException("fromIndex " + i + " >= size " + this.b);
+            throw new IndexOutOfBoundsException("fromIndex " + i + " >= size " + this.f6127b);
         }
         if (i2 > i3) {
-            throw new IndexOutOfBoundsException("toIndex " + i2 + " > size " + this.b);
+            throw new IndexOutOfBoundsException("toIndex " + i2 + " > size " + this.f6127b);
         }
         if (i > i2) {
             throw new IndexOutOfBoundsException("fromIndex " + i + " > toIndex " + i2);
         }
-        System.arraycopy(nVarArr, i2, nVarArr, i, i3 - i2);
+        System.arraycopy(c0945nArr, i2, c0945nArr, i, i3 - i2);
         int i4 = i2 - i;
-        Arrays.fill(nVarArr, i3 - i4, i3, (Object) null);
-        this.b = i3 - i4;
+        Arrays.fill(c0945nArr, i3 - i4, i3, (Object) null);
+        this.f6127b = i3 - i4;
         this.modCount++;
     }
 
     @Override // java.util.AbstractList, java.util.List
     /* renamed from: b */
-    public n set(int i, n nVar) {
-        n[] nVarArr = this.c;
-        if (i >= this.b) {
-            a(i, this.b);
+    public C0945n set(int i, C0945n c0945n) {
+        C0945n[] c0945nArr = this.f6128c;
+        if (i >= this.f6127b) {
+            m1251a(i, this.f6127b);
         }
-        n nVar2 = nVarArr[i];
-        nVarArr[i] = nVar;
-        return nVar2;
+        C0945n c0945n2 = c0945nArr[i];
+        c0945nArr[i] = c0945n;
+        return c0945n2;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public Object[] toArray() {
-        int i = this.b;
+        int i = this.f6127b;
         Object[] objArr = new Object[i];
-        System.arraycopy(this.c, 0, objArr, 0, i);
+        System.arraycopy(this.f6128c, 0, objArr, 0, i);
         return objArr;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public Object[] toArray(Object[] objArr) {
-        int i = this.b;
+        int i = this.f6127b;
         if (objArr.length < i) {
             objArr = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), i);
         }
-        System.arraycopy(this.c, 0, objArr, 0, i);
+        System.arraycopy(this.f6128c, 0, objArr, 0, i);
         if (objArr.length > i) {
             objArr[i] = null;
         }
@@ -371,17 +370,17 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.List
     public Iterator iterator() {
-        return new b(this);
+        return new C0933b(this);
     }
 
     @Override // java.util.AbstractList, java.util.Collection, java.util.List
     public int hashCode() {
-        n[] nVarArr = this.c;
+        C0945n[] c0945nArr = this.f6128c;
         int i = 1;
-        int i2 = this.b;
+        int i2 = this.f6127b;
         for (int i3 = 0; i3 < i2; i3++) {
-            n nVar = nVarArr[i3];
-            i = (31 * i) + (nVar == null ? 0 : nVar.hashCode());
+            C0945n c0945n = c0945nArr[i3];
+            i = (31 * i) + (c0945n == null ? 0 : c0945n.hashCode());
         }
         return i;
     }
@@ -395,20 +394,20 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
             return false;
         }
         List list = (List) obj;
-        int i = this.b;
+        int i = this.f6127b;
         if (list.size() != i) {
             return false;
         }
-        n[] nVarArr = this.c;
+        C0945n[] c0945nArr = this.f6128c;
         if (list instanceof RandomAccess) {
             for (int i2 = 0; i2 < i; i2++) {
-                n nVar = nVarArr[i2];
+                C0945n c0945n = c0945nArr[i2];
                 Object obj2 = list.get(i2);
-                if (nVar == null) {
+                if (c0945n == null) {
                     if (obj2 != null) {
                         return false;
                     }
-                } else if (!nVar.equals(obj2)) {
+                } else if (!c0945n.equals(obj2)) {
                     return false;
                 }
             }
@@ -416,13 +415,13 @@ public final class a extends AbstractList implements Serializable, Cloneable, Ra
         }
         Iterator it = list.iterator();
         for (int i3 = 0; i3 < i; i3++) {
-            n nVar2 = nVarArr[i3];
+            C0945n c0945n2 = c0945nArr[i3];
             Object next = it.next();
-            if (nVar2 == null) {
+            if (c0945n2 == null) {
                 if (next != null) {
                     return false;
                 }
-            } else if (!nVar2.equals(next)) {
+            } else if (!c0945n2.equals(next)) {
                 return false;
             }
         }

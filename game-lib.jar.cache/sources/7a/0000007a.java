@@ -5,8 +5,12 @@ import com.codedisaster.steamworks.SteamController;
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamControllerAnalogActionData.class */
 public class SteamControllerAnalogActionData {
     int mode;
-    float x;
-    float y;
+
+    /* renamed from: x */
+    float f337x;
+
+    /* renamed from: y */
+    float f338y;
     boolean active;
 
     public SteamController.SourceMode getMode() {
@@ -14,11 +18,11 @@ public class SteamControllerAnalogActionData {
     }
 
     public float getX() {
-        return this.x;
+        return this.f337x;
     }
 
     public float getY() {
-        return this.y;
+        return this.f338y;
     }
 
     public boolean getActive() {

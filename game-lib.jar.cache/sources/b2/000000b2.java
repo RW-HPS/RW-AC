@@ -4,8 +4,7 @@ import com.codedisaster.steamworks.SteamNetworking;
 
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamNetworkingCallbackAdapter.class */
 class SteamNetworkingCallbackAdapter extends SteamCallbackAdapter {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamNetworkingCallbackAdapter(SteamNetworkingCallback steamNetworkingCallback) {
+    SteamNetworkingCallbackAdapter(SteamNetworkingCallback steamNetworkingCallback) {
         super(steamNetworkingCallback);
     }
 

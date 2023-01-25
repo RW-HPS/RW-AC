@@ -1,30 +1,36 @@
-package com.corrodinggames.rts.gameFramework.l;
+package com.corrodinggames.rts.gameFramework.p044l;
 
 import java.io.File;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.l.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/l/a.class */
-public class a {
+public class C0955a {
 
-    /* renamed from: a  reason: collision with root package name */
-    static c f619a = new c();
+    /* renamed from: a */
+    static C0957c f6510a = new C0957c();
 
-    public static String a() {
-        return f619a.a();
+    /* renamed from: a */
+    public static String m965a() {
+        return f6510a.m960a();
     }
 
-    public static boolean b() {
-        return f619a.b();
+    /* renamed from: b */
+    public static boolean m962b() {
+        return f6510a.m957b();
     }
 
-    public static void a(File file) {
-        f619a.a(file);
+    /* renamed from: a */
+    public static void m963a(File file) {
+        f6510a.m958a(file);
     }
 
-    public static void a(b bVar) {
-        f619a.a(bVar);
+    /* renamed from: a */
+    public static void m964a(AbstractC0956b abstractC0956b) {
+        f6510a.m959a(abstractC0956b);
     }
 
-    public static float c() {
-        return f619a.c();
+    /* renamed from: c */
+    public static float m961c() {
+        return f6510a.m956c();
     }
 }

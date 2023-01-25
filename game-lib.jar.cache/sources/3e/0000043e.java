@@ -1,25 +1,35 @@
 package com.corrodinggames.rts.gameFramework;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.as */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/as.class */
-public abstract class as {
-    public abstract void a(ar arVar);
+public abstract class AbstractC0664as {
+    /* renamed from: a */
+    public abstract void mo89a(AbstractC0663ar abstractC0663ar);
 
-    public abstract void a(float f);
+    /* renamed from: a */
+    public abstract void mo90a(float f);
 
-    public abstract void a(boolean z);
+    /* renamed from: a */
+    public abstract void mo88a(boolean z);
 
-    public abstract void d();
+    /* renamed from: d */
+    public abstract void mo85d();
 
-    public abstract void a();
+    /* renamed from: a */
+    public abstract void mo91a();
 
-    public abstract void b();
+    /* renamed from: b */
+    public abstract void mo87b();
 
-    public abstract boolean c();
+    /* renamed from: c */
+    public abstract boolean mo86c();
 
-    public void a(float f, float f2) {
-        a(f);
+    /* renamed from: a */
+    public void m2735a(float f, float f2) {
+        mo90a(f);
     }
 
-    public void e() {
+    /* renamed from: e */
+    public void mo84e() {
     }
 }

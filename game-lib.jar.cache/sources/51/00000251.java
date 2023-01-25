@@ -1,15 +1,15 @@
 package com.corrodinggames.rts.game.units.custom;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.game.units.custom.az */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/az.class */
-public enum az {
-    small,
-    medium,
-    large,
-    smoke,
-    shockwave,
-    largeExplosion,
-    smallExplosion,
-    resourcePoolSmoke,
-    noneExplosion
+enum EnumC0387az {
+    f2280a,
+    f2281b,
+    f2282c,
+    f2283d,
+    f2284e,
+    f2285f,
+    f2286g,
+    f2287h,
+    f2288i
 }

@@ -6,8 +6,7 @@ import com.codedisaster.steamworks.SteamFriends;
 class SteamFriendsCallbackAdapter extends SteamCallbackAdapter {
     private static final SteamFriends.PersonaChange[] personaChangeValues = SteamFriends.PersonaChange.values();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamFriendsCallbackAdapter(SteamFriendsCallback steamFriendsCallback) {
+    SteamFriendsCallbackAdapter(SteamFriendsCallback steamFriendsCallback) {
         super(steamFriendsCallback);
     }
 

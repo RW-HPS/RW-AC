@@ -1,26 +1,29 @@
-package com.corrodinggames.rts.a.a;
+package com.corrodinggames.rts.debug.test;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
+/* renamed from: com.corrodinggames.rts.a.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/a/a/b.class */
-public class b extends l {
-    public void a() {
-        b();
+public class TestNewSocket extends AbstractScriptTest {
+    /* renamed from: a */
+    public void start() {
+        test();
     }
 
-    public void b() {
-        GameEngine.m328e("networkSocks");
+    /* renamed from: b */
+    public void test() {
+        GameEngine.m5924e("networkSocks");
         GameEngine gameEngine = GameEngine.getGameEngine();
         for (int i = 0; i < 10000; i++) {
-            gameEngine.bX.startNet(false);
+            gameEngine.netEngine.startNet(false);
             try {
                 Thread.sleep(50L);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            gameEngine.bX.b("test");
+            gameEngine.netEngine.closeServer("test");
         }
-        GameEngine.m328e("done");
+        GameEngine.m5924e("done");
         try {
             Thread.sleep(100000L);
         } catch (InterruptedException e2) {

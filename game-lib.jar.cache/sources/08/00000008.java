@@ -1,103 +1,124 @@
-package a.a.a;
+package net.rudp.p002a;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import java.io.IOException;
 
+/* renamed from: a.a.a.h */
 /* loaded from: game-lib.jar:a/a/a/h.class */
-public abstract class h {
+public abstract class Segment {
 
-    /* renamed from: a  reason: collision with root package name */
-    private int f7a;
-    private int b;
-    private int c;
-    private int e = 0;
-    private int d = -1;
+    /* renamed from: a */
+    private int flags;
 
-    public abstract String a();
+    /* renamed from: b */
+    private int hlen;
 
-    public int m() {
-        return this.c;
+    /* renamed from: c */
+    private int seqn;
+
+    /* renamed from: e */
+    private int nretx = 0;
+
+    /* renamed from: d */
+    private int f16d = -1;
+
+    /* renamed from: a */
+    public abstract String type();
+
+    protected Segment() {
     }
 
-    public int b() {
-        return this.b;
+    /* renamed from: m */
+    public int m5435m() {
+        return this.seqn;
     }
 
-    public void a(int i) {
-        this.f7a |= 64;
-        this.d = i;
+    /* renamed from: b */
+    public int mo5439b() {
+        return this.hlen;
     }
 
-    public int n() {
-        if ((this.f7a & 64) == 64) {
-            return this.d;
+    /* renamed from: a */
+    public void setAck(int i) {
+        this.flags |= 64;
+        this.f16d = i;
+    }
+
+    /* renamed from: n */
+    public int getAck() {
+        if ((this.flags & 64) == 64) {
+            return this.f16d;
         }
         return -1;
     }
 
-    public int o() {
-        return this.e;
+    /* renamed from: o */
+    public int getRetxCounter() {
+        return this.nretx;
     }
 
-    public void b(int i) {
-        this.e = i;
+    /* renamed from: b */
+    public void m5438b(int i) {
+        this.nretx = i;
     }
 
-    public byte[] d() {
-        byte[] bArr = new byte[b()];
-        bArr[0] = (byte) (this.f7a & 255);
-        bArr[1] = (byte) (this.b & 255);
-        bArr[2] = (byte) (this.c & 255);
-        bArr[3] = (byte) (this.d & 255);
+    /* renamed from: d */
+    public byte[] getBytes() {
+        byte[] bArr = new byte[mo5439b()];
+        bArr[0] = (byte) (this.flags & 255);
+        bArr[1] = (byte) (this.hlen & 255);
+        bArr[2] = (byte) (this.seqn & 255);
+        bArr[3] = (byte) (this.f16d & 255);
         return bArr;
     }
 
     public String toString() {
-        return a() + " [ SEQ = " + m() + ", ACK = " + (n() >= 0 ? VariableScope.nullOrMissingString + n() : "N/A") + ", LEN = " + b() + " ]";
+        return type() + " [ SEQ = " + m5435m() + ", ACK = " + (getAck() >= 0 ? VariableScope.nullOrMissingString + getAck() : "N/A") + ", LEN = " + mo5439b() + " ]";
     }
 
-    public static h b(byte[] bArr, int i, int i2) {
-        h hVar = null;
+    /* renamed from: b */
+    public static Segment parse(byte[] bArr, int i, int i2) {
+        Segment segment = null;
         if (i2 < 6) {
             throw new IOException("Invalid segment:" + i2);
         }
         byte b = bArr[i];
         if ((b & Byte.MIN_VALUE) != 0) {
-            hVar = new g();
+            segment = new SYNSegment();
         } else if ((b & 8) != 0) {
-            hVar = new e();
+            segment = new NULSegment();
         } else if ((b & 32) != 0) {
-            hVar = new c();
+            segment = new EAKSegment();
         } else if ((b & 16) != 0) {
-            hVar = new f();
+            segment = new RSTSegment();
         } else if ((b & 2) != 0) {
-            hVar = new d();
+            segment = new FINSegment();
         } else if ((b & 64) != 0) {
             if (i2 == 6) {
-                hVar = new a();
+                segment = new ACKSegment();
             } else {
-                hVar = new b();
+                segment = new DATSegment();
             }
         }
-        if (hVar == null) {
+        if (segment == null) {
             throw new IOException("Invalid segment");
         }
-        hVar.a(bArr, i, i2);
-        return hVar;
+        segment.parseBytes(bArr, i, i2);
+        return segment;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i, int i2, int i3) {
-        this.f7a = i;
-        this.c = i2;
-        this.b = i3;
+    /* renamed from: a */
+    protected void init(int i, int i2, int i3) {
+        this.flags = i;
+        this.seqn = i2;
+        this.hlen = i3;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(byte[] bArr, int i, int i2) {
-        this.f7a = bArr[i] & 255;
-        this.b = bArr[i + 1] & 255;
-        this.c = bArr[i + 2] & 255;
-        this.d = bArr[i + 3] & 255;
+    /* renamed from: a */
+    protected void parseBytes(byte[] bArr, int i, int i2) {
+        this.flags = bArr[i] & 255;
+        this.hlen = bArr[i + 1] & 255;
+        this.seqn = bArr[i + 2] & 255;
+        this.f16d = bArr[i + 3] & 255;
     }
 }

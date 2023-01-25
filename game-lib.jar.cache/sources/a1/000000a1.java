@@ -127,8 +127,7 @@ public class SteamMatchmaking extends SteamInterface {
             this.code = i;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static ChatRoomEnterResponse byCode(int i) {
+        static ChatRoomEnterResponse byCode(int i) {
             ChatRoomEnterResponse[] chatRoomEnterResponseArr;
             for (ChatRoomEnterResponse chatRoomEnterResponse : values) {
                 if (chatRoomEnterResponse.code == i) {
@@ -153,8 +152,7 @@ public class SteamMatchmaking extends SteamInterface {
             this.bits = i;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static boolean isSet(ChatMemberStateChange chatMemberStateChange, int i) {
+        static boolean isSet(ChatMemberStateChange chatMemberStateChange, int i) {
             return (chatMemberStateChange.bits & i) == chatMemberStateChange.bits;
         }
     }
@@ -183,8 +181,7 @@ public class SteamMatchmaking extends SteamInterface {
             this.code = i;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static ChatEntryType byCode(int i) {
+        static ChatEntryType byCode(int i) {
             ChatEntryType[] chatEntryTypeArr;
             for (ChatEntryType chatEntryType : values) {
                 if (chatEntryType.code == i) {

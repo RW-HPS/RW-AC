@@ -1,22 +1,21 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.f.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/b.class */
-public abstract class b {
+abstract class AbstractC0818b {
 
-    /* renamed from: a  reason: collision with root package name */
-    String f507a;
+    /* renamed from: a */
+    String f5225a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void b();
+    /* renamed from: b */
+    abstract void mo1914b();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(String str) {
-        this.f507a = str;
+    AbstractC0818b(String str) {
+        this.f5225a = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String a() {
-        return this.f507a;
+    /* renamed from: a */
+    String m1932a() {
+        return this.f5225a;
     }
 }

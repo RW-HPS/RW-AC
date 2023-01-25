@@ -3,20 +3,20 @@ package com.corrodinggames.rts.gameFramework.net;
 import java.io.IOException;
 import java.util.TimerTask;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.corrodinggames.rts.gameFramework.j.av */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/av.class */
-public class PingTask extends TimerTask {
+class PingTask extends TimerTask {
 
     /* renamed from: c */
     private final GameNetEngine gameNetEngine;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f573a = true;
-    public long b = 0;
+    /* renamed from: a */
+    public boolean f5961a = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PingTask(GameNetEngine gameNetEngine) {
+    /* renamed from: b */
+    public long f5962b = 0;
+
+    PingTask(GameNetEngine gameNetEngine) {
         this.gameNetEngine = gameNetEngine;
     }
 
@@ -24,21 +24,21 @@ public class PingTask extends TimerTask {
     public void run() {
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.gameNetEngine.au != 0 && (currentTimeMillis > this.gameNetEngine.au + 5 || currentTimeMillis < this.gameNetEngine.au)) {
-                this.gameNetEngine.au = 0L;
-                this.gameNetEngine.Q();
+            if (this.gameNetEngine.f5732au != 0 && (currentTimeMillis > this.gameNetEngine.f5732au + 5 || currentTimeMillis < this.gameNetEngine.f5732au)) {
+                this.gameNetEngine.f5732au = 0L;
+                this.gameNetEngine.m1608Q();
             }
-            if (currentTimeMillis > this.b + 1000 || currentTimeMillis < this.b) {
-                this.b = currentTimeMillis;
-                if (this.f573a) {
+            if (currentTimeMillis > this.f5962b + 1000 || currentTimeMillis < this.f5962b) {
+                this.f5962b = currentTimeMillis;
+                if (this.f5961a) {
                     GameOutputStream gameOutputStream = new GameOutputStream();
                     gameOutputStream.writeLong(System.currentTimeMillis());
                     gameOutputStream.writeByte(0);
                     this.gameNetEngine.sendPacket(gameOutputStream.getPacket(108));
                 } else {
-                    this.gameNetEngine.P();
+                    this.gameNetEngine.m1609P();
                 }
-                this.f573a = !this.f573a;
+                this.f5961a = !this.f5961a;
             }
         } catch (IOException e) {
             e.printStackTrace();

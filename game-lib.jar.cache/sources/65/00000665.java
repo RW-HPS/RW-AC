@@ -1,7 +1,7 @@
 package com.corrodinggames.rts.java;
 
+import com.corrodinggames.rts.gameFramework.C0654am;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.am;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.Game;
@@ -12,23 +12,28 @@ import org.newdawn.slick.Music;
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/b.class */
 public class RWAppGameContainer extends AppGameContainer {
 
-    /* renamed from: a  reason: collision with root package name */
-    boolean f726a;
-    Object b;
-    c c;
+    /* renamed from: a */
+    boolean f7297a;
+
+    /* renamed from: b */
+    Object f7298b;
+
+    /* renamed from: c */
+    C1189c f7299c;
 
     public RWAppGameContainer(Game game, int i, int i2, boolean z) {
         super(game, i, i2, z);
-        this.f726a = false;
-        this.b = new Object();
+        this.f7297a = false;
+        this.f7298b = new Object();
     }
 
-    public Graphics a() {
+    /* renamed from: a */
+    public Graphics m303a() {
         Graphics graphics = getGraphics();
         this.input.poll(this.width, this.height);
         Music.poll(1);
-        if (am.f403a != null) {
-            am.f403a.a(1);
+        if (C0654am.f4220a != null) {
+            C0654am.f4220a.mo99a(1);
         }
         GL.glClear(16640);
         GL.glLoadIdentity();
@@ -39,7 +44,8 @@ public class RWAppGameContainer extends AppGameContainer {
         return graphics;
     }
 
-    public void a(Graphics graphics) {
+    /* renamed from: a */
+    public void m302a(Graphics graphics) {
         graphics.resetTransform();
         GL.flush();
         Display.update();
@@ -57,11 +63,11 @@ public class RWAppGameContainer extends AppGameContainer {
         }
         updateFPS();
         Display.update(false);
-        if (!this.f726a) {
+        if (!this.f7297a) {
             Display.processMessages();
-        } else if (this.c == null) {
-            this.c = new c(this);
-            this.c.start();
+        } else if (this.f7299c == null) {
+            this.f7299c = new C1189c(this);
+            this.f7299c.start();
         }
         if (Display.isCloseRequested() && this.game.closeRequested()) {
             this.running = false;
@@ -74,8 +80,8 @@ public class RWAppGameContainer extends AppGameContainer {
         }
         this.input.poll(this.width, this.height);
         Music.poll(i);
-        if (am.f403a != null) {
-            am.f403a.a(i);
+        if (C0654am.f4220a != null) {
+            C0654am.f4220a.mo99a(i);
         }
         if (!this.paused) {
             this.storedDelta += i;
@@ -126,7 +132,7 @@ public class RWAppGameContainer extends AppGameContainer {
         try {
             Display.destroy();
         } catch (Exception e) {
-            GameEngine.a("Error on Display.destroy in destroy", (Throwable) e);
+            GameEngine.m1061a("Error on Display.destroy in destroy", (Throwable) e);
         }
     }
 }

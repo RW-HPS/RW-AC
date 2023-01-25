@@ -1,8 +1,9 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
+import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
-import com.corrodinggames.rts.java.audio.a.c;
-import com.corrodinggames.rts.java.audio.a.s;
+import com.corrodinggames.rts.java.audio.p051a.C1167c;
+import com.corrodinggames.rts.java.audio.p051a.C1183s;
 import com.jcraft.jogg.Packet;
 import com.jcraft.jogg.Page;
 import com.jcraft.jogg.StreamState;
@@ -70,7 +71,7 @@ public class OggInputStream extends InputStream {
             this.total = inputStream.available();
             init();
         } catch (IOException e) {
-            throw new c(e);
+            throw new C1167c(e);
         }
     }
 
@@ -119,19 +120,19 @@ public class OggInputStream extends InputStream {
                 if (this.bytes < BUFFER_SIZE) {
                     return false;
                 }
-                throw new c("Input does not appear to be an Ogg bitstream.");
+                throw new C1167c("Input does not appear to be an Ogg bitstream.");
             }
             this.streamState.init(this.page.serialno());
             this.oggInfo.init();
             this.comment.init();
             if (this.streamState.pagein(this.page) < 0) {
-                throw new c("Error reading first page of Ogg bitstream.");
+                throw new C1167c("Error reading first page of Ogg bitstream.");
             }
             if (this.streamState.packetout(this.packet) != 1) {
-                throw new c("Error reading initial header packet.");
+                throw new C1167c("Error reading initial header packet.");
             }
             if (this.oggInfo.synthesis_headerin(this.comment, this.packet) < 0) {
-                throw new c("Ogg bitstream does not contain Vorbis audio data.");
+                throw new C1167c("Ogg bitstream does not contain Vorbis audio data.");
             }
             int i = 0;
             while (i < 2) {
@@ -140,7 +141,7 @@ public class OggInputStream extends InputStream {
                         this.streamState.pagein(this.page);
                         while (i < 2 && (packetout = this.streamState.packetout(this.packet)) != 0) {
                             if (packetout == -1) {
-                                throw new c("Corrupt secondary header.");
+                                throw new C1167c("Corrupt secondary header.");
                             }
                             this.oggInfo.synthesis_headerin(this.comment, this.packet);
                             i++;
@@ -155,11 +156,11 @@ public class OggInputStream extends InputStream {
                 try {
                     this.bytes = this.input.read(this.buffer, buffer2, BUFFER_SIZE);
                     if (this.bytes == 0 && i < 2) {
-                        throw new c("End of file before finding all Vorbis headers.");
+                        throw new C1167c("End of file before finding all Vorbis headers.");
                     }
                     this.syncState.wrote(this.bytes);
                 } catch (Exception e) {
-                    throw new c("Failed to read Vorbis.", e);
+                    throw new C1167c("Failed to read Vorbis.", e);
                 }
             }
             this.convsize = BUFFER_SIZE / this.oggInfo.channels;
@@ -167,7 +168,7 @@ public class OggInputStream extends InputStream {
             this.vorbisBlock.init(this.dspState);
             return true;
         } catch (Exception e2) {
-            throw new c("Failure reading Vorbis.", e2);
+            throw new C1167c("Failure reading Vorbis.", e2);
         }
     }
 
@@ -178,14 +179,114 @@ public class OggInputStream extends InputStream {
     /* JADX WARN: Type inference failed for: r0v7, types: [float[][], float[][][]] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
     private void readPCM() {
-        /*
-            Method dump skipped, instructions count: 698
-            To view this dump change 'Code comments level' option to 'DEBUG'
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.corrodinggames.rts.java.audio.lwjgl.OggInputStream.readPCM():void");
+        int pageout;
+        boolean z = false;
+        while (true) {
+            if (this.endOfBitStream) {
+                if (getPageAndPacket()) {
+                    this.endOfBitStream = false;
+                } else {
+                    this.syncState.clear();
+                    this.endOfStream = true;
+                    return;
+                }
+            }
+            if (!this.inited) {
+                this.inited = true;
+                return;
+            }
+            ?? r0 = new float[1];
+            int[] iArr = new int[this.oggInfo.channels];
+            while (!this.endOfBitStream) {
+                while (!this.endOfBitStream && (pageout = this.syncState.pageout(this.page)) != 0) {
+                    if (pageout == -1) {
+                        GameEngine.m1015b("gdx-audio", "Error reading OGG: Corrupt or missing data in bitstream.");
+                    } else {
+                        this.streamState.pagein(this.page);
+                        while (true) {
+                            int packetout = this.streamState.packetout(this.packet);
+                            if (packetout != 0) {
+                                if (packetout != -1) {
+                                    if (this.vorbisBlock.synthesis(this.packet) == 0) {
+                                        this.dspState.synthesis_blockin(this.vorbisBlock);
+                                    }
+                                    while (true) {
+                                        int synthesis_pcmout = this.dspState.synthesis_pcmout((float[][][]) r0, iArr);
+                                        if (synthesis_pcmout > 0) {
+                                            Object[] objArr = r0[0];
+                                            int i = synthesis_pcmout < this.convsize ? synthesis_pcmout : this.convsize;
+                                            for (int i2 = 0; i2 < this.oggInfo.channels; i2++) {
+                                                int i3 = i2 * 2;
+                                                int i4 = iArr[i2];
+                                                for (int i5 = 0; i5 < i; i5++) {
+                                                    int i6 = (int) (objArr[i2][i4 + i5] * 32767.0d);
+                                                    if (i6 > 32767) {
+                                                        i6 = 32767;
+                                                    }
+                                                    if (i6 < -32768) {
+                                                        i6 = -32768;
+                                                    }
+                                                    if (i6 < 0) {
+                                                        i6 |= 32768;
+                                                    }
+                                                    if (this.bigEndian) {
+                                                        this.convbuffer[i3] = (byte) (i6 >>> 8);
+                                                        this.convbuffer[i3 + 1] = (byte) i6;
+                                                    } else {
+                                                        this.convbuffer[i3] = (byte) i6;
+                                                        this.convbuffer[i3 + 1] = (byte) (i6 >>> 8);
+                                                    }
+                                                    i3 += 2 * this.oggInfo.channels;
+                                                }
+                                            }
+                                            int i7 = 2 * this.oggInfo.channels * i;
+                                            if (this.outIndex + i7 > this.outBuffer.length) {
+                                                throw new C1167c("Ogg block too big to be buffered: " + i7 + ", " + (this.outBuffer.length - this.outIndex));
+                                            }
+                                            System.arraycopy(this.convbuffer, 0, this.outBuffer, this.outIndex, i7);
+                                            this.outIndex += i7;
+                                            z = true;
+                                            this.dspState.synthesis_read(i);
+                                        }
+                                    }
+                                }
+                            } else {
+                                if (this.page.eos() != 0) {
+                                    this.endOfBitStream = true;
+                                }
+                                if (!this.endOfBitStream && z) {
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (!this.endOfBitStream) {
+                    this.bytes = 0;
+                    int buffer = this.syncState.buffer((int) BUFFER_SIZE);
+                    if (buffer >= 0) {
+                        this.buffer = this.syncState.data;
+                        try {
+                            this.bytes = this.input.read(this.buffer, buffer, BUFFER_SIZE);
+                        } catch (Exception e) {
+                            throw new C1167c("Error during Vorbis decoding.", e);
+                        }
+                    } else {
+                        this.bytes = 0;
+                    }
+                    this.syncState.wrote(this.bytes);
+                    if (this.bytes == 0) {
+                        this.endOfBitStream = true;
+                    }
+                }
+            }
+            this.streamState.clear();
+            this.vorbisBlock.clear();
+            this.dspState.clear();
+            this.oggInfo.clear();
+        }
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -234,6 +335,6 @@ public class OggInputStream extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        s.a(this.input);
+        C1183s.m307a(this.input);
     }
 }

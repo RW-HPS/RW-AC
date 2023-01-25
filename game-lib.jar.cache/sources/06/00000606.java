@@ -1,8 +1,11 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
+import com.corrodinggames.rts.appFramework.C0090c;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import com.corrodinggames.rts.gameFramework.C0742br;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.br;
+import com.corrodinggames.rts.gameFramework.file.C0765a;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,53 +19,62 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.ah */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/ah.class */
-public class ah {
+public class C1114ah {
 
-    /* renamed from: a  reason: collision with root package name */
-    String f674a = VariableScope.nullOrMissingString;
-    String b;
-    ZipFile c;
-    String[] d;
-    boolean e;
+    /* renamed from: a */
+    String f7059a = VariableScope.nullOrMissingString;
 
-    public ah(String str, String str2) {
-        this.b = str;
-        GameEngine.g("Opening new zip at: " + str2);
-        af b = ae.b(str2);
-        if (b != null) {
-            GameEngine.m328e("Temp file needed for zip with SAF interface");
-            if (!GameEngine.at()) {
+    /* renamed from: b */
+    String f7060b;
+
+    /* renamed from: c */
+    ZipFile f7061c;
+
+    /* renamed from: d */
+    String[] f7062d;
+
+    /* renamed from: e */
+    boolean f7063e;
+
+    public C1114ah(String str, String str2) {
+        this.f7060b = str;
+        GameEngine.m990g("Opening new zip at: " + str2);
+        AbstractC1111af m628b = C1110ae.m628b(str2);
+        if (m628b != null) {
+            GameEngine.m5777e("Temp file needed for zip with SAF interface");
+            if (!GameEngine.m1030at()) {
                 throw new IOException("Failed to open source zip with mapper: " + str2);
             }
-            long a2 = br.a();
-            j b2 = b.b(str2, true);
-            if (b2 == null) {
+            long m2440a = C0742br.m2440a();
+            C1133j mo621b = m628b.mo621b(str2, true);
+            if (mo621b == null) {
                 throw new IOException("Failed to open file of zip: " + str2);
             }
-            this.c = a(b2, (Charset) null);
-            GameEngine.m328e("Streamed zip open took:" + br.a(br.a(a2)));
+            this.f7061c = m606a(mo621b, (Charset) null);
+            GameEngine.m5777e("Streamed zip open took:" + C0742br.m2439a(C0742br.m2438a(m2440a)));
         } else {
-            this.c = new ZipFile(str2);
+            this.f7061c = new ZipFile(str2);
         }
         try {
-            b();
+            m603b();
         } catch (IllegalArgumentException e) {
-            ag.h("Failed to open source zip with unicode encoding, attempting with ISO-8859-1");
+            C1112ag.m612h("Failed to open source zip with unicode encoding, attempting with ISO-8859-1");
             Charset forName = Charset.forName("ISO-8859-1");
             try {
-                if (b != null) {
-                    GameEngine.m328e("Temp file needed for zip with SAF interface");
-                    if (!GameEngine.at()) {
+                if (m628b != null) {
+                    GameEngine.m5777e("Temp file needed for zip with SAF interface");
+                    if (!GameEngine.m1030at()) {
                         throw new IOException("Failed to open source zip with mapper: " + str2);
                     }
-                    long a3 = br.a();
-                    this.c = a(b.b(str2, true), forName);
-                    GameEngine.m328e("Streamed zip open took:" + br.a(br.a(a3)));
+                    long m2440a2 = C0742br.m2440a();
+                    this.f7061c = m606a(m628b.mo621b(str2, true), forName);
+                    GameEngine.m5777e("Streamed zip open took:" + C0742br.m2439a(C0742br.m2438a(m2440a2)));
                 } else {
-                    this.c = a(str2, forName);
+                    this.f7061c = m604a(str2, forName);
                 }
-                b();
+                m603b();
             } catch (RuntimeException e2) {
                 e.printStackTrace();
                 throw new IOException("Failed to open source zip with unicode and ISO-8859-1 encoding", e2);
@@ -70,12 +82,13 @@ public class ah {
         }
     }
 
-    public void a() {
-        if (!this.e) {
-            this.e = true;
-            if (this.c != null) {
+    /* renamed from: a */
+    public void m607a() {
+        if (!this.f7063e) {
+            this.f7063e = true;
+            if (this.f7061c != null) {
                 try {
-                    this.c.close();
+                    this.f7061c.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -83,28 +96,30 @@ public class ah {
         }
     }
 
-    public static ZipFile a(InputStream inputStream, Charset charset) {
-        File a2 = com.corrodinggames.rts.gameFramework.e.a.a(com.corrodinggames.rts.appFramework.c.a(), "safMod", "zip");
+    /* renamed from: a */
+    public static ZipFile m606a(InputStream inputStream, Charset charset) {
+        File m2303a = C0765a.m2303a(C0090c.m4941a(), "safMod", "zip");
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(a2);
-            com.corrodinggames.rts.gameFramework.f.a(inputStream, fileOutputStream);
+            FileOutputStream fileOutputStream = new FileOutputStream(m2303a);
+            C0773f.m2192a(inputStream, fileOutputStream);
             fileOutputStream.close();
             inputStream.close();
             if (charset == null) {
-                ZipFile zipFile = new ZipFile(a2);
-                a2.delete();
+                ZipFile zipFile = new ZipFile(m2303a);
+                m2303a.delete();
                 return zipFile;
             }
-            ZipFile a3 = a(a2.getAbsolutePath(), charset);
-            a2.delete();
-            return a3;
+            ZipFile m604a = m604a(m2303a.getAbsolutePath(), charset);
+            m2303a.delete();
+            return m604a;
         } catch (Throwable th) {
-            a2.delete();
+            m2303a.delete();
             throw th;
         }
     }
 
-    public static ZipFile a(String str, Charset charset) {
+    /* renamed from: a */
+    public static ZipFile m604a(String str, Charset charset) {
         Constructor constructor = null;
         try {
             constructor = ZipFile.class.getDeclaredConstructor(String.class, Charset.class);
@@ -129,11 +144,12 @@ public class ah {
         }
     }
 
-    public void b() {
-        double a2;
-        long a3 = br.a();
+    /* renamed from: b */
+    public void m603b() {
+        double m2438a;
+        long m2440a = C0742br.m2440a();
         ArrayList arrayList = new ArrayList();
-        Enumeration<? extends ZipEntry> entries = this.c.entries();
+        Enumeration<? extends ZipEntry> entries = this.f7061c.entries();
         while (entries.hasMoreElements()) {
             String name = entries.nextElement().getName();
             if (name == null) {
@@ -141,28 +157,30 @@ public class ah {
             }
             arrayList.add(name);
         }
-        this.d = (String[]) arrayList.toArray(new String[0]);
-        this.f674a = VariableScope.nullOrMissingString;
-        String[] e = e(VariableScope.nullOrMissingString);
-        if (e.length == 1 && d(e[0])) {
-            this.f674a = e[0] + "/";
-            for (int i = 0; i < this.d.length; i++) {
-                if (this.d[i].startsWith(this.f674a)) {
-                    this.d[i] = this.d[i].substring(this.f674a.length());
+        this.f7062d = (String[]) arrayList.toArray(new String[0]);
+        this.f7059a = VariableScope.nullOrMissingString;
+        String[] m599e = m599e(VariableScope.nullOrMissingString);
+        if (m599e.length == 1 && m600d(m599e[0])) {
+            this.f7059a = m599e[0] + "/";
+            for (int i = 0; i < this.f7062d.length; i++) {
+                if (this.f7062d[i].startsWith(this.f7059a)) {
+                    this.f7062d[i] = this.f7062d[i].substring(this.f7059a.length());
                 }
             }
         }
-        if (br.a(a3) > 3.0d) {
-            GameEngine.m328e("zip: buildCache for: " + this.b + ", took:" + br.a(a2));
+        if (C0742br.m2438a(m2440a) > 3.0d) {
+            GameEngine.m5777e("zip: buildCache for: " + this.f7060b + ", took:" + C0742br.m2439a(m2438a));
         }
     }
 
-    public void a(String str) {
-        GameEngine.m328e("Zip: " + str);
+    /* renamed from: a */
+    public void m605a(String str) {
+        GameEngine.m5777e("Zip: " + str);
     }
 
-    public boolean b(String str) {
-        for (String str2 : this.d) {
+    /* renamed from: b */
+    public boolean m602b(String str) {
+        for (String str2 : this.f7062d) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -170,13 +188,14 @@ public class ah {
         return false;
     }
 
-    public boolean c(String str) {
-        for (String str2 : this.d) {
+    /* renamed from: c */
+    public boolean m601c(String str) {
+        for (String str2 : this.f7062d) {
             if (str2.equals(str)) {
                 return true;
             }
         }
-        for (String str3 : this.d) {
+        for (String str3 : this.f7062d) {
             if (str3.equalsIgnoreCase(str)) {
                 return true;
             }
@@ -184,14 +203,15 @@ public class ah {
         return false;
     }
 
-    public boolean d(String str) {
+    /* renamed from: d */
+    public boolean m600d(String str) {
         if (!str.endsWith("/")) {
             str = str + "/";
         }
         if (str.equals("/")) {
             return true;
         }
-        for (String str2 : this.d) {
+        for (String str2 : this.f7062d) {
             if (str2.contains(str)) {
                 return true;
             }
@@ -199,7 +219,8 @@ public class ah {
         return false;
     }
 
-    public String[] e(String str) {
+    /* renamed from: e */
+    public String[] m599e(String str) {
         String[] strArr;
         if (str.equals(VariableScope.nullOrMissingString) || str.equals("/") || str.equals("\\")) {
             str = VariableScope.nullOrMissingString;
@@ -207,7 +228,7 @@ public class ah {
             str = str + "/";
         }
         ArrayList arrayList = new ArrayList();
-        for (String str2 : this.d) {
+        for (String str2 : this.f7062d) {
             if (str.equals(VariableScope.nullOrMissingString) || str2.startsWith(str)) {
                 String substring = str2.substring(str.length());
                 if (substring.length() != 0 && !substring.equals("..")) {
@@ -225,18 +246,19 @@ public class ah {
         return (String[]) arrayList.toArray(new String[0]);
     }
 
-    public ZipEntry f(String str) {
+    /* renamed from: f */
+    public ZipEntry m598f(String str) {
         ZipEntry nextElement;
-        String str2 = this.f674a + str;
+        String str2 = this.f7059a + str;
         ZipEntry zipEntry = null;
         IllegalArgumentException illegalArgumentException = null;
         try {
-            zipEntry = this.c.getEntry(str2);
+            zipEntry = this.f7061c.getEntry(str2);
         } catch (IllegalArgumentException e) {
             illegalArgumentException = e;
         }
-        if (zipEntry == null && b(str) && !d(str)) {
-            Enumeration<? extends ZipEntry> entries = this.c.entries();
+        if (zipEntry == null && m602b(str) && !m600d(str)) {
+            Enumeration<? extends ZipEntry> entries = this.f7061c.entries();
             while (entries.hasMoreElements()) {
                 try {
                     nextElement = entries.nextElement();
@@ -247,7 +269,7 @@ public class ah {
                     return nextElement;
                 }
             }
-            a("getEntry: Still did not find file after workaround");
+            m605a("getEntry: Still did not find file after workaround");
         }
         if (illegalArgumentException != null) {
             throw new RuntimeException("Failed to decode data in zip: " + str + " (Check zip encoding, utf-8 is recommended)", illegalArgumentException);
@@ -255,7 +277,8 @@ public class ah {
         return zipEntry;
     }
 
-    public String g(String str) {
+    /* renamed from: g */
+    public String m597g(String str) {
         String[] strArr;
         String[] strArr2;
         String[] strArr3;
@@ -264,22 +287,22 @@ public class ah {
         if (!str2.endsWith("/")) {
             str2 = str2 + "/";
         }
-        for (String str3 : this.d) {
+        for (String str3 : this.f7062d) {
             if (str3.equals(str)) {
                 return str3;
             }
         }
-        for (String str4 : this.d) {
+        for (String str4 : this.f7062d) {
             if (str4.equals(str2)) {
                 return str4;
             }
         }
-        for (String str5 : this.d) {
+        for (String str5 : this.f7062d) {
             if (str5.equalsIgnoreCase(str)) {
                 return str5;
             }
         }
-        for (String str6 : this.d) {
+        for (String str6 : this.f7062d) {
             if (str6.equalsIgnoreCase(str2)) {
                 return str6;
             }
@@ -287,26 +310,28 @@ public class ah {
         return str;
     }
 
-    public long h(String str) {
-        ZipEntry f = f(str);
-        if (f == null) {
-            a("getEntrySize: File not found: " + str);
+    /* renamed from: h */
+    public long m596h(String str) {
+        ZipEntry m598f = m598f(str);
+        if (m598f == null) {
+            m605a("getEntrySize: File not found: " + str);
             return -1L;
         }
-        return f.getSize();
+        return m598f.getSize();
     }
 
-    public j i(String str) {
-        ZipEntry f = f(str);
-        if (f == null) {
-            f = f(g(str));
+    /* renamed from: i */
+    public C1133j m595i(String str) {
+        ZipEntry m598f = m598f(str);
+        if (m598f == null) {
+            m598f = m598f(m597g(str));
         }
-        if (f == null) {
+        if (m598f == null) {
             return null;
         }
         try {
             try {
-                return new j(this.c.getInputStream(f), this.b + "/" + str);
+                return new C1133j(this.f7061c.getInputStream(m598f), this.f7060b + "/" + str);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 return null;

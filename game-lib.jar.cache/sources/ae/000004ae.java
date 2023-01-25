@@ -1,5 +1,6 @@
-package com.corrodinggames.rts.gameFramework.f.a;
+package com.corrodinggames.rts.gameFramework.p037f.p038a;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/a/a.class */
-public class a extends l {
+public class C0776a extends AbstractC0788l {
 }

@@ -3,7 +3,7 @@ package android.net.http;
 import android.content.Context;
 import android.net.SSLCertificateSocketFactory;
 import android.net.SSLSessionCache;
-import android.os.Looper;
+import android.p003os.Looper;
 import android.util.Base64;
 import android.util.Log;
 import java.io.ByteArrayOutputStream;
@@ -38,20 +38,31 @@ import org.apache.http.protocol.HttpContext;
 public final class AndroidHttpClient implements HttpClient {
 
     /* renamed from: a */
-    public static long f51a = 256;
-    private static String[] b = {"text/", "application/xml", "application/json"};
-    private static final HttpRequestInterceptor c = new HttpRequestInterceptor() { // from class: android.net.http.AndroidHttpClient.1
+    public static long f250a = 256;
+
+    /* renamed from: b */
+    private static String[] f251b = {"text/", "application/xml", "application/json"};
+
+    /* renamed from: c */
+    private static final HttpRequestInterceptor f252c = new HttpRequestInterceptor() { // from class: android.net.http.AndroidHttpClient.1
         public void process(HttpRequest httpRequest, HttpContext httpContext) {
-            if (Looper.d() != null && Looper.d() == Looper.b()) {
+            if (Looper.m5106d() != null && Looper.m5106d() == Looper.m5108b()) {
                 throw new RuntimeException("This thread forbids HTTP requests");
             }
         }
     };
-    private final HttpClient d;
-    private RuntimeException e = new IllegalStateException("AndroidHttpClient created and never closed");
-    private volatile b f;
 
-    public static AndroidHttpClient a(String str, Context context) {
+    /* renamed from: d */
+    private final HttpClient f253d;
+
+    /* renamed from: e */
+    private RuntimeException f254e = new IllegalStateException("AndroidHttpClient created and never closed");
+
+    /* renamed from: f */
+    private volatile C0037b f255f;
+
+    /* renamed from: a */
+    public static AndroidHttpClient m5131a(String str, Context context) {
         BasicHttpParams basicHttpParams = new BasicHttpParams();
         HttpConnectionParams.setStaleCheckingEnabled(basicHttpParams, false);
         HttpConnectionParams.setConnectionTimeout(basicHttpParams, 60000);
@@ -66,20 +77,21 @@ public final class AndroidHttpClient implements HttpClient {
         return new AndroidHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
     }
 
-    public static AndroidHttpClient a(String str) {
-        return a(str, (Context) null);
+    /* renamed from: a */
+    public static AndroidHttpClient m5132a(String str) {
+        return m5131a(str, (Context) null);
     }
 
     private AndroidHttpClient(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
-        this.d = new DefaultHttpClient(clientConnectionManager, httpParams) { // from class: android.net.http.AndroidHttpClient.2
+        this.f253d = new DefaultHttpClient(clientConnectionManager, httpParams) { // from class: android.net.http.AndroidHttpClient.2
             {
                 AndroidHttpClient.this = this;
             }
 
             protected BasicHttpProcessor createHttpProcessor() {
                 BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-                createHttpProcessor.addRequestInterceptor(AndroidHttpClient.c);
-                createHttpProcessor.addRequestInterceptor(new a(AndroidHttpClient.this));
+                createHttpProcessor.addRequestInterceptor(AndroidHttpClient.f252c);
+                createHttpProcessor.addRequestInterceptor(new C0036a(AndroidHttpClient.this));
                 return createHttpProcessor;
             }
 
@@ -95,60 +107,62 @@ public final class AndroidHttpClient implements HttpClient {
 
     protected void finalize() {
         super.finalize();
-        if (this.e != null) {
-            Log.b("AndroidHttpClient", "Leak found", this.e);
-            this.e = null;
+        if (this.f254e != null) {
+            Log.m5072b("AndroidHttpClient", "Leak found", this.f254e);
+            this.f254e = null;
         }
     }
 
-    public void a() {
-        if (this.e != null) {
+    /* renamed from: a */
+    public void m5134a() {
+        if (this.f254e != null) {
             getConnectionManager().shutdown();
-            this.e = null;
+            this.f254e = null;
         }
     }
 
     public HttpParams getParams() {
-        return this.d.getParams();
+        return this.f253d.getParams();
     }
 
     public ClientConnectionManager getConnectionManager() {
-        return this.d.getConnectionManager();
+        return this.f253d.getConnectionManager();
     }
 
     public HttpResponse execute(HttpUriRequest httpUriRequest) {
-        return this.d.execute(httpUriRequest);
+        return this.f253d.execute(httpUriRequest);
     }
 
     public HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) {
-        return this.d.execute(httpUriRequest, httpContext);
+        return this.f253d.execute(httpUriRequest, httpContext);
     }
 
     public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest) {
-        return this.d.execute(httpHost, httpRequest);
+        return this.f253d.execute(httpHost, httpRequest);
     }
 
     public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
-        return this.d.execute(httpHost, httpRequest, httpContext);
+        return this.f253d.execute(httpHost, httpRequest, httpContext);
     }
 
     public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler) {
-        return this.d.execute(httpUriRequest, responseHandler);
+        return this.f253d.execute(httpUriRequest, responseHandler);
     }
 
     public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler, HttpContext httpContext) {
-        return this.d.execute(httpUriRequest, responseHandler, httpContext);
+        return this.f253d.execute(httpUriRequest, responseHandler, httpContext);
     }
 
     public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler) {
-        return this.d.execute(httpHost, httpRequest, responseHandler);
+        return this.f253d.execute(httpHost, httpRequest, responseHandler);
     }
 
     public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler, HttpContext httpContext) {
-        return this.d.execute(httpHost, httpRequest, responseHandler, httpContext);
+        return this.f253d.execute(httpHost, httpRequest, responseHandler, httpContext);
     }
 
-    public static String b(HttpUriRequest httpUriRequest, boolean z) {
+    /* renamed from: b */
+    public static String m5127b(HttpUriRequest httpUriRequest, boolean z) {
         Header[] allHeaders;
         HttpEntity entity;
         StringBuilder sb = new StringBuilder();
@@ -177,7 +191,7 @@ public final class AndroidHttpClient implements HttpClient {
             if (entity.getContentLength() < 1024) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 entity.writeTo(byteArrayOutputStream);
-                if (a(httpUriRequest)) {
+                if (m5130a(httpUriRequest)) {
                     sb.insert(0, "echo '" + Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2) + "' | base64 -d > /tmp/$$.bin; ");
                     sb.append(" --data-binary @/tmp/$$.bin");
                 } else {
@@ -190,7 +204,8 @@ public final class AndroidHttpClient implements HttpClient {
         return sb.toString();
     }
 
-    private static boolean a(HttpUriRequest httpUriRequest) {
+    /* renamed from: a */
+    private static boolean m5130a(HttpUriRequest httpUriRequest) {
         Header[] headers = httpUriRequest.getHeaders("content-encoding");
         if (headers != null) {
             for (Header header : headers) {
@@ -202,7 +217,7 @@ public final class AndroidHttpClient implements HttpClient {
         Header[] headers2 = httpUriRequest.getHeaders("content-type");
         if (headers2 != null) {
             for (Header header2 : headers2) {
-                for (String str : b) {
+                for (String str : f251b) {
                     if (header2.getValue().startsWith(str)) {
                         return false;
                     }

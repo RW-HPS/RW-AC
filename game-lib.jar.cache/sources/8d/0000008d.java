@@ -22,17 +22,13 @@ public class SteamGameServerAPI {
 
     private static native long nativeGetSteamID();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamGameServerPointer();
+    static native long getSteamGameServerPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamGameServerNetworkingPointer();
+    static native long getSteamGameServerNetworkingPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamGameServerStatsPointer();
+    static native long getSteamGameServerStatsPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamGameServerHTTPPointer();
+    static native long getSteamGameServerHTTPPointer();
 
     public static boolean init(int i, short s, short s2, short s3, ServerMode serverMode, String str) {
         return init(null, i, s, s2, s3, serverMode, str);

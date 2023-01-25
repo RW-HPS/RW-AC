@@ -3,53 +3,67 @@ package com.corrodinggames.rts.appFramework;
 import com.corrodinggames.rts.game.PlayerData;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
+/* renamed from: com.corrodinggames.rts.appFramework.o */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/o.class */
-public class o {
+public class C0128o {
 
-    /* renamed from: a  reason: collision with root package name */
-    String f116a;
-    int b = 0;
-    int c = 0;
-    PlayerData d = null;
-    PlayerData e = null;
-    int f;
-    int g;
+    /* renamed from: a */
+    String f533a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(String str) {
-        this.f116a = str;
+    /* renamed from: b */
+    int f534b = 0;
+
+    /* renamed from: c */
+    int f535c = 0;
+
+    /* renamed from: d */
+    PlayerData f536d = null;
+
+    /* renamed from: e */
+    PlayerData f537e = null;
+
+    /* renamed from: f */
+    int f538f;
+
+    /* renamed from: g */
+    int f539g;
+
+    C0128o(String str) {
+        this.f533a = str;
     }
 
-    public void a(PlayerData playerData, int i) {
-        if (i < this.b || this.d == null) {
-            this.b = i;
-            this.d = playerData;
-            this.f = 1;
-        } else if (i == this.b) {
-            this.f++;
+    /* renamed from: a */
+    public void m4892a(PlayerData playerData, int i) {
+        if (i < this.f534b || this.f536d == null) {
+            this.f534b = i;
+            this.f536d = playerData;
+            this.f538f = 1;
+        } else if (i == this.f534b) {
+            this.f538f++;
         }
-        if (i > this.c || this.e == null) {
-            this.c = i;
-            this.e = playerData;
-            this.g = 1;
-        } else if (i == this.c) {
-            this.g++;
+        if (i > this.f535c || this.f537e == null) {
+            this.f535c = i;
+            this.f537e = playerData;
+            this.f539g = 1;
+        } else if (i == this.f535c) {
+            this.f539g++;
         }
     }
 
-    public boolean a() {
+    /* renamed from: a */
+    public boolean m4893a() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (this.b == this.c) {
+        if (this.f534b == this.f535c) {
             return false;
         }
-        if (this.d == null && this.e == null) {
+        if (this.f536d == null && this.f537e == null) {
             return false;
         }
-        if (this.g == 1) {
-            gameEngine.bS.h.a((String) null, "Warning: Uneven map - Player " + (this.e.k + 1) + " on team " + this.e.h() + ": " + this.f116a + " is " + this.c + " vs " + this.b);
+        if (this.f539g == 1) {
+            gameEngine.f6330bS.f5264h.m1782a((String) null, "Warning: Uneven map - Player " + (this.f537e.site + 1) + " on team " + this.f537e.getPlayerTeamName() + ": " + this.f533a + " is " + this.f535c + " vs " + this.f534b);
             return true;
         }
-        gameEngine.bS.h.a((String) null, "Warning: Uneven map - " + this.g + " players including player " + (this.e.k + 1) + " on team " + (this.e.r + 1) + ": " + this.f116a + " is " + this.c + " vs " + this.b);
+        gameEngine.f6330bS.f5264h.m1782a((String) null, "Warning: Uneven map - " + this.f539g + " players including player " + (this.f537e.site + 1) + " on team " + (this.f537e.team + 1) + ": " + this.f533a + " is " + this.f535c + " vs " + this.f534b);
         return true;
     }
 }

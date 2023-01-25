@@ -8,9 +8,15 @@ import java.util.ArrayList;
 
 /* loaded from: game-lib.jar:android/app/Application.class */
 public class Application extends ContextWrapper implements ComponentCallbacks2 {
-    private ArrayList b;
-    private ArrayList c;
-    private ArrayList d;
+
+    /* renamed from: b */
+    private ArrayList f112b;
+
+    /* renamed from: c */
+    private ArrayList f113c;
+
+    /* renamed from: d */
+    private ArrayList f114d;
 
     /* loaded from: game-lib.jar:android/app/Application$ActivityLifecycleCallbacks.class */
     public interface ActivityLifecycleCallbacks {
@@ -22,16 +28,16 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
 
     public Application() {
         super(null);
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = null;
+        this.f112b = new ArrayList();
+        this.f113c = new ArrayList();
+        this.f114d = null;
     }
 
     @Override // android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        Object[] a2 = a();
-        if (a2 != null) {
-            for (Object obj : a2) {
+        Object[] m5316a = m5316a();
+        if (m5316a != null) {
+            for (Object obj : m5316a) {
                 ((ComponentCallbacks) obj).onConfigurationChanged(configuration);
             }
         }
@@ -39,9 +45,9 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
 
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
-        Object[] a2 = a();
-        if (a2 != null) {
-            for (Object obj : a2) {
+        Object[] m5316a = m5316a();
+        if (m5316a != null) {
+            for (Object obj : m5316a) {
                 ((ComponentCallbacks) obj).onLowMemory();
             }
         }
@@ -49,9 +55,9 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
 
     @Override // android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
-        Object[] a2 = a();
-        if (a2 != null) {
-            for (Object obj : a2) {
+        Object[] m5316a = m5316a();
+        if (m5316a != null) {
+            for (Object obj : m5316a) {
                 if (obj instanceof ComponentCallbacks2) {
                     ((ComponentCallbacks2) obj).onTrimMemory(i);
                 }
@@ -59,11 +65,12 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    private Object[] a() {
+    /* renamed from: a */
+    private Object[] m5316a() {
         Object[] objArr = null;
-        synchronized (this.b) {
-            if (this.b.size() > 0) {
-                objArr = this.b.toArray();
+        synchronized (this.f112b) {
+            if (this.f112b.size() > 0) {
+                objArr = this.f112b.toArray();
             }
         }
         return objArr;

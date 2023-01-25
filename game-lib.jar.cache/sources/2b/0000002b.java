@@ -4,70 +4,91 @@ import android.graphics.PorterDuff;
 
 /* loaded from: game-lib.jar:android/graphics/Canvas.class */
 public class Canvas {
-    public void a(Bitmap bitmap) {
+    /* renamed from: a */
+    public void m5258a(Bitmap bitmap) {
     }
 
-    public int a() {
+    /* renamed from: a */
+    public int m5266a() {
         return 0;
     }
 
-    public void b() {
+    /* renamed from: b */
+    public void m5247b() {
     }
 
-    public void a(float f, float f2) {
+    /* renamed from: a */
+    public void m5265a(float f, float f2) {
     }
 
-    public void b(float f, float f2) {
+    /* renamed from: b */
+    public void m5246b(float f, float f2) {
     }
 
-    public void a(float f, float f2, float f3, float f4) {
+    /* renamed from: a */
+    public void m5263a(float f, float f2, float f3, float f4) {
     }
 
-    public void a(float f, float f2, float f3) {
+    /* renamed from: a */
+    public void m5264a(float f, float f2, float f3) {
     }
 
-    public boolean a(RectF rectF) {
+    /* renamed from: a */
+    public boolean m5252a(RectF rectF) {
         return false;
     }
 
-    public boolean a(Rect rect) {
+    /* renamed from: a */
+    public boolean m5254a(Rect rect) {
         return false;
     }
 
-    public void a(int i) {
+    /* renamed from: a */
+    public void m5260a(int i) {
     }
 
-    public void a(int i, PorterDuff.Mode mode) {
+    /* renamed from: a */
+    public void m5259a(int i, PorterDuff.Mode mode) {
     }
 
-    public void a(float[] fArr, int i, int i2, Paint paint) {
+    /* renamed from: a */
+    public void m5248a(float[] fArr, int i, int i2, Paint paint) {
     }
 
-    public void a(float f, float f2, float f3, float f4, Paint paint) {
+    /* renamed from: a */
+    public void m5262a(float f, float f2, float f3, float f4, Paint paint) {
     }
 
-    public void a(RectF rectF, Paint paint) {
+    /* renamed from: a */
+    public void m5251a(RectF rectF, Paint paint) {
     }
 
-    public void a(Rect rect, Paint paint) {
+    /* renamed from: a */
+    public void m5253a(Rect rect, Paint paint) {
     }
 
-    public void a(float f, float f2, float f3, Paint paint) {
+    /* renamed from: a */
+    public void m5261a(float f, float f2, float f3, Paint paint) {
     }
 
-    public void a(Bitmap bitmap, float f, float f2, Paint paint) {
+    /* renamed from: a */
+    public void m5257a(Bitmap bitmap, float f, float f2, Paint paint) {
     }
 
-    public void a(Bitmap bitmap, Rect rect, RectF rectF, Paint paint) {
+    /* renamed from: a */
+    public void m5255a(Bitmap bitmap, Rect rect, RectF rectF, Paint paint) {
     }
 
-    public void a(Bitmap bitmap, Rect rect, Rect rect2, Paint paint) {
+    /* renamed from: a */
+    public void m5256a(Bitmap bitmap, Rect rect, Rect rect2, Paint paint) {
     }
 
-    public void a(char[] cArr, int i, int i2, float f, float f2, Paint paint) {
+    /* renamed from: a */
+    public void m5249a(char[] cArr, int i, int i2, float f, float f2, Paint paint) {
     }
 
-    public void a(String str, float f, float f2, Paint paint) {
+    /* renamed from: a */
+    public void m5250a(String str, float f, float f2, Paint paint) {
     }
 
     /* loaded from: game-lib.jar:android/graphics/Canvas$EdgeType.class */
@@ -75,10 +96,12 @@ public class Canvas {
         BW(0),
         AA(1);
         
-        public final int c;
+
+        /* renamed from: c */
+        public final int f149c;
 
         EdgeType(int i) {
-            this.c = i;
+            this.f149c = i;
         }
     }
 
@@ -88,10 +111,12 @@ public class Canvas {
         TRIANGLE_STRIP(1),
         TRIANGLE_FAN(2);
         
-        public final int d;
+
+        /* renamed from: d */
+        public final int f154d;
 
         VertexMode(int i) {
-            this.d = i;
+            this.f154d = i;
         }
     }
 }

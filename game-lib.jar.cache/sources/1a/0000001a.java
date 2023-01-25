@@ -1,12 +1,17 @@
-package a.a;
+package net.rudp;
 
+/* renamed from: a.a.p */
 /* loaded from: game-lib.jar:a/a/p.class */
-public interface p {
-    void a();
+public interface InterfaceC0026p {
+    /* renamed from: a */
+    void m5338a();
 
-    void b();
+    /* renamed from: b */
+    void m5337b();
 
-    void c();
+    /* renamed from: c */
+    void m5336c();
 
-    void d();
+    /* renamed from: d */
+    void m5335d();
 }

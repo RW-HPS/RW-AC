@@ -1,41 +1,42 @@
-package a.a;
+package net.rudp;
 
 import java.util.ArrayList;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: a.a.f */
 /* loaded from: game-lib.jar:a/a/f.class */
-public class f implements s {
+class C0015f implements ReliableSocketStateListener {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RUDPServerSocket f12a;
+    /* renamed from: a */
+    final /* synthetic */ ReliableServerSocket f44a;
 
-    private f(RUDPServerSocket rUDPServerSocket) {
-        this.f12a = rUDPServerSocket;
+    private C0015f(ReliableServerSocket reliableServerSocket) {
+        this.f44a = reliableServerSocket;
     }
 
-    @Override // a.a.s
-    public void a(h hVar) {
+    @Override // net.rudp.ReliableSocketStateListener
+    /* renamed from: a */
+    public void mo5329a(ReliableSocket reliableSocket) {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        if (hVar instanceof e) {
-            arrayList = this.f12a.h;
+        if (reliableSocket instanceof C0014e) {
+            arrayList = this.f44a.f33h;
             synchronized (arrayList) {
                 while (true) {
-                    arrayList2 = this.f12a.h;
+                    arrayList2 = this.f44a.f33h;
                     if (arrayList2.size() > 50) {
                         try {
-                            arrayList5 = this.f12a.h;
+                            arrayList5 = this.f44a.f33h;
                             arrayList5.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     } else {
-                        arrayList3 = this.f12a.h;
-                        arrayList3.add((e) hVar);
-                        arrayList4 = this.f12a.h;
+                        arrayList3 = this.f44a.f33h;
+                        arrayList3.add((C0014e) reliableSocket);
+                        arrayList4 = this.f44a.f33h;
                         arrayList4.notify();
                     }
                 }
@@ -43,25 +44,29 @@ public class f implements s {
         }
     }
 
-    @Override // a.a.s
-    public void b(h hVar) {
+    @Override // net.rudp.ReliableSocketStateListener
+    /* renamed from: b */
+    public void mo5328b(ReliableSocket reliableSocket) {
     }
 
-    @Override // a.a.s
-    public void c(h hVar) {
-        if (hVar instanceof e) {
-            this.f12a.a(((e) hVar).c());
+    @Override // net.rudp.ReliableSocketStateListener
+    /* renamed from: c */
+    public void mo5327c(ReliableSocket reliableSocket) {
+        if (reliableSocket instanceof C0014e) {
+            this.f44a.m5417a(((C0014e) reliableSocket).m5390c());
         }
     }
 
-    @Override // a.a.s
-    public void d(h hVar) {
-        if (hVar instanceof e) {
-            this.f12a.a(((e) hVar).c());
+    @Override // net.rudp.ReliableSocketStateListener
+    /* renamed from: d */
+    public void mo5326d(ReliableSocket reliableSocket) {
+        if (reliableSocket instanceof C0014e) {
+            this.f44a.m5417a(((C0014e) reliableSocket).m5390c());
         }
     }
 
-    @Override // a.a.s
-    public void e(h hVar) {
+    @Override // net.rudp.ReliableSocketStateListener
+    /* renamed from: e */
+    public void mo5325e(ReliableSocket reliableSocket) {
     }
 }

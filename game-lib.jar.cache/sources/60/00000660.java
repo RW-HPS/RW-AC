@@ -28,7 +28,7 @@ public class ThreadedWrappingAudioInputStream extends InputStream {
     }
 
     public void backgroundFillBuffer() {
-        GameEngine.m328e("at backgroundFillBuffer with: " + this.bufferInputStream.available());
+        GameEngine.m5460e("at backgroundFillBuffer with: " + this.bufferInputStream.available());
         if (this.sourceEnded) {
             return;
         }
@@ -48,7 +48,7 @@ public class ThreadedWrappingAudioInputStream extends InputStream {
     public int read() {
         try {
             if (this.bufferInputStream.available() == 0 && !this.sourceEnded) {
-                GameEngine.m328e("Exhausted stream");
+                GameEngine.m5460e("Exhausted stream");
             }
             return this.bufferInputStream.read();
         } catch (IOException e) {
@@ -60,7 +60,7 @@ public class ThreadedWrappingAudioInputStream extends InputStream {
     public int read(byte[] bArr, int i, int i2) {
         try {
             if (this.bufferInputStream.available() == 0 && !this.sourceEnded) {
-                GameEngine.m328e("Exhausted stream");
+                GameEngine.m5460e("Exhausted stream");
             }
             return this.bufferInputStream.read(bArr, i, i2);
         } catch (IOException e) {

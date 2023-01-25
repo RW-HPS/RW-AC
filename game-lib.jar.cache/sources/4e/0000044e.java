@@ -1,159 +1,221 @@
-package com.corrodinggames.rts.gameFramework.b.a;
+package com.corrodinggames.rts.gameFramework.p031b.p032a;
 
 import android.content.res.AssetManager;
 import android.graphics.Paint;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
+import com.corrodinggames.rts.gameFramework.p031b.p032a.p033a.AbstractC0679b;
+import com.corrodinggames.rts.gameFramework.p031b.p032a.p033a.C0678a;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
 import java.util.ArrayList;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.b.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/a/b.class */
-public class b {
+public class C0680b {
 
-    /* renamed from: a  reason: collision with root package name */
-    AssetManager f420a;
-    d b;
-    int c;
-    int d;
-    float e;
-    float f;
-    float g;
-    float h;
-    float i;
-    int j;
-    int k;
-    int l;
-    int m;
-    float n;
-    float o;
-    float p;
-    boolean q;
-    private com.corrodinggames.rts.gameFramework.b.a.a.b x;
-    private int y;
-    private int z;
-    public Paint r;
-    public ArrayList s;
-    c[][] t;
-    boolean u;
-    int v;
-    public static boolean w = true;
+    /* renamed from: a */
+    AssetManager f4278a;
 
-    public c a(char c) {
-        c b = b(c);
-        if (b == null && this.u) {
-            b("Loading glyph:" + c);
-            c(c);
-            a();
+    /* renamed from: b */
+    C0682d f4279b;
+
+    /* renamed from: c */
+    int f4280c;
+
+    /* renamed from: d */
+    int f4281d;
+
+    /* renamed from: e */
+    float f4282e;
+
+    /* renamed from: f */
+    float f4283f;
+
+    /* renamed from: g */
+    float f4284g;
+
+    /* renamed from: h */
+    float f4285h;
+
+    /* renamed from: i */
+    float f4286i;
+
+    /* renamed from: j */
+    int f4287j;
+
+    /* renamed from: k */
+    int f4288k;
+
+    /* renamed from: l */
+    int f4289l;
+
+    /* renamed from: m */
+    int f4290m;
+
+    /* renamed from: n */
+    float f4291n;
+
+    /* renamed from: o */
+    float f4292o;
+
+    /* renamed from: p */
+    float f4293p;
+
+    /* renamed from: q */
+    boolean f4294q;
+
+    /* renamed from: x */
+    private AbstractC0679b f4295x;
+
+    /* renamed from: y */
+    private int f4296y;
+
+    /* renamed from: z */
+    private int f4297z;
+
+    /* renamed from: r */
+    public Paint f4298r;
+
+    /* renamed from: s */
+    public ArrayList f4299s;
+
+    /* renamed from: t */
+    C0681c[][] f4300t;
+
+    /* renamed from: u */
+    boolean f4301u;
+
+    /* renamed from: v */
+    int f4302v;
+
+    /* renamed from: w */
+    public static boolean f4303w = true;
+
+    /* renamed from: a */
+    public C0681c m2716a(char c) {
+        C0681c m2702b = m2702b(c);
+        if (m2702b == null && this.f4301u) {
+            m2701b("Loading glyph:" + c);
+            m2699c(c);
+            m2717a();
         }
-        return b;
+        return m2702b;
     }
 
-    public c b(char c) {
-        c[] cVarArr;
-        if (c <= 65535 && (cVarArr = this.t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU]) != null) {
-            return cVarArr[c & 255];
+    /* renamed from: b */
+    public C0681c m2702b(char c) {
+        C0681c[] c0681cArr;
+        if (c <= '\uffff' && (c0681cArr = this.f4300t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU]) != null) {
+            return c0681cArr[c & '\u00ff'];
         }
         return null;
     }
 
-    public void a(char c, c cVar) {
-        c[] cVarArr = this.t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU];
-        if (cVarArr == null) {
-            cVarArr = new c[SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_MEDIA_CONTEXT_MENU];
-            this.t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU] = cVarArr;
+    /* renamed from: a */
+    public void m2715a(char c, C0681c c0681c) {
+        C0681c[] c0681cArr = this.f4300t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU];
+        if (c0681cArr == null) {
+            c0681cArr = new C0681c[SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_MEDIA_CONTEXT_MENU];
+            this.f4300t[c / SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU] = c0681cArr;
         }
-        cVarArr[c & 255] = cVar;
+        c0681cArr[c & '\u00ff'] = c0681c;
     }
 
-    public void c(char c) {
-        if (c > 65535) {
+    /* renamed from: c */
+    public void m2699c(char c) {
+        if (c > '\uffff') {
             return;
         }
-        if (this.s.size() == 0) {
-            b();
+        if (this.f4299s.size() == 0) {
+            m2703b();
         }
-        if (!((e) this.s.get(this.s.size() - 1)).a()) {
-            if (this.s.size() < this.v) {
-                b();
+        if (!((C0683e) this.f4299s.get(this.f4299s.size() - 1)).m2693a()) {
+            if (this.f4299s.size() < this.f4302v) {
+                m2703b();
             } else {
                 return;
             }
         }
-        a(c, ((e) this.s.get(this.s.size() - 1)).a(c, this.r));
+        m2715a(c, ((C0683e) this.f4299s.get(this.f4299s.size() - 1)).m2692a(c, this.f4298r));
     }
 
-    public void a() {
-        if (this.s.size() > 0) {
-            ((e) this.s.get(this.s.size() - 1)).c();
+    /* renamed from: a */
+    public void m2717a() {
+        if (this.f4299s.size() > 0) {
+            ((C0683e) this.f4299s.get(this.f4299s.size() - 1)).m2689c();
         }
     }
 
-    public void b() {
-        a();
-        this.s.add(new e(512, this.s.size(), this.j, this.k, this.c, this.d));
+    /* renamed from: b */
+    public void m2703b() {
+        m2717a();
+        this.f4299s.add(new C0683e(512, this.f4299s.size(), this.f4287j, this.f4288k, this.f4280c, this.f4281d));
     }
 
     /* JADX WARN: Type inference failed for: r1v3, types: [com.corrodinggames.rts.gameFramework.b.a.c[], com.corrodinggames.rts.gameFramework.b.a.c[][]] */
-    public b(com.corrodinggames.rts.gameFramework.b.a.a.b bVar, AssetManager assetManager) {
-        this.q = true;
-        this.s = new ArrayList();
-        this.t = new c[SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU];
-        this.v = Integer.MAX_VALUE;
-        if (bVar == null) {
-            bVar = new com.corrodinggames.rts.gameFramework.b.a.a.a();
-            bVar.a();
+    public C0680b(AbstractC0679b abstractC0679b, AssetManager assetManager) {
+        this.f4294q = true;
+        this.f4299s = new ArrayList();
+        this.f4300t = new C0681c[SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_CONTENTS_MENU];
+        this.f4302v = Integer.MAX_VALUE;
+        if (abstractC0679b == null) {
+            abstractC0679b = new C0678a();
+            abstractC0679b.mo2720a();
         }
-        this.f420a = assetManager;
-        this.b = new d(24, bVar, this);
-        this.c = 0;
-        this.d = 0;
-        this.e = 0.0f;
-        this.f = 0.0f;
-        this.g = 0.0f;
-        this.h = 0.0f;
-        this.i = 0.0f;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0;
-        this.n = 1.0f;
-        this.o = 1.0f;
-        this.p = 0.0f;
-        this.x = bVar;
-        this.y = GLES20.glGetUniformLocation(this.x.b(), "u_Color");
-        this.z = GLES20.glGetUniformLocation(this.x.b(), "u_Texture");
+        this.f4278a = assetManager;
+        this.f4279b = new C0682d(24, abstractC0679b, this);
+        this.f4280c = 0;
+        this.f4281d = 0;
+        this.f4282e = 0.0f;
+        this.f4283f = 0.0f;
+        this.f4284g = 0.0f;
+        this.f4285h = 0.0f;
+        this.f4286i = 0.0f;
+        this.f4287j = 0;
+        this.f4288k = 0;
+        this.f4289l = 0;
+        this.f4290m = 0;
+        this.f4291n = 1.0f;
+        this.f4292o = 1.0f;
+        this.f4293p = 0.0f;
+        this.f4295x = abstractC0679b;
+        this.f4296y = GLES20.glGetUniformLocation(this.f4295x.m2718b(), "u_Color");
+        this.f4297z = GLES20.glGetUniformLocation(this.f4295x.m2718b(), "u_Texture");
     }
 
-    public void a(boolean z) {
-        this.u = z;
+    /* renamed from: a */
+    public void m2704a(boolean z) {
+        this.f4301u = z;
     }
 
-    public void a(int i) {
-        this.v = i;
+    /* renamed from: a */
+    public void m2711a(int i) {
+        this.f4302v = i;
     }
 
-    public b(AssetManager assetManager) {
+    public C0680b(AssetManager assetManager) {
         this(null, assetManager);
     }
 
-    public boolean a(Paint paint, int i, int i2, int i3) {
-        if (this.r != null) {
+    /* renamed from: a */
+    public boolean m2710a(Paint paint, int i, int i2, int i3) {
+        if (this.f4298r != null) {
             throw new RuntimeException("Already loaded");
         }
-        this.c = i2;
-        this.d = i3;
-        this.r = paint;
-        this.r.a(true);
-        this.r.b(i);
-        this.r.b(-1);
-        Paint.FontMetrics n = this.r.n();
-        this.e = (float) Math.ceil(Math.abs(n.d) + Math.abs(n.f41a));
-        this.f = (float) Math.ceil(Math.abs(n.b));
-        this.g = (float) Math.ceil(Math.abs(n.c));
+        this.f4280c = i2;
+        this.f4281d = i3;
+        this.f4298r = paint;
+        this.f4298r.mo914a(true);
+        this.f4298r.mo913b(i);
+        this.f4298r.m5206b(-1);
+        Paint.FontMetrics m5183n = this.f4298r.m5183n();
+        this.f4282e = (float) Math.ceil(Math.abs(m5183n.f208d) + Math.abs(m5183n.f205a));
+        this.f4283f = (float) Math.ceil(Math.abs(m5183n.f206b));
+        this.f4284g = (float) Math.ceil(Math.abs(m5183n.f207c));
         char[] cArr = new char[2];
-        this.i = 0.0f;
-        this.h = 0.0f;
+        this.f4286i = 0.0f;
+        this.f4285h = 0.0f;
         float[] fArr = new float[2];
         int i4 = 0;
         char c = ' ';
@@ -163,61 +225,66 @@ public class b {
                 break;
             }
             cArr[0] = c2;
-            paint.a(cArr, 0, 1, fArr);
+            paint.m5208a(cArr, 0, 1, fArr);
             float f = fArr[0];
-            if (f > this.h) {
-                this.h = f;
+            if (f > this.f4285h) {
+                this.f4285h = f;
             }
             i4++;
             c = (char) (c2 + 1);
         }
-        this.i = this.e;
-        this.j = ((int) this.h) + (2 * this.c);
-        this.k = ((int) this.i) + (2 * this.d);
+        this.f4286i = this.f4282e;
+        this.f4287j = ((int) this.f4285h) + (2 * this.f4280c);
+        this.f4288k = ((int) this.f4286i) + (2 * this.f4281d);
         char c3 = ' ';
         while (true) {
             char c4 = c3;
             if (c4 <= '~') {
-                c(c4);
+                m2699c(c4);
                 c3 = (char) (c4 + 1);
             } else {
-                a();
+                m2717a();
                 return true;
             }
         }
     }
 
-    public void a(float f, float f2, float f3, float f4, float[] fArr) {
-        a(f, f2, f3, f4);
-        this.b.a(fArr);
+    /* renamed from: a */
+    public void m2712a(float f, float f2, float f3, float f4, float[] fArr) {
+        m2713a(f, f2, f3, f4);
+        this.f4279b.m2694a(fArr);
     }
 
-    public static void c() {
+    /* renamed from: c */
+    public static void m2700c() {
         int glGetError;
-        if (w && (glGetError = GLES20.glGetError()) != 0) {
-            Log.b("GLTEXT", "GL error: " + glGetError, new Throwable());
+        if (f4303w && (glGetError = GLES20.glGetError()) != 0) {
+            Log.m5072b("GLTEXT", "GL error: " + glGetError, new Throwable());
         }
     }
 
-    void a(float f, float f2, float f3, float f4) {
-        GLES20.glUseProgram(this.x.b());
-        GLES20.glUniform4fv(this.y, 1, new float[]{f, f2, f3, f4}, 0);
+    /* renamed from: a */
+    void m2713a(float f, float f2, float f3, float f4) {
+        GLES20.glUseProgram(this.f4295x.m2718b());
+        GLES20.glUniform4fv(this.f4296y, 1, new float[]{f, f2, f3, f4}, 0);
         GLES20.glActiveTexture(33984);
-        GLES20.glUniform1i(this.z, 0);
-        c();
+        GLES20.glUniform1i(this.f4297z, 0);
+        m2700c();
     }
 
-    public void d() {
-        this.b.a();
+    /* renamed from: d */
+    public void m2698d() {
+        this.f4279b.m2697a();
     }
 
-    public void a(String str, float f, float f2, float f3, float f4, float f5, float f6) {
-        float f7 = this.k * this.o;
-        float f8 = this.j * this.n;
+    /* renamed from: a */
+    public void m2705a(String str, float f, float f2, float f3, float f4, float f5, float f6) {
+        float f7 = this.f4288k * this.f4292o;
+        float f8 = this.f4287j * this.f4291n;
         int length = str.length();
-        float f9 = (f8 / 2.0f) - (this.c * this.n);
-        float f10 = ((f7 / 2.0f) - (this.d * this.o)) - (this.g * this.o);
-        if (this.q) {
+        float f9 = (f8 / 2.0f) - (this.f4280c * this.f4291n);
+        float f10 = ((f7 / 2.0f) - (this.f4281d * this.f4292o)) - (this.f4284g * this.f4292o);
+        if (this.f4294q) {
             f9 = (int) f9;
             f10 = (int) f10;
         }
@@ -248,11 +315,11 @@ public class b {
                 f14 += f11;
                 f15 = 0.0f + f12;
             }
-            c a2 = a(charAt);
-            if (a2 != null) {
-                this.b.a(f14, f15, f8, f7, a2);
-                float f16 = (a2.c + this.p) * this.n;
-                if (this.q) {
+            C0681c m2716a = m2716a(charAt);
+            if (m2716a != null) {
+                this.f4279b.m2696a(f14, f15, f8, f7, m2716a);
+                float f16 = (m2716a.f4306c + this.f4293p) * this.f4291n;
+                if (this.f4294q) {
                     f16 = (int) (f16 + 0.95f);
                 }
                 f13 += f16;
@@ -260,36 +327,42 @@ public class b {
         }
     }
 
-    public void a(String str, float f, float f2, float f3, float f4) {
-        a(str, f, f2, f3, 0.0f, 0.0f, f4);
+    /* renamed from: a */
+    public void m2706a(String str, float f, float f2, float f3, float f4) {
+        m2705a(str, f, f2, f3, 0.0f, 0.0f, f4);
     }
 
-    public void a(String str, float f, float f2, float f3) {
-        a(str, f, f2, 0.0f, f3);
+    /* renamed from: a */
+    public void m2707a(String str, float f, float f2, float f3) {
+        m2706a(str, f, f2, 0.0f, f3);
     }
 
-    public void a(String str, float f, float f2) {
-        a(str, f, f2, 0.0f, 0.0f);
+    /* renamed from: a */
+    public void m2708a(String str, float f, float f2) {
+        m2706a(str, f, f2, 0.0f, 0.0f);
     }
 
-    public void a(float f) {
-        this.o = f;
-        this.n = f;
+    /* renamed from: a */
+    public void m2714a(float f) {
+        this.f4292o = f;
+        this.f4291n = f;
     }
 
-    public float a(String str) {
+    /* renamed from: a */
+    public float m2709a(String str) {
         float f = 0.0f;
         int length = str.length();
         for (int i = 0; i < length; i++) {
-            c b = b(str.charAt(i));
-            if (b != null) {
-                f += b.c * this.n;
+            C0681c m2702b = m2702b(str.charAt(i));
+            if (m2702b != null) {
+                f += m2702b.f4306c * this.f4291n;
             }
         }
-        return f + (length > 1 ? (length - 1) * this.p * this.n : 0.0f);
+        return f + (length > 1 ? (length - 1) * this.f4293p * this.f4291n : 0.0f);
     }
 
-    public static void b(String str) {
-        Log.b("GLTEXT", "debug:" + str);
+    /* renamed from: b */
+    public static void m2701b(String str) {
+        Log.m5073b("GLTEXT", "debug:" + str);
     }
 }

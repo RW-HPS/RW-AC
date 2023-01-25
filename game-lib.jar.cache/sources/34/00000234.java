@@ -1,17 +1,19 @@
 package com.corrodinggames.rts.game.units.custom;
 
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.ap */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/ap.class */
-public class ap extends aq {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(LogicBoolean logicBoolean) {
+public class C0358ap extends AbstractC0359aq {
+    C0358ap(LogicBoolean logicBoolean) {
         super(logicBoolean);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.corrodinggames.rts.game.units.custom.ak
-    public String a(com.corrodinggames.rts.game.units.y yVar) {
-        return com.corrodinggames.rts.game.units.am.f(this.f246a.readUnit(yVar), false);
+    @Override // com.corrodinggames.rts.game.units.custom.AbstractC0353ak
+    /* renamed from: a */
+    String mo3979a(AbstractC0629y abstractC0629y) {
+        return AbstractC0244am.m4197f(this.f2252a.readUnit(abstractC0629y), false);
     }
 }

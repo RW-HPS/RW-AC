@@ -4,61 +4,73 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.p */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/p.class */
-public class p implements Iterator {
-    private int b;
-    private int c;
-    private int d;
+class C1141p implements Iterator {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f692a;
+    /* renamed from: b */
+    private int f7119b;
 
-    private p(o oVar) {
-        this.f692a = oVar;
-        this.b = this.f692a.c;
-        this.c = -1;
-        this.d = o.a(this.f692a);
+    /* renamed from: c */
+    private int f7120c;
+
+    /* renamed from: d */
+    private int f7121d;
+
+    /* renamed from: a */
+    final /* synthetic */ C1139o f7122a;
+
+    private C1141p(C1139o c1139o) {
+        int i;
+        this.f7122a = c1139o;
+        this.f7119b = this.f7122a.f7115c;
+        this.f7120c = -1;
+        i = this.f7122a.modCount;
+        this.f7121d = i;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.b != 0;
+        return this.f7119b != 0;
     }
 
     @Override // java.util.Iterator
     public Object next() {
-        o oVar = this.f692a;
-        int i = this.b;
-        if (o.b(oVar) != this.d) {
+        int i;
+        C1139o c1139o = this.f7122a;
+        int i2 = this.f7119b;
+        i = c1139o.modCount;
+        if (i != this.f7121d) {
             throw new ConcurrentModificationException();
         }
-        if (i == 0) {
+        if (i2 == 0) {
             throw new NoSuchElementException();
         }
-        this.b = i - 1;
-        Object[] objArr = oVar.d;
-        int i2 = oVar.c - i;
-        this.c = i2;
-        return objArr[i2];
+        this.f7119b = i2 - 1;
+        Object[] objArr = c1139o.f7118d;
+        int i3 = c1139o.f7115c - i2;
+        this.f7120c = i3;
+        return objArr[i3];
     }
 
     @Override // java.util.Iterator
     public void remove() {
-        Object[] objArr = this.f692a.d;
-        int i = this.c;
-        if (o.c(this.f692a) != this.d) {
+        int i;
+        Object[] objArr = this.f7122a.f7118d;
+        int i2 = this.f7120c;
+        i = this.f7122a.modCount;
+        if (i != this.f7121d) {
             throw new ConcurrentModificationException();
         }
-        if (i < 0) {
+        if (i2 < 0) {
             throw new IllegalStateException();
         }
-        System.arraycopy(objArr, i + 1, objArr, i, this.b);
-        o oVar = this.f692a;
-        int i2 = oVar.c - 1;
-        oVar.c = i2;
-        objArr[i2] = null;
-        this.c = -1;
-        this.d = o.d(this.f692a);
+        System.arraycopy(objArr, i2 + 1, objArr, i2, this.f7119b);
+        C1139o c1139o = this.f7122a;
+        int i3 = c1139o.f7115c - 1;
+        c1139o.f7115c = i3;
+        objArr[i3] = null;
+        this.f7120c = -1;
+        this.f7121d = C1139o.m516d(this.f7122a);
     }
 }

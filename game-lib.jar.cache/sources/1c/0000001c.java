@@ -1,116 +1,150 @@
-package a.a;
+package net.rudp;
 
 import java.io.IOException;
 
+/* renamed from: a.a.r */
 /* loaded from: game-lib.jar:a/a/r.class */
-public class r {
+public class ReliableSocketProfile {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final r f24a = new r();
-    private int b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
+    /* renamed from: a */
+    public static final ReliableSocketProfile f100a = new ReliableSocketProfile();
 
-    public r() {
+    /* renamed from: b */
+    private int f101b;
+
+    /* renamed from: c */
+    private int f102c;
+
+    /* renamed from: d */
+    private int f103d;
+
+    /* renamed from: e */
+    private int f104e;
+
+    /* renamed from: f */
+    private int f105f;
+
+    /* renamed from: g */
+    private int f106g;
+
+    /* renamed from: h */
+    private int f107h;
+
+    /* renamed from: i */
+    private int f108i;
+
+    /* renamed from: j */
+    private int f109j;
+
+    /* renamed from: k */
+    private int f110k;
+
+    /* renamed from: l */
+    private int f111l;
+
+    public ReliableSocketProfile() {
         try {
-            a(32, 32, 300, 70, 0, 3, 3, 3, 2000, 600, 300);
+            m5333a(32, 32, 300, 70, 0, 3, 3, 3, 2000, 600, 300);
         } catch (IOException e) {
             throw new RuntimeException("IOException on ReliableSocketProfile default:" + e);
         }
     }
 
-    public r(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
-        a(i, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
+    public ReliableSocketProfile(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+        m5333a(i, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
     }
 
-    private void a(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
-        a("maxSendQueueSize", i, 1, 255);
-        a("maxRecvQueueSize", i2, 1, 255);
-        a("maxSegmentSize", i3, 22, 6535);
-        a("maxOutstandingSegs", i4, 1, 255);
-        a("maxRetrans", i5, 0, 255);
-        a("maxCumulativeAcks", i6, 0, 255);
-        a("maxOutOfSequence", i7, 0, 255);
-        a("maxAutoReset", i8, 0, 255);
-        a("nullSegmentTimeout", i9, 0, 65535);
-        a("retransmissionTimeout", i10, 100, 65535);
-        a("cumulativeAckTimeout", i11, 100, 65535);
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-        this.e = i4;
-        this.f = i5;
-        this.g = i6;
-        this.h = i7;
-        this.i = i8;
-        this.j = i9;
-        this.k = i10;
-        this.l = i11;
+    /* renamed from: a */
+    private void m5333a(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+        m5332a("maxSendQueueSize", i, 1, 255);
+        m5332a("maxRecvQueueSize", i2, 1, 255);
+        m5332a("maxSegmentSize", i3, 22, 6535);
+        m5332a("maxOutstandingSegs", i4, 1, 255);
+        m5332a("maxRetrans", i5, 0, 255);
+        m5332a("maxCumulativeAcks", i6, 0, 255);
+        m5332a("maxOutOfSequence", i7, 0, 255);
+        m5332a("maxAutoReset", i8, 0, 255);
+        m5332a("nullSegmentTimeout", i9, 0, 65535);
+        m5332a("retransmissionTimeout", i10, 100, 65535);
+        m5332a("cumulativeAckTimeout", i11, 100, 65535);
+        this.f101b = i;
+        this.f102c = i2;
+        this.f103d = i3;
+        this.f104e = i4;
+        this.f105f = i5;
+        this.f106g = i6;
+        this.f107h = i7;
+        this.f108i = i8;
+        this.f109j = i9;
+        this.f110k = i10;
+        this.f111l = i11;
     }
 
-    public int a() {
-        return this.d;
+    /* renamed from: a */
+    public int m5334a() {
+        return this.f103d;
     }
 
-    public int b() {
-        return this.e;
+    /* renamed from: b */
+    public int m5331b() {
+        return this.f104e;
     }
 
-    public int c() {
-        return this.f;
+    /* renamed from: c */
+    public int m5330c() {
+        return this.f105f;
     }
 
-    public int d() {
-        return this.g;
+    /* renamed from: d */
+    public int m5329d() {
+        return this.f106g;
     }
 
-    public int e() {
-        return this.h;
+    /* renamed from: e */
+    public int m5328e() {
+        return this.f107h;
     }
 
-    public int f() {
-        return this.i;
+    /* renamed from: f */
+    public int m5327f() {
+        return this.f108i;
     }
 
-    public int g() {
-        return this.j;
+    /* renamed from: g */
+    public int m5326g() {
+        return this.f109j;
     }
 
-    public int h() {
-        return this.k;
+    /* renamed from: h */
+    public int m5325h() {
+        return this.f110k;
     }
 
-    public int i() {
-        return this.l;
+    /* renamed from: i */
+    public int m5324i() {
+        return this.f111l;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append(this.b).append(", ");
-        sb.append(this.c).append(", ");
-        sb.append(this.d).append(", ");
-        sb.append(this.e).append(", ");
-        sb.append(this.f).append(", ");
-        sb.append(this.g).append(", ");
-        sb.append(this.h).append(", ");
-        sb.append(this.i).append(", ");
-        sb.append(this.j).append(", ");
-        sb.append(this.k).append(", ");
-        sb.append(this.l);
+        sb.append(this.f101b).append(", ");
+        sb.append(this.f102c).append(", ");
+        sb.append(this.f103d).append(", ");
+        sb.append(this.f104e).append(", ");
+        sb.append(this.f105f).append(", ");
+        sb.append(this.f106g).append(", ");
+        sb.append(this.f107h).append(", ");
+        sb.append(this.f108i).append(", ");
+        sb.append(this.f109j).append(", ");
+        sb.append(this.f110k).append(", ");
+        sb.append(this.f111l);
         sb.append("]");
         return sb.toString();
     }
 
-    private void a(String str, int i, int i2, int i3) {
+    /* renamed from: a */
+    private void m5332a(String str, int i, int i2, int i3) {
         if (i < i2 || i > i3) {
             throw new IOException(str + " out of range");
         }

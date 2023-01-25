@@ -3,14 +3,16 @@ package android.graphics;
 /* loaded from: game-lib.jar:android/graphics/Matrix.class */
 public class Matrix {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static Matrix f36a = new Matrix() { // from class: android.graphics.Matrix.1
+    /* renamed from: a */
+    public static Matrix f159a = new Matrix() { // from class: android.graphics.Matrix.1
     };
-    public int b = a(0);
+
+    /* renamed from: b */
+    public int f160b = m5238a(0);
 
     public boolean equals(Object obj) {
         if (obj instanceof Matrix) {
-            return a(this.b, ((Matrix) obj).b);
+            return m5237a(this.f160b, ((Matrix) obj).f160b);
         }
         return false;
     }
@@ -21,36 +23,40 @@ public class Matrix {
 
     /* loaded from: game-lib.jar:android/graphics/Matrix$ScaleToFit.class */
     public enum ScaleToFit {
-        FILL(0),
-        START(1),
-        CENTER(2),
-        END(3);
+        f161a(0),
+        f162b(1),
+        f163c(2),
+        f164d(3);
         
-        final int e;
+
+        /* renamed from: e */
+        final int f165e;
 
         ScaleToFit(int i) {
-            this.e = i;
+            this.f165e = i;
         }
     }
 
-    public void a(float[] fArr) {
+    /* renamed from: a */
+    public void m5234a(float[] fArr) {
         if (fArr.length < 9) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        a(this.b, fArr);
+        m5236a(this.f160b, fArr);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(64);
         sb.append("Matrix{");
-        a(sb);
+        m5235a(sb);
         sb.append('}');
         return sb.toString();
     }
 
-    public void a(StringBuilder sb) {
+    /* renamed from: a */
+    public void m5235a(StringBuilder sb) {
         float[] fArr = new float[9];
-        a(fArr);
+        m5234a(fArr);
         sb.append('[');
         sb.append(fArr[0]);
         sb.append(", ");
@@ -74,23 +80,27 @@ public class Matrix {
 
     protected void finalize() {
         try {
-            b(this.b);
+            m5233b(this.f160b);
         } finally {
             super.finalize();
         }
     }
 
-    private static int a(int i) {
+    /* renamed from: a */
+    private static int m5238a(int i) {
         return 0;
     }
 
-    private static void a(int i, float[] fArr) {
+    /* renamed from: a */
+    private static void m5236a(int i, float[] fArr) {
     }
 
-    private static boolean a(int i, int i2) {
+    /* renamed from: a */
+    private static boolean m5237a(int i, int i2) {
         return false;
     }
 
-    private static void b(int i) {
+    /* renamed from: b */
+    private static void m5233b(int i) {
     }
 }

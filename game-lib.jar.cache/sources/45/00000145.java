@@ -9,35 +9,39 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.appFramework.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/k.class */
-public class k implements Comparator {
+class C0119k implements Comparator {
 
-    /* renamed from: a  reason: collision with root package name */
-    Pattern f108a = Pattern.compile(".*\\((.*)\\).*");
+    /* renamed from: a */
+    Pattern f478a = Pattern.compile(".*\\((.*)\\).*");
+
+    C0119k() {
+    }
 
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(String str, String str2) {
-        Date a2 = a(str);
-        Date a3 = a(str2);
-        if (a2 == null && a3 == null) {
+        Date m4913a = m4913a(str);
+        Date m4913a2 = m4913a(str2);
+        if (m4913a == null && m4913a2 == null) {
             return str.compareTo(str2);
         }
-        if (a2 != null && a3 != null) {
-            return a3.compareTo(a2);
+        if (m4913a != null && m4913a2 != null) {
+            return m4913a2.compareTo(m4913a);
         }
-        if (a2 == null && a3 != null) {
+        if (m4913a == null && m4913a2 != null) {
             return -1;
         }
-        if (a2 != null && a3 == null) {
+        if (m4913a != null && m4913a2 == null) {
             return 1;
         }
         return 0;
     }
 
-    public Date a(String str) {
-        Matcher matcher = this.f108a.matcher(str);
+    /* renamed from: a */
+    public Date m4913a(String str) {
+        Matcher matcher = this.f478a.matcher(str);
         if (matcher.matches()) {
             String group = matcher.group(1);
             try {
@@ -55,7 +59,7 @@ public class k implements Comparator {
                             try {
                                 return new SimpleDateFormat("d MMM. yyyy HH.mm.ss", Locale.ENGLISH).parse(group);
                             } catch (ParseException e5) {
-                                GameEngine.m328e("Failed to parse date:" + group);
+                                GameEngine.m5460e("Failed to parse date:" + group);
                                 return null;
                             }
                         }

@@ -4,8 +4,7 @@ package com.codedisaster.steamworks;
 public abstract class SteamNativeHandle {
     long handle;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamNativeHandle(long j) {
+    SteamNativeHandle(long j) {
         this.handle = j;
     }
 

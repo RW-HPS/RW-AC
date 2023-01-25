@@ -1,134 +1,161 @@
-package com.corrodinggames.rts.gameFramework.f.a;
+package com.corrodinggames.rts.gameFramework.p037f.p038a;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
-import com.corrodinggames.rts.gameFramework.m.aa;
-import com.corrodinggames.rts.gameFramework.m.y;
+import com.corrodinggames.rts.gameFramework.unitAction.C0960aa;
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.a.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/a/e.class */
-public class e extends h {
+public class C0780e extends C0784h {
 
-    /* renamed from: a  reason: collision with root package name */
-    int f485a;
-    int b;
-    float c;
-    float d;
-    public boolean e = true;
-    public boolean f = false;
-    public float g = 1.0f;
-    static Rect h = new Rect();
-    static Rect i = new Rect();
+    /* renamed from: a */
+    int f5081a;
 
-    public e() {
+    /* renamed from: b */
+    int f5082b;
+
+    /* renamed from: c */
+    float f5083c;
+
+    /* renamed from: d */
+    float f5084d;
+
+    /* renamed from: e */
+    public boolean f5085e = true;
+
+    /* renamed from: f */
+    public boolean f5086f = false;
+
+    /* renamed from: g */
+    public float f5087g = 1.0f;
+
+    /* renamed from: h */
+    static Rect f5088h = new Rect();
+
+    /* renamed from: i */
+    static Rect f5089i = new Rect();
+
+    public C0780e() {
     }
 
-    public e(com.corrodinggames.rts.gameFramework.m.e eVar, int i2, int i3) {
-        a(eVar);
-        a(eVar, i2, i3);
-    }
-
-    public void a(com.corrodinggames.rts.gameFramework.m.e eVar, int i2, int i3) {
-        this.f485a = i2;
-        this.b = i3;
-        this.c = i2 / eVar.p;
-        this.d = i3 / eVar.q;
+    public C0780e(C0970e c0970e, int i, int i2) {
+        mo2031a(c0970e);
+        m2043a(c0970e, i, i2);
     }
 
     /* renamed from: a */
-    public e clone() {
-        e eVar = new e();
-        eVar.a(this);
-        return eVar;
+    public void m2043a(C0970e c0970e, int i, int i2) {
+        this.f5081a = i;
+        this.f5082b = i2;
+        this.f5083c = i / c0970e.f6620p;
+        this.f5084d = i2 / c0970e.f6621q;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.a.h
-    public void a(h hVar) {
-        e eVar = (e) hVar;
-        this.f485a = eVar.f485a;
-        this.b = eVar.b;
-        this.c = eVar.c;
-        this.d = eVar.d;
-        this.e = eVar.e;
-        super.a(eVar);
+    /* renamed from: a */
+    public C0780e clone() {
+        C0780e c0780e = new C0780e();
+        c0780e.mo2032a(this);
+        return c0780e;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.a.h
-    public void a(com.corrodinggames.rts.gameFramework.m.e eVar) {
-        super.a(eVar);
+    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.C0784h
+    /* renamed from: a */
+    public void mo2032a(C0784h c0784h) {
+        C0780e c0780e = (C0780e) c0784h;
+        this.f5081a = c0780e.f5081a;
+        this.f5082b = c0780e.f5082b;
+        this.f5083c = c0780e.f5083c;
+        this.f5084d = c0780e.f5084d;
+        this.f5085e = c0780e.f5085e;
+        super.mo2032a(c0780e);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.f.a.h
-    public void a(y yVar, Rect rect) {
-        b(yVar, rect);
-        if (this.q != null) {
+    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.C0784h
+    /* renamed from: a */
+    public void mo2031a(C0970e c0970e) {
+        super.mo2031a(c0970e);
+    }
+
+    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.C0784h
+    /* renamed from: a */
+    public void mo2030a(InterfaceC1063y interfaceC1063y, Rect rect) {
+        m2039b(interfaceC1063y, rect);
+        if (this.f5105q != null) {
         }
     }
 
-    public void b(y yVar, Rect rect) {
-        a(yVar, this.p, this.o, rect);
+    /* renamed from: b */
+    public void m2039b(InterfaceC1063y interfaceC1063y, Rect rect) {
+        m2040a(interfaceC1063y, this.f5092p, this.f5104o, rect);
     }
 
-    private boolean c() {
+    /* renamed from: c */
+    private boolean m2038c() {
         return true;
     }
 
-    private void a(y yVar, com.corrodinggames.rts.gameFramework.m.e eVar, Paint paint, Rect rect) {
-        int i2 = rect.f47a;
-        int i3 = rect.b;
-        int b = rect.b();
-        int c = rect.c();
-        int i4 = this.f485a;
-        int i5 = this.b;
-        if (!this.e) {
-            if (i4 > b / 2) {
-                i4 = b / 2;
+    /* renamed from: a */
+    private void m2040a(InterfaceC1063y interfaceC1063y, C0970e c0970e, Paint paint, Rect rect) {
+        int i = rect.f230a;
+        int i2 = rect.f231b;
+        int m5170b = rect.m5170b();
+        int m5166c = rect.m5166c();
+        int i3 = this.f5081a;
+        int i4 = this.f5082b;
+        if (!this.f5085e) {
+            if (i3 > m5170b / 2) {
+                i3 = m5170b / 2;
             }
-            if (i5 > c / 2) {
-                i5 = c / 2;
+            if (i4 > m5166c / 2) {
+                i4 = m5166c / 2;
             }
         } else {
             float f = 1.0f;
-            int i6 = b / 2;
-            int i7 = c / 2;
-            if (i4 * 1.0f > i6) {
+            int i5 = m5170b / 2;
+            int i6 = m5166c / 2;
+            if (i3 * 1.0f > i5) {
+                f = i5 / i3;
+            }
+            if (i4 * f > i6) {
                 f = i6 / i4;
             }
-            if (i5 * f > i7) {
-                f = i7 / i5;
-            }
-            i4 = (int) (this.f485a * f);
-            i5 = (int) (this.b * f);
+            i3 = (int) (this.f5081a * f);
+            i4 = (int) (this.f5082b * f);
         }
-        int i8 = b - (2 * i4);
-        int i9 = c - (2 * i5);
-        float f2 = this.c;
-        float f3 = this.d;
-        if (c()) {
-            a(yVar, eVar, paint, i2 + i4, i3 + 0, i8, i5, f2, 0.0f, 1.0f - f2, f3, this.f);
-            a(yVar, eVar, paint, i2 + 0, i3 + i5, i4, i9, 0.0f, f3, f2, 1.0f - f3, this.f);
-            a(yVar, eVar, paint, i2 + i4, (i3 + c) - i5, i8, i5, f2, 1.0f - f3, 1.0f - f2, 1.0f, this.f);
-            a(yVar, eVar, paint, (i2 + b) - i4, i3 + i5, i4, i9, 1.0f - f2, f3, 1.0f, 1.0f - f3, this.f);
-            a(yVar, eVar, paint, i2 + 0, i3 + 0, i4, i5, 0.0f, 0.0f, this.c, this.d);
-            a(yVar, eVar, paint, (i2 + b) - i4, i3 + 0, i4, i5, 1.0f - this.c, 0.0f, 1.0f, this.d);
-            a(yVar, eVar, paint, i2 + 0, (i3 + c) - i5, i4, i5, 0.0f, 1.0f - this.d, this.c, 1.0f);
-            a(yVar, eVar, paint, (i2 + b) - i4, (i3 + c) - i5, i4, i5, 1.0f - this.c, 1.0f - this.d, 1.0f, 1.0f);
+        int i7 = m5170b - (2 * i3);
+        int i8 = m5166c - (2 * i4);
+        float f2 = this.f5083c;
+        float f3 = this.f5084d;
+        if (m2038c()) {
+            m2041a(interfaceC1063y, c0970e, paint, i + i3, i2 + 0, i7, i4, f2, 0.0f, 1.0f - f2, f3, this.f5086f);
+            m2041a(interfaceC1063y, c0970e, paint, i + 0, i2 + i4, i3, i8, 0.0f, f3, f2, 1.0f - f3, this.f5086f);
+            m2041a(interfaceC1063y, c0970e, paint, i + i3, (i2 + m5166c) - i4, i7, i4, f2, 1.0f - f3, 1.0f - f2, 1.0f, this.f5086f);
+            m2041a(interfaceC1063y, c0970e, paint, (i + m5170b) - i3, i2 + i4, i3, i8, 1.0f - f2, f3, 1.0f, 1.0f - f3, this.f5086f);
+            m2042a(interfaceC1063y, c0970e, paint, i + 0, i2 + 0, i3, i4, 0.0f, 0.0f, this.f5083c, this.f5084d);
+            m2042a(interfaceC1063y, c0970e, paint, (i + m5170b) - i3, i2 + 0, i3, i4, 1.0f - this.f5083c, 0.0f, 1.0f, this.f5084d);
+            m2042a(interfaceC1063y, c0970e, paint, i + 0, (i2 + m5166c) - i4, i3, i4, 0.0f, 1.0f - this.f5084d, this.f5083c, 1.0f);
+            m2042a(interfaceC1063y, c0970e, paint, (i + m5170b) - i3, (i2 + m5166c) - i4, i3, i4, 1.0f - this.f5083c, 1.0f - this.f5084d, 1.0f, 1.0f);
         }
-        a(yVar, eVar, paint, i2 + i4, i3 + i5, i8, i9, f2, f3, 1.0f - f2, 1.0f - f3, this.f);
+        m2041a(interfaceC1063y, c0970e, paint, i + i3, i2 + i4, i7, i8, f2, f3, 1.0f - f2, 1.0f - f3, this.f5086f);
     }
 
-    public void a(y yVar, com.corrodinggames.rts.gameFramework.m.e eVar, Paint paint, int i2, int i3, int i4, int i5, float f, float f2, float f3, float f4) {
-        a(yVar, eVar, paint, i2, i3, i4, i5, f, f2, f3, f4, false);
+    /* renamed from: a */
+    public void m2042a(InterfaceC1063y interfaceC1063y, C0970e c0970e, Paint paint, int i, int i2, int i3, int i4, float f, float f2, float f3, float f4) {
+        m2041a(interfaceC1063y, c0970e, paint, i, i2, i3, i4, f, f2, f3, f4, false);
     }
 
-    public void a(y yVar, com.corrodinggames.rts.gameFramework.m.e eVar, Paint paint, int i2, int i3, int i4, int i5, float f, float f2, float f3, float f4, boolean z) {
-        Rect rect = h;
-        Rect rect2 = i;
-        rect.a((int) (f * eVar.p), (int) (f2 * eVar.q), (int) (f3 * eVar.p), (int) (f4 * eVar.q));
-        rect2.a(i2, i3, i2 + i4, i3 + i5);
+    /* renamed from: a */
+    public void m2041a(InterfaceC1063y interfaceC1063y, C0970e c0970e, Paint paint, int i, int i2, int i3, int i4, float f, float f2, float f3, float f4, boolean z) {
+        Rect rect = f5088h;
+        Rect rect2 = f5089i;
+        rect.m5172a((int) (f * c0970e.f6620p), (int) (f2 * c0970e.f6621q), (int) (f3 * c0970e.f6620p), (int) (f4 * c0970e.f6621q));
+        rect2.m5172a(i, i2, i + i3, i2 + i4);
         if (!z) {
-            yVar.a(eVar, rect, rect2, paint);
+            interfaceC1063y.mo194a(c0970e, rect, rect2, paint);
         } else {
-            aa.a(yVar, eVar, rect, rect2, paint, 0, 0, 0, 0, this.g);
+            C0960aa.m945a(interfaceC1063y, c0970e, rect, rect2, paint, 0, 0, 0, 0, this.f5087g);
         }
     }
 }

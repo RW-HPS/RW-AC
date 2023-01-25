@@ -8,21 +8,25 @@ import java.util.zip.GZIPInputStream;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.l */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/l.class */
-public class l {
+public class C0913l {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f585a;
-    public ByteArrayInputStream b;
-    public DataInputStream c;
+    /* renamed from: a */
+    public String f6083a;
 
-    public l(byte[] bArr, boolean z, boolean z2) {
+    /* renamed from: b */
+    public ByteArrayInputStream f6084b;
+
+    /* renamed from: c */
+    public DataInputStream f6085c;
+
+    public C0913l(byte[] bArr, boolean z, boolean z2) {
         InputStream inputStream;
-        this.b = new ByteArrayInputStream(bArr);
+        this.f6084b = new ByteArrayInputStream(bArr);
         if (z) {
-            inputStream = new BufferedInputStream(new GZIPInputStream(this.b));
+            inputStream = new BufferedInputStream(new GZIPInputStream(this.f6084b));
         } else {
-            inputStream = this.b;
+            inputStream = this.f6084b;
         }
-        this.c = new DataInputStream(inputStream);
+        this.f6085c = new DataInputStream(inputStream);
     }
 }

@@ -1,36 +1,27 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/c.class */
-class c extends Throwable {
+class C1121c extends Throwable {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f679a;
+    /* renamed from: a */
+    final /* synthetic */ C1120b f7072a;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
-        To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    private c(com.corrodinggames.rts.gameFramework.utility.b r5, com.corrodinggames.rts.gameFramework.utility.c r6) {
-        /*
-            r4 = this;
-            r0 = r4
-            r1 = r5
-            r0.f679a = r1
-            r0 = r4
-            r1 = r5
-            java.lang.String r1 = com.corrodinggames.rts.gameFramework.utility.b.a(r1)
-            r2 = r6
-            r0.<init>(r1, r2)
-            return
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.corrodinggames.rts.gameFramework.utility.c.<init>(com.corrodinggames.rts.gameFramework.utility.b, com.corrodinggames.rts.gameFramework.utility.c):void");
+    private C1121c(C1120b c1120b, C1121c c1121c) {
+        super(r1, c1121c);
+        String str;
+        this.f7072a = c1120b;
+        str = c1120b.f7070a;
     }
 
     @Override // java.lang.Throwable
     public Throwable fillInStackTrace() {
         StackTraceElement[] stackTraceElementArr;
-        stackTraceElementArr = this.f679a.b;
+        stackTraceElementArr = this.f7072a.f7071b;
         setStackTrace(stackTraceElementArr);
         return this;
     }

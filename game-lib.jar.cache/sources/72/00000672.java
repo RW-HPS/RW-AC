@@ -9,13 +9,16 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 public class SteamPublicData_1 {
 
     /* renamed from: a */
-    SteamPublishedFileID f737a;
-    Runnable b;
+    SteamPublishedFileID f7346a;
 
-    public void a(SteamResult steamResult) {
-        GameEngine.print("PendingDownload onFinish for: " + this.f737a);
-        if (this.b != null) {
-            this.b.run();
+    /* renamed from: b */
+    Runnable f7347b;
+
+    /* renamed from: a */
+    public void m259a(SteamResult steamResult) {
+        GameEngine.print("PendingDownload onFinish for: " + this.f7346a);
+        if (this.f7347b != null) {
+            this.f7347b.run();
         }
     }
 }

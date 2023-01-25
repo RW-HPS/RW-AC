@@ -1,51 +1,62 @@
-package com.corrodinggames.rts.game.units.f;
+package com.corrodinggames.rts.game.units.p027f;
 
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
 
+/* renamed from: com.corrodinggames.rts.game.units.f.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/f/a.class */
-public class a {
+public class C0541a {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final b f358a = new b();
-    public final b[] b = new b[PlayerData.e];
-    public final b c = new b();
-    public final b d = new b();
-    float e;
+    /* renamed from: a */
+    public final C0542b f3735a = new C0542b();
 
-    public a() {
-        for (int i = 0; i < this.b.length; i++) {
-            this.b[i] = new b();
+    /* renamed from: b */
+    public final C0542b[] f3736b = new C0542b[PlayerData.f1369e];
+
+    /* renamed from: c */
+    public final C0542b f3737c = new C0542b();
+
+    /* renamed from: d */
+    public final C0542b f3738d = new C0542b();
+
+    /* renamed from: e */
+    float f3739e;
+
+    public C0541a() {
+        for (int i = 0; i < this.f3736b.length; i++) {
+            this.f3736b[i] = new C0542b();
         }
     }
 
-    public void a(am amVar) {
-        this.f358a.a(amVar);
-        int i = amVar.dn;
+    /* renamed from: a */
+    public void m3216a(AbstractC0244am abstractC0244am) {
+        this.f3735a.m3213a(abstractC0244am);
+        int i = abstractC0244am.f1682dn;
         if (i >= 0) {
-            this.b[i].a(amVar);
+            this.f3736b[i].m3213a(abstractC0244am);
         } else if (i == -1) {
-            this.d.a(amVar);
+            this.f3738d.m3213a(abstractC0244am);
         } else if (i == -2) {
-            this.c.a(amVar);
+            this.f3737c.m3213a(abstractC0244am);
         }
-        if (amVar.cj > this.e) {
-            this.e = amVar.cj;
+        if (abstractC0244am.f1626cj > this.f3739e) {
+            this.f3739e = abstractC0244am.f1626cj;
         }
     }
 
-    public void b(am amVar) {
-        this.f358a.b(amVar);
-        int i = amVar.dn;
+    /* renamed from: b */
+    public void m3215b(AbstractC0244am abstractC0244am) {
+        this.f3735a.m3212b(abstractC0244am);
+        int i = abstractC0244am.f1682dn;
         if (i >= 0) {
-            this.b[i].b(amVar);
+            this.f3736b[i].m3212b(abstractC0244am);
         } else if (i == -1) {
-            this.d.b(amVar);
+            this.f3738d.m3212b(abstractC0244am);
         } else if (i == -2) {
-            this.c.b(amVar);
+            this.f3737c.m3212b(abstractC0244am);
         }
-        if (this.f358a.b == 0) {
-            this.e = 0.0f;
+        if (this.f3735a.f3741b == 0) {
+            this.f3739e = 0.0f;
         }
     }
 }

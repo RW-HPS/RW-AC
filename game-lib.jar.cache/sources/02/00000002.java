@@ -1,47 +1,52 @@
-package a.a.a;
+package net.rudp.p002a;
 
+/* renamed from: a.a.a.b */
 /* loaded from: game-lib.jar:a/a/a/b.class */
-public class b extends h {
+public class DATSegment extends Segment {
 
-    /* renamed from: a  reason: collision with root package name */
-    private byte[] f4a;
+    /* renamed from: a */
+    private byte[] data;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public b() {
+    protected DATSegment() {
     }
 
-    public b(int i, int i2, byte[] bArr, int i3, int i4) {
-        a(64, i, 6);
-        a(i2);
-        this.f4a = new byte[i4];
-        System.arraycopy(bArr, i3, this.f4a, 0, i4);
+    public DATSegment(int i, int i2, byte[] bArr, int i3, int i4) {
+        init(64, i, 6);
+        setAck(i2);
+        this.data = new byte[i4];
+        System.arraycopy(bArr, i3, this.data, 0, i4);
     }
 
-    @Override // a.a.a.h
-    public int b() {
-        return this.f4a.length + super.b();
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: b */
+    public int mo5439b() {
+        return this.data.length + super.mo5439b();
     }
 
-    @Override // a.a.a.h
-    public String a() {
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: a */
+    public String type() {
         return "DAT";
     }
 
-    public byte[] c() {
-        return this.f4a;
+    /* renamed from: c */
+    public byte[] m5454c() {
+        return this.data;
     }
 
-    @Override // a.a.a.h
-    public byte[] d() {
-        byte[] d = super.d();
-        System.arraycopy(this.f4a, 0, d, 6, this.f4a.length);
-        return d;
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: d */
+    public byte[] getBytes() {
+        byte[] bytes = super.getBytes();
+        System.arraycopy(this.data, 0, bytes, 6, this.data.length);
+        return bytes;
     }
 
-    @Override // a.a.a.h
-    public void a(byte[] bArr, int i, int i2) {
-        super.a(bArr, i, i2);
-        this.f4a = new byte[i2 - 6];
-        System.arraycopy(bArr, i + 6, this.f4a, 0, this.f4a.length);
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: a */
+    public void parseBytes(byte[] bArr, int i, int i2) {
+        super.parseBytes(bArr, i, i2);
+        this.data = new byte[i2 - 6];
+        System.arraycopy(bArr, i + 6, this.data, 0, this.data.length);
     }
 }

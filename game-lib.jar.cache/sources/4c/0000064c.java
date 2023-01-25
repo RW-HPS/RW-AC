@@ -1,26 +1,31 @@
-package com.corrodinggames.rts.java.audio.a;
+package com.corrodinggames.rts.java.audio.p051a;
 
 import java.util.Random;
 
+/* renamed from: com.corrodinggames.rts.java.audio.a.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/m.class */
-public final class m {
+public final class C1177m {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static Random f720a = new Random();
+    /* renamed from: a */
+    public static Random f7273a = new Random();
 
-    public static float a(float f) {
-        return n.f721a[((int) (f * 2607.5945f)) & 16383];
+    /* renamed from: a */
+    public static float m332a(float f) {
+        return C1178n.f7274a[((int) (f * 2607.5945f)) & 16383];
     }
 
-    public static float b(float f) {
-        return n.f721a[((int) ((f + 1.5707964f) * 2607.5945f)) & 16383];
+    /* renamed from: b */
+    public static float m329b(float f) {
+        return C1178n.f7274a[((int) ((f + 1.5707964f) * 2607.5945f)) & 16383];
     }
 
-    public static int a(int i) {
-        return f720a.nextInt(i + 1);
+    /* renamed from: a */
+    public static int m330a(int i) {
+        return f7273a.nextInt(i + 1);
     }
 
-    public static int b(int i) {
+    /* renamed from: b */
+    public static int m328b(int i) {
         if (i == 0) {
             return 1;
         }
@@ -32,7 +37,8 @@ public final class m {
         return (i6 | (i6 >> 16)) + 1;
     }
 
-    public static float a(float f, float f2, float f3) {
+    /* renamed from: a */
+    public static float m331a(float f, float f2, float f3) {
         return f < f2 ? f2 : f > f3 ? f3 : f;
     }
 }

@@ -1,276 +1,361 @@
 package com.corrodinggames.rts.gameFramework.unitAction;
 
 import android.graphics.Bitmap;
-import com.corrodinggames.rts.game.o;
+import com.corrodinggames.rts.game.EnumC0198o;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/e.class */
-public class e {
+public class C0970e {
 
     /* renamed from: a */
-    public e[] f629a;
-    public e[] b;
-    public e[] c;
-    private static int x;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public Integer h;
-    ae i;
-    public int[] j;
-    protected Bitmap k;
-    public boolean m;
-    public boolean n;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public float t;
-    public float u;
-    public boolean v;
-    public boolean l = true;
-    public boolean o = false;
-    boolean w = false;
+    public C0970e[] f6606a;
 
-    public e() {
-        int i = x;
-        x = i + 1;
-        this.d = i;
-        this.e = 1;
+    /* renamed from: b */
+    public C0970e[] f6607b;
+
+    /* renamed from: c */
+    public C0970e[] f6608c;
+
+    /* renamed from: x */
+    private static int f6609x;
+
+    /* renamed from: d */
+    public int f6610d;
+
+    /* renamed from: e */
+    public int f6611e;
+
+    /* renamed from: f */
+    public int f6612f;
+
+    /* renamed from: g */
+    public String f6613g;
+
+    /* renamed from: h */
+    public Integer f6614h;
+
+    /* renamed from: i */
+    C0964ae f6615i;
+
+    /* renamed from: j */
+    public int[] f6616j;
+
+    /* renamed from: k */
+    protected Bitmap f6617k;
+
+    /* renamed from: m */
+    public boolean f6618m;
+
+    /* renamed from: n */
+    public boolean f6619n;
+
+    /* renamed from: p */
+    public int f6620p;
+
+    /* renamed from: q */
+    public int f6621q;
+
+    /* renamed from: r */
+    public int f6622r;
+
+    /* renamed from: s */
+    public int f6623s;
+
+    /* renamed from: t */
+    public float f6624t;
+
+    /* renamed from: u */
+    public float f6625u;
+
+    /* renamed from: v */
+    public boolean f6626v;
+
+    /* renamed from: l */
+    public boolean f6627l = true;
+
+    /* renamed from: o */
+    public boolean f6628o = false;
+
+    /* renamed from: w */
+    boolean f6629w = false;
+
+    public C0970e() {
+        int i = f6609x;
+        f6609x = i + 1;
+        this.f6610d = i;
+        this.f6611e = 1;
     }
 
-    public e[] a(o oVar) {
-        if (oVar == o.pureGreen) {
-            return this.f629a;
+    /* renamed from: a */
+    public C0970e[] m905a(EnumC0198o enumC0198o) {
+        if (enumC0198o == EnumC0198o.pureGreen) {
+            return this.f6606a;
         }
-        if (oVar == o.hueAdd) {
-            return this.b;
+        if (enumC0198o == EnumC0198o.hueAdd) {
+            return this.f6607b;
         }
-        if (oVar == o.hueShift) {
-            return this.c;
+        if (enumC0198o == EnumC0198o.hueShift) {
+            return this.f6608c;
         }
-        GameEngine.print("getTeamImageCache coloringMode:" + oVar);
-        return this.f629a;
+        GameEngine.print("getTeamImageCache coloringMode:" + enumC0198o);
+        return this.f6606a;
     }
 
-    public void a(o oVar, e[] eVarArr) {
-        if (oVar == o.pureGreen) {
-            this.f629a = eVarArr;
-        } else if (oVar == o.hueAdd) {
-            this.b = eVarArr;
-        } else if (oVar == o.hueShift) {
-            this.c = eVarArr;
+    /* renamed from: a */
+    public void m904a(EnumC0198o enumC0198o, C0970e[] c0970eArr) {
+        if (enumC0198o == EnumC0198o.pureGreen) {
+            this.f6606a = c0970eArr;
+        } else if (enumC0198o == EnumC0198o.hueAdd) {
+            this.f6607b = c0970eArr;
+        } else if (enumC0198o == EnumC0198o.hueShift) {
+            this.f6608c = c0970eArr;
         } else {
-            GameEngine.print("setTeamImageCache coloringMode:" + oVar);
-            this.f629a = eVarArr;
+            GameEngine.print("setTeamImageCache coloringMode:" + enumC0198o);
+            this.f6606a = c0970eArr;
         }
     }
 
-    public void a(String str) {
-        this.g = str;
+    /* renamed from: a */
+    public void m902a(String str) {
+        this.f6613g = str;
     }
 
-    public String a() {
-        return this.g;
+    /* renamed from: a */
+    public String mo65a() {
+        return this.f6613g;
     }
 
-    public Bitmap b() {
-        return this.k;
+    /* renamed from: b */
+    public Bitmap mo391b() {
+        return this.f6617k;
     }
 
-    public e c() {
+    /* renamed from: c */
+    public C0970e mo390c() {
         return this;
     }
 
-    public void a(boolean z) {
-        this.o = z;
-        e();
+    /* renamed from: a */
+    public void mo392a(boolean z) {
+        this.f6628o = z;
+        mo56e();
     }
 
-    public void b(boolean z) {
-        this.w = z;
+    /* renamed from: b */
+    public void m901b(boolean z) {
+        this.f6629w = z;
     }
 
-    public boolean d() {
-        return this.w;
+    /* renamed from: d */
+    public boolean m900d() {
+        return this.f6629w;
     }
 
-    protected void e() {
+    /* renamed from: e */
+    protected void mo56e() {
     }
 
-    public boolean f() {
-        return this.m;
+    /* renamed from: f */
+    public boolean m899f() {
+        return this.f6618m;
     }
 
-    public void a(Bitmap bitmap) {
-        this.k = bitmap;
-        this.p = this.k.b();
-        this.q = this.k.c();
-        g();
+    /* renamed from: a */
+    public void mo394a(Bitmap bitmap) {
+        this.f6617k = bitmap;
+        this.f6620p = this.f6617k.m5275b();
+        this.f6621q = this.f6617k.m5272c();
+        mo389g();
     }
 
-    public void g() {
-        this.r = this.p / 2;
-        this.s = this.q / 2;
-        this.t = this.p / 2.0f;
-        this.u = this.q / 2.0f;
+    /* renamed from: g */
+    public void mo389g() {
+        this.f6622r = this.f6620p / 2;
+        this.f6623s = this.f6621q / 2;
+        this.f6624t = this.f6620p / 2.0f;
+        this.f6625u = this.f6621q / 2.0f;
     }
 
-    public void a(e eVar) {
-        eVar.o = this.o;
-        eVar.p = this.p;
-        eVar.q = this.q;
-        eVar.r = this.r;
-        eVar.s = this.s;
-        eVar.t = this.t;
-        eVar.u = this.u;
+    /* renamed from: a */
+    public void mo393a(C0970e c0970e) {
+        c0970e.f6628o = this.f6628o;
+        c0970e.f6620p = this.f6620p;
+        c0970e.f6621q = this.f6621q;
+        c0970e.f6622r = this.f6622r;
+        c0970e.f6623s = this.f6623s;
+        c0970e.f6624t = this.f6624t;
+        c0970e.f6625u = this.f6625u;
     }
 
+    @Override // 
     /* renamed from: h */
-    public e mo15clone() {
-        e eVar = new e();
-        eVar.o = this.o;
-        if (this.k != null) {
-            Bitmap a2 = this.k.a(this.k.d(), true);
-            if (a2 == null) {
-                throw new OutOfMemoryError("Failed to copy bitmap: " + this.k.d());
+    public C0970e clone() {
+        C0970e c0970e = new C0970e();
+        c0970e.f6628o = this.f6628o;
+        if (this.f6617k != null) {
+            Bitmap m5281a = this.f6617k.m5281a(this.f6617k.m5270d(), true);
+            if (m5281a == null) {
+                throw new OutOfMemoryError("Failed to copy bitmap: " + this.f6617k.m5270d());
             }
-            eVar.a(a2);
+            c0970e.mo394a(m5281a);
         }
-        return eVar;
+        return c0970e;
     }
 
-    public e a(int i, int i2, boolean z) {
-        e eVar = new e();
-        eVar.o = this.o;
-        if (this.k != null) {
-            Bitmap a2 = Bitmap.a(i, i2, this.k.d());
-            eVar.a(a2);
+    /* renamed from: a */
+    public C0970e mo62a(int i, int i2, boolean z) {
+        C0970e c0970e = new C0970e();
+        c0970e.f6628o = this.f6628o;
+        if (this.f6617k != null) {
+            Bitmap m5284a = Bitmap.m5284a(i, i2, this.f6617k.m5270d());
+            c0970e.mo394a(m5284a);
             if (z) {
-                for (int i3 = 0; i3 < a2.b(); i3++) {
-                    for (int i4 = 0; i4 < a2.c(); i4++) {
-                        a2.a(i3, i4, this.k.a(i3, i4));
+                for (int i3 = 0; i3 < m5284a.m5275b(); i3++) {
+                    for (int i4 = 0; i4 < m5284a.m5272c(); i4++) {
+                        m5284a.m5286a(i3, i4, this.f6617k.m5287a(i3, i4));
                     }
                 }
             }
         }
-        return eVar;
+        return c0970e;
     }
 
-    public void i() {
-        if (this.j == null) {
-            j();
+    /* renamed from: i */
+    public void mo54i() {
+        if (this.f6616j == null) {
+            mo53j();
         }
     }
 
-    public void j() {
-        if (this.k == null && GameEngine.aU && !GameEngine.aX) {
+    /* renamed from: j */
+    public void mo53j() {
+        if (this.f6617k == null && GameEngine.f6418aU && !GameEngine.f6421aX) {
             return;
         }
-        if (this.j == null) {
-            this.j = new int[this.p * this.q];
+        if (this.f6616j == null) {
+            this.f6616j = new int[this.f6620p * this.f6621q];
         }
-        this.k.a(this.j, 0, this.p, 0, 0, this.p, this.q);
+        this.f6617k.m5276a(this.f6616j, 0, this.f6620p, 0, 0, this.f6620p, this.f6621q);
     }
 
-    public boolean k() {
+    /* renamed from: k */
+    public boolean mo52k() {
         return true;
     }
 
-    public int a(int i, int i2) {
-        if (this.j != null) {
-            return this.j[i + (i2 * this.p)];
+    /* renamed from: a */
+    public int mo64a(int i, int i2) {
+        if (this.f6616j != null) {
+            return this.f6616j[i + (i2 * this.f6620p)];
         }
-        return this.k.a(i, i2);
+        return this.f6617k.m5287a(i, i2);
     }
 
-    public void a(int i, int i2, int i3) {
-        if (this.j != null) {
-            this.j[i + (i2 * this.p)] = i3;
+    /* renamed from: a */
+    public void mo63a(int i, int i2, int i3) {
+        if (this.f6616j != null) {
+            this.f6616j[i + (i2 * this.f6620p)] = i3;
         } else {
-            this.k.a(i, i2, i3);
+            this.f6617k.m5286a(i, i2, i3);
         }
     }
 
-    public int l() {
-        return this.q;
+    /* renamed from: l */
+    public int mo388l() {
+        return this.f6621q;
     }
 
-    public int m() {
-        return this.p;
+    /* renamed from: m */
+    public int mo387m() {
+        return this.f6620p;
     }
 
-    public void n() {
+    /* renamed from: n */
+    public void mo51n() {
     }
 
-    public void o() {
-        if (this.k != null) {
-            this.k = null;
+    /* renamed from: o */
+    public void mo50o() {
+        if (this.f6617k != null) {
+            this.f6617k = null;
         }
-        if (this.w) {
+        if (this.f6629w) {
             GameEngine.print("remove with keepInGPUMemory=true");
         }
     }
 
-    public void p() {
-        if (this.k == null && GameEngine.aU && !GameEngine.aW) {
+    /* renamed from: p */
+    public void mo49p() {
+        if (this.f6617k == null && GameEngine.f6418aU && !GameEngine.f6420aW) {
             return;
         }
-        if (this.j != null) {
-            this.k.b(this.j, 0, this.p, 0, 0, this.p, this.q);
-            this.j = null;
+        if (this.f6616j != null) {
+            this.f6617k.m5273b(this.f6616j, 0, this.f6620p, 0, 0, this.f6620p, this.f6621q);
+            this.f6616j = null;
         }
-        this.e++;
+        this.f6611e++;
     }
 
-    public void q() {
+    /* renamed from: q */
+    public void mo48q() {
     }
 
-    public void r() {
-        this.j = null;
+    /* renamed from: r */
+    public void mo47r() {
+        this.f6616j = null;
     }
 
-    public void s() {
-        r();
+    /* renamed from: s */
+    public void mo46s() {
+        mo47r();
     }
 
-    public void t() {
+    /* renamed from: t */
+    public void mo45t() {
     }
 
-    public int u() {
-        return this.p * this.q * 8;
+    /* renamed from: u */
+    public int mo386u() {
+        return this.f6620p * this.f6621q * 8;
     }
 
-    public void v() {
-        this.f629a = null;
-        this.b = null;
-        this.c = null;
-        this.e++;
+    /* renamed from: v */
+    public void mo385v() {
+        this.f6606a = null;
+        this.f6607b = null;
+        this.f6608c = null;
+        this.f6611e++;
     }
 
-    public void w() {
+    /* renamed from: w */
+    public void mo384w() {
     }
 
-    public void x() {
+    /* renamed from: x */
+    public void mo44x() {
     }
 
-    public void y() {
+    /* renamed from: y */
+    public void mo43y() {
     }
 
-    public void z() {
+    /* renamed from: z */
+    public void m898z() {
     }
 
-    public boolean A() {
+    /* renamed from: A */
+    public boolean mo395A() {
         return false;
     }
 
-    public ae B() {
-        return this.i;
+    /* renamed from: B */
+    public C0964ae mo906B() {
+        return this.f6615i;
     }
 
-    public void a(ae aeVar) {
-        this.i = aeVar;
+    /* renamed from: a */
+    public void mo903a(C0964ae c0964ae) {
+        this.f6615i = c0964ae;
     }
 }

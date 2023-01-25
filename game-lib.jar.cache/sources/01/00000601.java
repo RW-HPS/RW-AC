@@ -1,35 +1,42 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.ad */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/ad.class */
-public class ad {
+public class C1109ad {
 
-    /* renamed from: a  reason: collision with root package name */
-    private final Object[] f670a;
-    private int b;
-    private final boolean c = false;
+    /* renamed from: a */
+    private final Object[] f7050a;
 
-    public ad(int i) {
+    /* renamed from: b */
+    private int f7051b;
+
+    /* renamed from: c */
+    private final boolean f7052c = false;
+
+    public C1109ad(int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The max pool size must be > 0");
         }
-        this.f670a = new Object[i];
+        this.f7050a = new Object[i];
     }
 
-    public Object a() {
-        if (this.b > 0) {
-            int i = this.b - 1;
-            Object obj = this.f670a[i];
-            this.f670a[i] = null;
-            this.b--;
+    /* renamed from: a */
+    public Object m633a() {
+        if (this.f7051b > 0) {
+            int i = this.f7051b - 1;
+            Object obj = this.f7050a[i];
+            this.f7050a[i] = null;
+            this.f7051b--;
             return obj;
         }
         return null;
     }
 
-    public boolean a(Object obj) {
-        if (this.b < this.f670a.length) {
-            this.f670a[this.b] = obj;
-            this.b++;
+    /* renamed from: a */
+    public boolean m632a(Object obj) {
+        if (this.f7051b < this.f7050a.length) {
+            this.f7050a[this.f7051b] = obj;
+            this.f7051b++;
             return true;
         }
         return false;

@@ -4,8 +4,7 @@ import com.codedisaster.steamworks.SteamAuth;
 
 /* loaded from: game-lib.jar:com/codedisaster/steamworks/SteamUserCallbackAdapter.class */
 class SteamUserCallbackAdapter extends SteamCallbackAdapter {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamUserCallbackAdapter(SteamUserCallback steamUserCallback) {
+    SteamUserCallbackAdapter(SteamUserCallback steamUserCallback) {
         super(steamUserCallback);
     }
 

@@ -16,8 +16,7 @@ public class OpenALSound implements Sound {
         this.audio = openALAudio;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setup(byte[] bArr, int i, int i2) {
+    void setup(byte[] bArr, int i, int i2) {
         int length = bArr.length - (bArr.length % (i > 1 ? 4 : 2));
         this.duration = (length / (2 * i)) / i2;
         ByteBuffer allocateDirect = ByteBuffer.allocateDirect(length);

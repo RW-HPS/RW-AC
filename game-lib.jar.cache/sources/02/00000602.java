@@ -1,65 +1,76 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.utility.p049a.C1103a;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.utility.ae */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/ae.class */
-public class ae {
+public class C1110ae {
 
-    /* renamed from: a  reason: collision with root package name */
-    static Object f671a = new Object();
-    static ag b = new ag();
-    static af c;
+    /* renamed from: a */
+    static Object f7053a = new Object();
 
-    public static boolean a() {
-        if (GameEngine.at()) {
+    /* renamed from: b */
+    static C1112ag f7054b = new C1112ag();
+
+    /* renamed from: c */
+    static AbstractC1111af f7055c;
+
+    /* renamed from: a */
+    public static boolean m631a() {
+        if (GameEngine.m1030at()) {
             return true;
         }
         return false;
     }
 
-    public static af a(String str) {
-        if (ag.i(str)) {
-            return b;
+    /* renamed from: a */
+    public static AbstractC1111af m630a(String str) {
+        if (C1112ag.m611i(str)) {
+            return f7054b;
         }
-        if (a() && com.corrodinggames.rts.gameFramework.utility.a.a.l(str)) {
-            if (c == null) {
-                synchronized (f671a) {
-                    if (c == null) {
-                        c = new com.corrodinggames.rts.gameFramework.utility.a.a();
+        if (m631a() && C1103a.m730l(str)) {
+            if (f7055c == null) {
+                synchronized (f7053a) {
+                    if (f7055c == null) {
+                        f7055c = new C1103a();
                     }
                 }
             }
-            return c;
+            return f7055c;
         }
         return null;
     }
 
-    public static af b(String str) {
-        if (a() && com.corrodinggames.rts.gameFramework.utility.a.a.l(str)) {
-            if (c == null) {
-                synchronized (f671a) {
-                    if (c == null) {
-                        c = new com.corrodinggames.rts.gameFramework.utility.a.a();
+    /* renamed from: b */
+    public static AbstractC1111af m628b(String str) {
+        if (m631a() && C1103a.m730l(str)) {
+            if (f7055c == null) {
+                synchronized (f7053a) {
+                    if (f7055c == null) {
+                        f7055c = new C1103a();
                     }
                 }
             }
-            return c;
+            return f7055c;
         }
         return null;
     }
 
-    public static void c(String str) {
-        if (b != null && ag.i(str)) {
-            b.k(str);
+    /* renamed from: c */
+    public static void m627c(String str) {
+        if (f7054b != null && C1112ag.m611i(str)) {
+            f7054b.m609k(str);
         }
     }
 
-    public static void b() {
-        if (b != null) {
-            b.a();
+    /* renamed from: b */
+    public static void m629b() {
+        if (f7054b != null) {
+            f7054b.mo626a();
         }
-        if (c != null) {
-            c.a();
+        if (f7055c != null) {
+            f7055c.mo626a();
         }
     }
 }

@@ -1,25 +1,37 @@
 package com.corrodinggames.rts.game.units.custom;
 
+import com.corrodinggames.rts.gameFramework.utility.C1107ab;
+
+/* renamed from: com.corrodinggames.rts.game.units.custom.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/m.class */
-public class m {
+public class C0460m {
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f314a;
-    public float b;
-    public int c;
-    public int d;
-    public float e;
+    /* renamed from: a */
+    public boolean f3344a;
 
-    public static m a(l lVar, com.corrodinggames.rts.gameFramework.utility.ab abVar, String str, String str2, boolean z) {
-        m mVar = new m();
-        mVar.f314a = abVar.a(str, str2 + "direction_useMainTurret", (Boolean) false).booleanValue();
-        mVar.b = abVar.a(str, str2 + "direction_units", Float.valueOf(0.0f)).floatValue();
-        mVar.c = abVar.b(str, str2 + "direction_strideX", (Integer) (-1)).intValue();
-        mVar.d = abVar.b(str, str2 + "direction_strideY", (Integer) (-1)).intValue();
-        mVar.e = abVar.a(str, str2 + "direction_starting", Float.valueOf(0.0f)).floatValue();
-        if (mVar.b == 0.0f) {
+    /* renamed from: b */
+    public float f3345b;
+
+    /* renamed from: c */
+    public int f3346c;
+
+    /* renamed from: d */
+    public int f3347d;
+
+    /* renamed from: e */
+    public float f3348e;
+
+    /* renamed from: a */
+    public static C0460m m3483a(C0458l c0458l, C1107ab c1107ab, String str, String str2, boolean z) {
+        C0460m c0460m = new C0460m();
+        c0460m.f3344a = c1107ab.m685a(str, str2 + "direction_useMainTurret", (Boolean) false).booleanValue();
+        c0460m.f3345b = c1107ab.m683a(str, str2 + "direction_units", Float.valueOf(0.0f)).floatValue();
+        c0460m.f3346c = c1107ab.m667b(str, str2 + "direction_strideX", (Integer) (-1)).intValue();
+        c0460m.f3347d = c1107ab.m667b(str, str2 + "direction_strideY", (Integer) (-1)).intValue();
+        c0460m.f3348e = c1107ab.m683a(str, str2 + "direction_starting", Float.valueOf(0.0f)).floatValue();
+        if (c0460m.f3345b == 0.0f) {
             return null;
         }
-        return mVar;
+        return c0460m;
     }
 }

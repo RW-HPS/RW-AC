@@ -6,63 +6,80 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.ag */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/ag.class */
-public class ag extends Paint {
-    public static final ag r = new ag();
-    ae t;
-    boolean s = false;
-    boolean u = false;
+public class C0966ag extends Paint {
+
+    /* renamed from: r */
+    public static final C0966ag f6590r = new C0966ag();
+
+    /* renamed from: t */
+    C0964ae f6591t;
+
+    /* renamed from: s */
+    boolean f6592s = false;
+
+    /* renamed from: u */
+    boolean f6593u = false;
 
     static {
-        r.b(-1);
-        r.o();
+        f6590r.m5206b(-1);
+        f6590r.m910o();
     }
 
-    public void o() {
-        this.u = true;
+    /* renamed from: o */
+    public void m910o() {
+        this.f6593u = true;
     }
 
-    public void c(float f) {
-        super.b(f);
+    /* renamed from: c */
+    public void m911c(float f) {
+        super.mo913b(f);
     }
 
     @Override // android.graphics.Paint
-    public void b(float f) {
-        if (this.u) {
+    /* renamed from: b */
+    public void mo913b(float f) {
+        if (this.f6593u) {
             GameEngine.print("UniquePaint changed when locked down:");
-            GameEngine.print("from:" + k() + " to: " + f);
-            GameEngine.T();
+            GameEngine.print("from:" + m5186k() + " to: " + f);
+            GameEngine.m1089T();
         }
-        super.b(f);
+        super.mo913b(f);
     }
 
     @Override // android.graphics.Paint
-    public Typeface a(Typeface typeface) {
-        if (this.u) {
+    /* renamed from: a */
+    public Typeface mo916a(Typeface typeface) {
+        if (this.f6593u) {
             GameEngine.print("UniquePaint changed when locked down:");
-            GameEngine.T();
+            GameEngine.m1089T();
         }
-        return super.a(typeface);
+        return super.mo916a(typeface);
     }
 
-    public static void b(Paint paint) {
-        ((ag) paint).o();
+    /* renamed from: b */
+    public static void m912b(Paint paint) {
+        ((C0966ag) paint).m910o();
     }
 
-    public boolean p() {
-        return this.s;
+    /* renamed from: p */
+    public boolean m909p() {
+        return this.f6592s;
     }
 
     @Override // android.graphics.Paint
-    public void a(boolean z) {
-        this.s = z;
-        super.a(z);
+    /* renamed from: a */
+    public void mo914a(boolean z) {
+        this.f6592s = z;
+        super.mo914a(z);
     }
 
-    public ae q() {
-        return this.t;
+    /* renamed from: q */
+    public C0964ae m908q() {
+        return this.f6591t;
     }
 
-    public void a(ae aeVar) {
-        this.t = aeVar;
+    /* renamed from: a */
+    public void m915a(C0964ae c0964ae) {
+        this.f6591t = c0964ae;
     }
 }

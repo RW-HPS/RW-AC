@@ -2,44 +2,54 @@ package com.corrodinggames.rts.gameFramework.file;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.e.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/e/d.class */
-public class d extends FileLoader {
-    String g;
-    String h;
-    String i;
+public class C0768d extends FileLoader {
 
-    public d(String str, String str2) {
-        this.g = str;
-        this.h = str2;
-        if (!this.g.endsWith("/") && !this.g.endsWith("\\")) {
-            this.g += "/";
+    /* renamed from: g */
+    String f4960g;
+
+    /* renamed from: h */
+    String f4961h;
+
+    /* renamed from: i */
+    String f4962i;
+
+    public C0768d(String str, String str2) {
+        this.f4960g = str;
+        this.f4961h = str2;
+        if (!this.f4960g.endsWith("/") && !this.f4960g.endsWith("\\")) {
+            this.f4960g += "/";
         }
     }
 
     @Override // com.corrodinggames.rts.gameFramework.file.FileLoader
-    public String b() {
-        return this.g;
+    /* renamed from: b */
+    public String mo2241b() {
+        return this.f4960g;
     }
 
     @Override // com.corrodinggames.rts.gameFramework.file.FileLoader
-    public String d() {
-        return this.h;
+    /* renamed from: d */
+    public String mo2239d() {
+        return this.f4961h;
     }
 
     @Override // com.corrodinggames.rts.gameFramework.file.FileLoader
-    public boolean e() {
+    /* renamed from: e */
+    public boolean mo2238e() {
         return false;
     }
 
     @Override // com.corrodinggames.rts.gameFramework.file.FileLoader
-    public String e(String str) {
-        String e = super.e(str);
-        if (this.i != null && e != null && e.startsWith(this.g)) {
-            String substring = e.substring(this.g.length());
+    /* renamed from: e */
+    public String mo2251e(String str) {
+        String mo2251e = super.mo2251e(str);
+        if (this.f4962i != null && mo2251e != null && mo2251e.startsWith(this.f4960g)) {
+            String substring = mo2251e.substring(this.f4960g.length());
             if (substring.startsWith("/") || substring.startsWith("\\")) {
                 substring = substring.substring(1);
             }
-            e = this.i + substring;
+            mo2251e = this.f4962i + substring;
         }
-        return e;
+        return mo2251e;
     }
 }

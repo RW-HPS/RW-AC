@@ -1,40 +1,54 @@
-package com.corrodinggames.rts.game.units.custom.b;
+package com.corrodinggames.rts.game.units.custom.p018b;
 
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+
+/* renamed from: com.corrodinggames.rts.game.units.custom.b.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/b/e.class */
-public class e {
+public class C0393e {
 
-    /* renamed from: a  reason: collision with root package name */
-    public com.corrodinggames.rts.gameFramework.m.e f256a;
-    public com.corrodinggames.rts.gameFramework.m.e[] b;
-    public int c;
-    public int d;
-    public int e = 1;
-    public int f = 1;
+    /* renamed from: a */
+    public C0970e f2368a;
 
-    public void a(d dVar) {
-        int i = this.f256a.p;
-        int i2 = this.f256a.q;
-        this.c = i;
-        this.d = i2;
-        if (dVar.K > 0) {
-            this.c = dVar.K;
-        } else if (dVar.J > 0) {
-            this.c = i / dVar.J;
+    /* renamed from: b */
+    public C0970e[] f2369b;
+
+    /* renamed from: c */
+    public int f2370c;
+
+    /* renamed from: d */
+    public int f2371d;
+
+    /* renamed from: e */
+    public int f2372e = 1;
+
+    /* renamed from: f */
+    public int f2373f = 1;
+
+    /* renamed from: a */
+    public void m3939a(C0392d c0392d) {
+        int i = this.f2368a.f6620p;
+        int i2 = this.f2368a.f6621q;
+        this.f2370c = i;
+        this.f2371d = i2;
+        if (c0392d.f2364K > 0) {
+            this.f2370c = c0392d.f2364K;
+        } else if (c0392d.f2363J > 0) {
+            this.f2370c = i / c0392d.f2363J;
         }
-        if (dVar.L > 0) {
-            this.d = dVar.L;
+        if (c0392d.f2365L > 0) {
+            this.f2371d = c0392d.f2365L;
         }
-        if (this.c > 0) {
-            this.f = i / this.c;
+        if (this.f2370c > 0) {
+            this.f2373f = i / this.f2370c;
         }
-        if (this.d > 0) {
-            this.e = i2 / this.d;
+        if (this.f2371d > 0) {
+            this.f2372e = i2 / this.f2371d;
         }
-        if (this.f <= 0) {
-            this.f = 1;
+        if (this.f2373f <= 0) {
+            this.f2373f = 1;
         }
-        if (this.e <= 0) {
-            this.e = 1;
+        if (this.f2372e <= 0) {
+            this.f2372e = 1;
         }
     }
 }

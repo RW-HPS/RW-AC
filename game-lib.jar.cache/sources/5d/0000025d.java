@@ -1,75 +1,87 @@
-package com.corrodinggames.rts.game.units.custom.b;
+package com.corrodinggames.rts.game.units.custom.p018b;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.custom.bh;
-import com.corrodinggames.rts.game.units.custom.bn;
-import com.corrodinggames.rts.game.units.d.p;
+import com.corrodinggames.rts.game.C0188f;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.custom.C0410bh;
+import com.corrodinggames.rts.game.units.custom.C0416bn;
+import com.corrodinggames.rts.game.units.custom.C0453g;
+import com.corrodinggames.rts.game.units.custom.C0454h;
+import com.corrodinggames.rts.game.units.custom.C0456j;
+import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.p024d.C0510p;
+import com.corrodinggames.rts.gameFramework.C0773f;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.b.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/b/k.class */
-public class k extends a {
+public class C0399k extends AbstractC0389a {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f262a = new k();
-    static final PointF b = new PointF();
+    /* renamed from: a */
+    public static final AbstractC0389a f2411a = new C0399k();
 
-    @Override // com.corrodinggames.rts.game.units.custom.b.a
-    public void b(com.corrodinggames.rts.game.units.custom.j jVar, float f) {
-        com.corrodinggames.rts.game.units.custom.l lVar = jVar.x;
-        int bl = jVar.bl();
-        for (int i = 0; i < bl; i++) {
-            bn bnVar = lVar.fQ[i];
-            if (bnVar.aj != null && jVar.cB > 0.0f && !jVar.v) {
-                float floatValue = bnVar.aj.floatValue();
-                b.setSite(jVar.E(i));
-                float m = jVar.m();
-                if (bnVar.ab < 99999.0f) {
-                    m = bnVar.ab;
+    /* renamed from: b */
+    static final PointF f2412b = new PointF();
+
+    @Override // com.corrodinggames.rts.game.units.custom.p018b.AbstractC0389a
+    /* renamed from: b */
+    public void mo3919b(C0456j c0456j, float f) {
+        C0458l c0458l = c0456j.f2891x;
+        int mo2900bl = c0456j.mo2900bl();
+        for (int i = 0; i < mo2900bl; i++) {
+            C0416bn c0416bn = c0458l.f3301fQ[i];
+            if (c0416bn.f2628aj != null && c0456j.f1644cB > 0.0f && !c0456j.f2889v) {
+                float floatValue = c0416bn.f2628aj.floatValue();
+                f2412b.setSite(c0456j.mo3056E(i));
+                float mo2846m = c0456j.mo2846m();
+                if (c0416bn.f2620ab < 99999.0f) {
+                    mo2846m = c0416bn.f2620ab;
                 }
-                if (p.a(jVar, b.x, b.y, jVar.eq, m, floatValue)) {
+                if (C0510p.m3321a(c0456j, f2412b.x, f2412b.y, c0456j.f7174eq, mo2846m, floatValue)) {
                 }
-                if (jVar.cB < 0.0f) {
-                    jVar.cB = 0.0f;
-                    jVar.v = true;
+                if (c0456j.f1644cB < 0.0f) {
+                    c0456j.f1644cB = 0.0f;
+                    c0456j.f2889v = true;
                 }
             }
-            if (bnVar.ak != null) {
-                a(jVar, bnVar);
+            if (c0416bn.f2629ak != null) {
+                m3933a(c0456j, c0416bn);
             }
         }
     }
 
-    public static void a(com.corrodinggames.rts.game.units.custom.j jVar, bn bnVar) {
-        if (!jVar.a(bnVar)) {
+    /* renamed from: a */
+    public static void m3933a(C0456j c0456j, C0416bn c0416bn) {
+        if (!c0456j.m3647a(c0416bn)) {
             return;
         }
-        float f = bnVar.al;
-        float f2 = bnVar.am;
-        float f3 = bnVar.an;
-        com.corrodinggames.rts.game.f fVar = null;
-        com.corrodinggames.rts.game.units.custom.h hVar = bnVar.ak;
-        Object[] a2 = com.corrodinggames.rts.game.f.f157a.a();
-        int i = com.corrodinggames.rts.game.f.f157a.f689a;
+        float f = c0416bn.f2630al;
+        float f2 = c0416bn.f2631am;
+        float f3 = c0416bn.f2632an;
+        C0188f c0188f = null;
+        C0454h c0454h = c0416bn.f2629ak;
+        Object[] m535a = C0188f.f1084a.m535a();
+        int i = C0188f.f1084a.f7109a;
         for (int i2 = 0; i2 < i; i2++) {
-            com.corrodinggames.rts.game.f fVar2 = (com.corrodinggames.rts.game.f) a2[i2];
-            if (fVar2.aE != null && fVar2.eq > f3 && com.corrodinggames.rts.game.units.custom.g.a(fVar2.aE, hVar) && com.corrodinggames.rts.gameFramework.f.a(jVar.eo, jVar.ep, fVar2.eo, fVar2.ep) < f2 * f2 && ((com.corrodinggames.rts.gameFramework.f.a(jVar.eo, jVar.ep, fVar2.n, fVar2.o) < f * f || f < 0.0f) && ((fVar2.j == null || (!fVar2.j.bX.d(jVar.bX) && fVar2.j.bX != jVar.bX)) && fVar2.h > 0.0f && !a(fVar2)))) {
-                fVar = fVar2;
+            C0188f c0188f2 = (C0188f) m535a[i2];
+            if (c0188f2.f1057aE != null && c0188f2.f7174eq > f3 && C0453g.m3684a(c0188f2.f1057aE, c0454h) && C0773f.m2216a(c0456j.f7172eo, c0456j.f7173ep, c0188f2.f7172eo, c0188f2.f7173ep) < f2 * f2 && ((C0773f.m2216a(c0456j.f7172eo, c0456j.f7173ep, c0188f2.f989n, c0188f2.f990o) < f * f || f < 0.0f) && ((c0188f2.f985j == null || (!c0188f2.f985j.f1614bX.m4390d(c0456j.f1614bX) && c0188f2.f985j.f1614bX != c0456j.f1614bX)) && c0188f2.f983h > 0.0f && !m3934a(c0188f2)))) {
+                c0188f = c0188f2;
             }
         }
-        if (fVar != null) {
-            jVar.b(bnVar);
-            com.corrodinggames.rts.game.f a3 = jVar.a((am) null, fVar.eo, fVar.ep, bnVar.e, (bh) null, 0);
-            a3.aC = true;
-            a3.q = fVar;
+        if (c0188f != null) {
+            c0456j.m3637b(c0416bn);
+            C0188f m3652a = c0456j.m3652a((AbstractC0244am) null, c0188f.f7172eo, c0188f.f7173ep, c0416bn.f2571e, (C0410bh) null, 0);
+            m3652a.f1055aC = true;
+            m3652a.f992q = c0188f;
         }
     }
 
-    public static boolean a(com.corrodinggames.rts.game.f fVar) {
-        Object[] a2 = com.corrodinggames.rts.game.f.f157a.a();
-        int i = com.corrodinggames.rts.game.f.f157a.f689a;
+    /* renamed from: a */
+    public static boolean m3934a(C0188f c0188f) {
+        Object[] m535a = C0188f.f1084a.m535a();
+        int i = C0188f.f1084a.f7109a;
         for (int i2 = 0; i2 < i; i2++) {
-            com.corrodinggames.rts.game.f fVar2 = (com.corrodinggames.rts.game.f) a2[i2];
-            if (fVar2 != fVar && fVar2.q == fVar) {
+            C0188f c0188f2 = (C0188f) m535a[i2];
+            if (c0188f2 != c0188f && c0188f2.f992q == c0188f) {
                 return true;
             }
         }

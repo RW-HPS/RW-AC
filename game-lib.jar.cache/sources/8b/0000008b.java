@@ -115,8 +115,7 @@ public class SteamGameServer extends SteamInterface {
         
         private static final DenyReason[] values = values();
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static DenyReason byOrdinal(int i) {
+        static DenyReason byOrdinal(int i) {
             return values[i];
         }
     }

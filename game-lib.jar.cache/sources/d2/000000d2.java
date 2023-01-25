@@ -15,8 +15,7 @@ public enum SteamUniverse {
         this.value = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SteamUniverse byValue(int i) {
+    static SteamUniverse byValue(int i) {
         SteamUniverse[] steamUniverseArr;
         for (SteamUniverse steamUniverse : values) {
             if (steamUniverse.value == i) {

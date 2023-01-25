@@ -1,395 +1,433 @@
-package com.corrodinggames.rts.game.units.custom.e;
+package com.corrodinggames.rts.game.units.custom.p021e;
 
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.gameFramework.f.ae;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
-import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.p037f.C0795ae;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Collections;
 import java.util.Comparator;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.e.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/e/f.class */
-public final class f {
+public final class C0444f {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final f f297a = new f().a();
-    public final m b = new m();
-    boolean c;
+    /* renamed from: a */
+    public static final C0444f f2829a = new C0444f().m3752a();
 
-    public f a() {
-        this.c = true;
+    /* renamed from: b */
+    public final C1136m f2830b = new C1136m();
+
+    /* renamed from: c */
+    boolean f2831c;
+
+    /* renamed from: a */
+    public C0444f m3752a() {
+        this.f2831c = true;
         return this;
     }
 
-    public void b() {
-        this.b.clear();
+    /* renamed from: b */
+    public void m3733b() {
+        this.f2830b.clear();
     }
 
-    public boolean c() {
-        if (this.b.f689a == 0) {
+    /* renamed from: c */
+    public boolean m3723c() {
+        if (this.f2830b.f7109a == 0) {
             return true;
         }
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            if (((e) a2[i2]).b != 0.0d) {
+            if (((C0443e) m535a[i2]).f2828b != 0.0d) {
                 return false;
             }
         }
         return true;
     }
 
-    public double a(a aVar) {
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+    /* renamed from: a */
+    public double m3746a(C0433a c0433a) {
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a == aVar) {
-                return eVar.b;
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a == c0433a) {
+                return c0443e.f2828b;
             }
         }
         return 0.0d;
     }
 
-    public double b(a aVar) {
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+    /* renamed from: b */
+    public double m3731b(C0433a c0433a) {
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         int i2 = 0;
         for (int i3 = 0; i3 < i; i3++) {
-            e eVar = (e) a2[i3];
-            if (eVar.f296a == aVar) {
-                i2 = (int) (i2 + eVar.b);
+            C0443e c0443e = (C0443e) m535a[i3];
+            if (c0443e.f2827a == c0433a) {
+                i2 = (int) (i2 + c0443e.f2828b);
             }
-            if (eVar.f296a.v == aVar) {
-                i2 = (int) (i2 + eVar.b);
+            if (c0443e.f2827a.f2778v == c0433a) {
+                i2 = (int) (i2 + c0443e.f2828b);
             }
         }
         return i2;
     }
 
-    public void a(f fVar) {
-        b();
-        b(fVar);
+    /* renamed from: a */
+    public void m3744a(C0444f c0444f) {
+        m3733b();
+        m3729b(c0444f);
     }
 
-    public void a(a aVar, double d) {
-        if (this.c) {
+    /* renamed from: a */
+    public void m3745a(C0433a c0433a, double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a == aVar) {
-                eVar.b = d;
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a == c0433a) {
+                c0443e.f2828b = d;
                 return;
             }
         }
-        e eVar2 = new e(aVar);
-        eVar2.b = d;
-        this.b.add(eVar2);
+        C0443e c0443e2 = new C0443e(c0433a);
+        c0443e2.f2828b = d;
+        this.f2830b.add(c0443e2);
     }
 
-    public void a(double d) {
-        if (this.c) {
+    /* renamed from: a */
+    public void m3751a(double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            ((e) a2[i2]).b *= d;
+            ((C0443e) m535a[i2]).f2828b *= d;
         }
     }
 
-    public void b(a aVar, double d) {
-        if (this.c) {
+    /* renamed from: b */
+    public void m3730b(C0433a c0433a, double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
         if (d == 0.0d) {
             return;
         }
-        m mVar = this.b;
-        int i = mVar.f689a;
-        Object[] a2 = mVar.a();
+        C1136m c1136m = this.f2830b;
+        int i = c1136m.f7109a;
+        Object[] m535a = c1136m.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a == aVar) {
-                eVar.b += d;
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a == c0433a) {
+                c0443e.f2828b += d;
                 return;
             }
         }
-        e eVar2 = new e(aVar);
-        eVar2.b = d;
-        mVar.add(eVar2);
+        C0443e c0443e2 = new C0443e(c0433a);
+        c0443e2.f2828b = d;
+        c1136m.add(c0443e2);
     }
 
-    public void c(a aVar, double d) {
-        if (this.c) {
+    /* renamed from: c */
+    public void m3721c(C0433a c0433a, double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
         if (d == 0.0d) {
             return;
         }
-        m mVar = this.b;
-        int i = mVar.f689a;
-        Object[] a2 = mVar.a();
+        C1136m c1136m = this.f2830b;
+        int i = c1136m.f7109a;
+        Object[] m535a = c1136m.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a == aVar) {
-                eVar.b += d;
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a == c0433a) {
+                c0443e.f2828b += d;
                 return;
             }
         }
-        e eVar2 = new e(aVar);
-        eVar2.b = d;
-        mVar.add(eVar2);
+        C0443e c0443e2 = new C0443e(c0433a);
+        c0443e2.f2828b = d;
+        c1136m.add(c0443e2);
     }
 
-    public void d(a aVar, double d) {
-        if (this.c) {
+    /* renamed from: d */
+    public void m3716d(C0433a c0433a, double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        b(aVar, -d);
+        m3730b(c0433a, -d);
     }
 
-    public void a(com.corrodinggames.rts.game.units.custom.d.b bVar, double d, double d2) {
-        if (bVar.b >= d && bVar.b <= d2) {
-            c(a.D, bVar.b);
+    /* renamed from: a */
+    public void m3747a(C0429b c0429b, double d, double d2) {
+        if (c0429b.f2723b >= d && c0429b.f2723b <= d2) {
+            m3721c(C0433a.f2786D, c0429b.f2723b);
         }
-        a(bVar.k, d, d2);
+        m3742a(c0429b.f2732k, d, d2);
     }
 
-    public void b(com.corrodinggames.rts.game.units.custom.d.b bVar, double d, double d2) {
-        if (bVar.b >= d && bVar.b <= d2) {
-            c(a.D, -bVar.b);
+    /* renamed from: b */
+    public void m3732b(C0429b c0429b, double d, double d2) {
+        if (c0429b.f2723b >= d && c0429b.f2723b <= d2) {
+            m3721c(C0433a.f2786D, -c0429b.f2723b);
         }
-        b(bVar.k, d, d2);
+        m3727b(c0429b.f2732k, d, d2);
     }
 
-    public void a(com.corrodinggames.rts.game.units.custom.d.b bVar) {
-        c(a.D, bVar.b);
-        b(bVar.k);
+    /* renamed from: a */
+    public void m3748a(C0429b c0429b) {
+        m3721c(C0433a.f2786D, c0429b.f2723b);
+        m3729b(c0429b.f2732k);
     }
 
-    public void b(f fVar) {
-        if (this.c) {
+    /* renamed from: b */
+    public void m3729b(C0444f c0444f) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            b(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            m3730b(c0443e.f2827a, c0443e.f2828b);
         }
     }
 
-    public void a(f fVar, double d, double d2) {
-        if (this.c) {
+    /* renamed from: a */
+    public void m3742a(C0444f c0444f, double d, double d2) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.b >= d && eVar.b <= d2) {
-                b(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2828b >= d && c0443e.f2828b <= d2) {
+                m3730b(c0443e.f2827a, c0443e.f2828b);
             }
         }
     }
 
-    public void a(f fVar, double d) {
-        if (this.c) {
+    /* renamed from: a */
+    public void m3743a(C0444f c0444f, double d) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            b(eVar.f296a, eVar.b * d);
+            C0443e c0443e = (C0443e) m535a[i2];
+            m3730b(c0443e.f2827a, c0443e.f2828b * d);
         }
     }
 
-    public void c(f fVar) {
-        if (this.c) {
+    /* renamed from: c */
+    public void m3720c(C0444f c0444f) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            d(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            m3716d(c0443e.f2827a, c0443e.f2828b);
         }
     }
 
-    public void b(f fVar, double d, double d2) {
-        if (this.c) {
+    /* renamed from: b */
+    public void m3727b(C0444f c0444f, double d, double d2) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.b >= d && eVar.b <= d2) {
-                d(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2828b >= d && c0443e.f2828b <= d2) {
+                m3716d(c0443e.f2827a, c0443e.f2828b);
             }
         }
     }
 
-    public static f a(f fVar, f fVar2) {
-        f fVar3 = new f();
-        fVar3.b(fVar);
-        fVar3.b(fVar2);
-        return fVar3;
+    /* renamed from: a */
+    public static C0444f m3738a(C0444f c0444f, C0444f c0444f2) {
+        C0444f c0444f3 = new C0444f();
+        c0444f3.m3729b(c0444f);
+        c0444f3.m3729b(c0444f2);
+        return c0444f3;
     }
 
-    public static f b(f fVar, f fVar2) {
-        f fVar3 = new f();
-        fVar3.b(fVar);
-        fVar3.c(fVar2);
-        return fVar3;
+    /* renamed from: b */
+    public static C0444f m3724b(C0444f c0444f, C0444f c0444f2) {
+        C0444f c0444f3 = new C0444f();
+        c0444f3.m3729b(c0444f);
+        c0444f3.m3720c(c0444f2);
+        return c0444f3;
     }
 
-    public static f b(f fVar, double d) {
-        f fVar2 = new f();
-        fVar2.a(fVar, d);
-        return fVar2;
+    /* renamed from: b */
+    public static C0444f m3728b(C0444f c0444f, double d) {
+        C0444f c0444f2 = new C0444f();
+        c0444f2.m3743a(c0444f, d);
+        return c0444f2;
     }
 
-    public static f d(f fVar) {
-        f fVar2 = new f();
-        fVar2.b(fVar);
-        return fVar2;
+    /* renamed from: d */
+    public static C0444f m3715d(C0444f c0444f) {
+        C0444f c0444f2 = new C0444f();
+        c0444f2.m3729b(c0444f);
+        return c0444f2;
     }
 
-    public static int a(f fVar, am amVar) {
-        double a2;
+    /* renamed from: a */
+    public static int m3741a(C0444f c0444f, AbstractC0244am abstractC0244am) {
+        double m4242a;
         int i = 9999;
-        int i2 = fVar.b.f689a;
-        Object[] a3 = fVar.b.a();
+        int i2 = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i3 = 0; i3 < i2; i3++) {
-            e eVar = (e) a3[i3];
-            if (eVar.b > 0.0d) {
-                if (eVar.f296a.t) {
-                    a2 = amVar.bX.c(eVar.f296a);
+            C0443e c0443e = (C0443e) m535a[i3];
+            if (c0443e.f2828b > 0.0d) {
+                if (c0443e.f2827a.f2776t) {
+                    m4242a = abstractC0244am.f1614bX.m4400c(c0443e.f2827a);
                 } else {
-                    a2 = amVar.a(eVar.f296a);
+                    m4242a = abstractC0244am.m4242a(c0443e.f2827a);
                 }
-                i = com.corrodinggames.rts.gameFramework.f.c(i, (int) (a2 / eVar.b));
+                i = C0773f.m2147c(i, (int) (m4242a / c0443e.f2828b));
             }
         }
         return i;
     }
 
-    public static boolean b(f fVar, am amVar) {
-        double a2;
-        int i = fVar.b.f689a;
-        Object[] a3 = fVar.b.a();
+    /* renamed from: b */
+    public static boolean m3726b(C0444f c0444f, AbstractC0244am abstractC0244am) {
+        double m4242a;
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a3[i2];
-            if (eVar.f296a.t) {
-                a2 = amVar.bX.c(eVar.f296a);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                m4242a = abstractC0244am.f1614bX.m4400c(c0443e.f2827a);
             } else {
-                a2 = amVar.a(eVar.f296a);
+                m4242a = abstractC0244am.m4242a(c0443e.f2827a);
             }
-            if (eVar.b > a2) {
+            if (c0443e.f2828b > m4242a) {
                 return false;
             }
         }
         return true;
     }
 
-    public static boolean a(f fVar, am amVar, double d) {
-        double a2;
-        int i = fVar.b.f689a;
-        Object[] a3 = fVar.b.a();
+    /* renamed from: a */
+    public static boolean m3740a(C0444f c0444f, AbstractC0244am abstractC0244am, double d) {
+        double m4242a;
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a3[i2];
-            if (eVar.f296a.t) {
-                a2 = amVar.bX.c(eVar.f296a);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                m4242a = abstractC0244am.f1614bX.m4400c(c0443e.f2827a);
             } else {
-                a2 = amVar.a(eVar.f296a);
+                m4242a = abstractC0244am.m4242a(c0443e.f2827a);
             }
-            if (eVar.b * d > a2) {
+            if (c0443e.f2828b * d > m4242a) {
                 return false;
             }
         }
         return true;
     }
 
-    public static void c(f fVar, am amVar) {
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+    /* renamed from: c */
+    public static void m3719c(C0444f c0444f, AbstractC0244am abstractC0244am) {
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a.t) {
-                amVar.bX.V().d(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                abstractC0244am.f1614bX.m4450V().m3716d(c0443e.f2827a, c0443e.f2828b);
             } else {
-                amVar.df().d(eVar.f296a, eVar.b);
+                abstractC0244am.mo1748df().m3716d(c0443e.f2827a, c0443e.f2828b);
             }
         }
     }
 
-    public static void b(f fVar, am amVar, double d) {
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+    /* renamed from: b */
+    public static void m3725b(C0444f c0444f, AbstractC0244am abstractC0244am, double d) {
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a.t) {
-                amVar.bX.V().d(eVar.f296a, eVar.b * d);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                abstractC0244am.f1614bX.m4450V().m3716d(c0443e.f2827a, c0443e.f2828b * d);
             } else {
-                amVar.df().d(eVar.f296a, eVar.b * d);
+                abstractC0244am.mo1748df().m3716d(c0443e.f2827a, c0443e.f2828b * d);
             }
         }
     }
 
-    public static void d(f fVar, am amVar) {
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+    /* renamed from: d */
+    public static void m3714d(C0444f c0444f, AbstractC0244am abstractC0244am) {
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a.t) {
-                amVar.bX.V().b(eVar.f296a, eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                abstractC0244am.f1614bX.m4450V().m3730b(c0443e.f2827a, c0443e.f2828b);
             } else {
-                amVar.df().b(eVar.f296a, eVar.b);
+                abstractC0244am.mo1748df().m3730b(c0443e.f2827a, c0443e.f2828b);
             }
         }
     }
 
-    public static void c(f fVar, am amVar, double d) {
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+    /* renamed from: c */
+    public static void m3718c(C0444f c0444f, AbstractC0244am abstractC0244am, double d) {
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.f296a.t) {
-                amVar.bX.V().b(eVar.f296a, eVar.b * d);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                abstractC0244am.f1614bX.m4450V().m3730b(c0443e.f2827a, c0443e.f2828b * d);
             } else {
-                amVar.df().b(eVar.f296a, eVar.b * d);
+                abstractC0244am.mo1748df().m3730b(c0443e.f2827a, c0443e.f2828b * d);
             }
         }
     }
 
-    public static boolean a(f fVar, am amVar, am amVar2) {
+    /* renamed from: a */
+    public static boolean m3739a(C0444f c0444f, AbstractC0244am abstractC0244am, AbstractC0244am abstractC0244am2) {
         boolean z = false;
-        int i = fVar.b.f689a;
-        Object[] a2 = fVar.b.a();
+        int i = c0444f.f2830b.f7109a;
+        Object[] m535a = c0444f.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            a aVar = eVar.f296a;
-            double d = eVar.b;
+            C0443e c0443e = (C0443e) m535a[i2];
+            C0433a c0433a = c0443e.f2827a;
+            double d = c0443e.f2828b;
             if (d != 0.0d) {
-                double a3 = aVar.a(amVar);
-                double a4 = aVar.a(amVar2);
+                double mo3763a = c0433a.mo3763a(abstractC0244am);
+                double mo3763a2 = c0433a.mo3763a(abstractC0244am2);
                 if (d >= 0.0d) {
-                    if (a3 > 0.0d) {
-                        double a5 = com.corrodinggames.rts.gameFramework.f.a(a3, d);
-                        aVar.b(amVar, -a5);
-                        aVar.b(amVar2, a5);
+                    if (mo3763a > 0.0d) {
+                        double m2221a = C0773f.m2221a(mo3763a, d);
+                        c0433a.mo3761b(abstractC0244am, -m2221a);
+                        c0433a.mo3761b(abstractC0244am2, m2221a);
                         z = true;
                     }
-                } else if (a4 > 0.0d) {
-                    double a6 = com.corrodinggames.rts.gameFramework.f.a(a4, -d);
-                    aVar.b(amVar2, -a6);
-                    aVar.b(amVar, a6);
+                } else if (mo3763a2 > 0.0d) {
+                    double m2221a2 = C0773f.m2221a(mo3763a2, -d);
+                    c0433a.mo3761b(abstractC0244am2, -m2221a2);
+                    c0433a.mo3761b(abstractC0244am, m2221a2);
                     z = true;
                 }
             }
@@ -397,15 +435,17 @@ public final class f {
         return z;
     }
 
-    public String a(boolean z, boolean z2, int i, boolean z3, boolean z4) {
-        ae aeVar = new ae();
-        a(aeVar, z, z2, i, z3, z4, null, 0);
-        return aeVar.a();
+    /* renamed from: a */
+    public String m3734a(boolean z, boolean z2, int i, boolean z3, boolean z4) {
+        C0795ae c0795ae = new C0795ae();
+        m3737a(c0795ae, z, z2, i, z3, z4, null, 0);
+        return c0795ae.m1984a();
     }
 
-    public void a(ae aeVar, boolean z, boolean z2, int i, boolean z3, boolean z4, am amVar, int i2) {
+    /* renamed from: a */
+    public void m3737a(C0795ae c0795ae, boolean z, boolean z2, int i, boolean z3, boolean z4, AbstractC0244am abstractC0244am, int i2) {
         String str;
-        int i3 = this.b.f689a;
+        int i3 = this.f2830b.f7109a;
         if (i3 == 0) {
             return;
         }
@@ -415,36 +455,36 @@ public final class f {
             str = " | ";
         }
         int i4 = 0;
-        Object[] a2 = this.b.a();
+        Object[] m535a = this.f2830b.m535a();
         for (int i5 = 0; i5 < i3; i5++) {
-            e eVar = (e) a2[i5];
-            if ((eVar.b > 0.0d || z4) && i4 < i) {
-                a aVar = eVar.f296a;
-                if (z3 || !aVar.a()) {
+            C0443e c0443e = (C0443e) m535a[i5];
+            if ((c0443e.f2828b > 0.0d || z4) && i4 < i) {
+                C0433a c0433a = c0443e.f2827a;
+                if (z3 || !c0433a.m3785a()) {
                     boolean z5 = false;
-                    if (aVar.y != null && aVar.z) {
+                    if (c0433a.f2781y != null && c0433a.f2782z) {
                         z5 = true;
-                        int c = aeVar.c() - 2;
-                        if (c < 2) {
-                            c = 2;
+                        int m1972c = c0795ae.m1972c() - 2;
+                        if (m1972c < 2) {
+                            m1972c = 2;
                         }
-                        aeVar.a(aVar.y, c * 3, c);
+                        c0795ae.m1980a(c0433a.f2781y, m1972c * 3, m1972c);
                     }
-                    String str2 = aVar.a(eVar.b, false, z5) + str;
+                    String str2 = c0433a.m3782a(c0443e.f2828b, false, z5) + str;
                     boolean z6 = false;
                     int i6 = 0;
-                    if (aVar.m != null && aVar.n) {
+                    if (c0433a.f2770m != null && c0433a.f2771n) {
                         z6 = true;
-                        i6 = aVar.m.intValue();
+                        i6 = c0433a.f2770m.intValue();
                     }
-                    if (amVar != null && aVar.a(amVar) < eVar.b) {
+                    if (abstractC0244am != null && c0433a.mo3763a(abstractC0244am) < c0443e.f2828b) {
                         z6 = true;
                         i6 = i2;
                     }
                     if (z6) {
-                        aeVar.a(str2, i6);
+                        c0795ae.m1978a(str2, i6);
                     } else {
-                        aeVar.b(str2);
+                        c0795ae.m1973b(str2);
                     }
                     i4++;
                 }
@@ -452,122 +492,129 @@ public final class f {
         }
     }
 
-    public void a(GameOutputStream gameOutputStream) {
-        if (this.b.f689a == 0) {
+    /* renamed from: a */
+    public void m3736a(GameOutputStream gameOutputStream) {
+        if (this.f2830b.f7109a == 0) {
             gameOutputStream.writeByte(-1);
             return;
         }
         gameOutputStream.writeByte(0);
-        gameOutputStream.a((short) this.b.f689a);
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+        gameOutputStream.mo1331a((short) this.f2830b.f7109a);
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            gameOutputStream.writeString(eVar.f296a.b);
-            gameOutputStream.writeDouble(eVar.b);
+            C0443e c0443e = (C0443e) m535a[i2];
+            gameOutputStream.writeString(c0443e.f2827a.f2760b);
+            gameOutputStream.writeDouble(c0443e.f2828b);
         }
     }
 
-    public void a(GameInputStream gameInputStream) {
-        if (this.c) {
+    /* renamed from: a */
+    public void m3735a(GameInputStream gameInputStream) {
+        if (this.f2831c) {
             throw new RuntimeException("StoredResources are locked");
         }
         if (gameInputStream.readByte() == -1) {
             return;
         }
         int readShort = gameInputStream.readShort();
-        this.b.clear();
+        this.f2830b.clear();
         for (int i = 0; i < readShort; i++) {
-            a b = a.b(gameInputStream.readString());
+            C0433a m3775b = C0433a.m3775b(gameInputStream.readString());
             double readDouble = gameInputStream.readDouble();
-            if (b != null && readDouble != 0.0d) {
-                this.b.add(new e(b, readDouble));
+            if (m3775b != null && readDouble != 0.0d) {
+                this.f2830b.add(new C0443e(m3775b, readDouble));
             }
         }
     }
 
-    public int d() {
+    /* renamed from: d */
+    public int m3717d() {
         int i = 0;
-        int i2 = this.b.f689a;
-        Object[] a2 = this.b.a();
+        int i2 = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i3 = 0; i3 < i2; i3++) {
-            if (((e) a2[i3]).b != 0.0d) {
+            if (((C0443e) m535a[i3]).f2828b != 0.0d) {
                 i++;
             }
         }
         return i;
     }
 
-    public boolean e(f fVar) {
-        if (d() != fVar.d()) {
+    /* renamed from: e */
+    public boolean m3712e(C0444f c0444f) {
+        if (m3717d() != c0444f.m3717d()) {
             return false;
         }
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (!com.corrodinggames.rts.gameFramework.f.b(eVar.b, fVar.a(eVar.f296a))) {
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (!C0773f.m2175b(c0443e.f2828b, c0444f.m3746a(c0443e.f2827a))) {
                 return false;
             }
         }
         return true;
     }
 
-    public boolean f(f fVar) {
-        int i = this.b.f689a;
-        Object[] a2 = this.b.a();
+    /* renamed from: f */
+    public boolean m3711f(C0444f c0444f) {
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a2[i2];
-            if (eVar.b > 0.0d && fVar.b(eVar.f296a) > 0.0d) {
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2828b > 0.0d && c0444f.m3731b(c0443e.f2827a) > 0.0d) {
                 return true;
             }
         }
         return false;
     }
 
-    public f a(am amVar) {
-        double a2;
-        f fVar = new f();
-        int i = this.b.f689a;
-        Object[] a3 = this.b.a();
+    /* renamed from: a */
+    public C0444f m3750a(AbstractC0244am abstractC0244am) {
+        double m4242a;
+        C0444f c0444f = new C0444f();
+        int i = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            e eVar = (e) a3[i2];
-            if (eVar.f296a.t) {
-                a2 = amVar.bX.c(eVar.f296a);
+            C0443e c0443e = (C0443e) m535a[i2];
+            if (c0443e.f2827a.f2776t) {
+                m4242a = abstractC0244am.f1614bX.m4400c(c0443e.f2827a);
             } else {
-                a2 = amVar.a(eVar.f296a);
+                m4242a = abstractC0244am.m4242a(c0443e.f2827a);
             }
-            if (a2 < eVar.b) {
-                fVar.b(eVar.f296a, eVar.b - a2);
+            if (m4242a < c0443e.f2828b) {
+                c0444f.m3730b(c0443e.f2827a, c0443e.f2828b - m4242a);
             }
         }
-        if (fVar.c()) {
-            return f297a;
+        if (c0444f.m3723c()) {
+            return f2829a;
         }
-        return fVar;
+        return c0444f;
     }
 
-    public String a(am amVar, String str, int i, boolean z) {
-        double a2;
+    /* renamed from: a */
+    public String m3749a(AbstractC0244am abstractC0244am, String str, int i, boolean z) {
+        double m4242a;
         String str2 = null;
         int i2 = 0;
-        int i3 = this.b.f689a;
-        Object[] a3 = this.b.a();
+        int i3 = this.f2830b.f7109a;
+        Object[] m535a = this.f2830b.m535a();
         for (int i4 = 0; i4 < i3; i4++) {
-            e eVar = (e) a3[i4];
-            if (z || !eVar.f296a.a()) {
-                if (eVar.f296a.t) {
-                    a2 = amVar.bX.c(eVar.f296a);
+            C0443e c0443e = (C0443e) m535a[i4];
+            if (z || !c0443e.f2827a.m3785a()) {
+                if (c0443e.f2827a.f2776t) {
+                    m4242a = abstractC0244am.f1614bX.m4400c(c0443e.f2827a);
                 } else {
-                    a2 = amVar.a(eVar.f296a);
+                    m4242a = abstractC0244am.m4242a(c0443e.f2827a);
                 }
-                if (a2 < eVar.b) {
-                    double d = eVar.b - a2;
-                    String i5 = eVar.f296a.i();
+                if (m4242a < c0443e.f2828b) {
+                    double d = c0443e.f2828b - m4242a;
+                    String m3767i = c0443e.f2827a.m3767i();
                     if (str2 == null) {
-                        str2 = i5;
+                        str2 = m3767i;
                     } else {
-                        str2 = str2 + str + i5;
+                        str2 = str2 + str + m3767i;
                     }
                     i2++;
                     if (i2 > i) {
@@ -581,34 +628,37 @@ public final class f {
         return str2;
     }
 
-    public void g(f fVar) {
-        b();
-        b(fVar);
+    /* renamed from: g */
+    public void m3710g(C0444f c0444f) {
+        m3733b();
+        m3729b(c0444f);
     }
 
-    public void c(a aVar) {
-        m mVar = this.b;
-        int i = mVar.f689a;
-        Object[] a2 = mVar.a();
+    /* renamed from: c */
+    public void m3722c(C0433a c0433a) {
+        C1136m c1136m = this.f2830b;
+        int i = c1136m.f7109a;
+        Object[] m535a = c1136m.m535a();
         for (int i2 = 0; i2 < i; i2++) {
-            if (((e) a2[i2]).f296a == aVar) {
+            if (((C0443e) m535a[i2]).f2827a == c0433a) {
                 return;
             }
         }
-        e eVar = new e(aVar);
-        eVar.b = 0.0d;
-        mVar.add(eVar);
+        C0443e c0443e = new C0443e(c0433a);
+        c0443e.f2828b = 0.0d;
+        c1136m.add(c0443e);
     }
 
-    public void e() {
-        Collections.sort(this.b, new Comparator() { // from class: com.corrodinggames.rts.game.units.custom.e.f.1
+    /* renamed from: e */
+    public void m3713e() {
+        Collections.sort(this.f2830b, new Comparator() { // from class: com.corrodinggames.rts.game.units.custom.e.f.1
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(e eVar, e eVar2) {
-                if (eVar.f296a == null || eVar2.f296a == null) {
+            public int mo3709a(C0443e c0443e, C0443e c0443e2) {
+                if (c0443e.f2827a == null || c0443e2.f2827a == null) {
                     return 0;
                 }
-                return Float.compare(eVar.f296a.x, eVar2.f296a.x);
+                return Float.compare(c0443e.f2827a.f2780x, c0443e2.f2827a.f2780x);
             }
         });
     }

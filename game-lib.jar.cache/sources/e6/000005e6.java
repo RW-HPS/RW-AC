@@ -1,108 +1,113 @@
 package com.corrodinggames.rts.gameFramework.status;
 
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.a.a;
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.as;
-import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.game.p010a.C0136a;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.InterfaceC0303as;
+import com.corrodinggames.rts.game.units.custom.C0458l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
-import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.Iterator;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.corrodinggames.rts.gameFramework.n.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/i.class */
-public class i {
+class C1088i {
 
     /* renamed from: a */
-    boolean f653a;
-    m b = new m();
-    final /* synthetic */ f c;
+    boolean f6930a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(f fVar) {
-        this.c = fVar;
+    /* renamed from: b */
+    C1136m f6931b = new C1136m();
+
+    /* renamed from: c */
+    final /* synthetic */ C1085f f6932c;
+
+    C1088i(C1085f c1085f) {
+        this.f6932c = c1085f;
     }
 
-    public void a(as asVar, int i) {
-        as c = l.c(asVar);
-        if (c != null) {
-            asVar = c;
+    /* renamed from: a */
+    public void m760a(InterfaceC0303as interfaceC0303as, int i) {
+        InterfaceC0303as m3527c = C0458l.m3527c(interfaceC0303as);
+        if (m3527c != null) {
+            interfaceC0303as = m3527c;
         }
-        b(asVar, i);
+        m759b(interfaceC0303as, i);
     }
 
-    public void b(as asVar, int i) {
-        Iterator it = this.b.iterator();
+    /* renamed from: b */
+    public void m759b(InterfaceC0303as interfaceC0303as, int i) {
+        Iterator it = this.f6931b.iterator();
         while (it.hasNext()) {
-            j jVar = (j) it.next();
-            if (jVar.f654a == asVar) {
-                jVar.b += i;
+            C1089j c1089j = (C1089j) it.next();
+            if (c1089j.f6933a == interfaceC0303as) {
+                c1089j.f6934b += i;
                 return;
             }
         }
-        j jVar2 = new j(this);
-        jVar2.f654a = asVar;
-        jVar2.b = i;
-        this.b.add(jVar2);
+        C1089j c1089j2 = new C1089j(this);
+        c1089j2.f6933a = interfaceC0303as;
+        c1089j2.f6934b = i;
+        this.f6931b.add(c1089j2);
     }
 
-    public void a(float f, float f2) {
+    /* renamed from: a */
+    public void m761a(float f, float f2) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         int i = 0;
-        a k = PlayerData.k(1);
-        if (k == null) {
-            GameEngine.m2e("Warning: Creating missing wave team AI");
-            k = new a(1);
-            k.r = 100;
-            k.U = true;
+        C0136a m4365k = PlayerData.m4365k(1);
+        if (m4365k == null) {
+            GameEngine.m5460e("Warning: Creating missing wave team AI");
+            m4365k = new C0136a(1);
+            m4365k.team = 100;
+            m4365k.f1346U = true;
         }
-        Iterator it = this.b.iterator();
+        Iterator it = this.f6931b.iterator();
         while (it.hasNext()) {
-            j jVar = (j) it.next();
-            for (int i2 = 0; i2 < jVar.b; i2++) {
-                am a2 = jVar.f654a.a();
-                a2.eo = f + f.a(-85, 85, i + 0);
-                a2.ep = f2 + f.a(-85, 85, i + 1);
-                a2.cg = f.a(-180, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, i + 2);
+            C1089j c1089j = (C1089j) it.next();
+            for (int i2 = 0; i2 < c1089j.f6934b; i2++) {
+                AbstractC0244am mo3564a = c1089j.f6933a.mo3564a();
+                mo3564a.f7172eo = f + C0773f.m2208a(-85, 85, i + 0);
+                mo3564a.f7173ep = f2 + C0773f.m2208a(-85, 85, i + 1);
+                mo3564a.f1623cg = C0773f.m2208a(-180, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, i + 2);
                 i += 3;
-                a2.b(k);
-                if (a2.eo < 0.0f) {
-                    a2.eo = 0.0f;
+                mo3564a.mo2928b(m4365k);
+                if (mo3564a.f7172eo < 0.0f) {
+                    mo3564a.f7172eo = 0.0f;
                 }
-                if (a2.ep < 0.0f) {
-                    a2.ep = 0.0f;
+                if (mo3564a.f7173ep < 0.0f) {
+                    mo3564a.f7173ep = 0.0f;
                 }
-                if (a2.eo > gameEngine.bL.i()) {
-                    a2.eo = gameEngine.bL.i();
+                if (mo3564a.f7172eo > gameEngine.f6323bL.m4601i()) {
+                    mo3564a.f7172eo = gameEngine.f6323bL.m4601i();
                 }
-                if (a2.ep > gameEngine.bL.j()) {
-                    a2.ep = gameEngine.bL.j();
+                if (mo3564a.f7173ep > gameEngine.f6323bL.m4600j()) {
+                    mo3564a.f7173ep = gameEngine.f6323bL.m4600j();
                 }
                 if (i2 == 0) {
-                    gameEngine.bW.a(a2);
+                    gameEngine.f6334bW.m1768a(mo3564a);
                 }
             }
         }
     }
 
     public String toString() {
-        if (this.b.size() == 0) {
+        if (this.f6931b.size() == 0) {
             return "No units";
         }
         String str = VariableScope.nullOrMissingString;
         boolean z = true;
-        Iterator it = this.b.iterator();
+        Iterator it = this.f6931b.iterator();
         while (it.hasNext()) {
-            j jVar = (j) it.next();
+            C1089j c1089j = (C1089j) it.next();
             if (!z) {
                 str = str + ", ";
             }
             z = false;
-            str = (str + jVar.b + "x ") + jVar.f654a.e();
+            str = (str + c1089j.f6934b + "x ") + c1089j.f6933a.mo3521e();
         }
         return str;
     }

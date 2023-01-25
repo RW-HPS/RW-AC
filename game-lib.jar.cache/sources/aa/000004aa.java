@@ -1,23 +1,24 @@
-package com.corrodinggames.rts.gameFramework.e;
+package com.corrodinggames.rts.gameFramework.file;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-/* JADX INFO: Access modifiers changed from: package-private */
+/* renamed from: com.corrodinggames.rts.gameFramework.e.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/e/h.class */
-public class h {
+class C0772h {
 
-    /* renamed from: a  reason: collision with root package name */
-    public InputStream f480a;
+    /* renamed from: a */
+    public InputStream f4968a;
 
-    public h(InputStream inputStream) {
-        this.f480a = inputStream;
+    public C0772h(InputStream inputStream) {
+        this.f4968a = inputStream;
     }
 
-    public void a() {
+    /* renamed from: a */
+    public void m2224a() {
         try {
-            if (this.f480a != null) {
-                this.f480a.close();
+            if (this.f4968a != null) {
+                this.f4968a.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

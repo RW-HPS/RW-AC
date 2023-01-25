@@ -1,20 +1,31 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
 import android.graphics.Paint;
+import com.corrodinggames.rts.gameFramework.C0738bn;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.bn;
+import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.f.aa */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/aa.class */
-public class aa {
+public class C0791aa {
 
-    /* renamed from: a  reason: collision with root package name */
-    bn f491a;
-    String b;
-    int c;
-    com.corrodinggames.rts.gameFramework.m.ag[] d = new com.corrodinggames.rts.gameFramework.m.ag[11];
-    com.corrodinggames.rts.gameFramework.m.ag[] e = new com.corrodinggames.rts.gameFramework.m.ag[11];
+    /* renamed from: a */
+    C0738bn f5144a;
 
-    public com.corrodinggames.rts.gameFramework.m.ag a(int i, boolean z) {
+    /* renamed from: b */
+    String f5145b;
+
+    /* renamed from: c */
+    int f5146c;
+
+    /* renamed from: d */
+    C0966ag[] f5147d = new C0966ag[11];
+
+    /* renamed from: e */
+    C0966ag[] f5148e = new C0966ag[11];
+
+    /* renamed from: a */
+    public C0966ag m1995a(int i, boolean z) {
         int i2 = i / 25;
         if (i2 < 0) {
             i2 = 0;
@@ -23,31 +34,31 @@ public class aa {
             i2 = 10;
         }
         if (z) {
-            return this.e[i2];
+            return this.f5148e[i2];
         }
-        return this.d[i2];
+        return this.f5147d[i2];
     }
 
-    public aa(bn bnVar, String str, int i) {
-        this.f491a = bnVar;
-        this.b = str;
-        this.c = i;
+    public C0791aa(C0738bn c0738bn, String str, int i) {
+        this.f5144a = c0738bn;
+        this.f5145b = str;
+        this.f5146c = i;
         int i2 = 0;
         while (i2 < 11) {
             int i3 = i2 == 10 ? 255 : i2 * 25;
-            this.d[i2] = new com.corrodinggames.rts.gameFramework.m.ag();
-            this.d[i2].a(2.0f);
-            if (GameEngine.aZ) {
-                this.d[i2].a(3.0f);
+            this.f5147d[i2] = new C0966ag();
+            this.f5147d[i2].m5231a(2.0f);
+            if (GameEngine.f6423aZ) {
+                this.f5147d[i2].m5231a(3.0f);
             }
-            this.d[i2].a(Paint.Cap.ROUND);
-            this.d[i2].b(i);
-            this.d[i2].c(i3);
-            this.e[i2] = new com.corrodinggames.rts.gameFramework.m.ag();
-            this.e[i2].b(-13162713);
-            this.e[i2].c(i3);
-            this.e[i2].a(5.0f);
-            this.e[i2].a(Paint.Cap.ROUND);
+            this.f5147d[i2].m5223a(Paint.Cap.ROUND);
+            this.f5147d[i2].m5206b(i);
+            this.f5147d[i2].m5201c(i3);
+            this.f5148e[i2] = new C0966ag();
+            this.f5148e[i2].m5206b(-13162713);
+            this.f5148e[i2].m5201c(i3);
+            this.f5148e[i2].m5231a(5.0f);
+            this.f5148e[i2].m5223a(Paint.Cap.ROUND);
             i2++;
         }
     }

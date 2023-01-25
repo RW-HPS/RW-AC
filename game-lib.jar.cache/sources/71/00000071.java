@@ -4,8 +4,7 @@ package com.codedisaster.steamworks;
 public class SteamAuthTicket extends SteamNativeHandle {
     static final long AuthTicketInvalid = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamAuthTicket(long j) {
+    SteamAuthTicket(long j) {
         super(j);
     }
 

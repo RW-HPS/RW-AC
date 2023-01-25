@@ -1,27 +1,33 @@
-package com.corrodinggames.rts.game.units.g;
+package com.corrodinggames.rts.game.units.p028g;
 
-import com.corrodinggames.rts.game.units.y;
+import com.corrodinggames.rts.game.units.AbstractC0629y;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
 
+/* renamed from: com.corrodinggames.rts.game.units.g.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/g/d.class */
-public class d extends a {
-    float b;
+public class C0558d extends AbstractC0552a {
 
-    @Override // com.corrodinggames.rts.game.units.g.a
-    public b b() {
-        return b.movementSpeed;
+    /* renamed from: b */
+    float f3790b;
+
+    @Override // com.corrodinggames.rts.game.units.p028g.AbstractC0552a
+    /* renamed from: b */
+    public EnumC0554b mo3178b() {
+        return EnumC0554b.movementSpeed;
     }
 
-    @Override // com.corrodinggames.rts.game.units.g.a
-    public void a(y yVar, GameOutputStream gameOutputStream) {
-        gameOutputStream.writeFloat(this.b);
-        super.a(yVar, gameOutputStream);
+    @Override // com.corrodinggames.rts.game.units.p028g.AbstractC0552a
+    /* renamed from: a */
+    public void mo3180a(AbstractC0629y abstractC0629y, GameOutputStream gameOutputStream) {
+        gameOutputStream.writeFloat(this.f3790b);
+        super.mo3180a(abstractC0629y, gameOutputStream);
     }
 
-    @Override // com.corrodinggames.rts.game.units.g.a
-    public void a(y yVar, GameInputStream gameInputStream) {
-        this.b = gameInputStream.readFloat();
-        super.a(yVar, gameInputStream);
+    @Override // com.corrodinggames.rts.game.units.p028g.AbstractC0552a
+    /* renamed from: a */
+    public void mo3179a(AbstractC0629y abstractC0629y, GameInputStream gameInputStream) {
+        this.f3790b = gameInputStream.readFloat();
+        super.mo3179a(abstractC0629y, gameInputStream);
     }
 }

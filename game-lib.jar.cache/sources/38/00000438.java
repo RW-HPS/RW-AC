@@ -1,13 +1,14 @@
 package com.corrodinggames.rts.gameFramework;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.ao */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ao.class */
-public class ao extends ar {
+public class C0658ao extends AbstractC0663ar {
 
-    /* renamed from: a  reason: collision with root package name */
-    an f407a;
+    /* renamed from: a */
+    C0657an f4242a;
 
-    public ao(String str, an anVar) {
-        super(str, anVar);
-        this.f407a = anVar;
+    public C0658ao(String str, C0657an c0657an) {
+        super(str, c0657an);
+        this.f4242a = c0657an;
     }
 }

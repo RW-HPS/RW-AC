@@ -1,46 +1,49 @@
-package a.a.a;
+package net.rudp.p002a;
 
+/* renamed from: a.a.a.c */
 /* loaded from: game-lib.jar:a/a/a/c.class */
-public class c extends a {
+public class EAKSegment extends ACKSegment {
 
-    /* renamed from: a  reason: collision with root package name */
-    private int[] f5a;
+    /* renamed from: a */
+    private int[] data;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public c() {
+    protected EAKSegment() {
     }
 
-    public c(int i, int i2, int[] iArr) {
-        a(32, i, 6 + iArr.length);
-        a(i2);
-        this.f5a = iArr;
+    public EAKSegment(int i, int i2, int[] iArr) {
+        init(32, i, 6 + iArr.length);
+        setAck(i2);
+        this.data = iArr;
     }
 
-    @Override // a.a.a.a, a.a.a.h
-    public String a() {
+    @Override // net.rudp.p002a.ACKSegment, net.rudp.p002a.Segment
+    /* renamed from: a */
+    public String type() {
         return "EAK";
     }
 
-    public int[] c() {
-        return this.f5a;
+    /* renamed from: c */
+    public int[] m5453c() {
+        return this.data;
     }
 
-    @Override // a.a.a.h
-    public byte[] d() {
-        byte[] d = super.d();
-        for (int i = 0; i < this.f5a.length; i++) {
-            d[4 + i] = (byte) (this.f5a[i] & 255);
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: d */
+    public byte[] getBytes() {
+        byte[] d = super.getBytes();
+        for (int i = 0; i < this.data.length; i++) {
+            d[4 + i] = (byte) (this.data[i] & 255);
         }
         return d;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // a.a.a.h
-    public void a(byte[] bArr, int i, int i2) {
-        super.a(bArr, i, i2);
-        this.f5a = new int[i2 - 6];
-        for (int i3 = 0; i3 < this.f5a.length; i3++) {
-            this.f5a[i3] = bArr[i + 4 + i3] & 255;
+    @Override // net.rudp.p002a.Segment
+    /* renamed from: a */
+    protected void parseBytes(byte[] bArr, int i, int i2) {
+        super.parseBytes(bArr, i, i2);
+        this.data = new int[i2 - 6];
+        for (int i3 = 0; i3 < this.data.length; i3++) {
+            this.data[i3] = bArr[i + 4 + i3] & 255;
         }
     }
 }

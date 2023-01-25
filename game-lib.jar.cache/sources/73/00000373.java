@@ -2,37 +2,44 @@ package com.corrodinggames.rts.game.units.custom;
 
 import java.util.Iterator;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.o */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/o.class */
-public class o {
+public class C0462o {
 
-    /* renamed from: a  reason: collision with root package name */
-    String f316a;
-    f b;
-    final /* synthetic */ l c;
+    /* renamed from: a */
+    String f3359a;
 
-    public o(l lVar) {
-        this.c = lVar;
+    /* renamed from: b */
+    C0446f f3360b;
+
+    /* renamed from: c */
+    final /* synthetic */ C0458l f3361c;
+
+    public C0462o(C0458l c0458l) {
+        this.f3361c = c0458l;
     }
 
-    public void a() {
-        if (this.f316a != null && b() == null) {
-            throw new RuntimeException("Failed to find animation:" + this.f316a);
+    /* renamed from: a */
+    public void m3481a() {
+        if (this.f3359a != null && m3480b() == null) {
+            throw new RuntimeException("Failed to find animation:" + this.f3359a);
         }
     }
 
-    public f b() {
-        if (this.f316a == null) {
+    /* renamed from: b */
+    public C0446f m3480b() {
+        if (this.f3359a == null) {
             return null;
         }
-        if (this.b != null) {
-            return this.b;
+        if (this.f3360b != null) {
+            return this.f3360b;
         }
-        Iterator it = this.c.dr.iterator();
+        Iterator it = this.f3361c.f3282dr.iterator();
         while (it.hasNext()) {
-            f fVar = (f) it.next();
-            if (fVar.f299a.equalsIgnoreCase(this.f316a)) {
-                this.b = fVar;
-                return fVar;
+            C0446f c0446f = (C0446f) it.next();
+            if (c0446f.f2833a.equalsIgnoreCase(this.f3359a)) {
+                this.f3360b = c0446f;
+                return c0446f;
             }
         }
         return null;

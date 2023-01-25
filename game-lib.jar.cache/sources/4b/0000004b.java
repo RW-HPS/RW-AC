@@ -5,23 +5,24 @@ import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.protocol.HttpContext;
 
+/* renamed from: android.net.http.a */
 /* loaded from: game-lib.jar:android/net/http/a.class */
-class a implements HttpRequestInterceptor {
+class C0036a implements HttpRequestInterceptor {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AndroidHttpClient f54a;
+    /* renamed from: a */
+    final /* synthetic */ AndroidHttpClient f265a;
 
-    private a(AndroidHttpClient androidHttpClient) {
-        this.f54a = androidHttpClient;
+    private C0036a(AndroidHttpClient androidHttpClient) {
+        this.f265a = androidHttpClient;
     }
 
     public void process(HttpRequest httpRequest, HttpContext httpContext) {
-        boolean a2;
-        b a3 = AndroidHttpClient.a(this.f54a);
-        if (a3 != null) {
-            a2 = a3.a();
-            if (a2 && (httpRequest instanceof HttpUriRequest)) {
-                a3.a(AndroidHttpClient.a((HttpUriRequest) httpRequest, false));
+        boolean m5126a;
+        C0037b m5133a = AndroidHttpClient.m5133a(this.f265a);
+        if (m5133a != null) {
+            m5126a = m5133a.m5126a();
+            if (m5126a && (httpRequest instanceof HttpUriRequest)) {
+                m5133a.m5123a(AndroidHttpClient.m5129a((HttpUriRequest) httpRequest, false));
             }
         }
     }

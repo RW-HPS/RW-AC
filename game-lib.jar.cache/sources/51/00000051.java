@@ -1,78 +1,93 @@
-package android.os;
+package android.p003os;
 
 import android.util.Printer;
 
+/* renamed from: android.os.Looper */
 /* loaded from: game-lib.jar:android/os/Looper.class */
 public final class Looper {
 
-    /* renamed from: a  reason: collision with root package name */
-    static final ThreadLocal f57a = new ThreadLocal();
-    private static Looper d;
-    final MessageQueue b;
-    final Thread c = Thread.currentThread();
-    private Printer e;
+    /* renamed from: a */
+    static final ThreadLocal f272a = new ThreadLocal();
 
-    private static void a(boolean z) {
-        if (f57a.get() != null) {
+    /* renamed from: d */
+    private static Looper f273d;
+
+    /* renamed from: b */
+    final MessageQueue f274b;
+
+    /* renamed from: c */
+    final Thread f275c = Thread.currentThread();
+
+    /* renamed from: e */
+    private Printer f276e;
+
+    /* renamed from: a */
+    private static void m5109a(boolean z) {
+        if (f272a.get() != null) {
             throw new RuntimeException("Only one Looper may be created per thread");
         }
-        f57a.set(new Looper(z));
+        f272a.set(new Looper(z));
     }
 
-    public static void a() {
-        a(false);
+    /* renamed from: a */
+    public static void m5110a() {
+        m5109a(false);
         synchronized (Looper.class) {
-            if (d != null) {
+            if (f273d != null) {
                 throw new IllegalStateException("The main Looper has already been prepared.");
             }
-            d = d();
+            f273d = m5106d();
         }
     }
 
-    public static Looper b() {
+    /* renamed from: b */
+    public static Looper m5108b() {
         Looper looper;
         synchronized (Looper.class) {
-            looper = d;
+            looper = f273d;
         }
         return looper;
     }
 
-    public static void c() {
-        Looper d2 = d();
-        if (d2 == null) {
+    /* renamed from: c */
+    public static void m5107c() {
+        Looper m5106d = m5106d();
+        if (m5106d == null) {
             throw new RuntimeException("No Looper; Looper.prepare() wasn't called on this thread.");
         }
-        MessageQueue messageQueue = d2.b;
+        MessageQueue messageQueue = m5106d.f274b;
         while (true) {
-            Message a2 = messageQueue.a();
-            if (a2 == null) {
+            Message m5090a = messageQueue.m5090a();
+            if (m5090a == null) {
                 return;
             }
-            Printer printer = d2.e;
+            Printer printer = m5106d.f276e;
             if (printer != null) {
-                printer.println(">>>>> Dispatching to " + a2.j + " " + a2.k + ": " + a2.f58a);
+                printer.println(">>>>> Dispatching to " + m5090a.f286j + " " + m5090a.f287k + ": " + m5090a.f277a);
             }
-            a2.j.b(a2);
+            m5090a.f286j.m5117b(m5090a);
             if (printer != null) {
-                printer.println("<<<<< Finished to " + a2.j + " " + a2.k);
+                printer.println("<<<<< Finished to " + m5090a.f286j + " " + m5090a.f287k);
             }
-            a2.c();
+            m5090a.m5097c();
         }
     }
 
-    public static Looper d() {
-        return (Looper) f57a.get();
+    /* renamed from: d */
+    public static Looper m5106d() {
+        return (Looper) f272a.get();
     }
 
     private Looper(boolean z) {
-        this.b = new MessageQueue(z);
+        this.f274b = new MessageQueue(z);
     }
 
-    public Thread e() {
-        return this.c;
+    /* renamed from: e */
+    public Thread m5105e() {
+        return this.f275c;
     }
 
     public String toString() {
-        return "Looper (" + this.c.getName() + ", tid " + this.c.getId() + ") {" + Integer.toHexString(System.identityHashCode(this)) + "}";
+        return "Looper (" + this.f275c.getName() + ", tid " + this.f275c.getId() + ") {" + Integer.toHexString(System.identityHashCode(this)) + "}";
     }
 }

@@ -1,57 +1,66 @@
-package com.corrodinggames.rts.gameFramework.m;
+package com.corrodinggames.rts.gameFramework.unitAction;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 
+/* renamed from: com.corrodinggames.rts.gameFramework.m.q */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/q.class */
-public final class q {
+public final class C1055q {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final com.corrodinggames.rts.gameFramework.utility.m f638a = new com.corrodinggames.rts.gameFramework.utility.m();
-    public int b;
-    public Class c;
+    /* renamed from: a */
+    public final C1136m f6765a = new C1136m();
 
-    public q(Class cls) {
-        this.c = cls;
+    /* renamed from: b */
+    public int f6766b;
+
+    /* renamed from: c */
+    public Class f6767c;
+
+    public C1055q(Class cls) {
+        this.f6767c = cls;
     }
 
-    public final Rect a(Rect rect) {
-        if (this.b >= this.f638a.f689a) {
-            this.f638a.add(new Rect());
+    /* renamed from: a */
+    public final Rect m842a(Rect rect) {
+        if (this.f6766b >= this.f6765a.f7109a) {
+            this.f6765a.add(new Rect());
         }
-        Rect rect2 = (Rect) this.f638a.a(this.b);
-        rect2.b = rect.b;
-        rect2.d = rect.d;
-        rect2.f47a = rect.f47a;
-        rect2.c = rect.c;
-        this.b++;
+        Rect rect2 = (Rect) this.f6765a.m534a(this.f6766b);
+        rect2.f231b = rect.f231b;
+        rect2.f233d = rect.f233d;
+        rect2.f230a = rect.f230a;
+        rect2.f232c = rect.f232c;
+        this.f6766b++;
         return rect2;
     }
 
-    public final RectF a(RectF rectF) {
-        if (this.b >= this.f638a.f689a) {
-            this.f638a.add(new RectF());
+    /* renamed from: a */
+    public final RectF m841a(RectF rectF) {
+        if (this.f6766b >= this.f6765a.f7109a) {
+            this.f6765a.add(new RectF());
         }
-        RectF rectF2 = (RectF) this.f638a.a(this.b);
-        rectF2.b = rectF.b;
-        rectF2.d = rectF.d;
-        rectF2.f48a = rectF.f48a;
-        rectF2.c = rectF.c;
-        this.b++;
+        RectF rectF2 = (RectF) this.f6765a.m534a(this.f6766b);
+        rectF2.f235b = rectF.f235b;
+        rectF2.f237d = rectF.f237d;
+        rectF2.f234a = rectF.f234a;
+        rectF2.f236c = rectF.f236c;
+        this.f6766b++;
         return rectF2;
     }
 
-    public final Paint a(Paint paint) {
+    /* renamed from: a */
+    public final Paint m843a(Paint paint) {
         if (paint == null) {
             return null;
         }
-        if (this.b >= this.f638a.f689a) {
-            this.f638a.add(new Paint());
+        if (this.f6766b >= this.f6765a.f7109a) {
+            this.f6765a.add(new Paint());
         }
-        Paint paint2 = (Paint) this.f638a.a(this.b);
-        paint2.a(paint);
-        this.b++;
+        Paint paint2 = (Paint) this.f6765a.m534a(this.f6766b);
+        paint2.m5220a(paint);
+        this.f6766b++;
         return paint2;
     }
 }

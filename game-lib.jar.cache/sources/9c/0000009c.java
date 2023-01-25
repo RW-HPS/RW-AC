@@ -7,13 +7,11 @@ abstract class SteamInterface {
 
     protected static native void deleteCallback(long j);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamInterface(long j) {
+    SteamInterface(long j) {
         this(j, 0L);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public SteamInterface(long j, long j2) {
+    SteamInterface(long j, long j2) {
         if (j == 0) {
             throw new RuntimeException("Steam interface created with null pointer. Always check result of SteamAPI.init(), or with SteamAPI.isSteamRunning()!");
         }
@@ -21,8 +19,7 @@ abstract class SteamInterface {
         this.callback = j2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCallback(long j) {
+    void setCallback(long j) {
         this.callback = j;
     }
 

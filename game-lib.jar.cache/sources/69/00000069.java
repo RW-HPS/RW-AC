@@ -18,38 +18,27 @@ public class SteamAPI {
 
     private static native boolean isSteamRunningNative();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamAppsPointer();
+    static native long getSteamAppsPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamControllerPointer();
+    static native long getSteamControllerPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamFriendsPointer();
+    static native long getSteamFriendsPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamHTTPPointer();
+    static native long getSteamHTTPPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamMatchmakingPointer();
+    static native long getSteamMatchmakingPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamNetworkingPointer();
+    static native long getSteamNetworkingPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamRemoteStoragePointer();
+    static native long getSteamRemoteStoragePointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamUGCPointer();
+    static native long getSteamUGCPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamUserPointer();
+    static native long getSteamUserPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamUserStatsPointer();
+    static native long getSteamUserStatsPointer();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static native long getSteamUtilsPointer();
+    static native long getSteamUtilsPointer();
 
     public static boolean init() {
         return init(null);

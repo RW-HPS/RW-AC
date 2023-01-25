@@ -7,109 +7,123 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 
+/* renamed from: com.corrodinggames.rts.game.units.custom.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/g.class */
-public final class g {
+public final class C0453g {
 
-    /* renamed from: a  reason: collision with root package name */
-    final String f305a;
-    public static ArrayList b = new ArrayList();
-    public static final g[] c = new g[0];
-    public static final h d = new h(c);
+    /* renamed from: a */
+    final String f2862a;
 
-    private g(String str) {
-        this.f305a = str;
+    /* renamed from: b */
+    public static ArrayList f2863b = new ArrayList();
+
+    /* renamed from: c */
+    public static final C0453g[] f2864c = new C0453g[0];
+
+    /* renamed from: d */
+    public static final C0454h f2865d = new C0454h(f2864c);
+
+    private C0453g(String str) {
+        this.f2862a = str;
     }
 
     public String toString() {
-        return this.f305a;
+        return this.f2862a;
     }
 
-    public static h a(String str) {
-        return a(str, (h) null);
+    /* renamed from: a */
+    public static C0454h m3681a(String str) {
+        return m3680a(str, (C0454h) null);
     }
 
-    public static h a(String str, h hVar) {
+    /* renamed from: a */
+    public static C0454h m3680a(String str, C0454h c0454h) {
         if (str == null) {
-            return hVar;
+            return c0454h;
         }
         if (str.trim().equals(VariableScope.nullOrMissingString)) {
-            return hVar;
+            return c0454h;
         }
         ArrayList arrayList = new ArrayList();
         for (String str2 : str.split(",")) {
             String trim = str2.trim();
             if (!trim.equals(VariableScope.nullOrMissingString)) {
-                g c2 = c(trim);
-                if (!arrayList.contains(c2)) {
-                    arrayList.add(c2);
+                C0453g m3677c = m3677c(trim);
+                if (!arrayList.contains(m3677c)) {
+                    arrayList.add(m3677c);
                 }
             }
         }
         if (arrayList.size() == 0) {
-            return hVar;
+            return c0454h;
         }
-        return new h((g[]) arrayList.toArray(new g[0]));
+        return new C0454h((C0453g[]) arrayList.toArray(new C0453g[0]));
     }
 
-    public static g b(String str) {
+    /* renamed from: b */
+    public static C0453g m3678b(String str) {
         String trim = str.trim();
         if (trim.contains(",")) {
-            throw new bo("Expected single tag, got:" + trim);
+            throw new C0417bo("Expected single tag, got:" + trim);
         }
-        return c(trim);
+        return m3677c(trim);
     }
 
-    public static g c(String str) {
+    /* renamed from: c */
+    public static C0453g m3677c(String str) {
         String lowerCase = str.trim().toLowerCase(Locale.ROOT);
-        Iterator it = b.iterator();
+        Iterator it = f2863b.iterator();
         while (it.hasNext()) {
-            g gVar = (g) it.next();
-            if (gVar.f305a.equals(lowerCase)) {
-                return gVar;
+            C0453g c0453g = (C0453g) it.next();
+            if (c0453g.f2862a.equals(lowerCase)) {
+                return c0453g;
             }
         }
-        g gVar2 = new g(lowerCase);
-        b.add(gVar2);
-        return gVar2;
+        C0453g c0453g2 = new C0453g(lowerCase);
+        f2863b.add(c0453g2);
+        return c0453g2;
     }
 
-    public static void a(h hVar, GameOutputStream gameOutputStream) {
-        g[] gVarArr;
-        if (hVar == null) {
+    /* renamed from: a */
+    public static void m3683a(C0454h c0454h, GameOutputStream gameOutputStream) {
+        C0453g[] c0453gArr;
+        if (c0454h == null) {
             gameOutputStream.writeIsString((String) null);
-        } else if (hVar.f306a.length == 0) {
+        } else if (c0454h.f2866a.length == 0) {
             gameOutputStream.writeIsString(VariableScope.nullOrMissingString);
         } else {
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (g gVar : hVar.f306a) {
+            for (C0453g c0453g : c0454h.f2866a) {
                 if (!z) {
                     sb.append(",");
                 }
                 z = false;
-                sb.append(gVar.f305a);
+                sb.append(c0453g.f2862a);
             }
             gameOutputStream.writeIsString(sb.toString());
         }
     }
 
-    public static h a(GameInputStream gameInputStream) {
+    /* renamed from: a */
+    public static C0454h m3682a(GameInputStream gameInputStream) {
         String isReadString = gameInputStream.isReadString();
         if (isReadString == null) {
             return null;
         }
-        return a(isReadString, d);
+        return m3680a(isReadString, f2865d);
     }
 
-    public static boolean a(h hVar, h hVar2) {
-        if (hVar2 == null) {
+    /* renamed from: a */
+    public static boolean m3684a(C0454h c0454h, C0454h c0454h2) {
+        if (c0454h2 == null) {
             return false;
         }
-        g[] gVarArr = hVar.f306a;
-        g[] gVarArr2 = hVar2.f306a;
-        for (g gVar : gVarArr) {
-            for (g gVar2 : gVarArr2) {
-                if (gVar == gVar2) {
+        C0453g[] c0453gArr = c0454h.f2866a;
+        C0453g[] c0453gArr2 = c0454h2.f2866a;
+        for (C0453g c0453g : c0453gArr) {
+            for (C0453g c0453g2 : c0453gArr2) {
+                if (c0453g == c0453g2) {
                     return true;
                 }
             }
@@ -117,34 +131,36 @@ public final class g {
         return false;
     }
 
-    public static boolean a(g gVar, h hVar) {
-        if (hVar == null) {
+    /* renamed from: a */
+    public static boolean m3685a(C0453g c0453g, C0454h c0454h) {
+        if (c0454h == null) {
             return false;
         }
-        for (g gVar2 : hVar.f306a) {
-            if (gVar2 == gVar) {
+        for (C0453g c0453g2 : c0454h.f2866a) {
+            if (c0453g2 == c0453g) {
                 return true;
             }
         }
         return false;
     }
 
-    public static boolean b(h hVar, h hVar2) {
-        if (hVar2 == null) {
-            if (hVar == null || hVar.b() == 0) {
+    /* renamed from: b */
+    public static boolean m3679b(C0454h c0454h, C0454h c0454h2) {
+        if (c0454h2 == null) {
+            if (c0454h == null || c0454h.m3674b() == 0) {
                 return true;
             }
             return false;
         }
-        g[] gVarArr = hVar.f306a;
-        g[] gVarArr2 = hVar2.f306a;
-        int length = gVarArr2.length;
-        for (g gVar : gVarArr) {
+        C0453g[] c0453gArr = c0454h.f2866a;
+        C0453g[] c0453gArr2 = c0454h2.f2866a;
+        int length = c0453gArr2.length;
+        for (C0453g c0453g : c0453gArr) {
             boolean z = false;
             int i = 0;
             while (true) {
                 if (i < length) {
-                    if (gVar != gVarArr2[i]) {
+                    if (c0453g != c0453gArr2[i]) {
                         i++;
                     } else {
                         z = true;

@@ -1,13 +1,19 @@
-package com.corrodinggames.rts.gameFramework.f;
+package com.corrodinggames.rts.gameFramework.p037f;
 
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
+
+/* renamed from: com.corrodinggames.rts.gameFramework.f.ak */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/ak.class */
-public class ak {
+public class C0801ak {
 
-    /* renamed from: a  reason: collision with root package name */
-    com.corrodinggames.rts.gameFramework.utility.m f499a = new com.corrodinggames.rts.gameFramework.utility.m();
-    int b;
+    /* renamed from: a */
+    C1136m f5188a = new C1136m();
 
-    public void a(af afVar) {
-        this.f499a.add(afVar);
+    /* renamed from: b */
+    int f5189b;
+
+    /* renamed from: a */
+    public void m1966a(C0796af c0796af) {
+        this.f5188a.add(c0796af);
     }
 }

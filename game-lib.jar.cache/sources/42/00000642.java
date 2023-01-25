@@ -1,16 +1,17 @@
-package com.corrodinggames.rts.java.audio.a;
+package com.corrodinggames.rts.java.audio.p051a;
 
+/* renamed from: com.corrodinggames.rts.java.audio.a.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/c.class */
-public class c extends RuntimeException {
-    public c(String str) {
+public class C1167c extends RuntimeException {
+    public C1167c(String str) {
         super(str);
     }
 
-    public c(Throwable th) {
+    public C1167c(Throwable th) {
         super(th);
     }
 
-    public c(String str, Throwable th) {
+    public C1167c(String str, Throwable th) {
         super(str, th);
     }
 }

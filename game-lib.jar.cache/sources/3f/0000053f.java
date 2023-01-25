@@ -14,36 +14,39 @@ import org.apache.http.params.HttpParams;
 public class HTTPService {
 
     /* renamed from: a */
-    ReentrantLock f592a = new ReentrantLock();
+    ReentrantLock f6105a = new ReentrantLock();
 
-    public HttpClient a() {
-        return a(30000, false);
+    /* renamed from: a */
+    public HttpClient m1259a() {
+        return mo103a(30000, false);
     }
 
-    public HttpClient b() {
-        return a(30000, true);
+    /* renamed from: b */
+    public HttpClient m1258b() {
+        return mo103a(30000, true);
     }
 
-    public HttpClient a(int i, boolean z) {
+    /* renamed from: a */
+    public HttpClient mo103a(int i, boolean z) {
         DefaultHttpClient defaultHttpClient;
         boolean z2 = false;
         try {
-            z2 = this.f592a.tryLock(300L, TimeUnit.MILLISECONDS);
+            z2 = this.f6105a.tryLock(300L, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         if (!z2) {
             try {
-                GameEngine.b("LoadFromMasterServer", "Could not get getNewHttpClient lock! another thread maybe stuck in getNewHttpClient!");
+                GameEngine.m1015b("LoadFromMasterServer", "Could not get getNewHttpClient lock! another thread maybe stuck in getNewHttpClient!");
             } catch (Throwable th) {
                 if (z2) {
-                    this.f592a.unlock();
+                    this.f6105a.unlock();
                 }
                 throw th;
             }
         }
         if (!z) {
-            defaultHttpClient = AndroidHttpClient.a((String) null);
+            defaultHttpClient = AndroidHttpClient.m5132a((String) null);
         } else {
             defaultHttpClient = new DefaultHttpClient();
         }
@@ -51,14 +54,15 @@ public class HTTPService {
         HttpConnectionParams.setConnectionTimeout(params, i);
         HttpConnectionParams.setSoTimeout(params, 20000);
         if (z2) {
-            this.f592a.unlock();
+            this.f6105a.unlock();
         }
         return defaultHttpClient;
     }
 
-    public void a(HttpClient httpClient) {
+    /* renamed from: a */
+    public void mo102a(HttpClient httpClient) {
         if (httpClient instanceof AndroidHttpClient) {
-            ((AndroidHttpClient) httpClient).a();
+            ((AndroidHttpClient) httpClient).m5134a();
         }
     }
 }

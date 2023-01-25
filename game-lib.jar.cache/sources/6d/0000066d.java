@@ -10,10 +10,10 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 public class SteamFriendsCallback implements com.codedisaster.steamworks.SteamFriendsCallback {
 
     /* renamed from: a */
-    SteamEngine f732a;
+    SteamEngine f7328a;
 
     public SteamFriendsCallback(SteamEngine steamEngine) {
-        this.f732a = steamEngine;
+        this.f7328a = steamEngine;
     }
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback
@@ -26,7 +26,7 @@ public class SteamFriendsCallback implements com.codedisaster.steamworks.SteamFr
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback
     public void onGameOverlayActivated(boolean z) {
-        GameEngine.m2e("onGameOverlayActivated");
+        GameEngine.m5460e("onGameOverlayActivated");
     }
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback

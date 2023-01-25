@@ -14,19 +14,28 @@ import java.nio.channels.SocketChannel;
 public class RelayForwardedSocket extends Socket {
 
     /* renamed from: a */
-    PlayerConnect f582a;
-    int b;
-    boolean c = false;
-    RFSInStream d = new RFSInStream(this);
-    j e = new j(this);
+    PlayerConnect f6065a;
 
-    public void a(Packet packet) {
-        this.f582a.a(new ay(this.b, packet));
+    /* renamed from: b */
+    int f6066b;
+
+    /* renamed from: c */
+    boolean f6067c = false;
+
+    /* renamed from: d */
+    RFSInStream f6068d = new RFSInStream(this);
+
+    /* renamed from: e */
+    RFSOutStream f6069e = new RFSOutStream(this);
+
+    /* renamed from: a */
+    public void m1322a(Packet packet) {
+        this.f6065a.m1359a(new C0901ay(this.f6066b, packet));
     }
 
     public RelayForwardedSocket(PlayerConnect playerConnect, int i) {
-        this.f582a = playerConnect;
-        this.b = i;
+        this.f6065a = playerConnect;
+        this.f6066b = i;
     }
 
     @Override // java.net.Socket
@@ -36,12 +45,12 @@ public class RelayForwardedSocket extends Socket {
 
     @Override // java.net.Socket, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        if (!this.c) {
-            this.c = true;
-            GameEngine.m2e("Closing steam socket");
+        if (!this.f6067c) {
+            this.f6067c = true;
+            GameEngine.m5460e("Closing steam socket");
         }
-        if (this.d != null) {
-            this.d.a(new byte[0]);
+        if (this.f6068d != null) {
+            this.f6068d.m1321a(new byte[0]);
         }
     }
 
@@ -82,7 +91,7 @@ public class RelayForwardedSocket extends Socket {
 
     @Override // java.net.Socket
     public InputStream getInputStream() {
-        return this.d;
+        return this.f6068d;
     }
 
     @Override // java.net.Socket
@@ -102,7 +111,7 @@ public class RelayForwardedSocket extends Socket {
 
     @Override // java.net.Socket
     public OutputStream getOutputStream() {
-        return this.e;
+        return this.f6069e;
     }
 
     @Override // java.net.Socket
@@ -152,7 +161,7 @@ public class RelayForwardedSocket extends Socket {
 
     @Override // java.net.Socket
     public boolean isClosed() {
-        return this.c;
+        return this.f6067c;
     }
 
     @Override // java.net.Socket
@@ -162,12 +171,12 @@ public class RelayForwardedSocket extends Socket {
 
     @Override // java.net.Socket
     public boolean isInputShutdown() {
-        return this.d != null;
+        return this.f6068d != null;
     }
 
     @Override // java.net.Socket
     public boolean isOutputShutdown() {
-        return this.e != null;
+        return this.f6069e != null;
     }
 
     @Override // java.net.Socket

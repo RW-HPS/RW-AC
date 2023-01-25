@@ -1,19 +1,23 @@
-package com.corrodinggames.rts.game.a.a;
+package com.corrodinggames.rts.game.p010a.p011a;
 
+/* renamed from: com.corrodinggames.rts.game.a.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/a/b.class */
-public enum b {
-    unknown { // from class: com.corrodinggames.rts.game.a.a.b.1
-        @Override // com.corrodinggames.rts.game.a.a.b
-        public a a() {
+public enum EnumC0152b {
+    f638a { // from class: com.corrodinggames.rts.game.a.a.b.1
+        @Override // com.corrodinggames.rts.game.p010a.p011a.EnumC0152b
+        /* renamed from: a */
+        public AbstractC0150a mo4806a() {
             return null;
         }
     },
-    nuking { // from class: com.corrodinggames.rts.game.a.a.b.2
-        @Override // com.corrodinggames.rts.game.a.a.b
-        public a a() {
-            return new d();
+    f639b { // from class: com.corrodinggames.rts.game.a.a.b.2
+        @Override // com.corrodinggames.rts.game.p010a.p011a.EnumC0152b
+        /* renamed from: a */
+        public AbstractC0150a mo4806a() {
+            return new C0156d();
         }
     };
 
-    public abstract a a();
+    /* renamed from: a */
+    public abstract AbstractC0150a mo4806a();
 }

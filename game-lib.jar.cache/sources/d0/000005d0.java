@@ -3,264 +3,346 @@ package com.corrodinggames.rts.gameFramework.status;
 import android.graphics.Color;
 import android.graphics.Paint;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.b.f;
-import com.corrodinggames.rts.game.units.ak;
-import com.corrodinggames.rts.game.units.am;
-import com.corrodinggames.rts.game.units.custom.bb;
-import com.corrodinggames.rts.game.units.custom.bp;
+import com.corrodinggames.rts.game.p012b.C0172a;
+import com.corrodinggames.rts.game.p012b.C0179f;
+import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.InterfaceC0242ak;
+import com.corrodinggames.rts.game.units.custom.C0404bb;
+import com.corrodinggames.rts.game.units.custom.C0418bp;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.net.GameNetEngine;
-import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.status.p047a.AbstractC1067a;
+import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.n.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/a.class */
-public class a {
+public class C1066a {
 
     /* renamed from: a */
-    public String f645a;
-    public String b;
-    public String c;
-    public e g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public int k;
-    public int l;
-    public boolean m;
-    public int p;
-    public com.corrodinggames.rts.game.b.a t;
-    public bp v;
-    public float w;
-    public float x;
-    public PlayerData y;
-    public bb z;
-    public bb A;
-    public Paint B;
-    public boolean C;
-    public b d = new b();
-    public b e = new b();
-    public m f = new m();
-    public int n = -1;
-    public int o = Integer.MAX_VALUE;
-    public int q = -1;
-    public int r = -1;
-    public int s = -1;
-    public boolean u = false;
+    public String f6812a;
 
-    public void a(com.corrodinggames.rts.gameFramework.status.a.a aVar) {
-        this.f.add(aVar);
+    /* renamed from: b */
+    public String f6813b;
+
+    /* renamed from: c */
+    public String f6814c;
+
+    /* renamed from: g */
+    public EnumC1073e f6815g;
+
+    /* renamed from: h */
+    public boolean f6816h;
+
+    /* renamed from: i */
+    public boolean f6817i;
+
+    /* renamed from: j */
+    public boolean f6818j;
+
+    /* renamed from: k */
+    public int f6819k;
+
+    /* renamed from: l */
+    public int f6820l;
+
+    /* renamed from: m */
+    public boolean f6821m;
+
+    /* renamed from: p */
+    public int f6822p;
+
+    /* renamed from: t */
+    public C0172a f6823t;
+
+    /* renamed from: v */
+    public C0418bp f6824v;
+
+    /* renamed from: w */
+    public float f6825w;
+
+    /* renamed from: x */
+    public float f6826x;
+
+    /* renamed from: y */
+    public PlayerData f6827y;
+
+    /* renamed from: z */
+    public C0404bb f6828z;
+
+    /* renamed from: A */
+    public C0404bb f6829A;
+
+    /* renamed from: B */
+    public Paint f6830B;
+
+    /* renamed from: C */
+    public boolean f6831C;
+
+    /* renamed from: d */
+    public C1070b f6832d = new C1070b();
+
+    /* renamed from: e */
+    public C1070b f6833e = new C1070b();
+
+    /* renamed from: f */
+    public C1136m f6834f = new C1136m();
+
+    /* renamed from: n */
+    public int f6835n = -1;
+
+    /* renamed from: o */
+    public int f6836o = Integer.MAX_VALUE;
+
+    /* renamed from: q */
+    public int f6837q = -1;
+
+    /* renamed from: r */
+    public int f6838r = -1;
+
+    /* renamed from: s */
+    public int f6839s = -1;
+
+    /* renamed from: u */
+    public boolean f6840u = false;
+
+    /* renamed from: a */
+    public void m828a(AbstractC1067a abstractC1067a) {
+        this.f6834f.add(abstractC1067a);
     }
 
-    public void a(String str) {
-        this.t.b(str);
+    /* renamed from: a */
+    public void m827a(String str) {
+        this.f6823t.m4669b(str);
     }
 
-    public String b(String str) {
-        return this.t.b(str);
+    /* renamed from: b */
+    public String m817b(String str) {
+        return this.f6823t.m4669b(str);
     }
 
-    public String a(String str, String str2) {
-        return this.t.a(str, str2);
+    /* renamed from: a */
+    public String m822a(String str, String str2) {
+        return this.f6823t.m4672a(str, str2);
     }
 
-    public boolean c(String str) {
-        return this.t.b(str) != null;
+    /* renamed from: c */
+    public boolean m814c(String str) {
+        return this.f6823t.m4669b(str) != null;
     }
 
-    public int a(String str, int i) {
-        String a2 = a(str, (String) null);
-        if (a2 == null) {
+    /* renamed from: a */
+    public int m825a(String str, int i) {
+        String m822a = m822a(str, (String) null);
+        if (m822a == null) {
             return i;
         }
         try {
-            return Integer.parseInt(a2);
+            return Integer.parseInt(m822a);
         } catch (NumberFormatException e) {
-            throw f(str + ": Unexpected integer value:'" + a2 + "'");
+            throw m809f(str + ": Unexpected integer value:'" + m822a + "'");
         }
     }
 
-    public int b(String str, int i) {
+    /* renamed from: b */
+    public int m816b(String str, int i) {
         double d;
-        String b = b(str);
-        if (b == null) {
+        String m817b = m817b(str);
+        if (m817b == null) {
             return i;
         }
-        if (b.endsWith("ms")) {
-            b = b.substring(0, b.length() - 2);
+        if (m817b.endsWith("ms")) {
+            m817b = m817b.substring(0, m817b.length() - 2);
             d = 1.0d;
-        } else if (b.endsWith("s")) {
-            b = b.substring(0, b.length() - 1);
+        } else if (m817b.endsWith("s")) {
+            m817b = m817b.substring(0, m817b.length() - 1);
             d = 1000.0d;
         } else {
             d = 1.0d;
         }
         try {
-            return (int) (Double.parseDouble(b) * d);
+            return (int) (Double.parseDouble(m817b) * d);
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            throw f(str + ": Unexpected time:'" + b + "'");
+            throw m809f(str + ": Unexpected time:'" + m817b + "'");
         }
     }
 
-    public float a(String str, float f) {
-        String a2 = a(str, (String) null);
-        if (a2 == null) {
+    /* renamed from: a */
+    public float m826a(String str, float f) {
+        String m822a = m822a(str, (String) null);
+        if (m822a == null) {
             return f;
         }
         try {
-            return Float.parseFloat(a2);
+            return Float.parseFloat(m822a);
         } catch (NumberFormatException e) {
-            throw f(str + ": Unexpected float value:'" + a2 + "'");
+            throw m809f(str + ": Unexpected float value:'" + m822a + "'");
         }
     }
 
-    public Integer d(String str) {
-        String a2 = a(str, (String) null);
-        if (a2 == null) {
+    /* renamed from: d */
+    public Integer m811d(String str) {
+        String m822a = m822a(str, (String) null);
+        if (m822a == null) {
             return null;
         }
         try {
-            return Integer.valueOf(Integer.parseInt(a2));
+            return Integer.valueOf(Integer.parseInt(m822a));
         } catch (NumberFormatException e) {
-            throw f(str + ": Unexpected integer value:'" + a2 + "'");
+            throw m809f(str + ": Unexpected integer value:'" + m822a + "'");
         }
     }
 
-    public Boolean e(String str) {
-        String a2 = a(str, (String) null);
-        if (a2 == null) {
+    /* renamed from: e */
+    public Boolean m810e(String str) {
+        String m822a = m822a(str, (String) null);
+        if (m822a == null) {
             return null;
         }
-        if (a2.equalsIgnoreCase("true")) {
+        if (m822a.equalsIgnoreCase("true")) {
             return true;
         }
-        if (a2.equalsIgnoreCase("false")) {
+        if (m822a.equalsIgnoreCase("false")) {
             return false;
         }
-        throw f(str + ": Unexpected boolean value:'" + a2 + "'");
+        throw m809f(str + ": Unexpected boolean value:'" + m822a + "'");
     }
 
-    public boolean a(String str, String str2, boolean z) {
-        Boolean e = e(str);
-        if (e != null) {
-            return e.booleanValue();
+    /* renamed from: a */
+    public boolean m821a(String str, String str2, boolean z) {
+        Boolean m810e = m810e(str);
+        if (m810e != null) {
+            return m810e.booleanValue();
         }
-        Boolean e2 = e(str2);
-        if (e2 != null) {
-            return e2.booleanValue();
+        Boolean m810e2 = m810e(str2);
+        if (m810e2 != null) {
+            return m810e2.booleanValue();
         }
         return z;
     }
 
-    public boolean a(String str, boolean z) {
-        String a2 = a(str, (String) null);
-        if (a2 == null) {
+    /* renamed from: a */
+    public boolean m820a(String str, boolean z) {
+        String m822a = m822a(str, (String) null);
+        if (m822a == null) {
             return z;
         }
-        if (a2.equalsIgnoreCase("true")) {
+        if (m822a.equalsIgnoreCase("true")) {
             return true;
         }
-        if (a2.equalsIgnoreCase("false")) {
+        if (m822a.equalsIgnoreCase("false")) {
             return false;
         }
-        throw f(str + ": Unexpected boolean value:'" + a2 + "'");
+        throw m809f(str + ": Unexpected boolean value:'" + m822a + "'");
     }
 
-    public int c(String str, int i) {
-        String b = b(str);
-        if (b == null) {
+    /* renamed from: c */
+    public int m813c(String str, int i) {
+        String m817b = m817b(str);
+        if (m817b == null) {
             return i;
         }
-        if (b.equals(VariableScope.nullOrMissingString)) {
-            throw f(str + ": Unknown color:" + b);
+        if (m817b.equals(VariableScope.nullOrMissingString)) {
+            throw m809f(str + ": Unknown color:" + m817b);
         }
         try {
-            return Color.a(b);
+            return Color.m5242a(m817b);
         } catch (IllegalArgumentException e) {
-            throw f(str + ": Unknown color:" + b);
+            throw m809f(str + ": Unknown color:" + m817b);
         }
     }
 
-    public bb a(String str, bb bbVar) {
-        return this.t.a(str, bbVar);
+    /* renamed from: a */
+    public C0404bb m824a(String str, C0404bb c0404bb) {
+        return this.f6823t.m4673a(str, c0404bb);
     }
 
-    public boolean a(am amVar) {
-        return this.t.a(amVar);
+    /* renamed from: a */
+    public boolean m829a(AbstractC0244am abstractC0244am) {
+        return this.f6823t.m4675a(abstractC0244am);
     }
 
-    public f f(String str) {
-        return a(str, (Exception) null);
+    /* renamed from: f */
+    public C0179f m809f(String str) {
+        return m823a(str, (Exception) null);
     }
 
-    public f a(String str, Exception exc) {
-        String str2 = "MapTrigger-Error (" + this.f645a + " id:" + this.b + "): " + str;
-        GameNetEngine.g(str2);
+    /* renamed from: a */
+    public C0179f m823a(String str, Exception exc) {
+        String str2 = "MapTrigger-Error (" + this.f6812a + " id:" + this.f6813b + "): " + str;
+        GameNetEngine.m1468g(str2);
         if (exc == null) {
-            return new f(str2);
+            return new C0179f(str2);
         }
-        return new f(str2, exc);
+        return new C0179f(str2, exc);
     }
 
-    public void g(String str) {
-        GameNetEngine.g("MapTrigger-Error (" + this.f645a + " id:" + this.b + " type:" + this.g + "): " + str);
+    /* renamed from: g */
+    public void m808g(String str) {
+        GameNetEngine.m1468g("MapTrigger-Error (" + this.f6812a + " id:" + this.f6813b + " type:" + this.f6815g + "): " + str);
     }
 
-    public void h(String str) {
-        GameEngine.m2e("MapTrigger-Debug (" + this.b + " type:" + this.g + "): " + str);
+    /* renamed from: h */
+    public void m807h(String str) {
+        GameEngine.m5460e("MapTrigger-Debug (" + this.f6813b + " type:" + this.f6815g + "): " + str);
     }
 
-    public PlayerData a() {
-        return this.y;
+    /* renamed from: a */
+    public PlayerData m830a() {
+        return this.f6827y;
     }
 
-    public int b() {
-        return (int) this.t.j.d();
+    /* renamed from: b */
+    public int m819b() {
+        return (int) this.f6823t.f777j.m5147d();
     }
 
-    public int c() {
-        return (int) this.t.j.e();
+    /* renamed from: c */
+    public int m815c() {
+        return (int) this.f6823t.f777j.m5146e();
     }
 
-    public boolean b(am amVar) {
-        PlayerData a2 = a();
-        if (a2 != null && amVar.bX != a2) {
+    /* renamed from: b */
+    public boolean m818b(AbstractC0244am abstractC0244am) {
+        PlayerData m830a = m830a();
+        if (m830a != null && abstractC0244am.f1614bX != m830a) {
             return false;
         }
-        if (c("onlyIfEmpty") && amVar.cr() && (amVar instanceof ak) && ((ak) amVar).bB() > 0) {
+        if (m814c("onlyIfEmpty") && abstractC0244am.mo3245cr() && (abstractC0244am instanceof InterfaceC0242ak) && ((InterfaceC0242ak) abstractC0244am).mo2916bB() > 0) {
             return false;
         }
         return true;
     }
 
-    public boolean d() {
+    /* renamed from: d */
+    public boolean m812d() {
         boolean z;
-        int i = GameEngine.getGameEngine().by;
+        int i = GameEngine.getGameEngine().f6315by;
         boolean z2 = true;
         boolean z3 = false;
-        if (!this.m && this.r != -1) {
-            if (this.r <= i) {
+        if (!this.f6821m && this.f6838r != -1) {
+            if (this.f6838r <= i) {
                 z3 = true;
-                this.m = true;
+                this.f6821m = true;
             } else {
                 z2 = false;
             }
         }
-        if (this.d.a()) {
-            if (this.d.b()) {
+        if (this.f6832d.m800a()) {
+            if (this.f6832d.m798b()) {
                 z3 = true;
             } else {
                 z2 = false;
             }
         }
-        if (this.f.f689a > 0) {
-            Iterator it = this.f.iterator();
+        if (this.f6834f.f7109a > 0) {
+            Iterator it = this.f6834f.iterator();
             while (it.hasNext()) {
-                com.corrodinggames.rts.gameFramework.status.a.a aVar = (com.corrodinggames.rts.gameFramework.status.a.a) it.next();
-                if (aVar.a(this)) {
-                    if (aVar.b(this)) {
+                AbstractC1067a abstractC1067a = (AbstractC1067a) it.next();
+                if (abstractC1067a.m806a(this)) {
+                    if (abstractC1067a.mo803b(this)) {
                         z3 = true;
                     } else {
                         z2 = false;
@@ -268,7 +350,7 @@ public class a {
                 }
             }
         }
-        if (this.h) {
+        if (this.f6816h) {
             z = z3 && z2;
         } else {
             z = z3;
@@ -277,15 +359,15 @@ public class a {
             }
         }
         if (z) {
-            if (this.n == -1) {
-                this.n = i;
+            if (this.f6835n == -1) {
+                this.f6835n = i;
             }
-            if (this.s <= 0 || i >= this.n + this.s) {
+            if (this.f6839s <= 0 || i >= this.f6835n + this.f6839s) {
                 return true;
             }
             return false;
         }
-        this.n = -1;
+        this.f6835n = -1;
         return false;
     }
 }

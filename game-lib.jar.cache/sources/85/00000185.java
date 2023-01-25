@@ -1,8 +1,9 @@
-package com.corrodinggames.rts.game.b;
+package com.corrodinggames.rts.game.p012b;
 
 import android.graphics.Rect;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,36 +17,84 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/* renamed from: com.corrodinggames.rts.game.b.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/b/j.class */
-public class j {
+public class C0183j {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f155a;
-    public com.corrodinggames.rts.gameFramework.m.e b;
-    public String c;
-    int d;
-    int e;
-    int f;
-    int g;
-    int j;
-    float k;
-    public int l;
-    public short n;
-    public b o;
-    static String t = "[EMBED]";
-    static ArrayList u = new ArrayList();
-    int h = 0;
-    int i = 0;
-    public int m = Integer.MAX_VALUE;
-    public boolean p = false;
-    public boolean q = false;
-    public boolean r = false;
-    public boolean s = false;
-    private HashMap x = new HashMap();
-    Rect v = new Rect();
-    int w = -1;
+    /* renamed from: a */
+    public String f951a;
 
-    public String a(b bVar, Element element) {
+    /* renamed from: b */
+    public C0970e f952b;
+
+    /* renamed from: c */
+    public String f953c;
+
+    /* renamed from: d */
+    int f954d;
+
+    /* renamed from: e */
+    int f955e;
+
+    /* renamed from: f */
+    int f956f;
+
+    /* renamed from: g */
+    int f957g;
+
+    /* renamed from: j */
+    int f958j;
+
+    /* renamed from: k */
+    float f959k;
+
+    /* renamed from: l */
+    public int f960l;
+
+    /* renamed from: n */
+    public short f961n;
+
+    /* renamed from: o */
+    public C0173b f962o;
+
+    /* renamed from: t */
+    static String f963t = "[EMBED]";
+
+    /* renamed from: u */
+    static ArrayList f964u = new ArrayList();
+
+    /* renamed from: h */
+    int f965h = 0;
+
+    /* renamed from: i */
+    int f966i = 0;
+
+    /* renamed from: m */
+    public int f967m = Integer.MAX_VALUE;
+
+    /* renamed from: p */
+    public boolean f968p = false;
+
+    /* renamed from: q */
+    public boolean f969q = false;
+
+    /* renamed from: r */
+    public boolean f970r = false;
+
+    /* renamed from: s */
+    public boolean f971s = false;
+
+    /* renamed from: x */
+    private HashMap f972x = new HashMap();
+
+    /* renamed from: v */
+    Rect f973v = new Rect();
+
+    /* renamed from: w */
+    int f974w = -1;
+
+    /* renamed from: a */
+    public String m4541a(C0173b c0173b, Element element) {
         Element element2 = (Element) element.getElementsByTagName("properties").item(0);
         if (element2 != null) {
             NodeList elementsByTagName = element2.getElementsByTagName("property");
@@ -67,66 +116,68 @@ public class j {
         return null;
     }
 
-    public static Element a(b bVar, String str) {
+    /* renamed from: a */
+    public static Element m4542a(C0173b c0173b, String str) {
         try {
-            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(bVar.d("tilesets/", str)).getDocumentElement();
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(c0173b.m4613d("tilesets/", str)).getDocumentElement();
         } catch (Exception e) {
-            GameEngine.getGameEngine().a("Unable to load or parse sourced tileset: tilesets/" + str, 1);
-            throw new f("Unable to load or parse sourced tileset: tilesets/" + str, e);
+            GameEngine.getGameEngine().m1065a("Unable to load or parse sourced tileset: tilesets/" + str, 1);
+            throw new C0179f("Unable to load or parse sourced tileset: tilesets/" + str, e);
         }
     }
 
-    public j(b bVar, String str, int i) {
-        this.o = bVar;
-        this.l = i;
-        Element a2 = a(bVar, str);
-        this.f155a = str;
-        a(a2);
+    public C0183j(C0173b c0173b, String str, int i) {
+        this.f962o = c0173b;
+        this.f960l = i;
+        Element m4542a = m4542a(c0173b, str);
+        this.f951a = str;
+        m4538a(m4542a);
     }
 
-    public j(b bVar, Element element) {
-        this.o = bVar;
-        this.l = Integer.parseInt(element.getAttribute("firstgid"));
+    public C0183j(C0173b c0173b, Element element) {
+        this.f962o = c0173b;
+        this.f960l = Integer.parseInt(element.getAttribute("firstgid"));
         String attribute = element.getAttribute("source");
         if (attribute != null && !attribute.equals(VariableScope.nullOrMissingString)) {
-            element = a(bVar, attribute);
-            this.f155a = attribute;
+            element = m4542a(c0173b, attribute);
+            this.f951a = attribute;
         }
-        a(element);
+        m4538a(element);
     }
 
-    public void a(Element element) {
+    /* renamed from: a */
+    public void m4538a(Element element) {
         NodeList elementsByTagName = element.getElementsByTagName("image");
         if (elementsByTagName.getLength() > 0) {
-            this.c = GameEngine.k(((Element) elementsByTagName.item(0)).getAttribute("source").trim());
+            this.f953c = GameEngine.m982k(((Element) elementsByTagName.item(0)).getAttribute("source").trim());
         }
-        String a2 = a(this.o, element);
-        if (a2 != null) {
-            this.c = a(a2, this.c);
+        String m4541a = m4541a(this.f962o, element);
+        if (m4541a != null) {
+            this.f953c = m4539a(m4541a, this.f953c);
         }
-        if (this.c == null) {
-            throw new f("Map tileset is missing an image tag or embedded image data");
+        if (this.f953c == null) {
+            throw new C0179f("Map tileset is missing an image tag or embedded image data");
         }
-        this.d = this.o.n;
-        this.e = this.o.o;
+        this.f954d = this.f962o.f786n;
+        this.f955e = this.f962o.f787o;
         if (element.hasAttribute("tilewidth")) {
-            this.d = Integer.parseInt(element.getAttribute("tilewidth"));
-            this.e = Integer.parseInt(element.getAttribute("tileheight"));
+            this.f954d = Integer.parseInt(element.getAttribute("tilewidth"));
+            this.f955e = Integer.parseInt(element.getAttribute("tileheight"));
         }
-        if (GameEngine.C()) {
-            this.d = this.o.n;
-            this.e = this.o.o;
+        if (GameEngine.m1106C()) {
+            this.f954d = this.f962o.f786n;
+            this.f955e = this.f962o.f787o;
         }
         int i = 0;
         if (element.hasAttribute("spacing")) {
             i = Integer.parseInt(element.getAttribute("spacing"));
         }
-        this.f = this.d + i;
-        this.g = this.e + i;
+        this.f956f = this.f954d + i;
+        this.f957g = this.f955e + i;
         NodeList elementsByTagName2 = element.getElementsByTagName("tile");
         for (int i2 = 0; i2 < elementsByTagName2.getLength(); i2++) {
             Element element2 = (Element) elementsByTagName2.item(i2);
-            int parseInt = Integer.parseInt(element2.getAttribute("id")) + this.l;
+            int parseInt = Integer.parseInt(element2.getAttribute("id")) + this.f960l;
             Properties properties = new Properties();
             Element element3 = (Element) element2.getElementsByTagName("properties").item(0);
             if (element3 != null) {
@@ -136,168 +187,179 @@ public class j {
                     String attribute = element4.getAttribute("name");
                     String attribute2 = element4.getAttribute("value");
                     if ("unit".equalsIgnoreCase(attribute) || "customUnit".equalsIgnoreCase(attribute)) {
-                        this.s = true;
+                        this.f971s = true;
                     }
                     properties.setProperty(attribute, attribute2);
                 }
             }
-            this.x.put(new Integer(parseInt), properties);
+            this.f972x.put(new Integer(parseInt), properties);
         }
     }
 
-    public static String a(String str, String str2) {
-        Iterator it = u.iterator();
+    /* renamed from: a */
+    public static String m4539a(String str, String str2) {
+        Iterator it = f964u.iterator();
         while (it.hasNext()) {
-            k kVar = (k) it.next();
-            if (str.equalsIgnoreCase(kVar.f)) {
-                return kVar.d;
+            C0184k c0184k = (C0184k) it.next();
+            if (str.equalsIgnoreCase(c0184k.f980f)) {
+                return c0184k.f978d;
             }
         }
-        k kVar2 = new k();
-        kVar2.b = false;
-        kVar2.e = null;
-        kVar2.f = str;
-        kVar2.c = t;
-        kVar2.d = t + k.f156a;
-        kVar2.g = str2;
-        k.f156a++;
-        u.add(kVar2);
-        return kVar2.d;
+        C0184k c0184k2 = new C0184k();
+        c0184k2.f976b = false;
+        c0184k2.f979e = null;
+        c0184k2.f980f = str;
+        c0184k2.f977c = f963t;
+        c0184k2.f978d = f963t + C0184k.f975a;
+        c0184k2.f981g = str2;
+        C0184k.f975a++;
+        f964u.add(c0184k2);
+        return c0184k2.f978d;
     }
 
-    public static com.corrodinggames.rts.gameFramework.m.e a(String str) {
+    /* renamed from: a */
+    public static C0970e m4540a(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         String str2 = "tilesets/bitmaps/";
-        if (str.startsWith(t)) {
-            str2 = t;
+        if (str.startsWith(f963t)) {
+            str2 = f963t;
         }
-        k kVar = null;
-        Iterator it = u.iterator();
+        C0184k c0184k = null;
+        Iterator it = f964u.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            k kVar2 = (k) it.next();
-            if (str.equalsIgnoreCase(kVar2.d) && str2.equalsIgnoreCase(kVar2.c)) {
-                kVar = kVar2;
+            C0184k c0184k2 = (C0184k) it.next();
+            if (str.equalsIgnoreCase(c0184k2.f978d) && str2.equalsIgnoreCase(c0184k2.f977c)) {
+                c0184k = c0184k2;
                 break;
             }
         }
-        if (kVar != null) {
-            if (kVar.f != null) {
+        if (c0184k != null) {
+            if (c0184k.f980f != null) {
                 try {
-                    com.corrodinggames.rts.gameFramework.m.e a2 = gameEngine.bO.a((InputStream) new BufferedInputStream(e.a(kVar.f, "base64", VariableScope.nullOrMissingString)), false);
-                    if (a2 == null) {
-                        throw new f("Embedded tilesetBitmap is null for: " + str);
+                    C0970e mo184a = gameEngine.f6326bO.mo184a((InputStream) new BufferedInputStream(C0178e.m4567a(c0184k.f980f, "base64", VariableScope.nullOrMissingString)), false);
+                    if (mo184a == null) {
+                        throw new C0179f("Embedded tilesetBitmap is null for: " + str);
                     }
-                    kVar.e = a2;
-                    kVar.f = null;
+                    c0184k.f979e = mo184a;
+                    c0184k.f980f = null;
                 } catch (RuntimeException e) {
                     e.printStackTrace();
-                    throw new f("Error loading embedded base64 image:" + kVar.g + " - " + e.getMessage());
+                    throw new C0179f("Error loading embedded base64 image:" + c0184k.f981g + " - " + e.getMessage());
                 }
             }
-            kVar.b = true;
-            return kVar.e;
+            c0184k.f976b = true;
+            return c0184k.f979e;
         }
         try {
-            InputStream d = gameEngine.bL.d(str2, str);
-            com.corrodinggames.rts.gameFramework.m.e a3 = gameEngine.bO.a(d, false);
-            if (d != null) {
+            InputStream m4613d = gameEngine.f6323bL.m4613d(str2, str);
+            C0970e mo184a2 = gameEngine.f6326bO.mo184a(m4613d, false);
+            if (m4613d != null) {
                 try {
-                    d.close();
+                    m4613d.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
             }
-            if (a3 == null) {
+            if (mo184a2 == null) {
                 throw new RuntimeException("tilesetBitmap is null for: " + str);
             }
-            a3.a("tilesets/" + str);
-            k kVar3 = new k();
-            kVar3.b = true;
-            kVar3.e = a3;
-            kVar3.c = str2;
-            kVar3.d = str;
-            u.add(kVar3);
-            return kVar3.e;
+            mo184a2.m902a("tilesets/" + str);
+            C0184k c0184k3 = new C0184k();
+            c0184k3.f976b = true;
+            c0184k3.f979e = mo184a2;
+            c0184k3.f977c = str2;
+            c0184k3.f978d = str;
+            f964u.add(c0184k3);
+            return c0184k3.f979e;
         } catch (IOException e3) {
-            throw new f("Image file could not be found or loaded: " + str2 + str, e3);
+            throw new C0179f("Image file could not be found or loaded: " + str2 + str, e3);
         }
     }
 
-    public static void a() {
-        Iterator it = u.iterator();
+    /* renamed from: a */
+    public static void m4546a() {
+        Iterator it = f964u.iterator();
         while (it.hasNext()) {
-            ((k) it.next()).b = false;
+            ((C0184k) it.next()).f976b = false;
         }
     }
 
-    public static void b() {
-        Iterator it = u.iterator();
+    /* renamed from: b */
+    public static void m4537b() {
+        Iterator it = f964u.iterator();
         while (it.hasNext()) {
-            k kVar = (k) it.next();
-            if (!kVar.b) {
-                if (kVar.e != null) {
-                    kVar.e.o();
-                    kVar.e = null;
+            C0184k c0184k = (C0184k) it.next();
+            if (!c0184k.f976b) {
+                if (c0184k.f979e != null) {
+                    c0184k.f979e.mo50o();
+                    c0184k.f979e = null;
                 }
-                kVar.f = null;
+                c0184k.f980f = null;
                 it.remove();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        this.b = a(this.c);
-        this.j = this.b.m() / this.f;
-        if (this.j == 0) {
-            this.j = 1;
+    /* renamed from: c */
+    void m4534c() {
+        this.f952b = m4540a(this.f953c);
+        this.f958j = this.f952b.mo387m() / this.f956f;
+        if (this.f958j == 0) {
+            this.f958j = 1;
         }
-        this.k = 1.0f / this.j;
+        this.f959k = 1.0f / this.f958j;
     }
 
-    public Properties a(int i) {
-        return (Properties) this.x.get(new Integer(i));
+    /* renamed from: a */
+    public Properties m4545a(int i) {
+        return (Properties) this.f972x.get(new Integer(i));
     }
 
-    public final void a(int i, Rect rect) {
-        int i2 = i % this.j;
-        int i3 = (int) (i * this.k);
-        int i4 = this.h + (i2 * this.f);
-        int i5 = this.i + (i3 * this.g);
-        rect.f47a = i4;
-        rect.b = i5;
-        rect.c = i4 + this.d;
-        rect.d = i5 + this.e;
+    /* renamed from: a */
+    public final void m4543a(int i, Rect rect) {
+        int i2 = i % this.f958j;
+        int i3 = (int) (i * this.f959k);
+        int i4 = this.f965h + (i2 * this.f956f);
+        int i5 = this.f966i + (i3 * this.f957g);
+        rect.f230a = i4;
+        rect.f231b = i5;
+        rect.f232c = i4 + this.f954d;
+        rect.f233d = i5 + this.f955e;
     }
 
-    public final Rect b(int i) {
-        if (this.w == i) {
-            return this.v;
+    /* renamed from: b */
+    public final Rect m4536b(int i) {
+        if (this.f974w == i) {
+            return this.f973v;
         }
-        this.w = i;
-        a(i, this.v);
-        return this.v;
+        this.f974w = i;
+        m4543a(i, this.f973v);
+        return this.f973v;
     }
 
-    public void c(int i) {
-        this.m = i;
+    /* renamed from: c */
+    public void m4533c(int i) {
+        this.f967m = i;
     }
 
-    public boolean d(int i) {
-        return i >= this.l && i <= this.m;
+    /* renamed from: d */
+    public boolean m4531d(int i) {
+        return i >= this.f960l && i <= this.f967m;
     }
 
-    public void d() {
-        this.b = null;
-        this.o = null;
-        this.x = null;
+    /* renamed from: d */
+    public void m4532d() {
+        this.f952b = null;
+        this.f962o = null;
+        this.f972x = null;
     }
 
-    public Integer b(String str, String str2) {
-        for (Map.Entry entry : this.x.entrySet()) {
+    /* renamed from: b */
+    public Integer m4535b(String str, String str2) {
+        for (Map.Entry entry : this.f972x.entrySet()) {
             Integer num = (Integer) entry.getKey();
             String property = ((Properties) entry.getValue()).getProperty(str);
             if (property != null && property.equals(str2)) {
@@ -307,17 +369,18 @@ public class j {
         return null;
     }
 
-    public int a(int i, int i2) {
-        int m;
-        if (this.b == null) {
-            GameEngine.m328e("getIndexOffsetByPosition tilesetBitmap == null");
-            m = 3;
-        } else if (this.d == 0) {
-            GameEngine.m328e("getIndexOffsetByPosition tileWidth==0");
-            m = 3;
+    /* renamed from: a */
+    public int m4544a(int i, int i2) {
+        int mo387m;
+        if (this.f952b == null) {
+            GameEngine.m5460e("getIndexOffsetByPosition tilesetBitmap == null");
+            mo387m = 3;
+        } else if (this.f954d == 0) {
+            GameEngine.m5460e("getIndexOffsetByPosition tileWidth==0");
+            mo387m = 3;
         } else {
-            m = this.b.m() / this.d;
+            mo387m = this.f952b.mo387m() / this.f954d;
         }
-        return i + (i2 * m);
+        return i + (i2 * mo387m);
     }
 }

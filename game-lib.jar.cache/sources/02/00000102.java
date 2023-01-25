@@ -1,11 +1,12 @@
 package com.corrodinggames.librocket.scripts;
 
-import com.corrodinggames.librocket.b;
-import com.corrodinggames.rts.a.a;
+import com.corrodinggames.librocket.AbstractC0043a;
+import com.corrodinggames.librocket.AbstractC0048b;
+import com.corrodinggames.rts.debug.ScriptServerSocket;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.f;
-import com.corrodinggames.rts.gameFramework.utility.al;
+import com.corrodinggames.rts.gameFramework.utility.C1118al;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -16,14 +17,15 @@ import java.util.regex.Pattern;
 
 /* loaded from: game-lib.jar:com/corrodinggames/librocket/scripts/ScriptEngine.class */
 public class ScriptEngine {
-    b slickLibRocket;
+    AbstractC0048b slickLibRocket;
     static ScriptEngine scriptEngine;
     public static boolean inDebugScript;
     static boolean mainScriptThreadMarked;
     static ThreadLocal isMainScriptThread = new ThreadLocal() { // from class: com.corrodinggames.librocket.scripts.ScriptEngine.1
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        public Boolean initialValue() {
+        /* renamed from: initialValue */
+        public Boolean m5921initialValue() {
             return false;
         }
     };
@@ -35,7 +37,7 @@ public class ScriptEngine {
     private Root root = new Root();
 
     public static boolean isStrict() {
-        if (a.a()) {
+        if (ScriptServerSocket.m5461a()) {
             return true;
         }
         return false;
@@ -44,7 +46,7 @@ public class ScriptEngine {
     public static void checkThreadAccess() {
         if (!((Boolean) isMainScriptThread.get()).booleanValue()) {
             GameEngine.print("ScriptEngine: thread is not marked as main script thread!");
-            GameEngine.T();
+            GameEngine.m1203T();
         }
     }
 
@@ -61,16 +63,16 @@ public class ScriptEngine {
         return scriptEngine;
     }
 
-    public static ScriptEngine createScriptEngine(b bVar) {
+    public static ScriptEngine createScriptEngine(AbstractC0048b abstractC0048b) {
         if (scriptEngine != null) {
             throw new RuntimeException("scriptEngine already exists");
         }
-        scriptEngine = new ScriptEngine(bVar);
+        scriptEngine = new ScriptEngine(abstractC0048b);
         return scriptEngine;
     }
 
-    private ScriptEngine(b bVar) {
-        this.slickLibRocket = bVar;
+    private ScriptEngine(AbstractC0048b abstractC0048b) {
+        this.slickLibRocket = abstractC0048b;
         setupScriptContext(this.root);
         setGlobalVariable("root", this.root);
         Multiplayer multiplayer = new Multiplayer(this.root);
@@ -82,7 +84,7 @@ public class ScriptEngine {
         setupScriptContext(mods);
         setGlobalVariable("mods", mods);
         this.root.mods = mods;
-        if (a.a()) {
+        if (ScriptServerSocket.m5461a()) {
             ScriptContext debug = new Debug(this.root);
             setupScriptContext(debug);
             setGlobalVariable("debug", debug);
@@ -92,7 +94,7 @@ public class ScriptEngine {
     public void setupScriptContext(ScriptContext scriptContext) {
         Method[] methods;
         scriptContext.libRocket = this.slickLibRocket;
-        scriptContext.guiEngine = com.corrodinggames.librocket.a.a();
+        scriptContext.guiEngine = AbstractC0043a.m5510a();
         scriptContext.scriptEngine = this;
         for (Method method : scriptContext.getClass().getMethods()) {
             String name = method.getName();
@@ -118,8 +120,8 @@ public class ScriptEngine {
                 scriptEngine.processScript(this.script);
             } catch (Exception e) {
                 if (this.tryToCatchCrash) {
-                    GameEngine.a("caught script crash", (Throwable) e);
-                    this.caughtCrash = f.a(e);
+                    GameEngine.m1175a("caught script crash", (Throwable) e);
+                    this.caughtCrash = C0773f.m2323a(e);
                     return;
                 }
                 throw new RuntimeException(e);
@@ -162,8 +164,8 @@ public class ScriptEngine {
                 this.runnable.run();
             } catch (Exception e) {
                 if (this.tryToCatchCrash) {
-                    GameEngine.a("caught script crash", (Throwable) e);
-                    this.caughtCrash = f.a(e);
+                    GameEngine.m1175a("caught script crash", (Throwable) e);
+                    this.caughtCrash = C0773f.m2323a(e);
                     return;
                 }
                 throw new RuntimeException(e);
@@ -241,7 +243,7 @@ public class ScriptEngine {
             System.out.println("ScriptEngine:HandleEvent:" + str);
         }
         try {
-            for (String str2 : al.a(str, ';')) {
+            for (String str2 : C1118al.m609a(str, ';')) {
                 processArg(str2);
             }
         } catch (Exception e) {
@@ -251,7 +253,7 @@ public class ScriptEngine {
     }
 
     public static void throwDelayedException(String str, Throwable th) {
-        GameEngine.a("throwDelayedException", th);
+        GameEngine.m1175a("throwDelayedException", th);
         if (scriptError == null) {
             scriptError = th;
             scriptErrorMessage = str;
@@ -279,7 +281,7 @@ public class ScriptEngine {
         }
         Matcher match = match("'(.*)'", trim);
         if (match != null) {
-            return f.o(match.group(1));
+            return C0773f.m2235o(match.group(1));
         }
         Matcher match2 = match("(-?\\d*)", trim);
         if (match2 != null) {
@@ -332,29 +334,29 @@ public class ScriptEngine {
     }
 
     public Object getScriptVariable(String str, boolean z) {
-        if (this.slickLibRocket.d() != null) {
-            Object metadata = this.slickLibRocket.d().getMetadata(str);
+        if (this.slickLibRocket.m5472d() != null) {
+            Object metadata = this.slickLibRocket.m5472d().getMetadata(str);
             if (metadata != null) {
                 return metadata;
             }
             if (z) {
                 System.out.println("getScriptVariable: alert");
-                printMetadata(this.slickLibRocket.d().metadata);
+                printMetadata(this.slickLibRocket.m5472d().metadata);
             }
         }
-        if (this.slickLibRocket.c() != null) {
-            Object metadata2 = this.slickLibRocket.c().getMetadata(str);
+        if (this.slickLibRocket.m5475c() != null) {
+            Object metadata2 = this.slickLibRocket.m5475c().getMetadata(str);
             if (metadata2 != null) {
                 return metadata2;
             }
             if (z) {
                 System.out.println("getScriptVariable: popup");
-                printMetadata(this.slickLibRocket.c().metadata);
+                printMetadata(this.slickLibRocket.m5475c().metadata);
             }
         }
-        Object b = this.slickLibRocket.b(str);
-        if (b != null) {
-            return b;
+        Object m5477b = this.slickLibRocket.m5477b(str);
+        if (m5477b != null) {
+            return m5477b;
         }
         if (z) {
             System.out.println("getScriptVariable: document");
@@ -381,18 +383,18 @@ public class ScriptEngine {
     }
 
     public Object processFunction(String str, Matcher matcher) {
-        String[] a2;
+        String[] m609a;
         GameEngine.getGameEngine();
         String group = matcher.group(1);
         String group2 = matcher.group(2);
         if (group2.equals(VariableScope.nullOrMissingString)) {
-            a2 = new String[0];
+            m609a = new String[0];
         } else {
-            a2 = al.a(group2, ',');
+            m609a = C1118al.m609a(group2, ',');
         }
-        Object[] objArr = new Object[a2.length];
+        Object[] objArr = new Object[m609a.length];
         for (int i = 0; i < objArr.length; i++) {
-            objArr[i] = processArg(a2[i]);
+            objArr[i] = processArg(m609a[i]);
         }
         return runFunction(group, objArr);
     }
@@ -463,11 +465,11 @@ public class ScriptEngine {
     }
 
     public static void logError(String str) {
-        GameEngine.m328e("ScriptEngine - error: " + str);
+        GameEngine.m5925e("ScriptEngine - error: " + str);
     }
 
     public static void logCritical(String str) {
-        GameEngine.m328e("ScriptEngine - critical: " + str);
+        GameEngine.m5925e("ScriptEngine - critical: " + str);
         if (isStrict()) {
             throw new RuntimeException("ScriptEngine - critical:" + str);
         }

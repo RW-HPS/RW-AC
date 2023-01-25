@@ -1,9 +1,15 @@
-package a.a;
+package net.rudp;
 
+/* renamed from: a.a.g */
 /* loaded from: game-lib.jar:a/a/g.class */
-class g {
+class C0016g {
 
-    /* renamed from: a  reason: collision with root package name */
-    long f13a;
-    e b;
+    /* renamed from: a */
+    long f45a;
+
+    /* renamed from: b */
+    C0014e f46b;
+
+    C0016g() {
+    }
 }
