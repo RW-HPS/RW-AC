@@ -2,30 +2,29 @@ package com.corrodinggames.rts.gameFramework;
 
 import java.util.Comparator;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.x */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/x.class */
-class C1156x implements Comparator {
-    C1156x() {
+class x implements Comparator {
+    x() {
     }
 
     @Override // java.util.Comparator
     /* renamed from: a */
-    public int mo431a(AbstractC1155w abstractC1155w, AbstractC1155w abstractC1155w2) {
-        if (abstractC1155w.f7170em > abstractC1155w2.f7170em) {
+    public int compare(w wVar, w wVar2) {
+        if (wVar.em > wVar2.em) {
             return 1;
         }
-        if (abstractC1155w.f7170em < abstractC1155w2.f7170em) {
+        if (wVar.em < wVar2.em) {
             return -1;
         }
-        if (abstractC1155w.f7171en > abstractC1155w2.f7171en) {
+        if (wVar.en > wVar2.en) {
             return 1;
         }
-        if (abstractC1155w.f7171en < abstractC1155w2.f7171en) {
+        if (wVar.en < wVar2.en) {
             return -1;
         }
-        if (abstractC1155w.f7173ep > abstractC1155w2.f7173ep) {
+        if (wVar.ep > wVar2.ep) {
             return 1;
         }
-        return abstractC1155w.f7173ep < abstractC1155w2.f7173ep ? -1 : 0;
+        return wVar.ep < wVar2.ep ? -1 : 0;
     }
 }

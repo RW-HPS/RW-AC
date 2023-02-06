@@ -1,426 +1,376 @@
-package com.corrodinggames.rts.game.p010a;
+package com.corrodinggames.rts.game.a;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.EnumC0246ao;
-import com.corrodinggames.rts.game.units.InterfaceC0242ak;
-import com.corrodinggames.rts.game.units.p013a.C0208c;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.ak;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.ao;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.SyncPacket;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
-import com.corrodinggames.rts.gameFramework.utility.C1152y;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.a.n */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/n.class */
-public class C0169n extends AbstractC0163h {
+public class n extends h {
+    boolean a;
+    int b;
+    int c;
+    i d;
+    float e;
+    float f;
+    float g;
+    float h;
+    float i;
+    float j;
+    float k;
+    int l;
+    h m;
+    y n;
+    float o;
+    boolean p;
+    boolean q;
+    float r;
+    float s;
 
-    /* renamed from: a */
-    boolean f741a;
-
-    /* renamed from: b */
-    int f742b;
-
-    /* renamed from: c */
-    int f743c;
-
-    /* renamed from: d */
-    C0164i f744d;
-
-    /* renamed from: e */
-    float f745e;
-
-    /* renamed from: f */
-    float f746f;
-
-    /* renamed from: g */
-    float f747g;
-
-    /* renamed from: h */
-    float f748h;
-
-    /* renamed from: i */
-    float f749i;
-
-    /* renamed from: j */
-    float f750j;
-
-    /* renamed from: k */
-    float f751k;
-
-    /* renamed from: l */
-    int f752l;
-
-    /* renamed from: m */
-    AbstractC0163h f753m;
-
-    /* renamed from: n */
-    AbstractC0629y f754n;
-
-    /* renamed from: o */
-    float f755o;
-
-    /* renamed from: p */
-    boolean f756p;
-
-    /* renamed from: q */
-    boolean f757q;
-
-    /* renamed from: r */
-    float f758r;
-
-    /* renamed from: s */
-    float f759s;
-
-    @Override // com.corrodinggames.rts.game.p010a.AbstractC0170o, com.corrodinggames.rts.gameFramework.AbstractC0741bq
-    /* renamed from: a */
-    public void mo442a(GameOutputStream gameOutputStream) {
-        gameOutputStream.writeBoolean(this.f741a);
-        gameOutputStream.writeInt(this.f742b);
-        gameOutputStream.writeInt(this.f743c);
-        gameOutputStream.writeInt(this.f688F.size());
-        Iterator it = this.f688F.iterator();
+    @Override // com.corrodinggames.rts.game.a.o, com.corrodinggames.rts.gameFramework.bq
+    public void a(GameOutputStream gameOutputStream) {
+        gameOutputStream.writeBoolean(this.a);
+        gameOutputStream.writeInt(this.b);
+        gameOutputStream.writeInt(this.c);
+        gameOutputStream.writeInt(this.F.size());
+        Iterator it = this.F.iterator();
         while (it.hasNext()) {
-            gameOutputStream.mo1385a((AbstractC0629y) it.next());
+            gameOutputStream.a((y) it.next());
         }
         gameOutputStream.writeByte(5);
-        gameOutputStream.writeInt(this.f761R.m4872a(this.f753m));
-        gameOutputStream.writeBoolean(this.f757q);
-        gameOutputStream.mo1385a(this.f754n);
-        gameOutputStream.writeFloat(this.f755o);
-        gameOutputStream.writeBoolean(this.f756p);
-        gameOutputStream.writeFloat(this.f758r);
-        gameOutputStream.writeFloat(this.f759s);
-        super.mo442a(gameOutputStream);
+        gameOutputStream.writeInt(this.R.a(this.m));
+        gameOutputStream.writeBoolean(this.q);
+        gameOutputStream.a(this.n);
+        gameOutputStream.writeFloat(this.o);
+        gameOutputStream.writeBoolean(this.p);
+        gameOutputStream.writeFloat(this.r);
+        gameOutputStream.writeFloat(this.s);
+        super.a(gameOutputStream);
     }
 
-    @Override // com.corrodinggames.rts.game.p010a.AbstractC0170o
-    /* renamed from: a */
-    public void mo4684a(GameInputStream gameInputStream) {
-        this.f741a = gameInputStream.readBoolean();
-        this.f742b = gameInputStream.readInt();
-        this.f743c = gameInputStream.readInt();
-        m4746q();
+    @Override // com.corrodinggames.rts.game.a.o
+    public void a(GameInputStream gameInputStream) {
+        this.a = gameInputStream.readBoolean();
+        this.b = gameInputStream.readInt();
+        this.c = gameInputStream.readInt();
+        q();
         int readInt = gameInputStream.readInt();
         for (int i = 0; i < readInt; i++) {
-            AbstractC0629y m1292p = gameInputStream.m1292p();
-            if (m1292p != null) {
-                if (!this.f761R.m4819g(m1292p)) {
+            y p = gameInputStream.p();
+            if (p != null) {
+                if (!this.R.g(p)) {
                     GameEngine.print("TransporterGroup:readIn: Unit is not transporterUnit");
                 } else {
-                    mo4754a(m1292p);
+                    a(p);
                 }
             }
         }
         byte readByte = gameInputStream.readByte();
         if (readByte >= 1) {
-            this.f753m = (AbstractC0163h) this.f761R.m4809m(gameInputStream.readInt());
+            this.m = (h) this.R.m(gameInputStream.readInt());
         }
         if (readByte >= 2) {
-            this.f757q = gameInputStream.readBoolean();
+            this.q = gameInputStream.readBoolean();
         }
         if (readByte >= 3) {
-            this.f754n = gameInputStream.m1292p();
+            this.n = gameInputStream.p();
         }
         if (readByte >= 4) {
-            this.f755o = gameInputStream.readFloat();
-            this.f756p = gameInputStream.readBoolean();
+            this.o = gameInputStream.readFloat();
+            this.p = gameInputStream.readBoolean();
         }
         if (readByte >= 5) {
-            this.f758r = gameInputStream.readFloat();
-            this.f759s = gameInputStream.readFloat();
+            this.r = gameInputStream.readFloat();
+            this.s = gameInputStream.readFloat();
         }
-        super.mo4684a(gameInputStream);
+        super.a(gameInputStream);
     }
 
-    public C0169n(C0136a c0136a) {
-        super(c0136a);
-        this.f745e = 100.0f;
-        this.f746f = 4000.0f;
-        this.f747g = 100.0f;
-        this.f755o = 0.0f;
-        this.f756p = false;
+    public n(a aVar) {
+        super(aVar);
+        this.e = 100.0f;
+        this.f = 4000.0f;
+        this.g = 100.0f;
+        this.o = 0.0f;
+        this.p = false;
     }
 
-    /* renamed from: c */
-    public void m4691c() {
-        Iterator it = AbstractC0244am.f1594bE.iterator();
+    public void c() {
+        Iterator it = am.bE.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
-            if (!abstractC0244am.f1612bV && abstractC0244am.f1614bX == this.f761R && this.f752l > this.f688F.size() && (abstractC0244am instanceof AbstractC0629y)) {
-                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-                if (!abstractC0629y.f1604bN && abstractC0629y.f3979aB == null && this.f761R.m4819g(abstractC0629y) && this.f761R.m4816i(abstractC0629y)) {
-                    mo4754a(abstractC0629y);
+            am amVar = (am) it.next();
+            if (!amVar.bV && amVar.bX == this.R && this.l > this.F.size() && (amVar instanceof y)) {
+                y yVar = (y) amVar;
+                if (!yVar.bN && yVar.aB == null && this.R.g(yVar) && this.R.i(yVar)) {
+                    a(yVar);
                 }
             }
         }
     }
 
-    /* renamed from: d */
-    public boolean m4689d() {
-        return this.f753m != null;
+    public boolean d() {
+        return this.m != null;
     }
 
-    @Override // com.corrodinggames.rts.game.p010a.AbstractC0163h
-    /* renamed from: c */
-    public void mo4690c(float f) {
+    @Override // com.corrodinggames.rts.game.a.h
+    public void c(float f) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        this.f748h += f;
-        m4748n();
-        if (this.f752l <= this.f688F.size()) {
+        this.h += f;
+        n();
+        if (this.l <= this.F.size()) {
         }
-        this.f749i = C0773f.m2218a(this.f749i, f);
-        this.f750j = C0773f.m2218a(this.f750j, f);
-        this.f751k = C0773f.m2218a(this.f751k, f);
-        if (!m4689d() && !this.f757q && this.f752l > this.f688F.size() && this.f749i == 0.0f) {
-            this.f749i = 300.0f;
-            m4691c();
+        this.i = com.corrodinggames.rts.gameFramework.f.a(this.i, f);
+        this.j = com.corrodinggames.rts.gameFramework.f.a(this.j, f);
+        this.k = com.corrodinggames.rts.gameFramework.f.a(this.k, f);
+        if (!d() && !this.q && this.l > this.F.size() && this.i == 0.0f) {
+            this.i = 300.0f;
+            c();
         }
-        if (!m4689d() && this.f688F.size() != 0) {
-            if (!m4689d()) {
-                this.f746f = C0773f.m2218a(this.f746f, f);
-                if (this.f746f == 0.0f) {
-                    this.f746f = 4000.0f;
-                    if (this.f744d != null) {
-                        PointF w = this.f744d.m4677w();
-                        this.f762S = w.x;
-                        this.f763T = w.y;
+        if (!d() && this.F.size() != 0) {
+            if (!d()) {
+                this.f = com.corrodinggames.rts.gameFramework.f.a(this.f, f);
+                if (this.f == 0.0f) {
+                    this.f = 4000.0f;
+                    if (this.d != null) {
+                        PointF w = this.d.w();
+                        this.S = w.x;
+                        this.T = w.y;
                     }
                 }
             }
-            if (this.f750j == 0.0f) {
-                this.f750j = 400.0f;
-                SyncPacket m2422a = gameEngine.f6343cf.m2422a(this.f761R);
-                Iterator it = this.f688F.iterator();
+            if (this.j == 0.0f) {
+                this.j = 400.0f;
+                SyncPacket a = gameEngine.cf.a(this.R);
+                Iterator it = this.F.iterator();
                 while (it.hasNext()) {
-                    AbstractC0629y abstractC0629y = (AbstractC0629y) it.next();
-                    if (m4681c(abstractC0629y) > 28900.0f && !abstractC0629y.m2938aw()) {
-                        m2422a.m2327a(abstractC0629y);
-                    } else if (((InterfaceC0242ak) abstractC0629y).mo2916bB() != 0) {
-                        C0208c cp = abstractC0629y.mo3246cp();
-                        SyncPacket m2422a2 = gameEngine.f6343cf.m2422a(this.f761R);
-                        m2422a2.m2327a(abstractC0629y);
-                        m2422a2.m2332a(cp);
+                    y yVar = (y) it.next();
+                    if (c(yVar) > 28900.0f && !yVar.aw()) {
+                        a.a(yVar);
+                    } else if (((ak) yVar).bB() != 0) {
+                        com.corrodinggames.rts.game.units.a.c cp = yVar.cp();
+                        SyncPacket a2 = gameEngine.cf.a(this.R);
+                        a2.a(yVar);
+                        a2.a(cp);
                     }
                 }
-                m2422a.m2337a(this.f762S, this.f763T);
+                a.a(this.S, this.T);
             }
-            if (this.f753m == null) {
-                this.f747g = C0773f.m2218a(this.f747g, f);
-                if (this.f747g == 0.0f) {
-                    this.f747g = 100.0f;
-                    if (C0773f.rand(0, 100) < 80) {
-                        m4693a(f, true);
+            if (this.m == null) {
+                this.g = com.corrodinggames.rts.gameFramework.f.a(this.g, f);
+                if (this.g == 0.0f) {
+                    this.g = 100.0f;
+                    if (com.corrodinggames.rts.gameFramework.f.rand(0, 100) < 80) {
+                        a(f, true);
                     }
-                    if (this.f753m == null) {
-                        m4693a(f, false);
+                    if (this.m == null) {
+                        a(f, false);
                     }
                 }
             }
         }
-        if (this.f753m != null && this.f753m.f765V) {
-            this.f753m = null;
+        if (this.m != null && this.m.V) {
+            this.m = null;
         }
-        if (!this.f757q) {
-            if (this.f753m != null) {
-                ArrayList arrayList = this.f753m.f689G;
-                if (this.f754n != null && (this.f754n.f1612bV || this.f754n.f1656cN != null || this.f754n.f1657cO != null)) {
-                    arrayList.remove(this.f754n);
-                    this.f754n = null;
+        if (!this.q) {
+            if (this.m != null) {
+                ArrayList arrayList = this.m.G;
+                if (this.n != null && (this.n.bV || this.n.cN != null || this.n.cO != null)) {
+                    arrayList.remove(this.n);
+                    this.n = null;
                 }
-                if (this.f754n == null) {
+                if (this.n == null) {
                     Iterator it2 = arrayList.iterator();
                     while (it2.hasNext()) {
-                        AbstractC0629y abstractC0629y2 = (AbstractC0629y) it2.next();
-                        if (abstractC0629y2.f1656cN == null) {
-                            Iterator it3 = this.f688F.iterator();
+                        y yVar2 = (y) it2.next();
+                        if (yVar2.cN == null) {
+                            Iterator it3 = this.F.iterator();
                             while (true) {
                                 if (!it3.hasNext()) {
                                     break;
-                                } else if (((AbstractC0629y) it3.next()).mo3244d((AbstractC0244am) abstractC0629y2, false)) {
-                                    this.f754n = abstractC0629y2;
+                                } else if (((y) it3.next()).d((am) yVar2, false)) {
+                                    this.n = yVar2;
                                     break;
                                 }
                             }
                         }
                     }
-                    if (this.f754n == null) {
-                        this.f757q = true;
-                        this.f750j = 0.0f;
-                        this.f751k = 0.0f;
-                        this.f758r = this.f753m.f762S;
-                        this.f759s = this.f753m.f763T;
+                    if (this.n == null) {
+                        this.q = true;
+                        this.j = 0.0f;
+                        this.k = 0.0f;
+                        this.r = this.m.S;
+                        this.s = this.m.T;
                     }
                 }
-                if (this.f754n != null) {
-                    if (this.f750j == 0.0f) {
-                        this.f750j = 400.0f;
-                        SyncPacket m2422a3 = gameEngine.f6343cf.m2422a(this.f761R);
-                        Iterator it4 = this.f688F.iterator();
+                if (this.n != null) {
+                    if (this.j == 0.0f) {
+                        this.j = 400.0f;
+                        SyncPacket a3 = gameEngine.cf.a(this.R);
+                        Iterator it4 = this.F.iterator();
                         while (it4.hasNext()) {
-                            m2422a3.m2327a((AbstractC0629y) it4.next());
+                            a3.a((y) it4.next());
                         }
-                        m2422a3.m2337a(this.f754n.f7172eo, this.f754n.f7173ep);
+                        a3.a(this.n.eo, this.n.ep);
                     }
-                    if (this.f751k == 0.0f) {
-                        this.f751k = 80.0f;
+                    if (this.k == 0.0f) {
+                        this.k = 80.0f;
                         Iterator it5 = arrayList.iterator();
                         while (it5.hasNext()) {
-                            AbstractC0629y abstractC0629y3 = (AbstractC0629y) it5.next();
-                            Iterator it6 = this.f688F.iterator();
+                            y yVar3 = (y) it5.next();
+                            Iterator it6 = this.F.iterator();
                             while (true) {
                                 if (it6.hasNext()) {
-                                    AbstractC0629y abstractC0629y4 = (AbstractC0629y) it6.next();
-                                    if (abstractC0629y4.mo3244d((AbstractC0244am) abstractC0629y3, false) && C0773f.m2216a(abstractC0629y4.f7172eo, abstractC0629y4.f7173ep, abstractC0629y3.f7172eo, abstractC0629y3.f7173ep) < 14400.0f) {
-                                        SyncPacket m2422a4 = gameEngine.f6343cf.m2422a(this.f761R);
-                                        m2422a4.m2327a(abstractC0629y3);
-                                        m2422a4.m2314e(abstractC0629y4);
+                                    y yVar4 = (y) it6.next();
+                                    if (yVar4.d((am) yVar3, false) && com.corrodinggames.rts.gameFramework.f.a(yVar4.eo, yVar4.ep, yVar3.eo, yVar3.ep) < 14400.0f) {
+                                        SyncPacket a4 = gameEngine.cf.a(this.R);
+                                        a4.a(yVar3);
+                                        a4.e(yVar4);
                                         break;
                                     }
                                 }
                             }
                         }
                         boolean z = false;
-                        Iterator it7 = this.f688F.iterator();
+                        Iterator it7 = this.F.iterator();
                         while (it7.hasNext()) {
-                            if (((AbstractC0629y) it7.next()).mo3244d((AbstractC0244am) this.f754n, false)) {
+                            if (((y) it7.next()).d((am) this.n, false)) {
                                 z = true;
                             }
                         }
                         if (!z) {
-                            this.f754n = null;
+                            this.n = null;
                         }
                     }
                 }
             }
-        } else if (this.f753m == null) {
-            m4688e();
+        } else if (this.m == null) {
+            e();
         } else {
-            if (this.f750j == 0.0f) {
-                this.f750j = 400.0f;
-                float m2151c = this.f753m.f762S + C0773f.m2151c(-40.0f, 40.0f);
-                float m2151c2 = this.f753m.f763T + C0773f.m2151c(-40.0f, 40.0f);
-                if (this.f755o > 600.0f) {
-                    m2151c += C0773f.m2151c(-300.0f, 300.0f);
-                    m2151c2 += C0773f.m2151c(-300.0f, 300.0f);
+            if (this.j == 0.0f) {
+                this.j = 400.0f;
+                float c = this.m.S + com.corrodinggames.rts.gameFramework.f.c(-40.0f, 40.0f);
+                float c2 = this.m.T + com.corrodinggames.rts.gameFramework.f.c(-40.0f, 40.0f);
+                if (this.o > 600.0f) {
+                    c += com.corrodinggames.rts.gameFramework.f.c(-300.0f, 300.0f);
+                    c2 += com.corrodinggames.rts.gameFramework.f.c(-300.0f, 300.0f);
                 }
-                if (this.f755o > 1200.0f) {
-                    m2151c += C0773f.m2151c(-300.0f, 300.0f);
-                    m2151c2 += C0773f.m2151c(-300.0f, 300.0f);
+                if (this.o > 1200.0f) {
+                    c += com.corrodinggames.rts.gameFramework.f.c(-300.0f, 300.0f);
+                    c2 += com.corrodinggames.rts.gameFramework.f.c(-300.0f, 300.0f);
                 }
-                if (C1152y.m477a(m2151c, m2151c2, EnumC0246ao.f1709b)) {
-                    m2151c += C0773f.m2151c(-100.0f, 100.0f);
-                    m2151c2 += C0773f.m2151c(-100.0f, 100.0f);
+                if (com.corrodinggames.rts.gameFramework.utility.y.a(c, c2, ao.LAND)) {
+                    c += com.corrodinggames.rts.gameFramework.f.c(-100.0f, 100.0f);
+                    c2 += com.corrodinggames.rts.gameFramework.f.c(-100.0f, 100.0f);
                 }
-                if (C1152y.m477a(m2151c, m2151c2, EnumC0246ao.f1709b)) {
-                    m2151c += C0773f.m2151c(-200.0f, 200.0f);
-                    m2151c2 += C0773f.m2151c(-200.0f, 200.0f);
+                if (com.corrodinggames.rts.gameFramework.utility.y.a(c, c2, ao.LAND)) {
+                    c += com.corrodinggames.rts.gameFramework.f.c(-200.0f, 200.0f);
+                    c2 += com.corrodinggames.rts.gameFramework.f.c(-200.0f, 200.0f);
                 }
-                if (C1152y.m477a(m2151c, m2151c2, EnumC0246ao.f1709b)) {
-                    m2151c += C0773f.m2151c(-200.0f, 200.0f);
-                    m2151c2 += C0773f.m2151c(-200.0f, 200.0f);
+                if (com.corrodinggames.rts.gameFramework.utility.y.a(c, c2, ao.LAND)) {
+                    c += com.corrodinggames.rts.gameFramework.f.c(-200.0f, 200.0f);
+                    c2 += com.corrodinggames.rts.gameFramework.f.c(-200.0f, 200.0f);
                 }
-                if (C1152y.m477a(m2151c, m2151c2, EnumC0246ao.f1709b)) {
-                    this.f750j = 30.0f;
+                if (com.corrodinggames.rts.gameFramework.utility.y.a(c, c2, ao.LAND)) {
+                    this.j = 30.0f;
                 } else {
-                    this.f758r = m2151c;
-                    this.f759s = m2151c2;
-                    SyncPacket m2422a5 = gameEngine.f6343cf.m2422a(this.f761R);
-                    Iterator it8 = this.f688F.iterator();
+                    this.r = c;
+                    this.s = c2;
+                    SyncPacket a5 = gameEngine.cf.a(this.R);
+                    Iterator it8 = this.F.iterator();
                     while (it8.hasNext()) {
-                        AbstractC0629y abstractC0629y5 = (AbstractC0629y) it8.next();
-                        if (((InterfaceC0242ak) abstractC0629y5).mo2916bB() != 0) {
-                            if (C0773f.m2216a(abstractC0629y5.f7172eo, abstractC0629y5.f7173ep, this.f758r, this.f759s) > 1600.0f) {
-                                m2422a5.m2327a(abstractC0629y5);
+                        y yVar5 = (y) it8.next();
+                        if (((ak) yVar5).bB() != 0) {
+                            if (com.corrodinggames.rts.gameFramework.f.a(yVar5.eo, yVar5.ep, this.r, this.s) > 1600.0f) {
+                                a5.a(yVar5);
                             }
                         } else {
-                            SyncPacket m2422a6 = gameEngine.f6343cf.m2422a(this.f761R);
-                            m2422a6.m2327a(abstractC0629y5);
-                            m2422a6.m2337a(this.f762S, this.f763T);
+                            SyncPacket a6 = gameEngine.cf.a(this.R);
+                            a6.a(yVar5);
+                            a6.a(this.S, this.T);
                         }
                     }
-                    m2422a5.m2337a(this.f758r, this.f759s);
+                    a5.a(this.r, this.s);
                 }
             }
-            if (this.f751k == 0.0f) {
-                this.f751k = 100.0f;
-                Iterator it9 = this.f688F.iterator();
+            if (this.k == 0.0f) {
+                this.k = 100.0f;
+                Iterator it9 = this.F.iterator();
                 while (it9.hasNext()) {
-                    AbstractC0629y abstractC0629y6 = (AbstractC0629y) it9.next();
-                    if (C0773f.m2216a(abstractC0629y6.f7172eo, abstractC0629y6.f7173ep, this.f758r, this.f759s) < 6400.0f) {
-                        this.f756p = true;
-                        C0208c cp2 = abstractC0629y6.mo3246cp();
-                        SyncPacket m2422a7 = gameEngine.f6343cf.m2422a(this.f761R);
-                        m2422a7.m2327a(abstractC0629y6);
-                        m2422a7.m2332a(cp2);
+                    y yVar6 = (y) it9.next();
+                    if (com.corrodinggames.rts.gameFramework.f.a(yVar6.eo, yVar6.ep, this.r, this.s) < 6400.0f) {
+                        this.p = true;
+                        com.corrodinggames.rts.game.units.a.c cp2 = yVar6.cp();
+                        SyncPacket a7 = gameEngine.cf.a(this.R);
+                        a7.a(yVar6);
+                        a7.a(cp2);
                     }
                 }
             }
-            if (this.f756p) {
-                this.f753m.m4747o();
-                this.f755o += f;
+            if (this.p) {
+                this.m.o();
+                this.o += f;
             }
             boolean z2 = false;
-            Iterator it10 = this.f688F.iterator();
+            Iterator it10 = this.F.iterator();
             while (it10.hasNext()) {
-                AbstractC0629y abstractC0629y7 = (AbstractC0629y) it10.next();
-                if (!abstractC0629y7.f1612bV && ((InterfaceC0242ak) abstractC0629y7).mo2916bB() != 0) {
+                y yVar7 = (y) it10.next();
+                if (!yVar7.bV && ((ak) yVar7).bB() != 0) {
                     z2 = true;
                 }
             }
-            if (!z2 || this.f755o > 1700.0f) {
-                m4688e();
+            if (!z2 || this.o > 1700.0f) {
+                e();
             }
         }
-        if (this.f748h > 1500.0f && this.f688F.size() == 0) {
-            mo4678p();
+        if (this.h > 1500.0f && this.F.size() == 0) {
+            p();
         }
     }
 
-    /* renamed from: e */
-    public void m4688e() {
-        this.f757q = false;
-        this.f753m = null;
-        this.f755o = 0.0f;
-        this.f750j = 0.0f;
-        this.f751k = 0.0f;
-        this.f756p = false;
-        m4687f();
+    public void e() {
+        this.q = false;
+        this.m = null;
+        this.o = 0.0f;
+        this.j = 0.0f;
+        this.k = 0.0f;
+        this.p = false;
+        f();
     }
 
-    /* renamed from: a */
-    public void m4693a(float f, boolean z) {
-        Iterator it = this.f761R.f601bn.iterator();
+    public void a(float f, boolean z) {
+        Iterator it = this.R.bn.iterator();
         while (it.hasNext()) {
-            AbstractC0170o abstractC0170o = (AbstractC0170o) it.next();
-            if ((abstractC0170o instanceof AbstractC0163h) && !(abstractC0170o instanceof C0169n) && (!z || (abstractC0170o instanceof C0167l))) {
-                AbstractC0163h abstractC0163h = (AbstractC0163h) abstractC0170o;
-                if (abstractC0163h.f689G.size() != 0 && !abstractC0163h.m4749m()) {
-                    this.f753m = abstractC0163h;
-                    this.f754n = null;
+            o oVar = (o) it.next();
+            if ((oVar instanceof h) && !(oVar instanceof n) && (!z || (oVar instanceof l))) {
+                h hVar = (h) oVar;
+                if (hVar.G.size() != 0 && !hVar.m()) {
+                    this.m = hVar;
+                    this.n = null;
                     return;
                 }
             }
         }
     }
 
-    /* renamed from: a */
-    public C0164i m4692a(boolean z) {
-        C0164i c0164i = null;
-        Iterator it = this.f761R.f601bn.iterator();
+    public i a(boolean z) {
+        i iVar = null;
+        Iterator it = this.R.bn.iterator();
         while (it.hasNext()) {
-            AbstractC0170o abstractC0170o = (AbstractC0170o) it.next();
-            if (abstractC0170o instanceof C0164i) {
-                C0164i c0164i2 = (C0164i) abstractC0170o;
-                if (!c0164i2.f708s || !z) {
-                    if (c0164i2.f691b == EnumC0165j.Active) {
-                        c0164i = c0164i2;
-                        if (C0773f.m2148c(3) == 0) {
-                            return c0164i;
+            o oVar = (o) it.next();
+            if (oVar instanceof i) {
+                i iVar2 = (i) oVar;
+                if (!iVar2.s || !z) {
+                    if (iVar2.b == j.Active) {
+                        iVar = iVar2;
+                        if (com.corrodinggames.rts.gameFramework.f.c(3) == 0) {
+                            return iVar;
                         }
                     } else {
                         continue;
@@ -428,26 +378,25 @@ public class C0169n extends AbstractC0163h {
                 }
             }
         }
-        return c0164i;
+        return iVar;
     }
 
-    /* renamed from: f */
-    public void m4687f() {
+    public void f() {
         PointF pointF = null;
         if (1 != 0) {
-            this.f744d = m4692a(true);
-            if (this.f744d == null) {
-                this.f744d = m4692a(false);
+            this.d = a(true);
+            if (this.d == null) {
+                this.d = a(false);
             }
-            if (this.f744d != null) {
-                pointF = this.f744d.m4677w();
+            if (this.d != null) {
+                pointF = this.d.w();
             }
         }
         if (pointF == null) {
-            pointF = this.f761R.m4844am();
-            this.f744d = null;
+            pointF = this.R.am();
+            this.d = null;
         }
-        this.f762S = pointF.x;
-        this.f763T = pointF.y;
+        this.S = pointF.x;
+        this.T = pointF.y;
     }
 }

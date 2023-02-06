@@ -1,152 +1,131 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.EnumC0249ar;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.ar;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.f;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.al */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/al.class */
-abstract class AbstractC0802al {
-
-    /* renamed from: a */
-    static AbstractC0802al f5190a = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.1
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo2951aj() && !abstractC0629y.mo1745u() && abstractC0629y.f1656cN == null && abstractC0629y.m2944aq()) {
+abstract class al {
+    static al a = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.1
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.aj() && !yVar.u() && yVar.cN == null && yVar.aq()) {
+                return true;
+            }
+            return false;
+        }
+    };
+    static al b = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.2
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.aj() && !yVar.u() && yVar.cN == null) {
+                return true;
+            }
+            return false;
+        }
+    };
+    static al c = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.3
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.mo1r() != null && yVar.mo1r().p() && yVar.cN == null) {
+                return true;
+            }
+            return false;
+        }
+    };
+    static al d = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.4
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.mo1r() == ar.fabricator && yVar.V() < 3 && yVar.cN == null) {
+                return true;
+            }
+            return false;
+        }
+    };
+    static al e = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.5
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.mo1r() == ar.landFactory && yVar.cN == null) {
+                return true;
+            }
+            return false;
+        }
+    };
+    static al f = new al() { // from class: com.corrodinggames.rts.gameFramework.f.al.6
+        @Override // com.corrodinggames.rts.gameFramework.Interface.al
+        public boolean a(y yVar) {
+            if (yVar.mo1r() == ar.airFactory && yVar.cN == null) {
                 return true;
             }
             return false;
         }
     };
 
-    /* renamed from: b */
-    static AbstractC0802al f5191b = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.2
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo2951aj() && !abstractC0629y.mo1745u() && abstractC0629y.f1656cN == null) {
-                return true;
-            }
-            return false;
-        }
-    };
+    public abstract boolean a(y yVar);
 
-    /* renamed from: c */
-    static AbstractC0802al f5192c = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.3
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo1747r() != null && abstractC0629y.mo1747r().mo3499p() && abstractC0629y.f1656cN == null) {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    /* renamed from: d */
-    static AbstractC0802al f5193d = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.4
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo1747r() == EnumC0249ar.fabricator && abstractC0629y.mo3038V() < 3 && abstractC0629y.f1656cN == null) {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    /* renamed from: e */
-    static AbstractC0802al f5194e = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.5
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo1747r() == EnumC0249ar.landFactory && abstractC0629y.f1656cN == null) {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    /* renamed from: f */
-    static AbstractC0802al f5195f = new AbstractC0802al() { // from class: com.corrodinggames.rts.gameFramework.f.al.6
-        @Override // com.corrodinggames.rts.gameFramework.p037f.AbstractC0802al
-        /* renamed from: a */
-        public boolean mo1963a(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo1747r() == EnumC0249ar.airFactory && abstractC0629y.f1656cN == null) {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    /* renamed from: a */
-    public abstract boolean mo1963a(AbstractC0629y abstractC0629y);
-
-    AbstractC0802al() {
+    al() {
     }
 
-    /* renamed from: a */
-    public static void m1964a(ArrayList arrayList, AbstractC0802al abstractC0802al, AbstractC0802al abstractC0802al2) {
+    public static void a(ArrayList arrayList, al alVar, al alVar2) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (gameEngine.f6378bS.m1799q() != 1) {
+        if (gameEngine.bS.q() != 1) {
             arrayList.clear();
         }
-        AbstractC0629y m1794t = gameEngine.f6378bS.m1794t();
-        if (m1794t != null) {
-            if (abstractC0802al.mo1963a(m1794t) || (abstractC0802al2 != null && abstractC0802al2.mo1963a(m1794t))) {
-                if (!arrayList.contains(m1794t)) {
-                    arrayList.add(m1794t);
+        y t = gameEngine.bS.t();
+        if (t != null) {
+            if (alVar.a(t) || (alVar2 != null && alVar2.a(t))) {
+                if (!arrayList.contains(t)) {
+                    arrayList.add(t);
                 }
             } else {
                 arrayList.clear();
             }
         }
-        AbstractC0629y m1965a = m1965a(arrayList, abstractC0802al);
-        if (m1965a == null && abstractC0802al2 != null) {
-            m1965a = m1965a(arrayList, abstractC0802al2);
+        y a2 = a(arrayList, alVar);
+        if (a2 == null && alVar2 != null) {
+            a2 = a(arrayList, alVar2);
         }
-        if (m1965a == null) {
+        if (a2 == null) {
             arrayList.clear();
-            if (m1794t != null) {
-                arrayList.add(m1794t);
+            if (t != null) {
+                arrayList.add(t);
             }
-            m1965a = m1965a(arrayList, abstractC0802al);
-            if (m1965a == null && abstractC0802al2 != null) {
-                m1965a = m1965a(arrayList, abstractC0802al2);
+            a2 = a(arrayList, alVar);
+            if (a2 == null && alVar2 != null) {
+                a2 = a(arrayList, alVar2);
             }
         }
-        if (m1965a != null) {
-            gameEngine.f6378bS.m1789y();
-            gameEngine.f6378bS.m1812j(m1965a);
-            gameEngine.m1022b(m1965a.f7173eo, m1965a.f7174ep);
-            arrayList.add(m1965a);
+        if (a2 != null) {
+            gameEngine.bS.y();
+            gameEngine.bS.j(a2);
+            gameEngine.b(a2.eo, a2.ep);
+            arrayList.add(a2);
         }
     }
 
-    /* renamed from: a */
-    public static AbstractC0629y m1965a(ArrayList arrayList, AbstractC0802al abstractC0802al) {
+    public static y a(ArrayList arrayList, al alVar) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        AbstractC0629y abstractC0629y = null;
-        float f = -1.0f;
-        Iterator it = AbstractC0244am.f1594bE.iterator();
+        y yVar = null;
+        float f2 = -1.0f;
+        Iterator it = am.bE.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
-            if (abstractC0244am instanceof AbstractC0629y) {
-                AbstractC0629y abstractC0629y2 = (AbstractC0629y) abstractC0244am;
-                if (gameEngine.f6378bS.m1806m(abstractC0629y2) && abstractC0802al.mo1963a(abstractC0629y2) && !arrayList.contains(abstractC0629y2)) {
-                    float m2216a = C0773f.m2216a(gameEngine.f6410cy + gameEngine.f6420cI, gameEngine.f6411cz + gameEngine.f6421cJ, abstractC0629y2.f7173eo, abstractC0629y2.f7174ep);
-                    if (abstractC0629y == null || m2216a < f) {
-                        f = m2216a;
-                        abstractC0629y = abstractC0629y2;
+            am amVar = (am) it.next();
+            if (amVar instanceof y) {
+                y yVar2 = (y) amVar;
+                if (gameEngine.bS.m(yVar2) && alVar.a(yVar2) && !arrayList.contains(yVar2)) {
+                    float a2 = f.a(gameEngine.cy + gameEngine.cI, gameEngine.cz + gameEngine.cJ, yVar2.eo, yVar2.ep);
+                    if (yVar == null || a2 < f2) {
+                        f2 = a2;
+                        yVar = yVar2;
                     }
                 }
             }
         }
-        return abstractC0629y;
+        return yVar;
     }
 }

@@ -1,26 +1,19 @@
-package com.corrodinggames.rts.gameFramework.p030a;
+package com.corrodinggames.rts.gameFramework.a;
 
 import android.content.Context;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
+import com.corrodinggames.rts.gameFramework.utility.j;
 import java.util.HashMap;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.a.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/a/h.class */
-public abstract class AbstractC0640h {
+public abstract class h {
+    HashMap h = new HashMap();
 
-    /* renamed from: h */
-    HashMap f4099h = new HashMap();
+    public abstract i a(int i);
 
-    /* renamed from: a */
-    public abstract AbstractC0641i mo81a(int i);
+    public abstract i a(String str, j jVar, boolean z);
 
-    /* renamed from: a */
-    public abstract AbstractC0641i mo79a(String str, C1133j c1133j, boolean z);
+    public abstract void a(Context context);
 
-    /* renamed from: a */
-    public abstract void mo80a(Context context);
-
-    /* renamed from: a */
-    public void mo82a() {
+    public void a() {
     }
 }

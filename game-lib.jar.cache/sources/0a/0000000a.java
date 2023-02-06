@@ -14,42 +14,18 @@ import java.util.HashMap;
 /* renamed from: a.a.b */
 /* loaded from: game-lib.jar:a/a/b.class */
 public class ReliableServerSocket extends ServerSocket {
-
-    /* renamed from: a */
-    AbstractC0012c f28a;
-
-    /* renamed from: d */
-    private DatagramSocket f29d;
-
-    /* renamed from: e */
-    private int f30e;
-
-    /* renamed from: f */
-    private int f31f;
-
-    /* renamed from: g */
-    private boolean f32g;
-
-    /* renamed from: h */
-    private ArrayList f33h;
-
-    /* renamed from: i */
-    private HashMap f34i;
-
-    /* renamed from: j */
-    private HashMap f35j;
-
-    /* renamed from: k */
-    private HashMap f36k;
-
-    /* renamed from: b */
-    long f37b;
-
-    /* renamed from: c */
-    int f38c;
-
-    /* renamed from: l */
-    private ReliableSocketStateListener f39l;
+    c a;
+    private DatagramSocket d;
+    private int e;
+    private int f;
+    private boolean g;
+    private ArrayList h;
+    private HashMap i;
+    private HashMap j;
+    private HashMap k;
+    long b;
+    int c;
+    private ReliableSocketStateListener l;
 
     public ReliableServerSocket() {
         this(new DatagramSocket((SocketAddress) null), 0);
@@ -59,33 +35,31 @@ public class ReliableServerSocket extends ServerSocket {
         DatagramSocket datagramSocket = new DatagramSocket((SocketAddress) null);
         datagramSocket.setReuseAddress(z);
         datagramSocket.bind(new InetSocketAddress(inetAddress, i));
-        m5418a(datagramSocket, i2);
+        a(datagramSocket, i2);
     }
 
     public ReliableServerSocket(DatagramSocket datagramSocket, int i) {
-        m5418a(datagramSocket, i);
+        a(datagramSocket, i);
     }
 
-    /* renamed from: a */
-    public void m5418a(DatagramSocket datagramSocket, int i) {
+    public void a(DatagramSocket datagramSocket, int i) {
         if (datagramSocket == null) {
             throw new NullPointerException("sock");
         }
-        this.f29d = datagramSocket;
-        this.f31f = i <= 0 ? 50 : i;
-        this.f33h = new ArrayList(this.f31f);
-        this.f34i = new HashMap();
-        this.f35j = new HashMap();
-        this.f36k = new HashMap();
-        this.f39l = new C0015f(this);
-        this.f30e = 0;
-        this.f32g = false;
-        new C0013d(this).start();
+        this.d = datagramSocket;
+        this.f = i <= 0 ? 50 : i;
+        this.h = new ArrayList(this.f);
+        this.i = new HashMap();
+        this.j = new HashMap();
+        this.k = new HashMap();
+        this.l = new f(this);
+        this.e = 0;
+        this.g = false;
+        new d(this).start();
     }
 
-    /* renamed from: a */
-    public void m5420a(AbstractC0012c abstractC0012c) {
-        this.f28a = abstractC0012c;
+    public void a(c cVar) {
+        this.a = cVar;
     }
 
     @Override // java.net.ServerSocket
@@ -94,16 +68,16 @@ public class ReliableServerSocket extends ServerSocket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        synchronized (this.f33h) {
+        synchronized (this.h) {
             do {
-                if (this.f33h.isEmpty()) {
+                if (this.h.isEmpty()) {
                     try {
-                        if (this.f30e == 0) {
-                            this.f33h.wait();
+                        if (this.e == 0) {
+                            this.h.wait();
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            this.f33h.wait(this.f30e);
-                            if (System.currentTimeMillis() - currentTimeMillis >= this.f30e) {
+                            this.h.wait(this.e);
+                            if (System.currentTimeMillis() - currentTimeMillis >= this.e) {
                                 throw new SocketTimeoutException();
                                 break;
                             }
@@ -112,7 +86,7 @@ public class ReliableServerSocket extends ServerSocket {
                         e.printStackTrace();
                     }
                 } else {
-                    socket = (Socket) this.f33h.remove(0);
+                    socket = (Socket) this.h.remove(0);
                 }
             } while (!isClosed());
             throw new SocketException("Socket is closed");
@@ -130,8 +104,8 @@ public class ReliableServerSocket extends ServerSocket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        this.f29d.setReuseAddress(true);
-        this.f29d.bind(socketAddress);
+        this.d.setReuseAddress(true);
+        this.d.bind(socketAddress);
     }
 
     @Override // java.net.ServerSocket, java.io.Closeable, java.lang.AutoCloseable
@@ -139,41 +113,41 @@ public class ReliableServerSocket extends ServerSocket {
         if (isClosed()) {
             return;
         }
-        this.f32g = true;
-        synchronized (this.f33h) {
-            this.f33h.clear();
-            this.f33h.notify();
+        this.g = true;
+        synchronized (this.h) {
+            this.h.clear();
+            this.h.notify();
         }
-        synchronized (this.f34i) {
-            if (this.f34i.isEmpty()) {
-                this.f29d.close();
+        synchronized (this.i) {
+            if (this.i.isEmpty()) {
+                this.d.close();
             }
         }
     }
 
     @Override // java.net.ServerSocket
     public InetAddress getInetAddress() {
-        return this.f29d.getInetAddress();
+        return this.d.getInetAddress();
     }
 
     @Override // java.net.ServerSocket
     public int getLocalPort() {
-        return this.f29d.getLocalPort();
+        return this.d.getLocalPort();
     }
 
     @Override // java.net.ServerSocket
     public SocketAddress getLocalSocketAddress() {
-        return this.f29d.getLocalSocketAddress();
+        return this.d.getLocalSocketAddress();
     }
 
     @Override // java.net.ServerSocket
     public boolean isBound() {
-        return this.f29d.isBound();
+        return this.d.isBound();
     }
 
     @Override // java.net.ServerSocket
     public boolean isClosed() {
-        return this.f32g;
+        return this.g;
     }
 
     @Override // java.net.ServerSocket
@@ -181,47 +155,44 @@ public class ReliableServerSocket extends ServerSocket {
         if (i < 0) {
             throw new IllegalArgumentException("timeout < 0");
         }
-        this.f30e = i;
+        this.e = i;
     }
 
     @Override // java.net.ServerSocket
     public int getSoTimeout() {
-        return this.f30e;
+        return this.e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: a */
-    public void m5416a(SocketAddress socketAddress, C0014e c0014e) {
-        synchronized (this.f34i) {
-            c0014e.m5401a(this.f39l);
-            this.f34i.put(socketAddress, c0014e);
+    public void a(SocketAddress socketAddress, e eVar) {
+        synchronized (this.i) {
+            eVar.a(this.l);
+            this.i.put(socketAddress, eVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: a */
-    public C0014e m5417a(SocketAddress socketAddress) {
-        C0014e c0014e;
-        synchronized (this.f34i) {
-            c0014e = (C0014e) this.f34i.remove(socketAddress);
-            if (this.f34i.isEmpty() && isClosed()) {
-                this.f29d.close();
+    public e a(SocketAddress socketAddress) {
+        e eVar;
+        synchronized (this.i) {
+            eVar = (e) this.i.remove(socketAddress);
+            if (this.i.isEmpty() && isClosed()) {
+                this.d.close();
             }
         }
-        return c0014e;
+        return eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: a */
-    public void m5419a(String str) {
-        if (this.f37b + 5000 < System.currentTimeMillis()) {
-            this.f37b = System.currentTimeMillis();
-            this.f38c = 0;
+    public void a(String str) {
+        if (this.b + 5000 < System.currentTimeMillis()) {
+            this.b = System.currentTimeMillis();
+            this.c = 0;
         }
-        if (this.f38c > 20) {
+        if (this.c > 20) {
             return;
         }
-        this.f38c++;
+        this.c++;
         System.out.println(str);
     }
 }

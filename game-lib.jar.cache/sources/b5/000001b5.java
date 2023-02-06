@@ -1,99 +1,78 @@
-package com.corrodinggames.rts.game.units.p013a;
+package com.corrodinggames.rts.game.units.a;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.C0560h;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.as;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.p037f.C0825g;
+import com.corrodinggames.rts.gameFramework.Interface.InterfaceEngine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.a.z */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/a/z.class */
-public class C0231z extends AbstractC0224s {
+public class z extends s {
+    as a;
+    ArrayList b;
+    int c;
+    boolean d;
+    com.corrodinggames.rts.game.units.y e;
+    int f;
 
-    /* renamed from: a */
-    InterfaceC0303as f1496a;
-
-    /* renamed from: b */
-    ArrayList f1497b;
-
-    /* renamed from: c */
-    int f1498c;
-
-    /* renamed from: d */
-    boolean f1499d;
-
-    /* renamed from: e */
-    AbstractC0629y f1500e;
-
-    /* renamed from: f */
-    int f1501f;
-
-    public C0231z(InterfaceC0303as interfaceC0303as) {
-        super("s_" + interfaceC0303as.mo3489v());
-        this.f1497b = new ArrayList();
-        this.f1498c = 0;
-        this.f1500e = null;
-        this.f1464g = -9999.0f;
-        this.f1496a = interfaceC0303as;
+    public z(as asVar) {
+        super("s_" + asVar.v());
+        this.b = new ArrayList();
+        this.c = 0;
+        this.e = null;
+        this.g = -9999.0f;
+        this.a = asVar;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: b */
-    public int mo3094b(AbstractC0244am abstractC0244am, boolean z) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public int b(am amVar, boolean z) {
         return -1;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: c */
-    public int mo3093c() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public int c() {
         return 0;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
+    @Override // com.corrodinggames.rts.game.units.a.s
     /* renamed from: i */
-    public InterfaceC0303as mo3087i() {
-        return this.f1496a;
+    public as mo3i() {
+        return this.a;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: e */
-    public EnumC0226u mo3092e() {
-        return EnumC0226u.infoOnly;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public u e() {
+        return u.infoOnly;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: f */
-    public EnumC0225t mo3091f() {
-        if (GameEngine.m1030at() && !C0825g.f5413bO) {
-            return EnumC0225t.infoOnlyNoBox;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public t f() {
+        if (GameEngine.at() && !InterfaceEngine.bO) {
+            return t.infoOnlyNoBox;
         }
-        return EnumC0225t.infoOnly;
+        return t.infoOnly;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: g */
-    public boolean mo3090g() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean g() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: c */
-    public boolean mo3152c(AbstractC0244am abstractC0244am, boolean z) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean c(am amVar, boolean z) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (!z) {
-            if (gameEngine.f6378bS.m1799q() == 1) {
+            if (gameEngine.bS.q() == 1) {
                 return false;
             }
             boolean z2 = false;
-            Iterator it = AbstractC0244am.f1594bE.iterator();
+            Iterator it = am.bE.iterator();
             while (it.hasNext()) {
-                AbstractC0244am abstractC0244am2 = (AbstractC0244am) it.next();
-                if (abstractC0244am2.f1649cG && abstractC0244am2.mo1747r() != this.f1496a) {
-                    gameEngine.f6378bS.m1808l(abstractC0244am2);
+                am amVar2 = (am) it.next();
+                if (amVar2.cG && amVar2.mo1r() != this.a) {
+                    gameEngine.bS.l(amVar2);
                     z2 = true;
                 }
             }
@@ -102,123 +81,111 @@ public class C0231z extends AbstractC0224s {
             }
             return true;
         }
-        Iterator it2 = AbstractC0244am.f1594bE.iterator();
+        Iterator it2 = am.bE.iterator();
         while (it2.hasNext()) {
-            AbstractC0244am abstractC0244am3 = (AbstractC0244am) it2.next();
-            if (abstractC0244am3.f1649cG && abstractC0244am3.mo1747r() == this.f1496a) {
-                gameEngine.f6378bS.m1808l(abstractC0244am3);
+            am amVar3 = (am) it2.next();
+            if (amVar3.cG && amVar3.mo1r() == this.a) {
+                gameEngine.bS.l(amVar3);
             }
         }
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: d */
-    public String mo3124d() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String d() {
         GameEngine.getGameEngine();
-        if (this.f1500e instanceof C0560h) {
+        if (this.e instanceof com.corrodinggames.rts.game.units.h) {
             return "Editor";
         }
-        return VariableScope.nullOrMissingString + this.f1496a.mo3521e() + " x" + this.f1498c;
+        return VariableScope.nullOrMissingString + this.a.e() + " x" + this.c;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: b */
-    public String mo3096b() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String b() {
         return "UnitInfo";
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: w */
-    public String mo4277w(AbstractC0244am abstractC0244am) {
-        if (this.f1500e instanceof C0560h) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String w(am amVar) {
+        if (this.e instanceof com.corrodinggames.rts.game.units.h) {
             return "Editor";
         }
-        return this.f1496a.mo3521e();
+        return this.a.e();
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: h_ */
-    public boolean mo3088h_() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean h_() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: s */
-    public boolean mo4278s() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean s() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: u */
-    public boolean mo4051u() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean u() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: C */
-    public boolean mo4283C() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean C() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: a */
-    public String mo3099a() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String a() {
         String str = VariableScope.nullOrMissingString;
-        if (this.f1500e instanceof C0560h) {
+        if (this.e instanceof com.corrodinggames.rts.game.units.h) {
             return VariableScope.nullOrMissingString;
         }
-        if (this.f1499d) {
+        if (this.d) {
             str = "(Left click to exclusively select / Right click to unselect)\n";
         }
-        return str + this.f1496a.mo3519f();
+        return str + this.a.f();
     }
 
-    /* renamed from: K */
-    public void m4281K() {
+    public void K() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (this.f1501f == gameEngine.f6378bS.f5312Y) {
+        if (this.f == gameEngine.bS.Y) {
             return;
         }
-        this.f1501f = gameEngine.f6378bS.f5312Y;
-        this.f1498c = 0;
-        this.f1499d = false;
-        this.f1500e = null;
-        AbstractC0244am[] m499a = gameEngine.f6378bS.f5424bZ.m499a();
-        int size = gameEngine.f6378bS.f5424bZ.size();
+        this.f = gameEngine.bS.Y;
+        this.c = 0;
+        this.d = false;
+        this.e = null;
+        am[] a = gameEngine.bS.bZ.a();
+        int size = gameEngine.bS.bZ.size();
         for (int i = 0; i < size; i++) {
-            AbstractC0244am abstractC0244am = m499a[i];
-            if (abstractC0244am instanceof AbstractC0629y) {
-                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-                if (abstractC0629y.f1649cG) {
-                    if (abstractC0629y.mo1747r() == this.f1496a) {
-                        this.f1498c++;
-                        if (this.f1500e == null) {
-                            this.f1500e = abstractC0629y;
+            am amVar = a[i];
+            if (amVar instanceof com.corrodinggames.rts.game.units.y) {
+                com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) amVar;
+                if (yVar.cG) {
+                    if (yVar.mo1r() == this.a) {
+                        this.c++;
+                        if (this.e == null) {
+                            this.e = yVar;
                         }
                     } else {
-                        this.f1499d = true;
+                        this.d = true;
                     }
                 }
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: m_ */
-    public float mo4280m_() {
-        return this.f1464g - this.f1498c;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public float m_() {
+        return this.g - this.c;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: G */
-    public boolean mo4282G() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean G() {
         return true;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: o_ */
-    public boolean mo4279o_() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean o_() {
         return true;
     }
 }

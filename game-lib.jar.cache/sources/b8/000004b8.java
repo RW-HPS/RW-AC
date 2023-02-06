@@ -1,107 +1,92 @@
-package com.corrodinggames.rts.gameFramework.p037f.p038a;
+package com.corrodinggames.rts.gameFramework.Interface.a;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.p037f.C0820d;
-import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
-import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
+import com.corrodinggames.rts.gameFramework.Interface.d;
+import com.corrodinggames.rts.gameFramework.unitAction.ag;
+import com.corrodinggames.rts.gameFramework.unitAction.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.a.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/a/j.class */
-public class C0786j extends AbstractC0788l {
+public class j extends l {
+    String a;
+    Paint b = new ag();
+    h c = h.l;
+    ArrayList d;
 
-    /* renamed from: a */
-    String f5111a;
-
-    /* renamed from: b */
-    Paint f5112b = new C0966ag();
-
-    /* renamed from: c */
-    C0784h f5113c = C0784h.f5098l;
-
-    /* renamed from: d */
-    ArrayList f5114d;
-
-    public C0786j() {
-        this.f5112b.m5224a(Paint.Align.CENTER);
-        this.f5112b.m5206b(-16777216);
-        m2025a(18.0f);
+    public j() {
+        this.b.a(Paint.Align.CENTER);
+        this.b.b(-16777216);
+        a(18.0f);
     }
 
-    /* renamed from: a */
-    public void m2025a(float f) {
-        GameEngine.getGameEngine().m1017b(this.f5112b, f);
-        m2003e();
+    public void a(float f) {
+        GameEngine.getGameEngine().b(this.b, f);
+        e();
     }
 
-    /* renamed from: a */
-    public void m2024a(int i) {
-        this.f5112b.m5206b(i);
+    public void a(int i) {
+        this.b.b(i);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.AbstractC0788l
-    /* renamed from: a */
-    public String mo2021a() {
-        return super.mo2021a() + " (text:" + this.f5111a + ")";
+    @Override // com.corrodinggames.rts.gameFramework.Interface.a.l
+    public String a() {
+        return super.a() + " (text:" + this.a + ")";
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.AbstractC0788l
-    /* renamed from: a */
-    public void mo1996a(float f, float f2) {
-        int m1927a;
-        super.mo1996a(f, f2);
-        InterfaceC1063y d = m2005d();
-        RectF a = m2017a(new RectF(), f, f2);
-        this.f5113c.m2028a(d, a);
-        if (this.f5111a == null) {
+    @Override // com.corrodinggames.rts.gameFramework.Interface.a.l
+    public void a(float f, float f2) {
+        int a;
+        super.a(f, f2);
+        y d = d();
+        RectF a2 = a(new RectF(), f, f2);
+        this.c.a(d, a2);
+        if (this.a == null) {
             return;
         }
-        if (this.f5114d == null) {
-            d.mo182a(this.f5111a, a.m5147d(), a.f237d - this.f5118l, this.f5112b);
+        if (this.d == null) {
+            d.a(this.a, a2.d(), a2.d - this.l, this.b);
             return;
         }
         int i = 0;
-        Iterator it = this.f5114d.iterator();
+        Iterator it = this.d.iterator();
         while (it.hasNext()) {
             String str = (String) it.next();
-            Paint paint = this.f5112b;
-            d.mo182a(str, a.m5147d(), a.f235b + this.f5117k + C0820d.m1927a(paint) + (i * m1927a), paint);
+            Paint paint = this.b;
+            d.a(str, a2.d(), a2.b + this.k + d.a(paint) + (i * a), paint);
             i++;
         }
     }
 
-    /* renamed from: a */
-    public void m2023a(String str) {
-        this.f5111a = str;
-        m2003e();
+    public void a(String str) {
+        this.a = str;
+        e();
     }
 
-    /* renamed from: c */
-    public Rect m2022c() {
-        RectF a = m2017a(new RectF(), 0.0f, 0.0f);
+    public Rect c() {
+        RectF a = a(new RectF(), 0.0f, 0.0f);
         Rect rect = new Rect();
-        rect.f233d = (int) a.f237d;
-        rect.f231b = (int) a.f235b;
-        rect.f230a = (int) a.f234a;
-        rect.f232c = (int) a.f236c;
-        rect.f232c = 10000;
+        rect.d = (int) a.d;
+        rect.b = (int) a.b;
+        rect.a = (int) a.a;
+        rect.c = (int) a.c;
+        rect.c = 10000;
         return rect;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p037f.p038a.AbstractC0788l
-    /* renamed from: b */
-    public void mo2012b() {
-        Rect m2022c;
-        super.mo2012b();
-        m2005d();
-        this.f5114d = new ArrayList(C0820d.m1923a(this.f5111a, m2022c(), this.f5112b, this.f5112b, true));
-        this.f5133i = m2022c.m5170b();
-        this.f5134j = m2022c.m5166c();
-        this.f5133i += this.f5119m + this.f5120n;
-        this.f5134j += this.f5117k + this.f5118l;
+    @Override // com.corrodinggames.rts.gameFramework.Interface.a.l
+    public void b() {
+        Rect c;
+        super.b();
+        d();
+        this.d = new ArrayList(d.a(this.a, c(), this.b, this.b, true));
+        this.i = c.b();
+        this.j = c.c();
+        this.i += this.m + this.n;
+        this.j += this.k + this.l;
     }
 }

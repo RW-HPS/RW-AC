@@ -1,119 +1,99 @@
 package com.corrodinggames.rts.game.units.custom;
 
-import com.corrodinggames.rts.game.p012b.C0173b;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.be */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/be.class */
-public final class C0407be {
+public final class be {
+    com.corrodinggames.rts.gameFramework.utility.m a = new com.corrodinggames.rts.gameFramework.utility.m();
+    com.corrodinggames.rts.gameFramework.utility.m b = new com.corrodinggames.rts.gameFramework.utility.m();
+    boolean c;
+    boolean d;
+    public static final bf e = new bf();
 
-    /* renamed from: a */
-    C1136m f2513a = new C1136m();
-
-    /* renamed from: b */
-    C1136m f2514b = new C1136m();
-
-    /* renamed from: c */
-    boolean f2515c;
-
-    /* renamed from: d */
-    boolean f2516d;
-
-    /* renamed from: e */
-    public static final C0408bf f2517e = new C0408bf();
-
-    /* renamed from: a */
-    public static C0407be m3907a(C0458l c0458l, C1107ab c1107ab) {
-        C0407be c0407be = new C0407be();
-        c0407be.m3903b(c0458l, c1107ab);
-        if (c0407be.f2514b.size() == 0) {
+    public static be a(l lVar, com.corrodinggames.rts.gameFramework.utility.ab abVar) {
+        be beVar = new be();
+        beVar.b(lVar, abVar);
+        if (beVar.b.size() == 0) {
             return null;
         }
-        Iterator it = c0407be.f2513a.iterator();
+        Iterator it = beVar.a.iterator();
         while (it.hasNext()) {
-            C0453g c0453g = (C0453g) it.next();
-            if (c0453g != null) {
+            g gVar = (g) it.next();
+            if (gVar != null) {
                 int i = 0;
-                C0409bg c0409bg = null;
-                Iterator it2 = c0407be.f2514b.iterator();
+                bg bgVar = null;
+                Iterator it2 = beVar.b.iterator();
                 while (it2.hasNext()) {
-                    C0409bg c0409bg2 = (C0409bg) it2.next();
-                    if (c0409bg2.f2523b == c0453g) {
+                    bg bgVar2 = (bg) it2.next();
+                    if (bgVar2.b == gVar) {
                         i++;
-                        c0409bg = c0409bg2;
+                        bgVar = bgVar2;
                     }
                 }
                 if (i == 1) {
-                    c0458l.m3494r("[placementRule_" + c0409bg.f2522a + "]anyRuleInGroup: No other rule with this same group name found");
+                    lVar.r("[placementRule_" + bgVar.a + "]anyRuleInGroup: No other rule with this same group name found");
                 }
             }
         }
-        return c0407be;
+        return beVar;
     }
 
-    /* renamed from: b */
-    public void m3903b(C0458l c0458l, C1107ab c1107ab) {
-        Iterator it = c1107ab.m654e("placementRule_").iterator();
+    public void b(l lVar, com.corrodinggames.rts.gameFramework.utility.ab abVar) {
+        Iterator it = abVar.e("placementRule_").iterator();
         while (it.hasNext()) {
             String str = (String) it.next();
             String substring = str.substring("placementRule_".length());
-            C0409bg c0409bg = new C0409bg();
-            c0409bg.f2522a = substring;
-            c0409bg.m3900a(c0458l, c1107ab, str);
-            if (c0409bg.m3901a()) {
-                if (!this.f2513a.contains(c0409bg.f2523b)) {
-                    this.f2513a.add(c0409bg.f2523b);
+            bg bgVar = new bg();
+            bgVar.a = substring;
+            bgVar.a(lVar, abVar, str);
+            if (bgVar.a()) {
+                if (!this.a.contains(bgVar.b)) {
+                    this.a.add(bgVar.b);
                 }
-                if (c0409bg.f2535n) {
-                    if (!c0409bg.f2537p) {
-                        this.f2515c = true;
+                if (bgVar.n) {
+                    if (!bgVar.p) {
+                        this.c = true;
                     } else {
-                        this.f2516d = true;
+                        this.d = true;
                     }
                 }
-                this.f2514b.add(c0409bg);
+                this.b.add(bgVar);
             }
         }
     }
 
-    /* renamed from: a */
-    public String m3906a(AbstractC0629y abstractC0629y, float f, float f2) {
-        if (!this.f2515c) {
+    public String a(com.corrodinggames.rts.game.units.y yVar, float f, float f2) {
+        if (!this.c) {
             return null;
         }
-        return m3902b(abstractC0629y, f, f2);
+        return b(yVar, f, f2);
     }
 
-    /* renamed from: a */
-    public String m3905a(AbstractC0629y abstractC0629y, int i, int i2) {
-        if (!this.f2516d) {
+    public String a(com.corrodinggames.rts.game.units.y yVar, int i, int i2) {
+        if (!this.d) {
             return null;
         }
-        C0173b c0173b = GameEngine.getGameEngine().f6371bL;
-        c0173b.m4624b(i, i2);
-        return m3902b(abstractC0629y, c0173b.f829T, c0173b.f830U);
+        com.corrodinggames.rts.game.maps.b bVar = GameEngine.getGameEngine().bL;
+        bVar.b(i, i2);
+        return b(yVar, bVar.T, bVar.U);
     }
 
-    /* renamed from: b */
-    public String m3902b(AbstractC0629y abstractC0629y, float f, float f2) {
+    public String b(com.corrodinggames.rts.game.units.y yVar, float f, float f2) {
         boolean z;
-        Iterator it = this.f2513a.iterator();
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            C0453g c0453g = (C0453g) it.next();
+            g gVar = (g) it.next();
             boolean z2 = false;
             boolean z3 = false;
-            C0409bg c0409bg = null;
-            Iterator it2 = this.f2514b.iterator();
+            bg bgVar = null;
+            Iterator it2 = this.b.iterator();
             while (it2.hasNext()) {
-                C0409bg c0409bg2 = (C0409bg) it2.next();
-                if (c0409bg2.f2523b == c0453g && c0409bg2.f2535n) {
-                    if (!m3904a(abstractC0629y, c0409bg2, f, f2)) {
-                        if (c0409bg == null) {
-                            c0409bg = c0409bg2;
+                bg bgVar2 = (bg) it2.next();
+                if (bgVar2.b == gVar && bgVar2.n) {
+                    if (!a(yVar, bgVar2, f, f2)) {
+                        if (bgVar == null) {
+                            bgVar = bgVar2;
                         }
                         z3 = true;
                     } else {
@@ -121,14 +101,14 @@ public final class C0407be {
                     }
                 }
             }
-            if (c0453g == null) {
+            if (gVar == null) {
                 z = !z3;
             } else {
                 z = z2;
             }
-            if (!z && c0409bg != null) {
-                if (c0409bg.f2536o != null) {
-                    return c0409bg.f2536o.m3910b();
+            if (!z && bgVar != null) {
+                if (bgVar.o != null) {
+                    return bgVar.o.b();
                 }
                 return "{0}";
             }
@@ -136,14 +116,13 @@ public final class C0407be {
         return null;
     }
 
-    /* renamed from: a */
-    private static boolean m3904a(AbstractC0629y abstractC0629y, C0409bg c0409bg, float f, float f2) {
-        f2517e.f2518a = f + c0409bg.f2528g;
-        f2517e.f2519b = f2 + c0409bg.f2529h;
-        f2517e.f2520c = c0409bg;
-        f2517e.f2521d = 0;
-        GameEngine.getGameEngine().f6388cc.m3209a(f2517e.f2518a, f2517e.f2519b, c0409bg.f2526e, abstractC0629y, 0.0f, f2517e);
-        if (f2517e.f2521d >= c0409bg.f2532k && f2517e.f2521d <= c0409bg.f2533l) {
+    private static boolean a(com.corrodinggames.rts.game.units.y yVar, bg bgVar, float f, float f2) {
+        e.a = f + bgVar.g;
+        e.b = f2 + bgVar.h;
+        e.c = bgVar;
+        e.d = 0;
+        GameEngine.getGameEngine().cc.a(e.a, e.b, bgVar.e, yVar, 0.0f, e);
+        if (e.d >= bgVar.k && e.d <= bgVar.l) {
             return true;
         }
         return false;

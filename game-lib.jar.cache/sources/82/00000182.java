@@ -1,308 +1,276 @@
-package com.corrodinggames.rts.game.p012b;
+package com.corrodinggames.rts.game.maps;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.EnumC0249ar;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
-import com.corrodinggames.rts.game.units.p029h.C0592d;
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.ar;
+import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.game.units.h.d;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.unitAction.y;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
+import com.corrodinggames.rts.gameFramework.w;
 import java.util.Properties;
 
 /* renamed from: com.corrodinggames.rts.game.b.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/b/g.class */
-public final class C0180g {
+public final class g {
+    public TileSet a;
+    public int b;
+    public int c = -2;
+    public short d = -1;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public byte j;
+    public boolean k;
+    public boolean l;
+    public g[] m;
+    static final Rect n = new Rect();
 
-    /* renamed from: a */
-    public C0183j f915a;
-
-    /* renamed from: b */
-    public int f916b;
-
-    /* renamed from: c */
-    public int f917c = -2;
-
-    /* renamed from: d */
-    public short f918d = -1;
-
-    /* renamed from: e */
-    public boolean f919e;
-
-    /* renamed from: f */
-    public boolean f920f;
-
-    /* renamed from: g */
-    public boolean f921g;
-
-    /* renamed from: h */
-    public boolean f922h;
-
-    /* renamed from: i */
-    public boolean f923i;
-
-    /* renamed from: j */
-    public byte f924j;
-
-    /* renamed from: k */
-    public boolean f925k;
-
-    /* renamed from: l */
-    public boolean f926l;
-
-    /* renamed from: m */
-    public C0180g[] f927m;
-
-    /* renamed from: n */
-    static final Rect f928n = new Rect();
-
-    /* renamed from: a */
-    public static boolean m4562a(C0180g c0180g, C0180g c0180g2) {
-        if (c0180g == c0180g2) {
+    public static boolean a(g gVar, g gVar2) {
+        if (gVar == gVar2) {
             return true;
         }
-        return c0180g != null && c0180g2 != null && c0180g.f915a == c0180g2.f915a && c0180g.f916b == c0180g2.f916b;
+        return gVar != null && gVar2 != null && gVar.a == gVar2.a && gVar.b == gVar2.b;
     }
 
     /* renamed from: a */
-    public C0180g clone() {
-        C0180g c0180g = new C0180g();
-        c0180g.f915a = this.f915a;
-        c0180g.f916b = this.f916b;
-        c0180g.f919e = this.f919e;
-        c0180g.f920f = this.f920f;
-        c0180g.f921g = this.f921g;
-        c0180g.f922h = this.f922h;
-        c0180g.f923i = this.f923i;
-        c0180g.f924j = this.f924j;
-        c0180g.f925k = this.f925k;
-        c0180g.f926l = this.f926l;
-        return c0180g;
+    public g m0clone() {
+        g gVar = new g();
+        gVar.a = this.a;
+        gVar.b = this.b;
+        gVar.e = this.e;
+        gVar.f = this.f;
+        gVar.g = this.g;
+        gVar.h = this.h;
+        gVar.i = this.i;
+        gVar.j = this.j;
+        gVar.k = this.k;
+        gVar.l = this.l;
+        return gVar;
     }
 
-    /* renamed from: a */
-    public static void m4560a(String str) {
+    public static void a(String str) {
         GameEngine.print(str);
-        GameEngine.getGameEngine().m1065a("Missing unit data while loading map: " + str, 1);
+        GameEngine.getGameEngine().a("Missing unit data while loading map: " + str, 1);
         try {
             Thread.sleep(2L);
         } catch (InterruptedException e) {
         }
     }
 
-    /* renamed from: a */
-    public static C0180g m4563a(C0173b c0173b, C0178e c0178e, C0183j c0183j, int i, short s, short s2, boolean z) {
+    public static g a(b bVar, Layer layer, TileSet tileSet, int i, short s, short s2, boolean z) {
         String str;
-        PlayerData m4365k;
-        Properties m4545a = c0183j.m4545a(c0183j.f960l + i);
-        if (m4545a != null) {
-            String property = m4545a.getProperty("showFog");
+        PlayerData playerData;
+        Properties a = tileSet.a(tileSet.l + i);
+        if (a != null) {
+            String property = a.getProperty("showFog");
             if (property != null) {
                 int parseInt = Integer.parseInt(property);
                 GameEngine gameEngine = GameEngine.getGameEngine();
-                c0173b.m4660a((int) s, (int) s2);
-                gameEngine.f6323bL.m4663a(c0173b.f802T + c0173b.f788p, c0173b.f803U + c0173b.f789q, parseInt, gameEngine.f6312bs, false);
+                bVar.a((int) s, (int) s2);
+                gameEngine.bL.a(bVar.T + bVar.p, bVar.U + bVar.q, parseInt, gameEngine.playerTeam, false);
                 return null;
             }
-            String property2 = m4545a.getProperty("unit");
-            String property3 = m4545a.getProperty("customUnit");
+            String property2 = a.getProperty("unit");
+            String property3 = a.getProperty("customUnit");
             if (property2 != null || property3 != null) {
-                String property4 = m4545a.getProperty("team");
+                String property4 = a.getProperty("team");
                 if ("none".equalsIgnoreCase(property4)) {
-                    m4365k = PlayerData.m4365k(-1);
+                    playerData = PlayerData.getPlayerData(-1);
                 } else if (property4 == null) {
-                    GameEngine.m1015b("map", "warning: unit has no team property:" + property2 + " at: " + ((int) s) + "," + ((int) s2));
+                    GameEngine.b("map", "warning: unit has no team property:" + property2 + " at: " + ((int) s) + "," + ((int) s2));
                     return null;
                 } else {
-                    m4365k = PlayerData.m4365k(Integer.valueOf(property4).intValue());
-                    if (m4365k == null) {
-                        GameEngine.m1015b("map", "skipping unit without player:" + property2 + " at: " + ((int) s) + "," + ((int) s2) + " team:" + property4);
+                    playerData = PlayerData.getPlayerData(Integer.valueOf(property4).intValue());
+                    if (playerData == null) {
+                        GameEngine.b("map", "skipping unit without player:" + property2 + " at: " + ((int) s) + "," + ((int) s2) + " team:" + property4);
                         return null;
-                    } else if (m4365k.m4422b()) {
-                        GameEngine.m1015b("map", "Unit team is marked as spectator:" + property2 + " (skipping unit)");
+                    } else if (playerData.b()) {
+                        GameEngine.b("map", "Unit team is marked as spectator:" + property2 + " (skipping unit)");
                         return null;
                     }
                 }
-                C0456j c0456j = null;
+                j jVar = null;
                 if (property3 != null) {
-                    C0458l m3502n = C0458l.m3502n(property3);
-                    if (m3502n == null) {
+                    l n2 = l.n(property3);
+                    if (n2 == null) {
                         String str2 = "Could not find custom unit of:" + property3 + " at x:" + ((int) s) + ", y:" + ((int) s2);
-                        m4560a(str2);
-                        throw new C0179f(str2);
+                        a(str2);
+                        throw new f(str2);
                     }
-                    InterfaceC0303as m3527c = C0458l.m3527c(m3502n);
-                    if (m3527c != null) {
-                        if (m3527c instanceof C0458l) {
-                            m3502n = (C0458l) m3527c;
+                    as c = l.c(n2);
+                    if (c != null) {
+                        if (c instanceof l) {
+                            n2 = (l) c;
                         } else {
-                            GameEngine.print("replacement not a custom unit:" + m3527c.mo3513i());
+                            GameEngine.print("replacement not a custom unit:" + c.i());
                         }
                     }
-                    c0456j = C0458l.m3536a(false, m3502n);
-                    if (c0456j == null) {
+                    jVar = l.a(false, n2);
+                    if (jVar == null) {
                         String str3 = "Metadata unit is null for:" + property3;
-                        m4560a(str3);
-                        throw new C0179f(str3);
+                        a(str3);
+                        throw new f(str3);
                     }
                 } else {
-                    InterfaceC0303as m4174a = EnumC0249ar.m4174a(property2);
-                    if (m4174a != null) {
-                        c0456j = m4174a.mo3564a();
+                    as a2 = ar.a(property2);
+                    if (a2 != null) {
+                        jVar = a2.a();
                     }
-                    if (c0456j == null && "scoutShip".equalsIgnoreCase(property2)) {
-                        c0456j = new C0592d(false);
+                    if (jVar == null && "scoutShip".equalsIgnoreCase(property2)) {
+                        jVar = new d(false);
                     }
-                    if (c0456j == null) {
+                    if (jVar == null) {
                         String str4 = "Could not find unit:" + property2 + " at: " + ((int) s) + "," + ((int) s2);
-                        m4560a(str4);
-                        throw new C0179f(str4);
+                        a(str4);
+                        throw new f(str4);
                     }
                 }
-                c0173b.m4660a((int) s, (int) s2);
-                c0456j.f7172eo = c0173b.f802T + c0456j.mo3319cZ();
-                c0456j.f7173ep = c0173b.f803U + c0456j.mo3318da();
-                if (m4365k != null) {
-                    c0456j.mo2928b(m4365k);
-                    if (m4545a.getProperty("type") != null) {
-                        c0456j.mo3450a_(m4545a.getProperty("type"));
+                bVar.a((int) s, (int) s2);
+                jVar.eo = bVar.T + jVar.cZ();
+                jVar.ep = bVar.U + jVar.da();
+                if (playerData != null) {
+                    jVar.b(playerData);
+                    if (a.getProperty("type") != null) {
+                        jVar.a_(a.getProperty("type"));
                     }
-                    if (m4545a.getProperty("randomRotate") != null) {
-                        c0456j.f1623cg = C0773f.m2196a(c0456j, -180, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT);
+                    if (a.getProperty("randomRotate") != null) {
+                        jVar.cg = f.a(jVar, -180, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT);
                     }
-                    c0456j.f1605bO = "builder".equalsIgnoreCase(property2) || "builder".equalsIgnoreCase(property3);
-                    c0456j.f1606bP = "commandCenter".equalsIgnoreCase(property2) || "commandCenter".equalsIgnoreCase(property3);
-                    c0456j.f1603bM = true;
-                    c0456j.mo3283n();
-                    PlayerData.m4401c(c0456j);
-                    AbstractC1155w.m435dL();
+                    jVar.bO = "builder".equalsIgnoreCase(property2) || "builder".equalsIgnoreCase(property3);
+                    jVar.bP = "commandCenter".equalsIgnoreCase(property2) || "commandCenter".equalsIgnoreCase(property3);
+                    jVar.bM = true;
+                    jVar.n();
+                    PlayerData.c(jVar);
+                    w.dL();
                     return null;
                 }
-                throw new C0179f("team has not been set for:" + property2);
-            } else if (c0178e != null && c0178e.f903l.equals("units")) {
-                Log.m5069d("RustedWarfare", "non unit on units layer at:" + ((int) s) + "," + ((int) s2));
+                throw new f("team has not been set for:" + property2);
+            } else if (layer != null && layer.l.equals("units")) {
+                Log.d("RustedWarfare", "non unit on units layer at:" + ((int) s) + "," + ((int) s2));
                 return null;
             }
         }
-        C0180g c0180g = new C0180g();
-        c0180g.f915a = c0183j;
-        c0183j.f968p = true;
-        if (c0178e != null && !c0178e.f909r) {
-            c0183j.f970r = true;
+        g gVar = new g();
+        gVar.a = tileSet;
+        tileSet.p = true;
+        if (layer != null && !layer.r) {
+            tileSet.r = true;
         }
         if (z) {
-            c0183j.f969q = true;
+            tileSet.q = true;
         }
-        c0180g.f916b = i;
-        if (m4545a != null) {
-            if (m4545a.getProperty("water") != null) {
-                c0180g.f919e = true;
+        gVar.b = i;
+        if (a != null) {
+            if (a.getProperty("water") != null) {
+                gVar.e = true;
             }
-            if (m4545a.getProperty("water-bridge") != null) {
-                c0180g.f920f = true;
+            if (a.getProperty("water-bridge") != null) {
+                gVar.f = true;
             }
-            if (m4545a.getProperty("lava") != null || m4545a.getProperty("lava-cliff") != null) {
-                c0180g.f921g = true;
-                if (m4545a.getProperty("lava-cliff") != null) {
-                    c0180g.f922h = true;
+            if (a.getProperty("lava") != null || a.getProperty("lava-cliff") != null) {
+                gVar.g = true;
+                if (a.getProperty("lava-cliff") != null) {
+                    gVar.h = true;
                 }
             }
-            if (m4545a.getProperty("cliff-soft") != null) {
-                c0180g.f922h = true;
+            if (a.getProperty("cliff-soft") != null) {
+                gVar.h = true;
             }
-            if (m4545a.getProperty("cliff") != null) {
-                c0180g.f922h = true;
+            if (a.getProperty("cliff") != null) {
+                gVar.h = true;
             }
-            if (m4545a.getProperty("large-cliff") != null) {
-                c0180g.f925k = true;
+            if (a.getProperty("large-cliff") != null) {
+                gVar.k = true;
             }
-            if (m4545a.getProperty("trees") != null) {
-                c0180g.f925k = true;
+            if (a.getProperty("trees") != null) {
+                gVar.k = true;
             }
-            if (m4545a.getProperty("res_pool") != null) {
-                c0180g.f923i = true;
+            if (a.getProperty("res_pool") != null) {
+                gVar.i = true;
             }
-            if (m4545a.getProperty("tree") != null) {
+            if (a.getProperty("tree") != null) {
             }
-            if (m4545a.getProperty("small-rock") != null) {
-                c0180g.f924j = (byte) 40;
+            if (a.getProperty("small-rock") != null) {
+                gVar.j = (byte) 40;
             }
-            if (m4545a.getProperty("large-rock") != null) {
-                c0180g.f924j = (byte) -1;
+            if (a.getProperty("large-rock") != null) {
+                gVar.j = (byte) -1;
             }
-            if (m4545a.getProperty("block-land") != null) {
-                c0180g.f924j = (byte) -1;
+            if (a.getProperty("block-land") != null) {
+                gVar.j = (byte) -1;
             }
-            if (m4545a.getProperty("block-buildings") != null) {
-                c0180g.f926l = true;
+            if (a.getProperty("block-buildings") != null) {
+                gVar.l = true;
             }
         }
         int i2 = 0;
         int i3 = 0;
-        if (c0180g.f915a != null && (str = c0180g.f915a.f953c) != null) {
-            if (c0180g.f916b == 0 && str.equals("shallowwater.png")) {
+        if (gVar.a != null && (str = gVar.a.c) != null) {
+            if (gVar.b == 0 && str.equals("shallowwater.png")) {
                 i2 = 5;
             }
-            if (c0180g.f916b == 0 && str.equals("deepwater.png")) {
+            if (gVar.b == 0 && str.equals("deepwater.png")) {
                 i2 = 2;
             }
-            if (c0180g.f916b == 0 && str.equals("water.png")) {
+            if (gVar.b == 0 && str.equals("water.png")) {
                 i2 = 2;
             }
-            if (c0180g.f916b == 0 && str.equals("longgrass.png")) {
+            if (gVar.b == 0 && str.equals("longgrass.png")) {
                 i2 = 3;
             }
-            if (c0180g.f916b == 0 && str.equals("mountain.png")) {
+            if (gVar.b == 0 && str.equals("mountain.png")) {
                 i2 = 3;
             }
-            if (c0180g.f916b == 7 && str.equals("stone.png")) {
+            if (gVar.b == 7 && str.equals("stone.png")) {
                 i2 = 4;
                 i3 = 23;
             }
-            if (c0180g.f916b != 0 || str.equals("lava.png")) {
+            if (gVar.b != 0 || str.equals("lava.png")) {
             }
-            if (c0180g.f916b == 0 && str.equals("snow.png")) {
+            if (gVar.b == 0 && str.equals("snow.png")) {
                 i2 = 2;
             }
         }
-        if (m4545a != null && m4545a.getProperty("randomTileBy") != null) {
+        if (a != null && a.getProperty("randomTileBy") != null) {
             try {
-                i2 = Integer.parseInt(m4545a.getProperty("randomTileBy"));
-                if (m4545a.getProperty("randomTileFixedOffset") != null) {
+                i2 = Integer.parseInt(a.getProperty("randomTileBy"));
+                if (a.getProperty("randomTileFixedOffset") != null) {
                     try {
-                        i3 = Integer.parseInt(m4545a.getProperty("randomTileFixedOffset"));
+                        i3 = Integer.parseInt(a.getProperty("randomTileFixedOffset"));
                     } catch (NumberFormatException e) {
-                        throw new C0179f("(x:" + ((int) s) + "y:" + ((int) s2) + ") - randomTileFixedOffset: Unexpected integer value:'" + m4545a.getProperty("randomTileBy") + "'");
+                        throw new f("(x:" + ((int) s) + "y:" + ((int) s2) + ") - randomTileFixedOffset: Unexpected integer value:'" + a.getProperty("randomTileBy") + "'");
                     }
                 }
             } catch (NumberFormatException e2) {
-                throw new C0179f("(x:" + ((int) s) + "y:" + ((int) s2) + ") - randomTileBy: Unexpected integer value:'" + m4545a.getProperty("randomTileBy") + "'");
+                throw new f("(x:" + ((int) s) + "y:" + ((int) s2) + ") - randomTileBy: Unexpected integer value:'" + a.getProperty("randomTileBy") + "'");
             }
         }
         if (i2 > 0) {
-            C0180g[] c0180gArr = new C0180g[i2];
+            g[] gVarArr = new g[i2];
             for (int i4 = 0; i4 < i2; i4++) {
-                c0180gArr[i4] = c0180g.m4564a();
-                c0180gArr[i4].f916b += i4 + 1 + i3;
+                gVarArr[i4] = gVar.clone();
+                gVarArr[i4].b += i4 + 1 + i3;
             }
-            c0180g.f927m = c0180gArr;
+            gVar.m = gVarArr;
         }
-        return c0180g;
+        return gVar;
     }
 
-    C0180g() {
+    g() {
     }
 
-    /* renamed from: a */
-    public void m4561a(InterfaceC1063y interfaceC1063y, RectF rectF, float f, Paint paint) {
-        C0183j c0183j = this.f915a;
-        interfaceC1063y.mo193a(c0183j.f952b, c0183j.m4536b(this.f916b), rectF, paint);
+    public void a(y yVar, RectF rectF, float f, Paint paint) {
+        TileSet tileSet = this.a;
+        yVar.a(tileSet.b, tileSet.b(this.b), rectF, paint);
     }
 }

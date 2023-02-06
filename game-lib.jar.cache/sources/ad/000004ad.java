@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,57 +9,39 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.corrodinggames.rts.C0067R;
-import com.corrodinggames.rts.appFramework.ActivityC0097g;
-import com.corrodinggames.rts.appFramework.InterfaceC0096f;
+import com.corrodinggames.rts.AssetsID;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0318c;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.C0232aa;
-import com.corrodinggames.rts.game.units.C0560h;
-import com.corrodinggames.rts.game.units.EnumC0249ar;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
-import com.corrodinggames.rts.game.units.custom.C0453g;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.a.d;
+import com.corrodinggames.rts.game.units.a.g;
+import com.corrodinggames.rts.game.units.a.n;
+import com.corrodinggames.rts.game.units.a.s;
+import com.corrodinggames.rts.game.units.a.t;
+import com.corrodinggames.rts.game.units.a.u;
+import com.corrodinggames.rts.game.units.a.y;
+import com.corrodinggames.rts.game.units.a.z;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.ar;
+import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.units.c;
+import com.corrodinggames.rts.game.units.custom.d.b;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
-import com.corrodinggames.rts.game.units.custom.p021e.C0443e;
-import com.corrodinggames.rts.game.units.custom.p021e.C0444f;
-import com.corrodinggames.rts.game.units.p013a.AbstractC0224s;
-import com.corrodinggames.rts.game.units.p013a.AbstractC0228w;
-import com.corrodinggames.rts.game.units.p013a.C0208c;
-import com.corrodinggames.rts.game.units.p013a.C0209d;
-import com.corrodinggames.rts.game.units.p013a.C0212g;
-import com.corrodinggames.rts.game.units.p013a.C0213h;
-import com.corrodinggames.rts.game.units.p013a.C0219n;
-import com.corrodinggames.rts.game.units.p013a.C0230y;
-import com.corrodinggames.rts.game.units.p013a.C0231z;
-import com.corrodinggames.rts.game.units.p013a.EnumC0225t;
-import com.corrodinggames.rts.game.units.p013a.EnumC0226u;
-import com.corrodinggames.rts.game.units.p028g.C0559e;
-import com.corrodinggames.rts.gameFramework.AbstractC0741bq;
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
-import com.corrodinggames.rts.gameFramework.C0645ad;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.h;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.Interface.a.i;
 import com.corrodinggames.rts.gameFramework.SyncPacket;
-import com.corrodinggames.rts.gameFramework.mod.C0859b;
+import com.corrodinggames.rts.gameFramework.ad;
+import com.corrodinggames.rts.gameFramework.bq;
+import com.corrodinggames.rts.gameFramework.f;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
-import com.corrodinggames.rts.gameFramework.p030a.C0637e;
-import com.corrodinggames.rts.gameFramework.p037f.p038a.C0784h;
-import com.corrodinggames.rts.gameFramework.p037f.p038a.EnumC0785i;
-import com.corrodinggames.rts.gameFramework.p044l.C0955a;
-import com.corrodinggames.rts.gameFramework.player.C0847a;
-import com.corrodinggames.rts.gameFramework.translations.C0855a;
-import com.corrodinggames.rts.gameFramework.unitAction.C0960aa;
-import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
-import com.corrodinggames.rts.gameFramework.utility.C1152y;
+import com.corrodinggames.rts.gameFramework.unitAction.aa;
+import com.corrodinggames.rts.gameFramework.unitAction.ag;
+import com.corrodinggames.rts.gameFramework.unitAction.e;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
+import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.w;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,353 +49,183 @@ import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/a.class */
-public class C0775a extends AbstractC0741bq {
-
-    /* renamed from: a */
-    C0825g f4990a;
-
-    /* renamed from: b */
-    GameEngine f4991b;
-
-    /* renamed from: e */
-    public boolean f4992e;
-
-    /* renamed from: f */
-    public float f4993f;
-
-    /* renamed from: n */
-    C0966ag f4994n;
-
-    /* renamed from: o */
-    C0966ag f4995o;
-
-    /* renamed from: q */
-    Paint f4996q;
-
-    /* renamed from: r */
-    Paint f4997r;
-
-    /* renamed from: D */
-    boolean f4998D;
-
-    /* renamed from: E */
-    float f4999E;
-
-    /* renamed from: F */
-    float f5000F;
-
-    /* renamed from: G */
-    float f5001G;
-
-    /* renamed from: H */
-    int f5002H;
-
-    /* renamed from: I */
-    boolean f5003I;
-
-    /* renamed from: J */
-    float f5004J;
-
-    /* renamed from: K */
-    float f5005K;
-
-    /* renamed from: L */
-    float f5006L;
-
-    /* renamed from: M */
-    float f5007M;
-
-    /* renamed from: N */
-    float f5008N;
-
-    /* renamed from: O */
-    float f5009O;
-
-    /* renamed from: P */
-    int f5010P;
-
-    /* renamed from: Q */
-    float f5011Q;
-
-    /* renamed from: R */
-    float f5012R;
-
-    /* renamed from: Y */
-    static Paint f5013Y = new Paint();
-
-    /* renamed from: Z */
-    static PorterDuffColorFilter f5014Z = new PorterDuffColorFilter(Color.m5245a(200, 255, 200), PorterDuff.Mode.MULTIPLY);
-
-    /* renamed from: aa */
-    AbstractC0244am f5015aa;
-
-    /* renamed from: ab */
-    AbstractC0224s f5016ab;
-
-    /* renamed from: ac */
-    float f5017ac;
-
-    /* renamed from: ad */
-    long f5018ad;
-
-    /* renamed from: ae */
-    float f5019ae;
-
-    /* renamed from: af */
-    float f5020af;
-
-    /* renamed from: ag */
-    String f5021ag;
-
-    /* renamed from: ah */
-    String f5022ah;
-
-    /* renamed from: ai */
-    String f5023ai;
-
-    /* renamed from: aj */
-    String f5024aj;
-
-    /* renamed from: ak */
-    String f5025ak;
-
-    /* renamed from: al */
-    public String f5026al;
-
-    /* renamed from: ao */
-    public float f5027ao;
-
-    /* renamed from: ap */
-    public boolean f5028ap;
-
-    /* renamed from: aC */
-    float f5029aC;
-
-    /* renamed from: c */
-    public boolean f5030c = false;
-
-    /* renamed from: d */
-    public boolean f5031d = false;
-
-    /* renamed from: g */
-    Paint f5032g = new Paint();
-
-    /* renamed from: h */
-    Paint f5033h = new Paint();
-
-    /* renamed from: i */
-    Paint f5034i = new Paint();
-
-    /* renamed from: j */
-    Paint f5035j = new Paint();
-
-    /* renamed from: k */
-    Paint f5036k = new Paint();
-
-    /* renamed from: l */
-    Paint f5037l = new Paint();
-
-    /* renamed from: m */
-    Paint f5038m = new Paint();
-
-    /* renamed from: p */
-    Paint f5039p = new Paint();
-
-    /* renamed from: s */
-    Rect f5040s = new Rect();
-
-    /* renamed from: t */
-    RectF f5041t = new RectF();
-
-    /* renamed from: u */
-    Rect f5042u = new Rect();
-
-    /* renamed from: v */
-    Rect f5043v = new Rect();
-
-    /* renamed from: w */
-    Rect f5044w = new Rect();
-
-    /* renamed from: x */
-    RectF f5045x = new RectF();
-
-    /* renamed from: y */
-    RectF f5046y = new RectF();
-
-    /* renamed from: z */
-    Rect f5047z = new Rect();
-
-    /* renamed from: A */
-    RectF f5048A = new RectF();
-
-    /* renamed from: B */
-    Rect f5049B = new Rect();
-
-    /* renamed from: C */
-    RectF f5050C = new RectF();
-
-    /* renamed from: S */
-    C0970e f5051S = null;
-
-    /* renamed from: T */
-    C0970e f5052T = null;
-
-    /* renamed from: U */
-    C0970e f5053U = null;
-
-    /* renamed from: V */
-    C0970e f5054V = null;
-
-    /* renamed from: W */
-    C0970e f5055W = null;
-
-    /* renamed from: X */
-    C0970e f5056X = null;
-
-    /* renamed from: am */
-    String f5057am = null;
-
-    /* renamed from: an */
-    float f5058an = 0.0f;
-
-    /* renamed from: aq */
-    ArrayList f5059aq = new ArrayList();
-
-    /* renamed from: ar */
-    C0230y f5060ar = new C0230y(false);
-
-    /* renamed from: as */
-    C0230y f5061as = new C0230y(true);
-
-    /* renamed from: at */
-    C0209d f5062at = new C0209d();
-
-    /* renamed from: au */
-    ArrayList f5063au = new ArrayList();
-
-    /* renamed from: av */
-    ArrayList f5064av = new ArrayList();
-
-    /* renamed from: aw */
-    C1136m f5065aw = new C1136m();
-
-    /* renamed from: ax */
-    ArrayList f5066ax = new ArrayList();
-
-    /* renamed from: ay */
-    RectF f5067ay = new RectF();
-
-    /* renamed from: az */
-    HashMap f5068az = new HashMap();
-
-    /* renamed from: aA */
-    ArrayList f5069aA = new ArrayList();
-
-    /* renamed from: aB */
-    Rect f5070aB = new Rect();
-
-    /* renamed from: aD */
-    MenuC0841v f5071aD = new MenuC0841v();
-
-    C0775a(GameEngine gameEngine, C0825g c0825g) {
-        this.f4990a = c0825g;
-        this.f4991b = gameEngine;
-        m2077b();
+public class a extends bq {
+    InterfaceEngine a;
+    GameEngine b;
+    public boolean e;
+    public float f;
+    ag n;
+    ag o;
+    Paint q;
+    Paint r;
+    boolean D;
+    float E;
+    float F;
+    float G;
+    int H;
+    boolean I;
+    float J;
+    float K;
+    float L;
+    float M;
+    float N;
+    float O;
+    int P;
+    float Q;
+    float R;
+    static Paint Y = new Paint();
+    static PorterDuffColorFilter Z = new PorterDuffColorFilter(Color.a(200, 255, 200), PorterDuff.Mode.MULTIPLY);
+    am aa;
+    s ab;
+    float ac;
+    long ad;
+    float ae;
+    float af;
+    String ag;
+    String ah;
+    String ai;
+    String aj;
+    String ak;
+    public String al;
+    public float ao;
+    public boolean ap;
+    float aC;
+    public boolean c = false;
+    public boolean d = false;
+    Paint g = new Paint();
+    Paint h = new Paint();
+    Paint i = new Paint();
+    Paint j = new Paint();
+    Paint k = new Paint();
+    Paint l = new Paint();
+    Paint m = new Paint();
+    Paint p = new Paint();
+    Rect s = new Rect();
+    RectF t = new RectF();
+    Rect u = new Rect();
+    Rect v = new Rect();
+    Rect w = new Rect();
+    RectF x = new RectF();
+    RectF y = new RectF();
+    Rect z = new Rect();
+    RectF A = new RectF();
+    Rect B = new Rect();
+    RectF C = new RectF();
+    e S = null;
+    e T = null;
+    e U = null;
+    e V = null;
+    e W = null;
+    e X = null;
+    String am = null;
+    float an = 0.0f;
+    ArrayList aq = new ArrayList();
+    y ar = new y(false);
+    y as = new y(true);
+    d at = new d();
+    ArrayList au = new ArrayList();
+    ArrayList av = new ArrayList();
+    m aw = new m();
+    ArrayList ax = new ArrayList();
+    RectF ay = new RectF();
+    HashMap az = new HashMap();
+    ArrayList aA = new ArrayList();
+    Rect aB = new Rect();
+    v aD = new v();
+
+    a(GameEngine gameEngine, InterfaceEngine interfaceEngine) {
+        this.a = interfaceEngine;
+        this.b = gameEngine;
+        b();
     }
 
-    /* renamed from: a */
-    public void m2096a() {
-        this.f5021ag = C0855a.m1714a("gui.unselectall", new Object[0]);
-        this.f5022ah = C0855a.m1714a("gui.common.allyUnit", new Object[0]);
-        this.f5023ai = C0855a.m1714a("gui.common.enemyUnit", new Object[0]);
-        this.f5024aj = C0855a.m1714a("gui.common.neutralUnit", new Object[0]);
-        this.f5025ak = C0855a.m1714a("gui.infoText.ownedBy", new Object[0]);
-        this.f5026al = C0855a.m1714a("gui.infoText.unitCapReached", new Object[0]);
+    public void a() {
+        this.ag = com.corrodinggames.rts.gameFramework.translations.a.a("gui.unselectall", new Object[0]);
+        this.ah = com.corrodinggames.rts.gameFramework.translations.a.a("gui.common.allyUnit", new Object[0]);
+        this.ai = com.corrodinggames.rts.gameFramework.translations.a.a("gui.common.enemyUnit", new Object[0]);
+        this.aj = com.corrodinggames.rts.gameFramework.translations.a.a("gui.common.neutralUnit", new Object[0]);
+        this.ak = com.corrodinggames.rts.gameFramework.translations.a.a("gui.infoText.ownedBy", new Object[0]);
+        this.al = com.corrodinggames.rts.gameFramework.translations.a.a("gui.infoText.unitCapReached", new Object[0]);
     }
 
-    /* renamed from: b */
-    public void m2077b() {
-        m2096a();
-        this.f5051S = this.f4991b.f6326bO.mo222a(C0067R.drawable.zoom_button);
-        this.f5052T = this.f4991b.f6326bO.mo222a(C0067R.drawable.lock_icon_menu);
-        this.f5053U = this.f4991b.f6326bO.mo222a(C0067R.drawable.pause);
-        this.f5054V = this.f4991b.f6326bO.mo222a(C0067R.drawable.replay_pause);
-        this.f5055W = this.f4991b.f6326bO.mo222a(C0067R.drawable.fast);
-        this.f5056X = this.f4991b.f6326bO.mo222a(C0067R.drawable.replay_leaderboard);
-        f5013Y.m5229a(255, 30, 30, 30);
-        f5013Y.m5226a(f5014Z);
-        f5013Y.m5196d(true);
-        this.f4996q = new Paint();
-        this.f4996q.m5229a(255, 255, 255, 255);
-        this.f4996q.m5225a(Paint.Align.f195a);
-        this.f4996q.m5200c(true);
-        this.f4996q.mo914a(true);
-        this.f4997r = new Paint();
-        this.f4997r.m5229a(255, 255, 255, 255);
-        this.f4997r.m5225a(Paint.Align.f195a);
-        this.f4997r.m5200c(true);
-        this.f4997r.mo914a(true);
-        this.f4994n = new C0966ag();
-        this.f4994n.m5207b(Color.m5244a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 255, 255, 255));
-        this.f4994n.m910o();
-        this.f4995o = new C0966ag();
-        this.f4995o.m5207b(Color.m5244a(133, 255, 255, 255));
-        this.f4995o.m910o();
-        this.f5069aA.clear();
+    public void b() {
+        a();
+        this.S = this.b.bO.a(AssetsID.drawable.zoom_button);
+        this.T = this.b.bO.a(AssetsID.drawable.lock_icon_menu);
+        this.U = this.b.bO.a(AssetsID.drawable.pause);
+        this.V = this.b.bO.a(AssetsID.drawable.replay_pause);
+        this.W = this.b.bO.a(AssetsID.drawable.fast);
+        this.X = this.b.bO.a(AssetsID.drawable.replay_leaderboard);
+        Y.a(255, 30, 30, 30);
+        Y.a(Z);
+        Y.d(true);
+        this.q = new Paint();
+        this.q.a(255, 255, 255, 255);
+        this.q.a(Paint.Align.LEFT);
+        this.q.c(true);
+        this.q.a(true);
+        this.r = new Paint();
+        this.r.a(255, 255, 255, 255);
+        this.r.a(Paint.Align.LEFT);
+        this.r.c(true);
+        this.r.a(true);
+        this.n = new ag();
+        this.n.b(Color.a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 255, 255, 255));
+        this.n.o();
+        this.o = new ag();
+        this.o.b(Color.a(133, 255, 255, 255));
+        this.o.o();
+        this.aA.clear();
         int i = 0;
         while (i < 10) {
-            this.f5069aA.add(new C0809am(this, i < 3));
+            this.aA.add(new am(this, i < 3));
             i++;
         }
     }
 
-    /* renamed from: p */
-    private float m2051p() {
-        float f = 4.6f / this.f4991b.f6471cY;
+    private float p() {
+        float f = 4.6f / this.b.cY;
         if (f > 4.6f) {
             f = 4.6f;
         }
         return f;
     }
 
-    /* renamed from: q */
-    private float m2050q() {
-        return m2049r() / this.f4991b.f6471cY;
+    private float q() {
+        return r() / this.b.cY;
     }
 
-    /* renamed from: r */
-    private float m2049r() {
-        if (this.f4991b.f6366cF / this.f4991b.f6323bL.m4602i() < this.f4991b.f6368cH / this.f4991b.f6323bL.m4601j()) {
-            return this.f4991b.f6366cF / this.f4991b.f6323bL.m4602i();
+    private float r() {
+        if (this.b.cF / this.b.bL.i() < this.b.cH / this.b.bL.j()) {
+            return this.b.cF / this.b.bL.i();
         }
-        return this.f4991b.f6368cH / this.f4991b.f6323bL.m4601j();
+        return this.b.cH / this.b.bL.j();
     }
 
-    /* renamed from: a */
-    void m2095a(float f) {
+    void a(float f) {
         float f2;
         float f3;
         float f4;
         float f5;
-        if (this.f4991b.settingsEngine.showZoomButton) {
-            float f6 = this.f4991b.f6345cj * 0.7f;
+        if (this.b.settingsEngine.showZoomButton) {
+            float f6 = this.b.cj * 0.7f;
             int i = (int) (50.0f * f6);
-            int i2 = (int) this.f4991b.f6350cp;
-            float m961c = C0955a.m961c();
-            if (m961c > 20.0f) {
-                i = (int) (i + (m961c - 20.0f));
+            int i2 = (int) this.b.cp;
+            float c = com.corrodinggames.rts.gameFramework.l.a.c();
+            if (c > 20.0f) {
+                i = (int) (i + (c - 20.0f));
             }
-            if (this.f4998D) {
-                this.f5040s.m5173a(i - 4, (int) (i2 - (50.0f * this.f4991b.f6345cj)), i + 4, (int) (i2 + (50.0f * this.f4991b.f6345cj)));
-                this.f5034i.m5233a();
-                this.f5034i.m5207b(Color.m5244a(255, 0, 0, 0));
-                this.f4991b.f6326bO.mo163b(this.f5040s, this.f5034i);
+            if (this.D) {
+                this.s.a(i - 4, (int) (i2 - (50.0f * this.b.cj)), i + 4, (int) (i2 + (50.0f * this.b.cj)));
+                this.i.a();
+                this.i.b(Color.a(255, 0, 0, 0));
+                this.b.bO.b(this.s, this.i);
             }
             float f7 = i2;
-            if (this.f4991b.f6468cV > 1.0f) {
-                f5 = f7 - (((this.f4991b.f6468cV - 1.0f) * 3.0f) * this.f4991b.f6345cj);
+            if (this.b.cV > 1.0f) {
+                f5 = f7 - (((this.b.cV - 1.0f) * 3.0f) * this.b.cj);
             } else {
-                f5 = f7 + (((this.f4991b.f6468cV * (-20.0f)) + 20.0f + 1.0f) * this.f4991b.f6345cj);
+                f5 = f7 + (((this.b.cV * (-20.0f)) + 20.0f + 1.0f) * this.b.cj);
             }
             float f8 = 48.0f * f6;
             float f9 = 54.0f * f6;
@@ -422,351 +234,349 @@ public class C0775a extends AbstractC0741bq {
             if (f5 < f11) {
                 f5 = f11;
             }
-            if (f5 > this.f4991b.f6348cm - f11) {
-                f5 = (int) (this.f4991b.f6348cm - f11);
+            if (f5 > this.b.cm - f11) {
+                f5 = (int) (this.b.cm - f11);
             }
-            this.f5040s.m5173a((int) (i - f10), (int) (f5 - f11), (int) (i + f10), (int) (f5 + f11));
-            if (!this.f4998D) {
-                f5013Y.m5229a(140, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA);
+            this.s.a((int) (i - f10), (int) (f5 - f11), (int) (i + f10), (int) (f5 + f11));
+            if (!this.D) {
+                Y.a(140, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_KATAKANA_HIRAGANA);
             } else {
-                f5013Y.m5229a(255, 255, 255, 255);
+                Y.a(255, 255, 255, 255);
             }
-            this.f4991b.f6326bO.mo198a(this.f5051S, this.f5040s.f230a, this.f5040s.f231b, f5013Y, 0.0f, f6);
-            boolean z = this.f4998D;
-            if (!this.f4998D && this.f4990a.m1846b(this.f5040s.f230a, this.f5040s.f231b, this.f5040s.m5171b(), this.f5040s.m5167c(), EnumC0827i.f5435b)) {
-                this.f4998D = true;
-                this.f4999E = this.f4990a.f5375y;
+            this.b.bO.a(this.S, this.s.a, this.s.b, Y, 0.0f, f6);
+            boolean z = this.D;
+            if (!this.D && this.a.b(this.s.a, this.s.b, this.s.b(), this.s.c(), i.zoomButton)) {
+                this.D = true;
+                this.E = this.a.y;
             }
-            if (!this.f4990a.f5380I) {
-                this.f4998D = false;
+            if (!this.a.I) {
+                this.D = false;
             }
-            if (this.f4998D) {
-                this.f5000F += f;
-                this.f4990a.m1830d();
-                float f12 = this.f4990a.f5375y - this.f4999E;
+            if (this.D) {
+                this.F += f;
+                this.a.d();
+                float f12 = this.a.y - this.E;
                 if (f12 > 180.0f) {
                     f12 = 180.0f;
                 }
                 if (f12 < -180.0f) {
                     f12 = -180.0f;
                 }
-                float f13 = f12 * this.f4991b.f6468cV;
+                float f13 = f12 * this.b.cV;
                 if (f13 > 2.0f) {
-                    this.f4991b.f6468cV -= (5.0E-4f * C0773f.m2152c(f13)) * f;
-                    this.f4991b.f6469cW = false;
-                    if (this.f4991b.f6468cV < m2050q()) {
-                        this.f4991b.f6468cV = m2050q();
-                        this.f4991b.f6469cW = true;
+                    this.b.cV -= (5.0E-4f * f.c(f13)) * f;
+                    this.b.cW = false;
+                    if (this.b.cV < q()) {
+                        this.b.cV = q();
+                        this.b.cW = true;
                     }
                 } else if (f13 < -2.0f) {
-                    this.f4991b.f6468cV += 5.0E-4f * C0773f.m2152c(f13) * f;
-                    this.f4991b.f6469cW = false;
-                    if (this.f4991b.f6468cV > m2051p()) {
-                        this.f4991b.f6468cV = m2051p();
-                        this.f4991b.f6469cW = true;
+                    this.b.cV += 5.0E-4f * f.c(f13) * f;
+                    this.b.cW = false;
+                    if (this.b.cV > p()) {
+                        this.b.cV = p();
+                        this.b.cW = true;
                     }
                 }
             } else {
-                if (!z || this.f5000F < 12.0f) {
+                if (!z || this.F < 12.0f) {
                 }
-                this.f5000F = 0.0f;
+                this.F = 0.0f;
             }
         }
-        if (this.f4991b.settingsEngine.mouseSupport) {
-            if (this.f4990a.m1900a(this.f4991b.m1044af(), this.f4991b.m1043ag()) && !this.f4990a.f5383L) {
-                int m1041ai = this.f4991b.m1041ai();
-                if (m1041ai != 0) {
-                    this.f5001G += (m1041ai / 120.0f) * 0.18f;
+        if (this.b.settingsEngine.mouseSupport) {
+            if (this.a.a(this.b.af(), this.b.ag()) && !this.a.L) {
+                int ai = this.b.ai();
+                if (ai != 0) {
+                    this.G += (ai / 120.0f) * 0.18f;
                 }
-                if (this.f5001G > 1.0f) {
-                    this.f5001G = 1.0f;
+                if (this.G > 1.0f) {
+                    this.G = 1.0f;
                 }
-                if (this.f5001G < -1.0f) {
-                    this.f5001G = -1.0f;
+                if (this.G < -1.0f) {
+                    this.G = -1.0f;
                 }
             }
-            if (this.f5001G != 0.0f) {
+            if (this.G != 0.0f) {
                 float f14 = 0.0032f * f;
-                if (this.f5001G < 0.0f) {
+                if (this.G < 0.0f) {
                     f14 = -f14;
                 }
-                float f15 = f14 + (this.f5001G * 0.18f * f);
-                float f16 = this.f5001G;
-                this.f5001G = C0773f.m2218a(this.f5001G, C0773f.m2152c(f15));
-                if (this.f5001G == 0.0f) {
+                float f15 = f14 + (this.G * 0.18f * f);
+                float f16 = this.G;
+                this.G = f.a(this.G, f.c(f15));
+                if (this.G == 0.0f) {
                     f15 = f16;
                 }
-                float f17 = f15 * this.f4991b.f6468cV;
-                this.f4991b.f6468cV += f17;
-                this.f4991b.f6375cZ = true;
-                this.f4991b.f6376da = this.f4991b.m1044af();
-                this.f4991b.f6377db = this.f4991b.m1043ag();
+                float f17 = f15 * this.b.cV;
+                this.b.cV += f17;
+                this.b.cZ = true;
+                this.b.da = this.b.af();
+                this.b.db = this.b.ag();
                 if (f17 != 0.0f) {
-                    this.f4991b.f6469cW = false;
+                    this.b.cW = false;
                 }
             }
         }
-        if (this.f4991b.settingsEngine.gestureZoom && this.f4991b.m1047ac() && this.f4991b.m1045ae() >= 3) {
-            this.f5012R = 20.0f;
+        if (this.b.settingsEngine.gestureZoom && this.b.ac() && this.b.ae() >= 3) {
+            this.R = 20.0f;
         }
-        if (this.f5012R < 10.0f) {
-            this.f5003I = false;
+        if (this.R < 10.0f) {
+            this.I = false;
         }
-        if (this.f5012R > 0.0f) {
-            this.f5012R = C0773f.m2218a(this.f5012R, f);
-            boolean z2 = this.f4991b.m1047ac() && this.f4991b.m1045ae() >= 3;
-            this.f4990a.f5396aU = 3.0f;
+        if (this.R > 0.0f) {
+            this.R = f.a(this.R, f);
+            boolean z2 = this.b.ac() && this.b.ae() >= 3;
+            this.a.aU = 3.0f;
             float f18 = 0.0f;
             float f19 = 0.0f;
             if (z2) {
-                for (int i3 = 0; i3 < this.f4991b.m1045ae(); i3++) {
-                    f18 += this.f4991b.m1021b(i3);
-                    f19 += this.f4991b.m1012c(i3);
+                for (int i3 = 0; i3 < this.b.ae(); i3++) {
+                    f18 += this.b.b(i3);
+                    f19 += this.b.c(i3);
                 }
-                f2 = f18 / this.f4991b.m1045ae();
-                f3 = f19 / this.f4991b.m1045ae();
+                f2 = f18 / this.b.ae();
+                f3 = f19 / this.b.ae();
                 f4 = 0.0f;
-                for (int i4 = 0; i4 < this.f4991b.m1045ae(); i4++) {
-                    f4 += C0773f.m2170b(f2, f3, this.f4991b.m1021b(i4), this.f4991b.m1012c(i4));
+                for (int i4 = 0; i4 < this.b.ae(); i4++) {
+                    f4 += f.b(f2, f3, this.b.b(i4), this.b.c(i4));
                 }
             } else {
-                f2 = this.f5007M;
-                f3 = this.f5008N;
-                f4 = this.f5009O;
+                f2 = this.M;
+                f3 = this.N;
+                f4 = this.O;
             }
-            if (this.f5003I && this.f5010P != this.f4991b.m1045ae()) {
-                this.f5003I = false;
+            if (this.I && this.P != this.b.ae()) {
+                this.I = false;
             }
-            if (!this.f5003I && z2) {
-                this.f5003I = true;
-                this.f5004J = f2;
-                this.f5005K = f3;
-                this.f5006L = f4;
-                this.f5011Q = this.f4991b.f6468cV;
-                this.f5007M = f2;
-                this.f5008N = f3;
-                this.f5009O = f4;
-                this.f5010P = this.f4991b.m1045ae();
+            if (!this.I && z2) {
+                this.I = true;
+                this.J = f2;
+                this.K = f3;
+                this.L = f4;
+                this.Q = this.b.cV;
+                this.M = f2;
+                this.N = f3;
+                this.O = f4;
+                this.P = this.b.ae();
             }
             if (z2) {
-                float f20 = (this.f5008N - f3) * 2.0f * this.f4991b.f6468cV;
-                this.f4991b.f6468cV += (f20 / 250.0f) / this.f4991b.f6345cj;
-                this.f4991b.f6469cW = false;
-                float f21 = this.f5009O - f4;
+                float f20 = (this.N - f3) * 2.0f * this.b.cV;
+                this.b.cV += (f20 / 250.0f) / this.b.cj;
+                this.b.cW = false;
+                float f21 = this.O - f4;
                 if (0 != 0) {
-                    this.f4991b.f6468cV -= (f21 / 350.0f) / this.f4991b.f6345cj;
-                    this.f4991b.f6469cW = false;
+                    this.b.cV -= (f21 / 350.0f) / this.b.cj;
+                    this.b.cW = false;
                 }
-                this.f5007M = f2;
-                this.f5008N = f3;
-                this.f5009O = f4;
-                this.f5010P = this.f4991b.m1045ae();
-                for (int i5 = 0; i5 < this.f4991b.m1045ae(); i5++) {
-                    this.f4991b.f6326bO.mo226a(f2, f3, this.f4991b.m1021b(i5), this.f4991b.m1012c(i5), this.f4990a.f5315aN);
+                this.M = f2;
+                this.N = f3;
+                this.O = f4;
+                this.P = this.b.ae();
+                for (int i5 = 0; i5 < this.b.ae(); i5++) {
+                    this.b.bO.a(f2, f3, this.b.b(i5), this.b.c(i5), this.a.aN);
                 }
-                this.f4991b.f6326bO.mo226a(f2, f3, f2, this.f5005K, this.f4990a.f5316aO);
-                this.f4991b.f6326bO.mo224a(f2, f3, 6.0f, this.f4990a.f5315aN);
+                this.b.bO.a(f2, f3, f2, this.K, this.a.aO);
+                this.b.bO.a(f2, f3, 6.0f, this.a.aN);
             }
         }
-        if (this.f4991b.f6468cV > m2051p()) {
-            this.f4991b.f6468cV = m2051p();
-            this.f4991b.f6469cW = true;
+        if (this.b.cV > p()) {
+            this.b.cV = p();
+            this.b.cW = true;
         }
-        if (this.f4991b.f6468cV < m2050q()) {
-            this.f4991b.f6468cV = m2050q();
-            this.f4991b.f6469cW = true;
+        if (this.b.cV < q()) {
+            this.b.cV = q();
+            this.b.cW = true;
         }
     }
 
-    /* renamed from: b */
-    void m2076b(float f) {
-        this.f4992e = false;
+    void b(float f) {
+        this.e = false;
         boolean z = false;
         boolean z2 = false;
         boolean z3 = false;
         int i = 7;
-        if (GameEngine.m1027aw()) {
+        if (GameEngine.aw()) {
             i = 14;
         }
-        if (this.f4991b.m1047ac() && this.f4990a.f5279ac == null) {
-            boolean m1832c = this.f4990a.m1832c(this.f4991b);
+        if (this.b.ac() && this.a.ac == null) {
+            boolean c = this.a.c(this.b);
             int i2 = 1;
-            if (this.f4991b.settingsEngine.mouseOrders == 2) {
+            if (this.b.settingsEngine.mouseOrders == 2) {
                 i2 = 2;
             }
-            int m995f = this.f4991b.m995f(i2);
-            if (m1832c || (this.f4991b.settingsEngine.mouseSupport && m995f != -1 && !this.f4990a.f5381J && !this.f4990a.f5382K)) {
-                float m1021b = this.f4991b.m1021b(0);
-                float m1012c = this.f4991b.m1012c(0);
-                if (m995f != -1) {
-                    m1021b = this.f4991b.m1021b(m995f);
-                    m1012c = this.f4991b.m1012c(m995f);
+            int f2 = this.b.f(i2);
+            if (c || (this.b.settingsEngine.mouseSupport && f2 != -1 && !this.a.J && !this.a.K)) {
+                float b = this.b.b(0);
+                float c2 = this.b.c(0);
+                if (f2 != -1) {
+                    b = this.b.b(f2);
+                    c2 = this.b.c(f2);
                 }
-                if (!this.f5030c) {
+                if (!this.c) {
                     z2 = true;
-                    this.f5046y.f234a = (int) m1021b;
-                    this.f5046y.f235b = (int) m1012c;
+                    this.y.a = (int) b;
+                    this.y.b = (int) c2;
                 }
-                this.f5046y.f236c = (int) m1021b;
-                this.f5046y.f237d = (int) m1012c;
-                if (Math.abs(this.f5046y.f234a - this.f5046y.f236c) > i || Math.abs(this.f5046y.f235b - this.f5046y.f237d) > i) {
-                    this.f5031d = true;
+                this.y.c = (int) b;
+                this.y.d = (int) c2;
+                if (Math.abs(this.y.a - this.y.c) > i || Math.abs(this.y.b - this.y.d) > i) {
+                    this.d = true;
                 }
                 z = true;
-            } else if (this.f4991b.m1045ae() == 2 && this.f5012R == 0.0f) {
-                this.f5046y.f234a = (int) this.f4991b.m1021b(0);
-                this.f5046y.f235b = (int) this.f4991b.m1012c(0);
-                this.f5046y.f236c = (int) this.f4991b.m1021b(1);
-                this.f5046y.f237d = (int) this.f4991b.m1012c(1);
-                this.f5031d = false;
+            } else if (this.b.ae() == 2 && this.R == 0.0f) {
+                this.y.a = (int) this.b.b(0);
+                this.y.b = (int) this.b.c(0);
+                this.y.c = (int) this.b.b(1);
+                this.y.d = (int) this.b.c(1);
+                this.d = false;
                 z = true;
             }
             if (z) {
-                this.f4993f += f;
-                if (this.f4993f < 18.0f) {
+                this.f += f;
+                if (this.f < 18.0f) {
                     z3 = true;
                 }
             } else {
-                this.f4993f = 0.0f;
+                this.f = 0.0f;
             }
             if (z) {
-                this.f5030c = true;
-                if (Math.abs(this.f5046y.f234a - this.f5046y.f236c) > i || Math.abs(this.f5046y.f235b - this.f5046y.f237d) > i) {
-                    this.f5047z.f233d = (int) this.f5046y.f237d;
-                    this.f5047z.f231b = (int) this.f5046y.f235b;
-                    this.f5047z.f230a = (int) this.f5046y.f234a;
-                    this.f5047z.f232c = (int) this.f5046y.f236c;
-                    C0773f.m2203a(this.f5047z);
-                    this.f5032g.m5207b(Color.m5244a(255, 0, 255, 0));
-                    this.f5032g.m5222a(Paint.Style.f220b);
-                    this.f5032g.m5232a(1.0f);
-                    this.f4991b.f6326bO.mo163b(this.f5047z, this.f5032g);
-                    this.f4992e = true;
+                this.c = true;
+                if (Math.abs(this.y.a - this.y.c) > i || Math.abs(this.y.b - this.y.d) > i) {
+                    this.z.d = (int) this.y.d;
+                    this.z.b = (int) this.y.b;
+                    this.z.a = (int) this.y.a;
+                    this.z.c = (int) this.y.c;
+                    f.a(this.z);
+                    this.g.b(Color.a(255, 0, 255, 0));
+                    this.g.a(Paint.Style.STROKE);
+                    this.g.a(1.0f);
+                    this.b.bO.b(this.z, this.g);
+                    this.e = true;
                 }
             }
         }
         boolean z4 = false;
         boolean z5 = false;
-        if (this.f5030c && !z) {
-            if (z3 && this.f4991b.m1045ae() == 3) {
+        if (this.c && !z) {
+            if (z3 && this.b.ae() == 3) {
                 z5 = true;
             } else {
                 z4 = true;
             }
         }
         if (z5) {
-            this.f5031d = false;
-            this.f5030c = false;
+            this.d = false;
+            this.c = false;
         }
         if ((z && !z3) || z4) {
             if (z2) {
-                Iterator it = AbstractC1155w.f7177er.iterator();
+                Iterator it = w.er.iterator();
                 while (it.hasNext()) {
-                    AbstractC1155w abstractC1155w = (AbstractC1155w) it.next();
-                    if (abstractC1155w instanceof AbstractC0318c) {
-                        AbstractC0318c abstractC0318c = (AbstractC0318c) abstractC1155w;
-                        abstractC0318c.f1651cI = abstractC0318c.f1649cG;
+                    w wVar = (w) it.next();
+                    if (wVar instanceof c) {
+                        c cVar = (c) wVar;
+                        cVar.cI = cVar.cG;
                     }
                 }
             }
             if (z4) {
-                this.f5031d = false;
-                this.f5030c = false;
+                this.d = false;
+                this.c = false;
             }
-            this.f5048A.m5157a(this.f5046y);
-            C0773f.m2200a(this.f5048A);
-            if (Math.abs(this.f5048A.f234a - this.f5048A.f236c) > i || Math.abs(this.f5048A.f235b - this.f5048A.f237d) > i) {
-                this.f5048A.f237d /= this.f4991b.f6470cX;
-                this.f5048A.f235b /= this.f4991b.f6470cX;
-                this.f5048A.f234a /= this.f4991b.f6470cX;
-                this.f5048A.f236c /= this.f4991b.f6470cX;
-                this.f5048A.m5160a(this.f4991b.f6355cu, this.f4991b.f6356cv);
-                this.f4990a.f5396aU = 4.0f;
-                this.f4990a.f5397aV = 40.0f;
-                this.f4990a.f5392U = false;
-                boolean m1859a = this.f4990a.m1859a(this.f4991b);
-                boolean m1841b = this.f4990a.m1841b(this.f4991b);
+            this.A.a(this.y);
+            f.a(this.A);
+            if (Math.abs(this.A.a - this.A.c) > i || Math.abs(this.A.b - this.A.d) > i) {
+                this.A.d /= this.b.cX;
+                this.A.b /= this.b.cX;
+                this.A.a /= this.b.cX;
+                this.A.c /= this.b.cX;
+                this.A.a(this.b.cu, this.b.cv);
+                this.a.aU = 4.0f;
+                this.a.aV = 40.0f;
+                this.a.U = false;
+                boolean a = this.a.a(this.b);
+                boolean b2 = this.a.b(this.b);
                 boolean z6 = true;
                 boolean z7 = true;
                 boolean z8 = false;
-                if (this.f4991b.settingsEngine.smartSelection_v2) {
-                    Iterator it2 = AbstractC1155w.f7177er.iterator();
+                if (this.b.settingsEngine.smartSelection_v2) {
+                    Iterator it2 = w.er.iterator();
                     while (it2.hasNext()) {
-                        AbstractC1155w abstractC1155w2 = (AbstractC1155w) it2.next();
-                        if (abstractC1155w2 instanceof AbstractC0629y) {
-                            AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC1155w2;
-                            if (m2081a(abstractC0629y) && (!m1859a || !abstractC0629y.f1651cI)) {
-                                if (!abstractC0629y.mo3398bI()) {
+                        w wVar2 = (w) it2.next();
+                        if (wVar2 instanceof com.corrodinggames.rts.game.units.y) {
+                            com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) wVar2;
+                            if (a(yVar) && (!a || !yVar.cI)) {
+                                if (!yVar.bI()) {
                                     z6 = false;
                                 }
-                                if (abstractC0629y.mo2969aS() && abstractC0629y.mo3067l()) {
+                                if (yVar.aS() && yVar.l()) {
                                     z7 = false;
                                 }
                             }
                         }
                     }
                 }
-                if (m1841b) {
+                if (b2) {
                     z6 = true;
                 }
-                Iterator it3 = AbstractC1155w.f7177er.iterator();
+                Iterator it3 = w.er.iterator();
                 while (it3.hasNext()) {
-                    AbstractC1155w abstractC1155w3 = (AbstractC1155w) it3.next();
-                    if (abstractC1155w3 instanceof AbstractC0318c) {
-                        AbstractC0318c abstractC0318c2 = (AbstractC0318c) abstractC1155w3;
+                    w wVar3 = (w) it3.next();
+                    if (wVar3 instanceof c) {
+                        c cVar2 = (c) wVar3;
                         boolean z9 = false;
-                        if (m2081a(abstractC0318c2)) {
+                        if (a(cVar2)) {
                             z9 = true;
-                            if (!z6 && abstractC0318c2.mo3398bI()) {
+                            if (!z6 && cVar2.bI()) {
                                 z9 = false;
                             }
-                            if (!z7 && abstractC0318c2.mo2950ak() && !abstractC0318c2.mo3067l()) {
+                            if (!z7 && cVar2.ak() && !cVar2.l()) {
                                 z9 = false;
                             }
                         }
-                        if (m1841b) {
+                        if (b2) {
                             if (z9) {
-                                z9 = !abstractC0318c2.f1651cI;
-                            } else if (abstractC0318c2.f1651cI) {
+                                z9 = !cVar2.cI;
+                            } else if (cVar2.cI) {
                                 z9 = true;
                             }
-                        } else if (m1859a && abstractC0318c2.f1651cI) {
+                        } else if (a && cVar2.cI) {
                             z9 = true;
                         }
                         if (z9) {
-                            this.f4990a.m1812j(abstractC0318c2);
-                            if (z4 && abstractC0318c2.f1650cH + 900 < this.f4991b.f6317bA && ((!m1859a && !m1841b) || !abstractC0318c2.f1651cI)) {
+                            this.a.j(cVar2);
+                            if (z4 && cVar2.cH + 900 < this.b.bA && ((!a && !b2) || !cVar2.cI)) {
                                 z8 = true;
                             }
                         } else {
-                            this.f4990a.m1808l(abstractC0318c2);
+                            this.a.l(cVar2);
                         }
                     }
                 }
                 if (z8) {
-                    Iterator it4 = AbstractC1155w.f7177er.iterator();
+                    Iterator it4 = w.er.iterator();
                     while (it4.hasNext()) {
-                        AbstractC1155w abstractC1155w4 = (AbstractC1155w) it4.next();
-                        if (abstractC1155w4 instanceof AbstractC0318c) {
-                            ((AbstractC0318c) abstractC1155w4).f1650cH = this.f4991b.f6317bA;
+                        w wVar4 = (w) it4.next();
+                        if (wVar4 instanceof c) {
+                            ((c) wVar4).cH = this.b.bA;
                         }
                     }
                 }
-                this.f4990a.m1909E();
+                this.a.E();
             }
         }
     }
 
-    /* renamed from: a */
-    private boolean m2081a(AbstractC0318c abstractC0318c) {
-        if (!abstractC0318c.f1612bV && abstractC0318c.f1656cN == null) {
-            float f = abstractC0318c.f7172eo;
-            float f2 = abstractC0318c.f7173ep - abstractC0318c.f7174eq;
+    private boolean a(c cVar) {
+        if (!cVar.bV && cVar.cN == null) {
+            float f = cVar.eo;
+            float f2 = cVar.ep - cVar.eq;
             if (f2 <= 0.0f) {
-                f2 += abstractC0318c.f7174eq;
+                f2 += cVar.eq;
             }
-            if (this.f5048A.m5153b(f, f2)) {
-                if ((this.f4990a.m1806m(abstractC0318c) || this.f4991b.f6312bs.m4423b()) && !abstractC0318c.mo1746t()) {
+            if (this.A.b(f, f2)) {
+                if ((this.a.m(cVar) || this.b.playerTeam.b()) && !cVar.t()) {
                     return true;
                 }
                 return false;
@@ -776,160 +586,151 @@ public class C0775a extends AbstractC0741bq {
         return false;
     }
 
-    /* renamed from: a */
-    public void m2078a(String str, int i) {
-        this.f5057am = str;
-        this.f5058an = i;
+    public void a(String str, int i) {
+        this.am = str;
+        this.an = i;
     }
 
-    /* renamed from: b */
-    public void m2073b(String str, int i) {
-        if (this.f5058an <= 0.0f || str.equals(this.f5057am)) {
-            this.f5057am = str;
-            this.f5058an = i;
+    public void b(String str, int i) {
+        if (this.an <= 0.0f || str.equals(this.am)) {
+            this.am = str;
+            this.an = i;
         }
     }
 
-    /* renamed from: a */
-    public void m2079a(String str) {
-        if (this.f5058an > 0.0f && str.equals(this.f5057am)) {
-            this.f5058an = 0.0f;
+    public void a(String str) {
+        if (this.an > 0.0f && str.equals(this.am)) {
+            this.an = 0.0f;
         }
     }
 
-    /* renamed from: c */
-    public void m2071c(float f) {
-        if (this.f5058an > 0.0f && this.f5057am != null) {
-            this.f5058an = C0773f.m2218a(this.f5058an, f);
-            this.f4991b.f6326bO.mo181a(this.f5057am, this.f4991b.f6349co, this.f4991b.f6350cp, this.f4990a.f5305aD, this.f4990a.f5310aI, 8.0f);
+    public void c(float f) {
+        if (this.an > 0.0f && this.am != null) {
+            this.an = f.a(this.an, f);
+            this.b.bO.a(this.am, this.b.co, this.b.cp, this.a.aD, this.a.aI, 8.0f);
         }
     }
 
-    /* renamed from: a */
-    public static boolean m2089a(AbstractC0224s abstractC0224s) {
-        return GameEngine.getGameEngine().f6441ar && abstractC0224s.mo4290n_();
+    public static boolean a(s sVar) {
+        return GameEngine.getGameEngine().ar && sVar.n_();
     }
 
-    /* renamed from: c */
-    public void m2072c() {
-        this.f5002H = 0;
+    public void c() {
+        this.H = 0;
     }
 
-    /* renamed from: a */
-    public C0645ad m2088a(AbstractC0224s abstractC0224s, int i, ArrayList arrayList) {
+    public ad a(s sVar, int i, ArrayList arrayList) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (!GameEngine.m1028av()) {
+        if (!GameEngine.av()) {
             return null;
         }
-        if (abstractC0224s.mo4311M() != null) {
-            return abstractC0224s.mo4311M();
+        if (sVar.M() != null) {
+            return sVar.M();
         }
-        if ((abstractC0224s instanceof C0219n) || (abstractC0224s instanceof C0209d)) {
+        if ((sVar instanceof n) || (sVar instanceof d)) {
             return null;
         }
-        if (abstractC0224s.mo3091f() == EnumC0225t.f1470b) {
-            return gameEngine.f6331bT.f4159T;
+        if (sVar.f() == t.rally) {
+            return gameEngine.bT.T;
         }
-        if (abstractC0224s.mo3092e() == EnumC0226u.f1491m) {
-            return gameEngine.f6331bT.f4156Q;
+        if (sVar.e() == u.patrol) {
+            return gameEngine.bT.Q;
         }
-        if (abstractC0224s.mo3092e() == EnumC0226u.f1490l) {
-            return gameEngine.f6331bT.f4155P;
+        if (sVar.e() == u.guardUnit) {
+            return gameEngine.bT.P;
         }
-        if (abstractC0224s.mo3092e() == EnumC0226u.f1483e) {
-            return gameEngine.f6331bT.f4157R;
+        if (sVar.e() == u.reclaimTarget) {
+            return gameEngine.bT.R;
         }
-        if (abstractC0224s.mo3091f() == EnumC0225t.f1471c) {
+        if (sVar.f() == t.upgrade) {
             int i2 = 0;
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                AbstractC0224s abstractC0224s2 = (AbstractC0224s) it.next();
-                if (abstractC0224s2 != abstractC0224s && abstractC0224s2.mo3091f() == EnumC0225t.f1471c && this.f4990a.m1844b(abstractC0224s2)) {
+                s sVar2 = (s) it.next();
+                if (sVar2 != sVar && sVar2.f() == t.upgrade && this.a.b(sVar2)) {
                     i2++;
                 }
             }
             if (i2 == 0) {
-                return gameEngine.f6331bT.f4158S;
+                return gameEngine.bT.S;
             }
         }
-        EnumC0225t mo3091f = abstractC0224s.mo3091f();
-        if (mo3091f == EnumC0225t.f1475g || mo3091f == EnumC0225t.f1476h || mo3091f == EnumC0225t.f1477i) {
+        t f = sVar.f();
+        if (f == t.infoOnly || f == t.infoOnlyNoBox || f == t.infoOnlyStockpile) {
             return null;
         }
-        C0645ad c0645ad = null;
-        C0645ad[] c0645adArr = gameEngine.f6331bT.f4172ag;
-        if (this.f5002H < c0645adArr.length) {
-            c0645ad = c0645adArr[this.f5002H];
-            this.f5002H++;
+        ad adVar = null;
+        ad[] adVarArr = gameEngine.bT.ag;
+        if (this.H < adVarArr.length) {
+            adVar = adVarArr[this.H];
+            this.H++;
         }
-        return c0645ad;
+        return adVar;
     }
 
-    /* renamed from: d */
-    public ArrayList m2068d() {
-        this.f5063au.clear();
-        AbstractC0244am[] m499a = this.f4990a.f5427bZ.m499a();
-        int size = this.f4990a.f5427bZ.size();
+    public ArrayList d() {
+        this.au.clear();
+        am[] a = this.a.bZ.a();
+        int size = this.a.bZ.size();
         for (int i = 0; i < size; i++) {
-            InterfaceC0303as mo5459r = m499a[i].mo5459r();
-            if (!this.f5063au.contains(mo5459r)) {
-                this.f5063au.add(mo5459r);
+            as mo1r = a[i].mo1r();
+            if (!this.au.contains(mo1r)) {
+                this.au.add(mo1r);
             }
         }
-        return this.f5063au;
+        return this.au;
     }
 
-    /* renamed from: a */
-    public ArrayList m2084a(AbstractC0244am abstractC0244am, ArrayList arrayList) {
-        C1136m mo3586e;
-        ArrayList mo3132N;
+    public ArrayList a(am amVar, ArrayList arrayList) {
+        m e;
+        ArrayList N;
         int i = 0;
-        this.f5059aq.clear();
-        int m1799q = this.f4990a.m1799q();
-        if (m1799q == 0) {
-            if (this.f4991b.settingsEngine.showChatAndPingShortcuts && this.f4991b.m1096M()) {
-                this.f5059aq.add(0, this.f4990a.f5368q);
-                this.f5059aq.add(0, this.f4990a.f5369r);
+        this.aq.clear();
+        int q = this.a.q();
+        if (q == 0) {
+            if (this.b.settingsEngine.showChatAndPingShortcuts && this.b.M()) {
+                this.aq.add(0, this.a.q);
+                this.aq.add(0, this.a.r);
             }
-            return this.f5059aq;
+            return this.aq;
         }
-        if (C0825g.f5355bO && abstractC0244am != null && !(abstractC0244am instanceof C0560h)) {
-            this.f5059aq.add(this.f5060ar);
-            this.f5059aq.add(this.f5061as);
+        if (InterfaceEngine.bO && amVar != null && !(amVar instanceof h)) {
+            this.aq.add(this.ar);
+            this.aq.add(this.as);
         }
-        if (abstractC0244am == null) {
+        if (amVar == null) {
         }
-        if (abstractC0244am != null) {
-            i = this.f5059aq.size();
-            if (abstractC0244am.f1649cG) {
-                if (this.f4990a.m1806m(abstractC0244am)) {
-                    ArrayList mo3132N2 = abstractC0244am.mo3132N();
-                    if (mo3132N2 != null) {
-                        this.f5059aq.addAll(mo3132N2);
+        if (amVar != null) {
+            i = this.aq.size();
+            if (amVar.cG) {
+                if (this.a.m(amVar)) {
+                    ArrayList N2 = amVar.N();
+                    if (N2 != null) {
+                        this.aq.addAll(N2);
                     }
                 } else {
-                    ArrayList mo3132N3 = abstractC0244am.mo3132N();
-                    if (mo3132N3 != null) {
-                        this.f5059aq.addAll(mo3132N3);
+                    ArrayList N3 = amVar.N();
+                    if (N3 != null) {
+                        this.aq.addAll(N3);
                     }
                 }
             }
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                AbstractC0244am abstractC0244am2 = (AbstractC0244am) arrayList.get(i2);
-                if (this.f4990a.m1806m(abstractC0244am2) && ((abstractC0244am2.mo5459r() != abstractC0244am.mo5459r() || abstractC0244am2.mo3038V() != abstractC0244am.mo3038V()) && (mo3132N = abstractC0244am2.mo3132N()) != null)) {
-                    Iterator it = mo3132N.iterator();
+                am amVar2 = (am) arrayList.get(i2);
+                if (this.a.m(amVar2) && ((amVar2.mo1r() != amVar.mo1r() || amVar2.V() != amVar.V()) && (N = amVar2.N()) != null)) {
+                    Iterator it = N.iterator();
                     while (it.hasNext()) {
-                        AbstractC0224s abstractC0224s = (AbstractC0224s) it.next();
+                        s sVar = (s) it.next();
                         boolean z = false;
-                        Iterator it2 = this.f5059aq.iterator();
+                        Iterator it2 = this.aq.iterator();
                         while (it2.hasNext()) {
-                            if (((AbstractC0224s) it2.next()).m4310N().equals(abstractC0224s.m4310N())) {
+                            if (((s) it2.next()).N().equals(sVar.N())) {
                                 z = true;
                             }
                         }
                         if (!z) {
-                            this.f5059aq.add(abstractC0224s);
+                            this.aq.add(sVar);
                         }
                     }
                 }
@@ -938,126 +739,123 @@ public class C0775a extends AbstractC0741bq {
         boolean z2 = false;
         int size2 = arrayList.size();
         for (int i3 = 0; i3 < size2; i3++) {
-            AbstractC0244am abstractC0244am3 = (AbstractC0244am) arrayList.get(i3);
-            if (this.f4990a.m1806m(abstractC0244am3) && (abstractC0244am3 instanceof AbstractC0629y) && !((AbstractC0629y) abstractC0244am3).mo2969aS()) {
+            am amVar3 = (am) arrayList.get(i3);
+            if (this.a.m(amVar3) && (amVar3 instanceof com.corrodinggames.rts.game.units.y) && !((com.corrodinggames.rts.game.units.y) amVar3).aS()) {
                 z2 = true;
             }
         }
-        AbstractC0244am m2064e = m2064e();
-        if (!z2 && m2064e != null && this.f4990a.m1806m(m2064e)) {
-            this.f5059aq.add(i, this.f4990a.f5364m);
-            this.f5059aq.add(i, this.f4990a.f5365n);
+        am e2 = e();
+        if (!z2 && e2 != null && this.a.m(e2)) {
+            this.aq.add(i, this.a.m);
+            this.aq.add(i, this.a.n);
         }
         boolean z3 = false;
-        if (C0825g.f5355bO && (this.f4991b.settingsEngine.showSelectedUnitsList || m1799q == 1)) {
+        if (InterfaceEngine.bO && (this.b.settingsEngine.showSelectedUnitsList || q == 1)) {
             z3 = true;
         }
-        if (GameEngine.m1030at() && m1799q > 0) {
+        if (GameEngine.at() && q > 0) {
             z3 = true;
         }
-        if (z3 && !(abstractC0244am instanceof C0560h)) {
-            if (m1799q == 1 && m2064e != null && (mo3586e = m2064e.mo3586e(true)) != null && mo3586e.size() > 0) {
-                for (int i4 = 0; i4 < mo3586e.f7109a; i4++) {
-                    AbstractC0224s abstractC0224s2 = (AbstractC0224s) mo3586e.get(i4);
-                    if (abstractC0224s2 instanceof C0212g) {
-                        C0212g c0212g = (C0212g) abstractC0224s2;
-                        Iterator it3 = this.f5065aw.iterator();
+        if (z3 && !(amVar instanceof h)) {
+            if (q == 1 && e2 != null && (e = e2.e(true)) != null && e.size() > 0) {
+                for (int i4 = 0; i4 < e.a; i4++) {
+                    s sVar2 = (s) e.get(i4);
+                    if (sVar2 instanceof g) {
+                        g gVar = (g) sVar2;
+                        Iterator it3 = this.aw.iterator();
                         while (it3.hasNext()) {
-                            C0212g c0212g2 = (C0212g) it3.next();
-                            if (c0212g2.m4328a(c0212g)) {
-                                mo3586e.set(i4, c0212g2);
+                            g gVar2 = (g) it3.next();
+                            if (gVar2.a(gVar)) {
+                                e.set(i4, gVar2);
                             }
                         }
                     }
                 }
-                this.f5065aw.clear();
-                Iterator it4 = mo3586e.iterator();
+                this.aw.clear();
+                Iterator it4 = e.iterator();
                 while (it4.hasNext()) {
-                    AbstractC0224s abstractC0224s3 = (AbstractC0224s) it4.next();
-                    if (abstractC0224s3 instanceof C0212g) {
-                        this.f5065aw.add((C0212g) abstractC0224s3);
+                    s sVar3 = (s) it4.next();
+                    if (sVar3 instanceof g) {
+                        this.aw.add((g) sVar3);
                     }
-                    this.f5059aq.add(abstractC0224s3);
+                    this.aq.add(sVar3);
                 }
             }
-            ArrayList m2068d = m2068d();
-            this.f5064av.clear();
-            Iterator it5 = m2068d.iterator();
+            ArrayList d = d();
+            this.av.clear();
+            Iterator it5 = d.iterator();
             while (it5.hasNext()) {
-                C0231z mo3525d = ((InterfaceC0303as) it5.next()).mo3525d();
-                mo3525d.m4282K();
-                this.f5064av.add(mo3525d);
+                z d2 = ((as) it5.next()).d();
+                d2.K();
+                this.av.add(d2);
             }
-            Collections.sort(this.f5064av);
-            if (C0825g.f5355bO) {
-                Collections.reverse(this.f5064av);
+            Collections.sort(this.av);
+            if (InterfaceEngine.bO) {
+                Collections.reverse(this.av);
             }
-            Iterator it6 = this.f5064av.iterator();
+            Iterator it6 = this.av.iterator();
             while (it6.hasNext()) {
-                C0231z c0231z = (C0231z) it6.next();
-                if (C0825g.f5355bO) {
-                    this.f5059aq.add(0, c0231z);
+                z zVar = (z) it6.next();
+                if (InterfaceEngine.bO) {
+                    this.aq.add(0, zVar);
                 } else {
-                    this.f5059aq.add(c0231z);
+                    this.aq.add(zVar);
                 }
             }
         }
-        return this.f5059aq;
+        return this.aq;
     }
 
-    /* renamed from: e */
-    AbstractC0244am m2064e() {
-        if (this.f4990a.f5427bZ.size() > 0) {
-            return this.f4990a.f5427bZ.mo498a(0);
+    am e() {
+        if (this.a.bZ.size() > 0) {
+            return this.a.bZ.get(0);
         }
         return null;
     }
 
-    /* renamed from: f */
-    AbstractC0244am m2061f() {
-        AbstractC0244am abstractC0244am = null;
-        if (this.f4990a.f5322aX > 0) {
-            AbstractC0244am[] m499a = this.f4990a.f5427bZ.m499a();
+    am f() {
+        am amVar = null;
+        if (this.a.aX > 0) {
+            am[] a = this.a.bZ.a();
             int i = 0;
-            int size = this.f4990a.f5427bZ.size();
+            int size = this.a.bZ.size();
             while (true) {
                 if (i >= size) {
                     break;
                 }
-                AbstractC0244am abstractC0244am2 = m499a[i];
-                if (abstractC0244am2.f1649cG) {
-                    if (abstractC0244am == null) {
-                        abstractC0244am = abstractC0244am2;
-                    } else if (!m2085a(abstractC0244am, abstractC0244am2)) {
-                        abstractC0244am = null;
+                am amVar2 = a[i];
+                if (amVar2.cG) {
+                    if (amVar == null) {
+                        amVar = amVar2;
+                    } else if (!a(amVar, amVar2)) {
+                        amVar = null;
                         break;
-                    } else if (abstractC0244am.mo3038V() > abstractC0244am2.mo3038V()) {
-                        abstractC0244am = abstractC0244am2;
+                    } else if (amVar.V() > amVar2.V()) {
+                        amVar = amVar2;
                     }
                 }
                 i++;
             }
         }
-        return abstractC0244am;
+        return amVar;
     }
 
-    /* renamed from: a */
-    public static boolean m2085a(AbstractC0244am abstractC0244am, AbstractC0244am abstractC0244am2) {
-        InterfaceC0303as mo5459r = abstractC0244am.mo5459r();
-        InterfaceC0303as mo5459r2 = abstractC0244am2.mo5459r();
-        if (mo5459r == mo5459r2) {
+    public static boolean a(am amVar, am amVar2) {
+        as mo1r = amVar.mo1r();
+        as mo1r2 = amVar2.mo1r();
+        if (mo1r == mo1r2) {
             return true;
         }
-        if ((mo5459r instanceof C0458l) && (mo5459r2 instanceof C0458l)) {
-            C0458l c0458l = (C0458l) mo5459r;
-            C0458l c0458l2 = (C0458l) mo5459r2;
-            if (c0458l.f3300fL.contains(mo5459r2)) {
+        if ((mo1r instanceof l) && (mo1r2 instanceof l)) {
+            l lVar = (l) mo1r;
+            l lVar2 = (l) mo1r2;
+            if (lVar.fL.contains(mo1r2)) {
                 return true;
             }
-            if (c0458l.f3203fO != null && C0453g.m3685a(c0458l.f3203fO, c0458l2.mo3488x())) {
+            if (lVar.fO != null && com.corrodinggames.rts.game.units.custom.g.a(lVar.fO, lVar2.x())) {
                 return true;
             }
-            if (c0458l2.f3203fO != null && C0453g.m3685a(c0458l2.f3203fO, c0458l.mo3488x())) {
+            if (lVar2.fO != null && com.corrodinggames.rts.game.units.custom.g.a(lVar2.fO, lVar.x())) {
                 return true;
             }
             return false;
@@ -1065,126 +863,119 @@ public class C0775a extends AbstractC0741bq {
         return false;
     }
 
-    /* renamed from: g */
-    ArrayList m2060g() {
-        this.f5066ax.clear();
-        AbstractC0244am[] m499a = this.f4990a.f5427bZ.m499a();
-        int size = this.f4990a.f5427bZ.size();
+    ArrayList g() {
+        this.ax.clear();
+        am[] a = this.a.bZ.a();
+        int size = this.a.bZ.size();
         for (int i = 0; i < size; i++) {
-            AbstractC0244am abstractC0244am = m499a[i];
-            if (abstractC0244am instanceof AbstractC0629y) {
-                this.f5066ax.add((AbstractC0629y) abstractC0244am);
+            am amVar = a[i];
+            if (amVar instanceof com.corrodinggames.rts.game.units.y) {
+                this.ax.add((com.corrodinggames.rts.game.units.y) amVar);
             }
         }
-        return this.f5066ax;
+        return this.ax;
     }
 
-    /* renamed from: h */
-    float m2059h() {
-        return C0773f.m2171b((this.f4991b.f6348cm / 14.0f) / this.f4991b.f6345cj, 25.0f * this.f4991b.f6345cj, 40.0f * this.f4991b.f6345cj);
+    float h() {
+        return f.b((this.b.cm / 14.0f) / this.b.cj, 25.0f * this.b.cj, 40.0f * this.b.cj);
     }
 
-    /* renamed from: c */
-    private boolean m2070c(AbstractC0224s abstractC0224s) {
-        if (abstractC0224s.mo4279s()) {
+    private boolean c(s sVar) {
+        if (sVar.s()) {
             return true;
         }
-        if (abstractC0224s instanceof C0212g) {
-            return this.f4990a.m1806m(((C0212g) abstractC0224s).f1437b);
+        if (sVar instanceof g) {
+            return this.a.m(((g) sVar).b);
         }
-        ArrayList m2060g = m2060g();
-        C0208c m4310N = abstractC0224s.m4310N();
-        Iterator it = m2060g.iterator();
+        ArrayList g = g();
+        com.corrodinggames.rts.game.units.a.c N = sVar.N();
+        Iterator it = g.iterator();
         while (it.hasNext()) {
-            AbstractC0629y abstractC0629y = (AbstractC0629y) it.next();
-            if (abstractC0629y.mo3656a(m4310N) != null && this.f4990a.m1806m(abstractC0629y)) {
+            com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) it.next();
+            if (yVar.a(N) != null && this.a.m(yVar)) {
                 return true;
             }
         }
         return false;
     }
 
-    /* renamed from: a */
-    private boolean m2087a(AbstractC0224s abstractC0224s, ArrayList arrayList) {
-        C0213h c0213h = null;
-        if (abstractC0224s instanceof C0213h) {
-            c0213h = (C0213h) abstractC0224s;
+    private boolean a(s sVar, ArrayList arrayList) {
+        com.corrodinggames.rts.game.units.a.h hVar = null;
+        if (sVar instanceof com.corrodinggames.rts.game.units.a.h) {
+            hVar = (com.corrodinggames.rts.game.units.a.h) sVar;
         }
-        if (c0213h != null && c0213h.f1444d == C0825g.f5358cd) {
-            return c0213h.f1445e;
+        if (hVar != null && hVar.d == InterfaceEngine.cd) {
+            return hVar.e;
         }
-        boolean m2074b = m2074b(abstractC0224s, arrayList);
-        if (c0213h != null) {
-            c0213h.f1444d = C0825g.f5358cd;
-            c0213h.f1445e = m2074b;
+        boolean b = b(sVar, arrayList);
+        if (hVar != null) {
+            hVar.d = InterfaceEngine.cd;
+            hVar.e = b;
         }
-        return m2074b;
+        return b;
     }
 
-    /* renamed from: b */
-    private boolean m2074b(AbstractC0224s abstractC0224s, ArrayList arrayList) {
-        if (abstractC0224s.mo4279s()) {
+    private boolean b(s sVar, ArrayList arrayList) {
+        if (sVar.s()) {
             return true;
         }
-        if (abstractC0224s instanceof C0212g) {
-            C0212g c0212g = (C0212g) abstractC0224s;
-            if (!c0212g.mo4056r(c0212g.f1437b)) {
+        if (sVar instanceof g) {
+            g gVar = (g) sVar;
+            if (!gVar.r(gVar.b)) {
                 return false;
             }
-            if (this.f4990a.m1806m(c0212g.f1437b) || c0212g.mo4069a(c0212g.f1437b, this.f4991b.f6312bs)) {
+            if (this.a.m(gVar.b) || gVar.a(gVar.b, this.b.playerTeam)) {
                 return true;
             }
             return false;
         }
-        C0208c m4310N = abstractC0224s.m4310N();
+        com.corrodinggames.rts.game.units.a.c N = sVar.N();
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0629y) it.next();
-            AbstractC0224s a = abstractC0244am.mo3656a(m4310N);
-            if (a != null && a.mo4056r(abstractC0244am) && (this.f4990a.m1806m(abstractC0244am) || a.mo4069a(abstractC0244am, this.f4991b.f6312bs))) {
+            am amVar = (com.corrodinggames.rts.game.units.y) it.next();
+            s a = amVar.a(N);
+            if (a != null && a.r(amVar) && (this.a.m(amVar) || a.a(amVar, this.b.playerTeam))) {
                 return true;
             }
         }
         return false;
     }
 
-    /* renamed from: c */
-    private boolean m2069c(AbstractC0224s abstractC0224s, ArrayList arrayList) {
-        if (abstractC0224s.mo4279s()) {
+    private boolean c(s sVar, ArrayList arrayList) {
+        if (sVar.s()) {
             return true;
         }
-        if (abstractC0224s instanceof C0212g) {
-            C0212g c0212g = (C0212g) abstractC0224s;
-            if (c0212g.mo3097a((AbstractC0244am) c0212g.f1437b, true)) {
+        if (sVar instanceof g) {
+            g gVar = (g) sVar;
+            if (gVar.a((am) gVar.b, true)) {
                 return true;
             }
         }
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0629y) it.next();
-            AbstractC0224s a = abstractC0244am.mo3656a(abstractC0224s.m4310N());
-            if (a != null && a.mo3097a(abstractC0244am, true)) {
+            am amVar = (com.corrodinggames.rts.game.units.y) it.next();
+            s a = amVar.a(sVar.N());
+            if (a != null && a.a(amVar, true)) {
                 return true;
             }
         }
         return false;
     }
 
-    /* renamed from: d */
-    private float m2065d(AbstractC0224s abstractC0224s, ArrayList arrayList) {
+    private float d(s sVar, ArrayList arrayList) {
         int i = 0;
         float f = -1.0f;
-        if (abstractC0224s.mo4280o_()) {
+        if (sVar.o_()) {
             return -1.0f;
         }
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0629y) it.next();
-            AbstractC0224s a = abstractC0244am.mo3656a(abstractC0224s.m4310N());
+            am amVar = (com.corrodinggames.rts.game.units.y) it.next();
+            s a = amVar.a(sVar.N());
             if (a != null) {
-                float mo4288p = a.mo4288p(abstractC0244am);
-                if (mo4288p > f) {
-                    f = mo4288p;
+                float p = a.p(amVar);
+                if (p > f) {
+                    f = p;
                     i++;
                 }
             }
@@ -1192,37 +983,36 @@ public class C0775a extends AbstractC0741bq {
         return f;
     }
 
-    /* renamed from: d */
-    private C0559e m2066d(AbstractC0224s abstractC0224s) {
+    private com.corrodinggames.rts.game.units.g.e d(s sVar) {
         float f = -1.0f;
-        C0559e c0559e = null;
-        if (abstractC0224s.mo4280o_()) {
+        com.corrodinggames.rts.game.units.g.e eVar = null;
+        if (sVar.o_()) {
             return null;
         }
-        if (abstractC0224s instanceof C0212g) {
-            C0559e m3178b = C0559e.m3178b(((C0212g) abstractC0224s).f1437b, abstractC0224s.m4310N());
-            if (m3178b != null) {
-                if (-1.0f < m3178b.m3191a()) {
-                    f = m3178b.m3191a();
-                    c0559e = m3178b;
+        if (sVar instanceof g) {
+            com.corrodinggames.rts.game.units.g.e b = com.corrodinggames.rts.game.units.g.e.b(((g) sVar).b, sVar.N());
+            if (b != null) {
+                if (-1.0f < b.a()) {
+                    f = b.a();
+                    eVar = b;
                 }
             } else {
                 return null;
             }
         }
-        Iterator it = this.f4990a.f5427bZ.iterator();
+        Iterator it = this.a.bZ.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
-            if (abstractC0244am instanceof AbstractC0629y) {
-                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-                if (abstractC0629y.mo3656a(abstractC0224s.m4310N()) == null) {
+            am amVar = (am) it.next();
+            if (amVar instanceof com.corrodinggames.rts.game.units.y) {
+                com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) amVar;
+                if (yVar.a(sVar.N()) == null) {
                     continue;
                 } else {
-                    C0559e m3178b2 = C0559e.m3178b(abstractC0629y, abstractC0224s.m4310N());
-                    if (m3178b2 != null) {
-                        if (f < m3178b2.m3191a()) {
-                            f = m3178b2.m3191a();
-                            c0559e = m3178b2;
+                    com.corrodinggames.rts.game.units.g.e b2 = com.corrodinggames.rts.game.units.g.e.b(yVar, sVar.N());
+                    if (b2 != null) {
+                        if (f < b2.a()) {
+                            f = b2.a();
+                            eVar = b2;
                         }
                     } else {
                         return null;
@@ -1230,754 +1020,751 @@ public class C0775a extends AbstractC0741bq {
                 }
             }
         }
-        if (c0559e == null) {
+        if (eVar == null) {
             return null;
         }
-        return c0559e;
+        return eVar;
     }
 
-    /* renamed from: e */
-    private float m2062e(AbstractC0224s abstractC0224s) {
-        C0559e m2066d = m2066d(abstractC0224s);
-        if (m2066d == null) {
+    private float e(s sVar) {
+        com.corrodinggames.rts.game.units.g.e d = d(sVar);
+        if (d == null) {
             return 0.0f;
         }
-        return m2066d.m3177c();
+        return d.c();
     }
 
-    /* renamed from: b */
-    float m2075b(AbstractC0224s abstractC0224s) {
-        C0559e m2066d = m2066d(abstractC0224s);
-        if (m2066d == null) {
+    float b(s sVar) {
+        com.corrodinggames.rts.game.units.g.e d = d(sVar);
+        if (d == null) {
             return 0.0f;
         }
-        return m2066d.m3175d();
+        return d.d();
     }
 
-    /* renamed from: d */
-    int m2067d(float f) {
-        ArrayList m2084a;
+    int d(float f) {
+        ArrayList a;
         float f2;
         float f3;
         float f4;
         float f5;
         float f6;
         float f7;
-        C0966ag c0966ag;
+        ag agVar;
         Rect rect;
         Rect rect2;
-        int m5244a;
-        int m1041ai;
-        this.f5028ap = false;
+        int a2;
+        int ai;
+        this.ap = false;
         int i = 1;
-        if (C0825g.f5356bP) {
+        if (InterfaceEngine.bP) {
             i = 2;
         }
         int i2 = 0;
         boolean z = false;
-        C0819c.m1931a(f);
-        ArrayList m2060g = m2060g();
-        AbstractC0244am m2061f = m2061f();
+        c.a(f);
+        ArrayList g = g();
+        am f8 = f();
         ArrayList arrayList = null;
-        if (this.f4990a.f5279ac != null) {
-            arrayList = this.f4990a.f5279ac.mo4296q(m2061f);
+        if (this.a.ac != null) {
+            arrayList = this.a.ac.q(f8);
         }
         if (arrayList != null) {
-            m2084a = arrayList;
+            a = arrayList;
         } else {
-            m2084a = m2084a(m2061f, m2060g);
+            a = a(f8, g);
         }
-        if (m2061f == null && m2084a.size() > 0) {
-            m2061f = m2064e();
-            if (m2061f == null && C0458l.f2933b != null) {
-                m2061f = AbstractC0244am.m4224c(C0458l.f2933b);
+        if (f8 == null && a.size() > 0) {
+            f8 = e();
+            if (f8 == null && l.b != null) {
+                f8 = am.c(l.b);
             }
         }
-        this.f4990a.f5371t = false;
-        if (m2084a.contains(this.f4990a.f5364m)) {
-            this.f4990a.f5371t = true;
+        this.a.t = false;
+        if (a.contains(this.a.m)) {
+            this.a.t = true;
         }
-        if (m2061f == null) {
-            m2061f = m2064e();
+        if (f8 == null) {
+            f8 = e();
         }
         boolean z2 = true;
-        if (m2061f == null) {
-            this.f5018ad = -1L;
+        if (f8 == null) {
+            this.ad = -1L;
         }
-        if (m2061f != null && m2084a.size() > 0) {
-            ArrayList arrayList2 = m2084a;
-            float f8 = 2.0f;
-            float m2059h = m2059h();
+        if (f8 != null && a.size() > 0) {
+            ArrayList arrayList2 = a;
             float f9 = 2.0f;
-            float f10 = m2059h + 2.0f;
+            float h = h();
+            float f10 = 2.0f;
+            float f11 = h + 2.0f;
             boolean z3 = false;
-            if (!C0825g.f5349bR) {
-                f2 = this.f4991b.f6334bW.m1765b() + 2;
-                f3 = this.f4991b.f6347cl - this.f4991b.f6334bW.f5489c;
-                f4 = this.f4991b.f6334bW.f5489c;
+            if (!InterfaceEngine.bR) {
+                f2 = this.b.bW.b() + 2;
+                f3 = this.b.cl - this.b.bW.c;
+                f4 = this.b.bW.c;
             } else {
-                f2 = this.f4991b.f6334bW.f5465b;
-                f3 = this.f4991b.f6334bW.f5489c;
-                f4 = this.f4991b.f6334bW.f5489c;
+                f2 = this.b.bW.b;
+                f3 = this.b.bW.c;
+                f4 = this.b.bW.c;
                 z3 = true;
             }
-            if (C0825g.f5355bO) {
-                m2059h += 15.0f * this.f4991b.f6345cj;
-                float f11 = f10 + (15.0f * this.f4991b.f6345cj);
-                f8 = 2.0f * this.f4991b.f6345cj;
-                if (GameEngine.m1029au()) {
-                    f8 = 2.0f * this.f4991b.f6345cj;
+            if (InterfaceEngine.bO) {
+                h += 15.0f * this.b.cj;
+                float f12 = f11 + (15.0f * this.b.cj);
+                f9 = 2.0f * this.b.cj;
+                if (GameEngine.au()) {
+                    f9 = 2.0f * this.b.cj;
                 }
-                f10 = f11 + 2.0f;
-                f9 = 2.0f + 2.0f;
+                f11 = f12 + 2.0f;
+                f10 = 2.0f + 2.0f;
                 f2 += 3.0f;
             }
-            if (!C0825g.f5354a) {
+            if (!InterfaceEngine.a) {
                 boolean z4 = true;
-                if (this.f4990a.f5262f != null && this.f4990a.f5322aX == 1 && this.f4990a.f5262f.f1649cG) {
+                if (this.a.f != null && this.a.aX == 1 && this.a.f.cG) {
                     z4 = false;
                 }
                 if (z4) {
-                    f2 = f2 + m2058i() + 2.0f;
+                    f2 = f2 + i() + 2.0f;
                 }
             }
             int i3 = 0;
-            float f12 = 0.0f;
             float f13 = 0.0f;
             float f14 = 0.0f;
+            float f15 = 0.0f;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
-                AbstractC0224s abstractC0224s = (AbstractC0224s) it.next();
-                if (m2087a(abstractC0224s, m2060g)) {
+                s sVar = (s) it.next();
+                if (a(sVar, g)) {
                     i3++;
-                    float mo3123l = f10 * abstractC0224s.mo3123l();
+                    float l = f11 * sVar.l();
                     int i4 = i;
-                    if (abstractC0224s.mo3122m() > 0) {
-                        i4 = abstractC0224s.mo3122m();
+                    if (sVar.m() > 0) {
+                        i4 = sVar.m();
                     }
-                    float f15 = f4 / i4;
+                    float f16 = f4 / i4;
                     boolean z5 = false;
-                    if ((f13 + f15) - 0.1f >= f4) {
+                    if ((f14 + f16) - 0.1f >= f4) {
                         z5 = true;
                     }
-                    if (!z5 && f12 > 0.0f && mo3123l + 0.1f < f12) {
+                    if (!z5 && f13 > 0.0f && l + 0.1f < f13) {
                         z5 = true;
                     }
                     if (z5) {
-                        f14 += f12;
-                        f12 = 0.0f;
+                        f15 += f13;
                         f13 = 0.0f;
+                        f14 = 0.0f;
                     }
-                    if (f12 < mo3123l) {
-                        f12 = mo3123l;
+                    if (f13 < l) {
+                        f13 = l;
                     }
-                    f13 += f15;
+                    f14 += f16;
                 }
             }
-            if (f13 > 0.0f) {
-                f14 += f12;
+            if (f14 > 0.0f) {
+                f15 += f13;
             }
-            float f16 = f2 + f14;
-            float f17 = f2;
-            float f18 = f2 + 1.0f;
-            if (this.f4991b.settingsEngine.showUnitGroups) {
-                f5 = this.f4991b.f6368cH - (34.0f * this.f4991b.f6345cj);
+            float f17 = f2 + f15;
+            float f18 = f2;
+            float f19 = f2 + 1.0f;
+            if (this.b.settingsEngine.showUnitGroups) {
+                f5 = this.b.cH - (34.0f * this.b.cj);
             } else {
-                f5 = this.f4991b.f6368cH;
+                f5 = this.b.cH;
             }
-            this.f5018ad = m2061f.f7166eh;
-            float f19 = f18 - ((int) m2061f.f1581br);
-            float f20 = 0.0f;
-            float f21 = 1.0f + (m2059h * 0.25f);
-            boolean z6 = f16 - m2061f.f1581br > f5 + f21;
-            boolean z7 = m2061f.f1581br > f21;
-            this.f5028ap = z6 || z7;
-            if (this.f4991b.settingsEngine.mouseSupport && !this.f4990a.m1900a(this.f4991b.m1044af(), this.f4991b.m1043ag()) && (m1041ai = this.f4991b.m1041ai()) != 0) {
-                f20 = -(m1041ai / 120.0f);
+            this.ad = f8.eh;
+            float f20 = f19 - ((int) f8.br);
+            float f21 = 0.0f;
+            float f22 = 1.0f + (h * 0.25f);
+            boolean z6 = f17 - f8.br > f5 + f22;
+            boolean z7 = f8.br > f22;
+            this.ap = z6 || z7;
+            if (this.b.settingsEngine.mouseSupport && !this.a.a(this.b.af(), this.b.ag()) && (ai = this.b.ai()) != 0) {
+                f21 = -(ai / 120.0f);
             }
-            float f22 = 0.0f;
-            if (f20 > 0.0f) {
-                this.f5027ao = (float) (this.f5027ao + (0.5d * f10));
+            float f23 = 0.0f;
+            if (f21 > 0.0f) {
+                this.ao = (float) (this.ao + (0.5d * f11));
             }
-            if (f20 < 0.0f) {
-                this.f5027ao = (float) (this.f5027ao - (0.5d * f10));
+            if (f21 < 0.0f) {
+                this.ao = (float) (this.ao - (0.5d * f11));
             }
             if (z6) {
-                this.f5040s.f230a = (int) (f3 + 2.0f);
-                this.f5040s.f232c = (int) ((f3 + f4) - 2.0f);
-                this.f5040s.f231b = (int) (f5 - (m2059h * 0.4f));
-                this.f5040s.f233d = (int) (this.f5040s.f231b + (m2059h * 0.4f));
-                if (this.f4990a.m1886a(this.f5040s.f230a, this.f5040s.f231b, this.f5040s.m5171b(), this.f5040s.m5167c(), "\\/", EnumC0827i.f5434a, false, Color.m5244a(80, 100, 150, 100), this.f4990a.f5304aC, (C0784h) null) && this.f4990a.m1904J()) {
-                    f22 = 0.0f + (3.0f * f10);
-                    this.f4990a.f5392U = false;
+                this.s.a = (int) (f3 + 2.0f);
+                this.s.c = (int) ((f3 + f4) - 2.0f);
+                this.s.b = (int) (f5 - (h * 0.4f));
+                this.s.d = (int) (this.s.b + (h * 0.4f));
+                if (this.a.a(this.s.a, this.s.b, this.s.b(), this.s.c(), "\\/", i.none, false, Color.a(80, 100, 150, 100), this.a.aC, (com.corrodinggames.rts.gameFramework.Interface.a.h) null) && this.a.J()) {
+                    f23 = 0.0f + (3.0f * f11);
+                    this.a.U = false;
                 }
-                f5 -= (f10 * 0.4f) + 2.0f;
+                f5 -= (f11 * 0.4f) + 2.0f;
             }
             if (z7) {
-                this.f5040s.f230a = (int) (f3 + 2.0f);
-                this.f5040s.f232c = (int) ((f3 + f4) - 2.0f);
-                this.f5040s.f231b = (int) f17;
-                this.f5040s.f233d = (int) (this.f5040s.f231b + (m2059h * 0.4f));
-                if (this.f4990a.m1886a(this.f5040s.f230a, this.f5040s.f231b, this.f5040s.m5171b(), this.f5040s.m5167c(), "/\\", EnumC0827i.f5434a, false, Color.m5244a(80, 100, 150, 100), this.f4990a.f5304aC, (C0784h) null) && this.f4990a.m1904J()) {
-                    f22 -= 3.0f * f10;
-                    this.f4990a.f5392U = false;
+                this.s.a = (int) (f3 + 2.0f);
+                this.s.c = (int) ((f3 + f4) - 2.0f);
+                this.s.b = (int) f18;
+                this.s.d = (int) (this.s.b + (h * 0.4f));
+                if (this.a.a(this.s.a, this.s.b, this.s.b(), this.s.c(), "/\\", i.none, false, Color.a(80, 100, 150, 100), this.a.aC, (com.corrodinggames.rts.gameFramework.Interface.a.h) null) && this.a.J()) {
+                    f23 -= 3.0f * f11;
+                    this.a.U = false;
                 }
-                f17 += (f10 * 0.4f) + 2.0f;
+                f18 += (f11 * 0.4f) + 2.0f;
             }
-            this.f4991b.f6326bO.mo138i();
-            this.f5067ay.m5159a(0.0f, f17 - 1.0f, this.f4991b.f6347cl, f5 + 1.0f);
-            this.f4991b.f6326bO.mo207a(this.f5067ay);
-            if (GameEngine.m1029au()) {
-                if (this.f5018ad != m2061f.f7166eh) {
-                    this.f5019ae = 0.0f;
-                    this.f5020af = m2061f.f1581br;
-                } else if (this.f5027ao != 0.0f) {
-                    this.f5019ae = this.f5027ao;
+            this.b.bO.i();
+            this.ay.a(0.0f, f18 - 1.0f, this.b.cl, f5 + 1.0f);
+            this.b.bO.a(this.ay);
+            if (GameEngine.au()) {
+                if (this.ad != f8.eh) {
+                    this.ae = 0.0f;
+                    this.af = f8.br;
+                } else if (this.ao != 0.0f) {
+                    this.ae = this.ao;
                 } else {
-                    if (!this.f4990a.f5380I) {
-                        this.f5027ao += this.f5019ae * f;
+                    if (!this.a.I) {
+                        this.ao += this.ae * f;
                     }
-                    this.f5019ae = C0773f.m2218a(this.f5019ae, f);
+                    this.ae = f.a(this.ae, f);
                 }
             }
-            m2061f.f1581br += this.f5027ao + f22;
-            this.f5027ao = 0.0f;
-            int i5 = (int) (f16 - f5);
+            f8.br += this.ao + f23;
+            this.ao = 0.0f;
+            int i5 = (int) (f17 - f5);
             if (i5 > 0) {
-                if (m2061f.f1581br > i5 + 0.0f) {
-                    m2061f.f1581br = i5 + 0.0f;
+                if (f8.br > i5 + 0.0f) {
+                    f8.br = i5 + 0.0f;
                 }
-                if (m2061f.f1581br < 0.0f - 0.0f) {
-                    m2061f.f1581br = 0.0f - 0.0f;
+                if (f8.br < 0.0f - 0.0f) {
+                    f8.br = 0.0f - 0.0f;
                 }
             } else {
-                m2061f.f1581br = 0.0f;
+                f8.br = 0.0f;
             }
             int i6 = -1;
-            float f23 = 0.0f;
             float f24 = 0.0f;
             float f25 = 0.0f;
-            m2072c();
+            float f26 = 0.0f;
+            c();
             Iterator it2 = arrayList2.iterator();
             while (it2.hasNext()) {
-                AbstractC0224s abstractC0224s2 = (AbstractC0224s) it2.next();
-                if (m2087a(abstractC0224s2, m2060g)) {
+                s sVar2 = (s) it2.next();
+                if (a(sVar2, g)) {
                     i2++;
-                    boolean m2069c = m2069c(abstractC0224s2, m2060g);
+                    boolean c = c(sVar2, g);
                     i6++;
-                    float mo3123l2 = m2059h * abstractC0224s2.mo3123l();
+                    float l2 = h * sVar2.l();
                     int i7 = i;
-                    if (abstractC0224s2.mo3122m() > 0) {
-                        i7 = abstractC0224s2.mo3122m();
+                    if (sVar2.m() > 0) {
+                        i7 = sVar2.m();
                     }
-                    float f26 = f4 / i7;
+                    float f27 = f4 / i7;
                     if (!z3) {
-                        f6 = mo3123l2;
-                        f7 = f26;
+                        f6 = l2;
+                        f7 = f27;
                     } else {
-                        f6 = f26;
-                        f7 = mo3123l2;
+                        f6 = f27;
+                        f7 = l2;
                     }
                     boolean z8 = false;
-                    if ((f25 + f7) - 0.1f > f4) {
+                    if ((f26 + f7) - 0.1f > f4) {
                         z8 = true;
                     }
-                    if (!z8 && f24 > 0.0f && f6 + 0.1f < f24) {
+                    if (!z8 && f25 > 0.0f && f6 + 0.1f < f25) {
                         z8 = true;
                     }
                     if (z8) {
-                        f23 += f24 + f9;
-                        f24 = 0.0f;
+                        f24 += f25 + f10;
                         f25 = 0.0f;
+                        f26 = 0.0f;
                     }
-                    if (f24 < f6) {
-                        f24 = f6;
+                    if (f25 < f6) {
+                        f25 = f6;
                     }
                     if (!z3) {
-                        this.f5040s.f230a = (int) (f3 + f8);
-                        this.f5040s.f232c = (int) ((this.f5040s.f230a + f26) - (f8 * 2.0f));
-                        this.f5040s.f231b = (int) (f23 + f19);
-                        this.f5040s.f233d = (int) (this.f5040s.f231b + mo3123l2);
-                        this.f5040s.m5174a((int) f25, 0);
+                        this.s.a = (int) (f3 + f9);
+                        this.s.c = (int) ((this.s.a + f27) - (f9 * 2.0f));
+                        this.s.b = (int) (f24 + f20);
+                        this.s.d = (int) (this.s.b + l2);
+                        this.s.a((int) f26, 0);
                     } else {
-                        this.f5040s.f230a = (int) (f3 + f8 + f23);
-                        this.f5040s.f232c = (int) ((this.f5040s.f230a + f26) - (f8 * 2.0f));
-                        this.f5040s.f231b = (int) f19;
-                        this.f5040s.f233d = (int) (this.f5040s.f231b + mo3123l2);
-                        this.f5040s.m5174a(0, (int) f25);
+                        this.s.a = (int) (f3 + f9 + f24);
+                        this.s.c = (int) ((this.s.a + f27) - (f9 * 2.0f));
+                        this.s.b = (int) f20;
+                        this.s.d = (int) (this.s.b + l2);
+                        this.s.a(0, (int) f26);
                     }
                     boolean z9 = true;
-                    this.f5041t.m5158a(this.f5040s);
-                    if (!this.f5041t.m5151b(this.f5067ay)) {
+                    this.t.a(this.s);
+                    if (!this.t.b(this.ay)) {
                         z9 = false;
                     }
-                    f25 += f7;
-                    EnumC0225t mo3091f = abstractC0224s2.mo3091f();
+                    f26 += f7;
+                    t f28 = sVar2.f();
                     boolean z10 = false;
-                    z10 = (mo3091f == EnumC0225t.f1475g || mo3091f == EnumC0225t.f1476h || mo3091f == EnumC0225t.f1477i) ? true : true;
-                    boolean m2089a = m2089a(abstractC0224s2);
-                    boolean mo4283G = abstractC0224s2.mo4283G();
-                    Paint paint = this.f5035j;
-                    boolean z11 = m2069c;
-                    if (mo3091f == EnumC0225t.f1477i) {
+                    z10 = (f28 == t.infoOnly || f28 == t.infoOnlyNoBox || f28 == t.infoOnlyStockpile) ? true : true;
+                    boolean a3 = a(sVar2);
+                    boolean G = sVar2.G();
+                    Paint paint = this.j;
+                    boolean z11 = c;
+                    if (f28 == t.infoOnlyStockpile) {
                         z11 = true;
                     }
                     if (z11) {
-                        paint.m5207b(Color.m5244a(70, 100, 100, 100));
+                        paint.b(Color.a(70, 100, 100, 100));
                     } else {
-                        paint.m5207b(Color.m5244a(50, 170, 100, 100));
+                        paint.b(Color.a(50, 170, 100, 100));
                     }
-                    if (m2089a) {
-                        paint.m5207b(Color.m5244a(100, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, 100, 100));
+                    if (a3) {
+                        paint.b(Color.a(100, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, 100, 100));
                     }
                     boolean z12 = false;
                     boolean z13 = false;
-                    if (this.f5015aa == m2061f && this.f5016ab == abstractC0224s2) {
+                    if (this.aa == f8 && this.ab == sVar2) {
                         z12 = true;
                     }
-                    if (this.f4990a.f5279ac == abstractC0224s2) {
+                    if (this.a.ac == sVar2) {
                         z12 = true;
                         z13 = true;
                     }
                     if (z12) {
-                        paint.m5207b(Color.m5244a(80, 100, 100, 200));
+                        paint.b(Color.a(80, 100, 100, 200));
                     }
                     if (z13) {
-                        paint.m5207b(Color.m5244a(80, 100, 200, 100));
+                        paint.b(Color.a(80, 100, 200, 100));
                     }
-                    if (mo4283G) {
-                        paint.m5202c((int) (paint.m5193f() * 0.7f));
-                        c0966ag = this.f4995o;
+                    if (G) {
+                        paint.c((int) (paint.f() * 0.7f));
+                        agVar = this.o;
                     } else {
-                        c0966ag = this.f4994n;
+                        agVar = this.n;
                     }
-                    float f27 = 0.0f;
+                    float f29 = 0.0f;
                     if (z9) {
-                        f27 = C0819c.m1928b(m2061f, abstractC0224s2, false);
-                        if (abstractC0224s2.mo3091f() != EnumC0225t.f1476h) {
-                            boolean m1880a = this.f4990a.m1880a(abstractC0224s2);
-                            float f28 = 0.0f;
-                            if (m1880a) {
-                                f28 = C0773f.m2152c(C0773f.m2107k((((float) (GameEngine.m1087V() % 1000)) / 1000.0f) * 180.0f));
+                        f29 = c.b(f8, sVar2, false);
+                        if (sVar2.f() != t.infoOnlyNoBox) {
+                            boolean a4 = this.a.a(sVar2);
+                            float f30 = 0.0f;
+                            if (a4) {
+                                f30 = f.c(f.k((((float) (GameEngine.V() % 1000)) / 1000.0f) * 180.0f));
                             }
-                            if (f27 != 0.0f) {
-                                float m2171b = C0773f.m2171b((C0773f.m2152c(f27) * 0.7f) - 0.3f, 0.0f, 1.0f);
-                                if (f27 > 0.0f) {
-                                    m5244a = Color.m5244a(110, 210, 210, 210);
+                            if (f29 != 0.0f) {
+                                float b = f.b((f.c(f29) * 0.7f) - 0.3f, 0.0f, 1.0f);
+                                if (f29 > 0.0f) {
+                                    a2 = Color.a(110, 210, 210, 210);
                                 } else {
-                                    m5244a = Color.m5244a(110, 210, 110, 110);
+                                    a2 = Color.a(110, 210, 110, 110);
                                 }
-                                int m2209a = C0773f.m2209a(m5244a, paint.m5195e(), m2171b);
-                                paint = this.f5034i;
-                                paint.m5207b(m2209a);
+                                int a5 = f.a(a2, paint.e(), b);
+                                paint = this.i;
+                                paint.b(a5);
                             }
-                            this.f4990a.m1881a(this.f5040s, paint, c0966ag);
-                            float m2065d = m2065d(abstractC0224s2, m2060g);
-                            if (m2065d >= 0.0f) {
-                                this.f5037l.m5229a(80, 0, 0, 100);
-                                this.f5049B.m5172a(this.f5040s);
-                                this.f5049B.f232c = (int) (rect2.f232c - ((1.0f - m2065d) * this.f5049B.m5171b()));
-                                this.f4991b.f6326bO.mo163b(this.f5049B, this.f5037l);
-                                this.f5038m.m5229a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 148, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2, 255);
-                                this.f4991b.f6326bO.mo226a(this.f5049B.f232c, this.f5049B.f231b, this.f5049B.f232c, this.f5049B.f233d, this.f5037l);
+                            this.a.a(this.s, paint, agVar);
+                            float d = d(sVar2, g);
+                            if (d >= 0.0f) {
+                                this.l.a(80, 0, 0, 100);
+                                this.B.a(this.s);
+                                this.B.c = (int) (rect2.c - ((1.0f - d) * this.B.b()));
+                                this.b.bO.b(this.B, this.l);
+                                this.m.a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 148, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2, 255);
+                                this.b.bO.a(this.B.c, this.B.b, this.B.c, this.B.d, this.l);
                             } else {
-                                float m2062e = m2062e(abstractC0224s2);
-                                if (m2062e > 0.0f) {
-                                    this.f5037l.m5229a(80, 100, 0, 0);
-                                    this.f5049B.m5172a(this.f5040s);
-                                    this.f5049B.f232c = (int) (rect.f232c - ((1.0f - m2062e) * this.f5049B.m5171b()));
-                                    this.f4991b.f6326bO.mo163b(this.f5049B, this.f5037l);
-                                    this.f5038m.m5229a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 148, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2, 255);
-                                    this.f4991b.f6326bO.mo226a(this.f5049B.f232c, this.f5049B.f231b, this.f5049B.f232c, this.f5049B.f233d, this.f5037l);
+                                float e = e(sVar2);
+                                if (e > 0.0f) {
+                                    this.l.a(80, 100, 0, 0);
+                                    this.B.a(this.s);
+                                    this.B.c = (int) (rect.c - ((1.0f - e) * this.B.b()));
+                                    this.b.bO.b(this.B, this.l);
+                                    this.m.a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3, 148, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2, 255);
+                                    this.b.bO.a(this.B.c, this.B.b, this.B.c, this.B.d, this.l);
                                 }
                             }
-                            int m5244a2 = Color.m5244a(255, 0, 0, 0);
-                            if (C0825g.f5355bO) {
-                                m5244a2 = Color.m5244a(100, 0, 0, 0);
-                                if (mo4283G) {
-                                    m5244a2 = Color.m5244a(50, 155, 155, 155);
+                            int a6 = Color.a(255, 0, 0, 0);
+                            if (InterfaceEngine.bO) {
+                                a6 = Color.a(100, 0, 0, 0);
+                                if (G) {
+                                    a6 = Color.a(50, 155, 155, 155);
                                 }
                             }
                             boolean z14 = false;
-                            if (m1880a) {
+                            if (a4) {
                                 z14 = true;
-                                m5244a2 = Color.m5244a((int) (100.0f + (150.0f * f28)), 255, 255, 255);
+                                a6 = Color.a((int) (100.0f + (150.0f * f30)), 255, 255, 255);
                             }
-                            this.f4990a.m1882a(this.f5040s, m5244a2, z14);
+                            this.a.a(this.s, a6, z14);
                         }
                     }
-                    C0645ad m2088a = m2088a(abstractC0224s2, i6, arrayList2);
-                    if (m2088a != null && z9) {
-                        this.f4991b.f6326bO.mo182a(m2088a.m2765c(), this.f5040s.f230a + 3, this.f5040s.f231b + this.f4991b.f6326bO.mo180a("A", this.f4990a.f5301az) + 1.0f, this.f4990a.f5301az);
+                    ad a7 = a(sVar2, i6, arrayList2);
+                    if (a7 != null && z9) {
+                        this.b.bO.a(a7.c(), this.s.a + 3, this.s.b + this.b.bO.a("A", this.a.az) + 1.0f, this.a.az);
                     }
                     boolean z15 = false;
-                    InterfaceC0303as mo5458i = abstractC0224s2.mo5458i();
-                    C0970e mo3151j = abstractC0224s2.mo3151j();
-                    AbstractC0244am mo4062i = abstractC0224s2.mo4062i(m2061f);
-                    if (mo4062i != null) {
-                        mo5458i = mo4062i.mo5459r();
+                    as mo3i = sVar2.mo3i();
+                    e j = sVar2.j();
+                    am i8 = sVar2.i(f8);
+                    if (i8 != null) {
+                        mo3i = i8.mo1r();
                     }
-                    if (mo3151j == null && mo5458i != null) {
-                        mo3151j = mo5458i.mo3486z();
+                    if (j == null && mo3i != null) {
+                        j = mo3i.z();
                     }
-                    if (mo3151j != null) {
-                        Rect mo4294v = abstractC0224s2.mo4294v();
-                        if (mo4294v == null) {
-                            mo4294v = this.f5049B;
-                            mo4294v.m5173a(0, 0, mo3151j.mo387m(), mo3151j.mo388l());
+                    if (j != null) {
+                        Rect v = sVar2.v();
+                        if (v == null) {
+                            v = this.B;
+                            v.a(0, 0, j.m(), j.l());
                         }
-                        float m5167c = (this.f5040s.m5167c() * 0.7f) / mo4294v.m5167c();
-                        int m5166d = (int) (this.f5040s.m5166d() - ((mo4294v.m5171b() * 0.5f) * m5167c));
-                        int m5165e = (int) (this.f5040s.m5165e() - ((mo4294v.m5167c() * 0.5f) * m5167c));
-                        this.f5039p.m5229a(100, 255, 255, 255);
-                        RectF rectF = this.f5050C;
-                        rectF.m5159a(m5166d, m5165e, m5166d + (mo4294v.m5171b() * m5167c), m5165e + (mo4294v.m5167c() * m5167c));
-                        this.f4991b.f6326bO.mo193a(mo3151j, mo4294v, rectF, this.f5039p);
+                        float c2 = (this.s.c() * 0.7f) / v.c();
+                        int d2 = (int) (this.s.d() - ((v.b() * 0.5f) * c2));
+                        int e2 = (int) (this.s.e() - ((v.c() * 0.5f) * c2));
+                        this.p.a(100, 255, 255, 255);
+                        RectF rectF = this.C;
+                        rectF.a(d2, e2, d2 + (v.b() * c2), e2 + (v.c() * c2));
+                        this.b.bO.a(j, v, rectF, this.p);
                         z15 = true;
-                    } else if (mo5458i != null) {
-                        float m5166d2 = this.f5040s.m5166d();
-                        float m5165e2 = this.f5040s.m5165e();
-                        if (f27 > 0.5d) {
-                            m5165e2 += 1.0f;
+                    } else if (mo3i != null) {
+                        float d3 = this.s.d();
+                        float e3 = this.s.e();
+                        if (f29 > 0.5d) {
+                            e3 += 1.0f;
                         }
-                        if (f27 < -0.5d) {
-                            m5165e2 -= 1.0f;
+                        if (f29 < -0.5d) {
+                            e3 -= 1.0f;
                         }
-                        float m5167c2 = this.f5040s.m5167c() * 0.7f;
-                        float m5167c3 = this.f5040s.m5167c() * 0.95f;
-                        if (C0825g.f5355bO) {
-                            m5167c2 = this.f5040s.m5167c() * 0.4f;
-                            m5167c3 = this.f5040s.m5167c() * 0.85f;
+                        float c3 = this.s.c() * 0.7f;
+                        float c4 = this.s.c() * 0.95f;
+                        if (InterfaceEngine.bO) {
+                            c3 = this.s.c() * 0.4f;
+                            c4 = this.s.c() * 0.85f;
                         }
-                        this.f5045x.m5158a(this.f5040s);
-                        if (this.f5045x.m5151b(this.f5067ay)) {
-                            this.f4991b.f6326bO.mo138i();
-                            this.f4991b.f6326bO.mo207a(this.f5045x);
-                            EnumC0249ar.m4178a(mo5458i, m5166d2, m5165e2, 0.0f, 0.0f, m2061f.f1614bX, m5167c2, m5167c3, false, false, abstractC0224s2.mo4289t(), mo4062i);
-                            if (mo4062i != null) {
-                                float mo3575x = mo4062i.mo3575x();
-                                float mo3311bV = mo4062i.mo3311bV();
-                                if (mo3311bV != -1.0f && abstractC0224s2.mo4053t(m2061f)) {
-                                    int m2165b = C0773f.m2165b(200, 0, 0, 150);
-                                    int m2165b2 = C0773f.m2165b(120, 0, 0, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_DATA_SERVICE);
-                                    Paint m474a = C1152y.m474a(m2165b, Paint.Style.f219a);
-                                    Paint m474a2 = C1152y.m474a(m2165b2, Paint.Style.f220b);
-                                    int m5154b = ((int) (this.f5045x.m5154b() / 3.0f)) - 3;
-                                    int i8 = m5154b * 2;
-                                    this.f5050C.m5159a(m5166d2 - m5154b, m5165e2 + 0, (m5166d2 - m5154b) + (i8 * mo3311bV), m5165e2 + 0 + 3);
-                                    this.f4991b.f6326bO.mo206a(this.f5050C, m474a);
-                                    this.f5050C.m5159a(m5166d2 - m5154b, m5165e2 + 0, (m5166d2 - m5154b) + i8, m5165e2 + 0 + 3);
-                                    this.f4991b.f6326bO.mo206a(this.f5050C, m474a2);
-                                } else if (mo3575x != -1.0f && abstractC0224s2.mo4054s(m2061f)) {
-                                    int m2165b3 = C0773f.m2165b(200, 0, 150, 0);
-                                    int m2165b4 = C0773f.m2165b(120, 0, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_DATA_SERVICE, 0);
-                                    Paint m474a3 = C1152y.m474a(m2165b3, Paint.Style.f219a);
-                                    Paint m474a4 = C1152y.m474a(m2165b4, Paint.Style.f220b);
-                                    int m5154b2 = ((int) (this.f5045x.m5154b() / 3.0f)) - 3;
-                                    int i9 = m5154b2 * 2;
-                                    this.f5050C.m5159a(m5166d2 - m5154b2, m5165e2 + 0, (m5166d2 - m5154b2) + (i9 * mo3575x), m5165e2 + 0 + 3);
-                                    this.f4991b.f6326bO.mo206a(this.f5050C, m474a3);
-                                    this.f5050C.m5159a(m5166d2 - m5154b2, m5165e2 + 0, (m5166d2 - m5154b2) + i9, m5165e2 + 0 + 3);
-                                    this.f4991b.f6326bO.mo206a(this.f5050C, m474a4);
+                        this.x.a(this.s);
+                        if (this.x.b(this.ay)) {
+                            this.b.bO.i();
+                            this.b.bO.a(this.x);
+                            ar.a(mo3i, d3, e3, 0.0f, 0.0f, f8.bX, c3, c4, false, false, sVar2.t(), i8);
+                            if (i8 != null) {
+                                float x = i8.x();
+                                float bV = i8.bV();
+                                if (bV != -1.0f && sVar2.t(f8)) {
+                                    int b2 = f.b(200, 0, 0, 150);
+                                    int b3 = f.b(120, 0, 0, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_DATA_SERVICE);
+                                    Paint a8 = com.corrodinggames.rts.gameFramework.utility.y.a(b2, Paint.Style.FILL);
+                                    Paint a9 = com.corrodinggames.rts.gameFramework.utility.y.a(b3, Paint.Style.STROKE);
+                                    int b4 = ((int) (this.x.b() / 3.0f)) - 3;
+                                    int i9 = b4 * 2;
+                                    this.C.a(d3 - b4, e3 + 0, (d3 - b4) + (i9 * bV), e3 + 0 + 3);
+                                    this.b.bO.a(this.C, a8);
+                                    this.C.a(d3 - b4, e3 + 0, (d3 - b4) + i9, e3 + 0 + 3);
+                                    this.b.bO.a(this.C, a9);
+                                } else if (x != -1.0f && sVar2.s(f8)) {
+                                    int b5 = f.b(200, 0, 150, 0);
+                                    int b6 = f.b(120, 0, (int) SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_DATA_SERVICE, 0);
+                                    Paint a10 = com.corrodinggames.rts.gameFramework.utility.y.a(b5, Paint.Style.FILL);
+                                    Paint a11 = com.corrodinggames.rts.gameFramework.utility.y.a(b6, Paint.Style.STROKE);
+                                    int b7 = ((int) (this.x.b() / 3.0f)) - 3;
+                                    int i10 = b7 * 2;
+                                    this.C.a(d3 - b7, e3 + 0, (d3 - b7) + (i10 * x), e3 + 0 + 3);
+                                    this.b.bO.a(this.C, a10);
+                                    this.C.a(d3 - b7, e3 + 0, (d3 - b7) + i10, e3 + 0 + 3);
+                                    this.b.bO.a(this.C, a11);
                                 }
                             }
-                            this.f4991b.f6326bO.mo137j();
+                            this.b.bO.j();
                         }
                         z15 = true;
                     }
-                    C0970e mo4063h = abstractC0224s2.mo4063h(m2061f);
-                    if (mo4063h != null) {
-                        Rect mo4294v2 = abstractC0224s2.mo4294v();
-                        if (mo4294v2 == null) {
-                            mo4294v2 = this.f5049B;
-                            mo4294v2.m5173a(0, 0, mo4063h.mo387m(), mo4063h.mo388l());
+                    e h2 = sVar2.h(f8);
+                    if (h2 != null) {
+                        Rect v2 = sVar2.v();
+                        if (v2 == null) {
+                            v2 = this.B;
+                            v2.a(0, 0, h2.m(), h2.l());
                         }
-                        float m5167c4 = (this.f5040s.m5167c() * 0.7f) / mo4294v2.m5167c();
-                        int m5166d3 = (int) (this.f5040s.m5166d() - ((mo4294v2.m5171b() * 0.5f) * m5167c4));
-                        int m5165e3 = (int) (this.f5040s.m5165e() - ((mo4294v2.m5167c() * 0.5f) * m5167c4));
-                        this.f5039p.m5207b(abstractC0224s2.mo4074J());
-                        RectF rectF2 = this.f5050C;
-                        rectF2.m5159a(m5166d3, m5165e3, m5166d3 + (mo4294v2.m5171b() * m5167c4), m5165e3 + (mo4294v2.m5167c() * m5167c4));
-                        this.f4991b.f6326bO.mo193a(mo4063h, mo4294v2, rectF2, this.f5039p);
+                        float c5 = (this.s.c() * 0.7f) / v2.c();
+                        int d4 = (int) (this.s.d() - ((v2.b() * 0.5f) * c5));
+                        int e4 = (int) (this.s.e() - ((v2.c() * 0.5f) * c5));
+                        this.p.b(sVar2.J());
+                        RectF rectF2 = this.C;
+                        rectF2.a(d4, e4, d4 + (v2.b() * c5), e4 + (v2.c() * c5));
+                        this.b.bO.a(h2, v2, rectF2, this.p);
                         z15 = true;
                     }
                     if (z9) {
-                        String mo3124d = abstractC0224s2.mo3124d();
-                        if (m2089a) {
-                            this.f4991b.f6326bO.mo199a(this.f5052T, this.f5040s.f230a + 25, this.f5040s.m5163g(), (Paint) null);
+                        String d5 = sVar2.d();
+                        if (a3) {
+                            this.b.bO.a(this.T, this.s.a + 25, this.s.g(), (Paint) null);
                         }
-                        if (this.f4991b.f6326bO.mo158b(mo3124d, this.f4990a.f5304aC) > this.f5040s.m5171b() - 2) {
-                            if (this.f4991b.f6326bO.mo158b(mo3124d, this.f4990a.f5303aB) > this.f5040s.m5171b() - 2) {
-                                this.f5034i.m5221a(this.f4990a.f5302aA);
+                        if (this.b.bO.b(d5, this.a.aC) > this.s.b() - 2) {
+                            if (this.b.bO.b(d5, this.a.aB) > this.s.b() - 2) {
+                                this.i.a(this.a.aA);
                             } else {
-                                this.f5034i.m5221a(this.f4990a.f5303aB);
+                                this.i.a(this.a.aB);
                             }
                         } else {
-                            this.f5034i.m5221a(this.f4990a.f5304aC);
+                            this.i.a(this.a.aC);
                         }
                         if (!z11) {
-                            this.f5034i.m5207b(Color.m5244a(255, 0, 100, 0));
+                            this.i.b(Color.a(255, 0, 100, 0));
                         }
-                        if (mo3091f == EnumC0225t.f1470b) {
-                            this.f5034i.m5229a(255, 255, 255, 255);
-                        } else if (mo3091f == EnumC0225t.f1471c || mo3091f == EnumC0225t.f1474f) {
+                        if (f28 == t.rally) {
+                            this.i.a(255, 255, 255, 255);
+                        } else if (f28 == t.upgrade || f28 == t.action) {
                             if (!z11) {
-                                this.f5034i.m5229a(255, 19, 101, 94);
+                                this.i.a(255, 19, 101, 94);
                             } else {
-                                this.f5034i.m5229a(255, 39, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_15, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2);
+                                this.i.a(255, 39, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_15, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_2);
                             }
-                        } else if (mo3091f == EnumC0225t.f1472d) {
-                            InterfaceC0303as mo5458i2 = abstractC0224s2.mo5458i();
-                            if (mo5458i2 != null && mo5458i2.mo3518g() > 1) {
+                        } else if (f28 == t.queueUnit) {
+                            as mo3i2 = sVar2.mo3i();
+                            if (mo3i2 != null && mo3i2.g() > 1) {
                                 if (!z11) {
-                                    this.f5034i.m5229a(255, 117, 120, 15);
+                                    this.i.a(255, 117, 120, 15);
                                 } else {
-                                    this.f5034i.m5229a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_TERRESTRIAL_ANALOG, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, 30);
+                                    this.i.a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_TERRESTRIAL_ANALOG, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, 30);
                                 }
                             }
                         } else if (z10) {
-                            this.f5034i.m5229a(155, 255, 255, 255);
+                            this.i.a(155, 255, 255, 255);
                         }
-                        int mo180a = this.f4991b.f6326bO.mo180a(mo3124d, this.f5034i);
-                        float m5163g = this.f5040s.m5163g() + (mo180a / 2);
+                        int a12 = this.b.bO.a(d5, this.i);
+                        float g2 = this.s.g() + (a12 / 2);
                         if (z10) {
-                            m5163g = this.f5040s.m5163g();
+                            g2 = this.s.g();
                         }
-                        if (z15 && !mo3124d.contains("\n")) {
+                        if (z15 && !d5.contains("\n")) {
                             if (z10) {
-                                m5163g = (this.f5040s.f233d - (mo180a / 2)) - 1;
+                                g2 = (this.s.d - (a12 / 2)) - 1;
                             } else {
-                                m5163g = this.f5040s.f233d - 6;
+                                g2 = this.s.d - 6;
                             }
                         }
                         if (z10) {
-                            C0960aa.m943a(mo3124d, this.f5040s.m5164f(), m5163g, this.f5034i);
+                            aa.a(d5, this.s.f(), g2, this.i);
                         } else {
-                            this.f4991b.f6326bO.mo182a(mo3124d, this.f5040s.m5164f(), m5163g, this.f5034i);
+                            this.b.bO.a(d5, this.s.f(), g2, this.i);
                         }
                     }
                     boolean z16 = false;
                     boolean z17 = false;
                     boolean z18 = false;
-                    if (m2088a != null && m2088a.m2774a()) {
+                    if (a7 != null && a7.a()) {
                         z16 = true;
                         z18 = true;
                     }
-                    this.f5042u.m5172a(this.f5040s);
-                    if (GameEngine.m1029au()) {
-                        C0773f.m2163b(this.f5042u, 2.0f);
+                    this.u.a(this.s);
+                    if (GameEngine.au()) {
+                        f.b(this.u, 2.0f);
                     }
-                    this.f4990a.m1898a(this.f5042u.f230a, this.f5042u.f231b, this.f5042u.m5171b(), this.f5042u.m5167c());
-                    if (!this.f5031d && this.f5042u.m5170b((int) this.f4990a.f5376z, (int) this.f4990a.f5377A) && this.f5067ay.m5153b((int) this.f4990a.f5376z, (int) this.f4990a.f5377A)) {
+                    this.a.a(this.u.a, this.u.b, this.u.b(), this.u.c());
+                    if (!this.d && this.u.b((int) this.a.z, (int) this.a.A) && this.ay.b((int) this.a.z, (int) this.a.A)) {
                         z = true;
-                        if (GameEngine.m1028av()) {
+                        if (GameEngine.av()) {
                             z17 = true;
                         }
-                        if ((this.f4990a.f5392U || this.f4990a.f5380I) && this.f4990a.f5392U && this.f4990a.m1904J()) {
-                            this.f4990a.f5392U = false;
+                        if ((this.a.U || this.a.I) && this.a.U && this.a.J()) {
+                            this.a.U = false;
                             z16 = true;
                         }
                     }
-                    if (GameEngine.m1028av() && this.f4990a.f5279ac == null) {
+                    if (GameEngine.av() && this.a.ac == null) {
                         if (z17) {
-                            this.f5015aa = m2061f;
-                            this.f5016ab = abstractC0224s2;
-                            this.f5017ac = f23 + f19;
-                        } else if (AbstractC0224s.m4307a(this.f5016ab, abstractC0224s2)) {
-                            this.f5015aa = null;
-                            this.f5016ab = null;
+                            this.aa = f8;
+                            this.ab = sVar2;
+                            this.ac = f24 + f20;
+                        } else if (s.a(this.ab, sVar2)) {
+                            this.aa = null;
+                            this.ab = null;
                         }
                     }
                     boolean z19 = false;
-                    if (z16 && !z18 && this.f4991b.settingsEngine.mouseSupport && this.f4991b.m998e(2)) {
+                    if (z16 && !z18 && this.b.settingsEngine.mouseSupport && this.b.e(2)) {
                         z19 = true;
                     }
                     if (z16) {
-                        C0825g.m1903K();
-                        if (abstractC0224s2.mo3152c(m2061f, z19)) {
+                        InterfaceEngine.K();
+                        if (sVar2.c(f8, z19)) {
                             z16 = false;
                         }
-                        if (this.f4991b.f6339cb.m2480j()) {
+                        if (this.b.replayEngine.j()) {
                             z16 = false;
                         }
-                        if (!m2070c(abstractC0224s2)) {
+                        if (!c(sVar2)) {
                             z16 = false;
                         }
                     }
                     if (z16) {
-                        if (abstractC0224s2.mo3092e() == EnumC0226u.f1479a || abstractC0224s2.mo3092e() == EnumC0226u.f1481c) {
-                            this.f4990a.f5279ac = null;
+                        if (sVar2.e() == u.none || sVar2.e() == u.popupQueue) {
+                            this.a.ac = null;
                             boolean z20 = false;
                             if (z18) {
                                 z20 = true;
-                            } else if (!abstractC0224s2.mo4052u()) {
+                            } else if (!sVar2.u()) {
                                 z20 = true;
                             } else {
-                                if (abstractC0224s2.mo4060k(m2061f)) {
+                                if (sVar2.k(f8)) {
                                     z20 = true;
-                                } else if (this.f5015aa == m2061f && AbstractC0224s.m4307a(this.f5016ab, abstractC0224s2)) {
+                                } else if (this.aa == f8 && s.a(this.ab, sVar2)) {
                                     z20 = true;
                                 }
-                                this.f5015aa = m2061f;
-                                this.f5016ab = abstractC0224s2;
-                                this.f5017ac = f23 + f19;
+                                this.aa = f8;
+                                this.ab = sVar2;
+                                this.ac = f24 + f20;
                             }
                             if (z20) {
-                                int i10 = 1;
-                                if (abstractC0224s2.mo3090g()) {
-                                    if (this.f4990a.m1859a(this.f4991b)) {
-                                        i10 = 5;
+                                int i11 = 1;
+                                if (sVar2.g()) {
+                                    if (this.a.a(this.b)) {
+                                        i11 = 5;
                                     }
-                                    if (this.f4990a.m1841b(this.f4991b)) {
-                                        i10 = 10;
+                                    if (this.a.b(this.b)) {
+                                        i11 = 10;
                                     }
                                 }
                                 boolean z21 = false;
                                 if (!z18) {
                                     boolean z22 = false;
-                                    if (m2061f != null && abstractC0224s2.mo3094b(m2061f, false) != -1) {
+                                    if (f8 != null && sVar2.b(f8, false) != -1) {
                                         z22 = true;
                                     }
                                     if (z19 && z22) {
                                         z21 = true;
                                     }
                                 }
-                                if (m2089a(abstractC0224s2)) {
-                                    this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
-                                } else if (!m2069c && !z21) {
-                                    this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
+                                if (a(sVar2)) {
+                                    this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
+                                } else if (!c && !z21) {
+                                    this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
                                 } else {
-                                    boolean mo3090g = abstractC0224s2.mo3090g();
-                                    if (mo3090g && !z21 && this.f4991b.f6312bs.m4353x() <= this.f4991b.f6312bs.m4354w()) {
-                                        this.f4990a.m1840b(this.f5026al);
+                                    boolean g3 = sVar2.g();
+                                    if (g3 && !z21 && this.b.playerTeam.x() <= this.b.playerTeam.w()) {
+                                        this.a.b(this.al);
                                     }
-                                    if (mo3090g) {
+                                    if (g3) {
                                         if (!z21) {
-                                            this.f4991b.f6324bM.m2806b(C0637e.f4074h, 0.5f);
+                                            this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.h, 0.5f);
                                         } else {
-                                            this.f4991b.f6324bM.m2806b(C0637e.f4075i, 0.5f);
+                                            this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.i, 0.5f);
                                         }
                                     } else {
-                                        this.f4991b.f6324bM.m2806b(C0637e.f4073g, 0.8f);
+                                        this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.g, 0.8f);
                                     }
-                                    C0819c.m1929a(m2061f, abstractC0224s2, z21, false);
-                                    for (int i11 = 0; i11 < i10; i11++) {
-                                        SyncPacket m1790x = this.f4990a.m1790x();
-                                        if (!abstractC0224s2.mo4075I()) {
-                                            this.f4990a.m1865a(m1790x, abstractC0224s2);
+                                    c.a(f8, sVar2, z21, false);
+                                    for (int i12 = 0; i12 < i11; i12++) {
+                                        SyncPacket x2 = this.a.x();
+                                        if (!sVar2.I()) {
+                                            this.a.a(x2, sVar2);
                                         } else {
-                                            this.f4990a.m1864a(m1790x, abstractC0224s2, z21);
+                                            this.a.a(x2, sVar2, z21);
                                         }
                                         if (z21) {
-                                            m1790x.f4938g = true;
+                                            x2.g = true;
                                         }
-                                        m1790x.m2332a(abstractC0224s2.mo4292z());
+                                        x2.a(sVar2.z());
                                         if (!z21) {
-                                            this.f4990a.m1878a(abstractC0224s2, (PointF) null, (AbstractC0244am) null, m1790x);
+                                            this.a.a(sVar2, (PointF) null, (am) null, x2);
                                         }
                                     }
                                 }
                             }
-                        } else if (abstractC0224s2.mo3092e() == EnumC0226u.f1491m || abstractC0224s2.mo3092e() == EnumC0226u.f1490l || abstractC0224s2.mo3092e() == EnumC0226u.f1488j) {
+                        } else if (sVar2.e() == u.patrol || sVar2.e() == u.guardUnit || sVar2.e() == u.pingMap) {
                             if (z19) {
-                                if (abstractC0224s2 != null && abstractC0224s2.equals(this.f4990a.f5279ac)) {
-                                    this.f4990a.m1809l();
+                                if (sVar2 != null && sVar2.equals(this.a.ac)) {
+                                    this.a.l();
                                 }
-                            } else if (!m2069c) {
-                                this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
+                            } else if (!c) {
+                                this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
                             } else {
-                                C0819c.m1929a(m2061f, abstractC0224s2, false, false);
-                                this.f5015aa = null;
-                                this.f5016ab = null;
-                                this.f4990a.f5279ac = abstractC0224s2;
+                                c.a(f8, sVar2, false, false);
+                                this.aa = null;
+                                this.ab = null;
+                                this.a.ac = sVar2;
                             }
-                        } else if (abstractC0224s2.mo3092e() == EnumC0226u.f1482d || abstractC0224s2.mo3092e() == EnumC0226u.f1483e || abstractC0224s2.mo3092e() == EnumC0226u.f1484f || abstractC0224s2.mo3092e() == EnumC0226u.f1485g) {
+                        } else if (sVar2.e() == u.setRally || sVar2.e() == u.reclaimTarget || sVar2.e() == u.repairTarget || sVar2.e() == u.targetGround) {
                             boolean z23 = false;
                             boolean z24 = false;
-                            if (abstractC0224s2.mo3092e() == EnumC0226u.f1485g) {
+                            if (sVar2.e() == u.targetGround) {
                                 z24 = true;
                             }
                             if (z19 && z24) {
                                 z23 = true;
                             }
                             if (!z23) {
-                                GameEngine.m5461e("Clicked button: actionActive: " + m2069c);
-                                if (!m2069c) {
-                                    this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
+                                GameEngine.m5e("Clicked button: actionActive: " + c);
+                                if (!c) {
+                                    this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
                                 } else {
-                                    C0819c.m1929a(m2061f, abstractC0224s2, false, false);
-                                    this.f5015aa = null;
-                                    this.f5016ab = null;
-                                    this.f4990a.f5279ac = abstractC0224s2;
+                                    c.a(f8, sVar2, false, false);
+                                    this.aa = null;
+                                    this.ab = null;
+                                    this.a.ac = sVar2;
                                 }
                             } else {
-                                SyncPacket m1790x2 = this.f4990a.m1790x();
-                                if (!abstractC0224s2.mo4075I()) {
-                                    this.f4990a.m1865a(m1790x2, abstractC0224s2);
+                                SyncPacket x3 = this.a.x();
+                                if (!sVar2.I()) {
+                                    this.a.a(x3, sVar2);
                                 } else {
-                                    this.f4990a.m1864a(m1790x2, abstractC0224s2, z23);
+                                    this.a.a(x3, sVar2, z23);
                                 }
-                                m1790x2.f4938g = true;
-                                m1790x2.m2332a(abstractC0224s2.mo4292z());
+                                x3.g = true;
+                                x3.a(sVar2.z());
                             }
-                        } else if (abstractC0224s2.mo3092e() == EnumC0226u.f1480b) {
-                            if (m2089a(abstractC0224s2)) {
-                                this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
-                            } else if (!m2069c) {
-                                this.f4991b.f6324bM.m2806b(C0637e.f4078l, 0.8f);
+                        } else if (sVar2.e() == u.placeBuilding) {
+                            if (a(sVar2)) {
+                                this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
+                            } else if (!c) {
+                                this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.l, 0.8f);
                             } else {
-                                this.f4991b.f6324bM.m2806b(C0637e.f4073g, 0.8f);
+                                this.b.bM.b(com.corrodinggames.rts.gameFramework.a.e.g, 0.8f);
                             }
-                            C0819c.m1929a(m2061f, abstractC0224s2, false, false);
-                            this.f5015aa = null;
-                            this.f5016ab = null;
-                            if (this.f4990a.f5279ac == null) {
-                                this.f4990a.f5285ai = false;
+                            c.a(f8, sVar2, false, false);
+                            this.aa = null;
+                            this.ab = null;
+                            if (this.a.ac == null) {
+                                this.a.ai = false;
                             }
-                            this.f4990a.f5278aa = m2061f;
-                            this.f4990a.f5279ac = abstractC0224s2;
-                            this.f4990a.f5282af = 0.0f;
-                            this.f4990a.f5293aq = -99.0f;
-                            this.f4990a.f5294ar = -99.0f;
-                            if (!this.f4990a.f5281ae) {
-                                this.f4990a.f5283ag = this.f4991b.f6369cI * this.f4991b.f6470cX;
-                                this.f4990a.f5284ah = this.f4991b.f6370cJ * this.f4991b.f6470cX;
+                            this.a.aa = f8;
+                            this.a.ac = sVar2;
+                            this.a.af = 0.0f;
+                            this.a.aq = -99.0f;
+                            this.a.ar = -99.0f;
+                            if (!this.a.ae) {
+                                this.a.ag = this.b.cI * this.b.cX;
+                                this.a.ah = this.b.cJ * this.b.cX;
                             }
-                            this.f4990a.f5281ae = true;
-                            this.f4991b.f6323bL.m4613e();
-                        } else if (abstractC0224s2.mo3092e() == EnumC0226u.f1489k) {
-                            C0819c.m1929a(m2061f, abstractC0224s2, false, false);
-                            abstractC0224s2.mo4300c(m2061f);
-                        } else if (abstractC0224s2.mo3092e() == EnumC0226u.f1487i) {
-                            if (abstractC0224s2.mo4284C()) {
-                                this.f5015aa = m2061f;
-                                this.f5016ab = abstractC0224s2;
-                                this.f5017ac = f23 + f19;
-                                this.f4990a.f5279ac = null;
+                            this.a.ae = true;
+                            this.b.bL.e();
+                        } else if (sVar2.e() == u.directToAction) {
+                            c.a(f8, sVar2, false, false);
+                            sVar2.c(f8);
+                        } else if (sVar2.e() == u.infoOnly) {
+                            if (sVar2.C()) {
+                                this.aa = f8;
+                                this.ab = sVar2;
+                                this.ac = f24 + f20;
+                                this.a.ac = null;
                             }
                         } else {
-                            throw new RuntimeException("unknown gui action:" + abstractC0224s2.mo3092e());
+                            throw new RuntimeException("unknown gui action:" + sVar2.e());
                         }
                     }
-                    if (this.f5016ab == abstractC0224s2) {
-                        z2 = m2069c;
+                    if (this.ab == sVar2) {
+                        z2 = c;
                     }
                 }
             }
-            this.f4991b.f6326bO.mo137j();
-            this.f5067ay.m5146f();
+            this.b.bO.j();
+            this.ay.f();
         }
-        if (m2061f != null && m2061f == this.f5015aa) {
-            if (this.f5016ab != null) {
+        if (f8 != null && f8 == this.aa) {
+            if (this.ab != null) {
                 boolean z25 = true;
-                if (GameEngine.m1028av()) {
+                if (GameEngine.av()) {
                     z25 = false;
                 }
                 boolean z26 = false;
-                if (this.f5016ab.mo4052u()) {
+                if (this.ab.u()) {
                     z26 = true;
                 }
-                if (GameEngine.m1028av() && this.f5016ab.mo3089h()) {
+                if (GameEngine.av() && this.ab.h()) {
                     z26 = true;
                 }
                 if (z26) {
@@ -1985,129 +1772,126 @@ public class C0775a extends AbstractC0741bq {
                     if (!z2) {
                         z27 = false;
                     }
-                    if (this.f4990a.m1875a(this.f5016ab, z25, this.f5015aa, !z27, true, this.f5017ac, false)) {
-                        this.f5015aa = null;
+                    if (this.a.a(this.ab, z25, this.aa, !z27, true, this.ac, false)) {
+                        this.aa = null;
                     }
                 }
             }
         } else {
-            this.f5015aa = null;
+            this.aa = null;
         }
-        if (GameEngine.m1028av() && !z) {
-            this.f5015aa = null;
-            this.f5016ab = null;
+        if (GameEngine.av() && !z) {
+            this.aa = null;
+            this.ab = null;
         }
         return i2;
     }
 
-    /* renamed from: i */
-    float m2058i() {
-        return (float) (C0773f.m2171b((this.f4991b.f6348cm / 14.0f) / this.f4991b.f6345cj, 25.0f * this.f4991b.f6345cj, 40.0f * this.f4991b.f6345cj) * 0.9d);
+    float i() {
+        return (float) (f.b((this.b.cm / 14.0f) / this.b.cj, 25.0f * this.b.cj, 40.0f * this.b.cj) * 0.9d);
     }
 
-    /* renamed from: a */
-    void m2094a(float f, int i) {
+    void a(float f, int i) {
         boolean z = true;
         if (i == 0) {
             z = true;
         }
-        if (C0825g.f5354a) {
+        if (InterfaceEngine.a) {
             z = false;
         }
-        if (this.f4990a.f5322aX > 0) {
-            if (this.f4990a.f5262f != null && this.f4990a.f5322aX == 1 && this.f4990a.f5262f.f1649cG) {
+        if (this.a.aX > 0) {
+            if (this.a.f != null && this.a.aX == 1 && this.a.f.cG) {
                 z = false;
             }
             if (z) {
-                if (this.f4990a.m1845b((int) ((this.f4991b.f6347cl - this.f4991b.f6334bW.f5489c) + 2.0f), this.f4991b.f6334bW.m1765b() + 2, (int) (this.f4991b.f6334bW.f5489c - 4.0f), (int) m2058i(), this.f5021ag, EnumC0827i.f5436c, false, Color.m5244a(140, 100, 100, 100)) && !this.f4990a.f5391T) {
-                    this.f4990a.m1830d();
-                    this.f4990a.m1809l();
-                    this.f4990a.m1789y();
+                if (this.a.b((int) ((this.b.cl - this.b.bW.c) + 2.0f), this.b.bW.b() + 2, (int) (this.b.bW.c - 4.0f), (int) i(), this.ag, i.unselectAllButton, false, Color.a(140, 100, 100, 100)) && !this.a.T) {
+                    this.a.d();
+                    this.a.l();
+                    this.a.y();
                 }
             }
             PlayerData playerData = null;
             boolean z2 = false;
-            this.f5068az.clear();
-            AbstractC0244am abstractC0244am = null;
-            AbstractC0244am[] m499a = this.f4990a.f5427bZ.m499a();
-            int size = this.f4990a.f5427bZ.size();
+            this.az.clear();
+            am amVar = null;
+            am[] a = this.a.bZ.a();
+            int size = this.a.bZ.size();
             for (int i2 = 0; i2 < size; i2++) {
-                AbstractC0244am abstractC0244am2 = m499a[i2];
-                if (abstractC0244am2.f1649cG) {
-                    abstractC0244am = abstractC0244am2;
-                    if (this.f4990a.m1806m(abstractC0244am2)) {
-                        InterfaceC0303as mo5459r = abstractC0244am2.mo5459r();
-                        Integer num = (Integer) this.f5068az.get(mo5459r);
+                am amVar2 = a[i2];
+                if (amVar2.cG) {
+                    amVar = amVar2;
+                    if (this.a.m(amVar2)) {
+                        as mo1r = amVar2.mo1r();
+                        Integer num = (Integer) this.az.get(mo1r);
                         if (num == null) {
-                            this.f5068az.put(mo5459r, 1);
+                            this.az.put(mo1r, 1);
                         } else {
-                            this.f5068az.put(mo5459r, Integer.valueOf(num.intValue() + 1));
+                            this.az.put(mo1r, Integer.valueOf(num.intValue() + 1));
                         }
                         z2 = true;
                     } else {
-                        playerData = abstractC0244am2.f1614bX;
+                        playerData = amVar2.bX;
                     }
                 }
             }
-            boolean z3 = this.f4991b.f6313bv;
-            if (playerData != null && this.f4991b.f6312bs != null && playerData.m4419b(this.f4991b.f6312bs)) {
+            boolean z3 = this.b.bv;
+            if (playerData != null && this.b.playerTeam != null && playerData.b(this.b.playerTeam)) {
                 z3 = true;
             }
-            int m2059h = (int) m2059h();
-            int i3 = m2059h + 2;
-            int i4 = (int) (10.0f * this.f4991b.f6345cj);
-            float m1765b = this.f4991b.f6334bW.m1765b() + m2059h + 30;
-            float f2 = (this.f4991b.f6347cl - this.f4991b.f6351cq) + i4;
-            float f3 = m1765b + 5.0f;
-            if (abstractC0244am != null) {
+            int h = (int) h();
+            int i3 = h + 2;
+            int i4 = (int) (10.0f * this.b.cj);
+            float b = this.b.bW.b() + h + 30;
+            float f2 = (this.b.cl - this.b.cq) + i4;
+            float f3 = b + 5.0f;
+            if (amVar != null) {
                 f3 = f3 + i3 + (i3 * i);
-                if (this.f4990a.f5371t) {
+                if (this.a.t) {
                     f3 -= (2 * i3) * 0.4f;
                 }
             }
-            this.f5040s.m5173a((int) f2, (int) f3, (int) ((f2 + this.f4991b.f6351cq) - (i4 * 2)), (int) (f3 + m2059h));
+            this.s.a((int) f2, (int) f3, (int) ((f2 + this.b.cq) - (i4 * 2)), (int) (f3 + h));
             boolean z4 = false;
-            if (!C0825g.f5357bQ) {
+            if (!InterfaceEngine.bQ) {
                 if (i < 3 && !z2 && playerData != null) {
-                    Paint paint = this.f4990a.f5307aF;
-                    if (this.f4991b.f6312bs.m4391d(playerData)) {
-                        paint = this.f4990a.f5308aG;
+                    Paint paint = this.a.aF;
+                    if (this.b.playerTeam.d(playerData)) {
+                        paint = this.a.aG;
                     }
-                    this.f4990a.m1853a(m2090a(playerData), this.f5040s, paint, paint);
+                    this.a.a(a(playerData), this.s, paint, paint);
                     z4 = true;
                 }
-                if (this.f4990a.m1799q() == 1 && abstractC0244am != null) {
-                    if (abstractC0244am.m4208cq() <= 3 || (playerData != null && !z3)) {
-                        String m2083a = m2083a(abstractC0244am, false);
+                if (this.a.q() == 1 && amVar != null) {
+                    if (amVar.cq() <= 3 || (playerData != null && !z3)) {
+                        String a2 = a(amVar, false);
                         if (z4) {
-                            m2083a = "\n" + ("\n" + ("\n" + m2083a));
+                            a2 = "\n" + ("\n" + ("\n" + a2));
                         }
-                        Paint paint2 = this.f5034i;
-                        paint2.m5233a();
-                        paint2.m5207b(Color.m5244a(50, 100, 100, 100));
-                        this.f4990a.m1853a(m2083a, this.f5040s, this.f4990a.f5309aH, this.f4990a.f5309aH);
+                        Paint paint2 = this.i;
+                        paint2.a();
+                        paint2.b(Color.a(50, 100, 100, 100));
+                        this.a.a(a2, this.s, this.a.aH, this.a.aH);
                     }
                 }
             }
         }
     }
 
-    /* renamed from: a */
-    public String m2090a(PlayerData playerData) {
+    public String a(PlayerData playerData) {
         String str = VariableScope.nullOrMissingString;
         boolean z = false;
-        if (this.f4991b.f6312bs.m4423b()) {
+        if (this.b.playerTeam.b()) {
             z = true;
-        } else if (this.f4991b.f6312bs.m4391d(playerData)) {
-            str = str + this.f5022ah;
-        } else if (this.f4991b.f6312bs.m4403c(playerData)) {
-            str = str + this.f5023ai;
+        } else if (this.b.playerTeam.d(playerData)) {
+            str = str + this.ah;
+        } else if (this.b.playerTeam.c(playerData)) {
+            str = str + this.ai;
         } else {
             z = true;
         }
         if (z) {
-            if (playerData == PlayerData.f1373i) {
-                str = str + this.f5024aj;
+            if (playerData == PlayerData.i) {
+                str = str + this.aj;
             } else {
                 str = str + "Team - " + playerData.getPlayerTeamName();
             }
@@ -2116,80 +1900,77 @@ public class C0775a extends AbstractC0741bq {
         if (playerData.name != null) {
             str2 = str2 + playerData.name;
         }
-        if (!playerData.f1319w && this.f4991b.m1095N() && playerData.isTimeOut()) {
+        if (!playerData.w && this.b.N() && playerData.isTimeOut()) {
             str2 = (str2 + "\n") + "(disconnected)";
         }
         return str2;
     }
 
-    /* renamed from: a */
-    public String m2083a(AbstractC0244am abstractC0244am, boolean z) {
+    public String a(am amVar, boolean z) {
         String str;
         String str2 = VariableScope.nullOrMissingString;
         if (z) {
-            str2 = str2 + abstractC0244am.mo5459r().mo3522e() + "\n";
+            str2 = str2 + amVar.mo1r().e() + "\n";
         }
-        if (abstractC0244am.mo3285g() > 0.0f) {
-            str = str2 + C0429b.m3844a(abstractC0244am.m4215cM(), abstractC0244am.f1637cu / abstractC0244am.f1638cv).m3834a(true, true, 3, false);
+        if (amVar.g() > 0.0f) {
+            str = str2 + b.a(amVar.cM(), amVar.cu / amVar.cv).a(true, true, 3, false);
         } else {
-            str = str2 + ((int) Math.ceil(abstractC0244am.f1637cu)) + "/" + ((int) abstractC0244am.f1638cv) + "\n";
+            str = str2 + ((int) Math.ceil(amVar.cu)) + "/" + ((int) amVar.cv) + "\n";
         }
-        if (abstractC0244am.f1643cA != 0.0f) {
-            str = str + "(" + ((int) abstractC0244am.f1640cx) + "/" + ((int) abstractC0244am.f1643cA) + ")\n";
+        if (amVar.cA != 0.0f) {
+            str = str + "(" + ((int) amVar.cx) + "/" + ((int) amVar.cA) + ")\n";
         }
-        C0429b m4201dq = abstractC0244am.m4201dq();
-        C0444f mo3611cz = abstractC0244am.mo3611cz();
-        if (m4201dq != null) {
-            mo3611cz = C0444f.m3716d(mo3611cz);
-            mo3611cz.m3749a(m4201dq);
+        b dq = amVar.dq();
+        com.corrodinggames.rts.game.units.custom.e.f cz = amVar.cz();
+        if (dq != null) {
+            cz = com.corrodinggames.rts.game.units.custom.e.f.d(cz);
+            cz.a(dq);
         }
-        if (!mo3611cz.m3724c()) {
-            Iterator it = mo3611cz.f2830b.iterator();
+        if (!cz.c()) {
+            Iterator it = cz.b.iterator();
             while (it.hasNext()) {
-                C0443e c0443e = (C0443e) it.next();
-                if (c0443e.f2828b != 0.0d && !c0443e.f2827a.m3786a()) {
-                    str = str + c0443e.f2827a.m3783a(c0443e.f2828b, true, false) + "\n";
+                com.corrodinggames.rts.game.units.custom.e.e eVar = (com.corrodinggames.rts.game.units.custom.e.e) it.next();
+                if (eVar.b != 0.0d && !eVar.a.a()) {
+                    str = str + eVar.a.a(eVar.b, true, false) + "\n";
                 }
             }
         }
-        return C0773f.m2108j(str);
+        return f.j(str);
     }
 
-    /* renamed from: a */
-    public static String m2086a(AbstractC0224s abstractC0224s, boolean z) {
+    public static String a(s sVar, boolean z) {
         String str;
-        AbstractC0228w abstractC0228w;
+        com.corrodinggames.rts.game.units.a.w wVar;
         if (z) {
             str = "\n";
         } else {
             str = " | ";
         }
         String str2 = VariableScope.nullOrMissingString;
-        if (abstractC0224s instanceof AbstractC0228w) {
-            if (((AbstractC0228w) abstractC0224s).mo3292K() < 1.0f) {
+        if (sVar instanceof com.corrodinggames.rts.game.units.a.w) {
+            if (((com.corrodinggames.rts.game.units.a.w) sVar).K() < 1.0f) {
                 GameEngine gameEngine = GameEngine.getGameEngine();
                 float f = -1.0f;
-                AbstractC0244am[] m499a = gameEngine.f6330bS.f5427bZ.m499a();
-                int size = gameEngine.f6330bS.f5427bZ.size();
+                am[] a = gameEngine.bS.bZ.a();
+                int size = gameEngine.bS.bZ.size();
                 for (int i = 0; i < size; i++) {
-                    float mo3612cx = m499a[i].mo3612cx();
-                    if (f == -1.0f || mo3612cx < f) {
-                        f = mo3612cx;
+                    float cx = a[i].cx();
+                    if (f == -1.0f || cx < f) {
+                        f = cx;
                     }
                 }
                 if (f == -1.0f) {
                     f = 1.0f;
                 }
-                str2 = str2 + C0773f.m2117h((1.0f / ((abstractC0228w.mo3292K() * f) * 60.0f)) + 1.0E-4f) + str;
+                str2 = str2 + f.h((1.0f / ((wVar.K() * f) * 60.0f)) + 1.0E-4f) + str;
             }
         }
-        return C0773f.m2182a(str2, str);
+        return f.a(str2, str);
     }
 
-    /* renamed from: a */
-    public static String m2082a(AbstractC0244am abstractC0244am, boolean z, boolean z2, boolean z3) {
+    public static String a(am amVar, boolean z, boolean z2, boolean z3) {
         String str;
-        C0859b c0859b;
+        com.corrodinggames.rts.gameFramework.mod.b bVar;
         float f;
         if (z2) {
             str = "\n";
@@ -2197,107 +1978,107 @@ public class C0775a extends AbstractC0741bq {
             str = " | ";
         }
         String str2 = VariableScope.nullOrMissingString;
-        C0456j c0456j = null;
-        C0458l c0458l = null;
-        if (abstractC0244am instanceof C0456j) {
-            c0456j = (C0456j) abstractC0244am;
-            c0458l = c0456j.f2891x;
+        j jVar = null;
+        l lVar = null;
+        if (amVar instanceof j) {
+            jVar = (j) amVar;
+            lVar = jVar.x;
         }
         if (z) {
-            str2 = str2 + abstractC0244am.mo5459r().mo3522e() + str;
+            str2 = str2 + amVar.mo1r().e() + str;
         }
-        if (c0458l == null || !c0458l.f2986aO) {
+        if (lVar == null || !lVar.aO) {
             if (!z3) {
-                str2 = str2 + "HP: " + ((int) Math.ceil(abstractC0244am.f1637cu)) + "/" + ((int) abstractC0244am.f1638cv) + str;
+                str2 = str2 + "HP: " + ((int) Math.ceil(amVar.cu)) + "/" + ((int) amVar.cv) + str;
             } else {
-                str2 = str2 + "HP: " + ((int) abstractC0244am.f1638cv) + str;
+                str2 = str2 + "HP: " + ((int) amVar.cv) + str;
             }
         }
-        if (abstractC0244am.f1643cA != 0.0f) {
+        if (amVar.cA != 0.0f) {
             if (!z3) {
-                str2 = str2 + "Shield: " + ((int) abstractC0244am.f1640cx) + "/" + ((int) abstractC0244am.f1643cA) + str;
+                str2 = str2 + "Shield: " + ((int) amVar.cx) + "/" + ((int) amVar.cA) + str;
             } else {
-                str2 = str2 + "Shield: " + ((int) abstractC0244am.f1643cA) + str;
+                str2 = str2 + "Shield: " + ((int) amVar.cA) + str;
             }
         }
-        if (c0456j != null) {
-            if (c0456j.f2892y.f2265l >= 1.0f) {
+        if (jVar != null) {
+            if (jVar.y.l >= 1.0f) {
                 str2 = str2 + "Armour: " + ((int) f) + str;
             }
         }
-        C0429b m4201dq = abstractC0244am.m4201dq();
-        float mo3376cy = abstractC0244am.mo3376cy();
-        if (m4201dq != null) {
-            mo3376cy += m4201dq.m3853a();
+        b dq = amVar.dq();
+        float cy = amVar.cy();
+        if (dq != null) {
+            cy += dq.a();
         }
-        if (mo3376cy != 0.0f) {
-            if (mo3376cy < 0.0f) {
-                str2 = str2 + "Income: -$" + C0773f.m2213a(-mo3376cy, 1) + str;
+        if (cy != 0.0f) {
+            if (cy < 0.0f) {
+                str2 = str2 + "Income: -$" + f.a(-cy, 1) + str;
             } else {
-                str2 = str2 + "Income: +$" + C0773f.m2213a(mo3376cy, 1) + str;
+                str2 = str2 + "Income: +$" + f.a(cy, 1) + str;
             }
         }
-        if (abstractC0244am instanceof AbstractC0629y) {
-            AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-            if (abstractC0629y.mo2908bd() != 0.0f && !z3) {
-                str2 = str2 + "Energy: " + C0773f.m2121g(abstractC0244am.f1644cB) + "/" + C0773f.m2121g(abstractC0629y.mo2908bd()) + str;
+        if (amVar instanceof com.corrodinggames.rts.game.units.y) {
+            com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) amVar;
+            if (yVar.bd() != 0.0f && !z3) {
+                str2 = str2 + "Energy: " + f.g(amVar.cB) + "/" + f.g(yVar.bd()) + str;
             }
-            float mo2822z = abstractC0629y.mo2822z();
-            if (!abstractC0629y.mo2970aR()) {
-                mo2822z = 0.0f;
+            float z4 = yVar.z();
+            if (!yVar.aR()) {
+                z4 = 0.0f;
             }
-            if (mo2822z != 0.0f) {
-                str2 = str2 + "Speed: " + C0773f.m2121g(mo2822z) + str;
+            if (z4 != 0.0f) {
+                str2 = str2 + "Speed: " + f.g(z4) + str;
             }
-            if (abstractC0629y.mo3067l()) {
-                ArrayList m2964aX = abstractC0629y.m2964aX();
-                if (m2964aX.size() > 0) {
+            if (yVar.l()) {
+                ArrayList aX = yVar.aX();
+                if (aX.size() > 0) {
                     String str3 = str2 + "Attack: ";
-                    boolean z4 = true;
-                    Iterator it = m2964aX.iterator();
+                    boolean z5 = true;
+                    Iterator it = aX.iterator();
                     while (it.hasNext()) {
-                        C0232aa c0232aa = (C0232aa) it.next();
-                        if (!z4) {
+                        com.corrodinggames.rts.game.units.aa aaVar = (com.corrodinggames.rts.game.units.aa) it.next();
+                        if (!z5) {
                             str3 = str3 + ", ";
                         }
-                        z4 = false;
-                        String str4 = str3 + C0773f.m2121g(c0232aa.f1502a);
-                        if (c0232aa.f1505d > 1) {
-                            str4 = str4 + "x" + c0232aa.f1505d;
+                        z5 = false;
+                        String str4 = str3 + f.g(aaVar.a);
+                        if (aaVar.d > 1) {
+                            str4 = str4 + "x" + aaVar.d;
                         }
-                        str3 = str4 + "/" + C0773f.m2121g(c0232aa.m4277a()) + "s";
+                        str3 = str4 + "/" + f.g(aaVar.a()) + "s";
                     }
                     str2 = str3 + str;
                 }
             }
-            float mo2846m = abstractC0629y.mo2846m();
-            if (!abstractC0629y.mo3067l()) {
-                mo2846m = 0.0f;
+            float m = yVar.m();
+            if (!yVar.l()) {
+                m = 0.0f;
             }
-            if (mo2846m != 0.0f) {
-                str2 = str2 + "Range: " + C0773f.m2121g(mo2846m) + str;
+            if (m != 0.0f) {
+                str2 = str2 + "Range: " + f.g(m) + str;
             }
-            if (z3 && abstractC0629y.mo3406ck()) {
+            if (z3 && yVar.ck()) {
                 str2 = str2 + "Upgradable" + str;
             }
         }
-        if (!z3 && abstractC0244am.f1663cU > 0) {
-            str2 = str2 + "Kills: " + abstractC0244am.f1663cU + str;
+        if (!z3 && amVar.cU > 0) {
+            str2 = str2 + "Kills: " + amVar.cU + str;
         }
-        boolean z5 = false;
-        if (GameEngine.getGameEngine().f6444bl) {
-            InterfaceC0303as mo5459r = abstractC0244am.mo5459r();
-            str2 = ((str2 + "\n") + "--Debug--" + str) + "name: " + mo5459r.mo3514i() + str;
-            if ((mo5459r instanceof C0458l) && (c0859b = ((C0458l) mo5459r).f2949J) != null) {
-                str2 = str2 + "(mod: " + C0773f.m2184a(c0859b.m1673a(), 30) + ")" + str;
+        boolean z6 = false;
+        if (GameEngine.getGameEngine().bl) {
+            as mo1r = amVar.mo1r();
+            str2 = ((str2 + "\n") + "--Debug--" + str) + "name: " + mo1r.i() + str;
+            if ((mo1r instanceof l) && (bVar = ((l) mo1r).J) != null) {
+                str2 = str2 + "(mod: " + f.a(bVar.a(), 30) + ")" + str;
             }
-            if (abstractC0244am.f7166eh != 0) {
-                str2 = str2 + "id: " + abstractC0244am.f7166eh + str;
+            if (amVar.eh != 0) {
+                str2 = str2 + "id: " + amVar.eh + str;
             }
-            if (abstractC0244am.f1648cF != 0) {
+            if (amVar.cF != 0) {
                 String str5 = VariableScope.nullOrMissingString;
                 for (int i = 0; i < 32; i++) {
-                    if (C0429b.m3851a(abstractC0244am.f1648cF, i)) {
+                    if (b.a(amVar.cF, i)) {
                         if (str5.length() > 0) {
                             str5 = str5 + ",";
                         }
@@ -2306,358 +2087,348 @@ public class C0775a extends AbstractC0741bq {
                 }
                 str2 = str2 + "flags: " + str5 + str;
             }
-            if (abstractC0244am.f1647cE != 0) {
-                str2 = str2 + "ammo: " + abstractC0244am.f1647cE + str;
+            if (amVar.cE != 0) {
+                str2 = str2 + "ammo: " + amVar.cE + str;
             }
-            if (!abstractC0244am.f1632cp) {
-                str2 = (str2 + "x: " + C0773f.m2121g(abstractC0244am.f7172eo) + str) + "y: " + C0773f.m2121g(abstractC0244am.f7173ep) + str;
+            if (!amVar.cp) {
+                str2 = (str2 + "x: " + f.g(amVar.eo) + str) + "y: " + f.g(amVar.ep) + str;
             }
-            if (abstractC0244am.f1619cc != 0.0f || abstractC0244am.f1620cd != 0.0f) {
-                str2 = str2 + "x/y speed: " + C0773f.m2121g(abstractC0244am.f1619cc) + ", " + C0773f.m2121g(abstractC0244am.f1620cd) + str;
+            if (amVar.cc != 0.0f || amVar.cd != 0.0f) {
+                str2 = str2 + "x/y speed: " + f.g(amVar.cc) + ", " + f.g(amVar.cd) + str;
             }
-            if (!abstractC0244am.f1632cp) {
-                str2 = (str2 + "height: " + C0773f.m2121g(abstractC0244am.f7174eq) + str) + "dir: " + C0773f.m2121g(abstractC0244am.f1623cg) + str;
+            if (!amVar.cp) {
+                str2 = (str2 + "height: " + f.g(amVar.eq) + str) + "dir: " + f.g(amVar.cg) + str;
             }
-            if (abstractC0244am.f1629cm < 1.0f) {
-                str2 = str2 + "built: " + C0773f.m2121g(abstractC0244am.f1629cm) + str;
+            if (amVar.cm < 1.0f) {
+                str2 = str2 + "built: " + f.g(amVar.cm) + str;
             }
-            if (abstractC0244am instanceof C0456j) {
-                C0456j c0456j2 = (C0456j) abstractC0244am;
-                str2 = (str2 + "frame: " + c0456j2.f2868a + str) + "drawLayer: " + c0456j2.f7170em + str;
-                if (c0456j2.mo3600de() != null) {
-                    str2 = str2 + "tags: " + c0456j2.mo3600de() + str;
+            if (amVar instanceof j) {
+                j jVar2 = (j) amVar;
+                str2 = (str2 + "frame: " + jVar2.a + str) + "drawLayer: " + jVar2.em + str;
+                if (jVar2.de() != null) {
+                    str2 = str2 + "tags: " + jVar2.de() + str;
                 }
-                if (c0456j2.f1657cO != null) {
-                    str2 = str2 + "attachedTo: " + c0456j2.f1657cO.m4222cB() + str;
+                if (jVar2.cO != null) {
+                    str2 = str2 + "attachedTo: " + jVar2.cO.cB() + str;
                 }
-                if (c0456j2.f1584bu != null && !c0456j2.f1584bu.f1612bV) {
-                    str2 = str2 + "customTarget1: " + c0456j2.f1584bu.m4222cB() + str;
+                if (jVar2.bu != null && !jVar2.bu.bV) {
+                    str2 = str2 + "customTarget1: " + jVar2.bu.cB() + str;
                 }
-                if (c0456j2.f1585bv != null && !c0456j2.f1585bv.f1612bV) {
-                    str2 = str2 + "customTarget2: " + c0456j2.f1585bv.m4222cB() + str;
+                if (jVar2.bv != null && !jVar2.bv.bV) {
+                    str2 = str2 + "customTarget2: " + jVar2.bv.cB() + str;
                 }
-                if (c0456j2.f1590bA != -9999) {
-                    str2 = str2 + "customTimer: " + C0773f.m2117h(c0456j2.f1590bA / 1000.0f) + str;
+                if (jVar2.bA != -9999) {
+                    str2 = str2 + "customTimer: " + f.h(jVar2.bA / 1000.0f) + str;
                 }
-                if (c0456j2.f1586bw != null && !c0456j2.f1586bw.isEmpty()) {
-                    str2 = str2 + "-- memory --: " + str + c0456j2.f1586bw.debugMemory(true, true) + str;
+                if (jVar2.bw != null && !jVar2.bw.isEmpty()) {
+                    str2 = str2 + "-- memory --: " + str + jVar2.bw.debugMemory(true, true) + str;
                 }
             }
-            z5 = true;
+            z6 = true;
         }
-        C0444f mo1748df = abstractC0244am.mo1748df();
-        if (mo1748df != null && !mo1748df.m3724c()) {
-            String m3735a = mo1748df.m3735a(z2, true, 10, z5, false);
-            if (!m3735a.equals(VariableScope.nullOrMissingString)) {
-                str2 = str2 + m3735a + str;
+        com.corrodinggames.rts.game.units.custom.e.f df = amVar.df();
+        if (df != null && !df.c()) {
+            String a = df.a(z2, true, 10, z6, false);
+            if (!a.equals(VariableScope.nullOrMissingString)) {
+                str2 = str2 + a + str;
             }
         }
-        return C0773f.m2182a(str2, str);
+        return f.a(str2, str);
     }
 
-    /* renamed from: j */
-    void m2057j() {
-        Iterator it = this.f5069aA.iterator();
+    void j() {
+        Iterator it = this.aA.iterator();
         while (it.hasNext()) {
-            ((C0809am) it.next()).f5204h = true;
+            ((am) it.next()).h = true;
         }
     }
 
-    /* renamed from: k */
-    void m2056k() {
-        Iterator it = this.f5069aA.iterator();
+    void k() {
+        Iterator it = this.aA.iterator();
         while (it.hasNext()) {
-            ((C0809am) it.next()).m1960b();
+            ((am) it.next()).b();
         }
-        this.f5057am = null;
-        this.f5058an = 0.0f;
+        this.am = null;
+        this.an = 0.0f;
     }
 
-    /* renamed from: a */
-    void m2091a(int i, int i2, int i3, String str, String str2, Paint paint, float f) {
+    void a(int i, int i2, int i3, String str, String str2, Paint paint, float f) {
         int i4 = (int) (i3 * 2.5d);
-        int i5 = (int) (40.0f * this.f4991b.f6345cj);
+        int i5 = (int) (40.0f * this.b.cj);
         int i6 = i + (i3 / 2);
-        int i7 = (int) ((i2 - i5) - (35.0f * this.f4991b.f6345cj));
-        this.f5070aB.m5173a(i6 - (i4 / 2), i7, i4, i5);
-        this.f4990a.m1888a(this.f5070aB.f230a, this.f5070aB.f231b, this.f5070aB.f232c, this.f5070aB.f233d, VariableScope.nullOrMissingString, Color.m5244a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, 100, 100, 100), this.f4990a.f5304aC, false, (C0784h) null, (EnumC0785i) null);
-        this.f5040s.m5173a(this.f5070aB.f230a, this.f5070aB.f231b, this.f5070aB.f232c, this.f5070aB.f233d);
-        Rect rect = this.f5040s;
-        rect.f232c = (int) (rect.f232c * f);
-        this.f4991b.f6326bO.mo152c(this.f5040s, paint);
-        this.f4991b.f6326bO.mo182a(str, i6, i7 + ((this.f4990a.f5304aC.m5187k() + 5.0f) * 1.0f), this.f4990a.f5304aC);
-        this.f4991b.f6326bO.mo182a(str2, i6, i7 + ((this.f4990a.f5304aC.m5187k() + 5.0f) * 2.0f), this.f4990a.f5304aC);
+        int i7 = (int) ((i2 - i5) - (35.0f * this.b.cj));
+        this.aB.a(i6 - (i4 / 2), i7, i4, i5);
+        this.a.a(this.aB.a, this.aB.b, this.aB.c, this.aB.d, VariableScope.nullOrMissingString, Color.a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_STB_INPUT, 100, 100, 100), this.a.aC, false, (com.corrodinggames.rts.gameFramework.Interface.a.h) null, (i) null);
+        this.s.a(this.aB.a, this.aB.b, this.aB.c, this.aB.d);
+        Rect rect = this.s;
+        rect.c = (int) (rect.c * f);
+        this.b.bO.c(this.s, paint);
+        this.b.bO.a(str, i6, i7 + ((this.a.aC.k() + 5.0f) * 1.0f), this.a.aC);
+        this.b.bO.a(str2, i6, i7 + ((this.a.aC.k() + 5.0f) * 2.0f), this.a.aC);
     }
 
-    /* renamed from: a */
-    void m2093a(float f, boolean z) {
+    void a(float f, boolean z) {
         int i;
         int i2;
-        C0847a c0847a;
-        float f2 = this.f4991b.f6345cj * 0.7f;
-        if (GameEngine.m1029au() && f2 < 0.7d) {
+        com.corrodinggames.rts.gameFramework.player.a aVar;
+        float f2 = this.b.cj * 0.7f;
+        if (GameEngine.au() && f2 < 0.7d) {
             f2 = 0.7f;
         }
-        int mo387m = (int) (this.f5053U.mo387m() * f2);
-        int i3 = 4 + (mo387m / 2);
-        int i4 = 4 + (mo387m / 2);
-        if (this.f4991b.m991g(111)) {
+        int m = (int) (this.U.m() * f2);
+        int i3 = 4 + (m / 2);
+        int i4 = 4 + (m / 2);
+        if (this.b.g(111)) {
             boolean z2 = false;
-            if (!this.f4990a.f5372u) {
-                z2 = this.f4990a.m1809l();
+            if (!this.a.u) {
+                z2 = this.a.l();
             }
             if (!z2) {
-                this.f4990a.f5372u = !this.f4990a.f5372u;
+                this.a.u = !this.a.u;
             }
         }
-        if (this.f4990a.f5372u) {
-            this.f5029aC += 0.008f * f;
-            if (this.f5029aC > 1.0f) {
-                this.f5029aC = 0.0f;
+        if (this.a.u) {
+            this.aC += 0.008f * f;
+            if (this.aC > 1.0f) {
+                this.aC = 0.0f;
             }
-            this.f5033h.m5202c(150 + ((int) (100.0f * C0773f.m2110j(this.f5029aC * 180.0f))));
+            this.h.c(150 + ((int) (100.0f * f.j(this.aC * 180.0f))));
         } else {
-            this.f5029aC = 0.0f;
-            this.f5033h.m5202c(80);
+            this.aC = 0.0f;
+            this.h.c(80);
         }
-        this.f5043v.m5173a(i3, i4, i3 + mo387m, i4 + mo387m);
-        this.f5043v.m5174a(-(mo387m / 2), -(mo387m / 2));
+        this.v.a(i3, i4, i3 + m, i4 + m);
+        this.v.a(-(m / 2), -(m / 2));
         if (z) {
-            this.f4991b.f6326bO.mo198a(this.f5053U, this.f5043v.f230a, this.f5043v.f231b, this.f5033h, 0.0f, f2);
-            if (this.f4991b.settingsEngine.newRender) {
-                this.f5049B.m5173a(this.f5043v.m5166d() - 4, this.f5043v.m5165e() - 4, this.f5043v.m5166d() + 4, this.f5043v.m5165e() + 4);
-                this.f5039p.m5229a(100, 0, 155, 0);
-                this.f4991b.f6326bO.mo163b(this.f5049B, this.f5039p);
+            this.b.bO.a(this.U, this.v.a, this.v.b, this.h, 0.0f, f2);
+            if (this.b.settingsEngine.newRender) {
+                this.B.a(this.v.d() - 4, this.v.e() - 4, this.v.d() + 4, this.v.e() + 4);
+                this.p.a(100, 0, 155, 0);
+                this.b.bO.b(this.B, this.p);
             }
         }
-        if (GameEngine.m1029au()) {
-            C0773f.m2202a(this.f5043v, 4.0f);
+        if (GameEngine.au()) {
+            f.a(this.v, 4.0f);
         }
-        if (this.f4990a.f5392U && !this.f4990a.f5391T && this.f5043v.m5170b((int) this.f4990a.f5374x, (int) this.f4990a.f5375y)) {
-            this.f4990a.f5392U = false;
-            this.f4990a.f5372u = !this.f4990a.f5372u;
+        if (this.a.U && !this.a.T && this.v.b((int) this.a.x, (int) this.a.y)) {
+            this.a.U = false;
+            this.a.u = !this.a.u;
         }
-        this.f4990a.m1883a(this.f5043v);
-        if (this.f4991b.f6339cb.m2480j()) {
-            this.f5033h.m5202c(80);
-            if (this.f4991b.f6339cb.f4574v != 1) {
-                this.f5033h.m5202c(200);
+        this.a.a(this.v);
+        if (this.b.replayEngine.j()) {
+            this.h.c(80);
+            if (this.b.replayEngine.v != 1) {
+                this.h.c(200);
             }
-            int i5 = (int) (this.f5055W.f6621q * this.f4991b.f6345cj * 1.6f);
-            int i6 = (int) (this.f4991b.f6366cF / 2.0f);
-            int m5187k = 7 + ((int) this.f4990a.f5306aE.m5187k());
-            this.f4991b.f6326bO.mo182a(C0773f.m2206a(this.f4991b.f6315by / 1000), i6, m5187k, this.f4990a.f5306aE);
-            int i7 = m5187k + (i5 / 2) + 10;
+            int i5 = (int) (this.W.q * this.b.cj * 1.6f);
+            int i6 = (int) (this.b.cF / 2.0f);
+            int k = 7 + ((int) this.a.aE.k());
+            this.b.bO.a(f.a(this.b.by / 1000), i6, k, this.a.aE);
+            int i7 = k + (i5 / 2) + 10;
             int i8 = i6 + (i5 / 2) + 5;
-            this.f5043v.m5173a(i8, i7, i8 + i5, i7 + i5);
-            this.f5043v.m5174a((-this.f5043v.m5171b()) / 2, (-this.f5043v.m5167c()) / 2);
+            this.v.a(i8, i7, i8 + i5, i7 + i5);
+            this.v.a((-this.v.b()) / 2, (-this.v.c()) / 2);
             if (z) {
-                this.f4991b.f6326bO.mo198a(this.f5055W, this.f5043v.f230a, this.f5043v.f231b, this.f5033h, 0.0f, i5 / i);
+                this.b.bO.a(this.W, this.v.a, this.v.b, this.h, 0.0f, i5 / i);
             }
-            if (this.f4990a.f5392U && !this.f4990a.f5391T && this.f5043v.m5170b((int) this.f4990a.f5374x, (int) this.f4990a.f5375y)) {
-                this.f4990a.f5392U = false;
-                this.f4991b.f6339cb.m2492b();
+            if (this.a.U && !this.a.T && this.v.b((int) this.a.x, (int) this.a.y)) {
+                this.a.U = false;
+                this.b.replayEngine.b();
             }
-            if (this.f4991b.f6450bt != 1.0f && z) {
-                this.f4991b.f6326bO.mo182a("x" + this.f4991b.f6450bt, this.f5043v.m5166d() + (i5 / 2), this.f5043v.m5165e(), this.f4990a.f5304aC);
+            if (this.b.bt != 1.0f && z) {
+                this.b.bO.a("x" + this.b.bt, this.v.d() + (i5 / 2), this.v.e(), this.a.aC);
             }
-            C0970e c0970e = this.f5054V;
-            int i9 = (int) (c0970e.f6621q * this.f4991b.f6345cj * 1.6f);
+            e eVar = this.V;
+            int i9 = (int) (eVar.q * this.b.cj * 1.6f);
             int i10 = i8 - (i9 + 5);
-            this.f5043v.m5173a(i10, i7, i10 + i9, i7 + i9);
-            this.f5043v.m5174a((-this.f5043v.m5171b()) / 2, (-this.f5043v.m5167c()) / 2);
+            this.v.a(i10, i7, i10 + i9, i7 + i9);
+            this.v.a((-this.v.b()) / 2, (-this.v.c()) / 2);
             if (z) {
-                this.f4991b.f6326bO.mo198a(c0970e, this.f5043v.f230a, this.f5043v.f231b, this.f5033h, 0.0f, i9 / i2);
+                this.b.bO.a(eVar, this.v.a, this.v.b, this.h, 0.0f, i9 / i2);
             }
-            if (this.f4990a.f5392U && !this.f4990a.f5391T && this.f5043v.m5170b((int) this.f4990a.f5374x, (int) this.f4990a.f5375y)) {
-                this.f4990a.f5392U = false;
-                this.f4991b.f6339cb.m2507a();
+            if (this.a.U && !this.a.T && this.v.b((int) this.a.x, (int) this.a.y)) {
+                this.a.U = false;
+                this.b.replayEngine.a();
             }
-            C0970e c0970e2 = this.f5056X;
-            int i11 = (int) ((this.f4991b.f6347cl - this.f4991b.f6351cq) - (i9 + 5));
-            this.f5043v.m5173a(i11, i7, i11 + i9, i7 + i9);
-            this.f5043v.m5174a((-this.f5043v.m5171b()) / 2, (-this.f5043v.m5167c()) / 2);
+            e eVar2 = this.X;
+            int i11 = (int) ((this.b.cl - this.b.cq) - (i9 + 5));
+            this.v.a(i11, i7, i11 + i9, i7 + i9);
+            this.v.a((-this.v.b()) / 2, (-this.v.c()) / 2);
             if (z) {
-                this.f4991b.f6326bO.mo198a(c0970e2, this.f5043v.f230a, this.f5043v.f231b, this.f5033h, 0.0f, i9 / i2);
+                this.b.bO.a(eVar2, this.v.a, this.v.b, this.h, 0.0f, i9 / i2);
             }
-            if (this.f4990a.f5392U && !this.f4990a.f5391T && this.f5043v.m5170b((int) this.f4990a.f5374x, (int) this.f4990a.f5375y) && (c0847a = this.f4991b.f6458cg) != null) {
-                c0847a.m1732c();
+            if (this.a.U && !this.a.T && this.v.b((int) this.a.x, (int) this.a.y) && (aVar = this.b.cg) != null) {
+                aVar.c();
             }
         }
-        if (this.f4990a.f5372u) {
-            this.f4991b.f6374cU = false;
-            int m1078a = this.f4991b.m1078a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3);
-            this.f5040s.f230a = (int) ((this.f4991b.f6366cF / 2.0f) - (m1078a / 2));
-            this.f5040s.f232c = (int) ((this.f4991b.f6366cF / 2.0f) + (m1078a / 2));
-            int m1078a2 = this.f4991b.m1078a(34);
-            int m1078a3 = m1078a2 + this.f4991b.m1078a(15);
-            Menu m2052o = m2052o();
-            int m1078a4 = this.f4991b.m1078a(50) + (m1078a3 * (1 + m2052o.size()));
-            this.f5040s.f231b = (int) (this.f4991b.f6350cp - (m1078a4 / 2));
-            this.f5040s.f233d = (int) (this.f4991b.f6350cp + (m1078a4 / 2));
+        if (this.a.u) {
+            this.b.cU = false;
+            int a = this.b.a(SlickToAndroidKeycodes.AndroidCodes.KEYCODE_BUTTON_3);
+            this.s.a = (int) ((this.b.cF / 2.0f) - (a / 2));
+            this.s.c = (int) ((this.b.cF / 2.0f) + (a / 2));
+            int a2 = this.b.a(34);
+            int a3 = a2 + this.b.a(15);
+            Menu o = o();
+            int a4 = this.b.a(50) + (a3 * (1 + o.size()));
+            this.s.b = (int) (this.b.cp - (a4 / 2));
+            this.s.d = (int) (this.b.cp + (a4 / 2));
             if (z) {
-                this.f4990a.f5334bt.m2026c(this.f4991b.f6326bO, this.f5040s);
+                this.a.bt.c(this.b.bO, this.s);
             }
-            int m1078a5 = this.f5040s.f231b + this.f4991b.m1078a(40);
-            int m1078a6 = this.f4991b.m1078a(152);
-            int i12 = (int) ((this.f4991b.f6366cF / 2.0f) - (m1078a6 / 2));
-            int m5244a = Color.m5244a(140, 100, 100, 100);
-            if (this.f4990a.m1886a(i12, m1078a5, m1078a6, m1078a2, C0855a.m1714a("menus.ingame.resume", new Object[0]), EnumC0827i.f5434a, false, m5244a, this.f4990a.f5305aD, (C0784h) this.f4990a.f5332br)) {
-                this.f4990a.f5392U = false;
-                this.f4990a.f5397aV = 40.0f;
-                this.f4990a.f5372u = false;
+            int a5 = this.s.b + this.b.a(40);
+            int a6 = this.b.a(152);
+            int i12 = (int) ((this.b.cF / 2.0f) - (a6 / 2));
+            int a7 = Color.a(140, 100, 100, 100);
+            if (this.a.a(i12, a5, a6, a2, com.corrodinggames.rts.gameFramework.translations.a.a("menus.ingame.resume", new Object[0]), i.none, false, a7, this.a.aD, (com.corrodinggames.rts.gameFramework.Interface.a.h) this.a.br)) {
+                this.a.U = false;
+                this.a.aV = 40.0f;
+                this.a.u = false;
             }
-            int i13 = m1078a5 + m1078a3;
-            for (int i14 = 0; i14 < m2052o.size(); i14++) {
-                MenuItem item = m2052o.getItem(i14);
-                if (this.f4990a.m1886a(i12, i13, m1078a6, m1078a2, item.getTitle().toString(), EnumC0827i.f5434a, false, m5244a, this.f4990a.f5305aD, (C0784h) this.f4990a.f5332br)) {
-                    m2092a(item.getItemId());
-                    this.f4990a.f5392U = false;
-                    this.f4990a.f5397aV = 40.0f;
+            int i13 = a5 + a3;
+            for (int i14 = 0; i14 < o.size(); i14++) {
+                MenuItem item = o.getItem(i14);
+                if (this.a.a(i12, i13, a6, a2, item.getTitle().toString(), i.none, false, a7, this.a.aD, (com.corrodinggames.rts.gameFramework.Interface.a.h) this.a.br)) {
+                    a(item.getItemId());
+                    this.a.U = false;
+                    this.a.aV = 40.0f;
                 }
-                i13 += m1078a3;
+                i13 += a3;
             }
-            this.f4990a.m1883a(this.f5040s);
+            this.a.a(this.s);
         }
     }
 
-    /* renamed from: l */
-    public void m2055l() {
-        m2092a(20);
+    public void l() {
+        a(20);
     }
 
-    /* renamed from: m */
-    public void m2054m() {
-        m2092a(21);
+    public void m() {
+        a(21);
     }
 
-    /* renamed from: n */
-    public void m2053n() {
-        m2092a(16);
+    public void n() {
+        a(16);
     }
 
-    /* renamed from: a */
-    void m2092a(int i) {
-        InterfaceC0096f interfaceC0096f = this.f4991b.f6292ao;
-        if (interfaceC0096f == null) {
+    void a(int i) {
+        com.corrodinggames.rts.appFramework.f fVar = this.b.ao;
+        if (fVar == null) {
             GameEngine.print("selectMenuOption: gameView==null");
             return;
         }
-        ActivityC0097g mo243i = interfaceC0096f.mo243i();
-        if (mo243i == null) {
+        com.corrodinggames.rts.appFramework.g i2 = fVar.i();
+        if (i2 == null) {
             GameEngine.print("selectMenuOption: inGameActivity==null");
         } else {
-            mo243i.mo116c(i);
+            i2.c(i);
         }
     }
 
-    /* renamed from: o */
-    Menu m2052o() {
-        this.f5071aD.clear();
-        InterfaceC0096f interfaceC0096f = this.f4991b.f6292ao;
-        if (interfaceC0096f == null) {
+    Menu o() {
+        this.aD.clear();
+        com.corrodinggames.rts.appFramework.f fVar = this.b.ao;
+        if (fVar == null) {
             GameEngine.print("selectMenuOption: gameView==null");
-            return this.f5071aD;
+            return this.aD;
         }
-        ActivityC0097g mo243i = interfaceC0096f.mo243i();
-        if (mo243i == null) {
+        com.corrodinggames.rts.appFramework.g i = fVar.i();
+        if (i == null) {
             GameEngine.print("selectMenuOption: inGameActivity==null");
-            return this.f5071aD;
+            return this.aD;
         }
-        mo243i.mo4931a(this.f5071aD);
-        return this.f5071aD;
+        i.a(this.aD);
+        return this.aD;
     }
 
-    /* renamed from: e */
-    void m2063e(float f) {
+    void e(float f) {
         String str;
-        int i = (int) (this.f4991b.f6368cH - (30.0f * this.f4991b.f6345cj));
-        int i2 = (int) ((this.f4991b.f6347cl - this.f4991b.f6351cq) + 10.0f);
-        int i3 = ((int) (this.f4991b.f6351cq - 20.0f)) / 3;
+        int i = (int) (this.b.cH - (30.0f * this.b.cj));
+        int i2 = (int) ((this.b.cl - this.b.cq) + 10.0f);
+        int i3 = ((int) (this.b.cq - 20.0f)) / 3;
         int i4 = i3 - 5;
-        for (int i5 = 0; i5 < this.f5069aA.size(); i5++) {
-            C0809am c0809am = (C0809am) this.f5069aA.get(i5);
-            if (c0809am.f5204h) {
-                c0809am.m1957e();
-                c0809am.f5204h = false;
+        for (int i5 = 0; i5 < this.aA.size(); i5++) {
+            am amVar = (am) this.aA.get(i5);
+            if (amVar.h) {
+                amVar.e();
+                amVar.h = false;
             }
-            c0809am.m1958d();
-            if (this.f4991b.settingsEngine.keyboardSupport && i5 < this.f4991b.f6331bT.f4174ai.length) {
-                if (this.f4991b.f6331bT.f4176ak[i5].m2774a()) {
-                    c0809am.m1960b();
-                    c0809am.m1959c();
+            amVar.d();
+            if (this.b.settingsEngine.keyboardSupport && i5 < this.b.bT.ai.length) {
+                if (this.b.bT.ak[i5].a()) {
+                    amVar.b();
+                    amVar.c();
                 }
-                if (this.f4991b.f6331bT.f4175aj[i5].m2774a()) {
-                    this.f4990a.m1809l();
-                    c0809am.m1962a();
+                if (this.b.bT.aj[i5].a()) {
+                    this.a.l();
+                    amVar.a();
                 }
-                if (this.f4991b.f6331bT.f4174ai[i5].m2774a()) {
-                    this.f4990a.m1809l();
-                    this.f4990a.m1789y();
-                    c0809am.m1962a();
+                if (this.b.bT.ai[i5].a()) {
+                    this.a.l();
+                    this.a.y();
+                    amVar.a();
                 }
             }
-            if (this.f4991b.settingsEngine.showUnitGroups && i5 < 3) {
-                if (c0809am.f5197a.size() == 0) {
-                    if (this.f4990a.f5421bN) {
+            if (this.b.settingsEngine.showUnitGroups && i5 < 3) {
+                if (amVar.a.size() == 0) {
+                    if (this.a.bN) {
                         str = "Empty";
                     } else {
                         str = "(" + (i5 + 1) + ")";
                     }
                 } else {
-                    str = VariableScope.nullOrMissingString + c0809am.f5197a.size();
+                    str = VariableScope.nullOrMissingString + amVar.a.size();
                 }
                 boolean z = false;
-                c0809am.f5200d = C0773f.m2218a(c0809am.f5200d, 0.01f * f);
-                c0809am.f5201e = C0773f.m2218a(c0809am.f5201e, 0.01f * f);
-                c0809am.f5202f = C0773f.m2218a(c0809am.f5202f, 0.01f * f);
-                if (this.f4990a.m1887a(i2, i, i4, (int) (31.0f * this.f4991b.f6345cj), str, EnumC0827i.f5434a, true, Color.m5244a(50, (int) (100.0f + (c0809am.f5202f * 100.0f)), (int) (100.0f + (c0809am.f5201e * 100.0f)), (int) (100.0f + (c0809am.f5200d * 100.0f)))) && this.f4990a.f5279ac == null && !this.f4990a.f5391T) {
+                amVar.d = f.a(amVar.d, 0.01f * f);
+                amVar.e = f.a(amVar.e, 0.01f * f);
+                amVar.f = f.a(amVar.f, 0.01f * f);
+                if (this.a.a(i2, i, i4, (int) (31.0f * this.b.cj), str, i.none, true, Color.a(50, (int) (100.0f + (amVar.f * 100.0f)), (int) (100.0f + (amVar.e * 100.0f)), (int) (100.0f + (amVar.d * 100.0f)))) && this.a.ac == null && !this.a.T) {
                     z = true;
-                    c0809am.f5198b += f;
-                    this.f4990a.m1830d();
+                    amVar.b += f;
+                    this.a.d();
                     float f2 = 1.0f;
-                    this.f5034i.m5233a();
-                    this.f5034i.m5207b(Color.m5244a(120, 200, 0, 0));
-                    if (c0809am.f5198b < 50.0f) {
-                        f2 = c0809am.f5198b / 50.0f;
-                        this.f5034i.m5207b(Color.m5244a((int) (150.0f + (f2 * 40.0f)), 0, 200, 0));
-                        m2091a(i2, i, i4, "Select Group", "(Hold for more..)", this.f5034i, f2);
-                    } else if (c0809am.f5198b < 100.0f) {
-                        f2 = (c0809am.f5198b - 50.0f) / 50.0f;
-                        this.f5034i.m5207b(Color.m5244a((int) (150.0f + (f2 * 40.0f)), 200, 0, 0));
-                        m2091a(i2, i, i4, "Add to Group", "(Hold for more..)", this.f5034i, f2);
+                    this.i.a();
+                    this.i.b(Color.a(120, 200, 0, 0));
+                    if (amVar.b < 50.0f) {
+                        f2 = amVar.b / 50.0f;
+                        this.i.b(Color.a((int) (150.0f + (f2 * 40.0f)), 0, 200, 0));
+                        a(i2, i, i4, "Select Group", "(Hold for more..)", this.i, f2);
+                    } else if (amVar.b < 100.0f) {
+                        f2 = (amVar.b - 50.0f) / 50.0f;
+                        this.i.b(Color.a((int) (150.0f + (f2 * 40.0f)), 200, 0, 0));
+                        a(i2, i, i4, "Add to Group", "(Hold for more..)", this.i, f2);
                     } else {
-                        m2091a(i2, i, i4, "Replace Group", VariableScope.nullOrMissingString, this.f5034i, 0.0f);
+                        a(i2, i, i4, "Replace Group", VariableScope.nullOrMissingString, this.i, 0.0f);
                     }
-                    int i6 = (int) (31.0f * this.f4991b.f6345cj);
-                    this.f5040s.m5173a(i2, (int) ((i + i6) - (i6 * f2)), i2 + i4, i + i6);
-                    this.f4991b.f6326bO.mo163b(this.f5040s, this.f5034i);
+                    int i6 = (int) (31.0f * this.b.cj);
+                    this.s.a(i2, (int) ((i + i6) - (i6 * f2)), i2 + i4, i + i6);
+                    this.b.bO.b(this.s, this.i);
                 }
                 if (!z) {
-                    if (c0809am.f5198b != 0.0f && !this.f4990a.f5380I) {
-                        if (c0809am.f5198b > 100.0f) {
-                            c0809am.m1960b();
-                            c0809am.m1959c();
-                            c0809am.f5202f = 1.0f;
-                        } else if (c0809am.f5198b > 50.0f) {
-                            c0809am.m1959c();
-                            this.f4990a.m1809l();
-                            this.f4990a.m1789y();
-                            c0809am.m1962a();
-                            c0809am.f5201e = 1.0f;
-                        } else if (c0809am.f5197a.size() != 0) {
-                            this.f4990a.m1809l();
-                            this.f4990a.m1789y();
-                            c0809am.m1962a();
-                            c0809am.f5200d = 1.0f;
+                    if (amVar.b != 0.0f && !this.a.I) {
+                        if (amVar.b > 100.0f) {
+                            amVar.b();
+                            amVar.c();
+                            amVar.f = 1.0f;
+                        } else if (amVar.b > 50.0f) {
+                            amVar.c();
+                            this.a.l();
+                            this.a.y();
+                            amVar.a();
+                            amVar.e = 1.0f;
+                        } else if (amVar.a.size() != 0) {
+                            this.a.l();
+                            this.a.y();
+                            amVar.a();
+                            amVar.d = 1.0f;
                         } else {
-                            c0809am.m1960b();
-                            c0809am.m1959c();
-                            c0809am.f5201e = 1.0f;
+                            amVar.b();
+                            amVar.c();
+                            amVar.e = 1.0f;
                         }
                     }
                     if (!z) {
-                        c0809am.f5198b = 0.0f;
+                        amVar.b = 0.0f;
                     }
                 }
                 i2 += i3;
@@ -2665,29 +2436,27 @@ public class C0775a extends AbstractC0741bq {
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0741bq
-    /* renamed from: a */
-    public void mo442a(GameOutputStream gameOutputStream) {
-        gameOutputStream.writeInt(this.f5069aA.size());
-        Iterator it = this.f5069aA.iterator();
+    @Override // com.corrodinggames.rts.gameFramework.bq
+    public void a(GameOutputStream gameOutputStream) {
+        gameOutputStream.writeInt(this.aA.size());
+        Iterator it = this.aA.iterator();
         while (it.hasNext()) {
-            ((C0809am) it.next()).mo442a(gameOutputStream);
+            ((am) it.next()).a(gameOutputStream);
         }
         gameOutputStream.writeByte(0);
     }
 
-    /* renamed from: a */
-    public void m2080a(GameInputStream gameInputStream, boolean z) {
+    public void a(GameInputStream gameInputStream, boolean z) {
         if (!z) {
-            this.f5069aA.clear();
+            this.aA.clear();
         }
         int readInt = gameInputStream.readInt();
         int i = 0;
         while (i < readInt) {
-            C0809am c0809am = new C0809am(this, i < 3);
-            c0809am.m1961a(gameInputStream);
+            am amVar = new am(this, i < 3);
+            amVar.a(gameInputStream);
             if (!z) {
-                this.f5069aA.add(c0809am);
+                this.aA.add(amVar);
             }
             i++;
         }

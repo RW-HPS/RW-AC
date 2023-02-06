@@ -1,68 +1,61 @@
 package com.corrodinggames.rts.gameFramework.player;
 
 import com.corrodinggames.rts.game.PlayerData;
+import com.corrodinggames.rts.game.units.custom.e.a.c;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.game.units.custom.p021e.p022a.C0436c;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.g.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/g/a.class */
-public class C0847a {
+public class a {
+    private final f a;
+    private final c b;
+    private final ArrayList c;
 
-    /* renamed from: a */
-    private final EnumC0853f f5587a;
-
-    /* renamed from: b */
-    private final EnumC0850c f5588b;
-
-    /* renamed from: c */
-    private final ArrayList f5589c;
-
-    public C0847a() {
-        this(EnumC0853f.f5600a, EnumC0850c.f5594a);
+    public a() {
+        this(f.none, c.player);
     }
 
-    public C0847a(EnumC0853f enumC0853f, EnumC0850c enumC0850c) {
-        this.f5589c = new ArrayList();
-        this.f5587a = enumC0853f;
-        this.f5588b = enumC0850c;
+    public a(f fVar, c cVar) {
+        this.c = new ArrayList();
+        this.a = fVar;
+        this.b = cVar;
     }
 
-    /* renamed from: a */
-    public void m1736a() {
-        if (this.f5587a == EnumC0853f.f5600a) {
+    public void a() {
+        if (this.a == f.none) {
             return;
         }
-        ArrayList m4407b = PlayerData.m4407b(false);
-        if (this.f5588b == EnumC0850c.f5594a) {
-            Iterator it = m4407b.iterator();
+        ArrayList b = PlayerData.b(false);
+        if (this.b == c.player) {
+            Iterator it = b.iterator();
             while (it.hasNext()) {
-                this.f5589c.add(new C0852e((PlayerData) it.next()));
+                this.c.add(new e((PlayerData) it.next()));
             }
-        } else if (this.f5588b == EnumC0850c.f5595b) {
-            Iterator it2 = PlayerData.m4379f().iterator();
+        } else if (this.b == c.allyGroup) {
+            Iterator it2 = PlayerData.f().iterator();
             while (it2.hasNext()) {
                 Integer num = (Integer) it2.next();
                 ArrayList arrayList = new ArrayList();
-                Iterator it3 = m4407b.iterator();
+                Iterator it3 = b.iterator();
                 while (it3.hasNext()) {
                     PlayerData playerData = (PlayerData) it3.next();
                     if (playerData.team == num.intValue()) {
                         arrayList.add(playerData);
                     }
                 }
-                this.f5589c.add(new C0849b(num.intValue(), arrayList));
+                this.c.add(new b(num.intValue(), arrayList));
             }
-        } else if (this.f5588b == EnumC0850c.f5596c) {
+        } else if (this.b == c.combinedPlayerAndGroup) {
             int i = 0;
-            ArrayList m4379f = PlayerData.m4379f();
-            Iterator it4 = m4379f.iterator();
+            ArrayList f = PlayerData.f();
+            Iterator it4 = f.iterator();
             while (it4.hasNext()) {
                 Integer num2 = (Integer) it4.next();
                 ArrayList arrayList2 = new ArrayList();
-                Iterator it5 = m4407b.iterator();
+                Iterator it5 = b.iterator();
                 while (it5.hasNext()) {
                     PlayerData playerData2 = (PlayerData) it5.next();
                     if (playerData2.team == num2.intValue()) {
@@ -74,82 +67,75 @@ public class C0847a {
                 }
             }
             if (i <= 1) {
-                Iterator it6 = m4407b.iterator();
+                Iterator it6 = b.iterator();
                 while (it6.hasNext()) {
-                    this.f5589c.add(new C0852e((PlayerData) it6.next()));
+                    this.c.add(new e((PlayerData) it6.next()));
                 }
             } else {
-                Iterator it7 = m4379f.iterator();
+                Iterator it7 = f.iterator();
                 while (it7.hasNext()) {
                     Integer num3 = (Integer) it7.next();
                     ArrayList arrayList3 = new ArrayList();
-                    Iterator it8 = m4407b.iterator();
+                    Iterator it8 = b.iterator();
                     while (it8.hasNext()) {
                         PlayerData playerData3 = (PlayerData) it8.next();
                         if (playerData3.team == num3.intValue()) {
                             arrayList3.add(playerData3);
                         }
                     }
-                    this.f5589c.add(new C0849b(num3.intValue(), arrayList3));
+                    this.c.add(new b(num3.intValue(), arrayList3));
                     Iterator it9 = arrayList3.iterator();
                     while (it9.hasNext()) {
-                        this.f5589c.add(new C0852e((PlayerData) it9.next()));
+                        this.c.add(new e((PlayerData) it9.next()));
                     }
                 }
             }
         }
-        m1733b();
+        b();
     }
 
-    /* renamed from: b */
-    public void m1733b() {
-        Iterator it = this.f5589c.iterator();
+    public void b() {
+        Iterator it = this.c.iterator();
         while (it.hasNext()) {
-            ((AbstractC0851d) it.next()).m1726b(this.f5587a);
+            ((d) it.next()).b(this.a);
         }
     }
 
-    /* renamed from: c */
-    public void m1732c() {
-        int ordinal = this.f5587a.ordinal() + 1;
-        if (ordinal >= EnumC0853f.values().length) {
+    public void c() {
+        int ordinal = this.a.ordinal() + 1;
+        if (ordinal >= f.values().length) {
             ordinal = 0;
         }
-        GameEngine.getGameEngine().m1069a(EnumC0853f.values()[ordinal], EnumC0850c.f5596c);
+        GameEngine.getGameEngine().a(f.values()[ordinal], c.combinedPlayerAndGroup);
     }
 
-    /* renamed from: a */
-    public String m1735a(AbstractC0851d abstractC0851d) {
-        if (this.f5588b == EnumC0850c.f5596c && (abstractC0851d instanceof C0852e)) {
-            return "   " + m1734a(this.f5587a, AbstractC0851d.m1727b(abstractC0851d));
+    public String a(d dVar) {
+        if (this.b == c.combinedPlayerAndGroup && (dVar instanceof e)) {
+            return "   " + a(this.a, d.b(dVar));
         }
-        return m1734a(this.f5587a, AbstractC0851d.m1727b(abstractC0851d));
+        return a(this.a, d.b(dVar));
     }
 
-    /* renamed from: a */
-    public static String m1734a(EnumC0853f enumC0853f, int i) {
-        switch (enumC0853f) {
-            case f5600a:
+    public static String a(f fVar, int i) {
+        switch (fVar) {
+            case none:
                 return VariableScope.nullOrMissingString + i;
-            case f5601b:
-                return "+" + C0436c.f2786D.m3783a(i, true);
+            case income:
+                return "+" + c.D.a(i, true);
             default:
-                return C0436c.f2786D.m3783a(i, true);
+                return c.D.a(i, true);
         }
     }
 
-    /* renamed from: d */
-    public ArrayList m1731d() {
-        return this.f5589c;
+    public ArrayList d() {
+        return this.c;
     }
 
-    /* renamed from: e */
-    public EnumC0853f m1730e() {
-        return this.f5587a;
+    public f e() {
+        return this.a;
     }
 
-    /* renamed from: f */
-    public EnumC0850c m1729f() {
-        return this.f5588b;
+    public c f() {
+        return this.b;
     }
 }

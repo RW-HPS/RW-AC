@@ -1,65 +1,42 @@
 package com.corrodinggames.rts.appFramework;
 
-import com.corrodinggames.rts.gameFramework.unitAction.C0959a;
-import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC0977l;
-
-/* renamed from: com.corrodinggames.rts.appFramework.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/f.class */
-public interface InterfaceC0096f {
-    /* renamed from: a */
-    void mo256a();
+public interface f {
+    void a();
 
-    /* renamed from: a */
-    void mo253a(boolean z);
+    void a(boolean z);
 
-    /* renamed from: b */
-    boolean mo252b();
+    boolean b();
 
-    /* renamed from: c */
-    boolean mo249c();
+    boolean c();
 
-    /* renamed from: d */
-    C0959a mo248d();
+    com.corrodinggames.rts.gameFramework.unitAction.a d();
 
-    /* renamed from: e */
-    boolean mo247e();
+    boolean e();
 
-    /* renamed from: f */
-    boolean mo246f();
+    boolean f();
 
-    /* renamed from: g */
-    Object mo245g();
+    Object g();
 
-    /* renamed from: h */
-    void mo244h();
+    void h();
 
-    /* renamed from: i */
-    ActivityC0097g mo243i();
+    g i();
 
-    /* renamed from: j */
-    void mo242j();
+    void j();
 
-    /* renamed from: k */
-    C0121m mo241k();
+    m k();
 
-    /* renamed from: a */
-    void mo255a(float f, int i);
+    void a(float f, int i);
 
-    /* renamed from: b */
-    void mo251b(float f, int i);
+    void b(float f, int i);
 
-    /* renamed from: l */
-    void mo240l();
+    void l();
 
-    /* renamed from: b */
-    InterfaceC0977l mo250b(boolean z);
+    com.corrodinggames.rts.gameFramework.unitAction.l b(boolean z);
 
-    /* renamed from: a */
-    void mo254a(InterfaceC0977l interfaceC0977l, boolean z);
+    void a(com.corrodinggames.rts.gameFramework.unitAction.l lVar, boolean z);
 
-    /* renamed from: m */
-    void mo239m();
+    void m();
 
-    /* renamed from: n */
-    boolean mo238n();
+    boolean n();
 }

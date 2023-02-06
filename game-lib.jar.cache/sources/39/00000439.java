@@ -2,77 +2,65 @@ package com.corrodinggames.rts.gameFramework;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import com.corrodinggames.rts.gameFramework.file.C0765a;
-import com.corrodinggames.rts.gameFramework.utility.C1110ae;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.ap */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ap.class */
-public class C0659ap extends AbstractC0664as {
+public class ap extends as {
+    MediaPlayer a;
+    ao b;
+    an c;
 
-    /* renamed from: a */
-    MediaPlayer f4243a;
-
-    /* renamed from: b */
-    C0658ao f4244b;
-
-    /* renamed from: c */
-    C0657an f4245c;
-
-    public C0659ap(C0657an c0657an) {
-        this.f4245c = c0657an;
-        if (c0657an.f4239b.size() == 0) {
+    public ap(an anVar) {
+        this.c = anVar;
+        if (anVar.b.size() == 0) {
             throw new RuntimeException("Music player pool empty");
         }
-        MediaPlayer mediaPlayer = (MediaPlayer) c0657an.f4239b.remove(0);
-        c0657an.f4240c.add(this);
-        this.f4243a = mediaPlayer;
+        MediaPlayer mediaPlayer = (MediaPlayer) anVar.b.remove(0);
+        anVar.c.add(this);
+        this.a = mediaPlayer;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: a */
-    public void mo89a(AbstractC0663ar abstractC0663ar) {
-        this.f4244b = (C0658ao) abstractC0663ar;
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void a(ar arVar) {
+        this.b = (ao) arVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: a */
-    public void mo88a(boolean z) {
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void a(boolean z) {
         try {
-            MediaPlayer mediaPlayer = this.f4243a;
+            MediaPlayer mediaPlayer = this.a;
             mediaPlayer.reset();
             AssetFileDescriptor assetFileDescriptor = null;
-            if (this.f4244b.f4249b.startsWith("music")) {
+            if (this.b.b.startsWith("music")) {
                 try {
-                    assetFileDescriptor = this.f4245c.f4248e.f4218w.mo5302d().m5287b(C0765a.m2283e(this.f4244b.f4249b));
+                    assetFileDescriptor = this.c.e.w.d().b(com.corrodinggames.rts.gameFramework.file.a.e(this.b.b));
                     mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             } else {
-                String m2283e = C0765a.m2283e(this.f4244b.f4249b);
-                if (C1110ae.m630a(m2283e) == null) {
-                    mediaPlayer.setDataSource(m2283e);
+                String e2 = com.corrodinggames.rts.gameFramework.file.a.e(this.b.b);
+                if (com.corrodinggames.rts.gameFramework.utility.ae.a(e2) == null) {
+                    mediaPlayer.setDataSource(e2);
                 } else {
-                    C1133j m2276k = C0765a.m2276k(m2283e);
-                    if (m2276k == null) {
-                        throw new RuntimeException("openAssetSteam() null for '" + m2283e + "'");
+                    com.corrodinggames.rts.gameFramework.utility.j k = com.corrodinggames.rts.gameFramework.file.a.k(e2);
+                    if (k == null) {
+                        throw new RuntimeException("openAssetSteam() null for '" + e2 + "'");
                     }
-                    File m2303a = C0765a.m2303a(this.f4245c.f4248e.f4218w, "music", "ogg");
-                    GameEngine.m5777e("Temp file needed for this music from zipped/abstract mod file");
-                    FileOutputStream fileOutputStream = new FileOutputStream(m2303a);
-                    C0773f.m2192a(m2276k, fileOutputStream);
+                    File a = com.corrodinggames.rts.gameFramework.file.a.a(this.c.e.w, "music", "ogg");
+                    GameEngine.m5e("Temp file needed for this music from zipped/abstract mod file");
+                    FileOutputStream fileOutputStream = new FileOutputStream(a);
+                    f.a(k, fileOutputStream);
                     fileOutputStream.close();
-                    m2276k.close();
-                    FileInputStream fileInputStream = new FileInputStream(m2303a);
+                    k.close();
+                    FileInputStream fileInputStream = new FileInputStream(a);
                     try {
                         mediaPlayer.setDataSource(fileInputStream.getFD(), 0L, fileInputStream.available());
                         fileInputStream.close();
-                        m2303a.delete();
+                        a.delete();
                     } catch (Throwable th) {
                         fileInputStream.close();
                         throw th;
@@ -99,51 +87,45 @@ public class C0659ap extends AbstractC0664as {
             if (assetFileDescriptor != null) {
                 assetFileDescriptor.close();
             }
-        } catch (Exception e2) {
-            throw new RuntimeException(e2);
+        } catch (Exception e3) {
+            throw new RuntimeException(e3);
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: a */
-    public void mo91a() {
-        this.f4243a.pause();
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void a() {
+        this.a.pause();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: b */
-    public void mo87b() {
-        this.f4243a.start();
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void b() {
+        this.a.start();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: c */
-    public boolean mo86c() {
-        return this.f4243a.isPlaying();
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public boolean c() {
+        return this.a.isPlaying();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: d */
-    public void mo85d() {
-        if (this.f4243a != null) {
-            this.f4243a.stop();
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void d() {
+        if (this.a != null) {
+            this.a.stop();
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: e */
-    public void mo84e() {
-        if (this.f4243a != null) {
-            this.f4243a.stop();
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void e() {
+        if (this.a != null) {
+            this.a.stop();
         }
-        this.f4243a = null;
-        this.f4245c.f4240c.remove(this);
-        this.f4245c.f4239b.add(this.f4243a);
+        this.a = null;
+        this.c.c.remove(this);
+        this.c.b.add(this.a);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0664as
-    /* renamed from: a */
-    public void mo90a(float f) {
-        this.f4243a.setVolume(f, f);
+    @Override // com.corrodinggames.rts.gameFramework.as
+    public void a(float f) {
+        this.a.setVolume(f, f);
     }
 }

@@ -1,4 +1,4 @@
-package net.rudp.p002a;
+package net.rudp.a;
 
 /* renamed from: a.a.a.a */
 /* loaded from: game-lib.jar:a/a/a/a.class */
@@ -11,7 +11,7 @@ public class ACKSegment extends Segment {
         setAck(i2);
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: a */
     public String type() {
         return "ACK";

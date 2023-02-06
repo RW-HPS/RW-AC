@@ -9,42 +9,29 @@ import java.io.FileOutputStream;
 
 /* loaded from: game-lib.jar:android/content/Context.class */
 public abstract class Context {
-    /* renamed from: d */
-    public abstract AssetManager mo5308d();
+    public abstract AssetManager d();
 
-    /* renamed from: e */
-    public abstract Resources mo5307e();
+    public abstract Resources e();
 
-    /* renamed from: f */
-    public abstract PackageManager mo5306f();
+    public abstract PackageManager f();
 
-    /* renamed from: g */
-    public abstract Context mo5305g();
+    public abstract Context g();
 
-    /* renamed from: h */
-    public abstract String mo5304h();
+    public abstract String h();
 
-    /* renamed from: a */
-    public abstract SharedPreferences mo5312a(String str, int i);
+    public abstract SharedPreferences a(String str, int i);
 
-    /* renamed from: a */
-    public abstract FileInputStream mo5313a(String str);
+    public abstract FileInputStream a(String str);
 
-    /* renamed from: b */
-    public abstract FileOutputStream mo5310b(String str, int i);
+    public abstract FileOutputStream b(String str, int i);
 
-    /* renamed from: b */
-    public abstract File mo5311b(String str);
+    public abstract File b(String str);
 
-    /* renamed from: i */
-    public abstract File mo5303i();
+    public abstract File i();
 
-    /* renamed from: j */
-    public abstract File mo5302j();
+    public abstract File j();
 
-    /* renamed from: a */
-    public abstract void mo5314a(Intent intent);
+    public abstract void a(Intent intent);
 
-    /* renamed from: c */
-    public abstract Object mo5309c(String str);
+    public abstract Object c(String str);
 }

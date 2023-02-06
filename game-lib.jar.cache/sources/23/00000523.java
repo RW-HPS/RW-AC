@@ -1,81 +1,52 @@
 package com.corrodinggames.rts.gameFramework.net;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.f;
 import java.util.List;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.aq */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/aq.class */
 public class APIEncryption {
+    public static APIEncryption a = new APIEncryption();
+    public static int b = 2;
+    static int c = 3;
+    static int d = 2;
+    static int e = 3;
+    public static int f = 4;
+    static String g = "tx";
+    static String h = "_";
+    public static int i = 55;
+    public static int j = 66;
+    public static int k = 100;
+    public static boolean l = true;
 
-    /* renamed from: a */
-    public static APIEncryption f5932a = new APIEncryption();
-
-    /* renamed from: b */
-    public static int f5933b = 2;
-
-    /* renamed from: c */
-    static int f5934c = 3;
-
-    /* renamed from: d */
-    static int f5935d = 2;
-
-    /* renamed from: e */
-    static int f5936e = 3;
-
-    /* renamed from: f */
-    public static int f5937f = 4;
-
-    /* renamed from: g */
-    static String f5938g = "tx";
-
-    /* renamed from: h */
-    static String f5939h = "_";
-
-    /* renamed from: i */
-    public static int f5940i = 55;
-
-    /* renamed from: j */
-    public static int f5941j = 66;
-
-    /* renamed from: k */
-    public static int f5942k = 100;
-
-    /* renamed from: l */
-    public static boolean f5943l = true;
-
-    /* renamed from: a */
-    public static float m1408a(float f, float f2, float f3) {
-        return f + ((f2 - f) * f3);
+    public static float a(float f2, float f3, float f4) {
+        return f2 + ((f3 - f2) * f4);
     }
 
-    /* renamed from: a */
-    public void m1406a(String str, List list) {
-        long m1087V = GameEngine.m1087V();
-        GameNetAPIOperate.listAddBasicNameValuePair(list, f5939h + "1", VariableScope.nullOrMissingString + m1087V);
-        GameNetAPIOperate.listAddBasicNameValuePair(list, f5938g + "2", C0773f.m2136d("_" + str + (f5933b + f5934c)));
-        GameNetAPIOperate.listAddBasicNameValuePair(list, f5938g + "3", C0773f.m2136d("_" + str + (f5933b + f5934c + m1087V)));
+    public void a(String str, List list) {
+        long V = GameEngine.V();
+        GameNetAPIOperate.listAddBasicNameValuePair(list, h + "1", VariableScope.nullOrMissingString + V);
+        GameNetAPIOperate.listAddBasicNameValuePair(list, g + "2", f.d("_" + str + (b + c)));
+        GameNetAPIOperate.listAddBasicNameValuePair(list, g + "3", f.d("_" + str + (b + c + V)));
     }
 
-    /* renamed from: b */
-    public void m1405b(String str, List list) {
-        GameNetAPIOperate.listAddBasicNameValuePair(list, f5938g + "3", C0773f.m2136d("-" + str + (f5935d + f5936e) + f5937f));
+    public void b(String str, List list) {
+        GameNetAPIOperate.listAddBasicNameValuePair(list, g + "3", f.d("-" + str + (d + e) + f));
     }
 
-    /* renamed from: c */
-    public void m1404c(String str, List list) {
-        if (f5937f > 1000) {
-            GameNetAPIOperate.listAddBasicNameValuePair(list, f5938g + "4", C0773f.m2136d("+" + str + (f5935d + f5936e) + f5937f));
+    public void c(String str, List list) {
+        if (f > 1000) {
+            GameNetAPIOperate.listAddBasicNameValuePair(list, g + "4", f.d("+" + str + (d + e) + f));
         }
     }
 
-    /* renamed from: a */
-    public static void m1407a(PlayerConnect playerConnect) {
-        if (playerConnect.f6009N) {
-            GameEngine.m1087V();
+    public static void a(PlayerConnect playerConnect) {
+        if (playerConnect.N) {
+            GameEngine.V();
             if (GameEngine.getGameEngine().tick > -5) {
-                playerConnect.f6010O = C0773f.m2216a(0.0f, 0.0f, (float) f5942k, 0.0f) > 10.0f;
+                playerConnect.O = f.a(0.0f, 0.0f, (float) k, 0.0f) > 10.0f;
             }
         }
     }

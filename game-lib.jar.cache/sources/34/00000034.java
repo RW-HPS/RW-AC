@@ -4,164 +4,92 @@ import java.util.Locale;
 
 /* loaded from: game-lib.jar:android/graphics/Paint.class */
 public class Paint {
-
-    /* renamed from: a */
-    public int f167a;
-
-    /* renamed from: r */
-    private ColorFilter f168r;
-
-    /* renamed from: s */
-    private MaskFilter f169s;
-
-    /* renamed from: t */
-    private PathEffect f170t;
-
-    /* renamed from: u */
-    private Rasterizer f171u;
-
-    /* renamed from: v */
-    private Shader f172v;
-
-    /* renamed from: w */
-    private Typeface f173w;
-
-    /* renamed from: x */
-    private Xfermode f174x;
-
-    /* renamed from: y */
-    private boolean f175y;
-
-    /* renamed from: z */
-    private float f176z;
-
-    /* renamed from: A */
-    private float f177A;
-
-    /* renamed from: B */
-    private Locale f178B;
-
-    /* renamed from: b */
-    public boolean f179b;
-
-    /* renamed from: c */
-    public float f180c;
-
-    /* renamed from: d */
-    public float f181d;
-
-    /* renamed from: e */
-    public float f182e;
-
-    /* renamed from: f */
-    public int f183f;
-
-    /* renamed from: g */
-    public int f184g;
-
-    /* renamed from: h */
-    static final Style[] f185h = {Style.f219a, Style.f220b, Style.f221c};
-
-    /* renamed from: i */
-    static final Cap[] f186i = {Cap.f200a, Cap.f201b, Cap.f202c};
-
-    /* renamed from: j */
-    static final Join[] f187j = {Join.f214a, Join.f215b, Join.f216c};
-
-    /* renamed from: k */
-    static final Align[] f188k = {Align.f195a, Align.f196b, Align.f197c};
-
-    /* renamed from: l */
-    int f189l;
-
-    /* renamed from: m */
-    Style f190m;
-
-    /* renamed from: n */
-    int f191n;
-
-    /* renamed from: o */
-    float f192o;
-
-    /* renamed from: p */
-    Align f193p;
-
-    /* renamed from: q */
-    float f194q;
+    public int a;
+    private ColorFilter r;
+    private MaskFilter s;
+    private PathEffect t;
+    private Rasterizer u;
+    private Shader v;
+    private Typeface w;
+    private Xfermode x;
+    private boolean y;
+    private float z;
+    private float A;
+    private Locale B;
+    public boolean b;
+    public float c;
+    public float d;
+    public float e;
+    public int f;
+    public int g;
+    static final Style[] h = {Style.FILL, Style.STROKE, Style.FILL_AND_STROKE};
+    static final Cap[] i = {Cap.BUTT, Cap.ROUND, Cap.SQUARE};
+    static final Join[] j = {Join.MITER, Join.ROUND, Join.BEVEL};
+    static final Align[] k = {Align.LEFT, Align.CENTER, Align.RIGHT};
+    int l;
+    Style m;
+    int n;
+    float o;
+    Align p;
+    float q;
 
     /* loaded from: game-lib.jar:android/graphics/Paint$FontMetrics.class */
     public class FontMetrics {
-
-        /* renamed from: a */
-        public float f205a;
-
-        /* renamed from: b */
-        public float f206b;
-
-        /* renamed from: c */
-        public float f207c;
-
-        /* renamed from: d */
-        public float f208d;
+        public float a;
+        public float b;
+        public float c;
+        public float d;
     }
 
     /* loaded from: game-lib.jar:android/graphics/Paint$Style.class */
     public enum Style {
-        f219a(0),
-        f220b(1),
-        f221c(2);
+        FILL(0),
+        STROKE(1),
+        FILL_AND_STROKE(2);
         
-
-        /* renamed from: d */
-        final int f222d;
+        final int d;
 
         Style(int i) {
-            this.f222d = i;
+            this.d = i;
         }
     }
 
     /* loaded from: game-lib.jar:android/graphics/Paint$Cap.class */
     public enum Cap {
-        f200a(0),
-        f201b(1),
-        f202c(2);
+        BUTT(0),
+        ROUND(1),
+        SQUARE(2);
         
-
-        /* renamed from: d */
-        final int f203d;
+        final int d;
 
         Cap(int i) {
-            this.f203d = i;
+            this.d = i;
         }
     }
 
     /* loaded from: game-lib.jar:android/graphics/Paint$Join.class */
     public enum Join {
-        f214a(0),
-        f215b(1),
-        f216c(2);
+        MITER(0),
+        ROUND(1),
+        BEVEL(2);
         
-
-        /* renamed from: d */
-        final int f217d;
+        final int d;
 
         Join(int i) {
-            this.f217d = i;
+            this.d = i;
         }
     }
 
     /* loaded from: game-lib.jar:android/graphics/Paint$Align.class */
     public enum Align {
-        f195a(0),
-        f196b(1),
-        f197c(2);
+        LEFT(0),
+        CENTER(1),
+        RIGHT(2);
         
-
-        /* renamed from: d */
-        final int f198d;
+        final int d;
 
         Align(int i) {
-            this.f198d = i;
+            this.d = i;
         }
     }
 
@@ -169,500 +97,436 @@ public class Paint {
         this(0);
     }
 
-    public Paint(int i) {
-        this.f184g = 2;
-        this.f190m = Style.f219a;
-        this.f192o = 0.0f;
-        this.f194q = 16.0f;
-        this.f167a = m5182o();
-        m5232a();
-        m5230a(i | 1280);
-        this.f177A = 1.0f;
-        this.f176z = 1.0f;
-        m5211a(Locale.getDefault());
+    public Paint(int i2) {
+        this.g = 2;
+        this.m = Style.FILL;
+        this.o = 0.0f;
+        this.q = 16.0f;
+        this.a = o();
+        a();
+        a(i2 | 1280);
+        this.A = 1.0f;
+        this.z = 1.0f;
+        a(Locale.getDefault());
     }
 
     public Paint(Paint paint) {
-        this.f184g = 2;
-        this.f190m = Style.f219a;
-        this.f192o = 0.0f;
-        this.f194q = 16.0f;
-        this.f167a = m5197d(paint.f167a);
-        m5204b(paint);
+        this.g = 2;
+        this.m = Style.FILL;
+        this.o = 0.0f;
+        this.q = 16.0f;
+        this.a = d(paint.a);
+        b(paint);
     }
 
-    /* renamed from: a */
-    public void m5232a() {
-        m5193e(this.f167a);
-        m5230a(1280);
-        this.f191n = -1;
-        this.f190m = Style.f219a;
-        this.f194q = 16.0f;
-        this.f193p = Align.f195a;
-        this.f168r = null;
-        this.f169s = null;
-        this.f170t = null;
-        this.f171u = null;
-        this.f172v = null;
-        this.f173w = null;
-        this.f174x = null;
-        this.f175y = false;
-        this.f176z = 1.0f;
-        this.f177A = 1.0f;
-        this.f179b = false;
-        this.f180c = 0.0f;
-        this.f181d = 0.0f;
-        this.f182e = 0.0f;
-        this.f183f = 0;
-        this.f184g = 2;
-        m5211a(Locale.getDefault());
+    public void a() {
+        e(this.a);
+        a(1280);
+        this.n = -1;
+        this.m = Style.FILL;
+        this.q = 16.0f;
+        this.p = Align.LEFT;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = null;
+        this.v = null;
+        this.w = null;
+        this.x = null;
+        this.y = false;
+        this.z = 1.0f;
+        this.A = 1.0f;
+        this.b = false;
+        this.c = 0.0f;
+        this.d = 0.0f;
+        this.e = 0.0f;
+        this.f = 0;
+        this.g = 2;
+        a(Locale.getDefault());
     }
 
-    /* renamed from: a */
-    public void m5220a(Paint paint) {
+    public void a(Paint paint) {
         if (this != paint) {
-            m5229a(this.f167a, paint.f167a);
-            m5204b(paint);
+            a(this.a, paint.a);
+            b(paint);
         }
     }
 
-    /* renamed from: b */
-    private void m5204b(Paint paint) {
-        this.f190m = paint.f190m;
-        this.f191n = paint.f191n;
-        this.f194q = paint.f194q;
-        this.f193p = paint.f193p;
-        this.f168r = paint.f168r;
-        this.f169s = paint.f169s;
-        this.f170t = paint.f170t;
-        this.f171u = paint.f171u;
-        this.f173w = paint.f173w;
-        this.f174x = paint.f174x;
-        this.f175y = paint.f175y;
-        this.f176z = paint.f176z;
-        this.f177A = paint.f177A;
-        this.f179b = paint.f179b;
-        this.f180c = paint.f180c;
-        this.f181d = paint.f181d;
-        this.f182e = paint.f182e;
-        this.f183f = paint.f183f;
-        this.f184g = paint.f184g;
-        this.f178B = paint.f178B;
-        this.f192o = paint.f192o;
+    private void b(Paint paint) {
+        this.m = paint.m;
+        this.n = paint.n;
+        this.q = paint.q;
+        this.p = paint.p;
+        this.r = paint.r;
+        this.s = paint.s;
+        this.t = paint.t;
+        this.u = paint.u;
+        this.w = paint.w;
+        this.x = paint.x;
+        this.y = paint.y;
+        this.z = paint.z;
+        this.A = paint.A;
+        this.b = paint.b;
+        this.c = paint.c;
+        this.d = paint.d;
+        this.e = paint.e;
+        this.f = paint.f;
+        this.g = paint.g;
+        this.B = paint.B;
+        this.o = paint.o;
     }
 
-    /* renamed from: b */
-    public int m5207b() {
-        return this.f189l;
+    public int b() {
+        return this.l;
     }
 
-    /* renamed from: a */
-    public void m5230a(int i) {
-        this.f189l = i;
+    public void a(int i2) {
+        this.l = i2;
     }
 
-    /* renamed from: c */
-    public final boolean m5202c() {
-        return (m5207b() & 1) != 0;
+    public final boolean c() {
+        return (b() & 1) != 0;
     }
 
-    /* renamed from: a */
-    public void mo914a(boolean z) {
+    public void a(boolean z) {
         if (z) {
-            m5230a(this.f189l | 1);
+            a(this.l | 1);
         } else {
-            m5230a(this.f189l & (-2));
+            a(this.l & (-2));
         }
     }
 
-    /* renamed from: b */
-    public void m5203b(boolean z) {
+    public void b(boolean z) {
     }
 
-    /* renamed from: c */
-    public void m5199c(boolean z) {
+    public void c(boolean z) {
     }
 
-    /* renamed from: d */
-    public void m5195d(boolean z) {
+    public void d(boolean z) {
     }
 
-    /* renamed from: d */
-    public Style m5198d() {
-        return this.f190m;
+    public Style d() {
+        return this.m;
     }
 
-    /* renamed from: a */
-    public void m5221a(Style style) {
-        this.f190m = style;
+    public void a(Style style) {
+        this.m = style;
     }
 
-    /* renamed from: e */
-    public int m5194e() {
-        return this.f191n;
+    public int e() {
+        return this.n;
     }
 
-    /* renamed from: b */
-    public void m5206b(int i) {
-        this.f191n = i;
+    public void b(int i2) {
+        this.n = i2;
     }
 
-    /* renamed from: f */
-    public int m5192f() {
-        return Color.m5245a(this.f191n);
+    public int f() {
+        return Color.a(this.n);
     }
 
-    /* renamed from: c */
-    public void m5201c(int i) {
-        this.f191n = Color.m5243a(i, Color.m5241b(this.f191n), Color.m5240c(this.f191n), Color.m5239d(this.f191n));
+    public void c(int i2) {
+        this.n = Color.a(i2, Color.b(this.n), Color.c(this.n), Color.d(this.n));
     }
 
-    /* renamed from: a */
-    public void m5228a(int i, int i2, int i3, int i4) {
-        m5206b((i << 24) | (i2 << 16) | (i3 << 8) | i4);
+    public void a(int i2, int i3, int i4, int i5) {
+        b((i2 << 24) | (i3 << 16) | (i4 << 8) | i5);
     }
 
-    /* renamed from: g */
-    public float m5190g() {
-        return this.f192o;
+    public float g() {
+        return this.o;
     }
 
-    /* renamed from: a */
-    public void m5231a(float f) {
-        this.f192o = f;
+    public void a(float f) {
+        this.o = f;
     }
 
-    /* renamed from: a */
-    public void m5223a(Cap cap) {
-        m5205b(this.f167a, cap.f203d);
+    public void a(Cap cap) {
+        b(this.a, cap.d);
     }
 
-    /* renamed from: h */
-    public ColorFilter m5189h() {
-        return this.f168r;
+    public ColorFilter h() {
+        return this.r;
     }
 
-    /* renamed from: a */
-    public ColorFilter m5225a(ColorFilter colorFilter) {
-        m5200c(this.f167a, 0);
-        this.f168r = colorFilter;
+    public ColorFilter a(ColorFilter colorFilter) {
+        c(this.a, 0);
+        this.r = colorFilter;
         return colorFilter;
     }
 
-    /* renamed from: a */
-    public Xfermode m5219a(Xfermode xfermode) {
-        m5196d(this.f167a, 0);
-        this.f174x = xfermode;
+    public Xfermode a(Xfermode xfermode) {
+        d(this.a, 0);
+        this.x = xfermode;
         return xfermode;
     }
 
-    /* renamed from: i */
-    public Typeface m5188i() {
-        return this.f173w;
+    public Typeface i() {
+        return this.w;
     }
 
-    /* renamed from: a */
-    public Typeface mo916a(Typeface typeface) {
-        this.f173w = typeface;
+    public Typeface a(Typeface typeface) {
+        this.w = typeface;
         return typeface;
     }
 
-    /* renamed from: j */
-    public Align m5187j() {
-        return this.f193p;
+    public Align j() {
+        return this.p;
     }
 
-    /* renamed from: a */
-    public void m5224a(Align align) {
-        this.f193p = align;
+    public void a(Align align) {
+        this.p = align;
     }
 
-    /* renamed from: a */
-    public void m5211a(Locale locale) {
+    public void a(Locale locale) {
         if (locale == null) {
             throw new IllegalArgumentException("locale cannot be null");
         }
-        if (locale.equals(this.f178B)) {
+        if (locale.equals(this.B)) {
             return;
         }
-        this.f178B = locale;
-        m5227a(this.f167a, locale.toString());
+        this.B = locale;
+        a(this.a, locale.toString());
     }
 
-    /* renamed from: k */
-    public float m5186k() {
-        return this.f194q;
+    public float k() {
+        return this.q;
     }
 
-    /* renamed from: b */
-    public void mo913b(float f) {
-        this.f194q = f;
+    public void b(float f) {
+        this.q = f;
     }
 
-    /* renamed from: l */
-    public float m5185l() {
-        return -this.f194q;
+    public float l() {
+        return -this.q;
     }
 
-    /* renamed from: m */
-    public float m5184m() {
+    public float m() {
         return 0.0f;
     }
 
-    /* renamed from: a */
-    public float m5222a(FontMetrics fontMetrics) {
+    public float a(FontMetrics fontMetrics) {
         return 0.0f;
     }
 
-    /* renamed from: n */
-    public FontMetrics m5183n() {
+    public FontMetrics n() {
         FontMetrics fontMetrics = new FontMetrics();
-        m5222a(fontMetrics);
+        a(fontMetrics);
         return fontMetrics;
     }
 
     /* loaded from: game-lib.jar:android/graphics/Paint$FontMetricsInt.class */
     public class FontMetricsInt {
-
-        /* renamed from: a */
-        public int f209a;
-
-        /* renamed from: b */
-        public int f210b;
-
-        /* renamed from: c */
-        public int f211c;
-
-        /* renamed from: d */
-        public int f212d;
-
-        /* renamed from: e */
-        public int f213e;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
 
         public String toString() {
-            return "FontMetricsInt: top=" + this.f209a + " ascent=" + this.f210b + " descent=" + this.f211c + " bottom=" + this.f212d + " leading=" + this.f213e;
+            return "FontMetricsInt: top=" + this.a + " ascent=" + this.b + " descent=" + this.c + " bottom=" + this.d + " leading=" + this.e;
         }
     }
 
-    /* renamed from: a */
-    public float m5216a(String str) {
+    public float a(String str) {
         if (str == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
         if (str.length() == 0) {
             return 0.0f;
         }
-        if (!this.f175y) {
-            return (float) Math.ceil(m5215a(str, this.f184g));
+        if (!this.y) {
+            return (float) Math.ceil(a(str, this.g));
         }
-        float m5186k = m5186k();
-        mo913b(m5186k * this.f176z);
-        float m5215a = m5215a(str, this.f184g);
-        mo913b(m5186k);
-        return (float) Math.ceil(m5215a * this.f177A);
+        float k2 = k();
+        b(k2 * this.z);
+        float a = a(str, this.g);
+        b(k2);
+        return (float) Math.ceil(a * this.A);
     }
 
-    /* renamed from: a */
-    private float m5215a(String str, int i) {
-        return str.length() * m5186k();
+    private float a(String str, int i2) {
+        return str.length() * k();
     }
 
-    /* renamed from: a */
-    public int m5209a(char[] cArr, int i, int i2, float f, float[] fArr) {
+    public int a(char[] cArr, int i2, int i3, float f, float[] fArr) {
         if (cArr == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
-        if (i < 0 || cArr.length - i < Math.abs(i2)) {
+        if (i2 < 0 || cArr.length - i2 < Math.abs(i3)) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        if (cArr.length == 0 || i2 == 0) {
+        if (cArr.length == 0 || i3 == 0) {
             return 0;
         }
-        if (!this.f175y) {
-            return m5210a(cArr, i, i2, f, this.f184g, fArr);
+        if (!this.y) {
+            return a(cArr, i2, i3, f, this.g, fArr);
         }
-        float m5186k = m5186k();
-        mo913b(m5186k * this.f176z);
-        int m5210a = m5210a(cArr, i, i2, f * this.f176z, this.f184g, fArr);
-        mo913b(m5186k);
+        float k2 = k();
+        b(k2 * this.z);
+        int a = a(cArr, i2, i3, f * this.z, this.g, fArr);
+        b(k2);
         if (fArr != null) {
-            fArr[0] = fArr[0] * this.f177A;
+            fArr[0] = fArr[0] * this.A;
         }
-        return m5210a;
+        return a;
     }
 
-    /* renamed from: a */
-    private int m5210a(char[] cArr, int i, int i2, float f, int i3, float[] fArr) {
-        float m5186k = m5186k();
-        if (f > m5186k * i2) {
-            return i2;
+    private int a(char[] cArr, int i2, int i3, float f, int i4, float[] fArr) {
+        float k2 = k();
+        if (f > k2 * i3) {
+            return i3;
         }
         if (f == 0.0f) {
             return 1;
         }
-        int i4 = (int) (f / m5186k);
-        if (i4 < 1) {
-            i4 = 1;
+        int i5 = (int) (f / k2);
+        if (i5 < 1) {
+            i5 = 1;
         }
-        return i4;
+        return i5;
     }
 
-    /* renamed from: a */
-    private int m5213a(String str, boolean z, float f, int i, float[] fArr) {
+    private int a(String str, boolean z, float f, int i2, float[] fArr) {
         return str.length();
     }
 
-    /* renamed from: a */
-    public int m5218a(CharSequence charSequence, int i, int i2, boolean z, float f, float[] fArr) {
-        int m5209a;
+    public int a(CharSequence charSequence, int i2, int i3, boolean z, float f, float[] fArr) {
+        int a;
         if (charSequence == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
-        if ((i | i2 | (i2 - i) | (charSequence.length() - i2)) < 0) {
+        if ((i2 | i3 | (i3 - i2) | (charSequence.length() - i3)) < 0) {
             throw new IndexOutOfBoundsException();
         }
-        if (charSequence.length() == 0 || i == i2) {
+        if (charSequence.length() == 0 || i2 == i3) {
             return 0;
         }
-        if (i == 0 && (charSequence instanceof String) && i2 == charSequence.length()) {
-            return m5212a((String) charSequence, z, f, fArr);
+        if (i2 == 0 && (charSequence instanceof String) && i3 == charSequence.length()) {
+            return a((String) charSequence, z, f, fArr);
         }
-        char[] m5141a = TemporaryBuffer.m5141a(i2 - i);
-        m5217a(charSequence, i, i2, m5141a, 0);
+        char[] a2 = TemporaryBuffer.a(i3 - i2);
+        a(charSequence, i2, i3, a2, 0);
         if (z) {
-            m5209a = m5209a(m5141a, 0, i2 - i, f, fArr);
+            a = a(a2, 0, i3 - i2, f, fArr);
         } else {
-            m5209a = m5209a(m5141a, 0, -(i2 - i), f, fArr);
+            a = a(a2, 0, -(i3 - i2), f, fArr);
         }
-        TemporaryBuffer.m5140a(m5141a);
-        return m5209a;
+        TemporaryBuffer.a(a2);
+        return a;
     }
 
-    /* renamed from: a */
-    public static void m5217a(CharSequence charSequence, int i, int i2, char[] cArr, int i3) {
+    public static void a(CharSequence charSequence, int i2, int i3, char[] cArr, int i4) {
         Class<?> cls = charSequence.getClass();
         if (cls == String.class) {
-            ((String) charSequence).getChars(i, i2, cArr, i3);
+            ((String) charSequence).getChars(i2, i3, cArr, i4);
         } else if (cls == StringBuffer.class) {
-            ((StringBuffer) charSequence).getChars(i, i2, cArr, i3);
+            ((StringBuffer) charSequence).getChars(i2, i3, cArr, i4);
         } else if (cls == StringBuilder.class) {
-            ((StringBuilder) charSequence).getChars(i, i2, cArr, i3);
+            ((StringBuilder) charSequence).getChars(i2, i3, cArr, i4);
         } else {
-            for (int i4 = i; i4 < i2; i4++) {
-                int i5 = i3;
-                i3++;
-                cArr[i5] = charSequence.charAt(i4);
+            for (int i5 = i2; i5 < i3; i5++) {
+                int i6 = i4;
+                i4++;
+                cArr[i6] = charSequence.charAt(i5);
             }
         }
     }
 
-    /* renamed from: a */
-    public int m5212a(String str, boolean z, float f, float[] fArr) {
+    public int a(String str, boolean z, float f, float[] fArr) {
         if (str == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
         if (str.length() == 0) {
             return 0;
         }
-        if (!this.f175y) {
-            return m5213a(str, z, f, this.f184g, fArr);
+        if (!this.y) {
+            return a(str, z, f, this.g, fArr);
         }
-        float m5186k = m5186k();
-        mo913b(m5186k * this.f176z);
-        int m5213a = m5213a(str, z, f * this.f176z, this.f184g, fArr);
-        mo913b(m5186k);
+        float k2 = k();
+        b(k2 * this.z);
+        int a = a(str, z, f * this.z, this.g, fArr);
+        b(k2);
         if (fArr != null) {
-            fArr[0] = fArr[0] * this.f177A;
+            fArr[0] = fArr[0] * this.A;
         }
-        return m5213a;
+        return a;
     }
 
-    /* renamed from: a */
-    public int m5208a(char[] cArr, int i, int i2, float[] fArr) {
+    public int a(char[] cArr, int i2, int i3, float[] fArr) {
         if (cArr == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
-        if ((i | i2) < 0 || i + i2 > cArr.length || i2 > fArr.length) {
+        if ((i2 | i3) < 0 || i2 + i3 > cArr.length || i3 > fArr.length) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        if (cArr.length == 0 || i2 == 0) {
+        if (cArr.length == 0 || i3 == 0) {
             return 0;
         }
-        if (!this.f175y) {
-            return m5226a(this.f167a, cArr, i, i2, this.f184g, fArr);
+        if (!this.y) {
+            return a(this.a, cArr, i2, i3, this.g, fArr);
         }
-        float m5186k = m5186k();
-        mo913b(m5186k * this.f176z);
-        int m5226a = m5226a(this.f167a, cArr, i, i2, this.f184g, fArr);
-        mo913b(m5186k);
-        for (int i3 = 0; i3 < m5226a; i3++) {
-            int i4 = i3;
-            fArr[i4] = fArr[i4] * this.f177A;
+        float k2 = k();
+        b(k2 * this.z);
+        int a = a(this.a, cArr, i2, i3, this.g, fArr);
+        b(k2);
+        for (int i4 = 0; i4 < a; i4++) {
+            int i5 = i4;
+            fArr[i5] = fArr[i5] * this.A;
         }
-        return m5226a;
+        return a;
     }
 
-    /* renamed from: a */
-    public void m5214a(String str, int i, int i2, Rect rect) {
-        if ((i | i2 | (i2 - i) | (str.length() - i2)) < 0) {
+    public void a(String str, int i2, int i3, Rect rect) {
+        if ((i2 | i3 | (i3 - i2) | (str.length() - i3)) < 0) {
             throw new IndexOutOfBoundsException();
         }
         if (rect == null) {
             throw new NullPointerException("need bounds Rect");
         }
-        rect.m5172a(0, 0, 0, (int) this.f194q);
+        rect.a(0, 0, 0, (int) this.q);
     }
 
     protected void finalize() {
         try {
-            m5191f(this.f167a);
+            f(this.a);
         } finally {
             super.finalize();
         }
     }
 
-    /* renamed from: o */
-    private static int m5182o() {
+    private static int o() {
         return 0;
     }
 
-    /* renamed from: d */
-    private static int m5197d(int i) {
+    private static int d(int i2) {
         return 0;
     }
 
-    /* renamed from: e */
-    private static void m5193e(int i) {
+    private static void e(int i2) {
     }
 
-    /* renamed from: a */
-    private static void m5229a(int i, int i2) {
+    private static void a(int i2, int i3) {
     }
 
-    /* renamed from: b */
-    private static void m5205b(int i, int i2) {
+    private static void b(int i2, int i3) {
     }
 
-    /* renamed from: c */
-    private static int m5200c(int i, int i2) {
+    private static int c(int i2, int i3) {
         return 0;
     }
 
-    /* renamed from: d */
-    private static int m5196d(int i, int i2) {
+    private static int d(int i2, int i3) {
         return 0;
     }
 
-    /* renamed from: a */
-    private static void m5227a(int i, String str) {
+    private static void a(int i2, String str) {
     }
 
-    /* renamed from: a */
-    private static int m5226a(int i, char[] cArr, int i2, int i3, int i4, float[] fArr) {
+    private static int a(int i2, char[] cArr, int i3, int i4, int i5, float[] fArr) {
         return 0;
     }
 
-    /* renamed from: f */
-    private static void m5191f(int i) {
+    private static void f(int i2) {
     }
 }

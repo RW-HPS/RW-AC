@@ -1,61 +1,43 @@
-package com.corrodinggames.rts.gameFramework.p043k;
+package com.corrodinggames.rts.gameFramework.path;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.k.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/k/g.class */
-public class C0938g {
+public class g {
+    int a;
+    int b;
+    int c;
+    int d;
+    byte[] e;
+    byte[] f;
 
-    /* renamed from: a */
-    int f6162a;
-
-    /* renamed from: b */
-    int f6163b;
-
-    /* renamed from: c */
-    int f6164c;
-
-    /* renamed from: d */
-    int f6165d;
-
-    /* renamed from: e */
-    byte[] f6166e;
-
-    /* renamed from: f */
-    byte[] f6167f;
-
-    public C0938g(int i, int i2) {
-        this.f6162a = i;
-        this.f6163b = i2;
-        this.f6166e = new byte[i * i2];
-        this.f6167f = new byte[i * i2];
+    public g(int i, int i2) {
+        this.a = i;
+        this.b = i2;
+        this.e = new byte[i * i2];
+        this.f = new byte[i * i2];
     }
 
-    /* renamed from: a */
-    public final byte m1224a(int i, int i2) {
-        return this.f6166e[(i * this.f6163b) + i2];
+    public final byte a(int i, int i2) {
+        return this.e[(i * this.b) + i2];
     }
 
-    /* renamed from: a */
-    public final byte m1223a(C0947p c0947p) {
-        return this.f6166e[(c0947p.f6289a * this.f6163b) + c0947p.f6290b];
+    public final byte a(p pVar) {
+        return this.e[(pVar.a * this.b) + pVar.b];
     }
 
-    /* renamed from: b */
-    public boolean m1220b(C0947p c0947p) {
-        return m1223a(c0947p) <= 0;
+    public boolean b(p pVar) {
+        return a(pVar) <= 0;
     }
 
-    /* renamed from: a */
-    public void m1222a(C0947p c0947p, byte b) {
-        this.f6166e[(c0947p.f6289a * this.f6163b) + c0947p.f6290b] = b;
+    public void a(p pVar, byte b) {
+        this.e[(pVar.a * this.b) + pVar.b] = b;
     }
 
-    /* renamed from: a */
-    public void m1221a(C0947p c0947p, boolean z) {
-        this.f6167f[(c0947p.f6289a * this.f6163b) + c0947p.f6290b] = (byte) (z ? 1 : 0);
+    public void a(p pVar, boolean z) {
+        this.f[(pVar.a * this.b) + pVar.b] = (byte) (z ? 1 : 0);
     }
 
-    /* renamed from: c */
-    public boolean m1219c(C0947p c0947p) {
-        return this.f6167f[(c0947p.f6289a * this.f6163b) + c0947p.f6290b] == 1;
+    public boolean c(p pVar) {
+        return this.f[(pVar.a * this.b) + pVar.b] == 1;
     }
 }

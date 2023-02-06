@@ -3,50 +3,45 @@ package com.corrodinggames.rts.gameFramework.net;
 import android.text.Html;
 import android.text.Spanned;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.gameFramework.f;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/a.class */
-public class C0862a {
+public class a {
+    private ConcurrentLinkedQueue a = new ConcurrentLinkedQueue();
 
-    /* renamed from: a */
-    private ConcurrentLinkedQueue f5681a = new ConcurrentLinkedQueue();
-
-    /* renamed from: a */
-    public String m1636a(String str) {
-        return C0773f.m2111i(str);
+    public String a(String str) {
+        return f.i(str);
     }
 
-    /* renamed from: a */
-    public void m1638a(int i, String str, String str2, PlayerConnect playerConnect) {
-        this.f5681a.add(new C0902b(this, i, str, str2.trim(), playerConnect));
-        if (this.f5681a.size() > 45) {
-            this.f5681a.poll();
+    public void a(int i, String str, String str2, PlayerConnect playerConnect) {
+        this.a.add(new b(this, i, str, str2.trim(), playerConnect));
+        if (this.a.size() > 45) {
+            this.a.poll();
         }
     }
 
-    /* renamed from: a */
-    public int m1637a(PlayerConnect playerConnect, int i) {
+    public int a(PlayerConnect playerConnect, int i) {
         if (playerConnect == null) {
             return 0;
         }
         int i2 = playerConnect.connectIndex;
         int i3 = 0;
-        Iterator it = this.f5681a.iterator();
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            C0902b c0902b = (C0902b) it.next();
-            if (c0902b.f5977d == i2 && C0773f.m2205a(c0902b.f5978e, System.nanoTime()) < i && !c0902b.f5976c.startsWith("-i ") && !c0902b.f5976c.startsWith("-qc ")) {
+            b bVar = (b) it.next();
+            if (bVar.d == i2 && f.a(bVar.e, System.nanoTime()) < i && !bVar.c.startsWith("-i ") && !bVar.c.startsWith("-qc ")) {
                 i3++;
-                if (c0902b.f5976c != null) {
-                    if (C0773f.m2185a(c0902b.f5976c, '\n') >= 3) {
+                if (bVar.c != null) {
+                    if (f.a(bVar.c, '\n') >= 3) {
                         i3 += 2;
                     }
-                    if (C0773f.m2185a(c0902b.f5976c, '\n') >= 6) {
+                    if (f.a(bVar.c, '\n') >= 6) {
                         i3 += 2;
                     }
-                    if (C0773f.m2185a(c0902b.f5976c, '\n') >= 9) {
+                    if (f.a(bVar.c, '\n') >= 9) {
                         i3 += 2;
                     }
                 }
@@ -55,45 +50,40 @@ public class C0862a {
         return i3;
     }
 
-    /* renamed from: a */
-    public String m1639a() {
+    public String a() {
         Iterator it;
         String str = VariableScope.nullOrMissingString;
-        while (this.f5681a.iterator().hasNext()) {
-            str = str + ((C0902b) it.next()).m1362a() + "\n";
+        while (this.a.iterator().hasNext()) {
+            str = str + ((b) it.next()).a() + "\n";
         }
         return str;
     }
 
-    /* renamed from: b */
-    public ConcurrentLinkedQueue m1634b() {
-        return this.f5681a;
+    public ConcurrentLinkedQueue b() {
+        return this.a;
     }
 
-    /* renamed from: a */
-    public String m1635a(boolean z) {
+    public String a(boolean z) {
         Iterator it;
         Iterator it2;
         String str = VariableScope.nullOrMissingString;
         if (!z) {
-            while (this.f5681a.iterator().hasNext()) {
-                str = str + ((C0902b) it2.next()).m1361b() + "<br/>\n";
+            while (this.a.iterator().hasNext()) {
+                str = str + ((b) it2.next()).b() + "<br/>\n";
             }
         } else {
-            while (this.f5681a.iterator().hasNext()) {
-                str = ((C0902b) it.next()).m1361b() + "<br/>\n" + str;
+            while (this.a.iterator().hasNext()) {
+                str = ((b) it.next()).b() + "<br/>\n" + str;
             }
         }
         return "<pre>" + str + "</pre>";
     }
 
-    /* renamed from: b */
-    public Spanned m1633b(boolean z) {
-        return Html.fromHtml(m1635a(z));
+    public Spanned b(boolean z) {
+        return Html.fromHtml(a(z));
     }
 
-    /* renamed from: c */
-    public void m1632c() {
-        this.f5681a.clear();
+    public void c() {
+        this.a.clear();
     }
 }

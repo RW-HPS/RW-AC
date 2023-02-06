@@ -3,185 +3,161 @@ package com.corrodinggames.librocket;
 import android.app.Activity;
 import com.corrodinggames.librocket.scripts.Root;
 import com.corrodinggames.librocket.scripts.ScriptEngine;
-import com.corrodinggames.rts.appFramework.ActivityC0117i;
-import com.corrodinggames.rts.appFramework.InterfaceC0096f;
+import com.corrodinggames.rts.appFramework.f;
+import com.corrodinggames.rts.appFramework.i;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.net.EnterPasswordCallback;
-import com.corrodinggames.rts.gameFramework.translations.C0855a;
-import com.corrodinggames.rts.gameFramework.utility.C1134k;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
+import com.corrodinggames.rts.gameFramework.utility.k;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
 
-/* renamed from: com.corrodinggames.librocket.a */
 /* loaded from: game-lib.jar:com/corrodinggames/librocket/a.class */
-public abstract class AbstractC0043a {
+public abstract class a {
+    protected static a a;
+    public b b;
+    public f c;
+    boolean d = true;
+    boolean e = true;
 
-    /* renamed from: a */
-    protected static AbstractC0043a f343a;
+    public abstract void g();
 
-    /* renamed from: b */
-    public AbstractC0048b f344b;
+    public abstract void h();
 
-    /* renamed from: c */
-    public InterfaceC0096f f345c;
+    public abstract int i();
 
-    /* renamed from: d */
-    boolean f346d = true;
+    public abstract void d(boolean z);
 
-    /* renamed from: e */
-    boolean f347e = true;
-
-    /* renamed from: g */
-    public abstract void mo300g();
-
-    /* renamed from: h */
-    public abstract void mo299h();
-
-    /* renamed from: i */
-    public abstract int mo298i();
-
-    /* renamed from: d */
-    public abstract void mo301d(boolean z);
-
-    /* renamed from: a */
-    public static AbstractC0043a m5493a() {
-        return f343a;
+    public static a a() {
+        return a;
     }
 
-    /* renamed from: a */
-    public void m5491a(AbstractC0048b abstractC0048b, InterfaceC0096f interfaceC0096f) {
-        this.f344b = abstractC0048b;
-        this.f345c = interfaceC0096f;
+    public void a(b bVar, f fVar) {
+        this.b = bVar;
+        this.c = fVar;
     }
 
-    /* renamed from: b */
-    public void m5487b() {
+    public void b() {
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (gameEngine != null) {
-            gameEngine.m1182a((Activity) null, this.f345c, true);
+            gameEngine.a((Activity) null, this.c, true);
         } else {
-            GameEngine.m5907e("showMainMenu: game is null");
+            GameEngine.m5e("showMainMenu: game is null");
         }
-        this.f344b.setDocument("mainMenu.rml");
+        this.b.setDocument("mainMenu.rml");
     }
 
-    /* renamed from: c */
-    public void m5484c() {
+    public void c() {
     }
 
-    /* renamed from: d */
-    public void m5482d() {
-        this.f344b.setDocument("settings.rml");
+    public void d() {
+        this.b.setDocument("settings.rml");
     }
 
-    /* renamed from: e */
-    public void m5481e() {
-        this.f344b.setDocument("leaderboard.rml");
+    public void e() {
+        this.b.setDocument("leaderboard.rml");
     }
 
-    /* renamed from: a */
-    public synchronized void m5488a(boolean z) {
-        this.f347e = z;
-        m5480f();
+    public synchronized void a(boolean z) {
+        this.e = z;
+        f();
     }
 
-    /* renamed from: f */
-    public synchronized void m5480f() {
+    public synchronized void f() {
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (gameEngine == null) {
             GameEngine.print("Main::resumeGame(): game==null");
             return;
         }
-        gameEngine.f6320bD = true;
-        gameEngine.m1182a((Activity) null, this.f345c, this.f347e);
+        gameEngine.bD = true;
+        gameEngine.a((Activity) null, this.c, this.e);
     }
 
-    /* renamed from: b */
-    public synchronized void m5485b(boolean z) {
+    public synchronized void b(boolean z) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (!z) {
-            GameEngine.m5907e("endGame: queDisconnectAndWait");
-            gameEngine.netEngine.m1552u();
+            GameEngine.m5e("endGame: queDisconnectAndWait");
+            gameEngine.netEngine.u();
             return;
         }
-        GameEngine.m5907e("endGame: network disconnect");
+        GameEngine.m5e("endGame: network disconnect");
         gameEngine.netEngine.closeServer("shutdownServer");
     }
 
-    /* renamed from: a */
-    public synchronized void m5489a(String str) {
-        m5485b(true);
+    public synchronized void a(String str) {
+        b(true);
         GameEngine.getGameEngine();
-        this.f347e = false;
-        ActivityC0117i.m5366a(str, false, 8, 0, true, false);
-        m5480f();
+        this.e = false;
+        i.a(str, false, 8, 0, true, false);
+        f();
     }
 
-    /* renamed from: c */
-    public void m5483c(boolean z) {
-        this.f347e = z;
+    public void c(boolean z) {
+        this.e = z;
     }
 
-    /* renamed from: j */
-    public boolean m5479j() {
-        if (this.f344b != null && !this.f344b.m5463b()) {
+    public boolean j() {
+        if (this.b != null && !this.b.b()) {
             return true;
         }
         return false;
     }
 
-    /* renamed from: a */
-    public void m5492a(int i, char c) {
-        int m764b = SlickToAndroidKeycodes.m764b(i);
-        if (m5479j()) {
-            Integer m762c = SlickToAndroidKeycodes.m762c(i);
-            Object m5460b = this.f344b.m5460b("event_onkeydown");
-            if (m5460b != null) {
-                ScriptEngine.getInstance().addScriptToQueue(m5460b + "(" + m764b + ");");
-                if (this.f344b.m5458c() != null) {
+    public void a(int i, char c) {
+        int b = SlickToAndroidKeycodes.b(i);
+        if (j()) {
+            Integer c2 = SlickToAndroidKeycodes.c(i);
+            Object b2 = this.b.b("event_onkeydown");
+            if (b2 != null) {
+                ScriptEngine.getInstance().addScriptToQueue(b2 + "(" + b + ");");
+                if (this.b.c() != null) {
                     return;
                 }
             }
             if (c > '\u00ff') {
-                ScriptEngine.getInstance().addRunnableToQueue(new RunnableC00441());
+                ScriptEngine.getInstance().addRunnableToQueue(new Runnable() { // from class: com.corrodinggames.librocket.a.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        a.this.b.c.getRoot().event_unicodeEntered();
+                    }
+                });
             }
-            if (i == 30 && mo298i() == 1) {
-                this.f344b.processKeyDown(93, 0);
-                this.f344b.processKeyUp(93, 0);
-                this.f344b.processKeyDown(91, 2);
-                this.f344b.processKeyUp(91, 2);
+            if (i == 30 && i() == 1) {
+                this.b.processKeyDown(93, 0);
+                this.b.processKeyUp(93, 0);
+                this.b.processKeyDown(91, 2);
+                this.b.processKeyUp(91, 2);
                 return;
-            } else if (i == 46 && mo298i() == 1) {
-                this.f344b.processKeyDown(14, 1);
+            } else if (i == 46 && i() == 1) {
+                this.b.processKeyDown(14, 1);
                 return;
-            } else if (i == 47 && mo298i() == 1) {
-                this.f344b.processKeyDown(33, 1);
+            } else if (i == 47 && i() == 1) {
+                this.b.processKeyDown(33, 1);
                 return;
             } else {
-                if (m762c != null) {
-                    this.f344b.processKeyDown(m762c.intValue(), mo298i());
+                if (c2 != null) {
+                    this.b.processKeyDown(c2.intValue(), i());
                 } else if (c != 0) {
                     if (Character.isISOControl(c)) {
                         if (c == '\b') {
-                            GameEngine.m5907e("backspace char pressed");
-                            this.f344b.processKeyDown(69, 0);
-                            this.f344b.processKeyUp(69, 0);
+                            GameEngine.m5e("backspace char pressed");
+                            this.b.processKeyDown(69, 0);
+                            this.b.processKeyUp(69, 0);
                         } else {
-                            GameEngine.m5907e("keyPressed skipping isISOControl:" + i + " c:" + ((int) c) + " c_print:" + c);
+                            GameEngine.m5e("keyPressed skipping isISOControl:" + i + " c:" + ((int) c) + " c_print:" + c);
                         }
                     } else {
-                        this.f344b.processTextInputChar(c);
+                        this.b.processTextInputChar(c);
                     }
                 }
                 if (i == 28 || i == 156) {
                     ScriptEngine.getInstance().addScriptToQueue("onEnter();");
                 } else if (c == '\r') {
-                    GameEngine.m5907e("keyPressed: new line entered");
+                    GameEngine.m5e("keyPressed: new line entered");
                     ScriptEngine.getInstance().addScriptToQueue("onEnter();");
                 }
                 if (i == 1) {
@@ -193,34 +169,21 @@ public abstract class AbstractC0043a {
         }
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (gameEngine != null) {
-            gameEngine.m1126b(m764b, true);
+            gameEngine.b(b, true);
             if (i == 1) {
             }
         }
     }
 
-    /* renamed from: com.corrodinggames.librocket.a$1 */
-    /* loaded from: game-lib.jar:com/corrodinggames/librocket/a$1.class */
-    class RunnableC00441 implements Runnable {
-        RunnableC00441() {
-        }
-
-        public void run() {
-            AbstractC0043a.this.f344b.f367c.getRoot().event_unicodeEntered();
-        }
-    }
-
-    /* renamed from: k */
-    public LinkedList m5478k() {
+    public LinkedList k() {
         return null;
     }
 
-    /* renamed from: b */
-    public boolean m5486b(String str) {
+    public boolean b(String str) {
         try {
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 try {
-                    GameEngine.m5907e("Opening link from desktop api");
+                    GameEngine.m5e("Opening link from desktop api");
                     Desktop.getDesktop().browse(new URI(str));
                     return true;
                 } catch (IOException e) {
@@ -258,122 +221,90 @@ public abstract class AbstractC0043a {
         return false;
     }
 
-    /* renamed from: l */
-    public void m5477l() {
+    public void l() {
     }
 
-    /* renamed from: m */
-    public void m5476m() {
+    public void m() {
     }
 
-    /* renamed from: n */
-    public void m5475n() {
+    public void n() {
     }
 
-    /* renamed from: o */
-    public void m5474o() {
+    public void o() {
         ScriptEngine scriptEngine;
-        if (!GameEngine.getGameEngine().netEngine.f5749aW && (scriptEngine = ScriptEngine.getInstance()) != null) {
+        if (!GameEngine.getGameEngine().netEngine.aW && (scriptEngine = ScriptEngine.getInstance()) != null) {
             scriptEngine.addScriptToQueue("mp.closeBattleroomIfOpen()");
         }
     }
 
-    /* renamed from: a */
-    public void m5490a(EnterPasswordCallback enterPasswordCallback) {
+    public void a(EnterPasswordCallback enterPasswordCallback) {
         GameEngine.getGameEngine();
         ScriptEngine scriptEngine = ScriptEngine.getInstance();
         if (scriptEngine != null) {
-            scriptEngine.addRunnableToQueue(new RunnableC00452(scriptEngine, enterPasswordCallback));
+            scriptEngine.addRunnableToQueue(new AnonymousClass2(scriptEngine, enterPasswordCallback));
         }
     }
 
-    /* renamed from: com.corrodinggames.librocket.a$2 */
+    /* renamed from: com.corrodinggames.librocket.a$2  reason: invalid class name */
     /* loaded from: game-lib.jar:com/corrodinggames/librocket/a$2.class */
-    class RunnableC00452 implements Runnable {
+    class AnonymousClass2 implements Runnable {
+        final k a = new k(false);
+        final /* synthetic */ ScriptEngine b;
+        final /* synthetic */ EnterPasswordCallback c;
 
-        /* renamed from: a */
-        final C1134k f349a = new C1134k(false);
-
-        /* renamed from: b */
-        final /* synthetic */ ScriptEngine f350b;
-
-        /* renamed from: c */
-        final /* synthetic */ EnterPasswordCallback f351c;
-
-        RunnableC00452(ScriptEngine scriptEngine, EnterPasswordCallback enterPasswordCallback) {
-            this.f350b = scriptEngine;
-            this.f351c = enterPasswordCallback;
+        AnonymousClass2(ScriptEngine scriptEngine, EnterPasswordCallback enterPasswordCallback) {
+            this.b = scriptEngine;
+            this.c = enterPasswordCallback;
         }
 
+        @Override // java.lang.Runnable
         public void run() {
-            Root root = this.f350b.getRoot();
-            C0051e c0051e = new C0051e(this.f351c.f5843f != null ? this.f351c.f5843f : "Join", new RunnableC00461(root));
-            c0051e.f386c = true;
-            RunnableC00472 runnableC00472 = new RunnableC00472(root);
-            C0051e c0051e2 = new C0051e(this.f351c.f5844g != null ? this.f351c.f5844g : "Close", runnableC00472);
+            final Root root = this.b.getRoot();
+            e eVar = new e(this.c.f != null ? this.c.f : "Join", new Runnable() { // from class: com.corrodinggames.librocket.a.2.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (AnonymousClass2.this.a.a) {
+                        GameEngine.print("AskPasswordCallBack already called");
+                        return;
+                    }
+                    AnonymousClass2.this.a.a = true;
+                    String popupText = root.getPopupText();
+                    root.closeAlertOnly();
+                    AnonymousClass2.this.c.a(popupText);
+                }
+            });
+            eVar.c = true;
+            Runnable runnable = new Runnable() { // from class: com.corrodinggames.librocket.a.2.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (AnonymousClass2.this.a.a) {
+                        GameEngine.print("AskPasswordCallBack already called");
+                        return;
+                    }
+                    AnonymousClass2.this.a.a = true;
+                    root.closeAlertOnly();
+                    AnonymousClass2.this.c.a();
+                }
+            };
+            e eVar2 = new e(this.c.g != null ? this.c.g : "Close", runnable);
             String str = "Password Required";
             String str2 = "This server requires a password to join";
-            if (this.f351c.f5839b != null) {
+            if (this.c.b != null) {
                 str = "Server Question";
-                str2 = C0855a.m1826c(this.f351c.f5839b);
+                str2 = com.corrodinggames.rts.gameFramework.translations.a.c(this.c.b);
             }
-            if (this.f351c.f5842e != null) {
-                str = this.f351c.f5842e;
+            if (this.c.e != null) {
+                str = this.c.e;
             }
-            C0050d c0050d = new C0050d();
-            c0050d.f376b = str;
-            c0050d.f377c = str2;
-            c0050d.f378d = VariableScope.nullOrMissingString;
-            c0050d.f379e = c0051e2;
-            c0050d.f380f = c0051e;
-            c0050d.f382h = false;
-            c0050d.f383i = runnableC00472;
-            AbstractC0043a.this.f344b.m5470a(c0050d);
-        }
-
-        /* renamed from: com.corrodinggames.librocket.a$2$1 */
-        /* loaded from: game-lib.jar:com/corrodinggames/librocket/a$2$1.class */
-        class RunnableC00461 implements Runnable {
-
-            /* renamed from: a */
-            final /* synthetic */ Root f353a;
-
-            RunnableC00461(Root root) {
-                this.f353a = root;
-            }
-
-            public void run() {
-                if (RunnableC00452.this.f349a.f7102a) {
-                    GameEngine.print("AskPasswordCallBack already called");
-                    return;
-                }
-                RunnableC00452.this.f349a.f7102a = true;
-                String popupText = this.f353a.getPopupText();
-                this.f353a.closeAlertOnly();
-                RunnableC00452.this.f351c.mo1542a(popupText);
-            }
-        }
-
-        /* renamed from: com.corrodinggames.librocket.a$2$2 */
-        /* loaded from: game-lib.jar:com/corrodinggames/librocket/a$2$2.class */
-        class RunnableC00472 implements Runnable {
-
-            /* renamed from: a */
-            final /* synthetic */ Root f355a;
-
-            RunnableC00472(Root root) {
-                this.f355a = root;
-            }
-
-            public void run() {
-                if (RunnableC00452.this.f349a.f7102a) {
-                    GameEngine.print("AskPasswordCallBack already called");
-                    return;
-                }
-                RunnableC00452.this.f349a.f7102a = true;
-                this.f355a.closeAlertOnly();
-                RunnableC00452.this.f351c.mo1543a();
-            }
+            d dVar = new d();
+            dVar.b = str;
+            dVar.c = str2;
+            dVar.d = VariableScope.nullOrMissingString;
+            dVar.e = eVar2;
+            dVar.f = eVar;
+            dVar.h = false;
+            dVar.i = runnable;
+            a.this.b.a(dVar);
         }
     }
 }

@@ -1,44 +1,32 @@
 package com.corrodinggames.rts.gameFramework;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.aq */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/aq.class */
-public abstract class AbstractC0662aq {
+public abstract class aq {
+    protected am e;
 
-    /* renamed from: e */
-    protected C0654am f4248e;
+    public abstract ar a(String str);
 
-    /* renamed from: a */
-    public abstract AbstractC0663ar mo97a(String str);
+    public abstract as a();
 
-    /* renamed from: a */
-    public abstract AbstractC0664as mo101a();
+    public abstract void a(am amVar);
 
-    /* renamed from: a */
-    public abstract void mo98a(C0654am c0654am);
+    public abstract void b();
 
-    /* renamed from: b */
-    public abstract void mo96b();
-
-    /* renamed from: a */
-    public void mo99a(int i) {
+    public void a(int i) {
     }
 
-    /* renamed from: a */
-    public void mo100a(float f) {
+    public void a(float f) {
     }
 
-    /* renamed from: c */
-    public boolean mo95c() {
+    public boolean c() {
         return false;
     }
 
-    /* renamed from: d */
-    public boolean mo94d() {
+    public boolean d() {
         return true;
     }
 
-    /* renamed from: e */
-    public int mo93e() {
+    public int e() {
         return 0;
     }
 }

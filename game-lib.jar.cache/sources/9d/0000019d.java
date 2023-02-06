@@ -1,13 +1,12 @@
-package com.corrodinggames.rts.game.units.p013a;
+package com.corrodinggames.rts.game.units.a;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.am;
 
-/* renamed from: com.corrodinggames.rts.game.units.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/a/b.class */
-public class C0207b {
-    public static final C0207b emptyActionFilter = new C0207b();
+public class b {
+    public static final b emptyActionFilter = new b();
 
-    public boolean isAvailable(AbstractC0224s abstractC0224s, AbstractC0244am abstractC0244am) {
+    public boolean isAvailable(s sVar, am amVar) {
         return true;
     }
 }

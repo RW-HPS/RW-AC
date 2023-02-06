@@ -1,4 +1,4 @@
-package net.rudp.p002a;
+package net.rudp.a;
 
 /* renamed from: a.a.a.c */
 /* loaded from: game-lib.jar:a/a/a/c.class */
@@ -16,18 +16,17 @@ public class EAKSegment extends ACKSegment {
         this.data = iArr;
     }
 
-    @Override // net.rudp.p002a.ACKSegment, net.rudp.p002a.Segment
+    @Override // net.rudp.a.ACKSegment, net.rudp.a.Segment
     /* renamed from: a */
     public String type() {
         return "EAK";
     }
 
-    /* renamed from: c */
-    public int[] m5453c() {
+    public int[] c() {
         return this.data;
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: d */
     public byte[] getBytes() {
         byte[] d = super.getBytes();
@@ -37,7 +36,7 @@ public class EAKSegment extends ACKSegment {
         return d;
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: a */
     protected void parseBytes(byte[] bArr, int i, int i2) {
         super.parseBytes(bArr, i, i2);

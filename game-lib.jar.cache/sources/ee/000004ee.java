@@ -1,18 +1,14 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
+import com.corrodinggames.rts.game.units.am;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.u */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/u.class */
-class C0840u {
+class u {
+    am a;
+    final /* synthetic */ o b;
 
-    /* renamed from: a */
-    AbstractC0244am f5553a;
-
-    /* renamed from: b */
-    final /* synthetic */ C0833o f5554b;
-
-    C0840u(C0833o c0833o) {
-        this.f5554b = c0833o;
+    u(o oVar) {
+        this.b = oVar;
     }
 }

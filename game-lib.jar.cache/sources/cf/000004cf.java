@@ -1,141 +1,115 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.gameFramework.AbstractC0741bq;
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.bq;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
+import com.corrodinggames.rts.gameFramework.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.am */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/am.class */
-public class C0809am extends AbstractC0741bq {
+public class am extends bq {
+    private final a i;
+    public ArrayList a = new ArrayList();
+    public float b;
+    public long c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
+    public boolean h;
 
-    /* renamed from: i */
-    private final C0775a f5196i;
-
-    /* renamed from: a */
-    public ArrayList f5197a = new ArrayList();
-
-    /* renamed from: b */
-    public float f5198b;
-
-    /* renamed from: c */
-    public long f5199c;
-
-    /* renamed from: d */
-    public float f5200d;
-
-    /* renamed from: e */
-    public float f5201e;
-
-    /* renamed from: f */
-    public float f5202f;
-
-    /* renamed from: g */
-    public boolean f5203g;
-
-    /* renamed from: h */
-    public boolean f5204h;
-
-    public C0809am(C0775a c0775a, boolean z) {
-        this.f5196i = c0775a;
-        this.f5203g = z;
+    public am(a aVar, boolean z) {
+        this.i = aVar;
+        this.g = z;
     }
 
-    /* renamed from: a */
-    public void m1962a() {
-        AbstractC0244am abstractC0244am = null;
-        Iterator it = this.f5197a.iterator();
+    public void a() {
+        com.corrodinggames.rts.game.units.am amVar = null;
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am2 = (AbstractC0244am) it.next();
-            if (!abstractC0244am2.f1612bV && abstractC0244am2.f1656cN == null && this.f5196i.f4990a.m1812j(abstractC0244am2) && abstractC0244am2.m4211cf()) {
-                abstractC0244am = abstractC0244am2;
+            com.corrodinggames.rts.game.units.am amVar2 = (com.corrodinggames.rts.game.units.am) it.next();
+            if (!amVar2.bV && amVar2.cN == null && this.i.a.j(amVar2) && amVar2.cf()) {
+                amVar = amVar2;
             }
         }
-        if (this.f5199c > GameEngine.m1087V() - 700 && abstractC0244am != null) {
-            this.f5196i.f4991b.m1022b(abstractC0244am.f7173eo, abstractC0244am.f7174ep);
+        if (this.c > GameEngine.V() - 700 && amVar != null) {
+            this.i.b.b(amVar.eo, amVar.ep);
         }
-        this.f5199c = GameEngine.m1087V();
+        this.c = GameEngine.V();
     }
 
-    /* renamed from: b */
-    public void m1960b() {
-        this.f5197a.clear();
+    public void b() {
+        this.a.clear();
     }
 
-    /* renamed from: c */
-    public void m1959c() {
-        Iterator it = AbstractC1155w.f7177er.iterator();
+    public void c() {
+        Iterator it = w.er.iterator();
         while (it.hasNext()) {
-            AbstractC1155w abstractC1155w = (AbstractC1155w) it.next();
-            if (abstractC1155w instanceof AbstractC0629y) {
-                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC1155w;
-                if (abstractC0629y.f1649cG && !this.f5197a.contains(abstractC0629y)) {
-                    this.f5197a.add(abstractC0629y);
+            w wVar = (w) it.next();
+            if (wVar instanceof y) {
+                y yVar = (y) wVar;
+                if (yVar.cG && !this.a.contains(yVar)) {
+                    this.a.add(yVar);
                 }
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0741bq
-    /* renamed from: a */
-    public void mo442a(GameOutputStream gameOutputStream) {
-        m1958d();
-        gameOutputStream.writeFloat(this.f5198b);
-        gameOutputStream.writeLong(this.f5199c);
-        gameOutputStream.writeInt(this.f5197a.size());
-        Iterator it = this.f5197a.iterator();
+    @Override // com.corrodinggames.rts.gameFramework.bq
+    public void a(GameOutputStream gameOutputStream) {
+        d();
+        gameOutputStream.writeFloat(this.b);
+        gameOutputStream.writeLong(this.c);
+        gameOutputStream.writeInt(this.a.size());
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            gameOutputStream.mo1334a((AbstractC0244am) it.next());
+            gameOutputStream.a((com.corrodinggames.rts.game.units.am) it.next());
         }
         gameOutputStream.writeByte(0);
     }
 
-    /* renamed from: a */
-    public void m1961a(GameInputStream gameInputStream) {
-        this.f5198b = gameInputStream.readFloat();
-        this.f5199c = gameInputStream.readLong();
-        this.f5197a.clear();
+    public void a(GameInputStream gameInputStream) {
+        this.b = gameInputStream.readFloat();
+        this.c = gameInputStream.readLong();
+        this.a.clear();
         int readInt = gameInputStream.readInt();
         for (int i = 0; i < readInt; i++) {
-            AbstractC0244am m1293o = gameInputStream.m1293o();
-            if (m1293o != null) {
-                this.f5197a.add(m1293o);
+            com.corrodinggames.rts.game.units.am o = gameInputStream.o();
+            if (o != null) {
+                this.a.add(o);
             }
         }
         gameInputStream.readByte();
     }
 
-    /* renamed from: d */
-    public void m1958d() {
-        if (this.f5197a.size() == 0) {
+    public void d() {
+        if (this.a.size() == 0) {
             return;
         }
-        Iterator it = this.f5197a.iterator();
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            if (((AbstractC0244am) it.next()).f1612bV) {
+            if (((com.corrodinggames.rts.game.units.am) it.next()).bV) {
                 it.remove();
             }
         }
     }
 
-    /* renamed from: e */
-    public void m1957e() {
-        if (this.f5197a.size() == 0) {
+    public void e() {
+        if (this.a.size() == 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        Iterator it = this.f5197a.iterator();
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            AbstractC0244am m443a = AbstractC1155w.m443a(((AbstractC0244am) it.next()).f7166eh, true);
-            if (m443a != null && !m443a.f1612bV) {
-                arrayList.add(m443a);
+            com.corrodinggames.rts.game.units.am a = w.a(((com.corrodinggames.rts.game.units.am) it.next()).eh, true);
+            if (a != null && !a.bV) {
+                arrayList.add(a);
             }
         }
-        this.f5197a = arrayList;
+        this.a = arrayList;
     }
 }

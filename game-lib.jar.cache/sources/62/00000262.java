@@ -2,62 +2,47 @@ package com.corrodinggames.rts.game.units.custom;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.translations.C0855a;
 import java.util.ArrayList;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.bb */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/bb.class */
-public class C0404bb {
+public class bb {
+    public static final bb a = a(VariableScope.nullOrMissingString);
+    public bc[] b;
+    public String c;
+    public int d = -1;
+    public String e;
 
-    /* renamed from: a */
-    public static final C0404bb f2505a = m3912a(VariableScope.nullOrMissingString);
-
-    /* renamed from: b */
-    public C0405bc[] f2506b;
-
-    /* renamed from: c */
-    public String f2507c;
-
-    /* renamed from: d */
-    public int f2508d = -1;
-
-    /* renamed from: e */
-    public String f2509e;
-
-    /* renamed from: a */
-    public static C0404bb m3912a(String str) {
-        C0404bb c0404bb = new C0404bb();
+    public static bb a(String str) {
+        bb bbVar = new bb();
         ArrayList arrayList = new ArrayList();
-        C0405bc c0405bc = new C0405bc();
-        c0405bc.f2510a = null;
-        c0405bc.f2511b = str;
-        arrayList.add(c0405bc);
-        c0404bb.f2506b = (C0405bc[]) arrayList.toArray(new C0405bc[0]);
-        c0404bb.m3910b();
-        return c0404bb;
+        bc bcVar = new bc();
+        bcVar.a = null;
+        bcVar.b = str;
+        arrayList.add(bcVar);
+        bbVar.b = (bc[]) arrayList.toArray(new bc[0]);
+        bbVar.b();
+        return bbVar;
     }
 
-    /* renamed from: b */
-    public static C0404bb m3909b(String str) {
-        C0404bb c0404bb = new C0404bb();
-        c0404bb.f2509e = str;
-        c0404bb.m3910b();
-        return c0404bb;
+    public static bb b(String str) {
+        bb bbVar = new bb();
+        bbVar.e = str;
+        bbVar.b();
+        return bbVar;
     }
 
-    public C0404bb() {
+    public bb() {
     }
 
-    public C0404bb(C0405bc[] c0405bcArr) {
-        this.f2506b = c0405bcArr;
+    public bb(bc[] bcVarArr) {
+        this.b = bcVarArr;
     }
 
-    /* renamed from: a */
-    public boolean m3913a() {
-        C0405bc[] c0405bcArr;
-        if (this.f2506b != null) {
-            for (C0405bc c0405bc : this.f2506b) {
-                if (c0405bc.f2511b != null && !VariableScope.nullOrMissingString.equals(c0405bc.f2511b)) {
+    public boolean a() {
+        bc[] bcVarArr;
+        if (this.b != null) {
+            for (bc bcVar : this.b) {
+                if (bcVar.b != null && !VariableScope.nullOrMissingString.equals(bcVar.b)) {
                     return false;
                 }
             }
@@ -66,47 +51,45 @@ public class C0404bb {
         return true;
     }
 
-    /* renamed from: a */
-    public void m3911a(String str, String str2) {
-        if (this.f2506b != null) {
-            for (C0405bc c0405bc : this.f2506b) {
-                c0405bc.m3908a(str, str2);
+    public void a(String str, String str2) {
+        if (this.b != null) {
+            for (bc bcVar : this.b) {
+                bcVar.a(str, str2);
             }
         } else {
             GameEngine.print("LocaleString: replaceAll with null strings");
         }
-        this.f2508d = -1;
+        this.d = -1;
     }
 
-    /* renamed from: b */
-    public String m3910b() {
-        C0405bc[] c0405bcArr;
-        C0405bc[] c0405bcArr2;
-        if (this.f2508d == C0855a.f5615c) {
-            return this.f2507c;
+    public String b() {
+        bc[] bcVarArr;
+        bc[] bcVarArr2;
+        if (this.d == com.corrodinggames.rts.gameFramework.translations.a.c) {
+            return this.c;
         }
-        if (this.f2509e != null) {
-            this.f2508d = C0855a.f5615c;
-            this.f2507c = C0855a.m1714a(this.f2509e, new Object[0]);
-            return this.f2507c;
+        if (this.e != null) {
+            this.d = com.corrodinggames.rts.gameFramework.translations.a.c;
+            this.c = com.corrodinggames.rts.gameFramework.translations.a.a(this.e, new Object[0]);
+            return this.c;
         }
-        String m1711c = C0855a.m1711c();
-        for (C0405bc c0405bc : this.f2506b) {
-            if (m1711c.equals(c0405bc.f2510a)) {
-                this.f2508d = C0855a.f5615c;
-                this.f2507c = c0405bc.f2511b;
-                return this.f2507c;
+        String c = com.corrodinggames.rts.gameFramework.translations.a.c();
+        for (bc bcVar : this.b) {
+            if (c.equals(bcVar.a)) {
+                this.d = com.corrodinggames.rts.gameFramework.translations.a.c;
+                this.c = bcVar.b;
+                return this.c;
             }
         }
-        for (C0405bc c0405bc2 : this.f2506b) {
-            if (c0405bc2.f2510a == null) {
-                this.f2508d = C0855a.f5615c;
-                this.f2507c = c0405bc2.f2511b;
-                return this.f2507c;
+        for (bc bcVar2 : this.b) {
+            if (bcVar2.a == null) {
+                this.d = com.corrodinggames.rts.gameFramework.translations.a.c;
+                this.c = bcVar2.b;
+                return this.c;
             }
         }
-        this.f2508d = C0855a.f5615c;
-        this.f2507c = "<NO DEFAULT TEXT FOUND>";
-        return this.f2507c;
+        this.d = com.corrodinggames.rts.gameFramework.translations.a.c;
+        this.c = "<NO DEFAULT TEXT FOUND>";
+        return this.c;
     }
 }

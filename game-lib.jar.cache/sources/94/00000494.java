@@ -1,28 +1,15 @@
 package com.corrodinggames.rts.gameFramework;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.bu */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/bu.class */
-public class C0750bu {
+public class bu {
+    public long[] a = new long[Unit.c];
+    public long[] b = new long[Unit.c];
+    public float[] c = new float[Unit.c];
+    public long[] d = new long[Unit.c];
+    public long[] e = new long[Unit.c];
+    final /* synthetic */ Unit f;
 
-    /* renamed from: a */
-    public long[] f4695a = new long[C0742br.f4651c];
-
-    /* renamed from: b */
-    public long[] f4696b = new long[C0742br.f4651c];
-
-    /* renamed from: c */
-    public float[] f4697c = new float[C0742br.f4651c];
-
-    /* renamed from: d */
-    public long[] f4698d = new long[C0742br.f4651c];
-
-    /* renamed from: e */
-    public long[] f4699e = new long[C0742br.f4651c];
-
-    /* renamed from: f */
-    final /* synthetic */ C0742br f4700f;
-
-    public C0750bu(C0742br c0742br) {
-        this.f4700f = c0742br;
+    public bu(Unit unit) {
+        this.f = unit;
     }
 }

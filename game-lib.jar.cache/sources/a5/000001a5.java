@@ -1,136 +1,113 @@
-package com.corrodinggames.rts.game.units.p013a;
+package com.corrodinggames.rts.game.units.a;
 
 import android.graphics.Rect;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.EnumC0249ar;
-import com.corrodinggames.rts.gameFramework.p035d.C0758c;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.ar;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.a.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/a/j.class */
-public class C0215j extends AbstractC0224s {
+public class j extends s {
+    public k a;
+    static ArrayList b = new ArrayList();
+    static Rect c;
 
-    /* renamed from: a */
-    public EnumC0216k f1447a;
-
-    /* renamed from: b */
-    static ArrayList f1448b = new ArrayList();
-
-    /* renamed from: c */
-    static Rect f1449c;
-
-    public C0215j() {
-        this(EnumC0216k.normal);
+    public j() {
+        this(k.normal);
     }
 
-    public C0215j(EnumC0216k enumC0216k) {
-        super("c_6_" + enumC0216k.name());
-        this.f1447a = enumC0216k;
+    public j(k kVar) {
+        super("c_6_" + kVar.name());
+        this.a = kVar;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: b */
-    public int mo3094b(AbstractC0244am abstractC0244am, boolean z) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public int b(am amVar, boolean z) {
         return -1;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: c */
-    public int mo3093c() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public int c() {
         return 0;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
+    @Override // com.corrodinggames.rts.game.units.a.s
     /* renamed from: w */
-    public EnumC0249ar mo3087i() {
+    public ar mo3i() {
         return null;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: e */
-    public EnumC0226u mo3092e() {
-        return EnumC0226u.pingMap;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public u e() {
+        return u.pingMap;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: f */
-    public EnumC0225t mo3091f() {
-        return EnumC0225t.none;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public t f() {
+        return t.none;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: g */
-    public boolean mo3090g() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean g() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: a */
-    public String mo3099a() {
-        return "Ping Map" + this.f1447a.m4318a();
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String a() {
+        return "Ping Map" + this.a.a();
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: b */
-    public String mo3096b() {
-        return this.f1447a.m4317b();
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String b() {
+        return this.a.b();
     }
 
-    /* renamed from: K */
-    public String m4321K() {
-        return this.f1447a.m4316c();
+    public String K() {
+        return this.a.c();
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: h_ */
-    public boolean mo3088h_() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean h_() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: s */
-    public boolean mo4278s() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public boolean s() {
         return true;
     }
 
     static {
-        for (EnumC0216k enumC0216k : EnumC0216k.values()) {
-            f1448b.add(new C0215j(enumC0216k));
+        for (k kVar : k.values()) {
+            b.add(new j(kVar));
         }
-        f1449c = new Rect();
+        c = new Rect();
     }
 
-    /* renamed from: a */
-    public static C0215j m4320a(C0208c c0208c) {
-        Iterator it = f1448b.iterator();
+    public static j a(c cVar) {
+        Iterator it = b.iterator();
         while (it.hasNext()) {
-            AbstractC0224s abstractC0224s = (AbstractC0224s) it.next();
-            if (abstractC0224s.m4298d(c0208c)) {
-                return (C0215j) abstractC0224s;
+            s sVar = (s) it.next();
+            if (sVar.d(cVar)) {
+                return (j) sVar;
             }
         }
         return null;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: q */
-    public ArrayList mo4295q(AbstractC0244am abstractC0244am) {
-        return f1448b;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public ArrayList q(am amVar) {
+        return b;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: j */
-    public C0970e mo3151j() {
-        return C0758c.f4783s[9].f4908i;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public com.corrodinggames.rts.gameFramework.unitAction.e j() {
+        return com.corrodinggames.rts.gameFramework.emitter.c.s[9].i;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: v */
-    public Rect mo4293v() {
-        int ordinal = 7 + this.f1447a.ordinal();
-        f1449c.m5166a(29 * ordinal, 0, (29 * ordinal) + 28, 28);
-        return f1449c;
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public Rect v() {
+        int ordinal = 7 + this.a.ordinal();
+        c.a(29 * ordinal, 0, (29 * ordinal) + 28, 28);
+        return c;
     }
 }

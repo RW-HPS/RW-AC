@@ -2,21 +2,17 @@ package com.corrodinggames.rts.gameFramework.status;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.n.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/m.class */
-public class C1092m {
+public class m {
+    a a;
 
-    /* renamed from: a */
-    C1066a f6947a;
-
-    /* renamed from: a */
-    public String m758a() {
-        if (this.f6947a.f6828z == null) {
+    public String a() {
+        if (this.a.z == null) {
             return "<null>";
         }
-        return this.f6947a.f6828z.m3910b();
+        return this.a.z.b();
     }
 
-    /* renamed from: b */
-    public boolean m757b() {
-        return this.f6947a.f6818j;
+    public boolean b() {
+        return this.a.j;
     }
 }

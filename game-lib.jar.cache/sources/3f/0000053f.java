@@ -12,41 +12,36 @@ import org.apache.http.params.HttpParams;
 /* renamed from: com.corrodinggames.rts.gameFramework.j.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/r.class */
 public class HTTPService {
+    ReentrantLock a = new ReentrantLock();
 
-    /* renamed from: a */
-    ReentrantLock f6105a = new ReentrantLock();
-
-    /* renamed from: a */
-    public HttpClient m1259a() {
-        return mo103a(30000, false);
+    public HttpClient a() {
+        return a(30000, false);
     }
 
-    /* renamed from: b */
-    public HttpClient m1258b() {
-        return mo103a(30000, true);
+    public HttpClient b() {
+        return a(30000, true);
     }
 
-    /* renamed from: a */
-    public HttpClient mo103a(int i, boolean z) {
+    public HttpClient a(int i, boolean z) {
         DefaultHttpClient defaultHttpClient;
         boolean z2 = false;
         try {
-            z2 = this.f6105a.tryLock(300L, TimeUnit.MILLISECONDS);
+            z2 = this.a.tryLock(300L, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         if (!z2) {
             try {
-                GameEngine.m1015b("LoadFromMasterServer", "Could not get getNewHttpClient lock! another thread maybe stuck in getNewHttpClient!");
+                GameEngine.b("LoadFromMasterServer", "Could not get getNewHttpClient lock! another thread maybe stuck in getNewHttpClient!");
             } catch (Throwable th) {
                 if (z2) {
-                    this.f6105a.unlock();
+                    this.a.unlock();
                 }
                 throw th;
             }
         }
         if (!z) {
-            defaultHttpClient = AndroidHttpClient.m5132a((String) null);
+            defaultHttpClient = AndroidHttpClient.a((String) null);
         } else {
             defaultHttpClient = new DefaultHttpClient();
         }
@@ -54,15 +49,14 @@ public class HTTPService {
         HttpConnectionParams.setConnectionTimeout(params, i);
         HttpConnectionParams.setSoTimeout(params, 20000);
         if (z2) {
-            this.f6105a.unlock();
+            this.a.unlock();
         }
         return defaultHttpClient;
     }
 
-    /* renamed from: a */
-    public void mo102a(HttpClient httpClient) {
+    public void a(HttpClient httpClient) {
         if (httpClient instanceof AndroidHttpClient) {
-            ((AndroidHttpClient) httpClient).m5134a();
+            ((AndroidHttpClient) httpClient).a();
         }
     }
 }

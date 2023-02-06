@@ -317,7 +317,7 @@ public final class AssetsID {
 
     /* renamed from: com.corrodinggames.rts.R$id */
     /* loaded from: game-lib.jar:com/corrodinggames/rts/R$id.class */
-    public final class C0068id {
+    public final class id {
         public static int IntroSurfaceView = 2131230729;
         public static int LevelTextTop = 2131230737;
         public static int LinearLayout01 = 2131230726;

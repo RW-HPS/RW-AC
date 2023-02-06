@@ -1,365 +1,291 @@
-package com.corrodinggames.rts.gameFramework.p037f.p038a;
+package com.corrodinggames.rts.gameFramework.Interface.a;
 
 import android.graphics.PointF;
 import android.graphics.RectF;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.unitAction.y;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.a.l */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/a/l.class */
-public abstract class AbstractC0788l {
+public abstract class l {
+    float g;
+    float h;
+    float k;
+    float l;
+    float m;
+    float n;
+    float o;
+    float p;
+    float q;
+    float r;
+    boolean u;
+    l v;
+    float y;
+    float z;
+    k B;
+    static final PointF e = new PointF();
+    static final RectF f = new RectF();
+    static final PointF A = new PointF();
+    float i = 50.0f;
+    float j = 50.0f;
+    boolean s = false;
+    boolean t = false;
+    m w = new m();
+    m x = m.vertical;
 
-    /* renamed from: g */
-    float f5115g;
-
-    /* renamed from: h */
-    float f5116h;
-
-    /* renamed from: k */
-    float f5117k;
-
-    /* renamed from: l */
-    float f5118l;
-
-    /* renamed from: m */
-    float f5119m;
-
-    /* renamed from: n */
-    float f5120n;
-
-    /* renamed from: o */
-    float f5121o;
-
-    /* renamed from: p */
-    float f5122p;
-
-    /* renamed from: q */
-    float f5123q;
-
-    /* renamed from: r */
-    float f5124r;
-
-    /* renamed from: u */
-    boolean f5125u;
-
-    /* renamed from: v */
-    AbstractC0788l f5126v;
-
-    /* renamed from: y */
-    float f5127y;
-
-    /* renamed from: z */
-    float f5128z;
-
-    /* renamed from: B */
-    AbstractC0787k f5129B;
-
-    /* renamed from: e */
-    static final PointF f5130e = new PointF();
-
-    /* renamed from: f */
-    static final RectF f5131f = new RectF();
-
-    /* renamed from: A */
-    static final PointF f5132A = new PointF();
-
-    /* renamed from: i */
-    float f5133i = 50.0f;
-
-    /* renamed from: j */
-    float f5134j = 50.0f;
-
-    /* renamed from: s */
-    boolean f5135s = false;
-
-    /* renamed from: t */
-    boolean f5136t = false;
-
-    /* renamed from: w */
-    C1136m f5137w = new C1136m();
-
-    /* renamed from: x */
-    EnumC0789m f5138x = EnumC0789m.vertical;
-
-    /* renamed from: a */
-    public String mo2021a() {
+    public String a() {
         return getClass().getSimpleName();
     }
 
-    /* renamed from: d */
-    public InterfaceC1063y m2005d() {
-        return GameEngine.getGameEngine().f6326bO;
+    public y d() {
+        return GameEngine.getGameEngine().bO;
     }
 
-    /* renamed from: a */
-    public RectF m2017a(RectF rectF, float f, float f2) {
-        rectF.f234a = 0.0f + f;
-        rectF.f235b = 0.0f + f2;
-        rectF.f236c = 0.0f + this.f5133i + f;
-        rectF.f237d = 0.0f + this.f5134j + f2;
+    public RectF a(RectF rectF, float f2, float f3) {
+        rectF.a = 0.0f + f2;
+        rectF.b = 0.0f + f3;
+        rectF.c = 0.0f + this.i + f2;
+        rectF.d = 0.0f + this.j + f3;
         return rectF;
     }
 
-    /* renamed from: a */
-    public RectF m2018a(RectF rectF) {
-        f5132A.x = this.f5115g;
-        f5132A.y = this.f5116h;
-        if (this.f5126v != null) {
-            this.f5126v.m2019a(f5132A);
+    public RectF a(RectF rectF) {
+        A.x = this.g;
+        A.y = this.h;
+        if (this.v != null) {
+            this.v.a(A);
         }
-        rectF.f234a = 0.0f + f5132A.x;
-        rectF.f235b = 0.0f + f5132A.y;
-        rectF.f236c = 0.0f + this.f5133i + f5132A.x;
-        rectF.f237d = 0.0f + this.f5134j + f5132A.y;
+        rectF.a = 0.0f + A.x;
+        rectF.b = 0.0f + A.y;
+        rectF.c = 0.0f + this.i + A.x;
+        rectF.d = 0.0f + this.j + A.y;
         return rectF;
     }
 
-    /* renamed from: b */
-    public void mo2012b() {
-        Iterator it = this.f5137w.iterator();
+    public void b() {
+        Iterator it = this.w.iterator();
         while (it.hasNext()) {
-            ((AbstractC0788l) it.next()).mo2012b();
+            ((l) it.next()).b();
         }
-        this.f5127y = 0.0f;
-        this.f5128z = 0.0f;
-        if (this.f5138x != EnumC0789m.none) {
-            if (this.f5138x == EnumC0789m.vertical) {
-                float f = 0.0f;
+        this.y = 0.0f;
+        this.z = 0.0f;
+        if (this.x != m.none) {
+            if (this.x == m.vertical) {
                 float f2 = 0.0f;
-                Iterator it2 = this.f5137w.iterator();
-                while (it2.hasNext()) {
-                    AbstractC0788l abstractC0788l = (AbstractC0788l) it2.next();
-                    if (abstractC0788l.f5133i > f) {
-                        f = abstractC0788l.m1999g();
-                    }
-                    f2 += abstractC0788l.m1998h();
-                }
-                this.f5127y = f2;
-                this.f5128z = f;
-                m2010b(this.f5128z * 0.5f, this.f5127y * 0.5f, this.f5137w);
-            } else if (this.f5138x == EnumC0789m.horizontal) {
                 float f3 = 0.0f;
-                float f4 = 0.0f;
-                Iterator it3 = this.f5137w.iterator();
-                while (it3.hasNext()) {
-                    AbstractC0788l abstractC0788l2 = (AbstractC0788l) it3.next();
-                    if (abstractC0788l2.f5134j > f3) {
-                        f3 = abstractC0788l2.m1998h();
+                Iterator it2 = this.w.iterator();
+                while (it2.hasNext()) {
+                    l lVar = (l) it2.next();
+                    if (lVar.i > f2) {
+                        f2 = lVar.g();
                     }
-                    f4 += abstractC0788l2.m1999g();
+                    f3 += lVar.h();
                 }
-                this.f5127y = f3;
-                this.f5128z = f4;
-                m2020a(this.f5128z * 0.5f, this.f5127y * 0.5f, this.f5137w);
+                this.y = f3;
+                this.z = f2;
+                b(this.z * 0.5f, this.y * 0.5f, this.w);
+            } else if (this.x == m.horizontal) {
+                float f4 = 0.0f;
+                float f5 = 0.0f;
+                Iterator it3 = this.w.iterator();
+                while (it3.hasNext()) {
+                    l lVar2 = (l) it3.next();
+                    if (lVar2.j > f4) {
+                        f4 = lVar2.h();
+                    }
+                    f5 += lVar2.g();
+                }
+                this.y = f4;
+                this.z = f5;
+                a(this.z * 0.5f, this.y * 0.5f, this.w);
             } else {
-                throw new RuntimeException("Unknown layout style:" + this.f5138x);
+                throw new RuntimeException("Unknown layout style:" + this.x);
             }
         }
-        this.f5135s = false;
+        this.s = false;
     }
 
-    /* renamed from: a */
-    public static void m2020a(float f, float f2, C1136m c1136m) {
-        float f3 = 0.0f;
-        Iterator it = c1136m.iterator();
+    public static void a(float f2, float f3, m mVar) {
+        float f4 = 0.0f;
+        Iterator it = mVar.iterator();
         while (it.hasNext()) {
-            f3 += ((AbstractC0788l) it.next()).m1999g();
+            f4 += ((l) it.next()).g();
         }
-        float f4 = f - (f3 * 0.5f);
-        Iterator it2 = c1136m.iterator();
+        float f5 = f2 - (f4 * 0.5f);
+        Iterator it2 = mVar.iterator();
         while (it2.hasNext()) {
-            AbstractC0788l abstractC0788l = (AbstractC0788l) it2.next();
-            float f5 = f4 + abstractC0788l.f5123q;
-            abstractC0788l.f5115g = f5;
-            f4 = f5 + abstractC0788l.f5133i + abstractC0788l.f5124r;
-            abstractC0788l.m2004d(f2);
+            l lVar = (l) it2.next();
+            float f6 = f5 + lVar.q;
+            lVar.g = f6;
+            f5 = f6 + lVar.i + lVar.r;
+            lVar.d(f3);
         }
     }
 
-    /* renamed from: b */
-    public static void m2010b(float f, float f2, C1136m c1136m) {
-        float f3 = 0.0f;
-        Iterator it = c1136m.iterator();
+    public static void b(float f2, float f3, m mVar) {
+        float f4 = 0.0f;
+        Iterator it = mVar.iterator();
         while (it.hasNext()) {
-            f3 += ((AbstractC0788l) it.next()).m1998h();
+            f4 += ((l) it.next()).h();
         }
-        float f4 = f2 - (f3 * 0.5f);
-        Iterator it2 = c1136m.iterator();
+        float f5 = f3 - (f4 * 0.5f);
+        Iterator it2 = mVar.iterator();
         while (it2.hasNext()) {
-            AbstractC0788l abstractC0788l = (AbstractC0788l) it2.next();
-            float f5 = f4 + abstractC0788l.f5121o;
-            abstractC0788l.f5116h = f5;
-            f4 = f5 + abstractC0788l.f5134j + abstractC0788l.f5122p;
-            abstractC0788l.m2007c(f);
+            l lVar = (l) it2.next();
+            float f6 = f5 + lVar.o;
+            lVar.h = f6;
+            f5 = f6 + lVar.j + lVar.p;
+            lVar.c(f2);
         }
     }
 
-    /* renamed from: a */
-    public void m2019a(PointF pointF) {
-        if (this.f5126v != null) {
-            this.f5126v.m2019a(pointF);
+    public void a(PointF pointF) {
+        if (this.v != null) {
+            this.v.a(pointF);
         }
-        pointF.x += this.f5115g;
-        pointF.y += this.f5116h;
+        pointF.x += this.g;
+        pointF.y += this.h;
     }
 
-    /* renamed from: a */
-    public void m2014a(AbstractC0788l abstractC0788l) {
-        abstractC0788l.m2008b(this);
+    public void a(l lVar) {
+        lVar.b(this);
     }
 
-    /* renamed from: b */
-    public void m2008b(AbstractC0788l abstractC0788l) {
-        m2013a(abstractC0788l, false);
+    public void b(l lVar) {
+        a(lVar, false);
     }
 
-    /* renamed from: a */
-    public void m2013a(AbstractC0788l abstractC0788l, boolean z) {
-        if (this.f5126v == abstractC0788l) {
+    public void a(l lVar, boolean z) {
+        if (this.v == lVar) {
             return;
         }
-        if (this.f5126v != null) {
-            this.f5126v.f5137w.remove(this);
+        if (this.v != null) {
+            this.v.w.remove(this);
         }
-        this.f5126v = abstractC0788l;
-        if (abstractC0788l != null) {
+        this.v = lVar;
+        if (lVar != null) {
             if (!z) {
-                abstractC0788l.f5137w.add(this);
+                lVar.w.add(this);
             } else {
-                abstractC0788l.f5137w.add(0, this);
+                lVar.w.add(0, this);
             }
         }
-        m2003e();
+        e();
     }
 
-    /* renamed from: e */
-    public void m2003e() {
-        this.f5135s = true;
-        if (this.f5126v != null) {
-            this.f5126v.m2003e();
+    public void e() {
+        this.s = true;
+        if (this.v != null) {
+            this.v.e();
         }
     }
 
-    /* renamed from: b */
-    public void m2011b(float f) {
-        if (this.f5137w.size() > 0) {
-            Iterator it = this.f5137w.iterator();
+    public void b(float f2) {
+        if (this.w.size() > 0) {
+            Iterator it = this.w.iterator();
             while (it.hasNext()) {
-                ((AbstractC0788l) it.next()).m2011b(f);
+                ((l) it.next()).b(f2);
             }
         }
     }
 
-    /* renamed from: f */
-    public void m2001f() {
-        f5132A.x = this.f5115g;
-        f5132A.y = this.f5116h;
-        if (this.f5126v != null) {
-            this.f5126v.m2019a(f5132A);
+    public void f() {
+        A.x = this.g;
+        A.y = this.h;
+        if (this.v != null) {
+            this.v.a(A);
         }
-        mo1996a(f5132A.x, f5132A.y);
-        if (this.f5137w.size() > 0) {
-            Iterator it = this.f5137w.iterator();
+        a(A.x, A.y);
+        if (this.w.size() > 0) {
+            Iterator it = this.w.iterator();
             while (it.hasNext()) {
-                ((AbstractC0788l) it.next()).m2001f();
+                ((l) it.next()).f();
             }
         }
     }
 
-    /* renamed from: a */
-    public void mo1996a(float f, float f2) {
-        if (this.f5136t) {
-            C0784h.f5099m.m2028a(m2005d(), m2017a(new RectF(), f, f2));
+    public void a(float f2, float f3) {
+        if (this.t) {
+            h.m.a(d(), a(new RectF(), f2, f3));
         }
     }
 
-    /* renamed from: a */
-    public void m2015a(AbstractC0787k abstractC0787k) {
-        this.f5129B = abstractC0787k;
+    public void a(k kVar) {
+        this.B = kVar;
     }
 
-    /* renamed from: a */
-    public boolean m2016a(C0778c c0778c) {
-        if (c0778c.m2048a() && m2006c(c0778c)) {
-            GameEngine.m5460e("UI click " + mo2021a());
-            if (this.f5129B != null) {
-                return this.f5129B.mo1430a(c0778c);
+    public boolean a(c cVar) {
+        if (cVar.a() && c(cVar)) {
+            GameEngine.m5e("UI click " + a());
+            if (this.B != null) {
+                return this.B.a(cVar);
             }
             return false;
-        } else if (c0778c.m2046b()) {
-            if (m2006c(c0778c)) {
-                this.f5125u = true;
+        } else if (cVar.b()) {
+            if (c(cVar)) {
+                this.u = true;
                 return false;
             }
-            this.f5125u = false;
+            this.u = false;
             return false;
         } else {
             return false;
         }
     }
 
-    /* renamed from: b */
-    public boolean m2009b(C0778c c0778c) {
-        if (this.f5137w.size() > 0) {
-            Iterator it = this.f5137w.iterator();
+    public boolean b(c cVar) {
+        if (this.w.size() > 0) {
+            Iterator it = this.w.iterator();
             while (it.hasNext()) {
-                if (((AbstractC0788l) it.next()).m2009b(c0778c)) {
+                if (((l) it.next()).b(cVar)) {
                     return true;
                 }
             }
         }
-        if (m2016a(c0778c)) {
+        if (a(cVar)) {
             return true;
         }
         return false;
     }
 
-    /* renamed from: c */
-    public boolean m2006c(C0778c c0778c) {
-        m2018a(f5131f);
-        return f5131f.m5152b(c0778c.f5072a, c0778c.f5073b);
+    public boolean c(c cVar) {
+        a(f);
+        return f.b(cVar.a, cVar.b);
     }
 
-    /* renamed from: c */
-    public void m2007c(float f) {
-        this.f5115g = f - (this.f5133i * 0.5f);
+    public void c(float f2) {
+        this.g = f2 - (this.i * 0.5f);
     }
 
-    /* renamed from: d */
-    public void m2004d(float f) {
-        this.f5116h = f - (this.f5134j * 0.5f);
+    public void d(float f2) {
+        this.h = f2 - (this.j * 0.5f);
     }
 
-    /* renamed from: e */
-    public void m2002e(float f) {
-        this.f5121o = f;
-        this.f5122p = f;
-        this.f5123q = f;
-        this.f5124r = f;
+    public void e(float f2) {
+        this.o = f2;
+        this.p = f2;
+        this.q = f2;
+        this.r = f2;
     }
 
-    /* renamed from: f */
-    public void m2000f(float f) {
-        this.f5117k = f;
-        this.f5118l = f;
-        this.f5119m = f;
-        this.f5120n = f;
+    public void f(float f2) {
+        this.k = f2;
+        this.l = f2;
+        this.m = f2;
+        this.n = f2;
     }
 
-    /* renamed from: g */
-    public float m1999g() {
-        return this.f5123q + this.f5133i + this.f5124r;
+    public float g() {
+        return this.q + this.i + this.r;
     }
 
-    /* renamed from: h */
-    public float m1998h() {
-        return this.f5121o + this.f5134j + this.f5122p;
+    public float h() {
+        return this.o + this.j + this.p;
     }
 
-    /* renamed from: i */
-    public void m1997i() {
-        m2008b((AbstractC0788l) null);
+    public void i() {
+        b((l) null);
     }
 }

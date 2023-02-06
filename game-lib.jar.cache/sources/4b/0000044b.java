@@ -1,30 +1,23 @@
-package com.corrodinggames.rts.gameFramework.p031b.p032a;
+package com.corrodinggames.rts.gameFramework.b.a;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.b.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/a/a.class */
-public enum EnumC0677a {
+public enum a {
     A_Position(1, "a_Position"),
     A_TexCoordinate(2, "a_TexCoordinate");
     
+    private int c;
+    private String d;
 
-    /* renamed from: c */
-    private int f4270c;
-
-    /* renamed from: d */
-    private String f4271d;
-
-    EnumC0677a(int i, String str) {
-        this.f4270c = i;
-        this.f4271d = str;
+    a(int i, String str) {
+        this.c = i;
+        this.d = str;
     }
 
-    /* renamed from: a */
-    public int m2722a() {
-        return this.f4270c;
+    public int a() {
+        return this.c;
     }
 
-    /* renamed from: b */
-    public String m2721b() {
-        return this.f4271d;
+    public String b() {
+        return this.d;
     }
 }

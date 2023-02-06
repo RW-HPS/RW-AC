@@ -1,81 +1,66 @@
-package com.corrodinggames.rts.game.units.custom.p018b;
+package com.corrodinggames.rts.game.units.custom.b;
 
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
+import com.corrodinggames.rts.gameFramework.utility.ab;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.b.l */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/b/l.class */
-public class C0400l extends AbstractC0389a {
+public class l extends a {
+    LogicBoolean a;
+    float b;
+    float c;
+    int d;
 
-    /* renamed from: a */
-    LogicBoolean f2413a;
-
-    /* renamed from: b */
-    float f2414b;
-
-    /* renamed from: c */
-    float f2415c;
-
-    /* renamed from: d */
-    int f2416d;
-
-    /* renamed from: a */
-    public static void m3932a(C0458l c0458l, C1107ab c1107ab) {
-        if (c1107ab.m648g("movement_random")) {
-            C0400l c0400l = new C0400l();
-            c0400l.m3931a(c0458l, c1107ab, "movement_random", "movement_random");
-            if (!LogicBoolean.isStaticFalse(c0400l.f2413a)) {
-                c0458l.m3558a(c0400l);
+    public static void a(com.corrodinggames.rts.game.units.custom.l lVar, ab abVar) {
+        if (abVar.g("movement_random")) {
+            l lVar2 = new l();
+            lVar2.a(lVar, abVar, "movement_random", "movement_random");
+            if (!LogicBoolean.isStaticFalse(lVar2.a)) {
+                lVar.a(lVar2);
             }
         }
     }
 
-    /* renamed from: a */
-    public void m3931a(C0458l c0458l, C1107ab c1107ab, String str, String str2) {
-        this.f2413a = c1107ab.m707a(c0458l, str, "enabled");
-        this.f2414b = c1107ab.m643i(str, "speed");
-        this.f2415c = c1107ab.m683a(str, "maxSpeed", Float.valueOf(5.0f)).floatValue();
-        this.f2416d = c1107ab.m667b(str, "awayFromEdge", (Integer) 75).intValue();
+    public void a(com.corrodinggames.rts.game.units.custom.l lVar, ab abVar, String str, String str2) {
+        this.a = abVar.a(lVar, str, "enabled");
+        this.b = abVar.i(str, "speed");
+        this.c = abVar.a(str, "maxSpeed", Float.valueOf(5.0f)).floatValue();
+        this.d = abVar.b(str, "awayFromEdge", (Integer) 75).intValue();
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.p018b.AbstractC0389a
-    /* renamed from: b */
-    public void mo3919b(C0456j c0456j, float f) {
-        if (!this.f2413a.read(c0456j)) {
+    @Override // com.corrodinggames.rts.game.units.custom.b.a
+    public void b(com.corrodinggames.rts.game.units.custom.j jVar, float f) {
+        if (!this.a.read(jVar)) {
             return;
         }
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (c0456j.mo2903bi()) {
-            if (C0773f.m2152c(c0456j.f1619cc) < this.f2415c) {
-                c0456j.f1619cc += C0773f.m2162b(c0456j, -this.f2414b, this.f2414b, 1);
+        if (jVar.bi()) {
+            if (com.corrodinggames.rts.gameFramework.f.c(jVar.cc) < this.c) {
+                jVar.cc += com.corrodinggames.rts.gameFramework.f.b(jVar, -this.b, this.b, 1);
             }
-            if (C0773f.m2152c(c0456j.f1620cd) < this.f2415c) {
-                c0456j.f1620cd += C0773f.m2162b(c0456j, -this.f2414b, this.f2414b, 2);
+            if (com.corrodinggames.rts.gameFramework.f.c(jVar.cd) < this.c) {
+                jVar.cd += com.corrodinggames.rts.gameFramework.f.b(jVar, -this.b, this.b, 2);
             }
         } else {
-            if (C0773f.m2152c(c0456j.f1622cf) < this.f2415c) {
-                c0456j.f1622cf += C0773f.m2162b(c0456j, -this.f2414b, this.f2414b, 1);
+            if (com.corrodinggames.rts.gameFramework.f.c(jVar.cf) < this.c) {
+                jVar.cf += com.corrodinggames.rts.gameFramework.f.b(jVar, -this.b, this.b, 1);
             }
-            c0456j.f1623cg += C0773f.m2162b(c0456j, -1.0f, 1.0f, 2);
+            jVar.cg += com.corrodinggames.rts.gameFramework.f.b(jVar, -1.0f, 1.0f, 2);
         }
-        if (this.f2416d > 0) {
-            if (c0456j.f7174ep > gameEngine.f6371bL.m4598j() - this.f2416d) {
-                c0456j.f1620cd -= C0773f.m2162b(c0456j, 0.0f, this.f2414b * 0.25f, 10);
+        if (this.d > 0) {
+            if (jVar.ep > gameEngine.bL.j() - this.d) {
+                jVar.cd -= com.corrodinggames.rts.gameFramework.f.b(jVar, 0.0f, this.b * 0.25f, 10);
             }
-            if (c0456j.f7174ep < this.f2416d) {
-                c0456j.f1620cd += C0773f.m2162b(c0456j, 0.0f, this.f2414b * 0.25f, 11);
+            if (jVar.ep < this.d) {
+                jVar.cd += com.corrodinggames.rts.gameFramework.f.b(jVar, 0.0f, this.b * 0.25f, 11);
             }
-            if (c0456j.f7173eo > gameEngine.f6371bL.m4599i() - this.f2416d) {
-                c0456j.f1619cc -= C0773f.m2162b(c0456j, 0.0f, this.f2414b * 0.25f, 12);
+            if (jVar.eo > gameEngine.bL.i() - this.d) {
+                jVar.cc -= com.corrodinggames.rts.gameFramework.f.b(jVar, 0.0f, this.b * 0.25f, 12);
             }
-            if (c0456j.f7173eo < this.f2416d) {
-                c0456j.f1619cc += C0773f.m2162b(c0456j, 0.0f, this.f2414b * 0.25f, 13);
+            if (jVar.eo < this.d) {
+                jVar.cc += com.corrodinggames.rts.gameFramework.f.b(jVar, 0.0f, this.b * 0.25f, 13);
             }
         }
-        c0456j.f3979ay = true;
+        jVar.ay = true;
     }
 }

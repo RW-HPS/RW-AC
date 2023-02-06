@@ -7,21 +7,19 @@ import java.net.SocketAddress;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import net.rudp.p002a.ACKSegment;
-import net.rudp.p002a.SYNSegment;
-import net.rudp.p002a.Segment;
+import net.rudp.a.ACKSegment;
+import net.rudp.a.SYNSegment;
+import net.rudp.a.Segment;
 
 /* renamed from: a.a.d */
 /* loaded from: game-lib.jar:a/a/d.class */
-class C0013d extends Thread {
-
-    /* renamed from: a */
-    final /* synthetic */ ReliableServerSocket f40a;
+class d extends Thread {
+    final /* synthetic */ ReliableServerSocket a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public C0013d(ReliableServerSocket reliableServerSocket) {
+    public d(ReliableServerSocket reliableServerSocket) {
         super("ReliableServerSocket");
-        this.f40a = reliableServerSocket;
+        this.a = reliableServerSocket;
         setDaemon(true);
     }
 
@@ -34,7 +32,7 @@ class C0013d extends Thread {
         HashMap hashMap2;
         HashMap hashMap3;
         HashMap hashMap4;
-        C0014e c0014e;
+        e eVar;
         HashMap hashMap5;
         HashMap hashMap6;
         HashMap hashMap7;
@@ -44,109 +42,109 @@ class C0013d extends Thread {
         HashMap hashMap10;
         HashMap hashMap11;
         HashMap hashMap12;
-        AbstractC0012c abstractC0012c;
+        c cVar;
         byte[] bArr = new byte[65535];
         while (true) {
             DatagramPacket datagramPacket = new DatagramPacket(bArr, bArr.length);
             try {
                 try {
-                    datagramSocket3 = this.f40a.f29d;
+                    datagramSocket3 = this.a.d;
                     datagramSocket3.receive(datagramPacket);
                     SocketAddress socketAddress = datagramPacket.getSocketAddress();
-                    hashMap = this.f40a.f34i;
+                    hashMap = this.a.i;
                     synchronized (hashMap) {
-                        hashMap2 = this.f40a.f36k;
-                        AbstractC0000a abstractC0000a = (AbstractC0000a) hashMap2.get(socketAddress);
-                        if (abstractC0000a == null) {
-                            hashMap3 = this.f40a.f34i;
+                        hashMap2 = this.a.k;
+                        a aVar = (a) hashMap2.get(socketAddress);
+                        if (aVar == null) {
+                            hashMap3 = this.a.i;
                             synchronized (hashMap3) {
-                                hashMap4 = this.f40a.f34i;
-                                c0014e = (C0014e) hashMap4.get(socketAddress);
+                                hashMap4 = this.a.i;
+                                eVar = (e) hashMap4.get(socketAddress);
                             }
-                            if (c0014e != null || (abstractC0012c = this.f40a.f28a) == null || abstractC0012c.mo1409a(socketAddress)) {
+                            if (eVar != null || (cVar = this.a.a) == null || cVar.a(socketAddress)) {
                                 Segment parse = Segment.parse(datagramPacket.getData(), 0, datagramPacket.getLength());
-                                if (!this.f40a.isClosed() && c0014e == null) {
+                                if (!this.a.isClosed() && eVar == null) {
                                     if (parse instanceof SYNSegment) {
                                         long currentTimeMillis = System.currentTimeMillis();
-                                        hashMap7 = this.f40a.f35j;
+                                        hashMap7 = this.a.j;
                                         if (hashMap7.size() > 0) {
                                             int i = 10000;
-                                            hashMap10 = this.f40a.f35j;
+                                            hashMap10 = this.a.j;
                                             if (hashMap10.size() > 20) {
                                                 i = 5000;
                                             }
-                                            hashMap11 = this.f40a.f35j;
+                                            hashMap11 = this.a.j;
                                             if (hashMap11.size() > 200) {
                                                 i = 3000;
                                             }
-                                            hashMap12 = this.f40a.f35j;
+                                            hashMap12 = this.a.j;
                                             Iterator it = hashMap12.entrySet().iterator();
                                             while (it.hasNext()) {
-                                                if (((C0016g) ((Map.Entry) it.next()).getValue()).f45a + i < currentTimeMillis) {
+                                                if (((g) ((Map.Entry) it.next()).getValue()).a + i < currentTimeMillis) {
                                                     it.remove();
                                                 }
                                             }
                                         }
-                                        hashMap8 = this.f40a.f35j;
-                                        C0016g c0016g = (C0016g) hashMap8.get(socketAddress);
-                                        if (c0016g != null) {
-                                            c0016g.f46b.m5406a((SYNSegment) parse);
+                                        hashMap8 = this.a.j;
+                                        g gVar = (g) hashMap8.get(socketAddress);
+                                        if (gVar != null) {
+                                            gVar.b.a((SYNSegment) parse);
                                         } else {
-                                            C0016g c0016g2 = new C0016g();
-                                            c0016g2.f45a = currentTimeMillis;
-                                            ReliableServerSocket reliableServerSocket = this.f40a;
-                                            datagramSocket4 = this.f40a.f29d;
-                                            c0016g2.f46b = new C0014e(reliableServerSocket, datagramSocket4, socketAddress);
-                                            c0016g2.f46b.m5406a((SYNSegment) parse);
-                                            hashMap9 = this.f40a.f35j;
-                                            hashMap9.put(socketAddress, c0016g2);
+                                            g gVar2 = new g();
+                                            gVar2.a = currentTimeMillis;
+                                            ReliableServerSocket reliableServerSocket = this.a;
+                                            datagramSocket4 = this.a.d;
+                                            gVar2.b = new e(reliableServerSocket, datagramSocket4, socketAddress);
+                                            gVar2.b.a((SYNSegment) parse);
+                                            hashMap9 = this.a.j;
+                                            hashMap9.put(socketAddress, gVar2);
                                         }
                                     }
                                     if (parse instanceof ACKSegment) {
-                                        hashMap5 = this.f40a.f35j;
-                                        C0016g c0016g3 = (C0016g) hashMap5.get(socketAddress);
-                                        if (c0016g3 != null) {
-                                            C0014e c0014e2 = c0016g3.f46b;
-                                            if (!c0014e2.m5394b(parse)) {
-                                                this.f40a.m5419a("lightweight ack failed ack:" + parse.getAck());
+                                        hashMap5 = this.a.j;
+                                        g gVar3 = (g) hashMap5.get(socketAddress);
+                                        if (gVar3 != null) {
+                                            e eVar2 = gVar3.b;
+                                            if (!eVar2.b(parse)) {
+                                                this.a.a("lightweight ack failed ack:" + parse.getAck());
                                             } else {
-                                                this.f40a.m5416a(socketAddress, c0014e2);
-                                                c0014e = c0014e2;
-                                                hashMap6 = this.f40a.f35j;
+                                                this.a.a(socketAddress, eVar2);
+                                                eVar = eVar2;
+                                                hashMap6 = this.a.j;
                                                 hashMap6.remove(socketAddress);
                                             }
                                         }
                                     }
                                 }
-                                if (c0014e != null) {
-                                    c0014e.m5411a(parse);
+                                if (eVar != null) {
+                                    eVar.a(parse);
                                 }
                             }
                         } else {
-                            abstractC0000a.m5455a(datagramPacket.getData(), datagramPacket.getLength());
+                            aVar.a(datagramPacket.getData(), datagramPacket.getLength());
                         }
                     }
                 } catch (IOException e) {
-                    ReliableServerSocket reliableServerSocket2 = this.f40a;
+                    ReliableServerSocket reliableServerSocket2 = this.a;
                     StringBuilder append = new StringBuilder().append("IOException receiving packet:").append(e.getMessage()).append(" isConnected:");
-                    datagramSocket = this.f40a.f29d;
-                    reliableServerSocket2.m5419a(append.append(datagramSocket.isConnected()).toString());
-                    datagramSocket2 = this.f40a.f29d;
+                    datagramSocket = this.a.d;
+                    reliableServerSocket2.a(append.append(datagramSocket.isConnected()).toString());
+                    datagramSocket2 = this.a.d;
                     if (!datagramSocket2.isConnected()) {
-                        this.f40a.close();
+                        this.a.close();
                     }
                     throw new IOException(e);
                     break;
                 }
             } catch (IOException e2) {
-                if (!this.f40a.isClosed()) {
-                    this.f40a.m5419a("IOException client " + ((Object) null) + " - " + e2.getMessage());
+                if (!this.a.isClosed()) {
+                    this.a.a("IOException client " + ((Object) null) + " - " + e2.getMessage());
                 } else {
                     return;
                 }
             } catch (IllegalArgumentException e3) {
-                if (!this.f40a.isClosed()) {
-                    this.f40a.m5419a("IllegalArgumentException " + ((Object) null) + " - " + e3.getMessage());
+                if (!this.a.isClosed()) {
+                    this.a.a("IllegalArgumentException " + ((Object) null) + " - " + e3.getMessage());
                 } else {
                     return;
                 }

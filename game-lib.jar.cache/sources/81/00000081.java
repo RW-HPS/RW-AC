@@ -175,12 +175,10 @@ public class SteamFriends extends SteamInterface {
         Stats("Stats"),
         Achievements("Achievements");
         
-
-        /* renamed from: id */
-        private final String f339id;
+        private final String id;
 
         OverlayDialog(String str) {
-            this.f339id = str;
+            this.id = str;
         }
     }
 
@@ -196,12 +194,10 @@ public class SteamFriends extends SteamInterface {
         FriendRequestAccept("friendrequestaccept"),
         FriendRequestIgnore("friendrequestignore");
         
-
-        /* renamed from: id */
-        private final String f340id;
+        private final String id;
 
         OverlayToUserDialog(String str) {
-            this.f340id = str;
+            this.id = str;
         }
     }
 
@@ -266,11 +262,11 @@ public class SteamFriends extends SteamInterface {
     }
 
     public void activateGameOverlay(OverlayDialog overlayDialog) {
-        activateGameOverlay(this.pointer, overlayDialog.f339id);
+        activateGameOverlay(this.pointer, overlayDialog.id);
     }
 
     public void activateGameOverlayToUser(OverlayToUserDialog overlayToUserDialog, SteamID steamID) {
-        activateGameOverlayToUser(this.pointer, overlayToUserDialog.f340id, steamID.handle);
+        activateGameOverlayToUser(this.pointer, overlayToUserDialog.id, steamID.handle);
     }
 
     public void activateGameOverlayToWebPage(String str) {

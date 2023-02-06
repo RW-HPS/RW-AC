@@ -1,33 +1,29 @@
 package android.graphics;
 
-import com.p005a.p006a.p007a.C0042a;
+import com.a.a.a.a;
 
 /* loaded from: game-lib.jar:android/graphics/TemporaryBuffer.class */
 public class TemporaryBuffer {
+    private static char[] a = null;
 
-    /* renamed from: a */
-    private static char[] f239a = null;
-
-    /* renamed from: a */
-    public static char[] m5141a(int i) {
+    public static char[] a(int i) {
         char[] cArr;
         synchronized (TemporaryBuffer.class) {
-            cArr = f239a;
-            f239a = null;
+            cArr = a;
+            a = null;
         }
         if (cArr == null || cArr.length < i) {
-            cArr = new char[C0042a.m5048b(i)];
+            cArr = new char[a.b(i)];
         }
         return cArr;
     }
 
-    /* renamed from: a */
-    public static void m5140a(char[] cArr) {
+    public static void a(char[] cArr) {
         if (cArr.length > 1000) {
             return;
         }
         synchronized (TemporaryBuffer.class) {
-            f239a = cArr;
+            a = cArr;
         }
     }
 }

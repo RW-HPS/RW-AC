@@ -5,26 +5,20 @@ import android.os.Parcelable;
 
 /* loaded from: game-lib.jar:android/graphics/Point.class */
 public class Point implements Parcelable {
-
-    /* renamed from: a */
-    public int f224a;
-
-    /* renamed from: b */
-    public int f225b;
-
-    /* renamed from: c */
-    public static final Parcelable.Creator f226c = new Parcelable.Creator() { // from class: android.graphics.Point.1
+    public int a;
+    public int b;
+    public static final Parcelable.Creator c = new Parcelable.Creator() { // from class: android.graphics.Point.1
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public Point mo5178a(Parcel parcel) {
+        public Point createFromParcel(Parcel parcel) {
             Point point = new Point();
-            point.m5180a(parcel);
+            point.a(parcel);
             return point;
         }
 
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public Point[] mo5179a(int i) {
+        public Point[] newArray(int i) {
             return new Point[i];
         }
     };
@@ -33,14 +27,13 @@ public class Point implements Parcelable {
     }
 
     public Point(int i, int i2) {
-        this.f224a = i;
-        this.f225b = i2;
+        this.a = i;
+        this.b = i2;
     }
 
-    /* renamed from: a */
-    public void m5181a(int i, int i2) {
-        this.f224a = i;
-        this.f225b = i2;
+    public void a(int i, int i2) {
+        this.a = i;
+        this.b = i2;
     }
 
     public boolean equals(Object obj) {
@@ -51,15 +44,15 @@ public class Point implements Parcelable {
             return false;
         }
         Point point = (Point) obj;
-        return this.f224a == point.f224a && this.f225b == point.f225b;
+        return this.a == point.a && this.b == point.b;
     }
 
     public int hashCode() {
-        return (31 * this.f224a) + this.f225b;
+        return (31 * this.a) + this.b;
     }
 
     public String toString() {
-        return "Point(" + this.f224a + ", " + this.f225b + ")";
+        return "Point(" + this.a + ", " + this.b + ")";
     }
 
     @Override // android.os.Parcelable
@@ -69,13 +62,12 @@ public class Point implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f224a);
-        parcel.writeInt(this.f225b);
+        parcel.writeInt(this.a);
+        parcel.writeInt(this.b);
     }
 
-    /* renamed from: a */
-    public void m5180a(Parcel parcel) {
-        this.f224a = parcel.readInt();
-        this.f225b = parcel.readInt();
+    public void a(Parcel parcel) {
+        this.a = parcel.readInt();
+        this.b = parcel.readInt();
     }
 }

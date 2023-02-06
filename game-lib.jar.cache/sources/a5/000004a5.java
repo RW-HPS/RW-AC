@@ -2,15 +2,15 @@ package com.corrodinggames.rts.gameFramework.file;
 
 import android.content.res.AssetManager;
 import android.os.Environment;
-import com.corrodinggames.rts.appFramework.C0090c;
+import com.corrodinggames.rts.appFramework.c;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.mod.C0859b;
-import com.corrodinggames.rts.gameFramework.utility.AbstractC1111af;
-import com.corrodinggames.rts.gameFramework.utility.C1110ae;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
-import com.corrodinggames.rts.gameFramework.utility.p049a.C1103a;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.mod.b;
+import com.corrodinggames.rts.gameFramework.utility.a.a;
+import com.corrodinggames.rts.gameFramework.utility.ae;
+import com.corrodinggames.rts.gameFramework.utility.af;
+import com.corrodinggames.rts.gameFramework.utility.j;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,42 +24,27 @@ import java.util.Locale;
 /* renamed from: com.corrodinggames.rts.gameFramework.e.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/e/c.class */
 public class FileLoader {
+    public String a = "FileLoader: ";
+    public boolean b = false;
+    public boolean c = false;
+    public boolean d = false;
+    String e;
+    String f;
 
-    /* renamed from: a */
-    public String f4954a = "FileLoader: ";
-
-    /* renamed from: b */
-    public boolean f4955b = false;
-
-    /* renamed from: c */
-    public boolean f4956c = false;
-
-    /* renamed from: d */
-    public boolean f4957d = false;
-
-    /* renamed from: e */
-    String f4958e;
-
-    /* renamed from: f */
-    String f4959f;
-
-    /* renamed from: a */
-    public String mo2259a() {
-        String str = this.f4958e;
-        this.f4958e = null;
+    public String a() {
+        String str = this.e;
+        this.e = null;
         return str;
     }
 
-    /* renamed from: a */
-    public void mo2258a(String str) {
-        this.f4958e = str;
+    public void a(String str) {
+        this.e = str;
     }
 
-    /* renamed from: a */
-    public String mo2257a(String str, String str2) {
+    public String a(String str, String str2) {
         File[] listFiles = new File(str).listFiles();
         if (listFiles == null) {
-            GameEngine.m5460e(this.f4954a + "findFileExtension('" + str + "','" + str2 + "'): path is not a folder");
+            GameEngine.m5e(this.a + "findFileExtension('" + str + "','" + str2 + "'): path is not a folder");
             return null;
         }
         for (File file : listFiles) {
@@ -71,28 +56,26 @@ public class FileLoader {
                 return str + "/" + file.getName();
             }
         }
-        GameEngine.m5460e(this.f4954a + "Could not find file with path: " + str + " file:" + str2);
+        GameEngine.m5e(this.a + "Could not find file with path: " + str + " file:" + str2);
         return null;
     }
 
-    /* renamed from: b */
-    public boolean mo2254b(String str) {
-        if (GameEngine.f6418aU || str.startsWith("/") || str.startsWith("/SD/")) {
+    public boolean b(String str) {
+        if (GameEngine.aU || str.startsWith("/") || str.startsWith("/SD/")) {
             return false;
         }
         return true;
     }
 
-    /* renamed from: c */
-    public boolean mo2253c(String str) {
+    public boolean c(String str) {
         if (str.startsWith("/") || str.startsWith("\\")) {
             return true;
         }
-        if (GameEngine.f6418aU) {
+        if (GameEngine.aU) {
             if (str.startsWith("mods")) {
                 return true;
             }
-            if (GameEngine.f6423aZ && str.startsWith("converted-sounds")) {
+            if (GameEngine.aZ && str.startsWith("converted-sounds")) {
                 return true;
             }
         }
@@ -102,8 +85,7 @@ public class FileLoader {
         return false;
     }
 
-    /* renamed from: d */
-    public String mo2252d(String str) {
+    public String d(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (str.contains("MOD|")) {
             String[] split = str.split("/");
@@ -118,12 +100,12 @@ public class FileLoader {
                     String str3 = split[length];
                     if (str3.startsWith("MOD|")) {
                         String substring = str3.substring("MOD|".length());
-                        C0859b m1690c = gameEngine.f6337bZ.m1690c(substring);
-                        if (m1690c == null) {
-                            GameEngine.m5460e(this.f4954a + "Failed to find mod with hash:" + substring);
+                        b c = gameEngine.bZ.c(substring);
+                        if (c == null) {
+                            GameEngine.m5e(this.a + "Failed to find mod with hash:" + substring);
                         } else {
-                            str2 = C0773f.m2156b(m1690c.m1661g(), str2);
-                            GameEngine.m5460e(this.f4954a + "Path changed to mod path:" + str2);
+                            str2 = f.b(c.g(), str2);
+                            GameEngine.m5e(this.a + "Path changed to mod path:" + str2);
                             z = true;
                             break;
                         }
@@ -136,7 +118,7 @@ public class FileLoader {
                 }
             }
             if (str.contains("MOD|")) {
-                GameEngine.m5460e(this.f4954a + "Path still contains prefix: " + str);
+                GameEngine.m5e(this.a + "Path still contains prefix: " + str);
             }
         }
         if (str.contains("NEW_PATH|")) {
@@ -152,7 +134,7 @@ public class FileLoader {
                     String str5 = split2[length2];
                     if (str5.startsWith("NEW_PATH|") && str5.substring("NEW_PATH|".length()).equals("maps2")) {
                         str4 = "/SD/rustedWarfare/maps" + File.separator + str4;
-                        GameEngine.m5460e(this.f4954a + "Path changed to maps2 path:" + str4);
+                        GameEngine.m5e(this.a + "Path changed to maps2 path:" + str4);
                         z2 = true;
                         break;
                     }
@@ -167,122 +149,117 @@ public class FileLoader {
         return str;
     }
 
-    /* renamed from: e */
-    public String mo2251e(String str) {
+    public String e(String str) {
         if (str == null) {
             return "<null>";
         }
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m628b = C1110ae.m628b(mo2250f);
-        if (m628b != null) {
-            return m628b.mo614f(mo2250f);
+        String f = f(str);
+        af b = ae.b(f);
+        if (b != null) {
+            return b.f(f);
         }
-        return mo2250f;
+        return f;
     }
 
-    /* renamed from: f */
-    public String mo2250f(String str) {
-        String mo2252d = mo2252d(str);
-        if (GameEngine.f6418aU) {
-            if (mo2252d.startsWith("/SD/rusted_warfare_maps")) {
-                mo2252d = "/SD/mods/maps" + mo2252d.substring("/SD/rusted_warfare_maps".length());
-                GameEngine.m5460e(this.f4954a + "convertAbstractPath: Changing to:" + mo2252d);
+    public String f(String str) {
+        String d = d(str);
+        if (GameEngine.aU) {
+            if (d.startsWith("/SD/rusted_warfare_maps")) {
+                d = "/SD/mods/maps" + d.substring("/SD/rusted_warfare_maps".length());
+                GameEngine.m5e(this.a + "convertAbstractPath: Changing to:" + d);
             }
-            if (mo2252d.startsWith("/SD/rustedWarfare/maps")) {
-                mo2252d = "/SD/mods/maps" + mo2252d.substring("/SD/rustedWarfare/maps".length());
-                GameEngine.m5460e(this.f4954a + "convertAbstractPath2: Changing to:" + mo2252d);
+            if (d.startsWith("/SD/rustedWarfare/maps")) {
+                d = "/SD/mods/maps" + d.substring("/SD/rustedWarfare/maps".length());
+                GameEngine.m5e(this.a + "convertAbstractPath2: Changing to:" + d);
             }
-            if (mo2252d.startsWith("/SD/") || mo2252d.startsWith("\\SD\\")) {
-                String substring = mo2252d.substring("/SD/".length());
+            if (d.startsWith("/SD/") || d.startsWith("\\SD\\")) {
+                String substring = d.substring("/SD/".length());
                 if (substring.startsWith("rustedWarfare/")) {
                     substring = substring.substring("rustedWarfare/".length());
                 }
-                return mo2241b() + substring;
-            } else if (mo2253c(mo2252d)) {
-                return mo2252d;
+                return b() + substring;
+            } else if (c(d)) {
+                return d;
             } else {
-                return "assets/" + mo2252d;
+                return "assets/" + d;
             }
-        } else if (mo2252d.startsWith("/SD/")) {
-            String substring2 = mo2252d.substring("/SD/".length());
+        } else if (d.startsWith("/SD/")) {
+            String substring2 = d.substring("/SD/".length());
             if (substring2.startsWith("rustedWarfare/")) {
                 substring2 = substring2.substring("rustedWarfare/".length());
             }
-            return mo2241b() + substring2;
+            return b() + substring2;
         } else {
-            return mo2252d;
+            return d;
         }
     }
 
-    /* renamed from: f */
-    private String m2265f() {
-        if (this.f4959f == null) {
-            this.f4959f = Environment.getExternalStorageDirectory() + VariableScope.nullOrMissingString;
+    private String f() {
+        if (this.f == null) {
+            this.f = Environment.getExternalStorageDirectory() + VariableScope.nullOrMissingString;
         }
-        return this.f4959f;
+        return this.f;
     }
 
-    /* renamed from: a */
-    public boolean mo2255a(String str, boolean z) {
-        AbstractC1111af m630a;
-        String mo2250f = mo2250f(str);
+    public boolean a(String str, boolean z) {
+        af a;
+        String f = f(str);
         if (z) {
-            m630a = C1110ae.m628b(mo2250f);
+            a = ae.b(f);
         } else {
-            m630a = C1110ae.m630a(mo2250f);
+            a = ae.a(f);
         }
-        if (m630a != null) {
-            return m630a.mo618d(mo2250f);
+        if (a != null) {
+            return a.d(f);
         }
-        if (mo2254b(str)) {
-            if (this.f4957d) {
+        if (b(str)) {
+            if (this.d) {
                 return false;
             }
-            if (!GameEngine.getGameEngine().f6322bK.m548a(mo2250f)) {
-                GameEngine.m5460e(this.f4954a + "isDirectory: asset file doesn't exist:" + mo2250f);
+            if (!GameEngine.getGameEngine().bK.a(f)) {
+                GameEngine.m5e(this.a + "isDirectory: asset file doesn't exist:" + f);
                 return false;
-            } else if (C0773f.m2105k(str).contains(".")) {
+            } else if (f.k(str).contains(".")) {
                 return false;
             } else {
                 return true;
             }
         }
-        File file = new File(mo2250f);
+        File file = new File(f);
         if (!file.exists()) {
-            GameEngine.m5460e(this.f4954a + "isDirectory: file doesn't exist:" + mo2250f);
+            GameEngine.m5e(this.a + "isDirectory: file doesn't exist:" + f);
             return false;
         }
         return file.isDirectory();
     }
 
-    /* renamed from: g */
-    public boolean mo2249g(String str) {
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-        if (m630a != null) {
-            boolean mo625a = m630a.mo625a(mo2250f);
-            if (this.f4956c) {
-                GameEngine.m5460e("fileExists: " + mo625a + " with reader: " + m630a + " convertedDir:" + mo2250f);
+    public boolean g(String str) {
+        String f = f(str);
+        af a = ae.a(f);
+        if (a != null) {
+            boolean a2 = a.a(f);
+            if (this.c) {
+                GameEngine.m5e("fileExists: " + a2 + " with reader: " + a + " convertedDir:" + f);
             }
-            return mo625a;
-        } else if (mo2254b(str)) {
-            if (this.f4957d) {
-                if (this.f4956c) {
-                    GameEngine.m5460e("fileExists: false with disableAssets");
+            return a2;
+        } else if (b(str)) {
+            if (this.d) {
+                if (this.c) {
+                    GameEngine.m5e("fileExists: false with disableAssets");
                     return false;
                 }
                 return false;
             }
-            boolean m548a = GameEngine.getGameEngine().f6322bK.m548a(mo2250f);
-            if (this.f4956c) {
-                GameEngine.m5460e("fileExists: " + m548a + " with abstractPathAsset convertedDir:" + mo2250f);
+            boolean a3 = GameEngine.getGameEngine().bK.a(f);
+            if (this.c) {
+                GameEngine.m5e("fileExists: " + a3 + " with abstractPathAsset convertedDir:" + f);
             }
-            return m548a;
+            return a3;
         } else {
-            File file = new File(mo2250f);
+            File file = new File(f);
             if (file == null || !file.exists()) {
-                if (this.f4956c) {
-                    GameEngine.m5460e("fileExists: false with normal file convertedDir:" + mo2250f);
+                if (this.c) {
+                    GameEngine.m5e("fileExists: false with normal file convertedDir:" + f);
                     return false;
                 }
                 return false;
@@ -291,39 +268,38 @@ public class FileLoader {
         }
     }
 
-    /* renamed from: b */
-    public String[] mo2240b(String str, boolean z) {
+    public String[] b(String str, boolean z) {
         String[] list;
         String[] strArr;
         try {
-            String mo2250f = mo2250f(str);
-            AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-            if (m630a != null) {
-                list = m630a.mo622b(mo2250f);
-            } else if (mo2254b(str)) {
-                if (this.f4957d) {
+            String f = f(str);
+            af a = ae.a(f);
+            if (a != null) {
+                list = a.b(f);
+            } else if (b(str)) {
+                if (this.d) {
                     return null;
                 }
-                list = GameEngine.getGameEngine().f6322bK.m546b(mo2250f);
+                list = GameEngine.getGameEngine().bK.b(f);
             } else {
-                File file = new File(mo2250f);
+                File file = new File(f);
                 if (file == null || !file.exists()) {
-                    String str2 = "listDir: path doesn't exist:" + mo2250f;
+                    String str2 = "listDir: path doesn't exist:" + f;
                     GameEngine.print(str2);
-                    C0765a.m2291b(str2);
+                    a.b(str2);
                     return null;
                 }
                 list = file.list();
                 if (list == null) {
                     if (file != null && !file.isDirectory()) {
-                        C0765a.m2291b("path is not a directory, .rwmod or .zip");
+                        a.b("path is not a directory, .rwmod or .zip");
                         return null;
                     }
                     return null;
                 }
             }
             if (list == null) {
-                GameEngine.m5460e(this.f4954a + "listDir baseList==null:" + str + " (non folder?)");
+                GameEngine.m5e(this.a + "listDir baseList==null:" + str + " (non folder?)");
                 return null;
             }
             ArrayList arrayList = new ArrayList();
@@ -341,13 +317,12 @@ public class FileLoader {
             Collections.sort(arrayList);
             return (String[]) arrayList.toArray(new String[0]);
         } catch (OutOfMemoryError e) {
-            C0765a.m2291b(e.getMessage());
+            a.b(e.getMessage());
             return null;
         }
     }
 
-    /* renamed from: h */
-    public File m2264h(String str) {
+    public File h(String str) {
         if (str.contains("\\")) {
             str = str.replace('\\', '/');
         }
@@ -357,15 +332,15 @@ public class FileLoader {
         }
         File parentFile = file.getParentFile();
         if (parentFile == null || !parentFile.isDirectory()) {
-            parentFile = m2264h(parentFile.getAbsolutePath());
+            parentFile = h(parentFile.getAbsolutePath());
             if (parentFile == null || !parentFile.isDirectory()) {
-                GameEngine.m5460e(this.f4954a + "createFileCaseInsensitive: did not find parent for: " + str);
+                GameEngine.m5e(this.a + "createFileCaseInsensitive: did not find parent for: " + str);
                 return null;
             }
         }
         File[] listFiles = parentFile.listFiles();
         if (listFiles == null) {
-            GameEngine.m5460e(this.f4954a + "createFileCaseInsensitive: Failed to list files for: " + str + " in " + parentFile);
+            GameEngine.m5e(this.a + "createFileCaseInsensitive: Failed to list files for: " + str + " in " + parentFile);
             return null;
         }
         for (File file2 : listFiles) {
@@ -376,35 +351,33 @@ public class FileLoader {
         return null;
     }
 
-    /* renamed from: i */
-    public C1133j mo2248i(String str) {
+    public j i(String str) {
         if (str.startsWith("assets/") || str.startsWith("assets\\")) {
             str = str.substring("assets/".length());
         }
         String str2 = str;
         String str3 = "assets/" + str;
-        AssetManager mo5308d = C0090c.m4947a().mo5308d();
-        if (GameEngine.f6422aY) {
+        AssetManager d = c.a().d();
+        if (GameEngine.aY) {
         }
         try {
             try {
-                return new C1133j(mo5308d.m5296a(str2), str3, str2);
+                return new j(d.a(str2), str3, str2);
             } catch (FileNotFoundException e) {
                 return null;
             }
         } catch (IOException e2) {
-            GameEngine.m5460e(this.f4954a + "Could not find asset:" + str3);
+            GameEngine.m5e(this.a + "Could not find asset:" + str3);
             return null;
         }
     }
 
-    /* renamed from: j */
-    public C1133j mo2247j(String str) {
-        C1133j c1133j;
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-        if (m630a != null && !mo2250f.endsWith(".rwmod")) {
-            return m630a.mo621b(mo2250f, true);
+    public j j(String str) {
+        j jVar;
+        String f = f(str);
+        af a = ae.a(f);
+        if (a != null && !f.endsWith(".rwmod")) {
+            return a.b(f, true);
         }
         if (str.startsWith("/SD/") || str.startsWith("\\SD\\")) {
             String substring = str.substring("/SD/".length());
@@ -412,140 +385,129 @@ public class FileLoader {
             if (str2.startsWith("rustedWarfare/")) {
                 str2 = str2.substring("rustedWarfare/".length());
             }
-            String str3 = mo2241b() + str2;
-            if (this.f4955b) {
-                GameEngine.m5460e(this.f4954a + "openAssetSteam converted:" + substring + " to: " + str3);
+            String str3 = b() + str2;
+            if (this.b) {
+                GameEngine.m5e(this.a + "openAssetSteam converted:" + substring + " to: " + str3);
             }
             try {
-                File m2264h = m2264h(str3);
-                if (m2264h == null) {
+                File h = h(str3);
+                if (h == null) {
                     return null;
                 }
-                c1133j = new C1133j(new FileInputStream(m2264h), m2264h.getAbsolutePath());
+                jVar = new j(new FileInputStream(h), h.getAbsolutePath());
             } catch (FileNotFoundException e) {
                 return null;
             }
-        } else if (mo2253c(str)) {
+        } else if (c(str)) {
             try {
-                File m2264h2 = m2264h(str);
-                if (m2264h2 == null) {
+                File h2 = h(str);
+                if (h2 == null) {
                     return null;
                 }
-                c1133j = new C1133j(new FileInputStream(m2264h2), m2264h2.getAbsolutePath());
+                jVar = new j(new FileInputStream(h2), h2.getAbsolutePath());
             } catch (FileNotFoundException e2) {
                 return null;
             }
         } else {
-            c1133j = mo2248i(str);
+            jVar = i(str);
         }
-        return c1133j;
+        return jVar;
     }
 
-    /* renamed from: c */
-    public OutputStream m2266c(String str, boolean z) {
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-        if (m630a != null && !mo2250f.endsWith(".rwmod")) {
-            return m630a.mo619c(mo2250f, z);
+    public OutputStream c(String str, boolean z) {
+        String f = f(str);
+        af a = ae.a(f);
+        if (a != null && !f.endsWith(".rwmod")) {
+            return a.c(f, z);
         }
-        return new FileOutputStream(mo2250f, z);
+        return new FileOutputStream(f, z);
     }
 
-    /* renamed from: k */
-    public boolean m2263k(String str) {
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-        if (m630a != null && !mo2250f.endsWith(".rwmod")) {
-            boolean mo616e = m630a.mo616e(mo2250f);
-            if (!mo616e) {
-                GameEngine.m5460e("Failed to create directory: " + mo2250f + " using reader:" + m630a);
+    public boolean k(String str) {
+        String f = f(str);
+        af a = ae.a(f);
+        if (a != null && !f.endsWith(".rwmod")) {
+            boolean e = a.e(f);
+            if (!e) {
+                GameEngine.m5e("Failed to create directory: " + f + " using reader:" + a);
             }
-            return mo616e;
+            return e;
         }
-        boolean mkdirs = new File(mo2250f).mkdirs();
+        boolean mkdirs = new File(f).mkdirs();
         if (!mkdirs) {
-            GameEngine.m5460e("Failed to create directory: " + mo2250f);
+            GameEngine.m5e("Failed to create directory: " + f);
         }
         return mkdirs;
     }
 
-    /* renamed from: b */
-    public String mo2241b() {
-        if (GameEngine.f6418aU) {
+    public String b() {
+        if (GameEngine.aU) {
             return VariableScope.nullOrMissingString;
         }
-        return m2265f() + "/rustedWarfare/";
+        return f() + "/rustedWarfare/";
     }
 
-    /* renamed from: c */
-    public String m2267c() {
-        if (GameEngine.m1030at()) {
-            String absolutePath = C0090c.m4947a().mo5303i().getAbsolutePath();
+    public String c() {
+        if (GameEngine.at()) {
+            String absolutePath = c.a().i().getAbsolutePath();
             if (!absolutePath.endsWith("/")) {
                 absolutePath = absolutePath + "/";
             }
             return absolutePath;
         }
-        String mo2241b = mo2241b();
-        if (mo2241b.equals(VariableScope.nullOrMissingString)) {
+        String b = b();
+        if (b.equals(VariableScope.nullOrMissingString)) {
             return "cache/";
         }
-        return mo2241b + "/cache/";
+        return b + "/cache/";
     }
 
-    /* renamed from: l */
-    public long m2262l(String str) {
-        String mo2250f = mo2250f(str);
-        AbstractC1111af m630a = C1110ae.m630a(mo2250f);
-        if (m630a != null) {
-            return m630a.mo613g(mo2250f);
+    public long l(String str) {
+        String f = f(str);
+        af a = ae.a(f);
+        if (a != null) {
+            return a.g(f);
         }
-        File file = new File(mo2250f);
+        File file = new File(f);
         if (!file.exists()) {
         }
         return file.lastModified();
     }
 
-    /* renamed from: a */
-    public void m2270a(File file) {
-        if (GameEngine.m1030at()) {
+    public void a(File file) {
+        if (GameEngine.at()) {
         }
     }
 
-    /* renamed from: a */
-    public File mo2256a(String str, String str2, boolean z) {
-        File file = new File(mo2241b() + str2 + str);
+    public File a(String str, String str2, boolean z) {
+        File file = new File(b() + str2 + str);
         if (z) {
             File parentFile = file.getParentFile();
-            if (!C0765a.m2278i(parentFile.getAbsolutePath())) {
-                GameEngine.m5460e("Making missing parent dir: " + parentFile.getAbsolutePath());
-                if (!C0765a.m2275l(parentFile.getAbsolutePath())) {
+            if (!a.i(parentFile.getAbsolutePath())) {
+                GameEngine.m5e("Making missing parent dir: " + parentFile.getAbsolutePath());
+                if (!a.l(parentFile.getAbsolutePath())) {
                     GameEngine.print("getRWFile: Could not create parent directory");
                 }
             }
-            if (GameEngine.m1030at()) {
+            if (GameEngine.at()) {
             }
         }
         return file;
     }
 
-    /* renamed from: d */
-    public String mo2239d() {
+    public String d() {
         return "external";
     }
 
-    /* renamed from: m */
-    public String mo2246m(String str) {
-        return mo2239d();
+    public String m(String str) {
+        return d();
     }
 
-    /* renamed from: e */
-    public boolean mo2238e() {
+    public boolean e() {
         return true;
     }
 
-    /* renamed from: n */
-    public String m2261n(String str) {
+    public String n(String str) {
         int indexOf;
         int indexOf2;
         if (str == null) {
@@ -554,60 +516,56 @@ public class FileLoader {
         if (str.indexOf("[INTERNAL-PATH]/") != -1) {
             String str2 = str.substring(0, indexOf) + str.substring(indexOf + "[INTERNAL-PATH]/".length());
             if (str2.contains("[INTERNAL-PATH]/") || str2.contains("[EXTERNAL-PATH]/")) {
-                GameEngine.m5460e("fixPath: double tag for: " + str);
+                GameEngine.m5e("fixPath: double tag for: " + str);
             }
             return str2;
         }
         if (str.indexOf("[EXTERNAL-PATH]/") != -1) {
             String str3 = str.substring(0, indexOf2) + str.substring(indexOf2 + "[EXTERNAL-PATH]/".length());
             if (str3.contains("[INTERNAL-PATH]/") || str3.contains("[EXTERNAL-PATH]/")) {
-                GameEngine.m5460e("fixPath: double tag for: " + str);
+                GameEngine.m5e("fixPath: double tag for: " + str);
             }
             return str3;
         }
         return str;
     }
 
-    /* renamed from: o */
-    public String mo2245o(String str) {
+    public String o(String str) {
         return str;
     }
 
-    /* renamed from: b */
-    public boolean m2268b(File file) {
-        GameEngine.m5460e("deleteFile: " + file.getAbsolutePath());
-        AbstractC1111af m628b = C1110ae.m628b(file.getAbsolutePath());
-        if (m628b != null) {
-            GameEngine.m5460e("Mapped delete");
-            return m628b.mo620c(file.getAbsolutePath());
+    public boolean b(File file) {
+        GameEngine.m5e("deleteFile: " + file.getAbsolutePath());
+        af b = ae.b(file.getAbsolutePath());
+        if (b != null) {
+            GameEngine.m5e("Mapped delete");
+            return b.c(file.getAbsolutePath());
         }
-        GameEngine.m5460e("Native delete");
+        GameEngine.m5e("Native delete");
         return file.delete();
     }
 
-    /* renamed from: a */
-    public boolean m2269a(File file, File file2) {
-        GameEngine.m5460e("renameFile: " + file.getAbsolutePath() + " to:" + file2.getAbsolutePath());
-        AbstractC1111af m628b = C1110ae.m628b(file.getAbsolutePath());
-        if (m628b != null) {
+    public boolean a(File file, File file2) {
+        GameEngine.m5e("renameFile: " + file.getAbsolutePath() + " to:" + file2.getAbsolutePath());
+        af b = ae.b(file.getAbsolutePath());
+        if (b != null) {
             try {
-                boolean mo624a = m628b.mo624a(file.getAbsolutePath(), file2.getAbsolutePath());
-                C1110ae.m627c(file2.getAbsolutePath());
-                return mo624a;
+                boolean a = b.a(file.getAbsolutePath(), file2.getAbsolutePath());
+                ae.c(file2.getAbsolutePath());
+                return a;
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
         }
         boolean renameTo = file.renameTo(file2);
-        C1110ae.m627c(file2.getAbsolutePath());
+        ae.c(file2.getAbsolutePath());
         return renameTo;
     }
 
-    /* renamed from: p */
-    public boolean m2260p(String str) {
-        AbstractC1111af m628b = C1110ae.m628b(mo2250f(str));
-        if (m628b != null && (m628b instanceof C1103a)) {
+    public boolean p(String str) {
+        af b = ae.b(f(str));
+        if (b != null && (b instanceof a)) {
             return true;
         }
         return false;

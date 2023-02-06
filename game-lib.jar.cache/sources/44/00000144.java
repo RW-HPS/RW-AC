@@ -5,37 +5,31 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import com.corrodinggames.rts.gameFramework.file.C0765a;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/* renamed from: com.corrodinggames.rts.appFramework.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/j.class */
-public class ActivityC0118j extends ActivityC0089b {
-
-    /* renamed from: c */
-    String[] f477c;
+public class j extends b {
+    String[] c;
 
     @Override // android.app.Activity
-    /* renamed from: b */
-    public void mo4886b() {
-        super.mo4886b();
-        C0090c.m4942a((Activity) this, true);
+    public void b() {
+        super.b();
+        c.a((Activity) this, true);
     }
 
-    /* renamed from: l */
-    public static String[] m4914l() {
-        String[] m2296a = C0765a.m2296a("/SD/rustedWarfare/saves/", false);
-        if (m2296a == null) {
+    public static String[] l() {
+        String[] a = com.corrodinggames.rts.gameFramework.file.a.a("/SD/rustedWarfare/saves/", false);
+        if (a == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (String str : m2296a) {
+        for (String str : a) {
             if (!str.endsWith(".map") && !str.endsWith(".tmp")) {
                 arrayList.add(str);
             }
         }
-        Collections.sort(arrayList, new C0119k());
+        Collections.sort(arrayList, new k());
         return (String[]) arrayList.toArray(new String[0]);
     }
 
@@ -46,8 +40,8 @@ public class ActivityC0118j extends ActivityC0089b {
         contextMenu.add(0, view.getId(), 0, "Share");
         contextMenu.add(1, view.getId(), 0, "Rename");
         contextMenu.add(2, view.getId(), 0, "Delete");
-        if (this.f477c != null && this.f477c.length > 0) {
-            MenuItem add = contextMenu.add(3, view.getId(), 0, "Storage: " + C0765a.m2273n(this.f477c[view.getId()]));
+        if (this.c != null && this.c.length > 0) {
+            MenuItem add = contextMenu.add(3, view.getId(), 0, "Storage: " + com.corrodinggames.rts.gameFramework.file.a.n(this.c[view.getId()]));
             if (add != null) {
                 add.setEnabled(false);
             }

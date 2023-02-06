@@ -5,37 +5,29 @@ import java.io.InputStream;
 /* renamed from: a.a.o */
 /* loaded from: game-lib.jar:a/a/o.class */
 class ReliableSocketInputStream extends InputStream {
-
-    /* renamed from: a */
-    protected ReliableSocket f93a;
-
-    /* renamed from: b */
-    protected byte[] f94b;
-
-    /* renamed from: c */
-    protected int f95c;
-
-    /* renamed from: d */
-    protected int f96d;
+    protected ReliableSocket a;
+    protected byte[] b;
+    protected int c;
+    protected int d;
 
     public ReliableSocketInputStream(ReliableSocket reliableSocket) {
         if (reliableSocket == null) {
             throw new NullPointerException("sock");
         }
-        this.f93a = reliableSocket;
-        this.f94b = new byte[this.f93a.getReceiveBufferSize()];
-        this.f96d = 0;
-        this.f95c = 0;
+        this.a = reliableSocket;
+        this.b = new byte[this.a.getReceiveBufferSize()];
+        this.d = 0;
+        this.c = 0;
     }
 
     @Override // java.io.InputStream
     public synchronized int read() {
-        if (m5345a() < 0) {
+        if (a() < 0) {
             return -1;
         }
-        byte[] bArr = this.f94b;
-        int i = this.f95c;
-        this.f95c = i + 1;
+        byte[] bArr = this.b;
+        int i = this.c;
+        this.c = i + 1;
         return bArr[i] & 255;
     }
 
@@ -52,18 +44,18 @@ class ReliableSocketInputStream extends InputStream {
         if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
             throw new IndexOutOfBoundsException();
         }
-        if (m5345a() < 0) {
+        if (a() < 0) {
             return -1;
         }
         int min = Math.min(available(), i2);
-        System.arraycopy(this.f94b, this.f95c, bArr, i, min);
-        this.f95c += min;
+        System.arraycopy(this.b, this.c, bArr, i, min);
+        this.c += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public synchronized int available() {
-        return this.f96d - this.f95c;
+        return this.d - this.c;
     }
 
     @Override // java.io.InputStream
@@ -73,15 +65,14 @@ class ReliableSocketInputStream extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f93a.shutdownInput();
+        this.a.shutdownInput();
     }
 
-    /* renamed from: a */
-    private int m5345a() {
+    private int a() {
         if (available() == 0) {
-            this.f96d = this.f93a.m5391b(this.f94b, 0, this.f94b.length);
-            this.f95c = 0;
+            this.d = this.a.b(this.b, 0, this.b.length);
+            this.c = 0;
         }
-        return this.f96d;
+        return this.d;
     }
 }

@@ -1,11 +1,10 @@
-package com.corrodinggames.rts.java.audio.p051a;
+package com.corrodinggames.rts.java.audio.a;
 
 import java.io.ByteArrayOutputStream;
 
-/* renamed from: com.corrodinggames.rts.java.audio.a.t */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/t.class */
-public class C1184t extends ByteArrayOutputStream {
-    public C1184t(int i) {
+public class t extends ByteArrayOutputStream {
+    public t(int i) {
         super(i);
     }
 

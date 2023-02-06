@@ -1,151 +1,127 @@
 package com.corrodinggames.rts.game.units.custom;
 
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Collections;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/c.class */
-public final class C0420c {
+public final class c {
+    d a;
+    int b;
+    String c;
+    float d;
+    public a[] e;
+    private com.corrodinggames.rts.gameFramework.utility.m g = new com.corrodinggames.rts.gameFramework.utility.m();
+    public final boolean f = false;
 
-    /* renamed from: a */
-    EnumC0427d f2682a;
-
-    /* renamed from: b */
-    int f2683b;
-
-    /* renamed from: c */
-    String f2684c;
-
-    /* renamed from: d */
-    float f2685d;
-
-    /* renamed from: e */
-    public C0320a[] f2686e;
-
-    /* renamed from: g */
-    private C1136m f2687g = new C1136m();
-
-    /* renamed from: f */
-    public final boolean f2688f = false;
-
-    /* renamed from: a */
-    public C0388b m3869a() {
-        C0388b c0388b = null;
-        if (this.f2687g.size() > 0) {
-            c0388b = (C0388b) this.f2687g.get(this.f2687g.size() - 1);
-            if (c0388b.f2293h) {
-                c0388b = null;
+    public b a() {
+        b bVar = null;
+        if (this.g.size() > 0) {
+            bVar = (b) this.g.get(this.g.size() - 1);
+            if (bVar.h) {
+                bVar = null;
             }
         }
-        return c0388b;
+        return bVar;
     }
 
-    /* renamed from: a */
-    public void m3866a(C0456j c0456j, float f, float f2, boolean z) {
+    public void a(j jVar, float f, float f2, boolean z) {
         if (z || f2 <= f) {
             return;
         }
-        C0320a[] c0320aArr = this.f2686e;
-        int length = c0320aArr.length;
+        a[] aVarArr = this.e;
+        int length = aVarArr.length;
         int i = -1;
-        while (i + 1 < length && f > c0320aArr[i + 1].f1912a) {
+        while (i + 1 < length && f > aVarArr[i + 1].a) {
             i++;
         }
         int i2 = i;
-        while (i2 + 1 < length && f2 > c0320aArr[i2 + 1].f1912a) {
+        while (i2 + 1 < length && f2 > aVarArr[i2 + 1].a) {
             i2++;
         }
         if (i2 <= i) {
             return;
         }
         for (int i3 = i + 1; i3 <= i2; i3++) {
-            ((C0388b) c0320aArr[i3]).m3954a(c0456j);
+            ((b) aVarArr[i3]).a(jVar);
         }
     }
 
-    /* renamed from: b */
-    public void m3864b() {
-        C0388b m3869a;
-        if (this.f2682a == EnumC0427d.event && (m3869a = m3869a()) != null) {
-            m3869a.finalize();
+    public void b() {
+        b a;
+        if (this.a == d.event && (a = a()) != null) {
+            a.finalize();
         }
     }
 
-    /* renamed from: a */
-    public void m3865a(C0458l c0458l, float f, String str, String str2) {
-        if (this.f2682a == EnumC0427d.event) {
-            C0388b m3869a = m3869a();
-            if (m3869a == null) {
-                m3869a = new C0388b(f, 0.0f);
-                this.f2687g.add(m3869a);
+    public void a(l lVar, float f, String str, String str2) {
+        if (this.a == d.event) {
+            b a = a();
+            if (a == null) {
+                a = new b(f, 0.0f);
+                this.g.add(a);
             }
-            m3869a.m3953a(c0458l, str, str2);
+            a.a(lVar, str, str2);
             return;
         }
         try {
-            m3867a(f, Float.parseFloat(str2));
+            a(f, Float.parseFloat(str2));
         } catch (NumberFormatException e) {
-            throw new C0417bo("Failed to parse float:" + str2);
+            throw new bo("Failed to parse float:" + str2);
         }
     }
 
-    /* renamed from: a */
-    public void m3867a(float f, float f2) {
-        if (this.f2682a == EnumC0427d.event) {
-            throw new C0417bo("Adding key frame value to event set");
+    public void a(float f, float f2) {
+        if (this.a == d.event) {
+            throw new bo("Adding key frame value to event set");
         }
-        if (this.f2687g.size() == 0 && f > 0.0f && f2 != 0.0f) {
-            this.f2687g.add(new C0320a(0.0f, 0.0f));
+        if (this.g.size() == 0 && f > 0.0f && f2 != 0.0f) {
+            this.g.add(new a(0.0f, 0.0f));
         }
-        this.f2687g.add(new C0320a(f, f2));
+        this.g.add(new a(f, f2));
     }
 
-    /* renamed from: a */
-    public void m3868a(float f) {
-        Iterator it = this.f2687g.iterator();
+    public void a(float f) {
+        Iterator it = this.g.iterator();
         while (it.hasNext()) {
-            ((C0320a) it.next()).f1912a *= f;
+            ((a) it.next()).a *= f;
         }
     }
 
-    /* renamed from: c */
-    public void m3862c() {
-        Collections.sort(this.f2687g);
-        C0320a c0320a = null;
-        Iterator it = this.f2687g.iterator();
+    public void c() {
+        Collections.sort(this.g);
+        a aVar = null;
+        Iterator it = this.g.iterator();
         while (it.hasNext()) {
-            C0320a c0320a2 = (C0320a) it.next();
-            if (c0320a != null) {
-                c0320a2.f1914c = 1.0f / (c0320a2.f1912a - c0320a.f1912a);
-                c0320a2.f1915d = c0320a2.f1913b - c0320a.f1913b;
+            a aVar2 = (a) it.next();
+            if (aVar != null) {
+                aVar2.c = 1.0f / (aVar2.a - aVar.a);
+                aVar2.d = aVar2.b - aVar.b;
             }
-            c0320a = c0320a2;
-            this.f2685d = c0320a2.f1912a;
+            aVar = aVar2;
+            this.d = aVar2.a;
         }
-        this.f2686e = (C0320a[]) this.f2687g.toArray(new C0320a[0]);
-        this.f2687g = null;
+        this.e = (a[]) this.g.toArray(new a[0]);
+        this.g = null;
     }
 
-    /* renamed from: b */
-    public float m3863b(float f) {
-        C0320a[] c0320aArr = this.f2686e;
-        int length = c0320aArr.length;
-        if (length == 1 || f <= c0320aArr[0].f1912a) {
-            return c0320aArr[0].f1913b;
+    public float b(float f) {
+        a[] aVarArr = this.e;
+        int length = aVarArr.length;
+        if (length == 1 || f <= aVarArr[0].a) {
+            return aVarArr[0].b;
         }
-        if (f >= this.f2685d) {
-            return c0320aArr[length - 1].f1913b;
+        if (f >= this.d) {
+            return aVarArr[length - 1].b;
         }
         int i = 1;
-        while (f > c0320aArr[i].f1912a) {
+        while (f > aVarArr[i].a) {
             i++;
             if (i >= length) {
-                return c0320aArr[length - 1].f1913b;
+                return aVarArr[length - 1].b;
             }
         }
-        C0320a c0320a = c0320aArr[i - 1];
-        C0320a c0320a2 = c0320aArr[i];
-        return c0320a.f1913b + (c0320a2.f1915d * (f - c0320a.f1912a) * c0320a2.f1914c);
+        a aVar = aVarArr[i - 1];
+        a aVar2 = aVarArr[i];
+        return aVar.b + (aVar2.d * (f - aVar.a) * aVar2.c);
     }
 }

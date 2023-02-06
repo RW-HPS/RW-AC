@@ -8,39 +8,35 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/* renamed from: com.corrodinggames.rts.appFramework.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/appFramework/r.class */
-class C0132r implements Comparator {
+class r implements Comparator {
+    Pattern a = Pattern.compile(".*\\((.*)\\).*");
 
-    /* renamed from: a */
-    Pattern f544a = Pattern.compile(".*\\((.*)\\).*");
-
-    C0132r() {
+    r() {
     }
 
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(String str, String str2) {
-        Date m4884a = m4884a(str);
-        Date m4884a2 = m4884a(str2);
-        if (m4884a == null && m4884a2 == null) {
+        Date a = a(str);
+        Date a2 = a(str2);
+        if (a == null && a2 == null) {
             return str.compareTo(str2);
         }
-        if (m4884a != null && m4884a2 != null) {
-            return m4884a2.compareTo(m4884a);
+        if (a != null && a2 != null) {
+            return a2.compareTo(a);
         }
-        if (m4884a == null && m4884a2 != null) {
+        if (a == null && a2 != null) {
             return -1;
         }
-        if (m4884a != null && m4884a2 == null) {
+        if (a != null && a2 == null) {
             return 1;
         }
         return 0;
     }
 
-    /* renamed from: a */
-    public Date m4884a(String str) {
-        Matcher matcher = this.f544a.matcher(str);
+    public Date a(String str) {
+        Matcher matcher = this.a.matcher(str);
         if (matcher.matches()) {
             String group = matcher.group(1);
             try {

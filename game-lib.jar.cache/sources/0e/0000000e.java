@@ -3,78 +3,67 @@ package net.rudp;
 import java.net.DatagramSocket;
 import java.net.SocketAddress;
 import java.util.ArrayList;
-import net.rudp.p002a.Segment;
+import net.rudp.a.Segment;
 
 /* renamed from: a.a.e */
 /* loaded from: game-lib.jar:a/a/e.class */
-class C0014e extends ReliableSocket {
-
-    /* renamed from: a */
-    boolean f41a;
-
-    /* renamed from: i */
-    private ArrayList f42i;
-
-    /* renamed from: b */
-    final /* synthetic */ ReliableServerSocket f43b;
+class e extends ReliableSocket {
+    boolean a;
+    private ArrayList i;
+    final /* synthetic */ ReliableServerSocket b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public C0014e(ReliableServerSocket reliableServerSocket, DatagramSocket datagramSocket, SocketAddress socketAddress) {
+    public e(ReliableServerSocket reliableServerSocket, DatagramSocket datagramSocket, SocketAddress socketAddress) {
         super(datagramSocket);
-        this.f43b = reliableServerSocket;
-        this.f48d = socketAddress;
+        this.b = reliableServerSocket;
+        this.d = socketAddress;
     }
 
     @Override // net.rudp.ReliableSocket
-    /* renamed from: a */
-    protected void mo5399a(DatagramSocket datagramSocket, ReliableSocketProfile reliableSocketProfile) {
-        this.f42i = new ArrayList();
-        this.f47c = datagramSocket;
-        this.f65g = reliableSocketProfile;
+    protected void a(DatagramSocket datagramSocket, ReliableSocketProfile reliableSocketProfile) {
+        this.i = new ArrayList();
+        this.c = datagramSocket;
+        this.g = reliableSocketProfile;
     }
 
     @Override // net.rudp.ReliableSocket
-    /* renamed from: a */
-    protected Segment mo5410a() {
+    protected Segment a() {
         Segment segment;
-        synchronized (this.f42i) {
-            while (this.f42i.isEmpty()) {
+        synchronized (this.i) {
+            while (this.i.isEmpty()) {
                 try {
-                    this.f42i.wait();
+                    this.i.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            segment = (Segment) this.f42i.remove(0);
+            segment = (Segment) this.i.remove(0);
         }
         return segment;
     }
 
-    /* renamed from: a */
-    protected void m5411a(Segment segment) {
-        synchronized (this.f42i) {
-            if (!this.f41a) {
-                this.f41a = true;
-                super.mo5399a(this.f47c, this.f65g);
+    protected void a(Segment segment) {
+        synchronized (this.i) {
+            if (!this.a) {
+                this.a = true;
+                super.a(this.c, this.g);
             }
-            this.f42i.add(segment);
-            this.f42i.notify();
+            this.i.add(segment);
+            this.i.notify();
         }
     }
 
     @Override // net.rudp.ReliableSocket
-    /* renamed from: b */
-    protected void mo5396b() {
-        synchronized (this.f42i) {
-            this.f42i.clear();
-            this.f42i.add(null);
-            this.f42i.notify();
+    protected void b() {
+        synchronized (this.i) {
+            this.i.clear();
+            this.i.add(null);
+            this.i.notify();
         }
     }
 
     @Override // net.rudp.ReliableSocket
-    /* renamed from: a */
-    protected void mo5400a(String str) {
+    protected void a(String str) {
         System.out.println(getPort() + ": " + str);
     }
 }

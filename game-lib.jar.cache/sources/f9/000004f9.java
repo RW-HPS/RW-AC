@@ -2,37 +2,33 @@ package com.corrodinggames.rts.gameFramework.player;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.g.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/g/d.class */
-public abstract class AbstractC0851d implements Comparable {
+public abstract class d implements Comparable {
+    private int a;
 
-    /* renamed from: a */
-    private int f5598a;
+    public abstract String b();
 
-    /* renamed from: b */
-    public abstract String mo1723b();
+    public abstract boolean a();
 
-    /* renamed from: a */
-    public abstract boolean mo1725a();
+    public abstract int c();
 
-    /* renamed from: c */
-    public abstract int mo1722c();
+    public abstract int d();
 
-    /* renamed from: d */
-    public abstract int mo1721d();
+    public abstract int a(f fVar);
 
-    /* renamed from: a */
-    public abstract int mo1724a(EnumC0853f enumC0853f);
+    static /* synthetic */ int b(d dVar) {
+        return dVar.a;
+    }
 
-    /* renamed from: b */
-    public void m1726b(EnumC0853f enumC0853f) {
-        this.f5598a = mo1724a(enumC0853f);
+    public void b(f fVar) {
+        this.a = a(fVar);
     }
 
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int mo1728a(AbstractC0851d abstractC0851d) {
-        if (this.f5598a == abstractC0851d.f5598a) {
-            return mo1723b().compareTo(abstractC0851d.mo1723b());
+    public int compareTo(d dVar) {
+        if (this.a == dVar.a) {
+            return b().compareTo(dVar.b());
         }
-        return abstractC0851d.f5598a - this.f5598a;
+        return dVar.a - this.a;
     }
 }

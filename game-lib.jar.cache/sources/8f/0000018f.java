@@ -2,98 +2,77 @@ package com.corrodinggames.rts.game;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
-import com.corrodinggames.rts.gameFramework.EnumC1100u;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.unitAction.C0964ae;
-import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
-import com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y;
+import com.corrodinggames.rts.gameFramework.unitAction.ae;
+import com.corrodinggames.rts.gameFramework.unitAction.ag;
+import com.corrodinggames.rts.gameFramework.unitAction.y;
 import java.io.IOException;
 
-/* renamed from: com.corrodinggames.rts.game.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/j.class */
-public class C0193j {
+public class j {
+    public com.corrodinggames.rts.gameFramework.unitAction.e a;
+    y b;
+    ag c;
+    ae d;
+    Paint e;
+    Rect f;
+    boolean g;
 
-    /* renamed from: a */
-    public C0970e f1280a;
-
-    /* renamed from: b */
-    InterfaceC1063y f1281b;
-
-    /* renamed from: c */
-    C0966ag f1282c;
-
-    /* renamed from: d */
-    C0964ae f1283d;
-
-    /* renamed from: e */
-    Paint f1284e;
-
-    /* renamed from: f */
-    Rect f1285f;
-
-    /* renamed from: g */
-    boolean f1286g;
-
-    public C0193j() {
-        this.f1284e = new Paint();
-        this.f1285f = new Rect(-101, 0, -1, 100);
-        this.f1282c = new C0966ag();
+    public j() {
+        this.e = new Paint();
+        this.f = new Rect(-101, 0, -1, 100);
+        this.c = new ag();
     }
 
-    public C0193j(String str) {
+    public j(String str) {
         this();
         try {
-            this.f1283d = new C0964ae(str);
-            this.f1282c.m915a(this.f1283d);
-            if (this.f1283d.f6578o != 0) {
-                this.f1286g = true;
+            this.d = new ae(str);
+            this.c.a(this.d);
+            if (this.d.o != 0) {
+                this.g = true;
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    /* renamed from: a */
-    public boolean m4483a() {
-        if ((this.f1283d != null && this.f1283d.f6578o != 0) || this.f1286g) {
+    public boolean a() {
+        if ((this.d != null && this.d.o != 0) || this.g) {
             return true;
         }
         return false;
     }
 
-    /* renamed from: a */
-    public void m4482a(InterfaceC1063y interfaceC1063y) {
-        m4481a(interfaceC1063y, interfaceC1063y.mo134m(), interfaceC1063y.mo133n(), 10);
+    public void a(y yVar) {
+        a(yVar, yVar.m(), yVar.n(), 10);
     }
 
-    /* renamed from: a */
-    public void m4481a(InterfaceC1063y interfaceC1063y, int i, int i2, int i3) {
-        if (this.f1286g) {
+    public void a(y yVar, int i, int i2, int i3) {
+        if (this.g) {
             return;
         }
-        if (this.f1280a != null && (i > this.f1280a.mo387m() || i2 > this.f1280a.mo388l())) {
-            this.f1280a.mo50o();
-            this.f1280a = null;
-            this.f1281b = null;
+        if (this.a != null && (i > this.a.m() || i2 > this.a.l())) {
+            this.a.o();
+            this.a = null;
+            this.b = null;
         }
-        if (this.f1280a == null) {
+        if (this.a == null) {
             try {
-                this.f1280a = interfaceC1063y.mo219a(i + i3, i2 + i3, true);
-                this.f1281b = interfaceC1063y.mo202a(this.f1280a);
+                this.a = yVar.a(i + i3, i2 + i3, true);
+                this.b = yVar.mo9a(this.a);
             } catch (OutOfMemoryError e) {
-                this.f1286g = true;
-                GameEngine.m1068a(EnumC1100u.gameImageCreate, e);
+                this.g = true;
+                GameEngine.a(com.corrodinggames.rts.gameFramework.u.gameImageCreate, e);
                 return;
             }
         }
-        this.f1281b.mo221a(i, i2);
+        this.b.a(i, i2);
     }
 
-    /* renamed from: b */
-    public void m4480b() {
+    public void b() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.f6326bO.mo163b(this.f1285f, this.f1284e);
-        gameEngine.f6326bO.mo160b(this.f1280a, 0.0f, 0.0f, this.f1282c);
+        gameEngine.bO.b(this.f, this.e);
+        gameEngine.bO.b(this.a, 0.0f, 0.0f, this.c);
     }
 }

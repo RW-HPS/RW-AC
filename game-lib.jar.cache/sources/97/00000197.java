@@ -1,14 +1,9 @@
 package com.corrodinggames.rts.game;
 
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
+import com.corrodinggames.rts.game.units.as;
 
-/* renamed from: com.corrodinggames.rts.game.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/r.class */
-public class C0201r {
-
-    /* renamed from: a */
-    InterfaceC0303as f1400a;
-
-    /* renamed from: b */
-    int f1401b;
+public class r {
+    as a;
+    int b;
 }

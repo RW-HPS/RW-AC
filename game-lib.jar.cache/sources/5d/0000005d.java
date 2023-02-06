@@ -1,23 +1,13 @@
 package android.util;
 
-/* renamed from: android.util.a */
 /* loaded from: game-lib.jar:android/util/a.class */
-class C0040a {
+class a {
+    static final boolean[] a = new boolean[0];
+    static final int[] b = new int[0];
+    static final long[] c = new long[0];
+    static final Object[] d = new Object[0];
 
-    /* renamed from: a */
-    static final boolean[] f308a = new boolean[0];
-
-    /* renamed from: b */
-    static final int[] f309b = new int[0];
-
-    /* renamed from: c */
-    static final long[] f310c = new long[0];
-
-    /* renamed from: d */
-    static final Object[] f311d = new Object[0];
-
-    /* renamed from: a */
-    static int m5058a(int[] iArr, int i, int i2) {
+    static int a(int[] iArr, int i, int i2) {
         int i3 = 0;
         int i4 = i - 1;
         while (i3 <= i4) {

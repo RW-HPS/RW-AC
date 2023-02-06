@@ -1,138 +1,119 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.file.C0765a;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.utility.ag */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/ag.class */
-public class C1112ag extends AbstractC1111af {
+public class ag extends af {
+    static HashMap a = new HashMap();
 
-    /* renamed from: a */
-    static HashMap f7056a = new HashMap();
-
-    /* renamed from: h */
-    public static void m612h(String str) {
-        GameEngine.m5460e("Zip: " + str);
+    public static void h(String str) {
+        GameEngine.m5e("Zip: " + str);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: a */
-    public boolean mo625a(String str) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public boolean a(String str) {
         if (str.endsWith(".rwmod") || str.endsWith(".rwmod/") || str.endsWith(".rwmod\\")) {
             return true;
         }
-        C1114ah m617d = m617d(str, true);
-        if (m617d == null) {
+        ah d = d(str, true);
+        if (d == null) {
             return false;
         }
-        return m617d.m601c(m608l(str));
+        return d.c(l(str));
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: f */
-    public String mo614f(String str) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public String f(String str) {
         return str;
     }
 
-    /* renamed from: i */
-    public static boolean m611i(String str) {
+    public static boolean i(String str) {
         if (str.contains(".rwmod/") || str.contains(".rwmod\\") || str.endsWith(".rwmod")) {
             return true;
         }
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: d */
-    public boolean mo618d(String str) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public boolean d(String str) {
         if (str.endsWith(".rwmod") || str.endsWith(".rwmod/") || str.endsWith(".rwmod\\")) {
             return true;
         }
-        C1114ah m617d = m617d(str, true);
-        if (m617d == null) {
+        ah d = d(str, true);
+        if (d == null) {
             return false;
         }
-        return m617d.m600d(m608l(str));
+        return d.d(l(str));
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: e */
-    public boolean mo616e(String str) {
-        m612h("createDirectory not supported in zip files: " + str);
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public boolean e(String str) {
+        h("createDirectory not supported in zip files: " + str);
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: b */
-    public String[] mo622b(String str) {
-        C1114ah m617d = m617d(str, true);
-        if (m617d == null) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public String[] b(String str) {
+        ah d = d(str, true);
+        if (d == null) {
             return null;
         }
-        return m617d.m599e(m608l(str));
+        return d.e(l(str));
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: a */
-    public long mo623a(String str, boolean z) {
-        C1114ah m617d = m617d(str, z);
-        if (m617d == null) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public long a(String str, boolean z) {
+        ah d = d(str, z);
+        if (d == null) {
             return -1L;
         }
-        return m617d.m596h(m608l(str));
+        return d.h(l(str));
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: b */
-    public C1133j mo621b(String str, boolean z) {
-        C1114ah m617d = m617d(str, z);
-        if (m617d == null) {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public j b(String str, boolean z) {
+        ah d = d(str, z);
+        if (d == null) {
             return null;
         }
-        return m617d.m595i(m608l(str));
+        return d.i(l(str));
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: g */
-    public long mo613g(String str) {
-        String m610j = m610j(str);
-        AbstractC1111af m628b = C1110ae.m628b(m610j);
-        if (m628b != null) {
-            return m628b.mo613g(m610j);
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public long g(String str) {
+        String j = j(str);
+        af b = ae.b(j);
+        if (b != null) {
+            return b.g(j);
         }
-        return new File(m610j).lastModified();
+        return new File(j).lastModified();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: c */
-    public OutputStream mo619c(String str, boolean z) {
-        m612h("writableOutputSteam not supported in zip files: " + str);
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public OutputStream c(String str, boolean z) {
+        h("writableOutputSteam not supported in zip files: " + str);
         return null;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: a */
-    public boolean mo624a(String str, String str2) {
-        m612h("Rename not supported in zip files: " + str + " to " + str2);
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public boolean a(String str, String str2) {
+        h("Rename not supported in zip files: " + str + " to " + str2);
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: c */
-    public boolean mo620c(String str) {
-        m612h("Delete not supported in zip files: " + str);
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public boolean c(String str) {
+        h("Delete not supported in zip files: " + str);
         return false;
     }
 
-    /* renamed from: j */
-    public static String m610j(String str) {
+    public static String j(String str) {
         int indexOf = str.indexOf(".rwmod/");
         int indexOf2 = str.indexOf(".rwmod\\");
         if (indexOf2 != -1 && (indexOf2 < indexOf || indexOf == -1)) {
@@ -147,53 +128,51 @@ public class C1112ag extends AbstractC1111af {
         return str.substring(0, indexOf + ".rwmod".length());
     }
 
-    /* renamed from: d */
-    public static C1114ah m617d(String str, boolean z) {
-        C1114ah c1114ah;
-        String m2283e;
-        String m610j = m610j(str);
-        synchronized (f7056a) {
-            C1114ah c1114ah2 = (C1114ah) f7056a.get(m610j);
-            if (c1114ah2 == null) {
+    public static ah d(String str, boolean z) {
+        ah ahVar;
+        String e;
+        String j = j(str);
+        synchronized (a) {
+            ah ahVar2 = (ah) a.get(j);
+            if (ahVar2 == null) {
                 if (z) {
-                    m2283e = m610j;
+                    e = j;
                 } else {
-                    m2283e = C0765a.m2283e(m610j);
+                    e = com.corrodinggames.rts.gameFramework.file.a.e(j);
                 }
                 try {
                     try {
-                        c1114ah2 = new C1114ah(m610j, m2283e);
-                        f7056a.put(m610j, c1114ah2);
-                    } catch (IOException e) {
-                        m612h("Failed to open source zip: '" + m2283e + "'");
-                        e.printStackTrace();
-                        String str2 = "Failed to open zip, " + e.getMessage();
-                        if (C0765a.m2280g(m610j)) {
-                            m612h("isDirectory: " + m610j);
+                        ahVar2 = new ah(j, e);
+                        a.put(j, ahVar2);
+                    } catch (IOException e2) {
+                        h("Failed to open source zip: '" + e + "'");
+                        e2.printStackTrace();
+                        String str2 = "Failed to open zip, " + e2.getMessage();
+                        if (com.corrodinggames.rts.gameFramework.file.a.g(j)) {
+                            h("isDirectory: " + j);
                             str2 = "Failed to open .rwmod file (Appears to be a directory!). Please remove .rwmod from any folder names.";
                         }
-                        C0765a.m2291b(str2 + VariableScope.nullOrMissingString);
+                        com.corrodinggames.rts.gameFramework.file.a.b(str2 + VariableScope.nullOrMissingString);
                         return null;
                     }
-                } catch (IllegalArgumentException e2) {
-                    m612h("Failed to open source zip: '" + m2283e + "'");
-                    e2.printStackTrace();
-                    C0765a.m2291b("Failed to open zip, " + e2.getMessage());
+                } catch (IllegalArgumentException e3) {
+                    h("Failed to open source zip: '" + e + "'");
+                    e3.printStackTrace();
+                    com.corrodinggames.rts.gameFramework.file.a.b("Failed to open zip, " + e3.getMessage());
                     return null;
                 }
             }
-            c1114ah = c1114ah2;
+            ahVar = ahVar2;
         }
-        return c1114ah;
+        return ahVar;
     }
 
-    /* renamed from: e */
-    public static void m615e(String str, boolean z) {
-        final String m610j = m610j(str);
-        synchronized (f7056a) {
-            final C1114ah c1114ah = (C1114ah) f7056a.remove(m610j);
-            if (c1114ah != null) {
-                GameEngine.m5460e("Closing zip file: " + m610j);
+    public static void e(String str, boolean z) {
+        final String j = j(str);
+        synchronized (a) {
+            final ah ahVar = (ah) a.remove(j);
+            if (ahVar != null) {
+                GameEngine.m5e("Closing zip file: " + j);
                 new Thread(new Runnable() { // from class: com.corrodinggames.rts.gameFramework.utility.ag.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -202,27 +181,24 @@ public class C1112ag extends AbstractC1111af {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        GameEngine.m5460e("Running delayed close of zip: " + m610j);
-                        c1114ah.m607a();
+                        GameEngine.m5e("Running delayed close of zip: " + j);
+                        ahVar.a();
                     }
                 }).start();
             }
         }
     }
 
-    /* renamed from: k */
-    public void m609k(String str) {
-        m615e(str, false);
+    public void k(String str) {
+        e(str, false);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.utility.AbstractC1111af
-    /* renamed from: a */
-    public void mo626a() {
+    @Override // com.corrodinggames.rts.gameFramework.utility.af
+    public void a() {
     }
 
-    /* renamed from: l */
-    public static String m608l(String str) {
-        String substring = str.substring(m610j(str).length());
+    public static String l(String str) {
+        String substring = str.substring(j(str).length());
         if (substring.startsWith("/") || substring.startsWith("\\")) {
             substring = substring.substring(1);
         }
@@ -233,22 +209,22 @@ public class C1112ag extends AbstractC1111af {
             substring = substring.replace("\\", "/");
         }
         if (substring.contains("..")) {
-            String[] m2145c = C0773f.m2145c(substring, '/');
-            ArrayList arrayList = new ArrayList(m2145c.length);
+            String[] c = com.corrodinggames.rts.gameFramework.f.c(substring, '/');
+            ArrayList arrayList = new ArrayList(c.length);
             int i = 0;
-            for (int length = m2145c.length - 1; length >= 0; length--) {
-                if (m2145c[length].equals("..")) {
+            for (int length = c.length - 1; length >= 0; length--) {
+                if (c[length].equals("..")) {
                     i++;
                 } else if (i > 0) {
                     i--;
                 } else {
-                    arrayList.add(0, m2145c[length]);
+                    arrayList.add(0, c[length]);
                 }
             }
             if (i != 0) {
-                m612h("getPathInZip: Backtracking attempt out of zip: " + substring);
+                h("getPathInZip: Backtracking attempt out of zip: " + substring);
             }
-            substring = C0773f.m2191a("/", arrayList);
+            substring = com.corrodinggames.rts.gameFramework.f.a("/", arrayList);
         }
         return substring;
     }

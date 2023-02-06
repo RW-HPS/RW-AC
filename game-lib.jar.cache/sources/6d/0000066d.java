@@ -8,12 +8,10 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 /* renamed from: com.corrodinggames.rts.java.c.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/c/d.class */
 public class SteamFriendsCallback implements com.codedisaster.steamworks.SteamFriendsCallback {
-
-    /* renamed from: a */
-    SteamEngine f7328a;
+    SteamEngine a;
 
     public SteamFriendsCallback(SteamEngine steamEngine) {
-        this.f7328a = steamEngine;
+        this.a = steamEngine;
     }
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback
@@ -26,7 +24,7 @@ public class SteamFriendsCallback implements com.codedisaster.steamworks.SteamFr
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback
     public void onGameOverlayActivated(boolean z) {
-        GameEngine.m5460e("onGameOverlayActivated");
+        GameEngine.m5e("onGameOverlayActivated");
     }
 
     @Override // com.codedisaster.steamworks.SteamFriendsCallback

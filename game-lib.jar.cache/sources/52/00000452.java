@@ -1,25 +1,23 @@
-package com.corrodinggames.rts.gameFramework.p031b.p032a;
+package com.corrodinggames.rts.gameFramework.b.a;
 
 import android.opengl.GLES20;
 import android.util.Log;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.b.a.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/a/f.class */
-public class C0684f {
-    /* renamed from: a */
-    public static int m2688a(int i, int i2, EnumC0677a[] enumC0677aArr) {
+public class f {
+    public static int a(int i, int i2, a[] aVarArr) {
         int glCreateProgram = GLES20.glCreateProgram();
         if (glCreateProgram != 0) {
             GLES20.glAttachShader(glCreateProgram, i);
             GLES20.glAttachShader(glCreateProgram, i2);
-            for (EnumC0677a enumC0677a : enumC0677aArr) {
-                GLES20.glBindAttribLocation(glCreateProgram, enumC0677a.m2722a(), enumC0677a.m2721b());
+            for (a aVar : aVarArr) {
+                GLES20.glBindAttribLocation(glCreateProgram, aVar.a(), aVar.b());
             }
             GLES20.glLinkProgram(glCreateProgram);
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
             if (iArr[0] == 0) {
-                Log.m5076a("Utilities", GLES20.glGetProgramInfoLog(glCreateProgram));
+                Log.a("Utilities", GLES20.glGetProgramInfoLog(glCreateProgram));
                 GLES20.glDeleteProgram(glCreateProgram);
                 glCreateProgram = 0;
             }
@@ -30,8 +28,7 @@ public class C0684f {
         return glCreateProgram;
     }
 
-    /* renamed from: a */
-    public static int m2687a(int i, String str) {
+    public static int a(int i, String str) {
         int glCreateShader = GLES20.glCreateShader(i);
         if (glCreateShader != 0) {
             GLES20.glShaderSource(glCreateShader, str);
@@ -39,7 +36,7 @@ public class C0684f {
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                Log.m5076a("Utilities", "Shader fail info: " + GLES20.glGetShaderInfoLog(glCreateShader));
+                Log.a("Utilities", "Shader fail info: " + GLES20.glGetShaderInfoLog(glCreateShader));
                 GLES20.glDeleteShader(glCreateShader);
                 glCreateShader = 0;
             }

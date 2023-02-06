@@ -2,23 +2,18 @@ package com.corrodinggames.rts.gameFramework.utility;
 
 import java.io.OutputStream;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.utility.w */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/w.class */
-public class C1150w extends OutputStream {
+public class w extends OutputStream {
+    public byte[] a;
+    protected int b;
 
-    /* renamed from: a */
-    public byte[] f7143a;
-
-    /* renamed from: b */
-    protected int f7144b;
-
-    public C1150w() {
-        this.f7143a = new byte[32];
+    public w() {
+        this.a = new byte[32];
     }
 
-    public C1150w(int i) {
+    public w(int i) {
         if (i >= 0) {
-            this.f7143a = new byte[i];
+            this.a = new byte[i];
             return;
         }
         throw new IllegalArgumentException("size < 0");
@@ -29,32 +24,28 @@ public class C1150w extends OutputStream {
         super.close();
     }
 
-    /* renamed from: a */
-    private void m484a(int i) {
-        if (this.f7144b + i <= this.f7143a.length) {
+    private void a(int i) {
+        if (this.b + i <= this.a.length) {
             return;
         }
-        byte[] bArr = new byte[(this.f7144b + i) * 2];
-        System.arraycopy(this.f7143a, 0, bArr, 0, this.f7144b);
-        this.f7143a = bArr;
+        byte[] bArr = new byte[(this.b + i) * 2];
+        System.arraycopy(this.a, 0, bArr, 0, this.b);
+        this.a = bArr;
     }
 
-    /* renamed from: a */
-    public synchronized void m485a() {
-        this.f7144b = 0;
+    public synchronized void a() {
+        this.b = 0;
     }
 
-    /* renamed from: b */
-    public int m482b() {
-        return this.f7144b;
+    public int b() {
+        return this.b;
     }
 
     public String toString() {
-        return new String(this.f7143a, 0, this.f7144b);
+        return new String(this.a, 0, this.b);
     }
 
-    /* renamed from: a */
-    public static void m483a(int i, int i2, int i3) {
+    public static void a(int i, int i2, int i3) {
         if ((i2 | i3) < 0 || i2 > i || i - i2 < i3) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -62,23 +53,23 @@ public class C1150w extends OutputStream {
 
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) {
-        m483a(bArr.length, i, i2);
+        a(bArr.length, i, i2);
         if (i2 == 0) {
             return;
         }
-        m484a(i2);
-        System.arraycopy(bArr, i, this.f7143a, this.f7144b, i2);
-        this.f7144b += i2;
+        a(i2);
+        System.arraycopy(bArr, i, this.a, this.b, i2);
+        this.b += i2;
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(int i) {
-        if (this.f7144b == this.f7143a.length) {
-            m484a(1);
+        if (this.b == this.a.length) {
+            a(1);
         }
-        byte[] bArr = this.f7143a;
-        int i2 = this.f7144b;
-        this.f7144b = i2 + 1;
+        byte[] bArr = this.a;
+        int i2 = this.b;
+        this.b = i2 + 1;
         bArr[i2] = (byte) i;
     }
 }

@@ -3,144 +3,142 @@ package com.corrodinggames.rts.gameFramework.status;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.p012b.C0172a;
-import com.corrodinggames.rts.game.p012b.C0179f;
-import com.corrodinggames.rts.game.units.custom.C0404bb;
-import com.corrodinggames.rts.game.units.custom.C0417bo;
-import com.corrodinggames.rts.game.units.custom.C0418bp;
+import com.corrodinggames.rts.game.maps.a;
+import com.corrodinggames.rts.game.maps.f;
+import com.corrodinggames.rts.game.units.custom.bb;
+import com.corrodinggames.rts.game.units.custom.bo;
+import com.corrodinggames.rts.game.units.custom.bp;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.status.p047a.C1068b;
-import com.corrodinggames.rts.gameFramework.status.p047a.C1069c;
+import com.corrodinggames.rts.gameFramework.status.a.b;
 import java.util.Iterator;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.n.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/c.class */
-public class C1071c {
-    /* renamed from: a */
-    public static C1066a m797a(C1085f c1085f, C0172a c0172a) {
+public class c {
+    public static a a(f fVar, a aVar) {
         try {
             GameEngine gameEngine = GameEngine.getGameEngine();
-            String str = c0172a.f768b;
+            String str = aVar.b;
             if (str == null) {
                 str = "NULL";
             }
-            String m4669b = c0172a.m4669b("id");
-            if (m4669b != null && !m4669b.equals(VariableScope.nullOrMissingString)) {
-                str = m4669b;
+            String b = aVar.b("id");
+            if (b != null && !b.equals(VariableScope.nullOrMissingString)) {
+                str = b;
             }
             String trim = str.trim();
-            String str2 = c0172a.f770d;
+            String str2 = aVar.d;
             if (str2 != null) {
-                EnumC1073e m795a = EnumC1073e.m795a(str2);
-                if (m795a == null) {
-                    C1085f.m776c("Error: Unknown type:" + str2 + " found on " + trim);
+                e a = e.a(str2);
+                if (a == null) {
+                    f.c("Error: Unknown type:" + str2 + " found on " + trim);
                     return null;
                 }
-                C1066a c1066a = new C1066a();
-                c1066a.f6823t = c0172a;
-                c1066a.f6815g = m795a;
-                c1066a.f6813b = trim;
+                a aVar2 = new a();
+                aVar2.t = aVar;
+                aVar2.g = a;
+                aVar2.b = trim;
                 int i = 0;
-                Iterator it = c1085f.f6909J.iterator();
+                Iterator it = fVar.J.iterator();
                 while (it.hasNext()) {
-                    if (((C1066a) it.next()).f6813b.equalsIgnoreCase(c1066a.f6813b)) {
+                    if (((a) it.next()).b.equalsIgnoreCase(aVar2.b)) {
                         i++;
                     }
                 }
-                c1066a.f6814c = c1066a.f6813b;
+                aVar2.c = aVar2.b;
                 if (i != 0) {
-                    c1066a.f6814c += "_" + i;
+                    aVar2.c += "_" + i;
                 }
-                c1066a.f6812a = c0172a.f768b;
-                Integer m811d = c1066a.m811d("team");
-                if (m811d != null) {
-                    c1066a.f6827y = PlayerData.m4365k(m811d.intValue());
-                    if (c1066a.f6827y == null) {
-                        c1066a.m808g("Cannot find team:" + m811d);
+                aVar2.a = aVar.b;
+                Integer d = aVar2.d("team");
+                if (d != null) {
+                    aVar2.y = PlayerData.getPlayerData(d.intValue());
+                    if (aVar2.y == null) {
+                        aVar2.g("Cannot find team:" + d);
                         return null;
                     }
                 }
-                c1066a.f6838r = c1066a.m816b("delay", c1066a.f6838r);
-                c1066a.f6822p = c1066a.m816b("repeatDelay", c1066a.f6822p);
-                c1066a.f6836o = c1066a.m825a("repeatCount", c1066a.f6836o);
-                c1066a.f6837q = c1066a.m816b("resetActivationAfter", c1066a.f6837q);
-                c1066a.f6816h = c1066a.m820a("allToActivate", false);
-                c1066a.f6832d.f6860b = c1066a.f6816h;
-                c1066a.f6839s = c1066a.m816b("warmup", c1066a.f6839s);
-                c1066a.f6829A = c1066a.m824a("globalMessage", (C0404bb) null);
-                c1066a.f6825w = c1066a.m826a("textOffsetX", 0.0f);
-                c1066a.f6826x = c1066a.m826a("textOffsetY", 0.0f);
-                if (c1066a.f6815g == EnumC1073e.f6867g || c1066a.f6815g == EnumC1073e.f6861a) {
-                    c1066a.f6828z = c1066a.m824a("text", (C0404bb) null);
+                aVar2.r = aVar2.b("delay", aVar2.r);
+                aVar2.p = aVar2.b("repeatDelay", aVar2.p);
+                aVar2.o = aVar2.a("repeatCount", aVar2.o);
+                aVar2.q = aVar2.b("resetActivationAfter", aVar2.q);
+                aVar2.h = aVar2.a("allToActivate", false);
+                aVar2.d.b = aVar2.h;
+                aVar2.s = aVar2.b("warmup", aVar2.s);
+                aVar2.A = aVar2.a("globalMessage", (bb) null);
+                aVar2.w = aVar2.a("textOffsetX", 0.0f);
+                aVar2.x = aVar2.a("textOffsetY", 0.0f);
+                if (aVar2.g == e.mapText || aVar2.g == e.objective) {
+                    aVar2.z = aVar2.a("text", (bb) null);
                 }
-                if (c1066a.f6815g == EnumC1073e.f6867g) {
-                    c1085f.f6879i = true;
-                    c1066a.f6830B = new Paint();
-                    c1066a.f6830B.mo914a(true);
-                    c1066a.f6830B.m5224a(Paint.Align.f196b);
-                    c1066a.f6830B.mo916a(Typeface.m5137a(Typeface.f246c, 1));
-                    c1066a.f6830B.m5206b(c1066a.m813c("textColor", -1));
-                    gameEngine.m1017b(c1066a.f6830B, c1066a.m825a("textSize", 20));
-                    if (c1066a.f6830B.m5192f() == 0) {
-                        c1066a.m808g("Text has an alpha of 0");
+                if (aVar2.g == e.mapText) {
+                    fVar.i = true;
+                    aVar2.B = new Paint();
+                    aVar2.B.a(true);
+                    aVar2.B.a(Paint.Align.CENTER);
+                    aVar2.B.a(Typeface.a(Typeface.c, 1));
+                    aVar2.B.b(aVar2.c("textColor", -1));
+                    gameEngine.b(aVar2.B, aVar2.a("textSize", 20));
+                    if (aVar2.B.f() == 0) {
+                        aVar2.g("Text has an alpha of 0");
                     }
-                    String m817b = c1066a.m817b("style");
-                    if (m817b != null && !m817b.equals(VariableScope.nullOrMissingString)) {
-                        if (m817b.equalsIgnoreCase("arrow")) {
-                            c1066a.f6831C = true;
+                    String b2 = aVar2.b("style");
+                    if (b2 != null && !b2.equals(VariableScope.nullOrMissingString)) {
+                        if (b2.equalsIgnoreCase("arrow")) {
+                            aVar2.C = true;
                         } else {
-                            c1066a.m808g("Unknown style: " + m817b);
+                            aVar2.g("Unknown style: " + b2);
                         }
                     }
                 }
-                if (c1066a.f6815g == EnumC1073e.f6865e) {
+                if (aVar2.g == e.event_unitAdd) {
                     try {
-                        c1066a.f6824v = C0418bp.m3873a(c1066a.m817b("spawnUnits"), "<unitAdd>", "spawnUnits");
-                        if (c1066a.m830a() == null) {
-                            c1066a.m808g("No team set");
+                        aVar2.v = bp.a(aVar2.b("spawnUnits"), "<unitAdd>", "spawnUnits");
+                        if (aVar2.a() == null) {
+                            aVar2.g("No team set");
                         }
-                    } catch (C0417bo e) {
-                        C1085f.m776c(e.getMessage());
+                    } catch (bo e) {
+                        f.c(e.getMessage());
                         return null;
                     }
                 }
-                if (c1066a.f6815g == EnumC1073e.f6864d) {
-                    c1066a.m827a("addTeamTags");
-                    c1066a.m827a("removeTeamTags");
+                if (aVar2.g == e.event_teamTags) {
+                    aVar2.a("addTeamTags");
+                    aVar2.a("removeTeamTags");
                 }
-                if (c1066a.f6815g == EnumC1073e.f6863c) {
-                    c1066a.m827a("add");
-                    c1066a.m827a("set");
+                if (aVar2.g == e.event_changeCredits) {
+                    aVar2.a("add");
+                    aVar2.a("set");
                 }
-                if (c1066a.f6815g == EnumC1073e.f6869i) {
-                    c1066a.m828a(C1069c.m802d(c1066a));
+                if (aVar2.g == e.trigger_unitDetect) {
+                    aVar2.a(com.corrodinggames.rts.gameFramework.status.a.c.d(aVar2));
                 }
-                if (c1066a.f6815g == EnumC1073e.f6870j) {
-                    c1066a.m828a(C1068b.m804d(c1066a));
+                if (aVar2.g == e.trigger_teamTagDetect) {
+                    aVar2.a(b.d(aVar2));
                 }
-                c1066a.m827a("comment");
-                c1066a.m827a("team");
-                c1066a.m827a("globalMessage");
-                c1066a.m827a("globalMessage_delayPerChar");
-                c1066a.m827a("globalMessage_textColor");
-                c1066a.m827a("debugMessage");
-                c1066a.m827a("showOnMap");
-                c1066a.m827a("text");
-                c1066a.m827a("target");
-                c1066a.m827a("onlyIfEmpty");
-                if (c1066a.f6815g == EnumC1073e.f6862b) {
-                    c1066a.m827a("unload");
+                aVar2.a("comment");
+                aVar2.a("team");
+                aVar2.a("globalMessage");
+                aVar2.a("globalMessage_delayPerChar");
+                aVar2.a("globalMessage_textColor");
+                aVar2.a("debugMessage");
+                aVar2.a("showOnMap");
+                aVar2.a("text");
+                aVar2.a("target");
+                aVar2.a("onlyIfEmpty");
+                if (aVar2.g == e.event_move) {
+                    aVar2.a("unload");
                 }
-                if (c1066a.f6815g == EnumC1073e.f6866f) {
-                    c1066a.m827a("onlyIfEmpty");
+                if (aVar2.g == e.event_unitRemove) {
+                    aVar2.a("onlyIfEmpty");
                 }
-                return c1066a;
+                return aVar2;
             }
-            C1085f.m776c("Error: no type field set for: " + trim);
+            f.c("Error: no type field set for: " + trim);
             return null;
         } catch (RuntimeException e2) {
-            throw new C0179f("Error while reading: " + c0172a.m4670b(), e2);
+            throw new f("Error while reading: " + aVar.b(), e2);
         }
     }
 }

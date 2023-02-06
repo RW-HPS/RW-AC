@@ -1,11 +1,10 @@
-package org.p055a.p056a.p058b;
+package org.a.a.b;
 
-import org.p055a.p056a.p059c.InterfaceC1239d;
+import org.a.a.c.d;
 
-/* renamed from: org.a.a.b.c */
 /* loaded from: game-lib.jar:org/a/a/b/c.class */
-public interface InterfaceC1235c extends Iterable {
-    @Override // java.lang.Iterable, org.p055a.p056a.p058b.InterfaceC1235c
+public interface c extends Iterable {
+    @Override // java.lang.Iterable, org.a.a.b.c
     /* renamed from: a */
-    InterfaceC1239d iterator();
+    d iterator();
 }

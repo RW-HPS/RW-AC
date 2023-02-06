@@ -1,46 +1,31 @@
-package com.corrodinggames.rts.game.units.p024d;
+package com.corrodinggames.rts.game.units.d;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
-import com.corrodinggames.rts.game.units.p013a.C0208c;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.game.units.as;
 
-/* renamed from: com.corrodinggames.rts.game.units.d.l */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/d/l.class */
-public interface InterfaceC0506l {
-    /* renamed from: dA */
-    boolean mo3334dA();
+public interface l {
+    boolean dA();
 
-    /* renamed from: b */
-    void mo3336b(C0504j c0504j);
+    void b(j jVar);
 
-    /* renamed from: a */
-    void mo3294a(C0504j c0504j);
+    void a(j jVar);
 
-    /* renamed from: h */
-    int mo3328h(InterfaceC0303as interfaceC0303as);
+    int h(as asVar);
 
-    /* renamed from: f */
-    int mo3329f(boolean z);
+    int f(boolean z);
 
-    /* renamed from: a */
-    int mo3337a(C0208c c0208c, boolean z);
+    int a(com.corrodinggames.rts.game.units.a.c cVar, boolean z);
 
-    /* renamed from: dy */
-    boolean mo3331dy();
+    boolean dy();
 
-    /* renamed from: a */
-    void mo3338a(PointF pointF);
+    void a(PointF pointF);
 
-    /* renamed from: dz */
-    void mo3330dz();
+    void dz();
 
-    /* renamed from: dw */
-    C0504j mo3333dw();
+    j dw();
 
-    /* renamed from: dx */
-    C1136m mo3332dx();
+    com.corrodinggames.rts.gameFramework.utility.m dx();
 
-    /* renamed from: c */
-    boolean mo3335c(C0504j c0504j);
+    boolean c(j jVar);
 }

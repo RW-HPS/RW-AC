@@ -9,94 +9,78 @@ import java.io.FileOutputStream;
 
 /* loaded from: game-lib.jar:android/content/ContextWrapper.class */
 public class ContextWrapper extends Context {
-
-    /* renamed from: a */
-    Context f115a;
+    Context a;
 
     public ContextWrapper(Context context) {
-        this.f115a = context;
+        this.a = context;
     }
 
-    /* renamed from: k */
-    public Context m5315k() {
-        return this.f115a;
-    }
-
-    @Override // android.content.Context
-    /* renamed from: d */
-    public AssetManager mo5308d() {
-        return this.f115a.mo5308d();
+    public Context k() {
+        return this.a;
     }
 
     @Override // android.content.Context
-    /* renamed from: e */
-    public Resources mo5307e() {
-        return this.f115a.mo5307e();
+    public AssetManager d() {
+        return this.a.d();
     }
 
     @Override // android.content.Context
-    /* renamed from: f */
-    public PackageManager mo5306f() {
-        return this.f115a.mo5306f();
+    public Resources e() {
+        return this.a.e();
     }
 
     @Override // android.content.Context
-    /* renamed from: g */
-    public Context mo5305g() {
-        return this.f115a.mo5305g();
+    public PackageManager f() {
+        return this.a.f();
     }
 
     @Override // android.content.Context
-    /* renamed from: h */
-    public String mo5304h() {
-        return this.f115a.mo5304h();
+    public Context g() {
+        return this.a.g();
     }
 
     @Override // android.content.Context
-    /* renamed from: a */
-    public SharedPreferences mo5312a(String str, int i) {
-        return this.f115a.mo5312a(str, i);
+    public String h() {
+        return this.a.h();
     }
 
     @Override // android.content.Context
-    /* renamed from: a */
-    public FileInputStream mo5313a(String str) {
-        return this.f115a.mo5313a(str);
+    public SharedPreferences a(String str, int i) {
+        return this.a.a(str, i);
     }
 
     @Override // android.content.Context
-    /* renamed from: b */
-    public FileOutputStream mo5310b(String str, int i) {
-        return this.f115a.mo5310b(str, i);
+    public FileInputStream a(String str) {
+        return this.a.a(str);
     }
 
     @Override // android.content.Context
-    /* renamed from: b */
-    public File mo5311b(String str) {
-        return this.f115a.mo5311b(str);
+    public FileOutputStream b(String str, int i) {
+        return this.a.b(str, i);
     }
 
     @Override // android.content.Context
-    /* renamed from: i */
-    public File mo5303i() {
-        return this.f115a.mo5303i();
+    public File b(String str) {
+        return this.a.b(str);
     }
 
     @Override // android.content.Context
-    /* renamed from: j */
-    public File mo5302j() {
-        return this.f115a.mo5302j();
+    public File i() {
+        return this.a.i();
     }
 
     @Override // android.content.Context
-    /* renamed from: a */
-    public void mo5314a(Intent intent) {
-        this.f115a.mo5314a(intent);
+    public File j() {
+        return this.a.j();
     }
 
     @Override // android.content.Context
-    /* renamed from: c */
-    public Object mo5309c(String str) {
-        return this.f115a.mo5309c(str);
+    public void a(Intent intent) {
+        this.a.a(intent);
+    }
+
+    @Override // android.content.Context
+    public Object c(String str) {
+        return this.a.c(str);
     }
 }

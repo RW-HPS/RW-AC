@@ -1,22 +1,20 @@
 package com.corrodinggames.rts.game.units.custom;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.w */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/w.class */
-public class C0470w extends C0469v {
-    @Override // com.corrodinggames.rts.game.units.custom.C0469v
-    /* renamed from: a */
-    public void mo3469a() {
-        if (!this.f3385e) {
-            this.f3384d = C0458l.m3502n(this.f3383c);
-            if (this.f3384d == null) {
-                throw new C0417bo("Could not find customUnit target:" + m3472d() + " used on:" + this.f3381a + " in section:" + this.f3382b);
+public class w extends v {
+    @Override // com.corrodinggames.rts.game.units.custom.v
+    public void a() {
+        if (!this.e) {
+            this.d = l.n(this.c);
+            if (this.d == null) {
+                throw new bo("Could not find customUnit target:" + d() + " used on:" + this.a + " in section:" + this.b);
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.C0469v
+    @Override // com.corrodinggames.rts.game.units.custom.v
     /* renamed from: e */
-    public C0458l mo3471c() {
-        return (C0458l) this.f3384d;
+    public l c() {
+        return (l) this.d;
     }
 }

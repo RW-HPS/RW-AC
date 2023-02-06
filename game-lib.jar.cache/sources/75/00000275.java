@@ -1,196 +1,174 @@
-package com.corrodinggames.rts.game.units.custom.p019c;
+package com.corrodinggames.rts.game.units.custom.c;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.custom.C0453g;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.custom.g;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.net.EnumC0914m;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
-import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.unitAction.ag;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.c.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/c/c.class */
-public class C0423c {
-
-    /* renamed from: d */
-    C1136m f2699d = new C1136m();
-
-    /* renamed from: f */
-    public static C0426f f2701f;
-
-    /* renamed from: a */
-    static final Rect f2696a = new Rect();
-
-    /* renamed from: b */
-    static final RectF f2697b = new RectF();
-
-    /* renamed from: c */
-    static final Paint f2698c = new Paint();
-
-    /* renamed from: e */
-    static Paint f2700e = new Paint();
+public class c {
+    m d = new m();
+    public static f f;
+    static final Rect a = new Rect();
+    static final RectF b = new RectF();
+    static final Paint c = new Paint();
+    static Paint e = new Paint();
 
     static {
-        f2700e.m5222a(255, 0, 0, 200);
-        f2701f = new C0426f();
+        e.a(255, 0, 0, 200);
+        f = new f();
     }
 
-    /* renamed from: a */
-    public void m3857a(C0458l c0458l) {
-        Object[] m535a = this.f2699d.m535a();
-        for (int i = this.f2699d.f7109a - 1; i >= 0; i--) {
-            C0425e c0425e = (C0425e) m535a[i];
-            C0421a m3555a = c0458l.m3555a(c0425e.f2706a.f2695g);
-            if (m3555a != null) {
-                c0425e.f2706a = m3555a;
-                while (c0425e.f2707b.size() > c0425e.f2706a.f2692d) {
-                    c0425e.f2707b.remove(c0425e.f2707b.size() - 1);
+    public void a(l lVar) {
+        Object[] a2 = this.d.a();
+        for (int i = this.d.a - 1; i >= 0; i--) {
+            e eVar = (e) a2[i];
+            a a3 = lVar.a(eVar.a.g);
+            if (a3 != null) {
+                eVar.a = a3;
+                while (eVar.b.size() > eVar.a.d) {
+                    eVar.b.remove(eVar.b.size() - 1);
                 }
             } else {
-                this.f2699d.remove(i);
+                this.d.remove(i);
             }
         }
     }
 
-    /* renamed from: a */
-    public C0425e m3858a(C0421a c0421a, boolean z) {
-        int i = this.f2699d.f7109a;
-        Object[] m535a = this.f2699d.m535a();
+    public e a(a aVar, boolean z) {
+        int i = this.d.a;
+        Object[] a2 = this.d.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0425e c0425e = (C0425e) m535a[i2];
-            if (c0425e.f2706a == c0421a) {
-                return c0425e;
+            e eVar = (e) a2[i2];
+            if (eVar.a == aVar) {
+                return eVar;
             }
         }
         if (z) {
-            C0425e c0425e2 = new C0425e(c0421a);
-            this.f2699d.add(c0425e2);
-            return c0425e2;
+            e eVar2 = new e(aVar);
+            this.d.add(eVar2);
+            return eVar2;
         }
         return null;
     }
 
-    /* renamed from: a */
-    public int m3859a(C0421a c0421a) {
-        C0425e m3858a = m3858a(c0421a, false);
-        if (m3858a == null) {
+    public int a(a aVar) {
+        e a2 = a(aVar, false);
+        if (a2 == null) {
             return 0;
         }
-        return m3858a.f2707b.f7109a;
+        return a2.b.a;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v71, types: [android.graphics.Paint] */
-    /* renamed from: a */
-    public void m3861a(float f, AbstractC0244am abstractC0244am) {
+    public void a(float f2, am amVar) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        int i = this.f2699d.f7109a;
+        int i = this.d.a;
         if (i == 0) {
             return;
         }
-        Object[] m535a = this.f2699d.m535a();
+        Object[] a2 = this.d.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0425e c0425e = (C0425e) m535a[i2];
-            C0421a c0421a = c0425e.f2706a;
-            int i3 = c0425e.f2707b.f7109a;
-            Object[] m535a2 = c0425e.f2707b.m535a();
+            e eVar = (e) a2[i2];
+            a aVar = eVar.a;
+            int i3 = eVar.b.a;
+            Object[] a3 = eVar.b.a();
             for (int i4 = i3 - 1; i4 >= 0; i4--) {
-                C0424d c0424d = (C0424d) m535a2[i4];
-                if (c0424d.f2704c) {
-                    AbstractC0244am abstractC0244am2 = c0424d.f2702a;
-                    if (c0421a.f2693e != null) {
-                        C0970e c0970e = c0421a.f2693e;
-                        float f2 = abstractC0244am.f7173eo - GameEngine.getGameEngine().f6408cw;
-                        float f3 = ((abstractC0244am.f7174ep - GameEngine.getGameEngine().f6409cx) - abstractC0244am.f7175eq) - 10.0f;
-                        float f4 = c0970e.f6627u;
-                        float m2138d = C0773f.m2138d(abstractC0244am.f7173eo, abstractC0244am.f7174ep - abstractC0244am.f7175eq, abstractC0244am2.f7173eo, abstractC0244am2.f7174ep - abstractC0244am2.f7175eq);
-                        float m2216a = C0773f.m2216a(abstractC0244am.f7173eo, abstractC0244am.f7174ep - abstractC0244am.f7175eq, abstractC0244am2.f7173eo, abstractC0244am2.f7174ep - abstractC0244am2.f7175eq);
-                        if (m2216a < (c0970e.f6623q - 2) * (c0970e.f6623q - 2)) {
-                            f4 = C0773f.m2211a((int) m2216a);
+                d dVar = (d) a3[i4];
+                if (dVar.c) {
+                    am amVar2 = dVar.a;
+                    if (aVar.e != null) {
+                        com.corrodinggames.rts.gameFramework.unitAction.e eVar2 = aVar.e;
+                        float f3 = amVar.eo - GameEngine.getGameEngine().cw;
+                        float f4 = ((amVar.ep - GameEngine.getGameEngine().cx) - amVar.eq) - 10.0f;
+                        float f5 = eVar2.u;
+                        float d = com.corrodinggames.rts.gameFramework.f.d(amVar.eo, amVar.ep - amVar.eq, amVar2.eo, amVar2.ep - amVar2.eq);
+                        float a4 = com.corrodinggames.rts.gameFramework.f.a(amVar.eo, amVar.ep - amVar.eq, amVar2.eo, amVar2.ep - amVar2.eq);
+                        if (a4 < (eVar2.q - 2) * (eVar2.q - 2)) {
+                            f5 = com.corrodinggames.rts.gameFramework.f.a((int) a4);
                         }
-                        gameEngine.f6374bO.mo136k();
-                        gameEngine.f6374bO.mo228a(m2138d + 90.0f, f2, f3);
-                        f2696a.m5166a(0, (int) (c0970e.f6623q - f4), c0970e.f6622p, c0970e.f6623q);
-                        f2697b.m5152a(f2 - c0970e.f6624r, f3 - f4, f2 + c0970e.f6624r, f3);
-                        C0966ag c0966ag = C0966ag.f6590r;
-                        if (c0424d.f2705d != 0.0f) {
-                            c0966ag = f2698c;
-                            int abs = (int) Math.abs(c0424d.f2705d * 5.0f);
+                        gameEngine.bO.k();
+                        gameEngine.bO.a(d + 90.0f, f3, f4);
+                        a.a(0, (int) (eVar2.q - f5), eVar2.p, eVar2.q);
+                        b.a(f3 - eVar2.r, f4 - f5, f3 + eVar2.r, f4);
+                        ag agVar = ag.r;
+                        if (dVar.d != 0.0f) {
+                            agVar = c;
+                            int abs = (int) Math.abs(dVar.d * 5.0f);
                             if (abs > 250) {
                                 abs = 250;
                             }
-                            c0966ag.m5222a(255, 255, 255 - abs, 255 - abs);
+                            agVar.a(255, 255, 255 - abs, 255 - abs);
                         }
-                        gameEngine.f6374bO.mo193a(c0970e, f2696a, f2697b, c0966ag);
-                        gameEngine.f6374bO.mo135l();
+                        gameEngine.bO.a(eVar2, a, b, agVar);
+                        gameEngine.bO.l();
                     }
-                    if (c0421a.f2694f != null) {
-                        gameEngine.f6374bO.mo226a(abstractC0244am.f7173eo - gameEngine.f6408cw, (abstractC0244am.f7174ep - gameEngine.f6409cx) - abstractC0244am.f7175eq, abstractC0244am2.f7173eo - gameEngine.f6408cw, (abstractC0244am2.f7174ep - gameEngine.f6409cx) - abstractC0244am2.f7175eq, c0421a.f2694f);
+                    if (aVar.f != null) {
+                        gameEngine.bO.a(amVar.eo - gameEngine.cw, (amVar.ep - gameEngine.cx) - amVar.eq, amVar2.eo - gameEngine.cw, (amVar2.ep - gameEngine.cx) - amVar2.eq, aVar.f);
                     }
                 }
             }
         }
     }
 
-    /* renamed from: a */
-    public void m3856a(GameOutputStream gameOutputStream) {
-        if (this.f2699d.f7109a == 0) {
+    public void a(GameOutputStream gameOutputStream) {
+        if (this.d.a == 0) {
             gameOutputStream.writeByte(-1);
             return;
         }
         gameOutputStream.writeByte(0);
-        short size = (short) this.f2699d.size();
-        gameOutputStream.mo1331a(size);
-        Object[] m535a = this.f2699d.m535a();
+        short size = (short) this.d.size();
+        gameOutputStream.a(size);
+        Object[] a2 = this.d.a();
         for (int i = 0; i < size; i++) {
-            C0425e c0425e = (C0425e) m535a[i];
-            gameOutputStream.m1400a(c0425e.f2706a.f2695g);
-            gameOutputStream.mo1331a((short) c0425e.f2707b.size());
-            Iterator it = c0425e.f2707b.iterator();
+            e eVar = (e) a2[i];
+            gameOutputStream.a(eVar.a.g);
+            gameOutputStream.a((short) eVar.b.size());
+            Iterator it = eVar.b.iterator();
             while (it.hasNext()) {
-                C0424d c0424d = (C0424d) it.next();
-                gameOutputStream.mo1334a(c0424d.f2702a);
-                gameOutputStream.writeBoolean(c0424d.f2703b);
-                gameOutputStream.writeBoolean(c0424d.f2704c);
+                d dVar = (d) it.next();
+                gameOutputStream.a(dVar.a);
+                gameOutputStream.writeBoolean(dVar.b);
+                gameOutputStream.writeBoolean(dVar.c);
             }
         }
     }
 
-    /* renamed from: a */
-    public void m3860a(AbstractC0244am abstractC0244am, GameInputStream gameInputStream) {
+    public void a(am amVar, GameInputStream gameInputStream) {
         if (gameInputStream.readByte() == -1) {
             return;
         }
         int readShort = gameInputStream.readShort();
-        this.f2699d.clear();
+        this.d.clear();
         for (int i = 0; i < readShort; i++) {
-            C0453g m1295m = gameInputStream.m1295m();
-            C0421a c0421a = null;
-            if (abstractC0244am instanceof C0456j) {
-                c0421a = ((C0456j) abstractC0244am).f2891x.m3555a(m1295m);
+            g m = gameInputStream.m();
+            a aVar = null;
+            if (amVar instanceof j) {
+                aVar = ((j) amVar).x.a(m);
             }
-            C0425e c0425e = null;
-            if (c0421a != null) {
-                c0425e = new C0425e(c0421a);
-                this.f2699d.add(c0425e);
+            e eVar = null;
+            if (aVar != null) {
+                eVar = new e(aVar);
+                this.d.add(eVar);
             }
             int readShort2 = gameInputStream.readShort();
             for (int i2 = 0; i2 < readShort2; i2++) {
-                C0424d c0424d = new C0424d();
-                c0424d.f2702a = gameInputStream.m1318a(EnumC0914m.expected);
-                c0424d.f2703b = gameInputStream.readBoolean();
-                c0424d.f2704c = gameInputStream.readBoolean();
-                if (c0424d.f2702a != null && c0425e != null) {
-                    c0425e.f2707b.add(c0424d);
+                d dVar = new d();
+                dVar.a = gameInputStream.a(com.corrodinggames.rts.gameFramework.net.m.expected);
+                dVar.b = gameInputStream.readBoolean();
+                dVar.c = gameInputStream.readBoolean();
+                if (dVar.a != null && eVar != null) {
+                    eVar.b.add(dVar);
                 }
             }
         }

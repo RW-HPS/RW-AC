@@ -1,49 +1,42 @@
 package com.corrodinggames.rts.java;
 
-import com.corrodinggames.librocket.AbstractC0043a;
 import com.corrodinggames.librocket.scripts.ScriptEngine;
-import com.corrodinggames.rts.appFramework.ActivityC0097g;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
-/* renamed from: com.corrodinggames.rts.java.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/h.class */
-public class ActivityC1211h extends ActivityC0097g {
-    @Override // com.corrodinggames.rts.appFramework.ActivityC0097g
-    /* renamed from: c */
-    public void mo116c(int i) {
-        GameEngine.m5777e("InGameActivityJava selectMenuOption: " + i);
-        mo115d(i);
+public class h extends com.corrodinggames.rts.appFramework.g {
+    @Override // com.corrodinggames.rts.appFramework.g
+    public void c(int i) {
+        GameEngine.m5e("InGameActivityJava selectMenuOption: " + i);
+        d(i);
     }
 
-    /* renamed from: e */
-    private void m114e(String str) {
+    private void e(String str) {
         ScriptEngine.getInstance().getRoot().makeSaveGamePopup(str);
     }
 
-    /* renamed from: f */
-    private void m113f(String str) {
+    private void f(String str) {
         ScriptEngine.getInstance().getRoot().makeExportMapGamePopup(str);
     }
 
-    @Override // com.corrodinggames.rts.appFramework.ActivityC0097g
-    /* renamed from: d */
-    public void mo115d(int i) {
+    @Override // com.corrodinggames.rts.appFramework.g
+    public void d(int i) {
         switch (i) {
             case 2:
-                AbstractC0043a.m5040a().m5029d();
+                com.corrodinggames.librocket.a.a().d();
                 return;
             case 3:
-                GameEngine.m5777e("TODO");
+                GameEngine.m5e("TODO");
                 return;
             case 4:
-                GameEngine.getGameEngine().f6393ch = !GameEngine.getGameEngine().f6393ch;
+                GameEngine.getGameEngine().ch = !GameEngine.getGameEngine().ch;
                 return;
             case 5:
-                GameEngine.m5777e("TODO");
+                GameEngine.m5e("TODO");
                 return;
             case 6:
                 GameEngine gameEngine = GameEngine.getGameEngine();
-                gameEngine.f6345bl = !gameEngine.f6345bl;
+                gameEngine.bl = !gameEngine.bl;
                 return;
             case 7:
             case 8:
@@ -51,11 +44,11 @@ public class ActivityC1211h extends ActivityC0097g {
                 return;
             case 9:
                 GameEngine gameEngine2 = GameEngine.getGameEngine();
-                if (!gameEngine2.f6348bo) {
-                    gameEngine2.f6348bo = true;
+                if (!gameEngine2.bo) {
+                    gameEngine2.bo = true;
                     return;
                 } else {
-                    gameEngine2.f6348bo = false;
+                    gameEngine2.bo = false;
                     return;
                 }
             case 10:
@@ -63,13 +56,13 @@ public class ActivityC1211h extends ActivityC0097g {
                 return;
             case 11:
                 GameEngine gameEngine3 = GameEngine.getGameEngine();
-                if (gameEngine3.f6390ce != null && gameEngine3.f6390ce.f6880h != null) {
-                    gameEngine3.m1064a("Briefing", gameEngine3.f6390ce.f6880h);
+                if (gameEngine3.ce != null && gameEngine3.ce.h != null) {
+                    gameEngine3.a("Briefing", gameEngine3.ce.h);
                     return;
                 }
                 return;
             case 12:
-                m114e(null);
+                e(null);
                 return;
             case 13:
                 ScriptEngine.getInstance().addScriptToQueue("makeSendMessagePopup();");
@@ -77,7 +70,7 @@ public class ActivityC1211h extends ActivityC0097g {
             case 14:
                 GameEngine gameEngine4 = GameEngine.getGameEngine();
                 if (gameEngine4.netEngine != null) {
-                    gameEngine4.netEngine.m1617H();
+                    gameEngine4.netEngine.H();
                     return;
                 }
                 return;
@@ -91,7 +84,7 @@ public class ActivityC1211h extends ActivityC0097g {
                 ScriptEngine.getInstance().addScriptToQueue("mp.reinviteAsk();");
                 return;
             case 18:
-                m113f(null);
+                f(null);
                 return;
             case 19:
                 ScriptEngine.getInstance().addScriptToQueue("mp.surrenderPrompt();");
@@ -104,18 +97,17 @@ public class ActivityC1211h extends ActivityC0097g {
                 return;
             case 22:
                 GameEngine gameEngine5 = GameEngine.getGameEngine();
-                gameEngine5.f6432cU = true;
-                gameEngine5.f6378bS.f5282u = false;
+                gameEngine5.cU = true;
+                gameEngine5.bS.u = false;
                 return;
             case 23:
-                AbstractC0043a.m5040a().m5028e();
+                com.corrodinggames.librocket.a.a().e();
                 return;
         }
     }
 
-    @Override // com.corrodinggames.rts.appFramework.ActivityC0097g
-    /* renamed from: m */
-    public void mo112m() {
+    @Override // com.corrodinggames.rts.appFramework.g
+    public void m() {
         ScriptEngine.getInstance().addScriptToQueue("showMainMenu();");
     }
 }

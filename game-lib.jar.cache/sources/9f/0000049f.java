@@ -1,300 +1,237 @@
-package com.corrodinggames.rts.gameFramework.p035d;
+package com.corrodinggames.rts.gameFramework.emitter;
 
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.f;
 import com.corrodinggames.rts.gameFramework.net.GameInputStream;
 import com.corrodinggames.rts.gameFramework.net.GameOutputStream;
+import com.corrodinggames.rts.gameFramework.w;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.d.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/d/f.class */
-public class C0761f extends AbstractC1155w {
-
-    /* renamed from: a */
-    public float f4876a;
-
-    /* renamed from: c */
-    float f4878c;
-
-    /* renamed from: d */
-    float f4879d;
-
-    /* renamed from: e */
-    float f4880e;
-
-    /* renamed from: f */
-    float f4881f;
-
-    /* renamed from: g */
-    float f4882g;
-
-    /* renamed from: h */
-    float f4883h;
-
-    /* renamed from: i */
-    C0760e f4884i;
-
-    /* renamed from: m */
-    float f4888m;
-
-    /* renamed from: n */
-    float f4889n;
-
-    /* renamed from: o */
-    float f4890o;
-
-    /* renamed from: p */
-    float f4891p;
-
-    /* renamed from: q */
-    float f4892q;
-
-    /* renamed from: r */
-    float f4893r;
-
-    /* renamed from: s */
-    EnumC0763h f4894s;
-
-    /* renamed from: t */
-    public float f4895t;
-
-    /* renamed from: v */
-    static C0760e f4897v;
-
-    /* renamed from: w */
-    static C0760e f4898w;
-
-    /* renamed from: x */
-    private final C0758c f4899x;
+public class Emitter extends w {
+    public float a;
+    float c;
+    float d;
+    float e;
+    float f;
+    float g;
+    float h;
+    e i;
+    float m;
+    float n;
+    float o;
+    float p;
+    float q;
+    float r;
+    h s;
+    public float t;
+    static e v;
+    static e w;
+    private final c x;
+    public boolean b = true;
+    public int j = 0;
+    public int k = 0;
+    public int l = -1;
+    public boolean u = false;
 
     /* renamed from: b */
-    public boolean f4877b = true;
-
-    /* renamed from: j */
-    public int f4885j = 0;
-
-    /* renamed from: k */
-    public int f4886k = 0;
-
-    /* renamed from: l */
-    public int f4887l = -1;
-
-    /* renamed from: u */
-    public boolean f4896u = false;
-
-    /* renamed from: b */
-    public static void m2345b() {
-        C0758c c0758c = GameEngine.getGameEngine().f6377bR;
-        C0760e c0760e = new C0760e(c0758c);
-        m2346a(c0760e, false);
-        c0760e.f4868aq = 18;
-        c0760e.f4819t = 15.0f;
-        f4897v = c0760e;
-        C0760e c0760e2 = new C0760e(c0758c);
-        m2343b(c0760e2, false);
-        f4898w = c0760e2;
+    public static void load() {
+        c cVar = GameEngine.getGameEngine().bR;
+        e eVar = new e(cVar);
+        a(eVar, false);
+        eVar.aq = 18;
+        eVar.t = 15.0f;
+        v = eVar;
+        e eVar2 = new e(cVar);
+        b(eVar2, false);
+        w = eVar2;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w, com.corrodinggames.rts.gameFramework.AbstractC0741bq
-    /* renamed from: a */
-    public void mo442a(GameOutputStream gameOutputStream) {
-        gameOutputStream.writeFloat(this.f7173eo);
-        gameOutputStream.writeFloat(this.f7174ep);
-        gameOutputStream.writeFloat(this.f4876a);
-        super.mo442a(gameOutputStream);
+    @Override // com.corrodinggames.rts.gameFramework.w, com.corrodinggames.rts.gameFramework.bq
+    public void a(GameOutputStream gameOutputStream) {
+        gameOutputStream.writeFloat(this.eo);
+        gameOutputStream.writeFloat(this.ep);
+        gameOutputStream.writeFloat(this.a);
+        super.a(gameOutputStream);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: a */
-    public void mo441a(GameInputStream gameInputStream) {
-        this.f7173eo = gameInputStream.readFloat();
-        this.f7174ep = gameInputStream.readFloat();
-        this.f4876a = gameInputStream.readFloat();
-        this.f4877b = false;
-        super.mo441a(gameInputStream);
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public void a(GameInputStream gameInputStream) {
+        this.eo = gameInputStream.readFloat();
+        this.ep = gameInputStream.readFloat();
+        this.a = gameInputStream.readFloat();
+        this.b = false;
+        super.a(gameInputStream);
     }
 
-    public C0761f(C0758c c0758c) {
-        this.f4899x = c0758c;
+    public Emitter(c cVar) {
+        this.x = cVar;
     }
 
-    /* renamed from: a */
-    public static void m2346a(C0760e c0760e, boolean z) {
-        c0760e.m2349c();
-        c0760e.f4868aq = 5;
+    public static void a(e eVar, boolean z) {
+        eVar.c();
+        eVar.aq = 5;
         if (z) {
-            c0760e.f4867ap = C0773f.rand(0, 1);
+            eVar.ap = f.rand(0, 1);
         } else {
-            c0760e.f4867ap = 0;
+            eVar.ap = 0;
         }
-        c0760e.f4850Y = 0.0f;
-        c0760e.f4865an = true;
-        c0760e.f4841P = 0.1f;
-        c0760e.f4843R = 0.5f;
-        c0760e.f4820u = true;
-        c0760e.f4847V = 300.0f;
-        c0760e.f4848W = c0760e.f4847V;
-        c0760e.f4817r = true;
-        c0760e.f4818s = true;
-        c0760e.f4819t = 40.0f;
-        c0760e.f4870as = false;
-        c0760e.f4869ar = (short) 2;
-        c0760e.f4832G = 0.4f;
-        c0760e.f4831F = 1.5f;
-        c0760e.f4806g = C0760e.f4810k;
+        eVar.Y = 0.0f;
+        eVar.an = true;
+        eVar.P = 0.1f;
+        eVar.R = 0.5f;
+        eVar.u = true;
+        eVar.V = 300.0f;
+        eVar.W = eVar.V;
+        eVar.r = true;
+        eVar.s = true;
+        eVar.t = 40.0f;
+        eVar.as = false;
+        eVar.ar = (short) 2;
+        eVar.G = 0.4f;
+        eVar.F = 1.5f;
+        eVar.g = e.k;
     }
 
-    /* renamed from: b */
-    public static void m2343b(C0760e c0760e, boolean z) {
-        c0760e.m2349c();
-        c0760e.f4868aq = 7;
+    public static void b(e eVar, boolean z) {
+        eVar.c();
+        eVar.aq = 7;
         if (z) {
-            c0760e.f4867ap = C0773f.rand(0, 3);
+            eVar.ap = f.rand(0, 3);
         } else {
-            c0760e.f4867ap = 0;
+            eVar.ap = 0;
         }
-        c0760e.f4850Y = 0.0f;
-        c0760e.f4865an = true;
-        c0760e.f4841P = 0.0f;
-        c0760e.f4843R = 0.2f;
-        c0760e.f4820u = true;
-        c0760e.f4847V = 50.0f;
-        c0760e.f4848W = c0760e.f4847V;
-        c0760e.f4817r = true;
-        c0760e.f4818s = true;
-        c0760e.f4819t = 10.0f;
-        c0760e.f4870as = false;
-        c0760e.f4869ar = (short) 2;
-        c0760e.f4806g = C0760e.f4813n;
+        eVar.Y = 0.0f;
+        eVar.an = true;
+        eVar.P = 0.0f;
+        eVar.R = 0.2f;
+        eVar.u = true;
+        eVar.V = 50.0f;
+        eVar.W = eVar.V;
+        eVar.r = true;
+        eVar.s = true;
+        eVar.t = 10.0f;
+        eVar.as = false;
+        eVar.ar = (short) 2;
+        eVar.g = e.n;
     }
 
-    /* renamed from: a */
-    public static C0761f m2348a(float f, float f2) {
-        C0761f m2347a = m2347a(f, f2, f4897v);
-        m2347a.f4876a = 280.0f;
-        m2347a.f4881f = 10.0f;
-        m2347a.f4878c = 10.0f;
-        m2347a.f4888m = 0.03f;
-        m2347a.f4889n = 0.03f;
-        m2347a.f4891p = 6.0f;
-        m2347a.f4892q = 6.0f;
-        m2347a.f4894s = EnumC0763h.verylow;
-        m2347a.f4893r = 180.0f;
-        m2347a.f4885j = -16777216;
-        return m2347a;
+    public static Emitter a(float f, float f2) {
+        Emitter a = a(f, f2, v);
+        a.a = 280.0f;
+        a.f = 10.0f;
+        a.c = 10.0f;
+        a.m = 0.03f;
+        a.n = 0.03f;
+        a.p = 6.0f;
+        a.q = 6.0f;
+        a.s = h.verylow;
+        a.r = 180.0f;
+        a.j = -16777216;
+        return a;
     }
 
-    /* renamed from: b */
-    public static C0761f m2344b(float f, float f2) {
-        C0761f m2347a = m2347a(f, f2, f4898w);
-        m2347a.f4876a = 330.0f;
-        m2347a.f4881f = 10.0f;
-        m2347a.f4878c = 10.0f;
-        m2347a.f4888m = 0.1f;
-        m2347a.f4889n = 0.03f;
-        m2347a.f4891p = 4.0f;
-        m2347a.f4892q = 4.0f;
-        m2347a.f4894s = EnumC0763h.verylow;
-        return m2347a;
+    public static Emitter b(float f, float f2) {
+        Emitter a = a(f, f2, w);
+        a.a = 330.0f;
+        a.f = 10.0f;
+        a.c = 10.0f;
+        a.m = 0.1f;
+        a.n = 0.03f;
+        a.p = 4.0f;
+        a.q = 4.0f;
+        a.s = h.verylow;
+        return a;
     }
 
-    /* renamed from: a */
-    public static C0761f m2347a(float f, float f2, C0760e c0760e) {
-        C0758c c0758c = GameEngine.getGameEngine().f6377bR;
-        C0761f c0761f = new C0761f(c0758c);
-        c0761f.f7173eo = f;
-        c0761f.f7174ep = f2;
-        c0761f.f4876a = 100.0f;
-        c0761f.f4881f = 10.0f;
-        c0761f.f4884i = c0760e;
-        if (c0760e == null) {
-            c0761f.f4884i = new C0760e(c0758c);
+    public static Emitter a(float f, float f2, e eVar) {
+        c cVar = GameEngine.getGameEngine().bR;
+        Emitter emitter = new Emitter(cVar);
+        emitter.eo = f;
+        emitter.ep = f2;
+        emitter.a = 100.0f;
+        emitter.f = 10.0f;
+        emitter.i = eVar;
+        if (eVar == null) {
+            emitter.i = new e(cVar);
             GameEngine.print("Error: Emitter create srcEffect==null");
         }
-        return c0761f;
+        return emitter;
     }
 
-    /* renamed from: c */
-    public boolean m2342c() {
-        return GameEngine.getGameEngine().f6427cP.m5146b(this.f7173eo, this.f7174ep);
+    public boolean c() {
+        return GameEngine.getGameEngine().cP.b(this.eo, this.ep);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: a */
-    public void mo446a(float f) {
-        C0760e m2365b;
-        this.f4895t = C0773f.m2218a(this.f4895t, f);
-        if (this.f4895t > 0.0f) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public void a(float f) {
+        e b;
+        this.t = f.a(this.t, f);
+        if (this.t > 0.0f) {
             return;
         }
-        if (this.f4877b) {
-            this.f4878c += f;
-            if (this.f4878c > this.f4881f) {
-                this.f4879d += f;
-                if (this.f4879d > this.f4882g) {
-                    this.f4879d = 0.0f;
-                    this.f4880e += 1.0f;
-                    if (this.f4880e > this.f4883h) {
-                        this.f4878c = 0.0f;
-                        this.f4880e = 0.0f;
+        if (this.b) {
+            this.c += f;
+            if (this.c > this.f) {
+                this.d += f;
+                if (this.d > this.g) {
+                    this.d = 0.0f;
+                    this.e += 1.0f;
+                    if (this.e > this.h) {
+                        this.c = 0.0f;
+                        this.e = 0.0f;
                     }
-                    if ((this.f4896u || m2342c()) && (m2365b = this.f4899x.m2365b(this.f7173eo, this.f7174ep, 0.0f, EnumC0759d.custom, false, this.f4894s)) != null) {
-                        m2365b.m2353a(this.f4884i);
-                        m2365b.f4841P += C0773f.m2151c(-this.f4888m, this.f4888m);
-                        m2365b.f4842Q += C0773f.m2151c(-this.f4889n, this.f4889n);
-                        m2365b.f4843R += C0773f.m2151c(-this.f4890o, this.f4890o);
-                        m2365b.f4850Y = C0773f.m2151c(-this.f4893r, this.f4893r);
-                        m2365b.f4834I = this.f7173eo;
-                        m2365b.f4835J = this.f7174ep;
-                        m2365b.f4834I += C0773f.m2151c(-this.f4891p, this.f4891p);
-                        m2365b.f4835J += C0773f.m2151c(-this.f4892q, this.f4892q);
-                        if (this.f4885j != 0) {
-                            m2365b.f4823x = this.f4885j;
+                    if ((this.u || c()) && (b = this.x.b(this.eo, this.ep, 0.0f, d.custom, false, this.s)) != null) {
+                        b.a(this.i);
+                        b.P += f.c(-this.m, this.m);
+                        b.Q += f.c(-this.n, this.n);
+                        b.R += f.c(-this.o, this.o);
+                        b.Y = f.c(-this.r, this.r);
+                        b.I = this.eo;
+                        b.J = this.ep;
+                        b.I += f.c(-this.p, this.p);
+                        b.J += f.c(-this.q, this.q);
+                        if (this.j != 0) {
+                            b.x = this.j;
                         }
-                        if (this.f4887l >= 0) {
-                            m2365b.f4824y = this.f4886k;
-                            m2365b.f4825z = this.f4887l;
+                        if (this.l >= 0) {
+                            b.y = this.k;
+                            b.z = this.l;
                         }
                     }
                 }
             }
         }
-        this.f4876a -= f;
-        if (this.f4876a < 0.0f) {
-            mo447a();
+        this.a -= f;
+        if (this.a < 0.0f) {
+            a();
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: a */
-    public boolean mo440a(GameEngine gameEngine) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public boolean a(GameEngine gameEngine) {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: c */
-    public boolean mo438c(float f) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public boolean c(float f) {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: e */
-    public void mo434e(float f) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public void e(float f) {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: a */
-    public void mo445a(float f, boolean z) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public void a(float f, boolean z) {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: d */
-    public void mo437d(float f) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public void d(float f) {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC1155w
-    /* renamed from: f */
-    public boolean mo433f(float f) {
+    @Override // com.corrodinggames.rts.gameFramework.w
+    public boolean f(float f) {
         return false;
     }
 }

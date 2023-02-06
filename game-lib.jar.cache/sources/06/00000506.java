@@ -1,7 +1,7 @@
 package com.corrodinggames.rts.gameFramework.net;
 
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.f;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,47 +10,39 @@ import org.apache.http.message.BasicNameValuePair;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.ab */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/ab.class */
-class RunnableC0864ab implements Runnable {
+class ListOperate_Join_GetRoomIP implements Runnable {
+    w a;
+    String b;
+    int c;
+    String d;
 
-    /* renamed from: a */
-    C0926w f5682a;
-
-    /* renamed from: b */
-    String f5683b;
-
-    /* renamed from: c */
-    int f5684c;
-
-    /* renamed from: d */
-    String f5685d;
-
-    RunnableC0864ab() {
+    ListOperate_Join_GetRoomIP() {
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        GameEngine.m1033aq();
+        GameEngine.aq();
         GameEngine.getGameEngine();
-        GameEngine.m1015b("getGameServerInfoFromMasterServer", "Starting getGameServerInfoFromMasterServer");
-        String m1281a = GameNetAPIOperate.m1281a(this.f5684c);
+        GameEngine.b("getGameServerInfoFromMasterServer", "Starting getGameServerInfoFromMasterServer");
+        String a = GameNetAPIOperate.a(this.c);
         String str = null;
-        if (this.f5685d != null) {
-            str = C0773f.m2144c(this.f5683b + this.f5685d, 3);
+        if (this.d != null) {
+            str = f.c(this.b + this.d, 3);
         }
         try {
             ArrayList arrayList = new ArrayList(2);
             arrayList.add(new BasicNameValuePair("action", "get"));
-            arrayList.add(new BasicNameValuePair("game_id", this.f5683b));
-            arrayList.add(new BasicNameValuePair("c", m1281a));
+            arrayList.add(new BasicNameValuePair("game_id", this.b));
+            arrayList.add(new BasicNameValuePair("c", a));
             arrayList.add(new BasicNameValuePair("p_hash", str));
-            BufferedReader m1275a = GameNetAPIOperate.m1275a(arrayList);
-            String readLine = m1275a.readLine();
+            BufferedReader a2 = GameNetAPIOperate.a(arrayList);
+            String readLine = a2.readLine();
             if (readLine == null || !readLine.contains("CORRODINGGAMES")) {
-                GameEngine.m1015b("getGameServerInfoFromMasterServerRunnable", "Error bad header returned from the master server: " + readLine);
-                this.f5682a.mo1254a("Unexpected header from master server", GameConnectStatusType.unknown, null);
+                GameEngine.b("getGameServerInfoFromMasterServerRunnable", "Error bad header returned from the master server: " + readLine);
+                this.a.a("Unexpected header from master server", GameConnectStatusType.unknown, null);
                 return;
             }
-            String readLine2 = m1275a.readLine();
+            String readLine2 = a2.readLine();
             if (readLine2 == null) {
                 throw new IOException("Unexpected end of response");
             }
@@ -75,20 +67,20 @@ class RunnableC0864ab implements Runnable {
                         gameConnectStatusType = GameConnectStatusType.wrongPassword;
                     }
                 }
-                this.f5682a.mo1254a(str2, gameConnectStatusType, null);
+                this.a.a(str2, gameConnectStatusType, null);
                 return;
             }
-            String readLine3 = m1275a.readLine();
+            String readLine3 = a2.readLine();
             if (readLine3 == null) {
                 throw new IOException("Unexpected end of response");
             }
-            if (!readLine3.toLowerCase(Locale.ROOT).contains(C0773f.m2146c("game_" + m1281a).toLowerCase(Locale.ROOT))) {
-                GameEngine.m1015b("getGameServerInfoFromMasterServerRunnable", "Error bad header returned from the master server: " + readLine3);
-                this.f5682a.mo1254a("Unexpected return from master server", GameConnectStatusType.unknown, null);
+            if (!readLine3.toLowerCase(Locale.ROOT).contains(f.c("game_" + a).toLowerCase(Locale.ROOT))) {
+                GameEngine.b("getGameServerInfoFromMasterServerRunnable", "Error bad header returned from the master server: " + readLine3);
+                this.a.a("Unexpected return from master server", GameConnectStatusType.unknown, null);
                 return;
             }
-            m1275a.readLine();
-            String readLine4 = m1275a.readLine();
+            a2.readLine();
+            String readLine4 = a2.readLine();
             if (readLine4 == null) {
                 throw new IOException("Unexpected end of response");
             }
@@ -111,12 +103,12 @@ class RunnableC0864ab implements Runnable {
             String str15 = split2[16];
             String str16 = split2[17];
             String str17 = split2[18];
-            GameEngine.m1015b("getGameServerInfoFromMasterServerRunnable", "got ");
-            GameEngine.m1015b("getGameServerInfoFromMasterServerRunnable", "Completed get from master server without error");
-            this.f5682a.mo1255a(str3 + ":" + str5);
+            GameEngine.b("getGameServerInfoFromMasterServerRunnable", "got ");
+            GameEngine.b("getGameServerInfoFromMasterServerRunnable", "Completed get from master server without error");
+            this.a.a(str3 + ":" + str5);
         } catch (IOException e) {
-            GameEngine.m1063a("getGameServerInfoFromMasterServerRunnable Failed", (Exception) e);
-            this.f5682a.mo1254a(e.getMessage(), GameConnectStatusType.unknown, e);
+            GameEngine.a("getGameServerInfoFromMasterServerRunnable Failed", (Exception) e);
+            this.a.a(e.getMessage(), GameConnectStatusType.unknown, e);
         }
     }
 }

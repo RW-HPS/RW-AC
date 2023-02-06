@@ -1,39 +1,32 @@
 package com.corrodinggames.rts.gameFramework.utility;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.utility.ac */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/ac.class */
-public final class C1108ac {
+public final class ac {
+    String a;
+    String b;
 
-    /* renamed from: a */
-    String f7048a;
-
-    /* renamed from: b */
-    String f7049b;
-
-    public C1108ac(String str, String str2) {
-        this.f7048a = str;
-        this.f7049b = str2;
+    public ac(String str, String str2) {
+        this.a = str;
+        this.b = str2;
     }
 
     public String toString() {
-        return "[" + this.f7048a + "]" + this.f7049b;
+        return "[" + this.a + "]" + this.b;
     }
 
     public boolean equals(Object obj) {
-        if (!(obj instanceof C1108ac)) {
+        if (!(obj instanceof ac)) {
             return false;
         }
-        C1108ac c1108ac = (C1108ac) obj;
-        return this.f7049b.equals(c1108ac.f7049b) && this.f7048a.equals(c1108ac.f7048a);
+        ac acVar = (ac) obj;
+        return this.b.equals(acVar.b) && this.a.equals(acVar.a);
     }
 
-    /* renamed from: a */
-    public String m635a() {
-        return this.f7048a;
+    public String a() {
+        return this.a;
     }
 
-    /* renamed from: b */
-    public String m634b() {
-        return this.f7049b;
+    public String b() {
+        return this.b;
     }
 }

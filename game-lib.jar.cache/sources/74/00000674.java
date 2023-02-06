@@ -12,25 +12,15 @@ import java.nio.channels.SocketChannel;
 /* renamed from: com.corrodinggames.rts.java.c.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/c/k.class */
 public class SteamSocket extends Socket {
-
-    /* renamed from: a */
-    SteamEngine f7349a;
-
-    /* renamed from: b */
-    boolean f7350b = false;
-
-    /* renamed from: c */
-    SteamSocketInStream f7351c = new SteamSocketInStream(this);
-
-    /* renamed from: d */
-    SteamSocketOutStream f7352d = new SteamSocketOutStream(this);
-
-    /* renamed from: e */
-    SteamID f7353e;
+    SteamEngine a;
+    boolean b = false;
+    SteamSocketInStream c = new SteamSocketInStream(this);
+    SteamSocketOutStream d = new SteamSocketOutStream(this);
+    SteamID e;
 
     public SteamSocket(SteamEngine steamEngine, SteamID steamID) {
-        this.f7349a = steamEngine;
-        this.f7353e = steamID;
+        this.a = steamEngine;
+        this.e = steamID;
     }
 
     @Override // java.net.Socket
@@ -40,12 +30,12 @@ public class SteamSocket extends Socket {
 
     @Override // java.net.Socket, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        if (!this.f7350b) {
-            this.f7350b = true;
-            GameEngine.m5460e("Closing steam socket");
+        if (!this.b) {
+            this.b = true;
+            GameEngine.m5e("Closing steam socket");
         }
-        if (this.f7351c != null) {
-            this.f7351c.m257a(new byte[0]);
+        if (this.c != null) {
+            this.c.a(new byte[0]);
         }
     }
 
@@ -86,7 +76,7 @@ public class SteamSocket extends Socket {
 
     @Override // java.net.Socket
     public InputStream getInputStream() {
-        return this.f7351c;
+        return this.c;
     }
 
     @Override // java.net.Socket
@@ -106,7 +96,7 @@ public class SteamSocket extends Socket {
 
     @Override // java.net.Socket
     public OutputStream getOutputStream() {
-        return this.f7352d;
+        return this.d;
     }
 
     @Override // java.net.Socket
@@ -156,7 +146,7 @@ public class SteamSocket extends Socket {
 
     @Override // java.net.Socket
     public boolean isClosed() {
-        return this.f7350b;
+        return this.b;
     }
 
     @Override // java.net.Socket
@@ -166,12 +156,12 @@ public class SteamSocket extends Socket {
 
     @Override // java.net.Socket
     public boolean isInputShutdown() {
-        return this.f7351c != null;
+        return this.c != null;
     }
 
     @Override // java.net.Socket
     public boolean isOutputShutdown() {
-        return this.f7352d != null;
+        return this.d != null;
     }
 
     @Override // java.net.Socket

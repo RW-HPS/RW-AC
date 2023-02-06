@@ -4,84 +4,61 @@ import android.util.SparseArray;
 
 /* loaded from: game-lib.jar:android/graphics/Typeface.class */
 public class Typeface {
+    int g;
+    private int j;
+    String h;
+    private static final SparseArray i = new SparseArray(3);
+    public static final Typeface a = a((String) null, 0);
+    public static final Typeface b = a((String) null, 1);
+    public static final Typeface c = a("sans-serif", 0);
+    public static final Typeface d = a("serif", 0);
+    public static final Typeface e = a("monospace", 0);
+    static Typeface[] f = {a, b, a((String) null, 2), a((String) null, 3)};
 
-    /* renamed from: g */
-    int f240g;
-
-    /* renamed from: j */
-    private int f241j;
-
-    /* renamed from: h */
-    String f242h;
-
-    /* renamed from: i */
-    private static final SparseArray f243i = new SparseArray(3);
-
-    /* renamed from: a */
-    public static final Typeface f244a = m5136a((String) null, 0);
-
-    /* renamed from: b */
-    public static final Typeface f245b = m5136a((String) null, 1);
-
-    /* renamed from: c */
-    public static final Typeface f246c = m5136a("sans-serif", 0);
-
-    /* renamed from: d */
-    public static final Typeface f247d = m5136a("serif", 0);
-
-    /* renamed from: e */
-    public static final Typeface f248e = m5136a("monospace", 0);
-
-    /* renamed from: f */
-    static Typeface[] f249f = {f244a, f245b, m5136a((String) null, 2), m5136a((String) null, 3)};
-
-    /* renamed from: a */
-    public final boolean m5139a() {
-        return (this.f241j & 1) != 0;
+    public final boolean a() {
+        return (this.j & 1) != 0;
     }
 
-    /* renamed from: a */
-    public static Typeface m5136a(String str, int i) {
+    public static Typeface a(String str, int i2) {
         Typeface typeface = new Typeface(0);
-        typeface.f241j = i;
-        typeface.f242h = str;
+        typeface.j = i2;
+        typeface.h = str;
         return typeface;
     }
 
-    /* renamed from: a */
-    public static Typeface m5137a(Typeface typeface, int i) {
+    public static Typeface a(Typeface typeface, int i2) {
         Typeface typeface2;
-        int i2 = 0;
+        int i3 = 0;
         if (typeface != null) {
-            if (typeface.f241j == i) {
+            if (typeface.j == i2) {
                 return typeface;
             }
-            i2 = typeface.f240g;
+            i3 = typeface.g;
         }
-        SparseArray sparseArray = (SparseArray) f243i.m5066a(i2);
-        if (sparseArray != null && (typeface2 = (Typeface) sparseArray.m5066a(i)) != null) {
+        SparseArray sparseArray = (SparseArray) i.a(i3);
+        if (sparseArray != null && (typeface2 = (Typeface) sparseArray.a(i2)) != null) {
             return typeface2;
         }
         Typeface typeface3 = new Typeface(0);
-        typeface3.f241j = i;
-        typeface3.f242h = typeface.f242h;
+        typeface3.j = i2;
+        typeface3.h = typeface.h;
         if (sparseArray == null) {
             sparseArray = new SparseArray(4);
-            f243i.m5062b(i2, sparseArray);
+            i.b(i3, sparseArray);
         }
-        sparseArray.m5062b(i, typeface3);
+        sparseArray.b(i2, typeface3);
         return typeface3;
     }
 
-    private Typeface(int i) {
-        this.f241j = 0;
-        this.f240g = i;
-        this.f241j = m5135b(i);
+    private Typeface(int i2) {
+        this.j = 0;
+        this.g = i2;
+        this.j = b(i2);
     }
 
     protected void finalize() {
         try {
-            m5138a(this.f240g);
+            a(this.g);
         } finally {
             super.finalize();
         }
@@ -95,19 +72,17 @@ public class Typeface {
             return false;
         }
         Typeface typeface = (Typeface) obj;
-        return this.f241j == typeface.f241j && this.f240g == typeface.f240g;
+        return this.j == typeface.j && this.g == typeface.g;
     }
 
     public int hashCode() {
-        return (31 * this.f240g) + this.f241j;
+        return (31 * this.g) + this.j;
     }
 
-    /* renamed from: a */
-    private static void m5138a(int i) {
+    private static void a(int i2) {
     }
 
-    /* renamed from: b */
-    private static int m5135b(int i) {
+    private static int b(int i2) {
         return 0;
     }
 }

@@ -12,7 +12,7 @@ public class TestNewSocket extends AbstractScriptTest {
 
     /* renamed from: b */
     public void test() {
-        GameEngine.m5924e("networkSocks");
+        GameEngine.m5e("networkSocks");
         GameEngine gameEngine = GameEngine.getGameEngine();
         for (int i = 0; i < 10000; i++) {
             gameEngine.netEngine.startNet(false);
@@ -23,7 +23,7 @@ public class TestNewSocket extends AbstractScriptTest {
             }
             gameEngine.netEngine.closeServer("test");
         }
-        GameEngine.m5924e("done");
+        GameEngine.m5e("done");
         try {
             Thread.sleep(100000L);
         } catch (InterruptedException e2) {

@@ -17,8 +17,7 @@ public class Player extends PlayerData {
     }
 
     @Override // com.corrodinggames.rts.game.PlayerData
-    /* renamed from: a */
-    public void mo4339a(float f) {
-        super.mo4339a(f);
+    public void a(float f) {
+        super.a(f);
     }
 }

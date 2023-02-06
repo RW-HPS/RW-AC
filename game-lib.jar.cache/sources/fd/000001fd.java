@@ -1,99 +1,65 @@
 package com.corrodinggames.rts.game.units;
 
-import com.corrodinggames.rts.game.units.custom.C0407be;
-import com.corrodinggames.rts.game.units.custom.C0454h;
-import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
-import com.corrodinggames.rts.game.units.p013a.C0231z;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
+import com.corrodinggames.rts.game.units.custom.be;
 import java.util.ArrayList;
 
-/* renamed from: com.corrodinggames.rts.game.units.as */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/as.class */
-public interface InterfaceC0303as {
-    /* renamed from: C */
-    boolean mo3568C();
+public interface as {
+    boolean C();
 
-    /* renamed from: w */
-    boolean mo3488w();
+    boolean w();
 
-    /* renamed from: a */
-    AbstractC0244am mo3564a();
+    am a();
 
-    /* renamed from: d */
-    C0231z mo3524d();
+    com.corrodinggames.rts.game.units.a.z d();
 
-    /* renamed from: c */
-    int mo3529c();
+    int c();
 
-    /* renamed from: b */
-    int mo3534b(int i);
+    int b(int i);
 
-    /* renamed from: u */
-    C0429b mo3490u();
+    com.corrodinggames.rts.game.units.custom.d.b u();
 
-    /* renamed from: d */
-    C0429b mo3523d(int i);
+    com.corrodinggames.rts.game.units.custom.d.b d(int i);
 
-    /* renamed from: B */
-    C0429b mo3569B();
+    com.corrodinggames.rts.game.units.custom.d.b B();
 
-    /* renamed from: z */
-    C0970e mo3485z();
+    com.corrodinggames.rts.gameFramework.unitAction.e z();
 
-    /* renamed from: y */
-    boolean mo3486y();
+    boolean y();
 
-    /* renamed from: D */
-    float mo3567D();
+    float D();
 
-    /* renamed from: g */
-    int mo3517g();
+    int g();
 
-    /* renamed from: j */
-    boolean mo3511j();
+    boolean j();
 
-    /* renamed from: l */
-    boolean mo3507l();
+    boolean l();
 
-    /* renamed from: k */
-    boolean mo3509k();
+    boolean k();
 
-    /* renamed from: m */
-    boolean mo3505m();
+    boolean m();
 
-    /* renamed from: n */
-    boolean mo3503n();
+    boolean n();
 
-    /* renamed from: o */
-    EnumC0246ao mo3501o();
+    ao o();
 
-    /* renamed from: p */
-    boolean mo3499p();
+    boolean p();
 
-    /* renamed from: q */
-    C0407be mo3497q();
+    be q();
 
-    /* renamed from: e */
-    String mo3521e();
+    String e();
 
-    /* renamed from: f */
-    String mo3519f();
+    String f();
 
-    /* renamed from: i */
-    String mo3513i();
+    String i();
 
-    /* renamed from: h */
-    void mo3515h();
+    void h();
 
-    /* renamed from: a */
-    ArrayList mo3563a(int i);
+    ArrayList a(int i);
 
-    /* renamed from: v */
-    String mo3489v();
+    String v();
 
-    /* renamed from: x */
-    C0454h mo3487x();
+    com.corrodinggames.rts.game.units.custom.h x();
 
-    /* renamed from: a */
-    int mo3561a(AbstractC0244am abstractC0244am);
+    int a(am amVar);
 }

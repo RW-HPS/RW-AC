@@ -1,7 +1,7 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
 import com.corrodinggames.rts.java.audio.AudioRecorder;
-import com.corrodinggames.rts.java.audio.p051a.C1167c;
+import com.corrodinggames.rts.java.audio.a.c;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.TargetDataLine;
@@ -18,7 +18,7 @@ public class JavaSoundAudioRecorder implements AudioRecorder {
             this.line.open(audioFormat, this.buffer.length);
             this.line.start();
         } catch (Exception e) {
-            throw new C1167c("Error creating JavaSoundAudioRecorder.", e);
+            throw new c("Error creating JavaSoundAudioRecorder.", e);
         }
     }
 

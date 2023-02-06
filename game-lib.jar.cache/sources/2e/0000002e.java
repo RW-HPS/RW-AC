@@ -5,42 +5,33 @@ import java.util.Locale;
 
 /* loaded from: game-lib.jar:android/graphics/Color.class */
 public class Color {
+    private static final HashMap a = new HashMap();
 
-    /* renamed from: a */
-    private static final HashMap f156a = new HashMap();
-
-    /* renamed from: a */
-    public static int m5245a(int i) {
+    public static int a(int i) {
         return i >>> 24;
     }
 
-    /* renamed from: b */
-    public static int m5241b(int i) {
+    public static int b(int i) {
         return (i >> 16) & 255;
     }
 
-    /* renamed from: c */
-    public static int m5240c(int i) {
+    public static int c(int i) {
         return (i >> 8) & 255;
     }
 
-    /* renamed from: d */
-    public static int m5239d(int i) {
+    public static int d(int i) {
         return i & 255;
     }
 
-    /* renamed from: a */
-    public static int m5244a(int i, int i2, int i3) {
+    public static int a(int i, int i2, int i3) {
         return (-16777216) | (i << 16) | (i2 << 8) | i3;
     }
 
-    /* renamed from: a */
-    public static int m5243a(int i, int i2, int i3, int i4) {
+    public static int a(int i, int i2, int i3, int i4) {
         return (i << 24) | (i2 << 16) | (i3 << 8) | i4;
     }
 
-    /* renamed from: a */
-    public static int m5242a(String str) {
+    public static int a(String str) {
         if (str.charAt(0) == '#') {
             long parseLong = Long.parseLong(str.substring(1), 16);
             if (str.length() == 7) {
@@ -50,7 +41,7 @@ public class Color {
             }
             return (int) parseLong;
         }
-        Integer num = (Integer) f156a.get(str.toLowerCase(Locale.ROOT));
+        Integer num = (Integer) a.get(str.toLowerCase(Locale.ROOT));
         if (num != null) {
             return num.intValue();
         }
@@ -58,28 +49,28 @@ public class Color {
     }
 
     static {
-        f156a.put("black", -16777216);
-        f156a.put("darkgray", -12303292);
-        f156a.put("gray", -7829368);
-        f156a.put("lightgray", -3355444);
-        f156a.put("white", -1);
-        f156a.put("red", -65536);
-        f156a.put("green", -16711936);
-        f156a.put("blue", -16776961);
-        f156a.put("yellow", -256);
-        f156a.put("cyan", -16711681);
-        f156a.put("magenta", -65281);
-        f156a.put("aqua", -16711681);
-        f156a.put("fuchsia", -65281);
-        f156a.put("darkgrey", -12303292);
-        f156a.put("grey", -7829368);
-        f156a.put("lightgrey", -3355444);
-        f156a.put("lime", -16711936);
-        f156a.put("maroon", -8388608);
-        f156a.put("navy", -16777088);
-        f156a.put("olive", -8355840);
-        f156a.put("purple", -8388480);
-        f156a.put("silver", -4144960);
-        f156a.put("teal", -16744320);
+        a.put("black", -16777216);
+        a.put("darkgray", -12303292);
+        a.put("gray", -7829368);
+        a.put("lightgray", -3355444);
+        a.put("white", -1);
+        a.put("red", -65536);
+        a.put("green", -16711936);
+        a.put("blue", -16776961);
+        a.put("yellow", -256);
+        a.put("cyan", -16711681);
+        a.put("magenta", -65281);
+        a.put("aqua", -16711681);
+        a.put("fuchsia", -65281);
+        a.put("darkgrey", -12303292);
+        a.put("grey", -7829368);
+        a.put("lightgrey", -3355444);
+        a.put("lime", -16711936);
+        a.put("maroon", -8388608);
+        a.put("navy", -16777088);
+        a.put("olive", -8355840);
+        a.put("purple", -8388480);
+        a.put("silver", -4144960);
+        a.put("teal", -16744320);
     }
 }

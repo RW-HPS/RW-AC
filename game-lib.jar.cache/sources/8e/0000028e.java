@@ -1,231 +1,210 @@
-package com.corrodinggames.rts.game.units.custom.p023f;
+package com.corrodinggames.rts.game.units.custom.f;
 
-import com.corrodinggames.rts.game.units.custom.C0417bo;
-import com.corrodinggames.rts.game.units.custom.C0458l;
-import com.corrodinggames.rts.gameFramework.C0773f;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
+import com.corrodinggames.rts.game.units.custom.bo;
+import com.corrodinggames.rts.game.units.custom.l;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.utility.ab;
 import java.util.regex.Matcher;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.f.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/f/b.class */
-public class C0448b {
+public class b {
+    public d a;
+    public d b;
 
-    /* renamed from: a */
-    public C0451d f2853a;
-
-    /* renamed from: b */
-    public C0451d f2854b;
-
-    public C0448b() {
-        this.f2853a = new C0451d();
-        this.f2854b = new C0451d();
+    public b() {
+        this.a = new d();
+        this.b = new d();
     }
 
-    public C0448b(C0451d c0451d, C0451d c0451d2) {
-        this.f2853a = c0451d;
-        this.f2854b = c0451d2;
+    public b(d dVar, d dVar2) {
+        this.a = dVar;
+        this.b = dVar2;
     }
 
-    /* renamed from: a */
-    public void m3701a() {
-        this.f2853a.m3689a();
-        this.f2854b.m3689a();
+    public void a() {
+        this.a.a();
+        this.b.a();
     }
 
-    /* renamed from: b */
-    public C0448b m3698b() {
-        return new C0448b(this.f2853a, new C0451d());
+    public b b() {
+        return new b(this.a, new d());
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.corrodinggames.rts.game.units.custom.f.b$1] */
-    /* renamed from: a */
-    public static double m3699a(final String str) {
+    public static double a(final String str) {
         return new Object() { // from class: com.corrodinggames.rts.game.units.custom.f.b.1
+            int a = -1;
+            int b;
 
-            /* renamed from: a */
-            int f2855a = -1;
-
-            /* renamed from: b */
-            int f2856b;
-
-            /* renamed from: a */
-            void m3695a() {
-                int i = this.f2855a + 1;
-                this.f2855a = i;
-                this.f2856b = i < str.length() ? str.charAt(this.f2855a) : '\uffff';
+            void a() {
+                int i = this.a + 1;
+                this.a = i;
+                this.b = i < str.length() ? str.charAt(this.a) : '\uffff';
             }
 
-            /* renamed from: a */
-            boolean m3694a(int i) {
-                while (this.f2856b == 32) {
-                    m3695a();
+            boolean a(int i) {
+                while (this.b == 32) {
+                    a();
                 }
-                if (this.f2856b == i) {
-                    m3695a();
+                if (this.b == i) {
+                    a();
                     return true;
                 }
                 return false;
             }
 
-            /* renamed from: b */
-            double m3693b() {
-                m3695a();
-                double m3692c = m3692c();
-                if (this.f2855a < str.length()) {
-                    throw new RuntimeException("Unexpected: " + ((char) this.f2856b));
+            double b() {
+                a();
+                double c = c();
+                if (this.a < str.length()) {
+                    throw new RuntimeException("Unexpected: " + ((char) this.b));
                 }
-                return m3692c;
+                return c;
             }
 
-            /* renamed from: c */
-            double m3692c() {
-                double m3691d = m3691d();
+            double c() {
+                double d = d();
                 while (true) {
-                    double d = m3691d;
-                    if (m3694a(43)) {
-                        m3691d = d + m3691d();
-                    } else if (!m3694a(45)) {
-                        return d;
+                    double d2 = d;
+                    if (a(43)) {
+                        d = d2 + d();
+                    } else if (!a(45)) {
+                        return d2;
                     } else {
-                        m3691d = d - m3691d();
+                        d = d2 - d();
                     }
                 }
             }
 
-            /* renamed from: d */
-            double m3691d() {
-                double m3690e = m3690e();
+            double d() {
+                double e = e();
                 while (true) {
-                    double d = m3690e;
-                    if (m3694a(42)) {
-                        m3690e = d * m3690e();
-                    } else if (m3694a(47)) {
-                        m3690e = d / m3690e();
-                    } else if (!m3694a(37)) {
+                    double d = e;
+                    if (a(42)) {
+                        e = d * e();
+                    } else if (a(47)) {
+                        e = d / e();
+                    } else if (!a(37)) {
                         return d;
                     } else {
-                        m3690e = d % m3690e();
+                        e = d % e();
                     }
                 }
             }
 
-            /* renamed from: e */
-            double m3690e() {
+            double e() {
                 double d;
-                if (m3694a(43)) {
-                    return m3690e();
+                if (a(43)) {
+                    return e();
                 }
-                if (m3694a(45)) {
-                    return -m3690e();
+                if (a(45)) {
+                    return -e();
                 }
-                int i = this.f2855a;
-                if (m3694a(40)) {
-                    d = m3692c();
-                    m3694a(41);
-                } else if ((this.f2856b >= 48 && this.f2856b <= 57) || this.f2856b == 46) {
+                int i = this.a;
+                if (a(40)) {
+                    d = c();
+                    a(41);
+                } else if ((this.b >= 48 && this.b <= 57) || this.b == 46) {
                     while (true) {
-                        if ((this.f2856b < 48 || this.f2856b > 57) && this.f2856b != 46) {
+                        if ((this.b < 48 || this.b > 57) && this.b != 46) {
                             break;
                         }
-                        m3695a();
+                        a();
                     }
-                    d = Double.parseDouble(str.substring(i, this.f2855a));
-                } else if (this.f2856b >= 97 && this.f2856b <= 122) {
-                    while (this.f2856b >= 97 && this.f2856b <= 122) {
-                        m3695a();
+                    d = Double.parseDouble(str.substring(i, this.a));
+                } else if (this.b >= 97 && this.b <= 122) {
+                    while (this.b >= 97 && this.b <= 122) {
+                        a();
                     }
-                    String substring = str.substring(i, this.f2855a);
-                    double m3690e = m3690e();
+                    String substring = str.substring(i, this.a);
+                    double e = e();
                     if (substring.equals("sqrt")) {
-                        d = Math.sqrt(m3690e);
+                        d = Math.sqrt(e);
                     } else if (substring.equals("sin")) {
-                        d = Math.sin(Math.toRadians(m3690e));
+                        d = Math.sin(Math.toRadians(e));
                     } else if (substring.equals("cos")) {
-                        d = Math.cos(Math.toRadians(m3690e));
+                        d = Math.cos(Math.toRadians(e));
                     } else if (substring.equals("tan")) {
-                        d = Math.tan(Math.toRadians(m3690e));
+                        d = Math.tan(Math.toRadians(e));
                     } else if (!substring.equals("int")) {
                         throw new RuntimeException("Unknown function: " + substring);
                     } else {
-                        d = (int) m3690e;
+                        d = (int) e;
                     }
                 } else {
-                    throw new RuntimeException("Unexpected: " + ((char) this.f2856b));
+                    throw new RuntimeException("Unexpected: " + ((char) this.b));
                 }
-                if (m3694a(94)) {
-                    d = Math.pow(d, m3690e());
+                if (a(94)) {
+                    d = Math.pow(d, e());
                 }
                 return d;
             }
-        }.m3693b();
+        }.b();
     }
 
-    /* renamed from: b */
-    public boolean m3696b(String str) {
+    public boolean b(String str) {
         return str.contains("*") || str.contains("/") || str.contains("+") || str.contains("-") || str.contains("(") || str.contains(")") || str.contains("^") || str.contains("%");
     }
 
-    /* renamed from: a */
-    public String m3700a(C0458l c0458l, C1107ab c1107ab, String str, String str2) {
+    public String a(l lVar, ab abVar, String str, String str2) {
         String trim = str2.trim();
-        boolean m3696b = m3696b(trim);
+        boolean b = b(trim);
         int i = 0;
         StringBuffer stringBuffer = new StringBuffer();
-        Matcher matcher = C0447a.f2851b.matcher(trim);
+        Matcher matcher = a.b.matcher(trim);
         while (matcher.find()) {
             i++;
             if (i > 100) {
-                throw new C0417bo("Too many loops while parsing");
+                throw new bo("Too many loops while parsing");
             }
             String group = matcher.group(0);
-            if (!C0773f.m2098r(group) && !group.equals("int") && !group.equals("cos") && !group.equals("sin") && !group.equals("sqrt")) {
-                String m3697b = m3697b(c0458l, c1107ab, str, group);
-                if (m3696b && !C0773f.m2098r(m3697b)) {
-                    throw new C0417bo("Cannot do maths on '" + m3697b + "' from " + group + " (not a number)");
+            if (!f.r(group) && !group.equals("int") && !group.equals("cos") && !group.equals("sin") && !group.equals("sqrt")) {
+                String b2 = b(lVar, abVar, str, group);
+                if (b && !f.r(b2)) {
+                    throw new bo("Cannot do maths on '" + b2 + "' from " + group + " (not a number)");
                 }
-                matcher.appendReplacement(stringBuffer, Matcher.quoteReplacement(m3697b));
+                matcher.appendReplacement(stringBuffer, Matcher.quoteReplacement(b2));
             }
         }
         matcher.appendTail(stringBuffer);
         String stringBuffer2 = stringBuffer.toString();
-        if (m3696b) {
-            stringBuffer2 = C0773f.m2176b(m3699a(stringBuffer2));
+        if (b) {
+            stringBuffer2 = f.b(a(stringBuffer2));
         }
         return stringBuffer2;
     }
 
-    /* renamed from: b */
-    public String m3697b(C0458l c0458l, C1107ab c1107ab, String str, String str2) {
+    public String b(l lVar, ab abVar, String str, String str2) {
         if (str2.contains(".")) {
-            String[] m2145c = C0773f.m2145c(str2, '.');
-            if (m2145c.length != 2) {
-                throw new C0417bo("Unexpected key format: " + str2);
+            String[] c = f.c(str2, '.');
+            if (c.length != 2) {
+                throw new bo("Unexpected key format: " + str2);
             }
-            String str3 = m2145c[0];
-            String str4 = m2145c[1];
+            String str3 = c[0];
+            String str4 = c[1];
             if (str3.equals("section")) {
                 str3 = str;
             }
-            String m666b = c1107ab.m666b(str3, str4, (String) null);
-            if (m666b == null) {
+            String b = abVar.b(str3, str4, (String) null);
+            if (b == null) {
                 if (str3.equalsIgnoreCase("self")) {
-                    throw new C0417bo("Static $ block: Could not find: [" + str3 + "]" + str4 + " in this conf file. Hint: You might have wanted % instead of $ for a dynamic string");
+                    throw new bo("Static $ block: Could not find: [" + str3 + "]" + str4 + " in this conf file. Hint: You might have wanted % instead of $ for a dynamic string");
                 }
-                throw new C0417bo("Static $ block: Could not find: [" + str3 + "]" + str4 + " in this conf file");
-            } else if (m666b.contains("${")) {
-                throw new C0417bo("Reference [" + str3 + "]" + str4 + " is dynamic, chaining is not yet supported");
+                throw new bo("Static $ block: Could not find: [" + str3 + "]" + str4 + " in this conf file");
+            } else if (b.contains("${")) {
+                throw new bo("Reference [" + str3 + "]" + str4 + " is dynamic, chaining is not yet supported");
             } else {
-                return m666b;
+                return b;
             }
         }
-        String m3688a = this.f2854b.m3688a(str2);
-        if (m3688a != null) {
-            return m3688a;
+        String a = this.b.a(str2);
+        if (a != null) {
+            return a;
         }
-        String m3688a2 = this.f2853a.m3688a(str2);
-        if (m3688a2 != null) {
-            return m3688a2;
+        String a2 = this.a.a(str2);
+        if (a2 != null) {
+            return a2;
         }
-        throw new C0417bo("Could not find variable with name: " + str2);
+        throw new bo("Could not find variable with name: " + str2);
     }
 }

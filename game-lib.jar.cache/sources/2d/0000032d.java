@@ -1,14 +1,14 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.f;
 import com.corrodinggames.rts.gameFramework.net.GameNetEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1118al;
+import com.corrodinggames.rts.gameFramework.utility.al;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -25,17 +25,17 @@ public abstract class LogicString extends LogicBoolean {
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+    public String getMatchFailReasonForPlayer(y yVar) {
         return "TEXT";
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public boolean read(AbstractC0629y abstractC0629y) {
+    public boolean read(y yVar) {
         return false;
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public float readNumber(AbstractC0629y abstractC0629y) {
+    public float readNumber(y yVar) {
         return 0.0f;
     }
 
@@ -48,7 +48,7 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
+        public String readString(y yVar) {
             return this.text;
         }
     }
@@ -56,16 +56,16 @@ public abstract class LogicString extends LogicBoolean {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicString$Playername.class */
     public class Playername extends LogicString {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.name;
+        public String readString(y yVar) {
+            return yVar.bX.name;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicString$TeamName.class */
     public class TeamName extends LogicString {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.getPlayerTeamName();
+        public String readString(y yVar) {
+            return yVar.bX.getPlayerTeamName();
         }
     }
 
@@ -74,16 +74,16 @@ public abstract class LogicString extends LogicBoolean {
         LogicBoolean[] children;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
+        public void setArgumentsRaw(String str, l lVar, String str2) {
             if (str == null || VariableScope.nullOrMissingString.equals(str)) {
                 validateNumberOfArguments(0);
                 return;
             }
-            ArrayList m582a = C1118al.m582a(str, ",", false);
-            validateNumberOfArguments(m582a.size());
-            this.children = new LogicBoolean[m582a.size()];
-            for (int i = 0; i < m582a.size(); i++) {
-                this.children[i] = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(i), false);
+            ArrayList a = al.a(str, ",", false);
+            validateNumberOfArguments(a.size());
+            this.children = new LogicBoolean[a.size()];
+            for (int i = 0; i < a.size(); i++) {
+                this.children[i] = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a.get(i), false);
                 if (this.children == null) {
                     throw new BooleanParseException("Expected non-null argument");
                 }
@@ -100,21 +100,21 @@ public abstract class LogicString extends LogicBoolean {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicString$Debug.class */
     public class Debug extends WrappingLogicString {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return this.children[0].getMatchFailReasonForPlayer(abstractC0629y);
+        public String readString(y yVar) {
+            return this.children[0].getMatchFailReasonForPlayer(yVar);
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicString$DebugPassthrough.class */
     public class DebugPassthrough extends WrappingLogicString {
-        public void addMessage(AbstractC0629y abstractC0629y) {
+        public void addMessage(y yVar) {
             GameEngine gameEngine = GameEngine.getGameEngine();
-            if (gameEngine.f6313bv && gameEngine.f6444bl) {
+            if (gameEngine.bv && gameEngine.bl) {
                 String str = VariableScope.nullOrMissingString;
-                if (abstractC0629y != null) {
-                    str = abstractC0629y.mo5459r().mo3514i() + "(" + abstractC0629y.f7166eh + ") ";
+                if (yVar != null) {
+                    str = yVar.mo1r().i() + "(" + yVar.eh + ") ";
                 }
-                GameNetEngine.m1564a((String) null, str + "DebugPassthrough: " + this.children[0].getMatchFailReasonForPlayer(abstractC0629y));
+                GameNetEngine.a((String) null, str + "DebugPassthrough: " + this.children[0].getMatchFailReasonForPlayer(yVar));
             }
         }
 
@@ -124,27 +124,27 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            addMessage(abstractC0629y);
-            return this.children[0].read(abstractC0629y);
+        public boolean read(y yVar) {
+            addMessage(yVar);
+            return this.children[0].read(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            addMessage(abstractC0629y);
-            return this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            addMessage(yVar);
+            return this.children[0].readNumber(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            addMessage(abstractC0629y);
-            return this.children[0].readString(abstractC0629y);
+        public String readString(y yVar) {
+            addMessage(yVar);
+            return this.children[0].readString(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
-            addMessage(abstractC0629y);
-            return this.children[0].readUnit(abstractC0629y);
+        public am readUnit(y yVar) {
+            addMessage(yVar);
+            return this.children[0].readUnit(yVar);
         }
     }
 
@@ -169,10 +169,10 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            String readString = this.text.readString(abstractC0629y);
-            int readNumber = (int) this.start.readNumber(abstractC0629y);
-            int readNumber2 = (int) this.end.readNumber(abstractC0629y);
+        public String readString(y yVar) {
+            String readString = this.text.readString(yVar);
+            int readNumber = (int) this.start.readNumber(yVar);
+            int readNumber2 = (int) this.end.readNumber(yVar);
             if (readNumber < 0) {
                 readNumber = 0;
             }
@@ -209,8 +209,8 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return this.text.readString(abstractC0629y).toLowerCase(Locale.ROOT);
+        public String readString(y yVar) {
+            return this.text.readString(yVar).toLowerCase(Locale.ROOT);
         }
     }
 
@@ -231,8 +231,8 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return this.text.readString(abstractC0629y).toUpperCase(Locale.ROOT);
+        public String readString(y yVar) {
+            return this.text.readString(yVar).toUpperCase(Locale.ROOT);
         }
     }
 
@@ -242,14 +242,14 @@ public abstract class LogicString extends LogicBoolean {
         LogicBoolean.ReturnType sourceType;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
+        public void setArgumentsRaw(String str, l lVar, String str2) {
             if (str == null || VariableScope.nullOrMissingString.equals(str)) {
                 validateNumberOfArguments(0);
                 return;
             }
-            ArrayList m582a = C1118al.m582a(str, ",", false);
-            validateNumberOfArguments(m582a.size());
-            this.child = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(0), false);
+            ArrayList a = al.a(str, ",", false);
+            validateNumberOfArguments(a.size());
+            this.child = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a.get(0), false);
             if (this.child == null) {
                 throw new BooleanParseException("Expected non-null argument");
             }
@@ -283,27 +283,27 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            return castToString(this.sourceType, this.child, abstractC0629y);
+        public String readString(y yVar) {
+            return castToString(this.sourceType, this.child, yVar);
         }
 
-        public static String castToString(LogicBoolean.ReturnType returnType, LogicBoolean logicBoolean, AbstractC0629y abstractC0629y) {
+        public static String castToString(LogicBoolean.ReturnType returnType, LogicBoolean logicBoolean, y yVar) {
             if (returnType == LogicBoolean.ReturnType.number) {
-                return C0773f.m2213a(logicBoolean.readNumber(abstractC0629y), 2);
+                return f.a(logicBoolean.readNumber(yVar), 2);
             }
             if (returnType == LogicBoolean.ReturnType.unit) {
-                return AbstractC0244am.m4257A(logicBoolean.readUnit(abstractC0629y));
+                return am.A(logicBoolean.readUnit(yVar));
             }
             if (returnType == LogicBoolean.ReturnType.string) {
-                return logicBoolean.readString(abstractC0629y);
+                return logicBoolean.readString(yVar);
             }
             if (returnType == LogicBoolean.ReturnType.numberArray) {
-                return arrayToString(abstractC0629y, logicBoolean);
+                return arrayToString(yVar, logicBoolean);
             }
             if (returnType == LogicBoolean.ReturnType.boolArray) {
-                return arrayToString(abstractC0629y, logicBoolean);
+                return arrayToString(yVar, logicBoolean);
             }
-            return logicBoolean.read(abstractC0629y) ? "true" : "false";
+            return logicBoolean.read(yVar) ? "true" : "false";
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicString$StringCast$NumberToStringCast.class */
@@ -319,13 +319,13 @@ public abstract class LogicString extends LogicBoolean {
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString.StringCast, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public /* bridge */ /* synthetic */ void setArgumentsRaw(String str, C0458l c0458l, String str2) {
-                super.setArgumentsRaw(str, c0458l, str2);
+            public /* bridge */ /* synthetic */ void setArgumentsRaw(String str, l lVar, String str2) {
+                super.setArgumentsRaw(str, lVar, str2);
             }
 
             @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString.StringCast, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-            public String readString(AbstractC0629y abstractC0629y) {
-                return C0773f.m2213a(this.child.readNumber(abstractC0629y), 2);
+            public String readString(y yVar) {
+                return f.a(this.child.readNumber(yVar), 2);
             }
         }
     }
@@ -338,22 +338,22 @@ public abstract class LogicString extends LogicBoolean {
         LogicBoolean childB;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
+        public void setArgumentsRaw(String str, l lVar, String str2) {
             if (str == null || VariableScope.nullOrMissingString.equals(str)) {
                 validateNumberOfArguments(0);
                 return;
             }
-            ArrayList m582a = C1118al.m582a(str, ",", false);
-            validateNumberOfArguments(m582a.size());
-            this.selector = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(0), true);
+            ArrayList a = al.a(str, ",", false);
+            validateNumberOfArguments(a.size());
+            this.selector = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a.get(0), true);
             if (this.selector == null) {
                 throw new BooleanParseException("Expected non-null argument");
             }
-            this.childA = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(1), false);
+            this.childA = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a.get(1), false);
             if (this.childA == null) {
                 throw new BooleanParseException("Expected non-null argument");
             }
-            this.childB = LogicBooleanLoader.parseBooleanBlock(c0458l, (String) m582a.get(2), false);
+            this.childB = LogicBooleanLoader.parseBooleanBlock(lVar, (String) a.get(2), false);
             if (this.childB == null) {
                 throw new BooleanParseException("Expected non-null argument");
             }
@@ -375,46 +375,46 @@ public abstract class LogicString extends LogicBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-            return "(selector if:(" + this.selector.getMatchFailReasonForPlayer(abstractC0629y) + ") then:(" + this.childA.getMatchFailReasonForPlayer(abstractC0629y) + ") ) else:(" + this.childB.getMatchFailReasonForPlayer(abstractC0629y) + ") )";
+        public String getMatchFailReasonForPlayer(y yVar) {
+            return "(selector if:(" + this.selector.getMatchFailReasonForPlayer(yVar) + ") then:(" + this.childA.getMatchFailReasonForPlayer(yVar) + ") ) else:(" + this.childB.getMatchFailReasonForPlayer(yVar) + ") )";
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            if (this.selector.read(abstractC0629y)) {
-                return this.childA.readString(abstractC0629y);
+        public String readString(y yVar) {
+            if (this.selector.read(yVar)) {
+                return this.childA.readString(yVar);
             }
-            return this.childB.readString(abstractC0629y);
+            return this.childB.readString(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            if (this.selector.read(abstractC0629y)) {
-                return this.childA.read(abstractC0629y);
+        public boolean read(y yVar) {
+            if (this.selector.read(yVar)) {
+                return this.childA.read(yVar);
             }
-            return this.childB.read(abstractC0629y);
+            return this.childB.read(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            if (this.selector.read(abstractC0629y)) {
-                return this.childA.readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            if (this.selector.read(yVar)) {
+                return this.childA.readNumber(yVar);
             }
-            return this.childB.readNumber(abstractC0629y);
+            return this.childB.readNumber(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
-            if (this.selector.read(abstractC0629y)) {
-                return this.childA.readUnit(abstractC0629y);
+        public am readUnit(y yVar) {
+            if (this.selector.read(yVar)) {
+                return this.childA.readUnit(yVar);
             }
-            return this.childB.readUnit(abstractC0629y);
+            return this.childB.readUnit(yVar);
         }
     }
 
-    public static String arrayToString(AbstractC0629y abstractC0629y, LogicBoolean logicBoolean) {
+    public static String arrayToString(y yVar, LogicBoolean logicBoolean) {
         LogicBoolean readArrayElement;
-        int arraySize = logicBoolean.getArraySize(abstractC0629y);
+        int arraySize = logicBoolean.getArraySize(yVar);
         String str = "[";
         int i = 0;
         while (true) {
@@ -427,8 +427,8 @@ public abstract class LogicString extends LogicBoolean {
                 if (i != 0) {
                     str = str + ",";
                 }
-                if (logicBoolean.readArrayElement(abstractC0629y, i) != null) {
-                    str = str + readArrayElement.valueToStringDebug(abstractC0629y);
+                if (logicBoolean.readArrayElement(yVar, i) != null) {
+                    str = str + readArrayElement.valueToStringDebug(yVar);
                 }
                 i++;
             }
@@ -436,7 +436,7 @@ public abstract class LogicString extends LogicBoolean {
         return str + "]";
     }
 
-    public static String arraySummaryToString(AbstractC0629y abstractC0629y, LogicBoolean logicBoolean) {
-        return LogicBoolean.ReturnType.toUserString(LogicBoolean.ReturnType.getArrayBaseType(logicBoolean.getReturnType())) + "[" + logicBoolean.getArraySize(abstractC0629y) + "]";
+    public static String arraySummaryToString(y yVar, LogicBoolean logicBoolean) {
+        return LogicBoolean.ReturnType.toUserString(LogicBoolean.ReturnType.getArrayBaseType(logicBoolean.getReturnType())) + "[" + logicBoolean.getArraySize(yVar) + "]";
     }
 }

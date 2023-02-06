@@ -1,29 +1,26 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.C0305au;
-import com.corrodinggames.rts.game.units.EnumC0246ao;
-import com.corrodinggames.rts.game.units.EnumC0306av;
-import com.corrodinggames.rts.game.units.custom.C0417bo;
-import com.corrodinggames.rts.game.units.custom.C0453g;
-import com.corrodinggames.rts.game.units.custom.C0454h;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.ao;
+import com.corrodinggames.rts.game.units.au;
+import com.corrodinggames.rts.game.units.av;
+import com.corrodinggames.rts.game.units.custom.b.n;
+import com.corrodinggames.rts.game.units.custom.bo;
+import com.corrodinggames.rts.game.units.custom.d.b;
+import com.corrodinggames.rts.game.units.custom.e.a;
+import com.corrodinggames.rts.game.units.custom.g;
+import com.corrodinggames.rts.game.units.custom.h;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
-import com.corrodinggames.rts.game.units.custom.p018b.C0402n;
-import com.corrodinggames.rts.game.units.custom.p019c.C0421a;
-import com.corrodinggames.rts.game.units.custom.p020d.C0429b;
-import com.corrodinggames.rts.game.units.custom.p021e.C0433a;
-import com.corrodinggames.rts.game.units.p027f.AbstractC0549i;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.f.i;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
-import com.corrodinggames.rts.gameFramework.utility.C1119am;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
-import com.corrodinggames.rts.gameFramework.utility.C1152y;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.utility.ab;
+import com.corrodinggames.rts.gameFramework.utility.am;
+import com.corrodinggames.rts.gameFramework.utility.m;
 
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions.class */
 public class LogicBooleanGameFunctions {
@@ -115,17 +112,17 @@ public class LogicBooleanGameFunctions {
         public boolean nukesEnabled;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = true;
             GameEngine gameEngine = GameEngine.getGameEngine();
-            if (this.nukesEnabled && gameEngine.m1102O() && gameEngine.netEngine.gameMapData.nukes) {
+            if (this.nukesEnabled && gameEngine.O() && gameEngine.netEngine.gameMapData.nukes) {
                 z = false;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "GameMode(" + (this.nukesEnabled ? "Nukes enabled" : "Nukes disabled") + ")";
         }
     }
@@ -138,8 +135,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.LogicNumberOnly, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            return GameEngine.getGameEngine().f6323bL.m4707i();
+        public float readNumber(y yVar) {
+            return GameEngine.getGameEngine().bL.i();
         }
     }
 
@@ -151,8 +148,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.LogicNumberOnly, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            return GameEngine.getGameEngine().f6323bL.m4706j();
+        public float readNumber(y yVar) {
+            return GameEngine.getGameEngine().bL.j();
         }
     }
 
@@ -171,17 +168,17 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z;
             GameEngine gameEngine = GameEngine.getGameEngine();
             if (this.mod >= 0) {
                 if (this.offset) {
-                    z = (((long) gameEngine.tick) + abstractC0629y.f7166eh) % ((long) this.mod) == ((long) this.equalTo);
+                    z = (((long) gameEngine.tick) + yVar.eh) % ((long) this.mod) == ((long) this.equalTo);
                 } else {
                     z = gameEngine.tick % this.mod == this.equalTo;
                 }
             } else if (this.offset) {
-                z = ((long) gameEngine.tick) + abstractC0629y.f7166eh == ((long) this.equalTo);
+                z = ((long) gameEngine.tick) + yVar.eh == ((long) this.equalTo);
             } else {
                 z = gameEngine.tick == this.equalTo;
             }
@@ -189,7 +186,7 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "IsGameFrame(mod=" + this.mod + ")";
         }
     }
@@ -204,7 +201,7 @@ public class LogicBooleanGameFunctions {
         public boolean flying;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             String str = VariableScope.nullOrMissingString;
             if (this.underwater) {
                 str = str + "underwater";
@@ -222,15 +219,15 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (this.underwater && abstractC0629y.f7174eq < -2.0f) {
+            if (this.underwater && yVar.eq < -2.0f) {
                 z = true;
             }
-            if (this.ground && abstractC0629y.f7174eq > -2.0f && abstractC0629y.f7174eq < 5.0f) {
+            if (this.ground && yVar.eq > -2.0f && yVar.eq < 5.0f) {
                 z = true;
             }
-            if (this.flying && abstractC0629y.f7174eq > 5.0f) {
+            if (this.flying && yVar.eq > 5.0f) {
                 z = true;
             }
             return z;
@@ -245,16 +242,16 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            if (abstractC0629y.mo2927bi()) {
-                return C0773f.m2186b(0.0f, 0.0f, abstractC0629y.f1619cc, abstractC0629y.f1620cd);
+        public float getValue(y yVar) {
+            if (yVar.bi()) {
+                return f.b(0.0f, 0.0f, yVar.cc, yVar.cd);
             }
-            float f = abstractC0629y.f1622cf;
+            float f = yVar.cf;
             return f < 0.0f ? -f : f;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -265,22 +262,22 @@ public class LogicBooleanGameFunctions {
         public boolean atTopSpeed;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            float mo2846z = abstractC0629y.mo2846z() - 0.1f;
-            if (abstractC0629y.mo2927bi()) {
-                float m2232a = C0773f.m2232a(0.0f, 0.0f, abstractC0629y.f1619cc, abstractC0629y.f1620cd);
-                if (m2232a != 0.0f && m2232a > mo2846z * mo2846z) {
+            float z2 = yVar.z() - 0.1f;
+            if (yVar.bi()) {
+                float a = f.a(0.0f, 0.0f, yVar.cc, yVar.cd);
+                if (a != 0.0f && a > z2 * z2) {
                     z = true;
                 }
-            } else if (abstractC0629y.f1622cf != 0.0f && abstractC0629y.f1622cf > mo2846z) {
+            } else if (yVar.cf != 0.0f && yVar.cf > z2) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "Speed";
         }
     }
@@ -288,63 +285,63 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$MovingBoolean.class */
     public class MovingBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.f1653cK) {
+            if (yVar.cK) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "Moving";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$HasActiveWaypoint.class */
     public class HasActiveWaypoint extends LogicBoolean {
-        EnumC0306av type;
+        av type;
 
         @LogicBoolean.Parameter
         public void type(String str) {
             try {
-                this.type = (EnumC0306av) C1107ab.m698a(str, (Enum) null, EnumC0306av.class);
-            } catch (C0417bo e) {
-                throw new C1119am(e.getMessage(), e);
+                this.type = (av) ab.a(str, (Enum) null, av.class);
+            } catch (bo e) {
+                throw new am(e.getMessage(), e);
             }
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            C0305au m2967ar = abstractC0629y.m2967ar();
-            if (m2967ar != null) {
+            au ar = yVar.ar();
+            if (ar != null) {
                 if (this.type == null) {
                     z = true;
                 } else {
-                    z = m2967ar.m4172d() == this.type;
+                    z = ar.d() == this.type;
                 }
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "HasActiveWaypoint(type=" + this.type + ")";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfQueuedWaypoints.class */
     public class NumberOfQueuedWaypoints extends LogicBoolean.AbstractNumberBoolean {
-        EnumC0306av type;
+        av type;
 
         @LogicBoolean.Parameter
         public void type(String str) {
             try {
-                this.type = (EnumC0306av) C1107ab.m698a(str, (Enum) null, EnumC0306av.class);
-            } catch (C0417bo e) {
-                throw new C1119am(e.getMessage(), e);
+                this.type = (av) ab.a(str, (Enum) null, av.class);
+            } catch (bo e) {
+                throw new am(e.getMessage(), e);
             }
         }
 
@@ -354,16 +351,16 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
+        public float getValue(y yVar) {
             if (this.type == null) {
-                return abstractC0629y.m2963av();
+                return yVar.av();
             }
             int i = 0;
-            int m2963av = abstractC0629y.m2963av();
-            for (int i2 = 0; i2 < m2963av; i2++) {
-                C0305au m2875k = abstractC0629y.m2875k(i2);
-                if (m2875k != null) {
-                    if (m2875k.m4172d() == this.type) {
+            int av = yVar.av();
+            for (int i2 = 0; i2 < av; i2++) {
+                au k = yVar.k(i2);
+                if (k != null) {
+                    if (k.d() == this.type) {
                         i++;
                     }
                 }
@@ -372,7 +369,7 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -380,16 +377,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$InMapBoolean.class */
     public class InMapBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (C1152y.m484a(abstractC0629y.f7172eo, abstractC0629y.f7173ep)) {
+            if (com.corrodinggames.rts.gameFramework.utility.y.a(yVar.eo, yVar.ep)) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "InMap";
         }
     }
@@ -397,16 +394,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$TouchWaterBoolean.class */
     public class TouchWaterBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.m4314cH()) {
+            if (yVar.cH()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "TouchWater";
         }
     }
@@ -414,16 +411,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$OverWaterBoolean.class */
     public class OverWaterBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.m4312cJ()) {
+            if (yVar.cJ()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "OverWater";
         }
     }
@@ -431,16 +428,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$OverLiquidBoolean.class */
     public class OverLiquidBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.m4311cK()) {
+            if (yVar.cK()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "overLiquid";
         }
     }
@@ -448,41 +445,41 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$OverCliftBoolean.class */
     public class OverCliftBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.m4313cI()) {
+            if (yVar.cI()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "OverClift";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$OverPassableTileBoolean.class */
     public class OverPassableTileBoolean extends LogicBoolean.LogicBooleanCommonLocking {
-        EnumC0246ao movementType = EnumC0246ao.LAND;
+        ao movementType = ao.LAND;
 
         @LogicBoolean.Parameter
         public void type(String str) {
-            this.movementType = EnumC0246ao.m4246a(str, "isOverPassableTile()");
+            this.movementType = ao.a(str, "isOverPassableTile()");
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
             GameEngine.getGameEngine();
-            if (!C1152y.m482a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, this.movementType)) {
+            if (!com.corrodinggames.rts.gameFramework.utility.y.a(yVar.eo, yVar.ep, this.movementType)) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "OverLand";
         }
     }
@@ -490,23 +487,23 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$CompletedBoolean.class */
     public class CompletedBoolean extends LogicBoolean.LogicBooleanCommonLocking {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.f1629cm >= 1.0f) {
+            if (yVar.cm >= 1.0f) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "isComplete";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$TransportingCountBoolean.class */
     public class TransportingCountBoolean extends LogicBoolean.AbstractNumberBoolean {
-        public C0453g _withTag;
+        public g _withTag;
         public boolean filtered;
         @LogicBoolean.Parameter
         public int slot = -1;
@@ -518,7 +515,7 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3701c(str);
+            this._withTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -530,20 +527,20 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
+        public float getValue(y yVar) {
             int i;
             if (!this.filtered) {
-                i = abstractC0629y.mo2940bB();
+                i = yVar.bB();
             } else {
                 i = 0;
-                C1136m mo2910bz = abstractC0629y.mo2910bz();
-                if (mo2910bz != null) {
-                    Object[] m540a = mo2910bz.m540a();
-                    for (int i2 = mo2910bz.f7109a - 1; i2 >= 0; i2--) {
-                        AbstractC0629y abstractC0629y2 = (AbstractC0629y) m540a[i2];
-                        if (abstractC0629y2 != null && (this.slot == -1 || i2 == this.slot)) {
+                m bz = yVar.bz();
+                if (bz != null) {
+                    Object[] a = bz.a();
+                    for (int i2 = bz.a - 1; i2 >= 0; i2--) {
+                        y yVar2 = (y) a[i2];
+                        if (yVar2 != null && (this.slot == -1 || i2 == this.slot)) {
                             if (this._withTag != null) {
-                                if (!C0453g.m3709a(this._withTag, abstractC0629y2.mo4278de())) {
+                                if (!g.a(this._withTag, yVar2.de())) {
                                 }
                             }
                             i++;
@@ -555,7 +552,7 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -563,30 +560,28 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$HasFlagDynamicBoolean.class */
     public class HasFlagDynamicBoolean extends LogicBoolean {
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number, positional = 0)
-
-        /* renamed from: id */
-        public LogicBoolean f3317id;
+        public LogicBoolean id;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
         public LogicBoolean validateAndOptimize(String str, String str2, String str3, LogicBooleanLoader.LogicBooleanContext logicBooleanContext, boolean z) {
             validate(str, str2, str3, logicBooleanContext, z);
-            if (this.f3317id == null) {
+            if (this.id == null) {
                 throw new BooleanParseException("Flag id must be set");
             }
-            Float staticNumber = getStaticNumber(this.f3317id);
+            Float staticNumber = getStaticNumber(this.id);
             if (staticNumber != null) {
                 HasFlagBoolean hasFlagBoolean = new HasFlagBoolean();
-                hasFlagBoolean.m3507id((int) staticNumber.floatValue());
+                hasFlagBoolean.id((int) staticNumber.floatValue());
                 return hasFlagBoolean;
             }
             return this;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            int readNumber = (int) this.f3317id.readNumber(getParameterContext(abstractC0629y));
+        public boolean read(y yVar) {
+            int readNumber = (int) this.id.readNumber(getParameterContext(yVar));
             if (readNumber >= 0 && readNumber <= 31) {
-                if (HasFlagBoolean.isFlagSet(abstractC0629y.f1648cF, 1 << readNumber)) {
+                if (HasFlagBoolean.isFlagSet(yVar.cF, 1 << readNumber)) {
                     return true;
                 }
                 return false;
@@ -595,8 +590,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-            return "HasFlag(id:" + this.f3317id.getMatchFailReasonForPlayer(getParameterContext(abstractC0629y)) + ")";
+        public String getMatchFailReasonForPlayer(y yVar) {
+            return "HasFlag(id:" + this.id.getMatchFailReasonForPlayer(getParameterContext(yVar)) + ")";
         }
     }
 
@@ -606,8 +601,7 @@ public class LogicBooleanGameFunctions {
         public int flagId = -1;
 
         @LogicBoolean.Parameter(positional = 0)
-        /* renamed from: id */
-        public void m3507id(int i) {
+        public void id(int i) {
             if (i < 0 || i > 31) {
                 throw new BooleanParseException("Flag id must be between 0-31");
             }
@@ -628,14 +622,14 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "HasFlag(id:" + this.flagId + ")";
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = true;
-            if (this.flagMask != 0 && !isFlagSet(abstractC0629y.f1648cF, this.flagMask)) {
+            if (this.flagMask != 0 && !isFlagSet(yVar.cF, this.flagMask)) {
                 z = false;
             }
             return z;
@@ -648,8 +642,8 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void team(int i) {
-            if (i < -1 || i > PlayerData.f1367c) {
-                throw new BooleanParseException("Flag id must be between 0-" + PlayerData.f1367c);
+            if (i < -1 || i > PlayerData.c) {
+                throw new BooleanParseException("Flag id must be between 0-" + PlayerData.c);
             }
             this.teamId = i;
         }
@@ -663,14 +657,14 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "Team(id:" + this.teamId + ")";
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = true;
-            if (abstractC0629y.f1614bX.site != this.teamId) {
+            if (yVar.bX.site != this.teamId) {
                 z = false;
             }
             return z;
@@ -679,15 +673,15 @@ public class LogicBooleanGameFunctions {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$TagsBoolean.class */
     public class TagsBoolean extends LogicBoolean {
-        public C0453g includesTag;
+        public g includesTag;
 
         @LogicBoolean.Parameter
         public void includes(String str) {
-            this.includesTag = C0453g.m3701c(str);
+            this.includesTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             String str = "Tag";
             if (this.includesTag != null) {
                 str = str + " includes " + this.includesTag;
@@ -696,10 +690,10 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            C0454h de;
+        public boolean read(y yVar) {
+            h de;
             boolean z = true;
-            if (this.includesTag != null && ((de = abstractC0629y.mo4278de()) == null || !C0453g.m3709a(this.includesTag, de))) {
+            if (this.includesTag != null && ((de = yVar.de()) == null || !g.a(this.includesTag, de))) {
                 z = false;
             }
             return z;
@@ -708,15 +702,15 @@ public class LogicBooleanGameFunctions {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$TeamTagBoolean.class */
     public class TeamTagBoolean extends LogicBoolean {
-        public C0453g includesTag;
+        public g includesTag;
 
         @LogicBoolean.Parameter
         public void includes(String str) {
-            this.includesTag = C0453g.m3701c(str);
+            this.includesTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             String str = "Team Tag ";
             if (this.includesTag != null) {
                 str = str + " includes " + this.includesTag;
@@ -725,10 +719,10 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            C0454h m4557U;
+        public boolean read(y yVar) {
+            h U;
             boolean z = true;
-            if (this.includesTag != null && ((m4557U = abstractC0629y.f1614bX.m4557U()) == null || !C0453g.m3709a(this.includesTag, m4557U))) {
+            if (this.includesTag != null && ((U = yVar.bX.U()) == null || !g.a(this.includesTag, U))) {
                 z = false;
             }
             return z;
@@ -737,15 +731,15 @@ public class LogicBooleanGameFunctions {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$EventTagsBoolean.class */
     public class EventTagsBoolean extends LogicBoolean {
-        public C0453g includesTag;
+        public g includesTag;
 
         @LogicBoolean.Parameter
         public void includes(String str) {
-            this.includesTag = C0453g.m3701c(str);
+            this.includesTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             String str = "EventTag";
             if (this.includesTag != null) {
                 str = str + " includes " + this.includesTag;
@@ -754,14 +748,14 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = true;
             if (this.includesTag != null) {
-                C0454h c0454h = null;
+                h hVar = null;
                 if (LogicBoolean.activeEvent != null) {
-                    c0454h = LogicBoolean.activeEvent.f2931d;
+                    hVar = LogicBoolean.activeEvent.d;
                 }
-                if (c0454h == null || !C0453g.m3709a(this.includesTag, c0454h)) {
+                if (hVar == null || !g.a(this.includesTag, hVar)) {
                     z = false;
                 }
             }
@@ -771,15 +765,15 @@ public class LogicBooleanGameFunctions {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$TransportingUnitWithTagsBoolean.class */
     public class TransportingUnitWithTagsBoolean extends LogicBoolean {
-        public C0453g includesTag;
+        public g includesTag;
 
         @LogicBoolean.Parameter
         public void includes(String str) {
-            this.includesTag = C0453g.m3701c(str);
+            this.includesTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             String str = "TransportingUnitWithTags ";
             if (this.includesTag != null) {
                 str = str + " includes " + this.includesTag;
@@ -788,14 +782,14 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            C1136m mo2910bz;
+        public boolean read(y yVar) {
+            m bz;
             boolean z = false;
-            if (this.includesTag != null && (mo2910bz = abstractC0629y.mo2910bz()) != null) {
-                Object[] m540a = mo2910bz.m540a();
-                for (int i = 0; i < mo2910bz.f7109a; i++) {
-                    C0454h mo4278de = ((AbstractC0244am) m540a[i]).mo4278de();
-                    if (mo4278de != null && C0453g.m3709a(this.includesTag, mo4278de)) {
+            if (this.includesTag != null && (bz = yVar.bz()) != null) {
+                Object[] a = bz.a();
+                for (int i = 0; i < bz.a; i++) {
+                    h de = ((com.corrodinggames.rts.game.units.am) a[i]).de();
+                    if (de != null && g.a(this.includesTag, de)) {
                         z = true;
                     }
                 }
@@ -807,16 +801,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$isTransportUnloading.class */
     public class isTransportUnloading extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.mo2941bA()) {
+            if (yVar.bA()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "IsTransportUnloading";
         }
     }
@@ -824,16 +818,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$isDead.class */
     public class isDead extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.f1612bV) {
+            if (yVar.bV) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "IsDead";
         }
     }
@@ -846,12 +840,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f7174eq;
+        public float getValue(y yVar) {
+            return yVar.eq;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -864,13 +858,13 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1644cB;
+        public float getValue(y yVar) {
+            return yVar.cB;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo2932bd();
+        public float getMaxValue(y yVar) {
+            return yVar.bd();
         }
     }
 
@@ -882,13 +876,13 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1644cB + abstractC0629y.mo2911by().f2724c;
+        public float getValue(y yVar) {
+            return yVar.cB + yVar.by().c;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo2932bd();
+        public float getMaxValue(y yVar) {
+            return yVar.bd();
         }
     }
 
@@ -900,12 +894,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo3467cL();
+        public float getValue(y yVar) {
+            return yVar.cL();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -918,13 +912,13 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1637cu;
+        public float getValue(y yVar) {
+            return yVar.cu;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1638cv;
+        public float getMaxValue(y yVar) {
+            return yVar.cv;
         }
     }
 
@@ -936,12 +930,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1638cv;
+        public float getValue(y yVar) {
+            return yVar.cv;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -954,12 +948,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1643cA;
+        public float getValue(y yVar) {
+            return yVar.cA;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -972,12 +966,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo2932bd();
+        public float getValue(y yVar) {
+            return yVar.bd();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -990,12 +984,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return (float) abstractC0629y.f7166eh;
+        public float getValue(y yVar) {
+            return (float) yVar.eh;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1008,8 +1002,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.f1331F;
+        public boolean read(y yVar) {
+            return yVar.bX.F;
         }
     }
 
@@ -1021,8 +1015,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.f1332G;
+        public boolean read(y yVar) {
+            return yVar.bX.G;
         }
     }
 
@@ -1034,8 +1028,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.f1333H;
+        public boolean read(y yVar) {
+            return yVar.bX.H;
         }
     }
 
@@ -1047,8 +1041,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo3258bX();
+        public boolean read(y yVar) {
+            return yVar.bX();
         }
     }
 
@@ -1060,12 +1054,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1614bX.site;
+        public float getValue(y yVar) {
+            return yVar.bX.site;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1078,12 +1072,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f7172eo;
+        public float getValue(y yVar) {
+            return yVar.eo;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1096,12 +1090,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f7173ep;
+        public float getValue(y yVar) {
+            return yVar.ep;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1114,12 +1108,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1623cg;
+        public float getValue(y yVar) {
+            return yVar.cg;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1132,12 +1126,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo2846z();
+        public float getValue(y yVar) {
+            return yVar.z();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1150,12 +1144,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1629cm;
+        public float getValue(y yVar) {
+            return yVar.cm;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 1.0f;
         }
     }
@@ -1168,13 +1162,13 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1640cx;
+        public float getValue(y yVar) {
+            return yVar.cx;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1643cA;
+        public float getMaxValue(y yVar) {
+            return yVar.cA;
         }
     }
 
@@ -1186,32 +1180,32 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1647cE;
+        public float getValue(y yVar) {
+            return yVar.cE;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$ResourceCountBoolean.class */
     public final class ResourceCountBoolean extends LogicBoolean.AbstractNumberBoolean {
-        C0458l meta;
-        C0433a type;
+        l meta;
+        a type;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
+        public void forMeta(l lVar) {
+            if (lVar == null) {
                 throw new BooleanParseException("ResourceCountBoolean requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @LogicBoolean.Parameter(positional = 0)
         public void type(String str) {
-            this.type = this.meta.m3533j(str);
+            this.type = this.meta.j(str);
             if (this.type == null) {
                 throw new BooleanParseException("Could not find resource type: '" + str + "'");
             }
@@ -1230,15 +1224,15 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
+        public float getValue(y yVar) {
             if (this.type == null) {
                 return 0.0f;
             }
-            return (float) this.type.mo3787a(abstractC0629y);
+            return (float) this.type.a(yVar);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
 
@@ -1272,34 +1266,34 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$ResourceScope.class */
     public class ResourceScope extends LogicBooleanLoader.LogicBooleanScopeOnly {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader.LogicBooleanContext
-        public LogicBoolean parseNextElementInChain(String str, C0458l c0458l, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
-            C0433a m3533j = c0458l.m3533j(str2);
-            if (m3533j == null) {
+        public LogicBoolean parseNextElementInChain(String str, l lVar, String str2, boolean z, String str3, String str4, LogicBoolean logicBoolean) {
+            a j = lVar.j(str2);
+            if (j == null) {
                 throw new BooleanParseException("'" + str3 + "': Could not find resource: '" + str2 + "'");
             }
             ResourceCountBoolean resourceCountBoolean = new ResourceCountBoolean();
-            resourceCountBoolean.meta = c0458l;
-            resourceCountBoolean.type = m3533j;
+            resourceCountBoolean.meta = lVar;
+            resourceCountBoolean.type = j;
             return resourceCountBoolean;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfConnectionsBoolean.class */
     public final class NumberOfConnectionsBoolean extends LogicBoolean.AbstractNumberBoolean {
-        C0458l meta;
-        C0421a connectionMetadata;
+        l meta;
+        com.corrodinggames.rts.game.units.custom.c.a connectionMetadata;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
+        public void forMeta(l lVar) {
+            if (lVar == null) {
                 throw new BooleanParseException("NumberOfConnectionsBoolean requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @LogicBoolean.Parameter
         public void name(String str) {
-            this.connectionMetadata = this.meta.m3529l(str);
+            this.connectionMetadata = this.meta.l(str);
             if (this.connectionMetadata == null) {
                 throw new BooleanParseException("Could not find connection type with name: " + str);
             }
@@ -1322,74 +1316,74 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1703dI.m3883a(this.connectionMetadata);
+        public float getValue(y yVar) {
+            return yVar.dI.a(this.connectionMetadata);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$HasResourcesBoolean.class */
     public final class HasResourcesBoolean extends LogicBoolean {
-        C0429b requiredResources;
-        C0458l meta;
+        b requiredResources;
+        l meta;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
+        public void forMeta(l lVar) {
+            if (lVar == null) {
                 throw new BooleanParseException("HasResourcesBoolean requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void setArgumentsRaw(String str, C0458l c0458l, String str2) {
+        public void setArgumentsRaw(String str, l lVar, String str2) {
             try {
-                this.requiredResources = C0429b.m3849b(this.meta, str);
-            } catch (C0417bo e) {
+                this.requiredResources = b.b(this.meta, str);
+            } catch (bo e) {
                 throw new BooleanParseException(e.getMessage(), e);
             }
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (this.requiredResources.mo3824b(abstractC0629y)) {
+            if (this.requiredResources.b(yVar)) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-            return "HasResources(" + this.requiredResources.m3857a(false, true, 8, true) + ")";
+        public String getMatchFailReasonForPlayer(y yVar) {
+            return "HasResources(" + this.requiredResources.a(false, true, 8, true) + ")";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$IsResourceLargerThan.class */
     public final class IsResourceLargerThan extends LogicBoolean {
-        C0458l meta;
-        C0433a source;
-        C0433a compareTarget;
+        l meta;
+        a source;
+        a compareTarget;
         @LogicBoolean.Parameter
         public float byMoreThan = 0.0f;
         @LogicBoolean.Parameter
         public float multiplyTargetBy = 1.0f;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
+        public void forMeta(l lVar) {
+            if (lVar == null) {
                 throw new BooleanParseException("IsResourceLargerThan requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @LogicBoolean.Parameter
         public void source(String str) {
-            this.source = this.meta.m3533j(str);
+            this.source = this.meta.j(str);
             if (this.source == null) {
                 throw new BooleanParseException("Could not find custom resource type of:" + this.source);
             }
@@ -1397,7 +1391,7 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void compareTarget(String str) {
-            this.compareTarget = this.meta.m3533j(str);
+            this.compareTarget = this.meta.j(str);
             if (this.compareTarget == null) {
                 throw new BooleanParseException("Could not find custom resource type of:" + this.compareTarget);
             }
@@ -1415,17 +1409,17 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (this.source.mo3787a(abstractC0629y) > (this.compareTarget.mo3787a(abstractC0629y) + this.byMoreThan) * this.multiplyTargetBy) {
+            if (this.source.a(yVar) > (this.compareTarget.a(yVar) + this.byMoreThan) * this.multiplyTargetBy) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-            return "IsResourceLargerThan(" + this.source.m3790j() + " vs " + this.compareTarget.m3790j() + ")";
+        public String getMatchFailReasonForPlayer(y yVar) {
+            return "IsResourceLargerThan(" + this.source.j() + " vs " + this.compareTarget.j() + ")";
         }
     }
 
@@ -1437,19 +1431,19 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1663cU;
+        public float getValue(y yVar) {
+            return yVar.cU;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfUnitsInTeam.class */
     public final class NumberOfUnitsInTeam extends LogicBoolean.AbstractNumberBoolean {
-        public C0453g _withTag;
+        public g _withTag;
         @LogicBoolean.Parameter
         public float withinRange = -1.0f;
         public float withinRangeSq = -1.0f;
@@ -1474,7 +1468,7 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3701c(str);
+            this._withTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1497,85 +1491,85 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
+        public float getValue(y yVar) {
             PlayerData playerData;
-            int m4543a;
-            PlayerData[] m4499d;
+            int a;
+            PlayerData[] d;
             int i;
-            int m4543a2;
-            C0453g c0453g = this._withTag;
+            int a2;
+            g gVar = this._withTag;
             if (this.allTeams) {
                 playerData = null;
             } else if (this.neutralTeam) {
                 if (!this.useAggressiveTeamInsteadOfNeutralTeam) {
-                    playerData = PlayerData.f1373i;
+                    playerData = PlayerData.i;
                 } else {
-                    playerData = PlayerData.f1372h;
+                    playerData = PlayerData.h;
                 }
             } else {
-                playerData = abstractC0629y.f1614bX;
+                playerData = yVar.bX;
             }
             if (playerData == null) {
-                m4543a = 0;
-                for (PlayerData playerData2 : PlayerData.m4499d()) {
-                    if (c0453g == null) {
-                        i = m4543a;
-                        m4543a2 = playerData2.m4531a(this.incompleteBuildings, this.factoryQueue);
+                a = 0;
+                for (PlayerData playerData2 : PlayerData.d()) {
+                    if (gVar == null) {
+                        i = a;
+                        a2 = playerData2.a(this.incompleteBuildings, this.factoryQueue);
                     } else {
-                        i = m4543a;
-                        m4543a2 = playerData2.m4543a(c0453g, this.incompleteBuildings, this.factoryQueue);
+                        i = a;
+                        a2 = playerData2.a(gVar, this.incompleteBuildings, this.factoryQueue);
                     }
-                    m4543a = i + m4543a2;
+                    a = i + a2;
                 }
-            } else if (c0453g == null) {
-                m4543a = playerData.m4531a(this.incompleteBuildings, this.factoryQueue);
+            } else if (gVar == null) {
+                a = playerData.a(this.incompleteBuildings, this.factoryQueue);
             } else {
-                m4543a = playerData.m4543a(c0453g, this.incompleteBuildings, this.factoryQueue);
+                a = playerData.a(gVar, this.incompleteBuildings, this.factoryQueue);
             }
-            if (this.withinRange < 0.0f || m4543a == 0) {
-                return m4543a;
+            if (this.withinRange < 0.0f || a == 0) {
+                return a;
             }
             handleCallbackCount.withinRangeSq = this.withinRangeSq;
             handleCallbackCount.count = 0;
-            handleCallbackCount.tag = c0453g;
+            handleCallbackCount.tag = gVar;
             handleCallbackCount.incompleteBuildings = this.incompleteBuildings;
             handleCallbackCount.targetTeam = playerData;
-            GameEngine.getGameEngine().f6340cc.m3232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, this.withinRange, abstractC0629y, 0.0f, handleCallbackCount);
+            GameEngine.getGameEngine().cc.a(yVar.eo, yVar.ep, this.withinRange, yVar, 0.0f, handleCallbackCount);
             return handleCallbackCount.count;
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfUnitsInTeam$HandleCallbackCount.class */
-        public class HandleCallbackCount extends AbstractC0549i {
-            public C0453g tag;
+        public class HandleCallbackCount extends i {
+            public g tag;
             public int count;
             public float withinRangeSq;
             public boolean incompleteBuildings;
             public PlayerData targetTeam;
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public void setup(AbstractC0629y abstractC0629y, float f) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public void setup(y yVar, float f) {
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public int excludeTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public int excludeTeam(y yVar) {
                 return -1;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyEnemiesOfTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyEnemiesOfTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyTeam(y yVar) {
                 return this.targetTeam;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0550j
-            public void callback(AbstractC0629y abstractC0629y, float f, AbstractC0244am abstractC0244am) {
-                C0454h mo4278de = abstractC0244am.mo4278de();
-                if ((this.tag == null || (mo4278de != null && C0453g.m3709a(this.tag, mo4278de))) && C0773f.m2232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, abstractC0244am.f7172eo, abstractC0244am.f7173ep) < this.withinRangeSq) {
-                    if (abstractC0244am.f1629cm < 1.0f && !this.incompleteBuildings) {
+            @Override // com.corrodinggames.rts.game.units.f.j
+            public void callback(y yVar, float f, com.corrodinggames.rts.game.units.am amVar) {
+                h de = amVar.de();
+                if ((this.tag == null || (de != null && g.a(this.tag, de))) && f.a(yVar.eo, yVar.ep, amVar.eo, amVar.ep) < this.withinRangeSq) {
+                    if (amVar.cm < 1.0f && !this.incompleteBuildings) {
                         return;
                     }
                     this.count++;
@@ -1584,14 +1578,14 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfUnitsInEnemyOrAllyTeam.class */
     public final class NumberOfUnitsInEnemyOrAllyTeam extends LogicBoolean.AbstractNumberBoolean {
-        public C0453g _withTag;
+        public g _withTag;
         @LogicBoolean.Parameter
         public float withinRange = -1.0f;
         public float withinRangeSq = -1.0f;
@@ -1606,7 +1600,7 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3701c(str);
+            this._withTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1629,65 +1623,65 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            int m4505c;
-            PlayerData playerData = abstractC0629y.f1614bX;
+        public float getValue(y yVar) {
+            int c;
+            PlayerData playerData = yVar.bX;
             if (!this.ally) {
-                m4505c = 0 + playerData.m4521b(this._withTag, this.incompleteBuildings, this.factoryQueue);
+                c = 0 + playerData.b(this._withTag, this.incompleteBuildings, this.factoryQueue);
             } else {
-                m4505c = 0 + playerData.m4505c(this._withTag, this.incompleteBuildings, this.factoryQueue);
+                c = 0 + playerData.c(this._withTag, this.incompleteBuildings, this.factoryQueue);
             }
-            if (this.withinRange < 0.0f || m4505c == 0) {
-                return m4505c;
+            if (this.withinRange < 0.0f || c == 0) {
+                return c;
             }
             if (!this.ally) {
                 handleCallbackCountEnemies.withinRangeSq = this.withinRangeSq;
                 handleCallbackCountEnemies.count = 0;
                 handleCallbackCountEnemies.tag = this._withTag;
                 handleCallbackCountEnemies.incompleteBuildings = this.incompleteBuildings;
-                GameEngine.getGameEngine().f6340cc.m3232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, this.withinRange, abstractC0629y, 0.0f, handleCallbackCountEnemies);
+                GameEngine.getGameEngine().cc.a(yVar.eo, yVar.ep, this.withinRange, yVar, 0.0f, handleCallbackCountEnemies);
                 return handleCallbackCountEnemies.count;
             }
             handleCallbackCountAlly.withinRangeSq = this.withinRangeSq;
             handleCallbackCountAlly.count = 0;
             handleCallbackCountAlly.tag = this._withTag;
             handleCallbackCountAlly.incompleteBuildings = this.incompleteBuildings;
-            handleCallbackCountAlly.ally = abstractC0629y.f1614bX;
-            GameEngine.getGameEngine().f6340cc.m3232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, this.withinRange, abstractC0629y, 0.0f, handleCallbackCountAlly);
+            handleCallbackCountAlly.ally = yVar.bX;
+            GameEngine.getGameEngine().cc.a(yVar.eo, yVar.ep, this.withinRange, yVar, 0.0f, handleCallbackCountAlly);
             return handleCallbackCountAlly.count;
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfUnitsInEnemyOrAllyTeam$HandleCallbackCountEnemies.class */
-        public class HandleCallbackCountEnemies extends AbstractC0549i {
-            public C0453g tag;
+        public class HandleCallbackCountEnemies extends i {
+            public g tag;
             public int count;
             public float withinRangeSq;
             public boolean incompleteBuildings;
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public void setup(AbstractC0629y abstractC0629y, float f) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public void setup(y yVar, float f) {
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public int excludeTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public int excludeTeam(y yVar) {
                 return -1;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyEnemiesOfTeam(AbstractC0629y abstractC0629y) {
-                return abstractC0629y.f1614bX;
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyEnemiesOfTeam(y yVar) {
+                return yVar.bX;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0550j
-            public void callback(AbstractC0629y abstractC0629y, float f, AbstractC0244am abstractC0244am) {
-                C0454h mo4278de = abstractC0244am.mo4278de();
-                if ((this.tag == null || (mo4278de != null && C0453g.m3709a(this.tag, mo4278de))) && C0773f.m2232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, abstractC0244am.f7172eo, abstractC0244am.f7173ep) < this.withinRangeSq) {
-                    if (abstractC0244am.f1629cm < 1.0f && !this.incompleteBuildings) {
+            @Override // com.corrodinggames.rts.game.units.f.j
+            public void callback(y yVar, float f, com.corrodinggames.rts.game.units.am amVar) {
+                h de = amVar.de();
+                if ((this.tag == null || (de != null && g.a(this.tag, de))) && f.a(yVar.eo, yVar.ep, amVar.eo, amVar.ep) < this.withinRangeSq) {
+                    if (amVar.cm < 1.0f && !this.incompleteBuildings) {
                         return;
                     }
                     this.count++;
@@ -1696,40 +1690,40 @@ public class LogicBooleanGameFunctions {
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfUnitsInEnemyOrAllyTeam$HandleCallbackCountAlly.class */
-        public class HandleCallbackCountAlly extends AbstractC0549i {
+        public class HandleCallbackCountAlly extends i {
             public PlayerData ally;
-            public C0453g tag;
+            public g tag;
             public int count;
             public float withinRangeSq;
             public boolean incompleteBuildings;
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public void setup(AbstractC0629y abstractC0629y, float f) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public void setup(y yVar, float f) {
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public int excludeTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public int excludeTeam(y yVar) {
                 return -1;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyEnemiesOfTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyEnemiesOfTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0550j
-            public void callback(AbstractC0629y abstractC0629y, float f, AbstractC0244am abstractC0244am) {
-                if (this.ally == abstractC0244am.f1614bX || !this.ally.m4496d(abstractC0244am.f1614bX)) {
+            @Override // com.corrodinggames.rts.game.units.f.j
+            public void callback(y yVar, float f, com.corrodinggames.rts.game.units.am amVar) {
+                if (this.ally == amVar.bX || !this.ally.d(amVar.bX)) {
                     return;
                 }
-                C0454h mo4278de = abstractC0244am.mo4278de();
-                if ((this.tag == null || (mo4278de != null && C0453g.m3709a(this.tag, mo4278de))) && C0773f.m2232a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, abstractC0244am.f7172eo, abstractC0244am.f7173ep) < this.withinRangeSq) {
-                    if (abstractC0244am.f1629cm < 1.0f && !this.incompleteBuildings) {
+                h de = amVar.de();
+                if ((this.tag == null || (de != null && g.a(this.tag, de))) && f.a(yVar.eo, yVar.ep, amVar.eo, amVar.ep) < this.withinRangeSq) {
+                    if (amVar.cm < 1.0f && !this.incompleteBuildings) {
                         return;
                     }
                     this.count++;
@@ -1738,7 +1732,7 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1751,23 +1745,23 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1647cE + abstractC0629y.mo2911by().f2727f;
+        public float getValue(y yVar) {
+            return yVar.cE + yVar.by().f;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$QueueSize.class */
     public final class QueueSize extends LogicBoolean.AbstractNumberBoolean {
-        public C0453g _withActionTag;
+        public g _withActionTag;
 
         @LogicBoolean.Parameter
         public void withActionTag(String str) {
-            this._withActionTag = C0453g.m3701c(str);
+            this._withActionTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
@@ -1776,12 +1770,12 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.mo3395a(this._withActionTag);
+        public float getValue(y yVar) {
+            return yVar.a(this._withActionTag);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -1794,8 +1788,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.TimeBoolean
-        public int getTime(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1589bz;
+        public int getTime(y yVar) {
+            return yVar.bz;
         }
     }
 
@@ -1807,8 +1801,8 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.TimeBoolean
-        public int getTime(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1591bB;
+        public int getTime(y yVar) {
+            return yVar.bB;
         }
     }
 
@@ -1820,16 +1814,16 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.TimeBoolean
-        public int getTime(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1590bA;
+        public int getTime(y yVar) {
+            return yVar.bA;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$HasTakenDamage.class */
     public class HasTakenDamage extends LogicBoolean.TimeBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.TimeBoolean
-        public int getTime(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f1582bs;
+        public int getTime(y yVar) {
+            return yVar.bs;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.TimeBoolean
@@ -1841,16 +1835,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$IsAttackingBoolean.class */
     public class IsAttackingBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.m2984aa()) {
+            if (yVar.aa()) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "Attacking";
         }
     }
@@ -1858,16 +1852,16 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$IsReversingBoolean.class */
     public class IsReversingBoolean extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.f1625ci) {
+            if (yVar.ci) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "IsReversing";
         }
     }
@@ -1875,38 +1869,38 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$IsControlledByAI.class */
     public class IsControlledByAI extends LogicBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            if (abstractC0629y.f1614bX.f1319w) {
+            if (yVar.bX.w) {
                 z = true;
             }
             return z;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "IsControlledByAI";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$CompareUnitsBroken.class */
     public class CompareUnitsBroken extends LogicBoolean {
-        C0458l meta;
+        l meta;
         UnitReference sameUnitAs;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
+        public void forMeta(l lVar) {
+            if (lVar == null) {
                 throw new BooleanParseException("SameUnitAs requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @LogicBoolean.Parameter
         public void sameUnitAs(String str) {
             try {
                 this.sameUnitAs = UnitReference.parseUnitReference(this.meta, str, VariableScope.nullOrMissingString, VariableScope.nullOrMissingString, null, false);
-            } catch (C0417bo e) {
+            } catch (bo e) {
                 throw new BooleanParseException(e.getMessage(), e);
             }
         }
@@ -1920,33 +1914,33 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             return true;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "SameUnitAs";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$HasParent.class */
     public final class HasParent extends LogicBoolean {
-        public C0453g _withTag;
+        public g _withTag;
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3701c(str);
+            this._withTag = g.c(str);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             boolean z = false;
-            AbstractC0244am dr = abstractC0629y.m4266dr();
+            com.corrodinggames.rts.game.units.am dr = yVar.dr();
             if (dr != null) {
                 z = true;
                 if (this._withTag != null) {
-                    if (!C0453g.m3709a(this._withTag, dr.mo4278de())) {
+                    if (!g.a(this._withTag, dr.de())) {
                         z = false;
                     }
                 }
@@ -1955,23 +1949,23 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "HasParent";
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$NumberOfAttachedUnitsBoolean.class */
     public final class NumberOfAttachedUnitsBoolean extends LogicBoolean.AbstractNumberBoolean {
-        public C0453g _withTag;
+        public g _withTag;
         short attachmentId = -1;
-        C0458l meta;
+        l meta;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
-                throw new C1119am("NumberOfAttachedUnitsBoolean requires metadata");
+        public void forMeta(l lVar) {
+            if (lVar == null) {
+                throw new am("NumberOfAttachedUnitsBoolean requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1984,16 +1978,16 @@ public class LogicBooleanGameFunctions {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3701c(str);
+            this._withTag = g.c(str);
         }
 
         @LogicBoolean.Parameter
         public void slot(String str) {
-            C0402n m3535i = this.meta.m3535i(str);
-            if (m3535i == null) {
-                throw new C1119am("No attachment slot with name: " + str + " found");
+            n i = this.meta.i(str);
+            if (i == null) {
+                throw new am("No attachment slot with name: " + str + " found");
             }
-            this.attachmentId = m3535i.m3941a();
+            this.attachmentId = i.a();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
@@ -2009,21 +2003,21 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getValue(AbstractC0629y abstractC0629y) {
-            if (!(abstractC0629y instanceof C0456j)) {
+        public float getValue(y yVar) {
+            if (!(yVar instanceof j)) {
                 return 0.0f;
             }
-            C0456j c0456j = (C0456j) abstractC0629y;
-            if (c0456j.f2896C == null) {
+            j jVar = (j) yVar;
+            if (jVar.C == null) {
                 return 0.0f;
             }
             int i = 0;
-            Object[] m540a = c0456j.f2896C.m540a();
-            for (int i2 = c0456j.f2896C.f7109a - 1; i2 >= 0; i2--) {
-                AbstractC0629y abstractC0629y2 = (AbstractC0629y) m540a[i2];
-                if (abstractC0629y2 != null && (this.attachmentId == -1 || i2 == this.attachmentId)) {
+            Object[] a = jVar.C.a();
+            for (int i2 = jVar.C.a - 1; i2 >= 0; i2--) {
+                y yVar2 = (y) a[i2];
+                if (yVar2 != null && (this.attachmentId == -1 || i2 == this.attachmentId)) {
                     if (this._withTag != null) {
-                        if (!C0453g.m3709a(this._withTag, abstractC0629y2.mo4278de())) {
+                        if (!g.a(this._withTag, yVar2.de())) {
                         }
                     }
                     i++;
@@ -2033,7 +2027,7 @@ public class LogicBooleanGameFunctions {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.AbstractNumberBoolean
-        public float getMaxValue(AbstractC0629y abstractC0629y) {
+        public float getMaxValue(y yVar) {
             return 2.14748365E9f;
         }
     }
@@ -2041,8 +2035,8 @@ public class LogicBooleanGameFunctions {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/LogicBooleanGameFunctions$ThisActionRepeatedCount.class */
     public class ThisActionRepeatedCount extends LogicBoolean.LogicNumberOnly {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.LogicNumberOnly, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            return C0456j.f2905dO;
+        public float readNumber(y yVar) {
+            return j.dO;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean.LogicNumberOnly

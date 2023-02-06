@@ -3,38 +3,30 @@ package com.corrodinggames.librocket.scripts;
 import android.graphics.Color;
 import com.Element;
 import com.ElementDocument;
-import com.corrodinggames.librocket.AbstractC0043a;
-import com.corrodinggames.librocket.AbstractC0048b;
-import com.corrodinggames.librocket.C0051e;
-import com.corrodinggames.rts.appFramework.ActivityC0117i;
-import com.corrodinggames.rts.appFramework.ActivityC0118j;
-import com.corrodinggames.rts.appFramework.ActivityC0129p;
-import com.corrodinggames.rts.appFramework.ActivityC0131q;
-import com.corrodinggames.rts.appFramework.C0090c;
+import com.corrodinggames.librocket.b;
+import com.corrodinggames.librocket.e;
+import com.corrodinggames.rts.appFramework.c;
+import com.corrodinggames.rts.appFramework.i;
+import com.corrodinggames.rts.appFramework.j;
+import com.corrodinggames.rts.appFramework.p;
+import com.corrodinggames.rts.appFramework.q;
 import com.corrodinggames.rts.debug.ScriptServerSocket;
-import com.corrodinggames.rts.game.C0191i;
-import com.corrodinggames.rts.game.p012b.C0179f;
+import com.corrodinggames.rts.game.EngineLoad;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0645ad;
-import com.corrodinggames.rts.gameFramework.C0749bt;
-import com.corrodinggames.rts.gameFramework.C0773f;
-import com.corrodinggames.rts.gameFramework.C0846g;
 import com.corrodinggames.rts.gameFramework.FileChangeEngine;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.SystemType;
-import com.corrodinggames.rts.gameFramework.file.C0765a;
-import com.corrodinggames.rts.gameFramework.net.C0902b;
+import com.corrodinggames.rts.gameFramework.ad;
+import com.corrodinggames.rts.gameFramework.bt;
+import com.corrodinggames.rts.gameFramework.file.a;
+import com.corrodinggames.rts.gameFramework.g;
 import com.corrodinggames.rts.gameFramework.net.GameMapData;
 import com.corrodinggames.rts.gameFramework.net.GameNetAPIOperate;
 import com.corrodinggames.rts.gameFramework.net.ListRoomInfo;
 import com.corrodinggames.rts.gameFramework.net.MapType;
 import com.corrodinggames.rts.gameFramework.net.PlayerConnect;
-import com.corrodinggames.rts.gameFramework.net.RunnableC0889an;
-import com.corrodinggames.rts.gameFramework.p044l.AbstractC0956b;
-import com.corrodinggames.rts.gameFramework.p044l.C0955a;
-import com.corrodinggames.rts.gameFramework.player.EnumC0850c;
-import com.corrodinggames.rts.gameFramework.player.EnumC0853f;
-import com.corrodinggames.rts.gameFramework.translations.C0855a;
+import com.corrodinggames.rts.gameFramework.net.an;
+import com.corrodinggames.rts.gameFramework.player.f;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
 import java.io.File;
 import java.io.FileWriter;
@@ -51,19 +43,19 @@ public class Root extends ScriptContext {
     public static final boolean DEBUG_TIMING = true;
     public Multiplayer multiplayer;
     public Mods mods;
-    C0749bt openDocumentTimer = new C0749bt("openDocument", true);
-    RunnableC0889an threadedGameConnector;
+    bt openDocumentTimer = new bt("openDocument", true);
+    an threadedGameConnector;
     ElementDocument lastConnectingPopup;
-    static C0749bt convertTextStopwatch = new C0749bt("ConvertText", true);
-    static C0749bt loadSettingsStopwatch = new C0749bt("LoadSettings", true);
+    static bt convertTextStopwatch = new bt("ConvertText", true);
+    static bt loadSettingsStopwatch = new bt("LoadSettings", true);
     ArrayList lastSortedDiscoveredServers;
 
     public void logDebug(String str) {
-        GameEngine.m5925e("ui[debug]: " + str);
+        GameEngine.m5e("ui[debug]: " + str);
     }
 
     public void logWarn(String str) {
-        GameEngine.m5925e("ui[warn]: " + str);
+        GameEngine.m5e("ui[warn]: " + str);
     }
 
     public void back() {
@@ -71,13 +63,13 @@ public class Root extends ScriptContext {
         if (this.libRocket.getActiveDocument() == null) {
             GameEngine.print("back: libRocket.getActiveDocument()==null");
             GameEngine gameEngine = GameEngine.getGameEngine();
-            if (gameEngine == null || !gameEngine.f6448bq) {
+            if (gameEngine == null || !gameEngine.bq) {
                 GameEngine.print("back: showing main menu!");
                 showMainMenu();
                 return;
             }
             GameEngine.print("back: resuming game");
-            this.guiEngine.m5505a(false);
+            this.guiEngine.a(false);
         }
     }
 
@@ -89,14 +81,14 @@ public class Root extends ScriptContext {
     }
 
     public String fullVersionOnlyStyle() {
-        if (GameEngine.getGameEngine().f6441ar) {
+        if (GameEngine.getGameEngine().ar) {
             return "notInDemo";
         }
         return VariableScope.nullOrMissingString;
     }
 
     public void openIfNotDemo(String str, Object obj, String str2) {
-        if (GameEngine.getGameEngine().f6441ar) {
+        if (GameEngine.getGameEngine().ar) {
             alert(str2);
         } else {
             open(str, obj);
@@ -104,7 +96,7 @@ public class Root extends ScriptContext {
     }
 
     public String getVersionName() {
-        return GameEngine.getGameEngine().m1084t();
+        return GameEngine.getGameEngine().t();
     }
 
     public void delayedOpenNoHistory(final String str, Object obj) {
@@ -119,7 +111,7 @@ public class Root extends ScriptContext {
 
     public void openAfterHelpPopup(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (GameEngine.m1143au() && !gameEngine.settingsEngine.hasPlayedGameOrSeenHelp) {
+        if (GameEngine.au() && !gameEngine.settingsEngine.hasPlayedGameOrSeenHelp) {
             gameEngine.settingsEngine.hasPlayedGameOrSeenHelp = true;
             gameEngine.settingsEngine.save();
             showPopup(VariableScope.nullOrMissingString, "First time playing? Would you like to view the quick help slides?", false, "[onenter]View Help:closePopup(); open('help_quick_mobile.rml');", "Skip:closePopup(); open(" + restrictedString(str) + ");");
@@ -129,8 +121,8 @@ public class Root extends ScriptContext {
     }
 
     public void open(String str, Object obj) {
-        this.openDocumentTimer.m2563a();
-        AbstractC0048b.f357a.m2558f();
+        this.openDocumentTimer.a();
+        b.a.f();
         HashMap hashMap = null;
         if (obj != null) {
             hashMap = new HashMap();
@@ -138,28 +130,28 @@ public class Root extends ScriptContext {
         }
         this.libRocket.setDocument(str, hashMap);
         onShowNewScreen();
-        this.openDocumentTimer.m2560d();
-        AbstractC0048b.f357a.m2559e();
+        this.openDocumentTimer.d();
+        b.a.e();
     }
 
     public void onShowNewScreen() {
-        this.guiEngine.m5505a(true);
+        this.guiEngine.a(true);
     }
 
     public void resume() {
         this.libRocket.closeActiveDocument();
         this.libRocket.clearHistory();
-        this.guiEngine.m5497f();
+        this.guiEngine.f();
     }
 
     public void resumeNonMenu() {
         this.libRocket.closeActiveDocument();
         this.libRocket.clearHistory();
-        this.guiEngine.m5505a(false);
+        this.guiEngine.a(false);
     }
 
     public void startNew(String str) {
-        this.guiEngine.m5506a(str);
+        this.guiEngine.a(str);
         this.libRocket.closeActiveDocument();
         this.libRocket.clearHistory();
     }
@@ -245,16 +237,16 @@ public class Root extends ScriptContext {
     }
 
     public void joinServerWithId(String str, String str2) {
-        GameEngine.getGameEngine().netEngine.f5817bw = str2;
+        GameEngine.getGameEngine().netEngine.bw = str2;
         joinServer(str);
     }
 
     public void joinServer(String str) {
-        if (ScriptEngine.inDebugScript && !ScriptServerSocket.f390d) {
+        if (ScriptEngine.inDebugScript && !ScriptServerSocket.d) {
             return;
         }
         logDebug("joinAddress=" + str);
-        this.threadedGameConnector = GameEngine.getGameEngine().netEngine.m1685a(str, false, new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.2
+        this.threadedGameConnector = GameEngine.getGameEngine().netEngine.a(str, false, new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.2
             @Override // java.lang.Runnable
             public void run() {
                 ScriptEngine.getInstance().addScriptToQueue("joinServerCallback();");
@@ -271,22 +263,22 @@ public class Root extends ScriptContext {
             return;
         }
         closePopupOnly();
-        if (this.threadedGameConnector.f5904e != null) {
-            if (this.threadedGameConnector.f5904e.equals("CANCELLED")) {
+        if (this.threadedGameConnector.e != null) {
+            if (this.threadedGameConnector.e.equals("CANCELLED")) {
                 logDebug("Server join cancelled");
                 return;
             } else {
                 logWarn("Server join failed");
-                showPopup("Connection failed", this.threadedGameConnector.f5904e, true, null, null);
+                showPopup("Connection failed", this.threadedGameConnector.e, true, null, null);
             }
         } else {
             try {
                 gameEngine.netEngine.closeServer("starting new");
-                gameEngine.netEngine.bindSocket(this.threadedGameConnector.f5906g);
+                gameEngine.netEngine.bindSocket(this.threadedGameConnector.g);
                 logDebug("connected");
                 showBattleroom();
             } catch (IOException e) {
-                gameEngine.m1122c(e.getMessage(), "Connection failed");
+                gameEngine.c(e.getMessage(), "Connection failed");
                 e.printStackTrace();
             }
         }
@@ -295,7 +287,7 @@ public class Root extends ScriptContext {
 
     public void cancelJoinServer() {
         if (this.threadedGameConnector != null) {
-            if (this.threadedGameConnector.m1536a()) {
+            if (this.threadedGameConnector.a()) {
                 closePopup();
                 return;
             }
@@ -313,18 +305,18 @@ public class Root extends ScriptContext {
         if (str == null) {
             str = "null";
         }
-        this.libRocket.m5473c(str);
+        this.libRocket.c(str);
     }
 
-    public void showPopupWithButtons(String str, String str2, boolean z, C0051e c0051e, C0051e c0051e2) {
+    public void showPopupWithButtons(String str, String str2, boolean z, e eVar, e eVar2) {
         logDebug("showPopup:" + str2);
         if (str2 == null) {
             str2 = "null";
         }
-        this.libRocket.m5483a(str, str2, (String) null, c0051e, c0051e2, z);
+        this.libRocket.a(str, str2, (String) null, eVar, eVar2, z);
     }
 
-    public void showPopupWithButtonsAndInput(String str, String str2, boolean z, String str3, C0051e c0051e, C0051e c0051e2) {
+    public void showPopupWithButtonsAndInput(String str, String str2, boolean z, String str3, e eVar, e eVar2) {
         logDebug("showPopup:" + str2);
         if (str2 == null) {
             str2 = "null";
@@ -333,9 +325,9 @@ public class Root extends ScriptContext {
             str3 = VariableScope.nullOrMissingString;
         }
         if (VariableScope.nullOrMissingString.equals(str3)) {
-            this.guiEngine.m5494l();
+            this.guiEngine.l();
         }
-        this.libRocket.m5482a(str, str2, str3, c0051e, c0051e2, true, z);
+        this.libRocket.a(str, str2, str3, eVar, eVar2, true, z);
     }
 
     public void showPopup(String str, String str2, boolean z, String str3, String str4) {
@@ -343,7 +335,7 @@ public class Root extends ScriptContext {
         if (str2 == null) {
             str2 = "null";
         }
-        this.libRocket.m5481a(str, str2, (String) null, str3, str4, z);
+        this.libRocket.a(str, str2, (String) null, str3, str4, z);
     }
 
     public void showInputPopup(String str, String str2, String str3, String str4, String str5) {
@@ -356,9 +348,9 @@ public class Root extends ScriptContext {
             str6 = VariableScope.nullOrMissingString;
         }
         if (VariableScope.nullOrMissingString.equals(str6)) {
-            this.guiEngine.m5494l();
+            this.guiEngine.l();
         }
-        this.libRocket.m5481a(str, str2, str6, str4, str5, true);
+        this.libRocket.a(str, str2, str6, str4, str5, true);
     }
 
     public void showInputPopupNonClose(String str, String str2, String str3, String str4, String str5) {
@@ -371,42 +363,42 @@ public class Root extends ScriptContext {
             str6 = VariableScope.nullOrMissingString;
         }
         if (VariableScope.nullOrMissingString.equals(str6)) {
-            this.guiEngine.m5494l();
+            this.guiEngine.l();
         }
-        this.libRocket.m5482a(str, str2, str6, str4, str5, true, false);
+        this.libRocket.a(str, str2, str6, str4, str5, true, false);
     }
 
     public ElementDocument getPopup() {
-        return this.libRocket.m5475c();
+        return this.libRocket.c();
     }
 
     public ElementDocument getAlertOrPopup() {
-        return this.libRocket.m5470e();
+        return this.libRocket.e();
     }
 
     public boolean closePopup() {
-        return this.libRocket.m5467h();
+        return this.libRocket.h();
     }
 
     public boolean closePopupOnly() {
-        return this.libRocket.m5465j();
+        return this.libRocket.j();
     }
 
     public boolean closeAlertOnly() {
-        return this.libRocket.m5466i();
+        return this.libRocket.i();
     }
 
     public String getPopupText() {
-        return this.libRocket.m5464k();
+        return this.libRocket.k();
     }
 
     public void showHostOptions() {
-        this.libRocket.m5481a("Host game", m5463i("menus.hostgame.info_pc"), (String) null, "Host Private:closePopup();hostStart(false);", "Host Public:closePopup();hostStart(true);", true);
+        this.libRocket.a("Host game", i("menus.hostgame.info_pc"), (String) null, "Host Private:closePopup();hostStart(false);", "Host Public:closePopup();hostStart(true);", true);
     }
 
     public void hostStartFromPopup(boolean z) {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        Element elementById = m5468g.getElementById("password");
+        ElementDocument g = this.libRocket.g();
+        Element elementById = g.getElementById("password");
         String str = null;
         if (elementById == null) {
             logWarn("hostStartFromPopup: password==null");
@@ -416,7 +408,7 @@ public class Root extends ScriptContext {
                 str = value;
             }
         }
-        boolean checkbox = m5468g.getElementById("useMods").getCheckbox();
+        boolean checkbox = g.getElementById("useMods").getCheckbox();
         closePopup();
         hostStartWithPasswordAndMods(z, str, checkbox);
     }
@@ -442,15 +434,15 @@ public class Root extends ScriptContext {
             logDebug("using password: " + (gameEngine.netEngine.passwd != null));
             logDebug("using mods: " + (gameEngine.netEngine.useMods));
             logDebug("public: " + (gameEngine.netEngine.publicRoom));
-            String m1651av = gameEngine.netEngine.m1651av();
-            if (m1651av != null && !C0765a.m2412i(m1651av)) {
-                GameEngine.print("hostStart: map does not exist: " + m1651av + " reseting");
-                m1651av = null;
+            String av = gameEngine.netEngine.av();
+            if (av != null && !a.i(av)) {
+                GameEngine.print("hostStart: map does not exist: " + av + " reseting");
+                av = null;
             }
-            if (m1651av == null) {
-                gameEngine.netEngine.gameMapData.f5852a = MapType.values()[0];
-                gameEngine.netEngine.f5801az = "maps/skirmish/[p8]Many Islands (8p).tmx";
-                gameEngine.netEngine.gameMapData.f5853b = "[p8]Many Islands (8p).tmx";
+            if (av == null) {
+                gameEngine.netEngine.gameMapData.mapType = MapType.values()[0];
+                gameEngine.netEngine.az = "maps/skirmish/[p8]Many Islands (8p).tmx";
+                gameEngine.netEngine.gameMapData.mapName = "[p8]Many Islands (8p).tmx";
             }
             this.libRocket.setDocument("battleroom.rml", null);
             return;
@@ -467,7 +459,7 @@ public class Root extends ScriptContext {
         this.scriptEngine.addRunnableToQueue(new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.3
             @Override // java.lang.Runnable
             public void run() {
-                Root.this.guiEngine.mo301d(true);
+                Root.this.guiEngine.d(true);
             }
         });
     }
@@ -485,11 +477,11 @@ public class Root extends ScriptContext {
     }
 
     public String convertMapName(String str) {
-        return C0855a.m1845b(convertMapNameWithoutTranslation(str));
+        return com.corrodinggames.rts.gameFramework.translations.a.b(convertMapNameWithoutTranslation(str));
     }
 
     public String convertMapNameWithoutTranslation(String str) {
-        return ActivityC0117i.m5381e(str);
+        return i.e(str);
     }
 
     public String getHTMLMapThumbnail(String str) {
@@ -499,11 +491,11 @@ public class Root extends ScriptContext {
     public String getMapThumbnail(String str) {
         if (str.startsWith("saves/")) {
         }
-        String m5396c = C0090c.m5396c(str);
-        String str2 = "thumbnail:assets:" + m5396c;
-        if (!C0765a.m2412i(m5396c)) {
-            if (GameEngine.f6423aZ) {
-                GameEngine.m1180a("getMapThumbnail: Failed to find: " + m5396c);
+        String c = c.c(str);
+        String str2 = "thumbnail:assets:" + c;
+        if (!a.i(c)) {
+            if (GameEngine.aZ) {
+                GameEngine.a("getMapThumbnail: Failed to find: " + c);
                 return "drawable:error_missingmap.png";
             }
             return "drawable:error_missingmap.png";
@@ -512,14 +504,14 @@ public class Root extends ScriptContext {
     }
 
     public boolean isMapSkirmish(String str) {
-        return ActivityC0117i.m5380f(str);
+        return i.f(str);
     }
 
     public void showLevelOptions() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        String str = (String) this.libRocket.m5477b("mode");
+        String str = (String) this.libRocket.b("mode");
         if (str == null) {
-            GameEngine.m1104g("levelPath==null");
+            GameEngine.g("levelPath==null");
             return;
         }
         boolean z = true;
@@ -533,34 +525,34 @@ public class Root extends ScriptContext {
         }
         Element elementById = activeDocument.getElementById("advancedButton");
         if (elementById != null) {
-            elementById.show(z || ActivityC0117i.m5379g(str));
+            elementById.show(z || i.g(str));
         }
         activeDocument.getElementById("aiDifficulty").setValue(VariableScope.nullOrMissingString + gameEngine.settingsEngine.aiDifficulty);
     }
 
     public void loadConfigAndStartSwitchToAdvanced(String str) {
-        GameEngine.getGameEngine().f6313bv = false;
+        GameEngine.getGameEngine().bv = false;
         loadConfigCommon(str, true);
         _startAdvancedMode(false);
     }
 
     private void _startAdvancedMode(boolean z) {
-        boolean m1729S;
+        boolean S;
         GameEngine gameEngine = GameEngine.getGameEngine();
         gameEngine.netEngine.closeServer("starting singleplayer");
-        gameEngine.netEngine.f5698y = "You";
+        gameEngine.netEngine.y = "You";
         gameEngine.netEngine.useMods = true;
         if (z) {
-            m1729S = gameEngine.netEngine.m1730R();
+            S = gameEngine.netEngine.R();
         } else {
-            m1729S = gameEngine.netEngine.m1729S();
+            S = gameEngine.netEngine.S();
         }
-        if (m1729S) {
+        if (S) {
             logDebug("started startSinglePlayerServer");
-            GameMapData m1610e = gameEngine.netEngine.m1610e();
-            if (m1610e != null) {
-                m1610e.aidiff = gameEngine.settingsEngine.aiDifficulty;
-                gameEngine.netEngine.m1706a(m1610e);
+            GameMapData e = gameEngine.netEngine.e();
+            if (e != null) {
+                e.aidiff = gameEngine.settingsEngine.aiDifficulty;
+                gameEngine.netEngine.a(e);
             }
             this.libRocket.setDocument("battleroom.rml", null);
             return;
@@ -573,26 +565,26 @@ public class Root extends ScriptContext {
     }
 
     public void loadConfigAndStartNewSandboxInAdvanced(String str) {
-        GameEngine.m5925e("loadConfigAndStartNewSandboxInAdvanced");
+        GameEngine.m5e("loadConfigAndStartNewSandboxInAdvanced");
         _loadConfigAndStartNewSandboxCommon(str, false);
         _startAdvancedMode(true);
-        GameEngine.m5925e("editorMode:" + GameEngine.getGameEngine().f6313bv);
+        GameEngine.m5e("editorMode:" + GameEngine.getGameEngine().bv);
     }
 
     private void _loadConfigAndStartNewSandboxCommon(String str, boolean z) {
         if (str.startsWith("saves/")) {
-            GameEngine.m5925e("Starting sandbox from save: " + str);
+            GameEngine.m5e("Starting sandbox from save: " + str);
             loadGame(str.substring("saves/".length()));
         } else {
-            GameEngine.m5925e("Starting sandbox from map: " + str);
+            GameEngine.m5e("Starting sandbox from map: " + str);
             loadConfigCommon(str, false);
         }
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.f6323bL.f842E = false;
-        gameEngine.f6330bS.m1922y();
-        gameEngine.f6313bv = true;
+        gameEngine.bL.E = false;
+        gameEngine.bS.y();
+        gameEngine.bv = true;
         if (z) {
-            this.guiEngine.m5497f();
+            this.guiEngine.f();
         }
         this.libRocket.closeActiveDocument();
         this.libRocket.clearHistory();
@@ -600,10 +592,10 @@ public class Root extends ScriptContext {
 
     public void loadConfigAndStartNew(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.f6313bv = false;
+        gameEngine.bv = false;
         gameEngine.netEngine.closeServer("starting singleplayer");
         loadConfigCommon(str, false);
-        this.guiEngine.m5497f();
+        this.guiEngine.f();
         this.libRocket.closeActiveDocument();
         this.libRocket.clearHistory();
     }
@@ -613,8 +605,8 @@ public class Root extends ScriptContext {
         ElementDocument activeDocument = this.libRocket.getActiveDocument();
         gameEngine.settingsEngine.aiDifficulty = activeDocument.getElementById("aiDifficulty").getValueAsInt(0).intValue();
         gameEngine.settingsEngine.save();
-        this.guiEngine.m5502b(true);
-        this.guiEngine.m5500c(false);
+        this.guiEngine.b(true);
+        this.guiEngine.c(false);
         boolean isMapSkirmish = isMapSkirmish(str);
         int intValue = activeDocument.getElementById("numberOfAIs").getValueAsInt(4).intValue();
         boolean z2 = true;
@@ -624,44 +616,44 @@ public class Root extends ScriptContext {
             i = 0;
             z2 = false;
         }
-        ActivityC0117i.m5383a(str, isMapSkirmish, intValue, i, z2, z);
+        i.a(str, isMapSkirmish, intValue, i, z2, z);
     }
 
     public void showMapPopup(String str, String str2) {
-        ElementDocument m5485a = this.libRocket.m5485a("levelSelect.rml", (Object) str, "Map Select", false);
-        if (m5485a != null) {
-            m5485a.setMetadata("mapClickFunction", str2);
-            Iterator it = m5485a.findElementsByClassName("noStyleInPopup").iterator();
+        ElementDocument a = this.libRocket.a("levelSelect.rml", (Object) str, "Map Select", false);
+        if (a != null) {
+            a.setMetadata("mapClickFunction", str2);
+            Iterator it = a.findElementsByClassName("noStyleInPopup").iterator();
             while (it.hasNext()) {
                 ((Element) it.next()).setAttribute("class", VariableScope.nullOrMissingString);
             }
-            if (showMapsWithDoc(m5485a)) {
-                GameEngine.m5925e("showMapsWithDoc passed");
-                this.libRocket.m5467h();
-                this.libRocket.m5489a(m5485a);
+            if (showMapsWithDoc(a)) {
+                GameEngine.m5e("showMapsWithDoc passed");
+                this.libRocket.h();
+                this.libRocket.a(a);
             }
         }
     }
 
     public void refreshAfterFileImport() {
-        GameEngine.m5925e("refreshAfterFileImport");
-        GameEngine.getGameEngine().f6337bZ.m1810k();
+        GameEngine.m5e("refreshAfterFileImport");
+        GameEngine.getGameEngine().bZ.k();
         this.libRocket.reloadDocument();
     }
 
     public boolean showMaps() {
-        return showMapsWithDoc(this.libRocket.m5469f());
+        return showMapsWithDoc(this.libRocket.f());
     }
 
     public boolean showMapsWithDoc(ElementDocument elementDocument) {
-        String[] m1827a;
+        String[] a;
         String[] strArr;
         String str;
         String str2;
         GameEngine gameEngine = GameEngine.getGameEngine();
-        GameEngine.m5925e("showMaps");
+        GameEngine.m5e("showMaps");
         if (elementDocument == null) {
-            GameEngine.m5925e("showMaps: elementDocument==null");
+            GameEngine.m5e("showMaps: elementDocument==null");
             return false;
         }
         Element elementById = elementDocument.getElementById("mapTemplateHolder");
@@ -674,37 +666,37 @@ public class Root extends ScriptContext {
         boolean equals2 = str4.equals("replays");
         boolean startsWith = str4.startsWith("/SD/");
         if (equals) {
-            m1827a = ActivityC0118j.m5377l();
-            if (m1827a == null) {
-                gameEngine.m1179a("No saves", 1);
+            a = j.l();
+            if (a == null) {
+                gameEngine.a("No saves", 1);
                 return false;
             }
         } else if (equals2) {
-            m1827a = ActivityC0131q.m5348l();
+            a = q.l();
             if (!gameEngine.settingsEngine.saveMultiplayerReplays) {
                 alert("Note: Multiplayer replay recordings are not turned on. You can enable them in the settings.");
             }
-            if (m1827a == null) {
+            if (a == null) {
                 if (gameEngine.settingsEngine.saveMultiplayerReplays) {
-                    gameEngine.m1179a("No replays yet", 1);
+                    gameEngine.a("No replays yet", 1);
                     return false;
                 }
                 return false;
             }
         } else {
-            m1827a = gameEngine.f6337bZ.m1827a(C0765a.m2430a(str4, true), str4);
-            if (m1827a == null) {
-                gameEngine.m1179a("Could not find folder: " + C0765a.m2417e(str4), 1);
+            a = gameEngine.bZ.a(a.a(str4, true), str4);
+            if (a == null) {
+                gameEngine.a("Could not find folder: " + a.e(str4), 1);
                 return false;
             }
         }
         String str6 = str4 + "/";
         int i = 0;
-        for (String str7 : m1827a) {
+        for (String str7 : a) {
             String convertMapName = convertMapName(str7);
-            boolean m5384a = ActivityC0117i.m5384a(str7, str6 + str7);
+            boolean a2 = i.a(str7, str6 + str7);
             String str8 = convertMapName + VariableScope.nullOrMissingString;
-            if (gameEngine.f6441ar && !m5384a) {
+            if (gameEngine.ar && !a2) {
                 str8 = "[LOCKED] " + str8;
             }
             String replace = innerRML.replace("_NAME_", htmlString(str8));
@@ -731,13 +723,13 @@ public class Root extends ScriptContext {
             if (i > i2) {
                 str9 = "lazy:" + str9;
             }
-            String m5396c = C0090c.m5396c(str6 + str7);
-            if (GameEngine.f6423aZ) {
+            String c = c.c(str6 + str7);
+            if (GameEngine.aZ) {
             }
-            String str10 = str9 + m5396c;
-            if (!C0765a.m2412i(m5396c)) {
-                if (GameEngine.f6423aZ) {
-                    GameEngine.m1180a("List: Failed to find: " + m5396c + " after converting:" + m5396c + " ( " + str10 + " )");
+            String str10 = str9 + c;
+            if (!a.i(c)) {
+                if (GameEngine.aZ) {
+                    GameEngine.a("List: Failed to find: " + c + " after converting:" + c + " ( " + str10 + " )");
                 }
                 str10 = "drawable:error_missingmap.png";
             }
@@ -754,7 +746,7 @@ public class Root extends ScriptContext {
         } else {
             elementById2.addClass("notSavesOnly");
         }
-        if (startsWith && str5 == null && GameEngine.m1143au()) {
+        if (startsWith && str5 == null && GameEngine.au()) {
             elementDocument.addClass("showImportButton");
             return true;
         }
@@ -771,7 +763,7 @@ public class Root extends ScriptContext {
         if (this.libRocket.getHeight() < 800) {
             activeDocument.addClass("smallScreen");
         }
-        convertTextStopwatch.m2563a();
+        convertTextStopwatch.a();
         Iterator it = activeDocument.getAllNestedChildren().iterator();
         while (it.hasNext()) {
             Element element = (Element) it.next();
@@ -781,33 +773,33 @@ public class Root extends ScriptContext {
                 String attributeValue = element.getAttributeValue(i);
                 if (attributeKey != null) {
                     if (attributeKey.equals("nestedclone") && !attributeValue.equalsIgnoreCase("false")) {
-                        GameEngine.m5925e("nested clone:" + element.getId());
+                        GameEngine.m5e("nested clone:" + element.getId());
                         element.setAttribute(attributeKey, "false");
-                        Element m5479clone = element.m5479clone();
-                        element.prependChild(m5479clone);
-                        m5479clone.removeReference();
+                        Element m29clone = element.m29clone();
+                        element.prependChild(m29clone);
+                        m29clone.removeReference();
                     } else if (attributeKey.equals("childclone") && !attributeValue.equalsIgnoreCase("false")) {
                         element.setAttribute(attributeKey, "false");
                         if (element.getNumChildren() < 1) {
-                            GameEngine.m5925e("child clone failed no children:" + element.getId());
+                            GameEngine.m5e("child clone failed no children:" + element.getId());
                         }
-                        Element m5479clone2 = element.getChild(0).m5479clone();
-                        m5479clone2.addClass("clone");
-                        element.prependChild(m5479clone2);
-                        m5479clone2.removeReference();
+                        Element m29clone2 = element.getChild(0).m29clone();
+                        m29clone2.addClass("clone");
+                        element.prependChild(m29clone2);
+                        m29clone2.removeReference();
                     } else {
-                        String m5471d = this.libRocket.m5471d(attributeValue);
-                        if (m5471d != null) {
-                            GameEngine.m5925e("convertTextOnPage:" + attributeKey + ": '" + attributeValue + "' to '" + m5471d + "'");
+                        String d = this.libRocket.d(attributeValue);
+                        if (d != null) {
+                            GameEngine.m5e("convertTextOnPage:" + attributeKey + ": '" + attributeValue + "' to '" + d + "'");
                             if (attributeKey.equals("_html")) {
-                                GameEngine.m5925e("setting html:" + attributeKey);
-                                element.setInnerRML(m5471d);
+                                GameEngine.m5e("setting html:" + attributeKey);
+                                element.setInnerRML(d);
                             } else {
                                 if (attributeKey.startsWith("_")) {
                                     attributeKey = attributeKey.substring("_".length());
-                                    GameEngine.m5925e("converted key to:" + attributeKey);
+                                    GameEngine.m5e("converted key to:" + attributeKey);
                                 }
-                                element.setAttribute(attributeKey, m5471d);
+                                element.setAttribute(attributeKey, d);
                             }
                         }
                     }
@@ -820,35 +812,35 @@ public class Root extends ScriptContext {
                 }
             }
         }
-        convertTextStopwatch.m2560d();
+        convertTextStopwatch.d();
     }
 
     public void keyBindingPopup_apply(boolean z) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        ElementDocument m5475c = this.libRocket.m5475c();
-        if (m5475c == null) {
+        ElementDocument c = this.libRocket.c();
+        if (c == null) {
             logWarn("showKeyBindingActionPopup: popup==null");
             return;
         }
-        String[] split = ((String) m5475c.getMetadata("mode")).split(":");
+        String[] split = ((String) c.getMetadata("mode")).split(":");
         int parseInt = Integer.parseInt(split[0]);
         int parseInt2 = Integer.parseInt(split[1]);
-        C0645ad c0645ad = (C0645ad) gameEngine.f6331bT.f4177al.get(parseInt);
+        ad adVar = (ad) gameEngine.bT.al.get(parseInt);
         if (!z) {
-            Object metadata = m5475c.getMetadata("lastKeyPressed");
+            Object metadata = c.getMetadata("lastKeyPressed");
             if (metadata == null) {
                 logWarn("keyBindingPopup_apply: no last key entered");
                 return;
             }
             int intValue = ((Integer) metadata).intValue();
             int i = 0;
-            Object metadata2 = m5475c.getMetadata("lastKeyModifiersPressed");
+            Object metadata2 = c.getMetadata("lastKeyModifiersPressed");
             if (metadata2 != null) {
                 i = ((Integer) metadata2).intValue();
             }
-            c0645ad.m2919a(intValue, parseInt2, i, true);
+            adVar.a(intValue, parseInt2, i, true);
         } else {
-            c0645ad.m2919a(0, parseInt2, 0, true);
+            adVar.a(0, parseInt2, 0, true);
         }
         showKeyBinding();
         closePopup();
@@ -856,26 +848,26 @@ public class Root extends ScriptContext {
 
     public void keyBindingPopup_onKeydown(int i) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        ElementDocument m5475c = this.libRocket.m5475c();
-        if (m5475c == null) {
+        ElementDocument c = this.libRocket.c();
+        if (c == null) {
             logWarn("showKeyBindingActionPopup: popup==null");
             return;
         }
-        Element elementById = m5475c.getElementById("keyBindMessage");
+        Element elementById = c.getElementById("keyBindMessage");
         if (elementById == null) {
             logWarn("showKeyBindingActionPopup: keyBindMessage==null");
             return;
         }
-        int mo298i = this.guiEngine.mo298i();
-        String str = VariableScope.nullOrMissingString + GameEngine.m1099j(mo298i);
+        int i2 = this.guiEngine.i();
+        String str = VariableScope.nullOrMissingString + GameEngine.j(i2);
         if (i == 111) {
         }
         if (i == 0) {
             logWarn("keyBindingPopup_onKeydown: skipping keycode 0");
-        } else if (!gameEngine.m1101i(i)) {
-            m5475c.setMetadata("lastKeyPressed", Integer.valueOf(i));
-            m5475c.setMetadata("lastKeyModifiersPressed", Integer.valueOf(mo298i));
-            String str2 = str + SlickToAndroidKeycodes.m769a(i);
+        } else if (!gameEngine.i(i)) {
+            c.setMetadata("lastKeyPressed", Integer.valueOf(i));
+            c.setMetadata("lastKeyModifiersPressed", Integer.valueOf(i2));
+            String str2 = str + SlickToAndroidKeycodes.a(i);
             keyBindingPopup_apply(false);
         } else {
             elementById.setText("Key: " + str);
@@ -884,36 +876,36 @@ public class Root extends ScriptContext {
 
     public void showKeyBindingPopup() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        ElementDocument m5475c = this.libRocket.m5475c();
-        if (m5475c == null) {
+        ElementDocument c = this.libRocket.c();
+        if (c == null) {
             logWarn("showKeyBindingActionPopup: popup==null");
             return;
         }
-        Element elementById = m5475c.getElementById("keyBindMessage");
+        Element elementById = c.getElementById("keyBindMessage");
         if (elementById == null) {
             logWarn("showKeyBindingActionPopup: keyBindMessage==null");
             return;
         }
-        String[] split = ((String) m5475c.getMetadata("mode")).split(":");
+        String[] split = ((String) c.getMetadata("mode")).split(":");
         int parseInt = Integer.parseInt(split[0]);
         Integer.parseInt(split[1]);
-        C0645ad c0645ad = (C0645ad) gameEngine.f6331bT.f4177al.get(parseInt);
+        ad adVar = (ad) gameEngine.bT.al.get(parseInt);
         elementById.setText("Press a key..");
     }
 
-    public String getKeyBindingAction(int i, C0645ad c0645ad, int i2) {
-        return "createAndShowPopup('settingsKeyBindingSet.rml', " + escapedString(i + ":" + i2) + ", " + escapedString(c0645ad.f4181a) + "); showKeyBindingPopup();";
+    public String getKeyBindingAction(int i, ad adVar, int i2) {
+        return "createAndShowPopup('settingsKeyBindingSet.rml', " + escapedString(i + ":" + i2) + ", " + escapedString(adVar.a) + "); showKeyBindingPopup();";
     }
 
     public void backWarnIfOverlappingKeyBinding() {
         if (((Boolean) this.libRocket.getActiveDocument().getMetadata("hasOverlappingKeys", false)).booleanValue()) {
-            showPopupWithButtons(null, "One or more keys are overlapping and have been highlighted in red. These can cause problems.", false, new C0051e("Ignore", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.4
+            showPopupWithButtons(null, "One or more keys are overlapping and have been highlighted in red. These can cause problems.", false, new e("Ignore", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.4
                 @Override // java.lang.Runnable
                 public void run() {
                     Root.this.closePopup();
                     Root.this.back();
                 }
-            }), new C0051e("Fix", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.5
+            }), new e("Fix", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.5
                 @Override // java.lang.Runnable
                 public void run() {
                     Root.this.closePopup();
@@ -930,21 +922,21 @@ public class Root extends ScriptContext {
         activeDocument.setMetadata("event_onkeydown", "keyBindingPopup_onKeydown");
         TableData tableData = new TableData();
         ArrayList arrayList = tableData.rows;
-        ArrayList arrayList2 = gameEngine.f6331bT.f4177al;
+        ArrayList arrayList2 = gameEngine.bT.al;
         boolean z = false;
         for (int i = 0; i < arrayList2.size(); i++) {
-            C0645ad c0645ad = (C0645ad) arrayList2.get(i);
-            if (c0645ad.f4182b) {
+            ad adVar = (ad) arrayList2.get(i);
+            if (adVar.b) {
                 TableRow tableRow = new TableRow();
-                tableRow.addCell(c0645ad.f4181a);
-                if (c0645ad.mo2909d()) {
+                tableRow.addCell(adVar.a);
+                if (adVar.d()) {
                     tableRow.addClass("rowHeader");
                 } else {
                     for (int i2 = 0; i2 <= 1; i2++) {
-                        boolean m2928a = gameEngine.f6331bT.m2928a(c0645ad, i2);
-                        TableCell addCell = tableRow.addCell(c0645ad.m2914b(i2));
-                        addCell.setLibrocketOnClick(getKeyBindingAction(i, c0645ad, i2));
-                        if (m2928a) {
+                        boolean a = gameEngine.bT.a(adVar, i2);
+                        TableCell addCell = tableRow.addCell(adVar.b(i2));
+                        addCell.setLibrocketOnClick(getKeyBindingAction(i, adVar, i2));
+                        if (a) {
                             addCell.color = -65536;
                             z = true;
                         }
@@ -959,7 +951,7 @@ public class Root extends ScriptContext {
 
     public void loadSettings() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        loadSettingsStopwatch.m2563a();
+        loadSettingsStopwatch.a();
         logDebug("loadSettings");
         Iterator it = this.libRocket.getActiveElementById("body").getAllNestedChildren().iterator();
         while (it.hasNext()) {
@@ -979,7 +971,7 @@ public class Root extends ScriptContext {
                 }
             }
         }
-        loadSettingsStopwatch.m2560d();
+        loadSettingsStopwatch.d();
     }
 
     public void loadLeaderboard() {
@@ -988,29 +980,29 @@ public class Root extends ScriptContext {
         Element activeElementById = this.libRocket.getActiveElementById("leaderboardType");
         Element activeElementById2 = this.libRocket.getActiveElementById("leaderboardGrouping");
         if (activeElementById == null || activeElementById2 == null) {
-            GameEngine.m1180a("loadLeaderboard: Failed to find elements. (For page: " + this.libRocket.getActiveDocumentPath() + ")");
+            GameEngine.a("loadLeaderboard: Failed to find elements. (For page: " + this.libRocket.getActiveDocumentPath() + ")");
             return;
         }
-        activeElementById.setAttribute("value", gameEngine.f6458cg.m1863e().name());
-        activeElementById2.setAttribute("value", gameEngine.f6458cg.m1862f().name());
+        activeElementById.setAttribute("value", gameEngine.cg.e().name());
+        activeElementById2.setAttribute("value", gameEngine.cg.f().name());
     }
 
     public void saveLeaderboard() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        EnumC0853f enumC0853f = EnumC0853f.f5600a;
-        EnumC0850c enumC0850c = EnumC0850c.f5594a;
+        f fVar = f.none;
+        com.corrodinggames.rts.gameFramework.player.c cVar = com.corrodinggames.rts.gameFramework.player.c.player;
         logDebug("saveLeaderboard");
         Element activeElementById = this.libRocket.getActiveElementById("leaderboardType");
         Element activeElementById2 = this.libRocket.getActiveElementById("leaderboardGrouping");
         if (activeElementById == null || activeElementById2 == null) {
-            GameEngine.m1180a("saveLeaderboard: Failed to find elements. (For page: " + this.libRocket.getActiveDocumentPath() + ")");
+            GameEngine.a("saveLeaderboard: Failed to find elements. (For page: " + this.libRocket.getActiveDocumentPath() + ")");
         } else {
-            gameEngine.m1183a(EnumC0853f.valueOf(activeElementById.getAttribute("value")), EnumC0850c.valueOf(activeElementById2.getAttribute("value")));
+            gameEngine.a(f.valueOf(activeElementById.getAttribute("value")), com.corrodinggames.rts.gameFramework.player.c.valueOf(activeElementById2.getAttribute("value")));
         }
     }
 
     public void applyResolution() {
-        this.guiEngine.mo300g();
+        this.guiEngine.g();
     }
 
     public void updateRenderScaleInSettings(boolean z) {
@@ -1023,13 +1015,13 @@ public class Root extends ScriptContext {
             logDebug("updateRenderScaleInSettings: uiRenderScale==null");
         } else {
             f = activeElementById.getValueAsFloat(Float.valueOf(1.0f));
-            this.libRocket.getActiveElementById("uiRenderScaleDisplay").compareAndSetText("x" + C0773f.m2308b(f.floatValue() + 0.01f, 1));
+            this.libRocket.getActiveElementById("uiRenderScaleDisplay").compareAndSetText("x" + com.corrodinggames.rts.gameFramework.f.b(f.floatValue() + 0.01f, 1));
         }
         if (activeElementById2 == null) {
             logDebug("updateRenderScaleInSettings: renderDensity==null");
         } else {
             f2 = activeElementById2.getValueAsFloat(Float.valueOf(1.0f));
-            this.libRocket.getActiveElementById("renderDensityDisplay").compareAndSetText("x" + C0773f.m2308b(f2.floatValue() + 0.01f, 1));
+            this.libRocket.getActiveElementById("renderDensityDisplay").compareAndSetText("x" + com.corrodinggames.rts.gameFramework.f.b(f2.floatValue() + 0.01f, 1));
         }
         if (z) {
             float f3 = gameEngine.settingsEngine.uiRenderScale;
@@ -1082,10 +1074,10 @@ public class Root extends ScriptContext {
                 }
             }
         }
-        this.guiEngine.mo300g();
-        FileChangeEngine.m1777a();
-        C0855a.m1840e();
-        this.guiEngine.mo299h();
+        this.guiEngine.g();
+        FileChangeEngine.a();
+        com.corrodinggames.rts.gameFramework.translations.a.e();
+        this.guiEngine.h();
     }
 
     public String hideStyle(boolean z) {
@@ -1111,7 +1103,7 @@ public class Root extends ScriptContext {
     }
 
     public String hideIfMobile() {
-        if (GameEngine.m1143au()) {
+        if (GameEngine.au()) {
             return "hide";
         }
         return VariableScope.nullOrMissingString;
@@ -1119,45 +1111,45 @@ public class Root extends ScriptContext {
 
     public boolean canResume() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (gameEngine != null && gameEngine.f6455bG && !gameEngine.f6456bH) {
+        if (gameEngine != null && gameEngine.bG && !gameEngine.bH) {
             return true;
         }
         return false;
     }
 
     public boolean isMobile() {
-        return GameEngine.m1143au();
+        return GameEngine.au();
     }
 
     public boolean isIOS() {
-        return GameEngine.f6423aZ;
+        return GameEngine.aZ;
     }
 
     public boolean isDesktop() {
-        return GameEngine.m1142av();
+        return GameEngine.av();
     }
 
     public boolean isMac() {
-        return C0191i.f1220c;
+        return EngineLoad.c;
     }
 
     public boolean hasModSupport() {
-        return !GameEngine.f6423aZ;
+        return !GameEngine.aZ;
     }
 
     public boolean usingMods() {
-        if (!GameEngine.f6423aZ || GameEngine.getGameEngine().f6337bZ.m1824c() > 0) {
+        if (!GameEngine.aZ || GameEngine.getGameEngine().bZ.c() > 0) {
             return true;
         }
         return false;
     }
 
     public boolean hasWorkshopSupport() {
-        return GameEngine.m1142av();
+        return GameEngine.av();
     }
 
     public boolean hasReloadSupport() {
-        return !GameEngine.f6423aZ;
+        return !GameEngine.aZ;
     }
 
     String restrictedString(String str) {
@@ -1185,7 +1177,7 @@ public class Root extends ScriptContext {
             logWarn("serverScrollDiv==null");
             return;
         }
-        Boolean bool = (Boolean) this.libRocket.m5477b("showFullServerList");
+        Boolean bool = (Boolean) this.libRocket.b("showFullServerList");
         if (bool == null) {
             bool = false;
         }
@@ -1214,8 +1206,8 @@ public class Root extends ScriptContext {
                 Root.this.scriptEngine.addScriptToQueue("displayServerListRaw(" + Root.this.restrictedString(str) + "," + Root.this.restrictedString(str2) + "," + Root.this.restrictedString(str3) + ")");
             }
         };
-        gameEngine.netEngine.f5810bh = null;
-        GameNetAPIOperate.m1399a(runnable);
+        gameEngine.netEngine.bh = null;
+        GameNetAPIOperate.a(runnable);
     }
 
     public void displayServerListRaw(String str, String str2, String str3) {
@@ -1229,39 +1221,39 @@ public class Root extends ScriptContext {
             GameEngine.print("serverListData is null, we may have changed page");
             return;
         }
-        ArrayList m5352m = ActivityC0129p.m5352m();
-        this.lastSortedDiscoveredServers = m5352m;
-        String m1847a = C0855a.m1847a("menus.lobby.gameState.battleroom", new Object[0]);
-        String m1847a2 = C0855a.m1847a("menus.lobby.gameState.ingame", new Object[0]);
-        String m1847a3 = C0855a.m1847a("menus.lobby.gameState.chat", new Object[0]);
-        if (activeElementById.getNumChildren() > m5352m.size()) {
-            for (int numChildren = activeElementById.getNumChildren() - 1; numChildren >= m5352m.size(); numChildren--) {
-                GameEngine.m5925e("removing rowIndex:" + numChildren);
+        ArrayList m = p.m();
+        this.lastSortedDiscoveredServers = m;
+        String a = com.corrodinggames.rts.gameFramework.translations.a.a("menus.lobby.gameState.battleroom", new Object[0]);
+        String a2 = com.corrodinggames.rts.gameFramework.translations.a.a("menus.lobby.gameState.ingame", new Object[0]);
+        String a3 = com.corrodinggames.rts.gameFramework.translations.a.a("menus.lobby.gameState.chat", new Object[0]);
+        if (activeElementById.getNumChildren() > m.size()) {
+            for (int numChildren = activeElementById.getNumChildren() - 1; numChildren >= m.size(); numChildren--) {
+                GameEngine.m5e("removing rowIndex:" + numChildren);
                 activeElementById.removeChild(activeElementById.getChild(numChildren));
             }
-            if (activeElementById.getNumChildren() != m5352m.size()) {
-                GameEngine.print("-- Non matching size after clean up:" + activeElementById.getNumChildren() + " vs " + m5352m.size());
+            if (activeElementById.getNumChildren() != m.size()) {
+                GameEngine.print("-- Non matching size after clean up:" + activeElementById.getNumChildren() + " vs " + m.size());
             }
         }
-        Boolean bool = (Boolean) this.libRocket.m5477b("showFullServerList");
+        Boolean bool = (Boolean) this.libRocket.b("showFullServerList");
         if (bool == null) {
             bool = false;
         }
         int i = 0;
-        if (!bool.booleanValue() && m5352m.size() > 50) {
+        if (!bool.booleanValue() && m.size() > 50) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = m5352m.iterator();
+            Iterator it = m.iterator();
             while (it.hasNext()) {
                 arrayList.add((ListRoomInfo) it.next());
                 if (arrayList.size() > 50) {
                     break;
                 }
             }
-            i = m5352m.size() - arrayList.size();
-            m5352m = arrayList;
+            i = m.size() - arrayList.size();
+            m = arrayList;
         }
         int i2 = 0;
-        Iterator it2 = m5352m.iterator();
+        Iterator it2 = m.iterator();
         while (it2.hasNext()) {
             ListRoomInfo listRoomInfo = (ListRoomInfo) it2.next();
             Element element = null;
@@ -1269,100 +1261,100 @@ public class Root extends ScriptContext {
                 element = activeElementById.getChild(i2);
             }
             if (element != null && element.hasClassName("serverRowMessage")) {
-                GameEngine.m5925e("removing non rowIndex:" + i2);
+                GameEngine.m5e("removing non rowIndex:" + i2);
                 activeElementById.removeChild(element);
                 element = null;
             }
             if (element != null && element.findByClassName("rState") == null) {
-                GameEngine.m5925e("removing non rowIndex with no rState:" + i2);
+                GameEngine.m5e("removing non rowIndex with no rState:" + i2);
                 activeElementById.removeChild(element);
                 element = null;
             }
             if (element == null) {
-                element = activeElementById2.m5479clone();
+                element = activeElementById2.m29clone();
                 activeElementById.appendChild(element);
                 element.removeReference();
                 element.setAttribute("onclick", "clickedServerRow(" + i2 + ")");
             }
-            String str7 = listRoomInfo.f6055s;
+            String str7 = listRoomInfo.s;
             if (str7 != null) {
-                str7 = str7.replace("battleroom", m1847a).replace("ingame", m1847a2).replace("chat", m1847a3);
+                str7 = str7.replace("battleroom", a).replace("ingame", a2).replace("chat", a3);
             }
             boolean z = false;
             boolean z2 = false;
             boolean z3 = false;
             boolean z4 = false;
-            if (listRoomInfo != null && listRoomInfo.f6058x) {
+            if (listRoomInfo != null && listRoomInfo.x) {
                 z = true;
-                if ("chat".equalsIgnoreCase(listRoomInfo.f6055s)) {
+                if ("chat".equalsIgnoreCase(listRoomInfo.s)) {
                     z2 = true;
                 }
-                if (listRoomInfo.m1447d()) {
+                if (listRoomInfo.d()) {
                     z4 = true;
                 }
             }
-            int m5707a = Color.m5707a(255, 255, 255, 255);
+            int a4 = Color.a(255, 255, 255, 255);
             String str8 = "serverRow serverRowData realServerRow ";
             if (listRoomInfo != null) {
                 if (z) {
                     str8 = str8 + "dedicatedServerRow ";
                     if (z2 || z4) {
-                        m5707a = Color.m5707a(255, 152, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_TERRESTRIAL_DIGITAL, 249);
+                        a4 = Color.a(255, 152, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_TERRESTRIAL_DIGITAL, 249);
                         str8 = str8 + "chatRow ";
                     }
                 } else {
-                    if (listRoomInfo.f6045h) {
-                        m5707a = Color.m5707a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE);
+                    if (listRoomInfo.h) {
+                        a4 = Color.a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_TV_SATELLITE_SERVICE);
                         str8 = str8 + "openRow ";
                     }
-                    if (listRoomInfo.f6038a) {
-                        m5707a = Color.m5707a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_LAST_CHANNEL, 149, 35);
+                    if (listRoomInfo.a) {
+                        a4 = Color.a(255, SlickToAndroidKeycodes.AndroidCodes.KEYCODE_LAST_CHANNEL, 149, 35);
                         str8 = str8 + "lanRow ";
                     }
                 }
-                if (listRoomInfo.m1450a()) {
+                if (listRoomInfo.a()) {
                     str8 = str8 + "lastConnectedRow ";
                 }
-                if (!z2 && !z4 && !(VariableScope.nullOrMissingString + gameEngine.m1120c(true)).equals(listRoomInfo.f6046j)) {
+                if (!z2 && !z4 && !(VariableScope.nullOrMissingString + gameEngine.c(true)).equals(listRoomInfo.j)) {
                     z3 = true;
                 }
             }
-            String str9 = VariableScope.nullOrMissingString + "color:" + C0773f.m2249h(m5707a) + ";";
+            String str9 = VariableScope.nullOrMissingString + "color:" + com.corrodinggames.rts.gameFramework.f.h(a4) + ";";
             if (0 != 0) {
                 String str10 = str9 + "font-weight: bold;";
                 str8 = str8 + "boldRow ";
             }
             element.compareAndSetClassNames(str8);
             element.findByClassName("rState").compareAndSetText(str7);
-            element.findByClassName("rHost").compareAndSetText(C0773f.m2318a(listRoomInfo.f6050n, 15));
-            if (listRoomInfo.f6056t == "?") {
+            element.findByClassName("rHost").compareAndSetText(com.corrodinggames.rts.gameFramework.f.a(listRoomInfo.n, 15));
+            if (listRoomInfo.t == "?") {
                 str4 = "?";
             } else {
-                str4 = listRoomInfo.f6056t + "\\" + listRoomInfo.f6057u;
+                str4 = listRoomInfo.t + "\\" + listRoomInfo.u;
             }
-            element.findByClassName("rPlayers").compareAndSetText(C0773f.m2318a(str4, 15));
-            String m2318a = C0773f.m2318a(ActivityC0117i.m5381e(listRoomInfo.f6053q), 40);
-            if (m2318a == null) {
-                m2318a = VariableScope.nullOrMissingString;
+            element.findByClassName("rPlayers").compareAndSetText(com.corrodinggames.rts.gameFramework.f.a(str4, 15));
+            String a5 = com.corrodinggames.rts.gameFramework.f.a(i.e(listRoomInfo.q), 40);
+            if (a5 == null) {
+                a5 = VariableScope.nullOrMissingString;
             }
-            element.findByClassName("rMap").compareAndSetText(m2318a);
-            if ("ANY".equalsIgnoreCase(listRoomInfo.f6047k)) {
-                str5 = listRoomInfo.f6047k;
+            element.findByClassName("rMap").compareAndSetText(a5);
+            if ("ANY".equalsIgnoreCase(listRoomInfo.k)) {
+                str5 = listRoomInfo.k;
             } else {
-                str5 = "v" + C0773f.m2318a(listRoomInfo.f6047k, 8);
+                str5 = "v" + com.corrodinggames.rts.gameFramework.f.a(listRoomInfo.k, 8);
             }
             Element findByClassName = element.findByClassName("rVersion");
             findByClassName.compareAndSetText(str5);
             String str11 = "cell rVersion ";
             if (z3) {
-                String str12 = "color:" + C0773f.m2249h(Color.m5707a(255, 155, 147, 147)) + ";";
+                String str12 = "color:" + com.corrodinggames.rts.gameFramework.f.h(Color.a(255, 155, 147, 147)) + ";";
                 str11 = str11 + "nonMatchingRow ";
             } else {
-                String str13 = "color:" + C0773f.m2249h(m5707a) + ";";
+                String str13 = "color:" + com.corrodinggames.rts.gameFramework.f.h(a4) + ";";
             }
             findByClassName.compareAndSetClassNames(str11);
-            if (listRoomInfo.f6045h) {
-                if (listRoomInfo.f6049m) {
+            if (listRoomInfo.h) {
+                if (listRoomInfo.m) {
                     str6 = "P";
                 } else {
                     str6 = "Y";
@@ -1370,31 +1362,31 @@ public class Root extends ScriptContext {
             } else {
                 str6 = "N";
             }
-            if (listRoomInfo.f6038a) {
+            if (listRoomInfo.a) {
                 str6 = "L";
             }
             Element findByClassName2 = element.findByClassName("rOpen");
             findByClassName2.compareAndSetText(str6);
             String str14 = "cell rOpen ";
-            if (!listRoomInfo.f6045h && !listRoomInfo.f6038a) {
-                String str15 = "color:" + C0773f.m2249h(Color.m5707a(255, 155, 147, 147)) + ";";
+            if (!listRoomInfo.h && !listRoomInfo.a) {
+                String str15 = "color:" + com.corrodinggames.rts.gameFramework.f.h(Color.a(255, 155, 147, 147)) + ";";
                 str14 = str14 + "notOpenRow ";
             } else {
-                String str16 = "color:" + C0773f.m2249h(m5707a) + ";";
+                String str16 = "color:" + com.corrodinggames.rts.gameFramework.f.h(a4) + ";";
             }
             findByClassName2.compareAndSetClassNames(str14);
             i2++;
         }
-        if (m5352m.size() == 0 && gameEngine.netEngine.f5810bh != null) {
-            String str17 = "ERROR: " + gameEngine.netEngine.f5810bh;
-            Element m5479clone = activeElementById2.m5479clone();
-            activeElementById.appendChild(m5479clone);
-            m5479clone.removeReference();
-            m5479clone.setText(str17);
+        if (m.size() == 0 && gameEngine.netEngine.bh != null) {
+            String str17 = "ERROR: " + gameEngine.netEngine.bh;
+            Element m29clone = activeElementById2.m29clone();
+            activeElementById.appendChild(m29clone);
+            m29clone.removeReference();
+            m29clone.setText(str17);
         }
         Element activeElementById3 = this.libRocket.getActiveElementById("padding");
         if (activeElementById3 == null && i > 0) {
-            activeElementById3 = activeElementById2.m5479clone();
+            activeElementById3 = activeElementById2.m29clone();
             activeElementById.appendChild(activeElementById3);
             activeElementById3.removeReference();
             activeElementById3.setAttribute("id", "padding");
@@ -1410,7 +1402,7 @@ public class Root extends ScriptContext {
     }
 
     public void clickedServerRow(int i) {
-        clickedServer(((ListRoomInfo) this.lastSortedDiscoveredServers.get(i)).f6039b);
+        clickedServer(((ListRoomInfo) this.lastSortedDiscoveredServers.get(i)).b);
     }
 
     public void clickedServer(String str) {
@@ -1420,43 +1412,43 @@ public class Root extends ScriptContext {
             return;
         }
         try {
-            ListRoomInfo m1386b = GameNetAPIOperate.m1386b(str);
-            if (m1386b == null) {
+            ListRoomInfo b = GameNetAPIOperate.b(str);
+            if (b == null) {
                 logWarn("clickedServer: server==null");
                 alert("That server no longer exists");
                 return;
             }
-            String m1449b = m1386b.m1449b();
-            if (m1386b.m1447d()) {
-                str2 = "[onenter]Open Link:closePopup(); openWhitelistedLink(" + restrictedString(m1386b.m1448c()) + ");";
-            } else if (!m1386b.f6038a) {
-                str2 = "[onenter]Join:closePopup(); joinServerWithId(" + restrictedString(m1386b.m1446e()) + "," + restrictedString(m1386b.f6039b) + ");";
+            String b2 = b.b();
+            if (b.d()) {
+                str2 = "[onenter]Open Link:closePopup(); openWhitelistedLink(" + restrictedString(b.c()) + ");";
+            } else if (!b.a) {
+                str2 = "[onenter]Join:closePopup(); joinServerWithId(" + restrictedString(b.e()) + "," + restrictedString(b.b) + ");";
             } else {
-                str2 = "[onenter]Join over LAN:closePopup(); joinServerWithId(" + restrictedString(m1386b.m1445f()) + "," + restrictedString(m1386b.f6039b) + ");";
+                str2 = "[onenter]Join over LAN:closePopup(); joinServerWithId(" + restrictedString(b.f()) + "," + restrictedString(b.b) + ");";
             }
-            showPopup(null, m1449b, true, str2, null);
+            showPopup(null, b2, true, str2, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void hideKeyboard() {
-        this.guiEngine.m5493m();
+        this.guiEngine.m();
     }
 
     public void saveGame(String str) {
         closePopup();
         hideKeyboard();
-        GameEngine.getGameEngine().f6338ca.m440b(str.replace(".", "_").replace("/", "_").replace("\\", "_"), false);
+        GameEngine.getGameEngine().ca.b(str.replace(".", "_").replace("/", "_").replace("\\", "_"), false);
     }
 
     public void exportMap(String str) {
         closePopup();
         GameEngine gameEngine = GameEngine.getGameEngine();
         try {
-            gameEngine.f6323bL.m5087b(gameEngine.f6378dl, "/SD/rusted_warfare_maps/" + str.replace(".", "_").replace("/", "_").replace("\\", "_").replace("|", "_").replace("?", "_") + ".tmx");
+            gameEngine.bL.b(gameEngine.dl, "/SD/rusted_warfare_maps/" + str.replace(".", "_").replace("/", "_").replace("\\", "_").replace("|", "_").replace("?", "_") + ".tmx");
             showAlert("Map exported");
-        } catch (C0179f e) {
+        } catch (com.corrodinggames.rts.game.maps.f e) {
             showAlert("Failed to export map. error: " + e.getMessage());
         } catch (IOException e2) {
             showAlert("Failed to export map. IO error: " + e2.getMessage());
@@ -1466,28 +1458,28 @@ public class Root extends ScriptContext {
     public void loadGame(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
         gameEngine.netEngine.closeServer("loading new save");
-        gameEngine.f6313bv = false;
-        if (gameEngine.f6338ca.m438c(str, false)) {
+        gameEngine.bv = false;
+        if (gameEngine.ca.c(str, false)) {
             resumeNonMenu();
         }
     }
 
     public void loadGameEdit(final String str) {
         final GameEngine gameEngine = GameEngine.getGameEngine();
-        C0051e c0051e = null;
-        if (C0955a.m1076b()) {
-            c0051e = new C0051e("Share", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.7
+        e eVar = null;
+        if (com.corrodinggames.rts.gameFramework.l.a.b()) {
+            eVar = new e("Share", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.7
                 @Override // java.lang.Runnable
                 public void run() {
                     Root.this.closePopup();
-                    C0955a.m1077a(gameEngine.f6338ca.m444a(str, false));
+                    com.corrodinggames.rts.gameFramework.l.a.a(gameEngine.ca.a(str, false));
                 }
             });
         }
-        showPopupWithButtons(null, str, true, c0051e, new C0051e("Delete", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.8
+        showPopupWithButtons(null, str, true, eVar, new e("Delete", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.8
             @Override // java.lang.Runnable
             public void run() {
-                gameEngine.f6338ca.m441b(str);
+                gameEngine.ca.b(str);
                 Root.this.closePopup();
                 Root.this.showMaps();
             }
@@ -1496,28 +1488,28 @@ public class Root extends ScriptContext {
 
     public void loadReplay(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        gameEngine.f6313bv = false;
-        if (gameEngine.f6339cb.m2623c(str)) {
+        gameEngine.bv = false;
+        if (gameEngine.replayEngine.c(str)) {
             resumeNonMenu();
         }
     }
 
     public void loadReplayEdit(final String str) {
         final GameEngine gameEngine = GameEngine.getGameEngine();
-        C0051e c0051e = null;
-        if (C0955a.m1076b()) {
-            c0051e = new C0051e("Share", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.9
+        e eVar = null;
+        if (com.corrodinggames.rts.gameFramework.l.a.b()) {
+            eVar = new e("Share", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.9
                 @Override // java.lang.Runnable
                 public void run() {
                     Root.this.closePopup();
-                    C0955a.m1077a(gameEngine.f6339cb.m2629a(str, false));
+                    com.corrodinggames.rts.gameFramework.l.a.a(gameEngine.replayEngine.a(str, false));
                 }
             });
         }
-        showPopupWithButtons(null, str, true, c0051e, new C0051e("Delete", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.10
+        showPopupWithButtons(null, str, true, eVar, new e("Delete", new Runnable() { // from class: com.corrodinggames.librocket.scripts.Root.10
             @Override // java.lang.Runnable
             public void run() {
-                gameEngine.f6339cb.m2619e(str);
+                gameEngine.replayEngine.e(str);
                 Root.this.closePopup();
                 Root.this.showMaps();
             }
@@ -1528,7 +1520,7 @@ public class Root extends ScriptContext {
         String str2;
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (str == null) {
-            str2 = (gameEngine.m1152al() + " (" + C0773f.m2320a("d MMM yyyy HH-mm-ss") + ")").replace("  ", " ");
+            str2 = (gameEngine.al() + " (" + com.corrodinggames.rts.gameFramework.f.a("d MMM yyyy HH-mm-ss") + ")").replace("  ", " ");
         } else {
             str2 = str;
         }
@@ -1539,7 +1531,7 @@ public class Root extends ScriptContext {
         String str2;
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (str == null) {
-            str2 = ("New " + gameEngine.m1152al() + " - " + C0773f.m2320a("d MMM yyyy")).replace("  ", " ");
+            str2 = ("New " + gameEngine.al() + " - " + com.corrodinggames.rts.gameFramework.f.a("d MMM yyyy")).replace("  ", " ");
         } else {
             str2 = str;
         }
@@ -1562,26 +1554,26 @@ public class Root extends ScriptContext {
 
     public void sendChatMessage(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        this.guiEngine.m5493m();
+        this.guiEngine.m();
         if (str == null || str.trim().equals(VariableScope.nullOrMissingString)) {
             return;
         }
-        gameEngine.netEngine.m1571m(str);
-        gameEngine.f6330bS.f5372u = false;
+        gameEngine.netEngine.m(str);
+        gameEngine.bS.u = false;
     }
 
     public void sendTeamChatMessageAndPing(String str) {
         sendTeamChatMessage(str);
-        GameEngine.getGameEngine().f6330bS.m2038I();
+        GameEngine.getGameEngine().bS.I();
     }
 
     public void sendTeamChatMessage(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        this.guiEngine.m5493m();
+        this.guiEngine.m();
         if (str == null || str.trim().equals(VariableScope.nullOrMissingString)) {
             return;
         }
-        gameEngine.netEngine.m1573l(str);
+        gameEngine.netEngine.l(str);
     }
 
     public void receiveChatMessage(int i, String str, String str2, PlayerConnect playerConnect) {
@@ -1596,19 +1588,19 @@ public class Root extends ScriptContext {
             return;
         }
         boolean attributeBoolean = activeElementById.getAttributeBoolean("reversed", false);
-        if (gameEngine.netEngine.f5783F && (activeElementById2 = this.libRocket.getActiveElementById("chatBox")) != null) {
+        if (gameEngine.netEngine.F && (activeElementById2 = this.libRocket.getActiveElementById("chatBox")) != null) {
             activeElementById2.hide();
         }
         activeElementById.setInnerRML(VariableScope.nullOrMissingString);
-        ConcurrentLinkedQueue m1767b = gameEngine.netEngine.f5802aC.m1767b();
+        ConcurrentLinkedQueue b = gameEngine.netEngine.aC.b();
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator it = m1767b.iterator();
+        Iterator it = b.iterator();
         while (it.hasNext()) {
-            C0902b c0902b = (C0902b) it.next();
+            com.corrodinggames.rts.gameFramework.net.b bVar = (com.corrodinggames.rts.gameFramework.net.b) it.next();
             if (attributeBoolean) {
-                stringBuffer.insert(0, "<div>" + c0902b.m1482b() + "</div>");
+                stringBuffer.insert(0, "<div>" + bVar.b() + "</div>");
             } else {
-                stringBuffer.append("<div>" + c0902b.m1482b() + "</div>");
+                stringBuffer.append("<div>" + bVar.b() + "</div>");
             }
         }
         stringBuffer.append("<div id='chatLastRowSpacer'></div>");
@@ -1621,7 +1613,7 @@ public class Root extends ScriptContext {
     }
 
     public void trace(String str) {
-        GameEngine.m5925e("Trace:" + str);
+        GameEngine.m5e("Trace:" + str);
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/librocket/scripts/Root$TableData.class */
@@ -1671,7 +1663,7 @@ public class Root extends ScriptContext {
         }
 
         public boolean same(TableRow tableRow, boolean z) {
-            if (!C0773f.m2268d(this.librocketOnClick, tableRow.librocketOnClick) || !C0773f.m2268d(this.extraClasses, tableRow.extraClasses) || this.tableCells.size() != tableRow.tableCells.size()) {
+            if (!com.corrodinggames.rts.gameFramework.f.d(this.librocketOnClick, tableRow.librocketOnClick) || !com.corrodinggames.rts.gameFramework.f.d(this.extraClasses, tableRow.extraClasses) || this.tableCells.size() != tableRow.tableCells.size()) {
                 return false;
             }
             for (int i = 0; i < this.tableCells.size(); i++) {
@@ -1707,10 +1699,10 @@ public class Root extends ScriptContext {
         }
 
         public boolean same(TableCell tableCell, boolean z) {
-            if (!C0773f.m2268d(this.classes, tableCell.classes) || !C0773f.m2268d(this.librocketOnClick, tableCell.librocketOnClick) || !C0773f.m2321a(this.color, tableCell.color)) {
+            if (!com.corrodinggames.rts.gameFramework.f.d(this.classes, tableCell.classes) || !com.corrodinggames.rts.gameFramework.f.d(this.librocketOnClick, tableCell.librocketOnClick) || !com.corrodinggames.rts.gameFramework.f.a(this.color, tableCell.color)) {
                 return false;
             }
-            if (!z && !C0773f.m2268d(this.text, tableCell.text)) {
+            if (!z && !com.corrodinggames.rts.gameFramework.f.d(this.text, tableCell.text)) {
                 return false;
             }
             return true;
@@ -1779,7 +1771,7 @@ public class Root extends ScriptContext {
                     cloneAndFix2.addClass(tableCell.classes);
                 }
                 if (tableCell.color != null) {
-                    cloneAndFix2.setAttribute("style", "color:" + C0773f.m2249h(tableCell.color.intValue()) + ";");
+                    cloneAndFix2.setAttribute("style", "color:" + com.corrodinggames.rts.gameFramework.f.h(tableCell.color.intValue()) + ";");
                 }
                 cloneAndFix.appendChild(cloneAndFix2);
                 cloneAndFix2.removeReference();
@@ -1790,29 +1782,29 @@ public class Root extends ScriptContext {
     }
 
     public ElementDocument createAndShowPopup(String str, Object obj, String str2) {
-        return this.libRocket.m5485a(str, obj, str2, true);
+        return this.libRocket.a(str, obj, str2, true);
     }
 
     public ElementDocument createPopupHidden(String str, Object obj, String str2) {
-        return this.libRocket.m5485a(str, obj, str2, false);
+        return this.libRocket.a(str, obj, str2, false);
     }
 
     public boolean tryToShowPopupDocument(ElementDocument elementDocument) {
-        return this.libRocket.m5479b(elementDocument);
+        return this.libRocket.b(elementDocument);
     }
 
     public void showMainMenu() {
-        GameEngine.getGameEngine().f6330bS.f5372u = false;
-        AbstractC0043a.m5510a().m5504b();
+        GameEngine.getGameEngine().bS.u = false;
+        com.corrodinggames.librocket.a.a().b();
     }
 
     public void onEnter() {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g == null) {
-            GameEngine.m5925e("onEnter: elementDocument==null");
+        ElementDocument g = this.libRocket.g();
+        if (g == null) {
+            GameEngine.m5e("onEnter: elementDocument==null");
             return;
         }
-        Iterator it = m5468g.getAllNestedChildren().iterator();
+        Iterator it = g.getAllNestedChildren().iterator();
         while (it.hasNext()) {
             Element element = (Element) it.next();
             String attribute = element.getAttribute("onenter");
@@ -1823,19 +1815,19 @@ public class Root extends ScriptContext {
     }
 
     public void scrollFromFocusedElement(float f) {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g == null) {
-            GameEngine.m5925e("onEnter: elementDocument==null");
+        ElementDocument g = this.libRocket.g();
+        if (g == null) {
+            GameEngine.m5e("onEnter: elementDocument==null");
             return;
         }
-        Element topLevelFocusedElement = m5468g.getTopLevelFocusedElement();
+        Element topLevelFocusedElement = g.getTopLevelFocusedElement();
         if (topLevelFocusedElement == null) {
-            GameEngine.m5925e("focusedElement: Not found");
+            GameEngine.m5e("focusedElement: Not found");
             return;
         }
-        ArrayList chainFromChildElement = m5468g.getChainFromChildElement(topLevelFocusedElement);
+        ArrayList chainFromChildElement = g.getChainFromChildElement(topLevelFocusedElement);
         if (chainFromChildElement == null) {
-            GameEngine.m5925e("scrollFromFocusedElement: Failed to find chain");
+            GameEngine.m5e("scrollFromFocusedElement: Failed to find chain");
             return;
         }
         Iterator it = chainFromChildElement.iterator();
@@ -1853,16 +1845,16 @@ public class Root extends ScriptContext {
                 return;
             }
         }
-        GameEngine.m5925e("Found no slider element to offset");
+        GameEngine.m5e("Found no slider element to offset");
     }
 
     public boolean isSliderOrUIElementSelected() {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g == null) {
-            GameEngine.m5925e("onEnter: elementDocument==null");
+        ElementDocument g = this.libRocket.g();
+        if (g == null) {
+            GameEngine.m5e("onEnter: elementDocument==null");
             return false;
         }
-        Element topLevelFocusedElement = m5468g.getTopLevelFocusedElement();
+        Element topLevelFocusedElement = g.getTopLevelFocusedElement();
         if (topLevelFocusedElement != null) {
             String tagName = topLevelFocusedElement.getTagName();
             boolean z = false;
@@ -1876,38 +1868,38 @@ public class Root extends ScriptContext {
                 z = true;
             }
             if (z) {
-                GameEngine.m5925e("Slider element: true");
+                GameEngine.m5e("Slider element: true");
                 return true;
             }
-            GameEngine.m5925e("Slider element: false");
+            GameEngine.m5e("Slider element: false");
         }
-        GameEngine.m5925e("Slider element: no element focused");
+        GameEngine.m5e("Slider element: no element focused");
         return false;
     }
 
     public void onTouch() {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g == null) {
-            GameEngine.m5925e("onEnter: elementDocument==null");
+        ElementDocument g = this.libRocket.g();
+        if (g == null) {
+            GameEngine.m5e("onEnter: elementDocument==null");
             return;
         }
-        Iterator it = m5468g.getAllNestedChildren().iterator();
+        Iterator it = g.getAllNestedChildren().iterator();
         while (it.hasNext()) {
             Element element = (Element) it.next();
             if ("text".equals(element.getAttribute("type")) && element.isFocused()) {
-                this.guiEngine.m5494l();
+                this.guiEngine.l();
             }
         }
     }
 
     public void onEscape() {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g == null) {
-            GameEngine.m5925e("onEscape: elementDocument==null");
+        ElementDocument g = this.libRocket.g();
+        if (g == null) {
+            GameEngine.m5e("onEscape: elementDocument==null");
             return;
         }
         boolean z = false;
-        Iterator it = m5468g.getAllNestedChildren().iterator();
+        Iterator it = g.getAllNestedChildren().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -1937,11 +1929,11 @@ public class Root extends ScriptContext {
     }
 
     public String getCurrentPopupPath() {
-        ElementDocument m5475c = this.libRocket.m5475c();
-        if (m5475c == null) {
+        ElementDocument c = this.libRocket.c();
+        if (c == null) {
             return null;
         }
-        return m5475c.documentPath;
+        return c.documentPath;
     }
 
     public String getCreditsText() {
@@ -1957,7 +1949,7 @@ public class Root extends ScriptContext {
     }
 
     public boolean isLinux() {
-        return C0846g.m1870a() == SystemType.f5609c;
+        return g.a() == SystemType.Linux;
     }
 
     public boolean not(boolean z) {
@@ -1968,8 +1960,7 @@ public class Root extends ScriptContext {
         return z && z2;
     }
 
-    /* renamed from: or */
-    public boolean m5462or(boolean z, boolean z2) {
+    public boolean or(boolean z, boolean z2) {
         return z || z2;
     }
 
@@ -1977,7 +1968,7 @@ public class Root extends ScriptContext {
         ElementDocument activeDocument = this.libRocket.getActiveDocument();
         boolean z = true;
         if (activeDocument != null && "battleroom.rml".equals(activeDocument.documentPath)) {
-            GameEngine.m5925e("Already on battleroom page");
+            GameEngine.m5e("Already on battleroom page");
             z = false;
         }
         this.libRocket.setDocument("battleroom.rml", null, z);
@@ -1988,17 +1979,17 @@ public class Root extends ScriptContext {
     }
 
     public void playNextMusicTrack() {
-        GameEngine.getGameEngine().f6325bN.m2888e();
+        GameEngine.getGameEngine().bN.e();
     }
 
     public void toggleMusic() {
-        GameEngine.getGameEngine().f6325bN.f4207u = !GameEngine.getGameEngine().f6325bN.f4207u;
+        GameEngine.getGameEngine().bN.u = !GameEngine.getGameEngine().bN.u;
     }
 
     public void updateMusicButton(String str) {
         Element activeElementById = this.libRocket.getActiveElementById(str);
         if (activeElementById != null) {
-            if (GameEngine.getGameEngine().f6325bN.f4207u) {
+            if (GameEngine.getGameEngine().bN.u) {
                 activeElementById.setText(">");
             } else {
                 activeElementById.setText("||");
@@ -2033,16 +2024,16 @@ public class Root extends ScriptContext {
         int intValue;
         GameEngine gameEngine = GameEngine.getGameEngine();
         if (str == null) {
-            if (gameEngine.netEngine.gameMapData.f5852a == null) {
+            if (gameEngine.netEngine.gameMapData.mapType == null) {
                 GameEngine.print("getModeMapPath: currentType==0");
                 intValue = 0;
             } else {
-                intValue = gameEngine.netEngine.gameMapData.f5852a.ordinal();
+                intValue = gameEngine.netEngine.gameMapData.mapType.ordinal();
             }
         } else {
             Element elementById = element.getElementById(str);
             if (elementById == null) {
-                GameEngine.m1104g("getModeMapPath: typeSelector==null");
+                GameEngine.g("getModeMapPath: typeSelector==null");
                 intValue = 0;
             } else {
                 intValue = elementById.getValueAsInt(0).intValue();
@@ -2061,31 +2052,30 @@ public class Root extends ScriptContext {
     }
 
     public void event_unicodeEntered() {
-        ElementDocument m5468g = this.libRocket.m5468g();
-        if (m5468g != null) {
-            Element findByClassName = m5468g.findByClassName("textinputUnicodeWrap");
+        ElementDocument g = this.libRocket.g();
+        if (g != null) {
+            Element findByClassName = g.findByClassName("textinputUnicodeWrap");
             if (findByClassName != null) {
                 findByClassName.compareAndAddClass("unicodeWasTyped");
                 return;
             } else {
-                GameEngine.m5925e("event_unicodeEntered: missing textinput");
+                GameEngine.m5e("event_unicodeEntered: missing textinput");
                 return;
             }
         }
-        GameEngine.m5925e("event_unicodeEntered: missing document");
+        GameEngine.m5e("event_unicodeEntered: missing document");
     }
 
     public boolean isVersionBeta() {
-        return GameEngine.getGameEngine().m1091n();
+        return GameEngine.getGameEngine().n();
     }
 
     public Object ifCondition(boolean z, Object obj, Object obj2) {
         return z ? obj : obj2;
     }
 
-    /* renamed from: i */
-    public String m5463i(String str) {
-        return C0855a.m1847a(str, new Object[0]);
+    public String i(String str) {
+        return com.corrodinggames.rts.gameFramework.translations.a.a(str, new Object[0]);
     }
 
     public void openLinkToCG(String str) {
@@ -2093,10 +2083,10 @@ public class Root extends ScriptContext {
     }
 
     public void openWhitelistedLink(String str) {
-        GameEngine.m5925e("Opening link:" + str);
+        GameEngine.m5e("Opening link:" + str);
         if (!str.startsWith("http://corrodinggames.com/") && !str.startsWith("https://corrodinggames.com/") && !str.startsWith("http://corrodinggames.net/") && !str.startsWith("https://corrodinggames.net/")) {
-            GameEngine.m5925e("Not in whitelist");
-        } else if (this.guiEngine.m5503b(str)) {
+            GameEngine.m5e("Not in whitelist");
+        } else if (this.guiEngine.b(str)) {
             alert("Opened link: " + str);
         } else {
             alert("Sorry couldn't load browser to: " + str + " please navigate manually");
@@ -2106,12 +2096,12 @@ public class Root extends ScriptContext {
     public void writeGameLog(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         boolean z = false;
-        LinkedList m5495k = AbstractC0043a.m5510a().m5495k();
-        if (m5495k == null) {
+        LinkedList k = com.corrodinggames.librocket.a.a().k();
+        if (k == null) {
             z = true;
         } else {
-            synchronized (m5495k) {
-                ListIterator listIterator = m5495k.listIterator(C0773f.m2301b(0, m5495k.size() - 3000));
+            synchronized (k) {
+                ListIterator listIterator = k.listIterator(com.corrodinggames.rts.gameFramework.f.b(0, k.size() - 3000));
                 while (listIterator.hasNext()) {
                     stringBuffer.append(Element.excapeHTML((String) listIterator.next()));
                     stringBuffer.append("<br/>");
@@ -2122,10 +2112,10 @@ public class Root extends ScriptContext {
             alert("Internal game logging not active");
             return;
         }
-        GameEngine.m5925e("writeGameLog ready");
+        GameEngine.m5e("writeGameLog ready");
         Element activeElementById = this.libRocket.getActiveElementById(str);
         if (activeElementById == null) {
-            GameEngine.m5925e("Failed to find: " + str);
+            GameEngine.m5e("Failed to find: " + str);
         } else {
             activeElementById.setInnerRML(stringBuffer.toString());
         }
@@ -2134,12 +2124,12 @@ public class Root extends ScriptContext {
     public void exportGameLog() {
         StringBuffer stringBuffer = new StringBuffer();
         boolean z = false;
-        LinkedList m5495k = AbstractC0043a.m5510a().m5495k();
-        if (m5495k == null) {
+        LinkedList k = com.corrodinggames.librocket.a.a().k();
+        if (k == null) {
             z = true;
         } else {
-            synchronized (m5495k) {
-                ListIterator listIterator = m5495k.listIterator(C0773f.m2301b(0, m5495k.size() - 3000));
+            synchronized (k) {
+                ListIterator listIterator = k.listIterator(com.corrodinggames.rts.gameFramework.f.b(0, k.size() - 3000));
                 while (listIterator.hasNext()) {
                     stringBuffer.append(Element.excapeHTML((String) listIterator.next()));
                     stringBuffer.append("\n");
@@ -2151,12 +2141,12 @@ public class Root extends ScriptContext {
             return;
         }
         try {
-            File file = new File(C0765a.m2417e("/SD/rustedWarfare/RustedWarfareLog-" + C0773f.m2320a("d_MMM_yyyy_HH.mm.ss") + ".txt"));
+            File file = new File(a.e("/SD/rustedWarfare/RustedWarfareLog-" + com.corrodinggames.rts.gameFramework.f.a("d_MMM_yyyy_HH.mm.ss") + ".txt"));
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.append((CharSequence) stringBuffer.toString());
             fileWriter.flush();
             fileWriter.close();
-            C0955a.m1077a(file);
+            com.corrodinggames.rts.gameFramework.l.a.a(file);
             file.deleteOnExit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -2165,27 +2155,27 @@ public class Root extends ScriptContext {
     }
 
     public void setPageMinWidthAndHeight(float f, float f2) {
-        GameEngine.m5925e("setPageMinWidthAndHeight(" + f + ", " + f2 + ")");
+        GameEngine.m5e("setPageMinWidthAndHeight(" + f + ", " + f2 + ")");
         ElementDocument activeDocument = this.libRocket.getActiveDocument();
         if (activeDocument == null) {
-            GameEngine.m5925e("setPageMinWidthAndHeight - no page");
+            GameEngine.m5e("setPageMinWidthAndHeight - no page");
             return;
         }
         activeDocument.setMetadataFloat("minWidth", Float.valueOf(f));
         activeDocument.setMetadataFloat("minHeight", Float.valueOf(f2));
-        this.guiEngine.m5492n();
+        this.guiEngine.n();
     }
 
     public void importFilePopup() {
-        C0955a.m1078a(new AbstractC0956b() { // from class: com.corrodinggames.librocket.scripts.Root.11
-            @Override // com.corrodinggames.rts.gameFramework.p044l.AbstractC0956b
+        com.corrodinggames.rts.gameFramework.l.a.a(new com.corrodinggames.rts.gameFramework.l.b() { // from class: com.corrodinggames.librocket.scripts.Root.11
+            @Override // com.corrodinggames.rts.gameFramework.l.b
             public void onFileSelected() {
-                GameEngine.m5925e("importFilePopup: onFileSelected");
+                GameEngine.m5e("importFilePopup: onFileSelected");
             }
 
-            @Override // com.corrodinggames.rts.gameFramework.p044l.AbstractC0956b
+            @Override // com.corrodinggames.rts.gameFramework.l.b
             public void onCancelled() {
-                GameEngine.m5925e("importFilePopup: onCancelled");
+                GameEngine.m5e("importFilePopup: onCancelled");
             }
         });
     }

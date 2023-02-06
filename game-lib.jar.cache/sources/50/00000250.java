@@ -2,36 +2,24 @@ package com.corrodinggames.rts.game.units.custom;
 
 import android.graphics.Color;
 import android.graphics.LightingColorFilter;
-import com.corrodinggames.rts.game.C0188f;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.Projectile;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.p035d.C0758c;
-import com.corrodinggames.rts.gameFramework.p035d.C0760e;
-import com.corrodinggames.rts.gameFramework.p035d.C0761f;
-import com.corrodinggames.rts.gameFramework.p035d.C0762g;
-import com.corrodinggames.rts.gameFramework.p035d.EnumC0759d;
-import com.corrodinggames.rts.gameFramework.p035d.EnumC0763h;
-import com.corrodinggames.rts.gameFramework.unitAction.C0970e;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
-import com.corrodinggames.rts.gameFramework.utility.C1152y;
+import com.corrodinggames.rts.gameFramework.emitter.Emitter;
 import java.util.ArrayList;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.ay */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/ay.class */
-public class C0386ay {
-    public static final C0386ay defaultEffectTemplate = new C0386ay("default");
+public class ay {
+    public static final ay defaultEffectTemplate = new ay("default");
     public String name;
-    private EnumC0387az builtInEffect;
-    public C0762g imageStrip;
+    private az builtInEffect;
+    public com.corrodinggames.rts.gameFramework.emitter.g imageStrip;
     public boolean createWhenOffscreen;
     public boolean createWhenZoomedOut;
     public boolean createWhenOverLiquid;
     public boolean createWhenOverLand;
     public float spawnChance;
-    C0473z ifSpawnFailsEmitEffects;
+    z ifSpawnFailsEmitEffects;
     public float life;
     public float lifeRandom;
     public boolean showInFog;
@@ -62,7 +50,7 @@ public class C0386ay {
     public float ySpeedAbsolute;
     public float xSpeedAbsoluteRandom;
     public float ySpeedAbsoluteRandom;
-    public EnumC0763h priority;
+    public com.corrodinggames.rts.gameFramework.emitter.h priority;
     public float scaleTo;
     public float scaleFrom;
     public float alpha;
@@ -90,18 +78,18 @@ public class C0386ay {
     public boolean animateFrameLooping;
     public float animateFrameSpeed;
     public float animateFrameSpeedRandom;
-    public C0473z alsoEmitEffects;
-    public C0473z alsoEmitEffectsOnDeath;
-    public C0473z trailEffect;
+    public z alsoEmitEffects;
+    public z alsoEmitEffectsOnDeath;
+    public z trailEffect;
     public float trailEffectRate;
-    public C0414bl alsoPlaySound;
+    public bl alsoPlaySound;
     public static ArrayList fields;
 
-    public C0386ay(EnumC0387az enumC0387az) {
+    public ay(az azVar) {
         this.builtInEffect = null;
         this.spawnChance = 1.0f;
         this.life = 200.0f;
-        this.priority = EnumC0763h.high;
+        this.priority = com.corrodinggames.rts.gameFramework.emitter.h.high;
         this.scaleTo = 1.0f;
         this.scaleFrom = 1.0f;
         this.alpha = 1.0f;
@@ -109,14 +97,14 @@ public class C0386ay {
         this.teamColorRatio = 0.0f;
         this.drawLayer = (short) 2;
         this.physicsGravity = 1.0f;
-        this.builtInEffect = enumC0387az;
+        this.builtInEffect = azVar;
     }
 
-    C0386ay(String str) {
+    ay(String str) {
         this.builtInEffect = null;
         this.spawnChance = 1.0f;
         this.life = 200.0f;
-        this.priority = EnumC0763h.high;
+        this.priority = com.corrodinggames.rts.gameFramework.emitter.h.high;
         this.scaleTo = 1.0f;
         this.scaleFrom = 1.0f;
         this.alpha = 1.0f;
@@ -127,80 +115,79 @@ public class C0386ay {
         this.name = str;
     }
 
-    /* renamed from: a */
-    public C0760e m3956a(float f, float f2, float f3, float f4, AbstractC1155w abstractC1155w, int i, short s) {
-        AbstractC0244am abstractC0244am;
-        C0760e c0760e;
+    public com.corrodinggames.rts.gameFramework.emitter.e a(float f, float f2, float f3, float f4, com.corrodinggames.rts.gameFramework.w wVar, int i, short s) {
+        com.corrodinggames.rts.game.units.am amVar;
+        com.corrodinggames.rts.gameFramework.emitter.e eVar;
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (this.spawnChance < 1.0f && C0773f.m2151c(0.0f, 1.0f) > this.spawnChance) {
+        if (this.spawnChance < 1.0f && com.corrodinggames.rts.gameFramework.f.c(0.0f, 1.0f) > this.spawnChance) {
             if (i < 5 && this.ifSpawnFailsEmitEffects != null) {
-                this.ifSpawnFailsEmitEffects.m3464a(f, f2, f3, f4, abstractC1155w, i + 1, s);
+                this.ifSpawnFailsEmitEffects.a(f, f2, f3, f4, wVar, i + 1, s);
                 return null;
             }
             return null;
         } else if (this.builtInEffect != null) {
-            if (this.builtInEffect == EnumC0387az.small) {
-                c0760e = gameEngine.f6329bR.m2390a(f, f2, f3, f4);
-            } else if (this.builtInEffect == EnumC0387az.medium) {
-                c0760e = gameEngine.f6329bR.m2367b(f, f2, f3, f4, 0);
-                if (c0760e != null) {
-                    c0760e.f4816G = 0.75f;
-                    c0760e.f4815F = 0.75f;
+            if (this.builtInEffect == az.small) {
+                eVar = gameEngine.bR.a(f, f2, f3, f4);
+            } else if (this.builtInEffect == az.medium) {
+                eVar = gameEngine.bR.b(f, f2, f3, f4, 0);
+                if (eVar != null) {
+                    eVar.G = 0.75f;
+                    eVar.F = 0.75f;
                 }
-            } else if (this.builtInEffect == EnumC0387az.large) {
-                c0760e = gameEngine.f6329bR.m2367b(f, f2, f3, f4, 0);
-            } else if (this.builtInEffect == EnumC0387az.smoke) {
-                c0760e = gameEngine.f6329bR.m2362c(f, f2, f3, f4, 0);
-            } else if (this.builtInEffect == EnumC0387az.shockwave) {
-                c0760e = gameEngine.f6329bR.m2359d(f, f2, f3, 0);
-            } else if (this.builtInEffect == EnumC0387az.largeExplosion) {
-                gameEngine.f6329bR.m2391a(f, f2, f3);
-                c0760e = null;
-            } else if (this.builtInEffect == EnumC0387az.smallExplosion) {
-                c0760e = gameEngine.f6329bR.m2370b(f, f2, f3);
-            } else if (this.builtInEffect == EnumC0387az.resourcePoolSmoke) {
-                C0761f.m2348a(f, f2).f4896j = -6684775;
-                C0761f m2344b = C0761f.m2344b(f, f2);
-                m2344b.f4876a = 500.0f;
-                m2344b.f4896j = -6684775;
-                gameEngine.f6329bR.m2364b(EnumC0763h.critical);
-                C0760e m2361c = gameEngine.f6329bR.m2361c(f, f2, f3, -1127220);
-                if (m2361c != null) {
-                    m2361c.f4816G = 0.15f;
-                    m2361c.f4815F = 1.0f;
-                    m2361c.f4873ar = (short) 2;
-                    m2361c.f4831V = 35.0f;
-                    m2361c.f4832W = m2361c.f4831V;
-                    m2361c.f4830U = 0.0f;
-                    m2361c.f4811x = -13378253;
+            } else if (this.builtInEffect == az.large) {
+                eVar = gameEngine.bR.b(f, f2, f3, f4, 0);
+            } else if (this.builtInEffect == az.smoke) {
+                eVar = gameEngine.bR.c(f, f2, f3, f4, 0);
+            } else if (this.builtInEffect == az.shockwave) {
+                eVar = gameEngine.bR.d(f, f2, f3, 0);
+            } else if (this.builtInEffect == az.largeExplosion) {
+                gameEngine.bR.a(f, f2, f3);
+                eVar = null;
+            } else if (this.builtInEffect == az.smallExplosion) {
+                eVar = gameEngine.bR.b(f, f2, f3);
+            } else if (this.builtInEffect == az.resourcePoolSmoke) {
+                Emitter.a(f, f2).j = -6684775;
+                Emitter b = Emitter.b(f, f2);
+                b.a = 500.0f;
+                b.j = -6684775;
+                gameEngine.bR.b(com.corrodinggames.rts.gameFramework.emitter.h.critical);
+                com.corrodinggames.rts.gameFramework.emitter.e c = gameEngine.bR.c(f, f2, f3, -1127220);
+                if (c != null) {
+                    c.G = 0.15f;
+                    c.F = 1.0f;
+                    c.ar = (short) 2;
+                    c.V = 35.0f;
+                    c.W = c.V;
+                    c.U = 0.0f;
+                    c.x = -13378253;
                 }
-                c0760e = null;
-            } else if (this.builtInEffect == EnumC0387az.noneExplosion) {
+                eVar = null;
+            } else if (this.builtInEffect == az.noneExplosion) {
                 return null;
             } else {
                 throw new RuntimeException("Unhandled built-in type:" + this.builtInEffect);
             }
-            if (c0760e == null) {
+            if (eVar == null) {
                 return null;
             }
-            c0760e.f4873ar = (short) 2;
-            if (abstractC1155w != null) {
-                C0758c.m2379a(c0760e, abstractC1155w);
+            eVar.ar = (short) 2;
+            if (wVar != null) {
+                com.corrodinggames.rts.gameFramework.emitter.c.a(eVar, wVar);
             }
-            return c0760e;
-        } else if (!this.createWhenZoomedOut && !gameEngine.f6472dc) {
+            return eVar;
+        } else if (!this.createWhenZoomedOut && !gameEngine.dc) {
             return null;
         } else {
-            if (!this.createWhenOverLiquid && C1152y.m450d(f, f2)) {
+            if (!this.createWhenOverLiquid && com.corrodinggames.rts.gameFramework.utility.y.d(f, f2)) {
                 return null;
             }
-            if (!this.createWhenOverLand && !C1152y.m450d(f, f2)) {
+            if (!this.createWhenOverLand && !com.corrodinggames.rts.gameFramework.utility.y.d(f, f2)) {
                 return null;
             }
             if (this.createWhenOffscreen) {
-                gameEngine.f6329bR.m2372b();
+                gameEngine.bR.b();
             } else {
-                gameEngine.f6329bR.m2394a();
+                gameEngine.bR.a();
             }
             boolean z = this.showInFog;
             boolean z2 = false;
@@ -208,283 +195,280 @@ public class C0386ay {
                 z2 = true;
                 z = true;
             }
-            C0760e m2365b = gameEngine.f6329bR.m2365b(f, f2, f3, EnumC0759d.custom, z, this.priority);
-            if (m2365b == null) {
+            com.corrodinggames.rts.gameFramework.emitter.e b2 = gameEngine.bR.b(f, f2, f3, com.corrodinggames.rts.gameFramework.emitter.d.custom, z, this.priority);
+            if (b2 == null) {
                 return null;
             }
-            m2365b.f4863a = this;
-            m2365b.f4813A = (short) (s + 1);
+            b2.a = this;
+            b2.A = (short) (s + 1);
             if (z2 && !this.showInFog) {
-                m2365b.f4864e = false;
+                b2.e = false;
             }
-            m2365b.f4831V = this.life;
-            m2365b.f4831V += m3958a(this.lifeRandom);
-            m2365b.f4832W = m2365b.f4831V;
-            m2365b.f4849aq = this.stripIndex;
+            b2.V = this.life;
+            b2.V += a(this.lifeRandom);
+            b2.W = b2.V;
+            b2.aq = this.stripIndex;
             if (this.imageStrip != null) {
             }
-            m2365b.f4848ap = this.frameIndex;
+            b2.ap = this.frameIndex;
             if (this.frameIndexRandom != 0) {
-                m2365b.f4848ap += C0773f.rand(-this.frameIndexRandom, this.frameIndexRandom);
-                if (m2365b.f4848ap < 0) {
-                    m2365b.f4848ap = 0;
+                b2.ap += com.corrodinggames.rts.gameFramework.f.rand(-this.frameIndexRandom, this.frameIndexRandom);
+                if (b2.ap < 0) {
+                    b2.ap = 0;
                 }
             }
-            float m3958a = f4 + this.pivotOffset + m3958a(this.pivotOffsetRandom);
+            float a = f4 + this.pivotOffset + a(this.pivotOffsetRandom);
             if (this.alwayStartDirAtZero) {
-                m2365b.f4833Y = 0.0f;
+                b2.Y = 0.0f;
             } else {
-                m2365b.f4833Y = m3958a;
+                b2.Y = a;
             }
-            m2365b.f4833Y += this.dirOffset;
-            m2365b.f4833Y += m3958a(this.dirOffsetRandom);
+            b2.Y += this.dirOffset;
+            b2.Y += a(this.dirOffsetRandom);
             if (this.xOffsetAbsoluteRandom != 0.0f || this.yOffsetAbsoluteRandom != 0.0f || this.xOffsetAbsolute != 0.0f || this.yOffsetAbsolute != 0.0f) {
-                float m3958a2 = this.xOffsetAbsolute + m3958a(this.xOffsetAbsoluteRandom);
-                float m3958a3 = this.yOffsetAbsolute + m3958a(this.yOffsetAbsoluteRandom);
-                m2365b.f4818I += m3958a2;
-                m2365b.f4819J += m3958a3;
+                float a2 = this.xOffsetAbsolute + a(this.xOffsetAbsoluteRandom);
+                float a3 = this.yOffsetAbsolute + a(this.yOffsetAbsoluteRandom);
+                b2.I += a2;
+                b2.J += a3;
             }
             if (this.xOffsetRelativeRandom != 0.0f || this.yOffsetRelativeRandom != 0.0f || this.xOffsetRelative != 0.0f || this.yOffsetRelative != 0.0f) {
-                float m2107k = C0773f.m2107k(m3958a);
-                float m2110j = C0773f.m2110j(m3958a);
-                float m3958a4 = this.xOffsetRelative + m3958a(this.xOffsetRelativeRandom);
-                float m3958a5 = this.yOffsetRelative + m3958a(this.yOffsetRelativeRandom);
-                m2365b.f4818I += (m2107k * m3958a5) - (m2110j * m3958a4);
-                m2365b.f4819J += (m2110j * m3958a5) + (m2107k * m3958a4);
+                float k = com.corrodinggames.rts.gameFramework.f.k(a);
+                float j = com.corrodinggames.rts.gameFramework.f.j(a);
+                float a4 = this.xOffsetRelative + a(this.xOffsetRelativeRandom);
+                float a5 = this.yOffsetRelative + a(this.yOffsetRelativeRandom);
+                b2.I += (k * a5) - (j * a4);
+                b2.J += (j * a5) + (k * a4);
             }
-            m2365b.f4820K += this.hOffset + m3957a(-this.hOffsetRandom, this.hOffsetRandom);
-            m2365b.f4871an = true;
-            m2365b.f4806r = true;
-            m2365b.f4873ar = this.drawLayer;
-            m2365b.f4816G = this.scaleFrom;
-            m2365b.f4815F = this.scaleTo;
-            m2365b.f4814E = this.alpha;
-            m2365b.f4811x = this.color;
-            m2365b.f4869B = this.cachedLightingColorFilter;
-            if (this.teamColorRatio != 0.0f && abstractC1155w != null) {
+            b2.K += this.hOffset + a(-this.hOffsetRandom, this.hOffsetRandom);
+            b2.an = true;
+            b2.r = true;
+            b2.ar = this.drawLayer;
+            b2.G = this.scaleFrom;
+            b2.F = this.scaleTo;
+            b2.E = this.alpha;
+            b2.x = this.color;
+            b2.B = this.cachedLightingColorFilter;
+            if (this.teamColorRatio != 0.0f && wVar != null) {
                 PlayerData playerData = null;
-                if (abstractC1155w instanceof AbstractC0244am) {
-                    playerData = ((AbstractC0244am) abstractC1155w).f1614bX;
+                if (wVar instanceof com.corrodinggames.rts.game.units.am) {
+                    playerData = ((com.corrodinggames.rts.game.units.am) wVar).bX;
                 }
-                if ((abstractC1155w instanceof C0188f) && (abstractC0244am = ((C0188f) abstractC1155w).f985j) != null) {
-                    playerData = abstractC0244am.f1614bX;
+                if ((wVar instanceof Projectile) && (amVar = ((Projectile) wVar).j) != null) {
+                    playerData = amVar.bX;
                 }
                 if (playerData != null) {
                     float f5 = 1.0f - this.teamColorRatio;
-                    int m5245a = Color.m5245a(m2365b.f4811x);
-                    int m5241b = (int) (Color.m5241b(m2365b.f4811x) * f5);
-                    int m5240c = (int) (Color.m5240c(m2365b.f4811x) * f5);
-                    int m5239d = (int) (Color.m5239d(m2365b.f4811x) * f5);
-                    int m4461K = playerData.m4461K();
-                    m2365b.f4811x = Color.m5243a(m5245a, C0773f.m2166b((int) (m5241b + (Color.m5241b(m4461K) * this.teamColorRatio)), 0, 255), C0773f.m2166b((int) (m5240c + (Color.m5240c(m4461K) * this.teamColorRatio)), 0, 255), C0773f.m2166b((int) (m5239d + (Color.m5239d(m4461K) * this.teamColorRatio)), 0, 255));
-                    if (GameEngine.m1030at()) {
-                        m2365b.f4869B = new LightingColorFilter(m2365b.f4811x, 0);
+                    int a6 = Color.a(b2.x);
+                    int b3 = (int) (Color.b(b2.x) * f5);
+                    int c2 = (int) (Color.c(b2.x) * f5);
+                    int d = (int) (Color.d(b2.x) * f5);
+                    int K = playerData.K();
+                    b2.x = Color.a(a6, com.corrodinggames.rts.gameFramework.f.b((int) (b3 + (Color.b(K) * this.teamColorRatio)), 0, 255), com.corrodinggames.rts.gameFramework.f.b((int) (c2 + (Color.c(K) * this.teamColorRatio)), 0, 255), com.corrodinggames.rts.gameFramework.f.b((int) (d + (Color.d(K) * this.teamColorRatio)), 0, 255));
+                    if (GameEngine.at()) {
+                        b2.B = new LightingColorFilter(b2.x, 0);
                     }
                 }
             }
             if (this.fadeInTime != 0.0f) {
-                m2365b.f4807s = true;
-                m2365b.f4808t = this.fadeInTime;
+                b2.s = true;
+                b2.t = this.fadeInTime;
             }
-            m2365b.f4874as = this.shadow;
-            m2365b.f4806r = this.fadeOut;
-            m2365b.f4830U = this.delayedStartTimer;
-            m2365b.f4830U += m3957a(-this.delayedStartTimerRandom, this.delayedStartTimerRandom);
-            m2365b.f4809u = this.atmospheric;
-            m2365b.f4810v = this.physics;
-            m2365b.f4867w = this.physicsGravity;
-            m2365b.f4866q = this.priority;
-            m2365b.f4825P = this.xSpeedAbsolute + m3958a(this.xSpeedAbsoluteRandom);
-            m2365b.f4826Q = this.ySpeedAbsolute + m3958a(this.ySpeedAbsoluteRandom);
+            b2.as = this.shadow;
+            b2.r = this.fadeOut;
+            b2.U = this.delayedStartTimer;
+            b2.U += a(-this.delayedStartTimerRandom, this.delayedStartTimerRandom);
+            b2.u = this.atmospheric;
+            b2.v = this.physics;
+            b2.w = this.physicsGravity;
+            b2.q = this.priority;
+            b2.P = this.xSpeedAbsolute + a(this.xSpeedAbsoluteRandom);
+            b2.Q = this.ySpeedAbsolute + a(this.ySpeedAbsoluteRandom);
             if (this.xSpeedRelative != 0.0f || this.ySpeedRelative != 0.0f || this.xSpeedRelativeRandom != 0.0f || this.ySpeedRelativeRandom != 0.0f) {
-                float m2107k2 = C0773f.m2107k(m3958a);
-                float m2110j2 = C0773f.m2110j(m3958a);
-                float m3958a6 = this.xSpeedRelative + m3958a(this.xSpeedRelativeRandom);
-                float m3958a7 = this.ySpeedRelative + m3958a(this.ySpeedRelativeRandom);
-                m2365b.f4825P += (m2107k2 * m3958a7) - (m2110j2 * m3958a6);
-                m2365b.f4826Q += (m2110j2 * m3958a7) + (m2107k2 * m3958a6);
+                float k2 = com.corrodinggames.rts.gameFramework.f.k(a);
+                float j2 = com.corrodinggames.rts.gameFramework.f.j(a);
+                float a7 = this.xSpeedRelative + a(this.xSpeedRelativeRandom);
+                float a8 = this.ySpeedRelative + a(this.ySpeedRelativeRandom);
+                b2.P += (k2 * a8) - (j2 * a7);
+                b2.Q += (j2 * a8) + (k2 * a7);
             }
-            m2365b.f4827R = this.hSpeed + m3958a(this.hSpeedRandom);
-            m2365b.f4834Z = this.dirSpeed + m3958a(this.dirSpeedRandom);
+            b2.R = this.hSpeed + a(this.hSpeedRandom);
+            b2.Z = this.dirSpeed + a(this.dirSpeedRandom);
             if (this.animateFrameStart != this.animateFrameEnd) {
-                m2365b.f4839ae = true;
+                b2.ae = true;
             }
-            m2365b.f4840af = this.animateFrameStart;
+            b2.af = this.animateFrameStart;
             if (this.animateFrameStartRandomAdd != 0) {
-                m2365b.f4840af += C0773f.rand(0, this.animateFrameStartRandomAdd);
+                b2.af += com.corrodinggames.rts.gameFramework.f.rand(0, this.animateFrameStartRandomAdd);
             }
-            m2365b.f4841ag = this.animateFrameEnd;
-            m2365b.f4845ak = this.animateFrameStart;
-            m2365b.f4842ah = this.animateFramePingPong;
-            m2365b.f4843ai = this.animateFrameLooping;
-            m2365b.f4844aj = this.animateFrameSpeed;
-            m2365b.f4844aj += m3958a(this.animateFrameSpeedRandom);
-            if (abstractC1155w != null && this.attachedToUnit) {
-                C0758c.m2379a(m2365b, abstractC1155w);
+            b2.ag = this.animateFrameEnd;
+            b2.ak = this.animateFrameStart;
+            b2.ah = this.animateFramePingPong;
+            b2.ai = this.animateFrameLooping;
+            b2.aj = this.animateFrameSpeed;
+            b2.aj += a(this.animateFrameSpeedRandom);
+            if (wVar != null && this.attachedToUnit) {
+                com.corrodinggames.rts.gameFramework.emitter.c.a(b2, wVar);
             }
             if (this.alsoPlaySound != null) {
-                this.alsoPlaySound.m3887a(f, f2, 1.0f);
+                this.alsoPlaySound.a(f, f2, 1.0f);
             }
             if (i < 5 && this.alsoEmitEffects != null) {
-                this.alsoEmitEffects.m3464a(f, f2, f3, m3958a, abstractC1155w, i + 1, (short) 0);
+                this.alsoEmitEffects.a(f, f2, f3, a, wVar, i + 1, (short) 0);
             }
-            return m2365b;
+            return b2;
         }
     }
 
-    /* renamed from: a */
-    public final float m3958a(float f) {
+    public final float a(float f) {
         if (f == 0.0f) {
             return 0.0f;
         }
-        return C0773f.m2151c(-f, f);
+        return com.corrodinggames.rts.gameFramework.f.c(-f, f);
     }
 
-    /* renamed from: a */
-    public final float m3957a(float f, float f2) {
+    public final float a(float f, float f2) {
         if (f == f2) {
             return f;
         }
-        return C0773f.m2151c(f, f2);
+        return com.corrodinggames.rts.gameFramework.f.c(f, f2);
     }
 
-    /* renamed from: a */
-    public void m3955a(C0458l c0458l, C1107ab c1107ab, String str) {
+    public void a(l lVar, com.corrodinggames.rts.gameFramework.utility.ab abVar, String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        this.createWhenOffscreen = c1107ab.m685a(str, "createWhenOffscreen", (Boolean) false).booleanValue();
-        this.createWhenZoomedOut = c1107ab.m685a(str, "createWhenZoomedOut", (Boolean) true).booleanValue();
-        this.createWhenOverLiquid = c1107ab.m685a(str, "createWhenOverLiquid", (Boolean) true).booleanValue();
-        this.createWhenOverLand = c1107ab.m685a(str, "createWhenOverLand", (Boolean) true).booleanValue();
+        this.createWhenOffscreen = abVar.a(str, "createWhenOffscreen", (Boolean) false).booleanValue();
+        this.createWhenZoomedOut = abVar.a(str, "createWhenZoomedOut", (Boolean) true).booleanValue();
+        this.createWhenOverLiquid = abVar.a(str, "createWhenOverLiquid", (Boolean) true).booleanValue();
+        this.createWhenOverLand = abVar.a(str, "createWhenOverLand", (Boolean) true).booleanValue();
         if (!this.createWhenOverLiquid && !this.createWhenOverLand) {
             throw new RuntimeException(str + " effect cannot have both createWhenOverLiquid and createWhenOverLand set to false, it would never be created");
         }
-        this.spawnChance = c1107ab.m683a(str, "spawnChance", Float.valueOf(1.0f)).floatValue();
-        this.life = c1107ab.m683a(str, "life", Float.valueOf(200.0f)).floatValue();
-        this.lifeRandom = c1107ab.m683a(str, "lifeRandom", Float.valueOf(0.0f)).floatValue();
-        this.showInFog = c1107ab.m685a(str, "showInFog", (Boolean) false).booleanValue();
-        this.xOffsetRelative = c1107ab.m683a(str, "xOffsetRelative", Float.valueOf(0.0f)).floatValue();
-        this.yOffsetRelative = c1107ab.m683a(str, "yOffsetRelative", Float.valueOf(0.0f)).floatValue();
-        this.hOffset = c1107ab.m683a(str, "hOffset", Float.valueOf(0.0f)).floatValue();
-        this.alwayStartDirAtZero = c1107ab.m678a(str, "alwaysStartDirAtZero", "alwayStartDirAtZero", (Boolean) false).booleanValue();
-        this.pivotOffset = c1107ab.m683a(str, "pivotOffset", Float.valueOf(0.0f)).floatValue();
-        this.pivotOffsetRandom = c1107ab.m683a(str, "pivotOffsetRandom", Float.valueOf(0.0f)).floatValue();
-        this.dirOffset = c1107ab.m683a(str, "dirOffset", Float.valueOf(0.0f)).floatValue();
-        this.xOffsetRelativeRandom = c1107ab.m683a(str, "xOffsetRelativeRandom", Float.valueOf(0.0f)).floatValue();
-        this.yOffsetRelativeRandom = c1107ab.m683a(str, "yOffsetRelativeRandom", Float.valueOf(0.0f)).floatValue();
-        this.hOffsetRandom = c1107ab.m683a(str, "hOffsetRandom", Float.valueOf(0.0f)).floatValue();
-        this.dirOffsetRandom = c1107ab.m683a(str, "dirOffsetRandom", Float.valueOf(0.0f)).floatValue();
-        this.xOffsetAbsolute = c1107ab.m683a(str, "xOffsetAbsolute", Float.valueOf(0.0f)).floatValue();
-        this.yOffsetAbsolute = c1107ab.m683a(str, "yOffsetAbsolute", Float.valueOf(0.0f)).floatValue();
-        this.xOffsetAbsoluteRandom = c1107ab.m683a(str, "xOffsetAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
-        this.yOffsetAbsoluteRandom = c1107ab.m683a(str, "yOffsetAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
-        this.xSpeedRelative = c1107ab.m683a(str, "xSpeedRelative", Float.valueOf(0.0f)).floatValue();
-        this.ySpeedRelative = c1107ab.m683a(str, "ySpeedRelative", Float.valueOf(0.0f)).floatValue();
-        this.hSpeed = c1107ab.m683a(str, "hSpeed", Float.valueOf(0.0f)).floatValue();
-        this.dirSpeed = c1107ab.m683a(str, "dirSpeed", Float.valueOf(0.0f)).floatValue();
-        this.xSpeedRelativeRandom = c1107ab.m683a(str, "xSpeedRelativeRandom", Float.valueOf(0.0f)).floatValue();
-        this.ySpeedRelativeRandom = c1107ab.m683a(str, "ySpeedRelativeRandom", Float.valueOf(0.0f)).floatValue();
-        this.hSpeedRandom = c1107ab.m683a(str, "hSpeedRandom", Float.valueOf(0.0f)).floatValue();
-        this.dirSpeedRandom = c1107ab.m683a(str, "dirSpeedRandom", Float.valueOf(0.0f)).floatValue();
-        this.xSpeedAbsolute = c1107ab.m683a(str, "xSpeedAbsolute", Float.valueOf(0.0f)).floatValue();
-        this.ySpeedAbsolute = c1107ab.m683a(str, "ySpeedAbsolute", Float.valueOf(0.0f)).floatValue();
-        this.xSpeedAbsoluteRandom = c1107ab.m683a(str, "xSpeedAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
-        this.ySpeedAbsoluteRandom = c1107ab.m683a(str, "ySpeedAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
-        this.scaleTo = c1107ab.m683a(str, "scaleTo", Float.valueOf(this.scaleTo)).floatValue();
-        this.scaleFrom = c1107ab.m683a(str, "scaleFrom", Float.valueOf(this.scaleFrom)).floatValue();
-        this.alpha = c1107ab.m683a(str, "alpha", Float.valueOf(this.alpha)).floatValue();
-        this.color = c1107ab.m681a(str, "color", Integer.valueOf(this.color)).intValue();
-        if (GameEngine.m1030at() && this.color != 0 && this.color != -1) {
+        this.spawnChance = abVar.a(str, "spawnChance", Float.valueOf(1.0f)).floatValue();
+        this.life = abVar.a(str, "life", Float.valueOf(200.0f)).floatValue();
+        this.lifeRandom = abVar.a(str, "lifeRandom", Float.valueOf(0.0f)).floatValue();
+        this.showInFog = abVar.a(str, "showInFog", (Boolean) false).booleanValue();
+        this.xOffsetRelative = abVar.a(str, "xOffsetRelative", Float.valueOf(0.0f)).floatValue();
+        this.yOffsetRelative = abVar.a(str, "yOffsetRelative", Float.valueOf(0.0f)).floatValue();
+        this.hOffset = abVar.a(str, "hOffset", Float.valueOf(0.0f)).floatValue();
+        this.alwayStartDirAtZero = abVar.a(str, "alwaysStartDirAtZero", "alwayStartDirAtZero", (Boolean) false).booleanValue();
+        this.pivotOffset = abVar.a(str, "pivotOffset", Float.valueOf(0.0f)).floatValue();
+        this.pivotOffsetRandom = abVar.a(str, "pivotOffsetRandom", Float.valueOf(0.0f)).floatValue();
+        this.dirOffset = abVar.a(str, "dirOffset", Float.valueOf(0.0f)).floatValue();
+        this.xOffsetRelativeRandom = abVar.a(str, "xOffsetRelativeRandom", Float.valueOf(0.0f)).floatValue();
+        this.yOffsetRelativeRandom = abVar.a(str, "yOffsetRelativeRandom", Float.valueOf(0.0f)).floatValue();
+        this.hOffsetRandom = abVar.a(str, "hOffsetRandom", Float.valueOf(0.0f)).floatValue();
+        this.dirOffsetRandom = abVar.a(str, "dirOffsetRandom", Float.valueOf(0.0f)).floatValue();
+        this.xOffsetAbsolute = abVar.a(str, "xOffsetAbsolute", Float.valueOf(0.0f)).floatValue();
+        this.yOffsetAbsolute = abVar.a(str, "yOffsetAbsolute", Float.valueOf(0.0f)).floatValue();
+        this.xOffsetAbsoluteRandom = abVar.a(str, "xOffsetAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
+        this.yOffsetAbsoluteRandom = abVar.a(str, "yOffsetAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
+        this.xSpeedRelative = abVar.a(str, "xSpeedRelative", Float.valueOf(0.0f)).floatValue();
+        this.ySpeedRelative = abVar.a(str, "ySpeedRelative", Float.valueOf(0.0f)).floatValue();
+        this.hSpeed = abVar.a(str, "hSpeed", Float.valueOf(0.0f)).floatValue();
+        this.dirSpeed = abVar.a(str, "dirSpeed", Float.valueOf(0.0f)).floatValue();
+        this.xSpeedRelativeRandom = abVar.a(str, "xSpeedRelativeRandom", Float.valueOf(0.0f)).floatValue();
+        this.ySpeedRelativeRandom = abVar.a(str, "ySpeedRelativeRandom", Float.valueOf(0.0f)).floatValue();
+        this.hSpeedRandom = abVar.a(str, "hSpeedRandom", Float.valueOf(0.0f)).floatValue();
+        this.dirSpeedRandom = abVar.a(str, "dirSpeedRandom", Float.valueOf(0.0f)).floatValue();
+        this.xSpeedAbsolute = abVar.a(str, "xSpeedAbsolute", Float.valueOf(0.0f)).floatValue();
+        this.ySpeedAbsolute = abVar.a(str, "ySpeedAbsolute", Float.valueOf(0.0f)).floatValue();
+        this.xSpeedAbsoluteRandom = abVar.a(str, "xSpeedAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
+        this.ySpeedAbsoluteRandom = abVar.a(str, "ySpeedAbsoluteRandom", Float.valueOf(0.0f)).floatValue();
+        this.scaleTo = abVar.a(str, "scaleTo", Float.valueOf(this.scaleTo)).floatValue();
+        this.scaleFrom = abVar.a(str, "scaleFrom", Float.valueOf(this.scaleFrom)).floatValue();
+        this.alpha = abVar.a(str, "alpha", Float.valueOf(this.alpha)).floatValue();
+        this.color = abVar.a(str, "color", Integer.valueOf(this.color)).intValue();
+        if (GameEngine.at() && this.color != 0 && this.color != -1) {
             this.cachedLightingColorFilter = new LightingColorFilter(this.color, 0);
         }
-        this.teamColorRatio = c1107ab.m683a(str, "teamColorRatio", Float.valueOf(this.teamColorRatio)).floatValue();
+        this.teamColorRatio = abVar.a(str, "teamColorRatio", Float.valueOf(this.teamColorRatio)).floatValue();
         if (this.teamColorRatio < 0.0f || this.teamColorRatio > 1.0f) {
             throw new RuntimeException(str + " teamColorRatio should be between 0-1 got:" + this.teamColorRatio);
         }
-        this.shadow = c1107ab.m685a(str, "shadow", (Boolean) false).booleanValue();
+        this.shadow = abVar.a(str, "shadow", (Boolean) false).booleanValue();
         this.drawLayer = (short) 2;
-        if (c1107ab.m685a(str, "drawUnderUnits", (Boolean) false).booleanValue()) {
+        if (abVar.a(str, "drawUnderUnits", (Boolean) false).booleanValue()) {
             this.drawLayer = (short) 1;
         }
-        String m666b = c1107ab.m666b(str, "drawType", (String) null);
-        if (m666b != null && !m666b.equals("normal")) {
-            if (m666b.equals("displacement")) {
+        String b = abVar.b(str, "drawType", (String) null);
+        if (b != null && !b.equals("normal")) {
+            if (b.equals("displacement")) {
                 this.drawLayer = (short) 3;
             } else {
-                throw new C0417bo("Unknown drawType: " + m666b);
+                throw new bo("Unknown drawType: " + b);
             }
         }
-        this.fadeInTime = c1107ab.m683a(str, "fadeInTime", Float.valueOf(0.0f)).floatValue();
-        this.fadeOut = c1107ab.m685a(str, "fadeOut", (Boolean) true).booleanValue();
-        this.delayedStartTimer = c1107ab.m668b(str, "delayedStartTimer", Float.valueOf(0.0f)).floatValue();
-        this.delayedStartTimerRandom = c1107ab.m683a(str, "delayedStartTimerRandom", Float.valueOf(0.0f)).floatValue();
-        this.frameIndex = c1107ab.m667b(str, "frameIndex", (Integer) 0).intValue();
-        this.frameIndexRandom = c1107ab.m667b(str, "frameIndexRandom", (Integer) 0).intValue();
-        String m666b2 = c1107ab.m666b(str, "stripIndex", "0");
-        this.stripIndex = gameEngine.f6329bR.m2375a(m666b2);
+        this.fadeInTime = abVar.a(str, "fadeInTime", Float.valueOf(0.0f)).floatValue();
+        this.fadeOut = abVar.a(str, "fadeOut", (Boolean) true).booleanValue();
+        this.delayedStartTimer = abVar.b(str, "delayedStartTimer", Float.valueOf(0.0f)).floatValue();
+        this.delayedStartTimerRandom = abVar.a(str, "delayedStartTimerRandom", Float.valueOf(0.0f)).floatValue();
+        this.frameIndex = abVar.b(str, "frameIndex", (Integer) 0).intValue();
+        this.frameIndexRandom = abVar.b(str, "frameIndexRandom", (Integer) 0).intValue();
+        String b2 = abVar.b(str, "stripIndex", "0");
+        this.stripIndex = gameEngine.bR.a(b2);
         if (this.stripIndex == -1) {
-            throw new RuntimeException("Failed to find stripIndex with name:" + m666b2);
+            throw new RuntimeException("Failed to find stripIndex with name:" + b2);
         }
-        this.attachedToUnit = c1107ab.m685a(str, "attachedToUnit", (Boolean) true).booleanValue();
-        this.liveAfterAttachedDies = c1107ab.m685a(str, "liveAfterAttachedDies", (Boolean) true).booleanValue();
-        this.atmospheric = c1107ab.m685a(str, "atmospheric", (Boolean) false).booleanValue();
-        this.physics = c1107ab.m685a(str, "physics", (Boolean) false).booleanValue();
-        this.physicsGravity = c1107ab.m683a(str, "physicsGravity", Float.valueOf(1.0f)).floatValue();
-        String m666b3 = c1107ab.m666b(str, "priority", (String) null);
-        if (m666b3 != null) {
+        this.attachedToUnit = abVar.a(str, "attachedToUnit", (Boolean) true).booleanValue();
+        this.liveAfterAttachedDies = abVar.a(str, "liveAfterAttachedDies", (Boolean) true).booleanValue();
+        this.atmospheric = abVar.a(str, "atmospheric", (Boolean) false).booleanValue();
+        this.physics = abVar.a(str, "physics", (Boolean) false).booleanValue();
+        this.physicsGravity = abVar.a(str, "physicsGravity", Float.valueOf(1.0f)).floatValue();
+        String b3 = abVar.b(str, "priority", (String) null);
+        if (b3 != null) {
             try {
-                this.priority = EnumC0763h.valueOf(m666b3);
+                this.priority = com.corrodinggames.rts.gameFramework.emitter.h.valueOf(b3);
             } catch (IllegalArgumentException e) {
-                throw new RuntimeException("Unknown priority:" + m666b3);
+                throw new RuntimeException("Unknown priority:" + b3);
             }
         }
-        int intValue = c1107ab.m667b(str, "total_frames", (Integer) 1).intValue();
+        int intValue = abVar.b(str, "total_frames", (Integer) 1).intValue();
         if (intValue < 1) {
-            throw new C0417bo("TOTAL_FRAMES cannot be: " + intValue + " (must be 1 or more)");
+            throw new bo("TOTAL_FRAMES cannot be: " + intValue + " (must be 1 or more)");
         }
-        C0970e m3547a = c0458l.m3547a(c1107ab, str, "image");
-        if (m3547a != null) {
-            this.imageStrip = new C0762g();
-            this.imageStrip.f4908i = m3547a;
-            this.imageStrip.f4901b = this.imageStrip.f4908i.mo387m() / intValue;
-            this.imageStrip.f4902c = this.imageStrip.f4908i.mo388l();
-            this.imageStrip.f4901b = c1107ab.m667b(str, "frame_width", Integer.valueOf(this.imageStrip.f4901b)).intValue();
-            this.imageStrip.f4902c = c1107ab.m667b(str, "frame_height", Integer.valueOf(this.imageStrip.f4902c)).intValue();
-            if (intValue == 1 && this.imageStrip.f4901b >= this.imageStrip.f4908i.mo387m()) {
-                this.imageStrip.f4910k = true;
-            } else if (this.imageStrip.f4902c < this.imageStrip.f4908i.mo388l()) {
-                this.imageStrip.f4907h = this.imageStrip.f4908i.mo387m() / this.imageStrip.f4901b;
-                if (this.imageStrip.f4907h < 1) {
-                    this.imageStrip.f4907h = 1;
+        com.corrodinggames.rts.gameFramework.unitAction.e a = lVar.a(abVar, str, "image");
+        if (a != null) {
+            this.imageStrip = new com.corrodinggames.rts.gameFramework.emitter.g();
+            this.imageStrip.i = a;
+            this.imageStrip.b = this.imageStrip.i.m() / intValue;
+            this.imageStrip.c = this.imageStrip.i.l();
+            this.imageStrip.b = abVar.b(str, "frame_width", Integer.valueOf(this.imageStrip.b)).intValue();
+            this.imageStrip.c = abVar.b(str, "frame_height", Integer.valueOf(this.imageStrip.c)).intValue();
+            if (intValue == 1 && this.imageStrip.b >= this.imageStrip.i.m()) {
+                this.imageStrip.k = true;
+            } else if (this.imageStrip.c < this.imageStrip.i.l()) {
+                this.imageStrip.h = this.imageStrip.i.m() / this.imageStrip.b;
+                if (this.imageStrip.h < 1) {
+                    this.imageStrip.h = 1;
                 }
             }
-            this.imageStrip.f4903d = 0;
-            this.imageStrip.f4904e = 0;
-            this.imageStrip.f4905f = this.imageStrip.f4901b;
-            this.imageStrip.f4906g = this.imageStrip.f4902c;
-            String m666b4 = c1107ab.m666b(str, "imageShadow", (String) null);
-            if (m666b4 != null) {
-                this.imageStrip.f4909j = C0349ag.m4017a(c0458l.f2946F, m666b4, c0458l.f2962ab, c0458l, str, "imageShadow");
+            this.imageStrip.d = 0;
+            this.imageStrip.e = 0;
+            this.imageStrip.f = this.imageStrip.b;
+            this.imageStrip.g = this.imageStrip.c;
+            String b4 = abVar.b(str, "imageShadow", (String) null);
+            if (b4 != null) {
+                this.imageStrip.j = ag.a(lVar.F, b4, lVar.ab, lVar, str, "imageShadow");
                 this.shadow = true;
             }
-            if (this.shadow && this.imageStrip.f4909j == null) {
-                throw new C0417bo("imageShadow is required if image and shadow:true is used");
+            if (this.shadow && this.imageStrip.j == null) {
+                throw new bo("imageShadow is required if image and shadow:true is used");
             }
         }
-        this.animateFrameStart = c1107ab.m667b(str, "animateFrameStart", (Integer) 0).intValue();
-        this.animateFrameStartRandomAdd = c1107ab.m667b(str, "animateFrameStartRandomAdd", (Integer) 0).intValue();
-        this.animateFrameEnd = c1107ab.m667b(str, "animateFrameEnd", (Integer) 0).intValue();
-        this.animateFramePingPong = c1107ab.m685a(str, "animateFramePingPong", (Boolean) false).booleanValue();
-        this.animateFrameLooping = c1107ab.m685a(str, "animateFrameLooping", (Boolean) false).booleanValue();
-        this.animateFrameSpeed = c1107ab.m668b(str, "animateFrameSpeed", Float.valueOf(0.5f)).floatValue();
-        this.animateFrameSpeedRandom = c1107ab.m668b(str, "animateFrameSpeedRandom", Float.valueOf(0.0f)).floatValue();
-        if (m3547a != null && ((this.imageStrip.f4901b >= this.imageStrip.f4908i.mo387m() || intValue != 1) && this.animateFrameEnd > intValue)) {
-            throw new C0417bo("animateFrameEnd:" + this.animateFrameEnd + " cannot be larger than TOTAL_FRAMES: " + intValue + " (when using custom image)");
+        this.animateFrameStart = abVar.b(str, "animateFrameStart", (Integer) 0).intValue();
+        this.animateFrameStartRandomAdd = abVar.b(str, "animateFrameStartRandomAdd", (Integer) 0).intValue();
+        this.animateFrameEnd = abVar.b(str, "animateFrameEnd", (Integer) 0).intValue();
+        this.animateFramePingPong = abVar.a(str, "animateFramePingPong", (Boolean) false).booleanValue();
+        this.animateFrameLooping = abVar.a(str, "animateFrameLooping", (Boolean) false).booleanValue();
+        this.animateFrameSpeed = abVar.b(str, "animateFrameSpeed", Float.valueOf(0.5f)).floatValue();
+        this.animateFrameSpeedRandom = abVar.b(str, "animateFrameSpeedRandom", Float.valueOf(0.0f)).floatValue();
+        if (a != null && ((this.imageStrip.b >= this.imageStrip.i.m() || intValue != 1) && this.animateFrameEnd > intValue)) {
+            throw new bo("animateFrameEnd:" + this.animateFrameEnd + " cannot be larger than TOTAL_FRAMES: " + intValue + " (when using custom image)");
         }
-        this.alsoEmitEffects = c0458l.m3526c(c1107ab.m666b(str, "alsoEmitEffects", (String) null));
-        this.alsoEmitEffectsOnDeath = c0458l.m3526c(c1107ab.m666b(str, "alsoEmitEffectsOnDeath", (String) null));
-        this.trailEffect = c0458l.m3526c(c1107ab.m666b(str, "trailEffect", (String) null));
-        this.trailEffectRate = c1107ab.m668b(str, "trailEffectRate", Float.valueOf(6.0f)).floatValue();
-        this.ifSpawnFailsEmitEffects = c0458l.m3526c(c1107ab.m666b(str, "ifSpawnFailsEmitEffects", (String) null));
-        this.alsoPlaySound = C0414bl.m3884a(c0458l, c1107ab.m666b(str, "alsoPlaySound", (String) null), (C0414bl) null);
+        this.alsoEmitEffects = lVar.c(abVar.b(str, "alsoEmitEffects", (String) null));
+        this.alsoEmitEffectsOnDeath = lVar.c(abVar.b(str, "alsoEmitEffectsOnDeath", (String) null));
+        this.trailEffect = lVar.c(abVar.b(str, "trailEffect", (String) null));
+        this.trailEffectRate = abVar.b(str, "trailEffectRate", Float.valueOf(6.0f)).floatValue();
+        this.ifSpawnFailsEmitEffects = lVar.c(abVar.b(str, "ifSpawnFailsEmitEffects", (String) null));
+        this.alsoPlaySound = bl.a(lVar, abVar.b(str, "alsoPlaySound", (String) null), (bl) null);
     }
 }

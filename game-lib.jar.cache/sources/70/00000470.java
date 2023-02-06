@@ -1,24 +1,13 @@
-package com.corrodinggames.rts.gameFramework.p031b;
+package com.corrodinggames.rts.gameFramework.b;
 
-import com.corrodinggames.rts.gameFramework.p031b.p032a.C0680b;
-
-/* renamed from: com.corrodinggames.rts.gameFramework.b.p */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/p.class */
-public class C0714p {
+public class p {
+    int a;
+    boolean b;
+    com.corrodinggames.rts.gameFramework.b.a.b c;
+    final /* synthetic */ n d;
 
-    /* renamed from: a */
-    int f4494a;
-
-    /* renamed from: b */
-    boolean f4495b;
-
-    /* renamed from: c */
-    C0680b f4496c;
-
-    /* renamed from: d */
-    final /* synthetic */ C0712n f4497d;
-
-    public C0714p(C0712n c0712n) {
-        this.f4497d = c0712n;
+    public p(n nVar) {
+        this.d = nVar;
     }
 }

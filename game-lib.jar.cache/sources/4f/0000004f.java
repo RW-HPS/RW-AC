@@ -1,12 +1,9 @@
-package android.p003os;
+package android.os;
 
-/* renamed from: android.os.IMessenger */
 /* loaded from: game-lib.jar:android/os/IMessenger.class */
 public interface IMessenger extends IInterface {
-    /* renamed from: a */
-    void m5111a(Message message);
+    void a(Message message);
 
-    /* renamed from: android.os.IMessenger$Stub */
     /* loaded from: game-lib.jar:android/os/IMessenger$Stub.class */
     public abstract class Stub extends Binder implements IMessenger {
         public Stub() {
@@ -25,11 +22,11 @@ public interface IMessenger extends IInterface {
                 case 1:
                     parcel.enforceInterface("android.os.IMessenger");
                     if (0 != parcel.readInt()) {
-                        message = (Message) Message.f293m.createFromParcel(parcel);
+                        message = (Message) Message.m.createFromParcel(parcel);
                     } else {
                         message = null;
                     }
-                    m5111a(message);
+                    a(message);
                     return true;
                 case 1598968902:
                     parcel2.writeString("android.os.IMessenger");

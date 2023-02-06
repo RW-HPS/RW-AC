@@ -16,124 +16,54 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-import net.rudp.p002a.ACKSegment;
-import net.rudp.p002a.DATSegment;
-import net.rudp.p002a.EAKSegment;
-import net.rudp.p002a.FINSegment;
-import net.rudp.p002a.NULSegment;
-import net.rudp.p002a.RSTSegment;
-import net.rudp.p002a.SYNSegment;
-import net.rudp.p002a.Segment;
-import net.rudp.p002a.Timer;
+import net.rudp.a.ACKSegment;
+import net.rudp.a.DATSegment;
+import net.rudp.a.EAKSegment;
+import net.rudp.a.FINSegment;
+import net.rudp.a.NULSegment;
+import net.rudp.a.RSTSegment;
+import net.rudp.a.SYNSegment;
+import net.rudp.a.Segment;
+import net.rudp.a.Timer;
 
 /* renamed from: a.a.h */
 /* loaded from: game-lib.jar:a/a/h.class */
 public class ReliableSocket extends Socket {
-
-    /* renamed from: c */
-    protected DatagramSocket f47c;
-
-    /* renamed from: d */
-    protected SocketAddress f48d;
-
-    /* renamed from: e */
-    protected ReliableSocketInputStream f49e;
-
-    /* renamed from: f */
-    protected ReliableSocketOutputStream f50f;
-
-    /* renamed from: a */
-    private byte[] f51a;
-
-    /* renamed from: b */
-    private boolean f52b;
-
-    /* renamed from: i */
-    private boolean f53i;
-
-    /* renamed from: j */
-    private boolean f54j;
-
-    /* renamed from: k */
-    private boolean f55k;
-
-    /* renamed from: l */
-    private int f56l;
-
-    /* renamed from: m */
-    private int f57m;
-
-    /* renamed from: n */
-    private boolean f58n;
-
-    /* renamed from: o */
-    private boolean f59o;
-
-    /* renamed from: p */
-    private int f60p;
-
-    /* renamed from: q */
-    private Object f61q;
-
-    /* renamed from: r */
-    private Object f62r;
-
-    /* renamed from: s */
-    private ArrayList f63s;
-
-    /* renamed from: t */
-    private ArrayList f64t;
-
-    /* renamed from: g */
-    protected ReliableSocketProfile f65g;
-
-    /* renamed from: u */
-    private ArrayList f66u;
-
-    /* renamed from: v */
-    private ArrayList f67v;
-
-    /* renamed from: w */
-    private ArrayList f68w;
-
-    /* renamed from: x */
-    private Object f69x;
-
-    /* renamed from: y */
-    private C0019i f70y;
-
-    /* renamed from: z */
-    private Thread f71z;
-
-    /* renamed from: A */
-    private int f72A;
-
-    /* renamed from: B */
-    private int f73B;
-
-    /* renamed from: C */
-    private int f74C;
-
-    /* renamed from: D */
-    private int f75D;
-
-    /* renamed from: h */
-    public boolean f76h;
-
-    /* renamed from: E */
-    private Timer f77E;
-
-    /* renamed from: F */
-    private Timer f78F;
-
-    /* renamed from: G */
-    private Timer f79G;
-
-    /* renamed from: H */
-    private Timer f80H;
-
-    /* renamed from: I */
-    private static final boolean f81I = Boolean.getBoolean("net.rudp.debug");
+    protected DatagramSocket c;
+    protected SocketAddress d;
+    protected ReliableSocketInputStream e;
+    protected ReliableSocketOutputStream f;
+    private byte[] a;
+    private boolean b;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private int l;
+    private int m;
+    private boolean n;
+    private boolean o;
+    private int p;
+    private Object q;
+    private Object r;
+    private ArrayList s;
+    private ArrayList t;
+    protected ReliableSocketProfile g;
+    private ArrayList u;
+    private ArrayList v;
+    private ArrayList w;
+    private Object x;
+    private i y;
+    private Thread z;
+    private int A;
+    private int B;
+    private int C;
+    private int D;
+    public boolean h;
+    private Timer E;
+    private Timer F;
+    private Timer G;
+    private Timer H;
+    private static final boolean I = Boolean.getBoolean("net.rudp.debug");
 
     public ReliableSocket() {
         this(new ReliableSocketProfile());
@@ -148,53 +78,52 @@ public class ReliableSocket extends Socket {
     }
 
     protected ReliableSocket(DatagramSocket datagramSocket, ReliableSocketProfile reliableSocketProfile) {
-        this.f52b = false;
-        this.f53i = false;
-        this.f54j = false;
-        this.f55k = true;
-        this.f56l = 0;
-        this.f57m = 0;
-        this.f58n = false;
-        this.f59o = false;
-        this.f60p = -1;
-        this.f61q = new Object();
-        this.f62r = new Object();
-        this.f63s = new ArrayList();
-        this.f64t = new ArrayList();
-        this.f65g = ReliableSocketProfile.f100a;
-        this.f66u = new ArrayList();
-        this.f67v = new ArrayList();
-        this.f68w = new ArrayList();
-        this.f69x = new Object();
-        this.f70y = new C0019i();
-        this.f72A = 32;
-        this.f73B = 32;
-        this.f76h = false;
-        this.f77E = new Timer("rudp-NullSegmentTimer", new RunnableC0022l(this));
-        this.f78F = new Timer("rudp-RetransmissionTimer", new RunnableC0024n(this));
-        this.f79G = new Timer("rudp-CumulativeAckTimer", new RunnableC0020j(this));
-        this.f80H = new Timer("rudp-KeepAliveTimer", new RunnableC0021k(this));
+        this.b = false;
+        this.i = false;
+        this.j = false;
+        this.k = true;
+        this.l = 0;
+        this.m = 0;
+        this.n = false;
+        this.o = false;
+        this.p = -1;
+        this.q = new Object();
+        this.r = new Object();
+        this.s = new ArrayList();
+        this.t = new ArrayList();
+        this.g = ReliableSocketProfile.a;
+        this.u = new ArrayList();
+        this.v = new ArrayList();
+        this.w = new ArrayList();
+        this.x = new Object();
+        this.y = new i();
+        this.A = 32;
+        this.B = 32;
+        this.h = false;
+        this.E = new Timer("rudp-NullSegmentTimer", new l(this));
+        this.F = new Timer("rudp-RetransmissionTimer", new n(this));
+        this.G = new Timer("rudp-CumulativeAckTimer", new j(this));
+        this.H = new Timer("rudp-KeepAliveTimer", new k(this));
         if (datagramSocket == null) {
             throw new NullPointerException("sock");
         }
-        mo5399a(datagramSocket, reliableSocketProfile);
+        a(datagramSocket, reliableSocketProfile);
     }
 
-    /* renamed from: a */
-    protected void mo5399a(DatagramSocket datagramSocket, ReliableSocketProfile reliableSocketProfile) {
-        this.f47c = datagramSocket;
-        this.f65g = reliableSocketProfile;
-        this.f74C = (this.f65g.m5340a() - 6) * 32;
-        this.f75D = (this.f65g.m5340a() - 6) * 32;
-        if (this.f71z == null) {
-            this.f71z = new C0023m(this);
-            this.f71z.start();
+    protected void a(DatagramSocket datagramSocket, ReliableSocketProfile reliableSocketProfile) {
+        this.c = datagramSocket;
+        this.g = reliableSocketProfile;
+        this.C = (this.g.a() - 6) * 32;
+        this.D = (this.g.a() - 6) * 32;
+        if (this.z == null) {
+            this.z = new m(this);
+            this.z.start();
         }
     }
 
     @Override // java.net.Socket
     public void bind(SocketAddress socketAddress) {
-        this.f47c.bind(socketAddress);
+        this.c.bind(socketAddress);
     }
 
     @Override // java.net.Socket
@@ -219,10 +148,10 @@ public class ReliableSocket extends Socket {
         if (!(socketAddress instanceof InetSocketAddress)) {
             throw new IllegalArgumentException("Unsupported address type");
         }
-        this.f48d = (InetSocketAddress) socketAddress;
-        m5380f();
-        this.f56l = 2;
-        m5382e(new SYNSegment(this.f70y.m5358a(new Random(System.currentTimeMillis()).nextInt(255)), this.f65g.m5337b(), this.f65g.m5340a(), this.f65g.m5331h(), this.f65g.m5330i(), this.f65g.m5332g(), this.f65g.m5336c(), this.f65g.m5335d(), this.f65g.m5334e(), this.f65g.m5333f()));
+        this.d = (InetSocketAddress) socketAddress;
+        f();
+        this.l = 2;
+        e(new SYNSegment(this.y.a(new Random(System.currentTimeMillis()).nextInt(255)), this.g.b(), this.g.a(), this.g.h(), this.g.i(), this.g.g(), this.g.c(), this.g.d(), this.g.e(), this.g.f()));
         boolean z = false;
         synchronized (this) {
             if (!isConnected()) {
@@ -241,27 +170,27 @@ public class ReliableSocket extends Socket {
                 }
             }
         }
-        if (this.f56l == 3) {
+        if (this.l == 3) {
             return;
         }
-        synchronized (this.f66u) {
-            this.f66u.clear();
-            this.f66u.notifyAll();
+        synchronized (this.u) {
+            this.u.clear();
+            this.u.notifyAll();
         }
-        this.f70y.m5346l();
-        this.f78F.m5426e();
-        switch (this.f56l) {
+        this.y.l();
+        this.F.e();
+        switch (this.l) {
             case 0:
             case 4:
-                this.f56l = 0;
+                this.l = 0;
                 throw new SocketException("Socket closed");
             case 1:
             case 3:
             default:
                 return;
             case 2:
-                m5367k();
-                this.f56l = 0;
+                k();
+                this.l = 0;
                 if (z) {
                     throw new SocketTimeoutException();
                 }
@@ -279,7 +208,7 @@ public class ReliableSocket extends Socket {
         if (!isConnected()) {
             return null;
         }
-        return ((InetSocketAddress) this.f48d).getAddress();
+        return ((InetSocketAddress) this.d).getAddress();
     }
 
     @Override // java.net.Socket
@@ -287,7 +216,7 @@ public class ReliableSocket extends Socket {
         if (!isConnected()) {
             return 0;
         }
-        return ((InetSocketAddress) this.f48d).getPort();
+        return ((InetSocketAddress) this.d).getPort();
     }
 
     @Override // java.net.Socket
@@ -298,24 +227,23 @@ public class ReliableSocket extends Socket {
         return new InetSocketAddress(getInetAddress(), getPort());
     }
 
-    /* renamed from: c */
-    public SocketAddress m5390c() {
-        return this.f48d;
+    public SocketAddress c() {
+        return this.d;
     }
 
     @Override // java.net.Socket
     public InetAddress getLocalAddress() {
-        return this.f47c.getLocalAddress();
+        return this.c.getLocalAddress();
     }
 
     @Override // java.net.Socket
     public int getLocalPort() {
-        return this.f47c.getLocalPort();
+        return this.c.getLocalPort();
     }
 
     @Override // java.net.Socket
     public SocketAddress getLocalSocketAddress() {
-        return this.f47c.getLocalSocketAddress();
+        return this.c.getLocalSocketAddress();
     }
 
     @Override // java.net.Socket
@@ -329,10 +257,10 @@ public class ReliableSocket extends Socket {
         if (isInputShutdown()) {
             throw new SocketException("Socket input is shutdown");
         }
-        if (this.f49e == null) {
-            this.f49e = new ReliableSocketInputStream(this);
+        if (this.e == null) {
+            this.e = new ReliableSocketInputStream(this);
         }
-        return this.f49e;
+        return this.e;
     }
 
     @Override // java.net.Socket
@@ -346,35 +274,34 @@ public class ReliableSocket extends Socket {
         if (isOutputShutdown()) {
             throw new SocketException("Socket output is shutdown");
         }
-        if (this.f50f == null) {
-            this.f50f = new ReliableSocketOutputStream(this);
+        if (this.f == null) {
+            this.f = new ReliableSocketOutputStream(this);
         }
-        return this.f50f;
+        return this.f;
     }
 
-    /* renamed from: d */
-    public void m5386d() {
-        this.f52b = true;
-        this.f56l = 0;
-        this.f47c.close();
+    public void d() {
+        this.b = true;
+        this.l = 0;
+        this.c.close();
     }
 
     @Override // java.net.Socket, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        synchronized (this.f61q) {
+        synchronized (this.q) {
             if (isClosed()) {
                 return;
             }
-            m5377g();
-            switch (this.f56l) {
+            g();
+            switch (this.l) {
                 case 0:
-                    this.f47c.close();
+                    this.c.close();
                     break;
                 case 1:
                 case 3:
                 case 4:
-                    m5405a(new FINSegment(this.f70y.m5359a()));
-                    m5383e();
+                    a(new FINSegment(this.y.a()));
+                    e();
                     break;
                 case 2:
                     synchronized (this) {
@@ -382,36 +309,36 @@ public class ReliableSocket extends Socket {
                     }
                     break;
             }
-            if (this.f56l != 0) {
-                this.f60p = this.f56l;
+            if (this.l != 0) {
+                this.p = this.l;
             }
-            this.f52b = true;
-            this.f56l = 0;
-            m5366l();
-            synchronized (this.f66u) {
-                this.f66u.notify();
+            this.b = true;
+            this.l = 0;
+            l();
+            synchronized (this.u) {
+                this.u.notify();
             }
-            synchronized (this.f68w) {
-                this.f68w.notify();
+            synchronized (this.w) {
+                this.w.notify();
             }
         }
     }
 
     @Override // java.net.Socket
     public boolean isBound() {
-        return this.f47c.isBound();
+        return this.c.isBound();
     }
 
     @Override // java.net.Socket
     public boolean isConnected() {
-        return this.f53i;
+        return this.i;
     }
 
     @Override // java.net.Socket
     public boolean isClosed() {
         boolean z;
-        synchronized (this.f61q) {
-            z = this.f52b;
+        synchronized (this.q) {
+            z = this.b;
         }
         return z;
     }
@@ -421,7 +348,7 @@ public class ReliableSocket extends Socket {
         if (i < 0) {
             throw new IllegalArgumentException("timeout < 0");
         }
-        this.f57m = i;
+        this.m = i;
     }
 
     @Override // java.net.Socket
@@ -435,7 +362,7 @@ public class ReliableSocket extends Socket {
         if (isConnected()) {
             return;
         }
-        this.f74C = i;
+        this.C = i;
     }
 
     @Override // java.net.Socket
@@ -443,7 +370,7 @@ public class ReliableSocket extends Socket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        return this.f74C;
+        return this.C;
     }
 
     @Override // java.net.Socket
@@ -457,7 +384,7 @@ public class ReliableSocket extends Socket {
         if (isConnected()) {
             return;
         }
-        this.f75D = i;
+        this.D = i;
     }
 
     @Override // java.net.Socket
@@ -465,7 +392,7 @@ public class ReliableSocket extends Socket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        return this.f75D;
+        return this.D;
     }
 
     @Override // java.net.Socket
@@ -482,15 +409,15 @@ public class ReliableSocket extends Socket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        if (!(this.f55k ^ z)) {
+        if (!(this.k ^ z)) {
             return;
         }
-        this.f55k = z;
+        this.k = z;
         if (isConnected()) {
-            if (this.f55k) {
-                this.f80H.m5430a(this.f65g.m5332g() * 6, this.f65g.m5332g() * 6);
+            if (this.k) {
+                this.H.a(this.g.g() * 6, this.g.g() * 6);
             } else {
-                this.f80H.m5426e();
+                this.H.e();
             }
         }
     }
@@ -500,7 +427,7 @@ public class ReliableSocket extends Socket {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
-        return this.f55k;
+        return this.k;
     }
 
     @Override // java.net.Socket
@@ -514,9 +441,9 @@ public class ReliableSocket extends Socket {
         if (isInputShutdown()) {
             throw new SocketException("Socket input is already shutdown");
         }
-        this.f58n = true;
-        synchronized (this.f69x) {
-            this.f69x.notify();
+        this.n = true;
+        synchronized (this.x) {
+            this.x.notify();
         }
     }
 
@@ -531,29 +458,27 @@ public class ReliableSocket extends Socket {
         if (isOutputShutdown()) {
             throw new SocketException("Socket output is already shutdown");
         }
-        this.f59o = true;
-        synchronized (this.f66u) {
-            this.f66u.notifyAll();
+        this.o = true;
+        synchronized (this.u) {
+            this.u.notifyAll();
         }
     }
 
     @Override // java.net.Socket
     public boolean isInputShutdown() {
-        return this.f58n;
+        return this.n;
     }
 
     @Override // java.net.Socket
     public boolean isOutputShutdown() {
-        return this.f59o;
+        return this.o;
     }
 
-    /* renamed from: a */
-    protected void m5398a(byte[] bArr, int i, int i2) {
-        m5397a(bArr, i, i2, false);
+    protected void a(byte[] bArr, int i, int i2) {
+        a(bArr, i, i2, false);
     }
 
-    /* renamed from: a */
-    public void m5397a(byte[] bArr, int i, int i2, boolean z) {
+    public void a(byte[] bArr, int i, int i2, boolean z) {
         if (isClosed()) {
             throw new SocketException("Socket is closed");
         }
@@ -565,31 +490,30 @@ public class ReliableSocket extends Socket {
         }
         int i3 = 0;
         while (i3 < i2) {
-            synchronized (this.f62r) {
-                while (this.f54j) {
+            synchronized (this.r) {
+                while (this.j) {
                     try {
-                        this.f62r.wait();
+                        this.r.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                int min = Math.min(this.f65g.m5340a() - 6, i2 - i3);
-                DATSegment dATSegment = new DATSegment(this.f70y.m5359a(), this.f70y.m5357b(), bArr, i + i3, min);
-                m5382e(dATSegment);
+                int min = Math.min(this.g.a() - 6, i2 - i3);
+                DATSegment dATSegment = new DATSegment(this.y.a(), this.y.b(), bArr, i + i3, min);
+                e(dATSegment);
                 if (z) {
-                    m5405a(dATSegment);
+                    a(dATSegment);
                 }
                 i3 += min;
             }
         }
     }
 
-    /* renamed from: b */
-    protected int m5391b(byte[] bArr, int i, int i2) {
+    protected int b(byte[] bArr, int i, int i2) {
         int i3 = 0;
-        synchronized (this.f69x) {
+        synchronized (this.x) {
             while (true) {
-                if (this.f68w.isEmpty()) {
+                if (this.w.isEmpty()) {
                     if (isClosed()) {
                         throw new SocketException("Socket is closed");
                     }
@@ -600,23 +524,23 @@ public class ReliableSocket extends Socket {
                         throw new SocketException("Connection reset");
                     }
                     try {
-                        if (this.f57m == 0) {
-                            this.f69x.wait();
+                        if (this.m == 0) {
+                            this.x.wait();
                         } else {
                             long currentTimeMillis = System.currentTimeMillis();
-                            this.f69x.wait(this.f57m);
-                            if (System.currentTimeMillis() - currentTimeMillis >= this.f57m) {
+                            this.x.wait(this.m);
+                            if (System.currentTimeMillis() - currentTimeMillis >= this.m) {
                                 throw new SocketTimeoutException();
                                 break;
                             }
                         }
                     } catch (InterruptedException e) {
-                        if (f81I) {
+                        if (I) {
                             e.printStackTrace();
                         }
                     }
                 } else {
-                    Iterator it = this.f68w.iterator();
+                    Iterator it = this.w.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -631,14 +555,14 @@ public class ReliableSocket extends Socket {
                                 return -1;
                             }
                         } else if (segment instanceof DATSegment) {
-                            byte[] m5454c = ((DATSegment) segment).m5454c();
-                            if (m5454c.length + i3 > i2) {
+                            byte[] c = ((DATSegment) segment).c();
+                            if (c.length + i3 > i2) {
                                 if (i3 <= 0) {
                                     throw new IOException("insufficient buffer space");
                                 }
                             } else {
-                                System.arraycopy(m5454c, 0, bArr, i + i3, m5454c.length);
-                                i3 += m5454c.length;
+                                System.arraycopy(c, 0, bArr, i + i3, c.length);
+                                i3 += c.length;
                                 it.remove();
                             }
                         }
@@ -651,183 +575,174 @@ public class ReliableSocket extends Socket {
         }
     }
 
-    /* renamed from: a */
-    public void m5401a(ReliableSocketStateListener reliableSocketStateListener) {
+    public void a(ReliableSocketStateListener reliableSocketStateListener) {
         if (reliableSocketStateListener == null) {
             throw new NullPointerException("stateListener");
         }
-        synchronized (this.f64t) {
-            if (!this.f64t.contains(reliableSocketStateListener)) {
-                this.f64t.add(reliableSocketStateListener);
+        synchronized (this.t) {
+            if (!this.t.contains(reliableSocketStateListener)) {
+                this.t.add(reliableSocketStateListener);
             }
         }
     }
 
-    /* renamed from: a */
-    private void m5405a(Segment segment) {
+    private void a(Segment segment) {
         if ((segment instanceof DATSegment) || (segment instanceof RSTSegment) || (segment instanceof FINSegment) || (segment instanceof NULSegment)) {
-            m5373h(segment);
+            h(segment);
         }
         if ((segment instanceof DATSegment) || (segment instanceof RSTSegment) || (segment instanceof FINSegment)) {
-            this.f77E.m5427d();
+            this.E.d();
         }
-        if (f81I) {
-            mo5400a("sent " + segment);
+        if (I) {
+            a("sent " + segment);
         }
-        m5385d(segment);
+        d(segment);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: i */
-    public Segment m5371i() {
-        Segment mo5410a = mo5410a();
-        if (mo5410a != null) {
-            if (f81I) {
-                mo5400a("recv " + mo5410a);
+    public Segment i() {
+        Segment a = a();
+        if (a != null) {
+            if (I) {
+                a("recv " + a);
             }
-            if ((mo5410a instanceof DATSegment) || (mo5410a instanceof NULSegment) || (mo5410a instanceof RSTSegment) || (mo5410a instanceof FINSegment) || (mo5410a instanceof SYNSegment)) {
-                this.f70y.m5355c();
+            if ((a instanceof DATSegment) || (a instanceof NULSegment) || (a instanceof RSTSegment) || (a instanceof FINSegment) || (a instanceof SYNSegment)) {
+                this.y.c();
             }
-            if (this.f55k) {
-                this.f80H.m5427d();
+            if (this.k) {
+                this.H.d();
             }
         }
-        return mo5410a;
+        return a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: e */
-    public void m5382e(Segment segment) {
-        synchronized (this.f66u) {
+    public void e(Segment segment) {
+        synchronized (this.u) {
             while (true) {
-                if (this.f66u.size() >= this.f72A || this.f70y.m5348j() > this.f65g.m5337b()) {
-                    if (this.f52b) {
+                if (this.u.size() >= this.A || this.y.j() > this.g.b()) {
+                    if (this.b) {
                         throw new SocketException("Socket is closed");
                     }
                     try {
-                        this.f66u.wait(10000L);
+                        this.u.wait(10000L);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 } else {
-                    this.f70y.m5349i();
-                    this.f66u.add(segment);
+                    this.y.i();
+                    this.u.add(segment);
                 }
             }
         }
-        if (this.f52b) {
+        if (this.b) {
             throw new SocketException("Socket is closed");
         }
         if (!(segment instanceof EAKSegment) && !(segment instanceof ACKSegment)) {
-            synchronized (this.f78F) {
-                if (this.f78F.m5428c()) {
-                    this.f78F.m5430a(this.f65g.m5331h(), this.f65g.m5331h());
+            synchronized (this.F) {
+                if (this.F.c()) {
+                    this.F.a(this.g.h(), this.g.h());
                 }
             }
         }
-        m5405a(segment);
+        a(segment);
         if (segment instanceof DATSegment) {
-            synchronized (this.f63s) {
-                Iterator it = this.f63s.iterator();
+            synchronized (this.s) {
+                Iterator it = this.s.iterator();
                 while (it.hasNext()) {
-                    ((InterfaceC0026p) it.next()).m5344a();
+                    ((p) it.next()).a();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: f */
-    public void m5379f(Segment segment) {
-        if (this.f65g.m5336c() > 0) {
-            segment.m5438b(segment.getRetxCounter() + 1);
+    public void f(Segment segment) {
+        if (this.g.c() > 0) {
+            segment.b(segment.getRetxCounter() + 1);
         }
-        if (this.f65g.m5336c() != 0 && segment.getRetxCounter() > this.f65g.m5336c()) {
-            m5365m();
+        if (this.g.c() != 0 && segment.getRetxCounter() > this.g.c()) {
+            m();
             return;
         }
-        m5405a(segment);
+        a(segment);
         if (segment instanceof DATSegment) {
-            synchronized (this.f63s) {
-                Iterator it = this.f63s.iterator();
+            synchronized (this.s) {
+                Iterator it = this.s.iterator();
                 while (it.hasNext()) {
-                    ((InterfaceC0026p) it.next()).m5343b();
+                    ((p) it.next()).b();
                 }
             }
         }
     }
 
-    /* renamed from: j */
-    private void m5369j() {
+    private void j() {
         if (isConnected()) {
-            this.f77E.m5426e();
-            if (this.f55k) {
-                this.f80H.m5426e();
+            this.E.e();
+            if (this.k) {
+                this.H.e();
             }
-            synchronized (this.f62r) {
-                this.f54j = false;
-                this.f62r.notify();
+            synchronized (this.r) {
+                this.j = false;
+                this.r.notify();
             }
         } else {
             synchronized (this) {
-                m5380f();
-                this.f53i = true;
-                this.f56l = 3;
+                f();
+                this.i = true;
+                this.l = 3;
                 notify();
             }
-            synchronized (this.f64t) {
-                Iterator it = this.f64t.iterator();
+            synchronized (this.t) {
+                Iterator it = this.t.iterator();
                 while (it.hasNext()) {
-                    ((ReliableSocketStateListener) it.next()).mo5329a(this);
+                    ((ReliableSocketStateListener) it.next()).a(this);
                 }
             }
         }
-        this.f77E.m5430a(0L, this.f65g.m5332g());
-        if (this.f55k) {
-            this.f80H.m5430a(this.f65g.m5332g() * 6, this.f65g.m5332g() * 6);
+        this.E.a(0L, this.g.g());
+        if (this.k) {
+            this.H.a(this.g.g() * 6, this.g.g() * 6);
         }
     }
 
-    /* renamed from: k */
-    private void m5367k() {
-        synchronized (this.f64t) {
-            Iterator it = this.f64t.iterator();
+    private void k() {
+        synchronized (this.t) {
+            Iterator it = this.t.iterator();
             while (it.hasNext()) {
-                ((ReliableSocketStateListener) it.next()).mo5328b(this);
+                ((ReliableSocketStateListener) it.next()).b(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: l */
-    public void m5366l() {
-        synchronized (this.f64t) {
-            Iterator it = this.f64t.iterator();
+    public void l() {
+        synchronized (this.t) {
+            Iterator it = this.t.iterator();
             while (it.hasNext()) {
-                ((ReliableSocketStateListener) it.next()).mo5327c(this);
+                ((ReliableSocketStateListener) it.next()).c(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: m */
-    public void m5365m() {
-        synchronized (this.f61q) {
+    public void m() {
+        synchronized (this.q) {
             if (isClosed()) {
                 return;
             }
-            switch (this.f56l) {
+            switch (this.l) {
                 case 1:
                 case 3:
                 case 4:
-                    this.f53i = false;
-                    synchronized (this.f66u) {
-                        this.f66u.notifyAll();
+                    this.i = false;
+                    synchronized (this.u) {
+                        this.u.notifyAll();
                     }
-                    synchronized (this.f69x) {
-                        this.f69x.notify();
+                    synchronized (this.x) {
+                        this.x.notify();
                     }
-                    m5383e();
+                    e();
                     break;
                 case 2:
                     synchronized (this) {
@@ -835,44 +750,42 @@ public class ReliableSocket extends Socket {
                     }
                     break;
             }
-            this.f56l = 0;
-            this.f52b = true;
-            synchronized (this.f64t) {
-                Iterator it = this.f64t.iterator();
+            this.l = 0;
+            this.b = true;
+            synchronized (this.t) {
+                Iterator it = this.t.iterator();
                 while (it.hasNext()) {
-                    ((ReliableSocketStateListener) it.next()).mo5326d(this);
+                    ((ReliableSocketStateListener) it.next()).d(this);
                 }
             }
         }
     }
 
-    /* renamed from: n */
-    private void m5364n() {
-        synchronized (this.f64t) {
-            Iterator it = this.f64t.iterator();
+    private void n() {
+        synchronized (this.t) {
+            Iterator it = this.t.iterator();
             while (it.hasNext()) {
-                ((ReliableSocketStateListener) it.next()).mo5325e(this);
+                ((ReliableSocketStateListener) it.next()).e(this);
             }
         }
     }
 
-    /* renamed from: a */
-    protected void m5406a(SYNSegment sYNSegment) {
-        switch (this.f56l) {
+    protected void a(SYNSegment sYNSegment) {
+        switch (this.l) {
             case 0:
-                this.f56l = 1;
-                this.f65g = new ReliableSocketProfile(this.f72A, this.f73B, sYNSegment.m5451e(), sYNSegment.m5452c(), sYNSegment.m5447i(), sYNSegment.m5446j(), sYNSegment.m5445k(), sYNSegment.m5444l(), sYNSegment.m5448h(), sYNSegment.m5450f(), sYNSegment.m5449g());
-                this.f70y.m5356b(sYNSegment.m5435m());
-                SYNSegment sYNSegment2 = new SYNSegment(this.f70y.m5358a(new Random(System.currentTimeMillis()).nextInt(255)), this.f65g.m5337b(), this.f65g.m5340a(), this.f65g.m5331h(), this.f65g.m5330i(), this.f65g.m5332g(), this.f65g.m5336c(), this.f65g.m5335d(), this.f65g.m5334e(), this.f65g.m5333f());
-                sYNSegment2.setAck(sYNSegment.m5435m());
-                m5382e(sYNSegment2);
+                this.l = 1;
+                this.g = new ReliableSocketProfile(this.A, this.B, sYNSegment.e(), sYNSegment.c(), sYNSegment.i(), sYNSegment.j(), sYNSegment.k(), sYNSegment.l(), sYNSegment.h(), sYNSegment.f(), sYNSegment.g());
+                this.y.b(sYNSegment.m());
+                SYNSegment sYNSegment2 = new SYNSegment(this.y.a(new Random(System.currentTimeMillis()).nextInt(255)), this.g.b(), this.g.a(), this.g.h(), this.g.i(), this.g.g(), this.g.c(), this.g.d(), this.g.e(), this.g.f());
+                sYNSegment2.setAck(sYNSegment.m());
+                e(sYNSegment2);
                 return;
             case 1:
-                synchronized (this.f66u) {
-                    Iterator it = this.f66u.iterator();
+                synchronized (this.u) {
+                    Iterator it = this.u.iterator();
                     while (it.hasNext()) {
                         try {
-                            m5379f((Segment) it.next());
+                            f((Segment) it.next());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -880,10 +793,10 @@ public class ReliableSocket extends Socket {
                 }
                 return;
             case 2:
-                this.f70y.m5356b(sYNSegment.m5435m());
-                this.f56l = 3;
-                m5363o();
-                m5369j();
+                this.y.b(sYNSegment.m());
+                this.l = 3;
+                o();
+                j();
                 return;
             default:
                 return;
@@ -891,23 +804,22 @@ public class ReliableSocket extends Socket {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: a */
-    public void m5407a(EAKSegment eAKSegment) {
-        int[] m5453c = eAKSegment.m5453c();
+    public void a(EAKSegment eAKSegment) {
+        int[] c = eAKSegment.c();
         int n = eAKSegment.getAck();
-        int i = m5453c[m5453c.length - 1];
-        synchronized (this.f66u) {
-            Iterator it = this.f66u.iterator();
+        int i = c[c.length - 1];
+        synchronized (this.u) {
+            Iterator it = this.u.iterator();
             while (it.hasNext()) {
                 Segment segment = (Segment) it.next();
-                if (m5408a(segment.m5435m(), n) <= 0) {
+                if (a(segment.m(), n) <= 0) {
                     it.remove();
                 } else {
                     int i2 = 0;
                     while (true) {
-                        if (i2 >= m5453c.length) {
+                        if (i2 >= c.length) {
                             break;
-                        } else if (m5408a(segment.m5435m(), m5453c[i2]) != 0) {
+                        } else if (a(segment.m(), c[i2]) != 0) {
                             i2++;
                         } else {
                             it.remove();
@@ -916,32 +828,31 @@ public class ReliableSocket extends Socket {
                     }
                 }
             }
-            Iterator it2 = this.f66u.iterator();
+            Iterator it2 = this.u.iterator();
             while (it2.hasNext()) {
                 Segment segment2 = (Segment) it2.next();
-                if (m5408a(n, segment2.m5435m()) < 0 && m5408a(i, segment2.m5435m()) > 0) {
+                if (a(n, segment2.m()) < 0 && a(i, segment2.m()) > 0) {
                     try {
-                        m5379f(segment2);
+                        f(segment2);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            this.f66u.notifyAll();
+            this.u.notifyAll();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: g */
-    public void m5376g(Segment segment) {
+    public void g(Segment segment) {
         if (segment instanceof RSTSegment) {
-            synchronized (this.f62r) {
-                this.f54j = true;
+            synchronized (this.r) {
+                this.j = true;
             }
-            m5364n();
+            n();
         }
         if (segment instanceof FINSegment) {
-            switch (this.f56l) {
+            switch (this.l) {
                 case 0:
                     break;
                 case 2:
@@ -950,65 +861,65 @@ public class ReliableSocket extends Socket {
                     }
                     break;
                 default:
-                    this.f56l = 4;
+                    this.l = 4;
                     break;
             }
         }
         boolean z = false;
-        synchronized (this.f69x) {
-            if (m5408a(segment.m5435m(), this.f70y.m5357b()) > 0) {
-                if (m5408a(segment.m5435m(), m5395b(this.f70y.m5357b())) == 0) {
+        synchronized (this.x) {
+            if (a(segment.m(), this.y.b()) > 0) {
+                if (a(segment.m(), b(this.y.b())) == 0) {
                     z = true;
-                    if (this.f68w.size() == 0 || this.f68w.size() + this.f67v.size() < this.f73B) {
-                        this.f70y.m5356b(segment.m5435m());
+                    if (this.w.size() == 0 || this.w.size() + this.v.size() < this.B) {
+                        this.y.b(segment.m());
                         if ((segment instanceof DATSegment) || (segment instanceof RSTSegment) || (segment instanceof FINSegment)) {
-                            this.f68w.add(segment);
+                            this.w.add(segment);
                         }
                         if (segment instanceof DATSegment) {
-                            synchronized (this.f63s) {
-                                Iterator it = this.f63s.iterator();
+                            synchronized (this.s) {
+                                Iterator it = this.s.iterator();
                                 while (it.hasNext()) {
-                                    ((InterfaceC0026p) it.next()).m5342c();
+                                    ((p) it.next()).c();
                                 }
                             }
                         }
-                        m5360r();
+                        r();
                     }
-                } else if (this.f68w.size() + this.f67v.size() < this.f73B) {
+                } else if (this.w.size() + this.v.size() < this.B) {
                     boolean z2 = false;
-                    for (int i = 0; i < this.f67v.size() && !z2; i++) {
-                        int m5408a = m5408a(segment.m5435m(), ((Segment) this.f67v.get(i)).m5435m());
-                        if (m5408a == 0) {
+                    for (int i = 0; i < this.v.size() && !z2; i++) {
+                        int a = a(segment.m(), ((Segment) this.v.get(i)).m());
+                        if (a == 0) {
                             z2 = true;
-                        } else if (m5408a < 0) {
-                            this.f67v.add(i, segment);
+                        } else if (a < 0) {
+                            this.v.add(i, segment);
                             z2 = true;
                         }
                     }
                     if (!z2) {
-                        this.f67v.add(segment);
+                        this.v.add(segment);
                     }
-                    this.f70y.m5352f();
+                    this.y.f();
                     if (segment instanceof DATSegment) {
-                        synchronized (this.f63s) {
-                            Iterator it2 = this.f63s.iterator();
+                        synchronized (this.s) {
+                            Iterator it2 = this.s.iterator();
                             while (it2.hasNext()) {
-                                ((InterfaceC0026p) it2.next()).m5341d();
+                                ((p) it2.next()).d();
                             }
                         }
                     }
                 }
             }
             if (z && ((segment instanceof RSTSegment) || (segment instanceof NULSegment) || (segment instanceof FINSegment))) {
-                m5363o();
-            } else if (this.f70y.m5351g() > 0 && (this.f65g.m5334e() == 0 || this.f70y.m5351g() > this.f65g.m5334e())) {
-                m5362p();
-            } else if (this.f70y.m5354d() > 0 && (this.f65g.m5335d() == 0 || this.f70y.m5354d() > this.f65g.m5335d())) {
-                m5361q();
+                o();
+            } else if (this.y.g() > 0 && (this.g.e() == 0 || this.y.g() > this.g.e())) {
+                p();
+            } else if (this.y.d() > 0 && (this.g.d() == 0 || this.y.d() > this.g.d())) {
+                q();
             } else {
-                synchronized (this.f79G) {
-                    if (this.f79G.m5428c()) {
-                        this.f79G.m5431a(this.f65g.m5330i());
+                synchronized (this.G) {
+                    if (this.G.c()) {
+                        this.G.a(this.g.i());
                     }
                 }
             }
@@ -1016,92 +927,86 @@ public class ReliableSocket extends Socket {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: o */
-    public void m5363o() {
-        synchronized (this.f69x) {
-            if (!this.f67v.isEmpty()) {
-                m5362p();
+    public void o() {
+        synchronized (this.x) {
+            if (!this.v.isEmpty()) {
+                p();
             } else {
-                m5361q();
+                q();
             }
         }
     }
 
-    /* renamed from: p */
-    private void m5362p() {
-        synchronized (this.f69x) {
-            if (this.f67v.isEmpty()) {
+    private void p() {
+        synchronized (this.x) {
+            if (this.v.isEmpty()) {
                 return;
             }
-            this.f70y.m5353e();
-            this.f70y.m5350h();
-            int[] iArr = new int[this.f67v.size()];
+            this.y.e();
+            this.y.h();
+            int[] iArr = new int[this.v.size()];
             for (int i = 0; i < iArr.length; i++) {
-                iArr[i] = ((Segment) this.f67v.get(i)).m5435m();
+                iArr[i] = ((Segment) this.v.get(i)).m();
             }
             try {
-                int m5357b = this.f70y.m5357b();
-                m5405a((Segment) new EAKSegment(m5395b(m5357b), m5357b, iArr));
+                int b = this.y.b();
+                a((Segment) new EAKSegment(b(b), b, iArr));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    /* renamed from: q */
-    private void m5361q() {
-        if (this.f70y.m5353e() == 0) {
+    private void q() {
+        if (this.y.e() == 0) {
             return;
         }
         try {
-            int m5357b = this.f70y.m5357b();
-            m5405a(new ACKSegment(m5395b(m5357b), m5357b));
+            int b = this.y.b();
+            a(new ACKSegment(b(b), b));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /* renamed from: h */
-    private void m5373h(Segment segment) {
-        if (this.f70y.m5353e() == 0) {
+    private void h(Segment segment) {
+        if (this.y.e() == 0) {
             return;
         }
-        segment.setAck(this.f70y.m5357b());
+        segment.setAck(this.y.b());
     }
 
-    /* renamed from: b */
-    protected boolean m5394b(Segment segment) {
+    protected boolean b(Segment segment) {
         int ack = segment.getAck();
         if (ack < 0) {
             return false;
         }
-        Iterator it = this.f66u.iterator();
+        Iterator it = this.u.iterator();
         while (it.hasNext()) {
-            if (m5408a(((Segment) it.next()).m5435m(), ack) <= 0) {
+            if (a(((Segment) it.next()).m(), ack) <= 0) {
                 return true;
             }
         }
         return false;
     }
 
-    /* renamed from: c */
-    protected void m5389c(Segment segment) {
+    protected void c(Segment segment) {
         int ack = segment.getAck();
         if (ack < 0) {
             return;
         }
-        this.f70y.m5347k();
-        synchronized (this.f66u) {
-            Iterator it = this.f66u.iterator();
+        this.y.k();
+        synchronized (this.u) {
+            Iterator it = this.u.iterator();
             while (it.hasNext()) {
-                if (m5408a(((Segment) it.next()).m5435m(), ack) <= 0) {
+                if (a(((Segment) it.next()).m(), ack) <= 0) {
                     it.remove();
                 }
             }
-            if (this.f56l == 1) {
+            if (this.l == 1) {
                 boolean z = false;
-                if (!this.f66u.isEmpty()) {
-                    Iterator it2 = this.f66u.iterator();
+                if (!this.u.isEmpty()) {
+                    Iterator it2 = this.u.iterator();
                     while (it2.hasNext()) {
                         if (((Segment) it2.next()) instanceof SYNSegment) {
                             z = true;
@@ -1109,42 +1014,40 @@ public class ReliableSocket extends Socket {
                     }
                 }
                 if (z) {
-                    mo5400a("Bad first ack: " + ack);
+                    a("Bad first ack: " + ack);
                     return;
                 } else {
-                    this.f56l = 3;
-                    m5369j();
+                    this.l = 3;
+                    j();
                 }
             }
-            if (this.f66u.isEmpty()) {
-                this.f78F.m5426e();
+            if (this.u.isEmpty()) {
+                this.F.e();
             }
-            this.f66u.notifyAll();
+            this.u.notifyAll();
         }
     }
 
-    /* renamed from: r */
-    private void m5360r() {
-        synchronized (this.f69x) {
-            Iterator it = this.f67v.iterator();
+    private void r() {
+        synchronized (this.x) {
+            Iterator it = this.v.iterator();
             while (it.hasNext()) {
                 Segment segment = (Segment) it.next();
-                if (m5408a(segment.m5435m(), m5395b(this.f70y.m5357b())) == 0) {
-                    this.f70y.m5356b(segment.m5435m());
+                if (a(segment.m(), b(this.y.b())) == 0) {
+                    this.y.b(segment.m());
                     if ((segment instanceof DATSegment) || (segment instanceof RSTSegment) || (segment instanceof FINSegment)) {
-                        this.f68w.add(segment);
+                        this.w.add(segment);
                     }
                     it.remove();
                 }
             }
-            this.f69x.notify();
+            this.x.notify();
         }
     }
 
-    /* renamed from: d */
-    protected void m5385d(Segment segment) {
+    protected void d(Segment segment) {
         try {
-            this.f47c.send(new DatagramPacket(segment.getBytes(), segment.mo5439b(), this.f48d));
+            this.c.send(new DatagramPacket(segment.getBytes(), segment.b(), this.d));
         } catch (IOException e) {
             if (!isClosed()) {
                 e.printStackTrace();
@@ -1152,14 +1055,13 @@ public class ReliableSocket extends Socket {
         }
     }
 
-    /* renamed from: a */
-    protected Segment mo5410a() {
+    protected Segment a() {
         try {
-            if (this.f51a == null) {
-                this.f51a = new byte[65535];
+            if (this.a == null) {
+                this.a = new byte[65535];
             }
-            DatagramPacket datagramPacket = new DatagramPacket(this.f51a, this.f51a.length);
-            this.f47c.receive(datagramPacket);
+            DatagramPacket datagramPacket = new DatagramPacket(this.a, this.a.length);
+            this.c.receive(datagramPacket);
             return Segment.parse(datagramPacket.getData(), 0, datagramPacket.getLength());
         } catch (IOException e) {
             if (!isClosed()) {
@@ -1170,30 +1072,28 @@ public class ReliableSocket extends Socket {
         }
     }
 
-    /* renamed from: b */
-    protected void mo5396b() {
-        this.f47c.close();
+    protected void b() {
+        this.c.close();
     }
 
-    /* renamed from: e */
-    protected void m5383e() {
-        this.f77E.m5426e();
-        this.f80H.m5426e();
-        this.f56l = 4;
+    protected void e() {
+        this.E.e();
+        this.H.e();
+        this.l = 4;
         Thread thread = new Thread() { // from class: a.a.h.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                ReliableSocket.this.f80H.m5425f();
-                ReliableSocket.this.f77E.m5425f();
+                ReliableSocket.this.H.f();
+                ReliableSocket.this.E.f();
                 try {
-                    Thread.sleep(ReliableSocket.this.f65g.m5332g() * 2);
+                    Thread.sleep(ReliableSocket.this.g.g() * 2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                ReliableSocket.this.f78F.m5425f();
-                ReliableSocket.this.f79G.m5425f();
-                ReliableSocket.this.mo5396b();
-                ReliableSocket.this.m5366l();
+                ReliableSocket.this.F.f();
+                ReliableSocket.this.G.f();
+                ReliableSocket.this.b();
+                ReliableSocket.this.l();
             }
         };
         thread.setName("ReliableSocket-Closing");
@@ -1201,19 +1101,16 @@ public class ReliableSocket extends Socket {
         thread.start();
     }
 
-    /* renamed from: a */
-    protected synchronized void mo5400a(String str) {
+    protected synchronized void a(String str) {
         System.out.println(getLocalPort() + ": " + str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: b */
-    public static int m5395b(int i) {
+    public static int b(int i) {
         return (i + 1) % 255;
     }
 
-    /* renamed from: a */
-    private int m5408a(int i, int i2) {
+    private int a(int i, int i2) {
         if (i == i2) {
             return 0;
         }
@@ -1226,25 +1123,23 @@ public class ReliableSocket extends Socket {
         return 1;
     }
 
-    /* renamed from: f */
-    public synchronized void m5380f() {
-        if (!this.f76h) {
-            this.f76h = true;
-            this.f77E.m5432a();
-            this.f78F.m5432a();
-            this.f79G.m5432a();
-            this.f80H.m5432a();
+    public synchronized void f() {
+        if (!this.h) {
+            this.h = true;
+            this.E.a();
+            this.F.a();
+            this.G.a();
+            this.H.a();
         }
     }
 
-    /* renamed from: g */
-    public synchronized void m5377g() {
-        if (this.f76h) {
-            this.f76h = false;
-            this.f78F.m5425f();
-            this.f79G.m5425f();
-            this.f80H.m5425f();
-            this.f77E.m5425f();
+    public synchronized void g() {
+        if (this.h) {
+            this.h = false;
+            this.F.f();
+            this.G.f();
+            this.H.f();
+            this.E.f();
         }
     }
 }

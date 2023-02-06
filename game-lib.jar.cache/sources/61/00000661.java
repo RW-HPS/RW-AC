@@ -1,8 +1,8 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
-import com.corrodinggames.rts.java.audio.p051a.C1165a;
-import com.corrodinggames.rts.java.audio.p051a.C1167c;
-import com.corrodinggames.rts.java.audio.p051a.C1183s;
+import com.corrodinggames.rts.java.audio.a.a;
+import com.corrodinggames.rts.java.audio.a.c;
+import com.corrodinggames.rts.java.audio.a.s;
 import java.io.EOFException;
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -14,9 +14,9 @@ public class Wav {
     public class Music extends OpenALMusic {
         private WavInputStream input;
 
-        public Music(OpenALAudio openALAudio, C1165a c1165a) {
-            super(openALAudio, c1165a);
-            this.input = new WavInputStream(c1165a);
+        public Music(OpenALAudio openALAudio, a aVar) {
+            super(openALAudio, aVar);
+            this.input = new WavInputStream(aVar);
             if (openALAudio.noDevice) {
                 return;
             }
@@ -32,20 +32,20 @@ public class Wav {
             try {
                 return this.input.read(bArr);
             } catch (IOException e) {
-                throw new C1167c("Error reading WAV file: " + this.file, e);
+                throw new c("Error reading WAV file: " + this.file, e);
             }
         }
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         public void reset() {
-            C1183s.m307a(this.input);
+            s.a(this.input);
             this.input = null;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/lwjgl/Wav$Sound.class */
     public class Sound extends OpenALSound {
-        public Sound(OpenALAudio openALAudio, C1165a c1165a) {
+        public Sound(OpenALAudio openALAudio, a aVar) {
             super(openALAudio);
             if (openALAudio.noDevice) {
                 return;
@@ -53,14 +53,14 @@ public class Wav {
             WavInputStream wavInputStream = null;
             try {
                 try {
-                    wavInputStream = new WavInputStream(c1165a);
-                    setup(C1183s.m306a(wavInputStream, wavInputStream.dataRemaining), wavInputStream.channels, wavInputStream.sampleRate);
-                    C1183s.m307a(wavInputStream);
+                    wavInputStream = new WavInputStream(aVar);
+                    setup(s.a(wavInputStream, wavInputStream.dataRemaining), wavInputStream.channels, wavInputStream.sampleRate);
+                    s.a(wavInputStream);
                 } catch (IOException e) {
-                    throw new C1167c("Error reading WAV file: " + c1165a, e);
+                    throw new c("Error reading WAV file: " + aVar, e);
                 }
             } catch (Throwable th) {
-                C1183s.m307a(wavInputStream);
+                s.a(wavInputStream);
                 throw th;
             }
         }
@@ -72,16 +72,16 @@ public class Wav {
         public int sampleRate;
         public int dataRemaining;
 
-        public WavInputStream(C1165a c1165a) {
-            super(c1165a.m383a());
+        public WavInputStream(a aVar) {
+            super(aVar.a());
             String str;
             try {
                 if (read() != 82 || read() != 73 || read() != 70 || read() != 70) {
-                    throw new C1167c("RIFF header not found: " + c1165a);
+                    throw new c("RIFF header not found: " + aVar);
                 }
                 skipFully(4);
                 if (read() != 87 || read() != 65 || read() != 86 || read() != 69) {
-                    throw new C1167c("Invalid wave file header: " + c1165a);
+                    throw new c("Invalid wave file header: " + aVar);
                 }
                 int seekToChunk = seekToChunk('f', 'm', 't', ' ');
                 int read = (read() & 255) | ((read() & 255) << 8);
@@ -106,23 +106,23 @@ public class Wav {
                             str = "Unknown";
                             break;
                     }
-                    throw new C1167c("WAV files must be PCM, unsupported format: " + str + " (" + read + ")");
+                    throw new c("WAV files must be PCM, unsupported format: " + str + " (" + read + ")");
                 }
                 this.channels = (read() & 255) | ((read() & 255) << 8);
                 if (this.channels != 1 && this.channels != 2) {
-                    throw new C1167c("WAV files must have 1 or 2 channels: " + this.channels);
+                    throw new c("WAV files must have 1 or 2 channels: " + this.channels);
                 }
                 this.sampleRate = (read() & 255) | ((read() & 255) << 8) | ((read() & 255) << 16) | ((read() & 255) << 24);
                 skipFully(6);
                 int read2 = (read() & 255) | ((read() & 255) << 8);
                 if (read2 != 16) {
-                    throw new C1167c("WAV files must have 16 bits per sample: " + read2);
+                    throw new c("WAV files must have 16 bits per sample: " + read2);
                 }
                 skipFully(seekToChunk - 16);
                 this.dataRemaining = seekToChunk('d', 'a', 't', 'a');
             } catch (Throwable th) {
-                C1183s.m307a(this);
-                throw new C1167c("Error reading WAV file: " + c1165a, th);
+                s.a(this);
+                throw new c("Error reading WAV file: " + aVar, th);
             }
         }
 

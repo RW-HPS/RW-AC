@@ -1,8 +1,7 @@
 package com.corrodinggames.rts.game.units.custom;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/d.class */
-enum EnumC0427d {
+enum d {
     frame,
     scale,
     legX,

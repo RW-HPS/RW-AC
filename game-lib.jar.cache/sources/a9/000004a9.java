@@ -1,10 +1,10 @@
 package com.corrodinggames.rts.gameFramework.file;
 
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1112ag;
-import com.corrodinggames.rts.gameFramework.utility.C1118al;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.utility.ag;
+import com.corrodinggames.rts.gameFramework.utility.al;
+import com.corrodinggames.rts.gameFramework.utility.j;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,74 +15,66 @@ import java.io.UnsupportedEncodingException;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.e.g */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/e/g.class */
-public class C0771g {
+public class g {
+    public static boolean a = true;
 
-    /* renamed from: a */
-    public static boolean f4967a = true;
-
-    /* renamed from: a */
-    public static final String m2237a(char c) {
+    public static final String a(char c) {
         return String.valueOf((int) c);
     }
 
-    /* renamed from: a */
-    public static String m2235a(String str, char c) {
-        if (C0773f.m2158b(str, c)) {
-            str = C0773f.m2181a(str, String.valueOf(c), "%" + m2237a(c));
+    public static String a(String str, char c) {
+        if (f.b(str, c)) {
+            str = f.a(str, String.valueOf(c), "%" + a(c));
         }
         return str;
     }
 
-    /* renamed from: a */
-    public static String m2236a(String str) {
+    public static String a(String str) {
         if (str == null) {
             return "null";
         }
-        String m2235a = m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(m2235a(C0773f.m2181a(str, "%", "%%"), '/'), '\\'), ':'), '\"'), '\''), '|'), '?'), '*'), '<'), '>'), (char) 0);
-        if (m2235a.contains("/")) {
+        String a2 = a(a(a(a(a(a(a(a(a(a(a(f.a(str, "%", "%%"), '/'), '\\'), ':'), '\"'), '\''), '|'), '?'), '*'), '<'), '>'), (char) 0);
+        if (a2.contains("/")) {
             throw new IllegalArgumentException();
         }
-        if (m2235a.contains("\\")) {
+        if (a2.contains("\\")) {
             throw new IllegalArgumentException();
         }
-        return m2235a;
+        return a2;
     }
 
-    /* renamed from: a */
-    public static String m2231a(String str, String str2, boolean z) {
-        String str3 = C0765a.m2284e() + m2236a(str) + ".cachedata";
+    public static String a(String str, String str2, boolean z) {
+        String str3 = a.e() + a(str) + ".cachedata";
         if (z) {
             File file = new File(str3);
             if (!file.isDirectory() && !file.mkdirs()) {
-                GameEngine.m5460e("Failed to create folder for:" + file.getAbsolutePath());
+                GameEngine.m5e("Failed to create folder for:" + file.getAbsolutePath());
             }
         }
-        return str3 + "/" + m2236a(str2);
+        return str3 + "/" + a(str2);
     }
 
-    /* renamed from: a */
-    public static boolean m2232a(String str, String str2, String str3) {
+    public static boolean a(String str, String str2, String str3) {
         try {
-            return m2233a(str, str2, new ByteArrayInputStream(str3.getBytes("UTF-8")));
+            return a(str, str2, new ByteArrayInputStream(str3.getBytes("UTF-8")));
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
 
-    /* renamed from: a */
-    public static boolean m2233a(String str, String str2, InputStream inputStream) {
+    public static boolean a(String str, String str2, InputStream inputStream) {
         try {
-            String m2231a = m2231a(str, str2, true);
-            File file = new File(m2231a);
-            File file2 = new File(m2231a + ".tmp");
+            String a2 = a(str, str2, true);
+            File file = new File(a2);
+            File file2 = new File(a2 + ".tmp");
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            C0773f.m2192a(inputStream, fileOutputStream);
+            f.a(inputStream, fileOutputStream);
             fileOutputStream.close();
-            if (!C0765a.m2301a(file2, file)) {
-                GameEngine.print("AddToCache: Failed to rename to final file: " + m2231a);
+            if (!a.a(file2, file)) {
+                GameEngine.print("AddToCache: Failed to rename to final file: " + a2);
                 return false;
-            } else if (f4967a) {
-                GameEngine.m5460e("Wrote cache file at: " + file.getAbsolutePath());
+            } else if (a) {
+                GameEngine.m5e("Wrote cache file at: " + file.getAbsolutePath());
                 return true;
             } else {
                 return true;
@@ -93,10 +85,9 @@ public class C0771g {
         }
     }
 
-    /* renamed from: a */
-    public static FileInputStream m2234a(String str, String str2) {
+    public static FileInputStream a(String str, String str2) {
         try {
-            File file = new File(m2231a(str, str2, false));
+            File file = new File(a(str, str2, false));
             if (!file.exists()) {
                 return null;
             }
@@ -108,64 +99,61 @@ public class C0771g {
         }
     }
 
-    /* renamed from: b */
-    public static String m2230b(String str, String str2) {
-        FileInputStream m2234a = m2234a(str, str2);
-        if (m2234a == null) {
+    public static String b(String str, String str2) {
+        FileInputStream a2 = a(str, str2);
+        if (a2 == null) {
             return null;
         }
-        return C0773f.m2193a(m2234a);
+        return f.a(a2);
     }
 
-    /* renamed from: c */
-    public static void m2228c(String str, String str2) {
-        String m2231a = m2231a(str, str2, false);
-        File file = new File(m2231a);
+    public static void c(String str, String str2) {
+        String a2 = a(str, str2, false);
+        File file = new File(a2);
         if (file.exists() && !file.delete()) {
-            GameEngine.m990g("Failed to delete: " + m2231a);
+            GameEngine.g("Failed to delete: " + a2);
         }
     }
 
-    /* renamed from: b */
-    private static C0772h m2229b(String str, String str2, String str3) {
-        String[] m576b;
+    private static h b(String str, String str2, String str3) {
+        String[] b;
         String str4 = str2 + ".data";
-        String m2230b = m2230b(str, str2 + ".meta");
-        if (m2230b != null && (m576b = C1118al.m576b(m2230b, ":")) != null) {
-            Long m2103m = C0773f.m2103m(m576b[0]);
-            long m2274m = C0765a.m2274m(str2);
-            String str5 = m576b[1];
-            if (m2103m == null) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Bad meta data for: " + str2);
+        String b2 = b(str, str2 + ".meta");
+        if (b2 != null && (b = al.b(b2, ":")) != null) {
+            Long m = f.m(b[0]);
+            long m2 = a.m(str2);
+            String str5 = b[1];
+            if (m == null) {
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Bad meta data for: " + str2);
                     return null;
                 }
                 return null;
-            } else if (m2103m.longValue() != m2274m) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Stale timestamp for: " + str2 + " (" + m2103m + "!=" + m2274m + ")");
+            } else if (m.longValue() != m2) {
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Stale timestamp for: " + str2 + " (" + m + "!=" + m2 + ")");
                     return null;
                 }
                 return null;
             } else if (str5.startsWith("null")) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Cache hit (null-type) for: " + str2 + " (" + m2103m + "!=" + m2274m + ")");
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Cache hit (null-type) for: " + str2 + " (" + m + "!=" + m2 + ")");
                 }
-                return new C0772h(null);
+                return new h(null);
             } else if (!str5.startsWith(str3)) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Unsupported type " + str5 + " for: " + str2 + " expected: " + str3);
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Unsupported type " + str5 + " for: " + str2 + " expected: " + str3);
                 }
-                return new C0772h(null);
+                return new h(null);
             } else {
-                FileInputStream m2234a = m2234a(str, str4);
-                if (m2234a != null) {
-                    if (f4967a) {
-                        GameEngine.m5460e("openAssetCached: Cache hit for: " + str2);
+                FileInputStream a2 = a(str, str4);
+                if (a2 != null) {
+                    if (a) {
+                        GameEngine.m5e("openAssetCached: Cache hit for: " + str2);
                     }
-                    return new C0772h(m2234a);
-                } else if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: meta file but not data for: " + str2);
+                    return new h(a2);
+                } else if (a) {
+                    GameEngine.m5e("openAssetCached: meta file but not data for: " + str2);
                     return null;
                 } else {
                     return null;
@@ -175,111 +163,108 @@ public class C0771g {
         return null;
     }
 
-    /* renamed from: d */
-    public static String[] m2227d(String str, String str2) {
+    public static String[] d(String str, String str2) {
         String str3;
-        long m2274m;
-        if (!C1112ag.m611i(str2)) {
-            return C0765a.m2279h(str2);
+        long m;
+        if (!ag.i(str2)) {
+            return a.h(str2);
         }
         String str4 = str2 + ".data";
         String str5 = str2 + ".meta";
-        C0772h m2229b = m2229b(str, str2, "list");
-        if (m2229b != null) {
-            if (m2229b.f4968a == null) {
+        h b = b(str, str2, "list");
+        if (b != null) {
+            if (b.a == null) {
                 return null;
             }
-            String m2193a = C0773f.m2193a(m2229b.f4968a);
-            m2229b.m2224a();
-            return C1118al.m570e(m2193a);
+            String a2 = f.a(b.a);
+            b.a();
+            return al.e(a2);
         }
-        String[] m2279h = C0765a.m2279h(str2);
-        if (m2279h != null) {
-            if (f4967a) {
-                GameEngine.m5460e("listDirCached: Listing count: " + m2279h.length);
+        String[] h = a.h(str2);
+        if (h != null) {
+            if (a) {
+                GameEngine.m5e("listDirCached: Listing count: " + h.length);
             }
             str3 = "list";
-            m2274m = C0765a.m2274m(str2);
-            if (m2274m == 0) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Got 0 timestamp for: " + str2 + " cannot cache");
+            m = a.m(str2);
+            if (m == 0) {
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Got 0 timestamp for: " + str2 + " cannot cache");
                 }
-                return m2279h;
+                return h;
             }
-            m2232a(str, str4, C1118al.m580a(m2279h));
+            a(str, str4, al.a(h));
         } else {
-            if (f4967a) {
-                GameEngine.m5460e("listDirCached: Null");
+            if (a) {
+                GameEngine.m5e("listDirCached: Null");
             }
             str3 = "null";
-            m2274m = C0765a.m2274m(str2);
+            m = a.m(str2);
         }
-        m2232a(str, str5, m2274m + ":" + str3);
-        return m2279h;
+        a(str, str5, m + ":" + str3);
+        return h;
     }
 
-    /* renamed from: e */
-    public static InputStream m2226e(String str, String str2) {
+    public static InputStream e(String str, String str2) {
         String str3;
-        long m2274m;
+        long m;
         String str4 = str2 + ".data";
         String str5 = str2 + ".meta";
-        C0772h m2229b = m2229b(str, str2, "data");
-        if (m2229b != null) {
-            return m2229b.f4968a;
+        h b = b(str, str2, "data");
+        if (b != null) {
+            return b.a;
         }
-        if (f4967a) {
-            GameEngine.m5460e("openAssetCached: Cache miss for: " + str2);
+        if (a) {
+            GameEngine.m5e("openAssetCached: Cache miss for: " + str2);
         }
-        C1133j m2276k = C0765a.m2276k(str2);
-        if (m2276k != null) {
-            if (f4967a) {
-                GameEngine.m5460e("openAssetCached: Reading: " + str2);
+        j k = a.k(str2);
+        if (k != null) {
+            if (a) {
+                GameEngine.m5e("openAssetCached: Reading: " + str2);
             }
             str3 = "data";
-            m2274m = C0765a.m2274m(str2);
-            if (m2274m == 0) {
-                if (f4967a) {
-                    GameEngine.m5460e("openAssetCached: Got 0 timestamp for: " + str2 + " cannot cache");
+            m = a.m(str2);
+            if (m == 0) {
+                if (a) {
+                    GameEngine.m5e("openAssetCached: Got 0 timestamp for: " + str2 + " cannot cache");
                 }
-                return m2276k;
-            } else if (!m2233a(str, str4, m2276k)) {
+                return k;
+            } else if (!a(str, str4, k)) {
             }
         } else {
-            if (f4967a) {
-                GameEngine.m5460e("openAssetCached: Got null for: " + str2);
+            if (a) {
+                GameEngine.m5e("openAssetCached: Got null for: " + str2);
             }
             str3 = "null";
-            m2274m = C0765a.m2274m(str2);
+            m = a.m(str2);
         }
-        m2232a(str, str5, m2274m + ":" + str3);
-        if (m2276k == null) {
+        a(str, str5, m + ":" + str3);
+        if (k == null) {
             return null;
         }
         try {
-            m2276k.close();
+            k.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        FileInputStream m2234a = m2234a(str, str4);
-        if (m2234a == null) {
+        FileInputStream a2 = a(str, str4);
+        if (a2 == null) {
             GameEngine.print("openAssetCached: Error. Failed to reopen cache: " + str2);
-            return C0765a.m2276k(str2);
+            return a.k(str2);
         }
-        return m2234a;
+        return a2;
     }
 
-    /* renamed from: f */
-    public static boolean m2225f(String str, String str2) {
-        InputStream m2226e = m2226e(str, str2);
-        if (m2226e == null) {
+    public static boolean f(String str, String str2) {
+        InputStream e = e(str, str2);
+        if (e == null) {
             return false;
         }
         try {
-            m2226e.close();
+            e.close();
             return true;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
             return true;
         }
     }

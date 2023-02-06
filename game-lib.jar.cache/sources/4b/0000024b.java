@@ -5,47 +5,37 @@ import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.Locale;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.at */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/at.class */
-public abstract class AbstractC0381at {
+public abstract class at {
+    int a;
+    String b;
 
-    /* renamed from: a */
-    int f2274a;
+    public abstract double a(j jVar, as asVar);
 
-    /* renamed from: b */
-    String f2275b;
+    public abstract void a(j jVar, double d);
 
-    /* renamed from: a */
-    public abstract double mo3961a(C0456j c0456j, C0361as c0361as);
+    public abstract boolean b();
 
-    /* renamed from: a */
-    public abstract void mo3962a(C0456j c0456j, double d);
-
-    /* renamed from: b */
-    public abstract boolean mo3960b();
-
-    public AbstractC0381at(int i, String str) {
-        this.f2274a = i;
-        this.f2275b = str.toLowerCase(Locale.ROOT);
+    public at(int i, String str) {
+        this.a = i;
+        this.b = str.toLowerCase(Locale.ROOT);
     }
 
-    /* renamed from: a */
-    public LogicBoolean.ReturnType m3967a() {
+    public LogicBoolean.ReturnType a() {
         return LogicBoolean.ReturnType.number;
     }
 
-    /* renamed from: a */
-    public final void m3966a(C0456j c0456j, LogicBoolean logicBoolean, VariableScope.CachedWriter.Operator operator) {
-        c0456j.m3601dJ();
-        double readNumber = logicBoolean.readNumber(c0456j);
+    public final void a(j jVar, LogicBoolean logicBoolean, VariableScope.CachedWriter.Operator operator) {
+        jVar.dJ();
+        double readNumber = logicBoolean.readNumber(jVar);
         if (operator == VariableScope.CachedWriter.Operator.set) {
-            mo3962a(c0456j, readNumber);
+            a(jVar, readNumber);
         } else if (operator == VariableScope.CachedWriter.Operator.add) {
-            mo3962a(c0456j, mo3961a(c0456j, c0456j.f2892y) + readNumber);
+            a(jVar, a(jVar, jVar.y) + readNumber);
         } else if (operator == VariableScope.CachedWriter.Operator.subtract) {
-            mo3962a(c0456j, mo3961a(c0456j, c0456j.f2892y) - readNumber);
+            a(jVar, a(jVar, jVar.y) - readNumber);
         } else {
-            GameEngine.m976n("setUnitDataFromLogic: unsupported operator");
+            GameEngine.n("setUnitDataFromLogic: unsupported operator");
         }
     }
 }

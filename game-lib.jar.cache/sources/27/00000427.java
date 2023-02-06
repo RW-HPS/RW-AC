@@ -1,33 +1,20 @@
-package com.corrodinggames.rts.gameFramework.p030a;
+package com.corrodinggames.rts.gameFramework.a;
 
-import com.corrodinggames.rts.gameFramework.C0773f;
-
-/* renamed from: com.corrodinggames.rts.gameFramework.a.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/a/i.class */
-public abstract class AbstractC0641i {
+public abstract class i {
+    public String e;
+    public boolean g;
+    public float d = 1.0f;
+    public boolean f = false;
 
-    /* renamed from: e */
-    public String f4100e;
+    public abstract void a(float f, float f2, int i, int i2, float f3);
 
-    /* renamed from: g */
-    public boolean f4101g;
+    public abstract int a();
 
-    /* renamed from: d */
-    public float f4102d = 1.0f;
-
-    /* renamed from: f */
-    public boolean f4103f = false;
-
-    /* renamed from: a */
-    public abstract void mo75a(float f, float f2, int i, int i2, float f3);
-
-    /* renamed from: a */
-    public abstract int mo76a();
-
-    public AbstractC0641i(String str, AbstractC0640h abstractC0640h) {
-        this.f4100e = C0773f.m2118g(str);
-        if (abstractC0640h != null) {
-            abstractC0640h.f4099h.put(this.f4100e, this);
+    public i(String str, h hVar) {
+        this.e = com.corrodinggames.rts.gameFramework.f.g(str);
+        if (hVar != null) {
+            hVar.h.put(this.e, this);
         }
     }
 }

@@ -1,241 +1,214 @@
-package com.corrodinggames.rts.game.units.custom.p020d;
+package com.corrodinggames.rts.game.units.custom.d;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.custom.C0417bo;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.custom.bo;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
-import com.corrodinggames.rts.game.units.custom.p021e.C0433a;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
-import com.corrodinggames.rts.gameFramework.utility.C1118al;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.utility.ab;
+import com.corrodinggames.rts.gameFramework.utility.al;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.d.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/d/c.class */
-public class C0430c extends AbstractC0428a {
+public class c extends a {
+    public final m a = new m();
+    boolean b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
-    /* renamed from: a */
-    public final C1136m f2736a = new C1136m();
-
-    /* renamed from: b */
-    boolean f2737b;
-
-    /* renamed from: c */
-    public int f2738c;
-
-    /* renamed from: d */
-    public int f2739d;
-
-    /* renamed from: e */
-    public int f2740e;
-
-    /* renamed from: f */
-    public int f2741f;
-
-    /* renamed from: a */
-    public static C0430c m3804a(C0458l c0458l, C1107ab c1107ab, String str, String str2, C0430c c0430c) {
-        String m666b = c1107ab.m666b(str, str2, (String) null);
-        if (m666b == null) {
-            return c0430c;
+    public static c a(l lVar, ab abVar, String str, String str2, c cVar) {
+        String b = abVar.b(str, str2, (String) null);
+        if (b == null) {
+            return cVar;
         }
         try {
-            return m3803a(c0458l, m666b);
+            return a(lVar, b);
         } catch (RuntimeException e) {
             e.printStackTrace();
-            throw new C0417bo("[" + str + "]" + str2 + ": " + e.getMessage());
+            throw new bo("[" + str + "]" + str2 + ": " + e.getMessage());
         }
     }
 
-    /* renamed from: a */
-    public static C0430c m3803a(C0458l c0458l, String str) {
-        return m3802a(c0458l, str, false);
+    public static c a(l lVar, String str) {
+        return a(lVar, str, false);
     }
 
-    /* renamed from: a */
-    public static C0430c m3802a(C0458l c0458l, String str, boolean z) {
+    public static c a(l lVar, String str, boolean z) {
         String trim;
         String substring;
-        C0430c c0430c = new C0430c();
-        Iterator it = C1118al.m583a(str, ",", "|", false).iterator();
+        c cVar = new c();
+        Iterator it = al.a(str, ",", "|", false).iterator();
         while (it.hasNext()) {
             String str2 = (String) it.next();
-            int m584a = C1118al.m584a(str2, "=", ":");
-            if (m584a == -1) {
+            int a = al.a(str2, "=", ":");
+            if (a == -1) {
                 if (!z) {
-                    throw new C0417bo("Unknown price format:" + str);
+                    throw new bo("Unknown price format:" + str);
                 }
                 trim = "credits";
                 substring = str2;
             } else {
-                trim = str2.substring(0, m584a).trim();
-                substring = str2.substring(m584a + 1);
+                trim = str2.substring(0, a).trim();
+                substring = str2.substring(a + 1);
             }
             if (trim.equals("hasFlag")) {
-                c0430c.f2740e = C0429b.m3849a(c0430c.f2740e, substring);
+                cVar.e = b.a(cVar.e, substring);
             } else if (trim.equals("hasMissingFlag")) {
-                c0430c.f2741f = C0429b.m3849a(c0430c.f2741f, substring);
+                cVar.f = b.a(cVar.f, substring);
             } else if (trim.equals("setFlag")) {
-                c0430c.f2738c = C0429b.m3849a(c0430c.f2738c, substring);
+                cVar.c = b.a(cVar.c, substring);
             } else if (trim.equals("unsetFlag")) {
-                c0430c.f2739d = C0429b.m3849a(c0430c.f2739d, substring);
+                cVar.d = b.a(cVar.d, substring);
             } else {
-                C0433a m3510j = c0458l.m3510j(trim);
-                if (m3510j == null) {
-                    throw new C0417bo("Could not find resource type:" + trim + " from [" + str + "]");
+                com.corrodinggames.rts.game.units.custom.e.a j = lVar.j(trim);
+                if (j == null) {
+                    throw new bo("Could not find resource type:" + trim + " from [" + str + "]");
                 }
-                LogicBoolean parseNumberBlock = LogicBooleanLoader.parseNumberBlock(c0458l, substring);
+                LogicBoolean parseNumberBlock = LogicBooleanLoader.parseNumberBlock(lVar, substring);
                 if (parseNumberBlock == null) {
-                    throw new C0417bo("Value missing for:" + trim + " from [" + str + "]");
+                    throw new bo("Value missing for:" + trim + " from [" + str + "]");
                 }
                 if (!(parseNumberBlock instanceof LogicBoolean.StaticValueBoolean)) {
-                    c0430c.f2737b = true;
+                    cVar.b = true;
                 }
-                c0430c.f2736a.add(new C0431d(m3510j, parseNumberBlock));
+                cVar.a.add(new d(j, parseNumberBlock));
             }
         }
-        return c0430c;
+        return cVar;
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.p020d.AbstractC0428a
-    /* renamed from: b */
-    public boolean mo3800b(AbstractC0244am abstractC0244am) {
-        return mo3799b(abstractC0244am, 1.0d);
+    @Override // com.corrodinggames.rts.game.units.custom.d.a
+    public boolean b(am amVar) {
+        return b(amVar, 1.0d);
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.p020d.AbstractC0428a
-    /* renamed from: b */
-    public boolean mo3799b(AbstractC0244am abstractC0244am, double d) {
+    @Override // com.corrodinggames.rts.game.units.custom.d.a
+    public boolean b(am amVar, double d) {
         double d2;
-        if (!(abstractC0244am instanceof AbstractC0629y)) {
+        if (!(amVar instanceof y)) {
             return false;
         }
-        AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-        int i = this.f2736a.f7109a;
-        Object[] m535a = this.f2736a.m535a();
+        y yVar = (y) amVar;
+        int i = this.a.a;
+        Object[] a = this.a.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0431d c0431d = (C0431d) m535a[i2];
-            if (c0431d.f2744c != null) {
-                d2 = c0431d.f2744c.readNumber(abstractC0629y) * d;
+            d dVar = (d) a[i2];
+            if (dVar.c != null) {
+                d2 = dVar.c.readNumber(yVar) * d;
             } else {
-                d2 = c0431d.f2743b * d;
+                d2 = dVar.b * d;
             }
-            if (d2 > 0.0d && c0431d.f2742a.mo3763a(abstractC0629y) < d2) {
+            if (d2 > 0.0d && dVar.a.a(yVar) < d2) {
                 return false;
             }
         }
-        if (!m3795g(abstractC0629y)) {
+        if (!g(yVar)) {
             return false;
         }
         return true;
     }
 
-    /* renamed from: d */
-    public void m3798d(AbstractC0244am abstractC0244am) {
+    public void d(am amVar) {
         double d;
-        if (!(abstractC0244am instanceof AbstractC0629y)) {
-            GameEngine.m976n("DynamicResourcePrice doesn't work on: " + abstractC0244am.mo3079c());
+        if (!(amVar instanceof y)) {
+            GameEngine.n("DynamicResourcePrice doesn't work on: " + amVar.c());
             return;
         }
-        AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-        int i = this.f2736a.f7109a;
-        Object[] m535a = this.f2736a.m535a();
+        y yVar = (y) amVar;
+        int i = this.a.a;
+        Object[] a = this.a.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0431d c0431d = (C0431d) m535a[i2];
-            if (c0431d.f2744c != null) {
-                d = c0431d.f2744c.readNumber(abstractC0629y);
+            d dVar = (d) a[i2];
+            if (dVar.c != null) {
+                d = dVar.c.readNumber(yVar);
             } else {
-                d = c0431d.f2743b;
+                d = dVar.b;
             }
-            c0431d.f2742a.mo3762a(abstractC0629y, d);
+            dVar.a.a(yVar, d);
         }
-        m3796f(abstractC0629y);
-        C0429b.m3816d(abstractC0629y);
+        f(yVar);
+        b.d(yVar);
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.p020d.AbstractC0428a
-    /* renamed from: a */
-    public void mo3806a(AbstractC0244am abstractC0244am) {
-        mo3805a(abstractC0244am, 1.0d);
+    @Override // com.corrodinggames.rts.game.units.custom.d.a
+    public void a(am amVar) {
+        a(amVar, 1.0d);
     }
 
-    @Override // com.corrodinggames.rts.game.units.custom.p020d.AbstractC0428a
-    /* renamed from: a */
-    public void mo3805a(AbstractC0244am abstractC0244am, double d) {
+    @Override // com.corrodinggames.rts.game.units.custom.d.a
+    public void a(am amVar, double d) {
         double d2;
-        if (!(abstractC0244am instanceof AbstractC0629y)) {
-            GameEngine.m976n("DynamicResourcePrice doesn't work on: " + abstractC0244am.mo3079c());
+        if (!(amVar instanceof y)) {
+            GameEngine.n("DynamicResourcePrice doesn't work on: " + amVar.c());
             return;
         }
-        AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-        int i = this.f2736a.f7109a;
-        Object[] m535a = this.f2736a.m535a();
+        y yVar = (y) amVar;
+        int i = this.a.a;
+        Object[] a = this.a.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0431d c0431d = (C0431d) m535a[i2];
-            if (c0431d.f2744c != null) {
-                d2 = c0431d.f2744c.readNumber(abstractC0629y);
+            d dVar = (d) a[i2];
+            if (dVar.c != null) {
+                d2 = dVar.c.readNumber(yVar);
             } else {
-                d2 = c0431d.f2743b;
+                d2 = dVar.b;
             }
-            c0431d.f2742a.mo3761b(abstractC0629y, (-d2) * d);
+            dVar.a.b(yVar, (-d2) * d);
         }
-        m3796f(abstractC0629y);
-        C0429b.m3816d(abstractC0629y);
+        f(yVar);
+        b.d(yVar);
     }
 
-    /* renamed from: e */
-    public void m3797e(AbstractC0244am abstractC0244am) {
+    public void e(am amVar) {
         double d;
-        if (!(abstractC0244am instanceof AbstractC0629y)) {
-            GameEngine.m976n("DynamicResourcePrice doesn't work on: " + abstractC0244am.mo3079c());
+        if (!(amVar instanceof y)) {
+            GameEngine.n("DynamicResourcePrice doesn't work on: " + amVar.c());
             return;
         }
-        AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-        int i = this.f2736a.f7109a;
-        Object[] m535a = this.f2736a.m535a();
+        y yVar = (y) amVar;
+        int i = this.a.a;
+        Object[] a = this.a.a();
         for (int i2 = 0; i2 < i; i2++) {
-            C0431d c0431d = (C0431d) m535a[i2];
-            if (c0431d.f2744c != null) {
-                d = c0431d.f2744c.readNumber(abstractC0629y);
+            d dVar = (d) a[i2];
+            if (dVar.c != null) {
+                d = dVar.c.readNumber(yVar);
             } else {
-                d = c0431d.f2743b;
+                d = dVar.b;
             }
-            c0431d.f2742a.mo3761b(abstractC0629y, d);
+            dVar.a.b(yVar, d);
         }
-        m3796f(abstractC0629y);
-        C0429b.m3816d(abstractC0629y);
+        f(yVar);
+        b.d(yVar);
     }
 
-    /* renamed from: f */
-    public void m3796f(AbstractC0244am abstractC0244am) {
-        if (this.f2739d != 0) {
-            abstractC0244am.f1648cF &= this.f2739d ^ (-1);
+    public void f(am amVar) {
+        if (this.d != 0) {
+            amVar.cF &= this.d ^ (-1);
         }
-        if (this.f2738c != 0) {
-            abstractC0244am.f1648cF |= this.f2738c;
+        if (this.c != 0) {
+            amVar.cF |= this.c;
         }
     }
 
-    /* renamed from: g */
-    public boolean m3795g(AbstractC0244am abstractC0244am) {
-        if (this.f2740e != 0 && !m3807a(abstractC0244am.f1648cF, this.f2740e)) {
+    public boolean g(am amVar) {
+        if (this.e != 0 && !a(amVar.cF, this.e)) {
             return false;
         }
-        if (this.f2741f != 0 && m3801b(abstractC0244am.f1648cF, this.f2741f)) {
+        if (this.f != 0 && b(amVar.cF, this.f)) {
             return false;
         }
         return true;
     }
 
-    /* renamed from: a */
-    public static boolean m3807a(int i, int i2) {
+    public static boolean a(int i, int i2) {
         return (i2 & i) == i2;
     }
 
-    /* renamed from: b */
-    public static boolean m3801b(int i, int i2) {
+    public static boolean b(int i, int i2) {
         return (i2 & i) != 0;
     }
 }

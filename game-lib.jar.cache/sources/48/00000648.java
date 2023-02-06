@@ -1,222 +1,188 @@
-package com.corrodinggames.rts.java.audio.p051a;
+package com.corrodinggames.rts.java.audio.a;
 
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.java.audio.a.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/a/i.class */
-public class C1173i implements Iterable {
+public class i implements Iterable {
+    public int a;
+    long[] b;
+    Object[] c;
+    int d;
+    int e;
+    Object f;
+    boolean g;
+    private float h;
+    private int i;
+    private int j;
+    private int k;
+    private int l;
+    private int m;
+    private j n;
+    private j o;
 
-    /* renamed from: a */
-    public int f7250a;
-
-    /* renamed from: b */
-    long[] f7251b;
-
-    /* renamed from: c */
-    Object[] f7252c;
-
-    /* renamed from: d */
-    int f7253d;
-
-    /* renamed from: e */
-    int f7254e;
-
-    /* renamed from: f */
-    Object f7255f;
-
-    /* renamed from: g */
-    boolean f7256g;
-
-    /* renamed from: h */
-    private float f7257h;
-
-    /* renamed from: i */
-    private int f7258i;
-
-    /* renamed from: j */
-    private int f7259j;
-
-    /* renamed from: k */
-    private int f7260k;
-
-    /* renamed from: l */
-    private int f7261l;
-
-    /* renamed from: m */
-    private int f7262m;
-
-    /* renamed from: n */
-    private C1174j f7263n;
-
-    /* renamed from: o */
-    private C1174j f7264o;
-
-    public C1173i() {
+    public i() {
         this(51, 0.8f);
     }
 
-    public C1173i(int i, float f) {
+    public i(int i, float f) {
         if (i < 0) {
             throw new IllegalArgumentException("initialCapacity must be >= 0: " + i);
         }
-        int m328b = C1177m.m328b((int) Math.ceil(i / f));
-        if (m328b > 1073741824) {
-            throw new IllegalArgumentException("initialCapacity is too large: " + m328b);
+        int b = m.b((int) Math.ceil(i / f));
+        if (b > 1073741824) {
+            throw new IllegalArgumentException("initialCapacity is too large: " + b);
         }
-        this.f7253d = m328b;
+        this.d = b;
         if (f <= 0.0f) {
             throw new IllegalArgumentException("loadFactor must be > 0: " + f);
         }
-        this.f7257h = f;
-        this.f7260k = (int) (this.f7253d * f);
-        this.f7259j = this.f7253d - 1;
-        this.f7258i = 63 - Long.numberOfTrailingZeros(this.f7253d);
-        this.f7261l = Math.max(3, ((int) Math.ceil(Math.log(this.f7253d))) * 2);
-        this.f7262m = Math.max(Math.min(this.f7253d, 8), ((int) Math.sqrt(this.f7253d)) / 8);
-        this.f7251b = new long[this.f7253d + this.f7261l];
-        this.f7252c = new Object[this.f7251b.length];
+        this.h = f;
+        this.k = (int) (this.d * f);
+        this.j = this.d - 1;
+        this.i = 63 - Long.numberOfTrailingZeros(this.d);
+        this.l = Math.max(3, ((int) Math.ceil(Math.log(this.d))) * 2);
+        this.m = Math.max(Math.min(this.d, 8), ((int) Math.sqrt(this.d)) / 8);
+        this.b = new long[this.d + this.l];
+        this.c = new Object[this.b.length];
     }
 
-    /* renamed from: a */
-    public Object m348a(long j, Object obj) {
+    public Object a(long j, Object obj) {
         if (j == 0) {
-            Object obj2 = this.f7255f;
-            this.f7255f = obj;
-            if (!this.f7256g) {
-                this.f7256g = true;
-                this.f7250a++;
+            Object obj2 = this.f;
+            this.f = obj;
+            if (!this.g) {
+                this.g = true;
+                this.a++;
             }
             return obj2;
         }
-        long[] jArr = this.f7251b;
-        int i = (int) (j & this.f7259j);
+        long[] jArr = this.b;
+        int i = (int) (j & this.j);
         long j2 = jArr[i];
         if (j2 == j) {
-            Object obj3 = this.f7252c[i];
-            this.f7252c[i] = obj;
+            Object obj3 = this.c[i];
+            this.c[i] = obj;
             return obj3;
         }
-        int m337f = m337f(j);
-        long j3 = jArr[m337f];
+        int f = f(j);
+        long j3 = jArr[f];
         if (j3 == j) {
-            Object obj4 = this.f7252c[m337f];
-            this.f7252c[m337f] = obj;
+            Object obj4 = this.c[f];
+            this.c[f] = obj;
             return obj4;
         }
-        int m336g = m336g(j);
-        long j4 = jArr[m336g];
+        int g = g(j);
+        long j4 = jArr[g];
         if (j4 == j) {
-            Object obj5 = this.f7252c[m336g];
-            this.f7252c[m336g] = obj;
+            Object obj5 = this.c[g];
+            this.c[g] = obj;
             return obj5;
         }
-        int i2 = this.f7253d;
-        int i3 = i2 + this.f7254e;
+        int i2 = this.d;
+        int i3 = i2 + this.e;
         while (i2 < i3) {
             if (jArr[i2] != j) {
                 i2++;
             } else {
-                Object obj6 = this.f7252c[i2];
-                this.f7252c[i2] = obj;
+                Object obj6 = this.c[i2];
+                this.c[i2] = obj;
                 return obj6;
             }
         }
         if (j2 == 0) {
             jArr[i] = j;
-            this.f7252c[i] = obj;
-            int i4 = this.f7250a;
-            this.f7250a = i4 + 1;
-            if (i4 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            this.c[i] = obj;
+            int i4 = this.a;
+            this.a = i4 + 1;
+            if (i4 >= this.k) {
+                b(this.d << 1);
                 return null;
             }
             return null;
         } else if (j3 == 0) {
-            jArr[m337f] = j;
-            this.f7252c[m337f] = obj;
-            int i5 = this.f7250a;
-            this.f7250a = i5 + 1;
-            if (i5 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            jArr[f] = j;
+            this.c[f] = obj;
+            int i5 = this.a;
+            this.a = i5 + 1;
+            if (i5 >= this.k) {
+                b(this.d << 1);
                 return null;
             }
             return null;
         } else if (j4 == 0) {
-            jArr[m336g] = j;
-            this.f7252c[m336g] = obj;
-            int i6 = this.f7250a;
-            this.f7250a = i6 + 1;
-            if (i6 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            jArr[g] = j;
+            this.c[g] = obj;
+            int i6 = this.a;
+            this.a = i6 + 1;
+            if (i6 >= this.k) {
+                b(this.d << 1);
                 return null;
             }
             return null;
         } else {
-            m347a(j, obj, i, j2, m337f, j3, m336g, j4);
+            a(j, obj, i, j2, f, j3, g, j4);
             return null;
         }
     }
 
-    /* renamed from: b */
-    private void m343b(long j, Object obj) {
+    private void b(long j, Object obj) {
         if (j == 0) {
-            this.f7255f = obj;
-            this.f7256g = true;
+            this.f = obj;
+            this.g = true;
             return;
         }
-        int i = (int) (j & this.f7259j);
-        long j2 = this.f7251b[i];
+        int i = (int) (j & this.j);
+        long j2 = this.b[i];
         if (j2 == 0) {
-            this.f7251b[i] = j;
-            this.f7252c[i] = obj;
-            int i2 = this.f7250a;
-            this.f7250a = i2 + 1;
-            if (i2 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            this.b[i] = j;
+            this.c[i] = obj;
+            int i2 = this.a;
+            this.a = i2 + 1;
+            if (i2 >= this.k) {
+                b(this.d << 1);
                 return;
             }
             return;
         }
-        int m337f = m337f(j);
-        long j3 = this.f7251b[m337f];
+        int f = f(j);
+        long j3 = this.b[f];
         if (j3 == 0) {
-            this.f7251b[m337f] = j;
-            this.f7252c[m337f] = obj;
-            int i3 = this.f7250a;
-            this.f7250a = i3 + 1;
-            if (i3 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            this.b[f] = j;
+            this.c[f] = obj;
+            int i3 = this.a;
+            this.a = i3 + 1;
+            if (i3 >= this.k) {
+                b(this.d << 1);
                 return;
             }
             return;
         }
-        int m336g = m336g(j);
-        long j4 = this.f7251b[m336g];
+        int g = g(j);
+        long j4 = this.b[g];
         if (j4 == 0) {
-            this.f7251b[m336g] = j;
-            this.f7252c[m336g] = obj;
-            int i4 = this.f7250a;
-            this.f7250a = i4 + 1;
-            if (i4 >= this.f7260k) {
-                m345b(this.f7253d << 1);
+            this.b[g] = j;
+            this.c[g] = obj;
+            int i4 = this.a;
+            this.a = i4 + 1;
+            if (i4 >= this.k) {
+                b(this.d << 1);
                 return;
             }
             return;
         }
-        m347a(j, obj, i, j2, m337f, j3, m336g, j4);
+        a(j, obj, i, j2, f, j3, g, j4);
     }
 
-    /* renamed from: a */
-    private void m347a(long j, Object obj, int i, long j2, int i2, long j3, int i3, long j4) {
+    private void a(long j, Object obj, int i, long j2, int i2, long j3, int i3, long j4) {
         long j5;
         Object obj2;
-        long[] jArr = this.f7251b;
-        Object[] objArr = this.f7252c;
-        int i4 = this.f7259j;
+        long[] jArr = this.b;
+        Object[] objArr = this.c;
+        int i4 = this.j;
         int i5 = 0;
-        int i6 = this.f7262m;
+        int i6 = this.m;
         while (true) {
-            switch (C1177m.m330a(2)) {
+            switch (m.a(2)) {
                 case 0:
                     j5 = j2;
                     obj2 = objArr[i];
@@ -241,36 +207,36 @@ public class C1173i implements Iterable {
             if (j2 == 0) {
                 jArr[i] = j5;
                 objArr[i] = obj2;
-                int i7 = this.f7250a;
-                this.f7250a = i7 + 1;
-                if (i7 >= this.f7260k) {
-                    m345b(this.f7253d << 1);
+                int i7 = this.a;
+                this.a = i7 + 1;
+                if (i7 >= this.k) {
+                    b(this.d << 1);
                     return;
                 }
                 return;
             }
-            i2 = m337f(j5);
+            i2 = f(j5);
             j3 = jArr[i2];
             if (j3 == 0) {
                 jArr[i2] = j5;
                 objArr[i2] = obj2;
-                int i8 = this.f7250a;
-                this.f7250a = i8 + 1;
-                if (i8 >= this.f7260k) {
-                    m345b(this.f7253d << 1);
+                int i8 = this.a;
+                this.a = i8 + 1;
+                if (i8 >= this.k) {
+                    b(this.d << 1);
                     return;
                 }
                 return;
             }
-            i3 = m336g(j5);
+            i3 = g(j5);
             j4 = jArr[i3];
             if (j4 == 0) {
                 jArr[i3] = j5;
                 objArr[i3] = obj2;
-                int i9 = this.f7250a;
-                this.f7250a = i9 + 1;
-                if (i9 >= this.f7260k) {
-                    m345b(this.f7253d << 1);
+                int i9 = this.a;
+                this.a = i9 + 1;
+                if (i9 >= this.k) {
+                    b(this.d << 1);
                     return;
                 }
                 return;
@@ -280,139 +246,132 @@ public class C1173i implements Iterable {
                 j = j5;
                 obj = obj2;
             } else {
-                m341c(j5, obj2);
+                c(j5, obj2);
                 return;
             }
         }
     }
 
-    /* renamed from: c */
-    private void m341c(long j, Object obj) {
-        if (this.f7254e == this.f7261l) {
-            m345b(this.f7253d << 1);
-            m348a(j, obj);
+    private void c(long j, Object obj) {
+        if (this.e == this.l) {
+            b(this.d << 1);
+            a(j, obj);
             return;
         }
-        int i = this.f7253d + this.f7254e;
-        this.f7251b[i] = j;
-        this.f7252c[i] = obj;
-        this.f7254e++;
-        this.f7250a++;
+        int i = this.d + this.e;
+        this.b[i] = j;
+        this.c[i] = obj;
+        this.e++;
+        this.a++;
     }
 
-    /* renamed from: a */
-    public Object m349a(long j) {
+    public Object a(long j) {
         if (j == 0) {
-            if (this.f7256g) {
-                return this.f7255f;
+            if (this.g) {
+                return this.f;
             }
             return null;
         }
-        int i = (int) (j & this.f7259j);
-        if (this.f7251b[i] != j) {
-            i = m337f(j);
-            if (this.f7251b[i] != j) {
-                i = m336g(j);
-                if (this.f7251b[i] != j) {
-                    return m339d(j, null);
+        int i = (int) (j & this.j);
+        if (this.b[i] != j) {
+            i = f(j);
+            if (this.b[i] != j) {
+                i = g(j);
+                if (this.b[i] != j) {
+                    return d(j, null);
                 }
             }
         }
-        return this.f7252c[i];
+        return this.c[i];
     }
 
-    /* renamed from: d */
-    private Object m339d(long j, Object obj) {
-        long[] jArr = this.f7251b;
-        int i = this.f7253d;
-        int i2 = i + this.f7254e;
+    private Object d(long j, Object obj) {
+        long[] jArr = this.b;
+        int i = this.d;
+        int i2 = i + this.e;
         while (i < i2) {
             if (jArr[i] == j) {
-                return this.f7252c[i];
+                return this.c[i];
             }
             i++;
         }
         return obj;
     }
 
-    /* renamed from: b */
-    public Object m344b(long j) {
+    public Object b(long j) {
         if (j == 0) {
-            if (this.f7256g) {
-                Object obj = this.f7255f;
-                this.f7255f = null;
-                this.f7256g = false;
-                this.f7250a--;
+            if (this.g) {
+                Object obj = this.f;
+                this.f = null;
+                this.g = false;
+                this.a--;
                 return obj;
             }
             return null;
         }
-        int i = (int) (j & this.f7259j);
-        if (this.f7251b[i] == j) {
-            this.f7251b[i] = 0;
-            Object obj2 = this.f7252c[i];
-            this.f7252c[i] = null;
-            this.f7250a--;
+        int i = (int) (j & this.j);
+        if (this.b[i] == j) {
+            this.b[i] = 0;
+            Object obj2 = this.c[i];
+            this.c[i] = null;
+            this.a--;
             return obj2;
         }
-        int m337f = m337f(j);
-        if (this.f7251b[m337f] == j) {
-            this.f7251b[m337f] = 0;
-            Object obj3 = this.f7252c[m337f];
-            this.f7252c[m337f] = null;
-            this.f7250a--;
+        int f = f(j);
+        if (this.b[f] == j) {
+            this.b[f] = 0;
+            Object obj3 = this.c[f];
+            this.c[f] = null;
+            this.a--;
             return obj3;
         }
-        int m336g = m336g(j);
-        if (this.f7251b[m336g] == j) {
-            this.f7251b[m336g] = 0;
-            Object obj4 = this.f7252c[m336g];
-            this.f7252c[m336g] = null;
-            this.f7250a--;
+        int g = g(j);
+        if (this.b[g] == j) {
+            this.b[g] = 0;
+            Object obj4 = this.c[g];
+            this.c[g] = null;
+            this.a--;
             return obj4;
         }
-        return m342c(j);
+        return c(j);
     }
 
-    /* renamed from: c */
-    Object m342c(long j) {
-        long[] jArr = this.f7251b;
-        int i = this.f7253d;
-        int i2 = i + this.f7254e;
+    Object c(long j) {
+        long[] jArr = this.b;
+        int i = this.d;
+        int i2 = i + this.e;
         while (i < i2) {
             if (jArr[i] != j) {
                 i++;
             } else {
-                Object obj = this.f7252c[i];
-                m350a(i);
-                this.f7250a--;
+                Object obj = this.c[i];
+                a(i);
+                this.a--;
                 return obj;
             }
         }
         return null;
     }
 
-    /* renamed from: a */
-    void m350a(int i) {
-        this.f7254e--;
-        int i2 = this.f7253d + this.f7254e;
+    void a(int i) {
+        this.e--;
+        int i2 = this.d + this.e;
         if (i < i2) {
-            this.f7251b[i] = this.f7251b[i2];
-            this.f7252c[i] = this.f7252c[i2];
-            this.f7252c[i2] = null;
+            this.b[i] = this.b[i2];
+            this.c[i] = this.c[i2];
+            this.c[i2] = null;
             return;
         }
-        this.f7252c[i] = null;
+        this.c[i] = null;
     }
 
-    /* renamed from: a */
-    public void m351a() {
-        if (this.f7250a == 0) {
+    public void a() {
+        if (this.a == 0) {
             return;
         }
-        long[] jArr = this.f7251b;
-        Object[] objArr = this.f7252c;
-        int i = this.f7253d + this.f7254e;
+        long[] jArr = this.b;
+        Object[] objArr = this.c;
+        int i = this.d + this.e;
         while (true) {
             int i2 = i;
             i--;
@@ -420,24 +379,23 @@ public class C1173i implements Iterable {
                 jArr[i] = 0;
                 objArr[i] = null;
             } else {
-                this.f7250a = 0;
-                this.f7254e = 0;
-                this.f7255f = null;
-                this.f7256g = false;
+                this.a = 0;
+                this.e = 0;
+                this.f = null;
+                this.g = false;
                 return;
             }
         }
     }
 
-    /* renamed from: d */
-    public boolean m340d(long j) {
+    public boolean d(long j) {
         if (j == 0) {
-            return this.f7256g;
+            return this.g;
         }
-        if (this.f7251b[(int) (j & this.f7259j)] != j) {
-            if (this.f7251b[m337f(j)] != j) {
-                if (this.f7251b[m336g(j)] != j) {
-                    return m338e(j);
+        if (this.b[(int) (j & this.j)] != j) {
+            if (this.b[f(j)] != j) {
+                if (this.b[g(j)] != j) {
+                    return e(j);
                 }
                 return true;
             }
@@ -446,11 +404,10 @@ public class C1173i implements Iterable {
         return true;
     }
 
-    /* renamed from: e */
-    private boolean m338e(long j) {
-        long[] jArr = this.f7251b;
-        int i = this.f7253d;
-        int i2 = i + this.f7254e;
+    private boolean e(long j) {
+        long[] jArr = this.b;
+        int i = this.d;
+        int i2 = i + this.e;
         while (i < i2) {
             if (jArr[i] == j) {
                 return true;
@@ -460,52 +417,49 @@ public class C1173i implements Iterable {
         return false;
     }
 
-    /* renamed from: b */
-    private void m345b(int i) {
-        int i2 = this.f7253d + this.f7254e;
-        this.f7253d = i;
-        this.f7260k = (int) (i * this.f7257h);
-        this.f7259j = i - 1;
-        this.f7258i = 63 - Long.numberOfTrailingZeros(i);
-        this.f7261l = Math.max(3, ((int) Math.ceil(Math.log(i))) * 2);
-        this.f7262m = Math.max(Math.min(i, 8), ((int) Math.sqrt(i)) / 8);
-        long[] jArr = this.f7251b;
-        Object[] objArr = this.f7252c;
-        this.f7251b = new long[i + this.f7261l];
-        this.f7252c = new Object[i + this.f7261l];
-        int i3 = this.f7250a;
-        this.f7250a = this.f7256g ? 1 : 0;
-        this.f7254e = 0;
+    private void b(int i) {
+        int i2 = this.d + this.e;
+        this.d = i;
+        this.k = (int) (i * this.h);
+        this.j = i - 1;
+        this.i = 63 - Long.numberOfTrailingZeros(i);
+        this.l = Math.max(3, ((int) Math.ceil(Math.log(i))) * 2);
+        this.m = Math.max(Math.min(i, 8), ((int) Math.sqrt(i)) / 8);
+        long[] jArr = this.b;
+        Object[] objArr = this.c;
+        this.b = new long[i + this.l];
+        this.c = new Object[i + this.l];
+        int i3 = this.a;
+        this.a = this.g ? 1 : 0;
+        this.e = 0;
         if (i3 > 0) {
             for (int i4 = 0; i4 < i2; i4++) {
                 long j = jArr[i4];
                 if (j != 0) {
-                    m343b(j, objArr[i4]);
+                    b(j, objArr[i4]);
                 }
             }
         }
     }
 
-    /* renamed from: f */
-    private int m337f(long j) {
+    private int f(long j) {
         long j2 = j * (-1262997959);
-        return (int) ((j2 ^ (j2 >>> this.f7258i)) & this.f7259j);
+        return (int) ((j2 ^ (j2 >>> this.i)) & this.j);
     }
 
-    /* renamed from: g */
-    private int m336g(long j) {
+    private int g(long j) {
         long j2 = j * (-825114047);
-        return (int) ((j2 ^ (j2 >>> this.f7258i)) & this.f7259j);
+        return (int) ((j2 ^ (j2 >>> this.i)) & this.j);
     }
 
     public int hashCode() {
         int i = 0;
-        if (this.f7256g && this.f7255f != null) {
-            i = 0 + this.f7255f.hashCode();
+        if (this.g && this.f != null) {
+            i = 0 + this.f.hashCode();
         }
-        long[] jArr = this.f7251b;
-        Object[] objArr = this.f7252c;
-        int i2 = this.f7253d + this.f7254e;
+        long[] jArr = this.b;
+        Object[] objArr = this.c;
+        int i2 = this.d + this.e;
         for (int i3 = 0; i3 < i2; i3++) {
             long j = jArr[i3];
             if (j != 0) {
@@ -523,30 +477,30 @@ public class C1173i implements Iterable {
         if (obj == this) {
             return true;
         }
-        if (obj instanceof C1173i) {
-            C1173i c1173i = (C1173i) obj;
-            if (c1173i.f7250a == this.f7250a && c1173i.f7256g == this.f7256g) {
-                if (this.f7256g) {
-                    if (c1173i.f7255f == null) {
-                        if (this.f7255f != null) {
+        if (obj instanceof i) {
+            i iVar = (i) obj;
+            if (iVar.a == this.a && iVar.g == this.g) {
+                if (this.g) {
+                    if (iVar.f == null) {
+                        if (this.f != null) {
                             return false;
                         }
-                    } else if (!c1173i.f7255f.equals(this.f7255f)) {
+                    } else if (!iVar.f.equals(this.f)) {
                         return false;
                     }
                 }
-                long[] jArr = this.f7251b;
-                Object[] objArr = this.f7252c;
-                int i = this.f7253d + this.f7254e;
+                long[] jArr = this.b;
+                Object[] objArr = this.c;
+                int i = this.d + this.e;
                 for (int i2 = 0; i2 < i; i2++) {
                     long j = jArr[i2];
                     if (j != 0) {
                         Object obj2 = objArr[i2];
                         if (obj2 == null) {
-                            if (!c1173i.m340d(j) || c1173i.m349a(j) != null) {
+                            if (!iVar.d(j) || iVar.a(j) != null) {
                                 return false;
                             }
-                        } else if (!obj2.equals(c1173i.m349a(j))) {
+                        } else if (!obj2.equals(iVar.a(j))) {
                             return false;
                         }
                     }
@@ -559,13 +513,13 @@ public class C1173i implements Iterable {
     }
 
     public String toString() {
-        if (this.f7250a == 0) {
+        if (this.a == 0) {
             return "[]";
         }
         StringBuilder sb = new StringBuilder(32);
         sb.append('[');
-        long[] jArr = this.f7251b;
-        Object[] objArr = this.f7252c;
+        long[] jArr = this.b;
+        Object[] objArr = this.c;
         int length = jArr.length;
         while (true) {
             int i = length;
@@ -601,24 +555,23 @@ public class C1173i implements Iterable {
 
     @Override // java.lang.Iterable
     public Iterator iterator() {
-        return m346b();
+        return b();
     }
 
-    /* renamed from: b */
-    public C1174j m346b() {
-        if (this.f7263n == null) {
-            this.f7263n = new C1174j(this);
-            this.f7264o = new C1174j(this);
+    public j b() {
+        if (this.n == null) {
+            this.n = new j(this);
+            this.o = new j(this);
         }
-        if (!this.f7263n.f7272e) {
-            this.f7263n.mo334b();
-            this.f7263n.f7272e = true;
-            this.f7264o.f7272e = false;
-            return this.f7263n;
+        if (!this.n.e) {
+            this.n.b();
+            this.n.e = true;
+            this.o.e = false;
+            return this.n;
         }
-        this.f7264o.mo334b();
-        this.f7264o.f7272e = true;
-        this.f7263n.f7272e = false;
-        return this.f7264o;
+        this.o.b();
+        this.o.e = true;
+        this.n.e = false;
+        return this.o;
     }
 }

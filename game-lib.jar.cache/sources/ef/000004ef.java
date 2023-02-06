@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -10,17 +10,15 @@ import java.util.ArrayList;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.v */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/v.class */
-public class MenuC0841v implements Menu {
-
-    /* renamed from: a */
-    public ArrayList f5555a = new ArrayList();
+public class v implements Menu {
+    public ArrayList a = new ArrayList();
 
     @Override // android.view.Menu
     public MenuItem add(CharSequence charSequence) {
-        MenuItemC0842w menuItemC0842w = new MenuItemC0842w();
-        menuItemC0842w.setTitle(charSequence);
-        this.f5555a.add(menuItemC0842w);
-        return menuItemC0842w;
+        w wVar = new w();
+        wVar.setTitle(charSequence);
+        this.a.add(wVar);
+        return wVar;
     }
 
     @Override // android.view.Menu
@@ -30,11 +28,11 @@ public class MenuC0841v implements Menu {
 
     @Override // android.view.Menu
     public MenuItem add(int i, int i2, int i3, CharSequence charSequence) {
-        MenuItemC0842w menuItemC0842w = new MenuItemC0842w();
-        menuItemC0842w.setTitle(charSequence);
-        menuItemC0842w.m1751a(i2);
-        this.f5555a.add(menuItemC0842w);
-        return menuItemC0842w;
+        w wVar = new w();
+        wVar.setTitle(charSequence);
+        wVar.a(i2);
+        this.a.add(wVar);
+        return wVar;
     }
 
     @Override // android.view.Menu
@@ -69,12 +67,12 @@ public class MenuC0841v implements Menu {
 
     @Override // android.view.Menu
     public void clear() {
-        this.f5555a.clear();
+        this.a.clear();
     }
 
     @Override // android.view.Menu
     public MenuItem getItem(int i) {
-        return (MenuItem) this.f5555a.get(i);
+        return (MenuItem) this.a.get(i);
     }
 
     @Override // android.view.Menu
@@ -139,6 +137,6 @@ public class MenuC0841v implements Menu {
 
     @Override // android.view.Menu
     public int size() {
-        return this.f5555a.size();
+        return this.a.size();
     }
 }

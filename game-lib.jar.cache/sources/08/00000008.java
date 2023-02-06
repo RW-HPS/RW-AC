@@ -1,4 +1,4 @@
-package net.rudp.p002a;
+package net.rudp.a;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
 import java.io.IOException;
@@ -18,9 +18,7 @@ public abstract class Segment {
 
     /* renamed from: e */
     private int nretx = 0;
-
-    /* renamed from: d */
-    private int f16d = -1;
+    private int d = -1;
 
     /* renamed from: a */
     public abstract String type();
@@ -28,26 +26,24 @@ public abstract class Segment {
     protected Segment() {
     }
 
-    /* renamed from: m */
-    public int m5435m() {
+    public int m() {
         return this.seqn;
     }
 
-    /* renamed from: b */
-    public int mo5439b() {
+    public int b() {
         return this.hlen;
     }
 
     /* renamed from: a */
     public void setAck(int i) {
         this.flags |= 64;
-        this.f16d = i;
+        this.d = i;
     }
 
     /* renamed from: n */
     public int getAck() {
         if ((this.flags & 64) == 64) {
-            return this.f16d;
+            return this.d;
         }
         return -1;
     }
@@ -57,23 +53,22 @@ public abstract class Segment {
         return this.nretx;
     }
 
-    /* renamed from: b */
-    public void m5438b(int i) {
+    public void b(int i) {
         this.nretx = i;
     }
 
     /* renamed from: d */
     public byte[] getBytes() {
-        byte[] bArr = new byte[mo5439b()];
+        byte[] bArr = new byte[b()];
         bArr[0] = (byte) (this.flags & 255);
         bArr[1] = (byte) (this.hlen & 255);
         bArr[2] = (byte) (this.seqn & 255);
-        bArr[3] = (byte) (this.f16d & 255);
+        bArr[3] = (byte) (this.d & 255);
         return bArr;
     }
 
     public String toString() {
-        return type() + " [ SEQ = " + m5435m() + ", ACK = " + (getAck() >= 0 ? VariableScope.nullOrMissingString + getAck() : "N/A") + ", LEN = " + mo5439b() + " ]";
+        return type() + " [ SEQ = " + m() + ", ACK = " + (getAck() >= 0 ? VariableScope.nullOrMissingString + getAck() : "N/A") + ", LEN = " + b() + " ]";
     }
 
     /* renamed from: b */
@@ -119,6 +114,6 @@ public abstract class Segment {
         this.flags = bArr[i] & 255;
         this.hlen = bArr[i + 1] & 255;
         this.seqn = bArr[i + 2] & 255;
-        this.f16d = bArr[i + 3] & 255;
+        this.d = bArr[i + 3] & 255;
     }
 }

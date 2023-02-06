@@ -5,11 +5,9 @@ import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.ArrayList;
 import java.util.Locale;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.utility.al */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/utility/al.class */
-public class C1118al {
-    /* renamed from: a */
-    public static ArrayList m583a(String str, String str2, String str3, boolean z) {
+public class al {
+    public static ArrayList a(String str, String str2, String str3, boolean z) {
         int i = 0;
         StringBuffer stringBuffer = new StringBuffer();
         ArrayList arrayList = new ArrayList();
@@ -27,11 +25,11 @@ public class C1118al {
                 i--;
             }
             if (i == 0) {
-                if (charAt == charAt3 && ((length == 1 || str.indexOf(str2, i2) == i2) && (!z || (!m577b(str, i2 - 1) && !m577b(str, i2 + str2.length()))))) {
+                if (charAt == charAt3 && ((length == 1 || str.indexOf(str2, i2) == i2) && (!z || (!b(str, i2 - 1) && !b(str, i2 + str2.length()))))) {
                     arrayList.add(stringBuffer.toString());
                     stringBuffer = new StringBuffer();
                     i2 += str2.length() - 1;
-                } else if (charAt2 == charAt3 && ((length2 == 1 || str.indexOf(str3, i2) == i2) && (!z || (!m577b(str, i2 - 1) && !m577b(str, i2 + str3.length()))))) {
+                } else if (charAt2 == charAt3 && ((length2 == 1 || str.indexOf(str3, i2) == i2) && (!z || (!b(str, i2 - 1) && !b(str, i2 + str3.length()))))) {
                     arrayList.add(stringBuffer.toString());
                     stringBuffer = new StringBuffer();
                     i2 += str3.length() - 1;
@@ -45,8 +43,7 @@ public class C1118al {
         return arrayList;
     }
 
-    /* renamed from: a */
-    public static ArrayList m581a(String str, String str2, boolean z, boolean z2) {
+    public static ArrayList a(String str, String str2, boolean z, boolean z2) {
         int i = 0;
         StringBuffer stringBuffer = new StringBuffer();
         ArrayList arrayList = new ArrayList();
@@ -93,7 +90,7 @@ public class C1118al {
                 } else if (charAt2 == ')') {
                     i--;
                 }
-                if (i == 0 && charAt == charAt2 && ((length == 1 || str3.indexOf(str2, i2) == i2) && ((!z || (!m577b(str, i2 - 1) && !m577b(str, i2 + str2.length()))) && (!z6 || (c != '*' && c != '/' && c != '+'))))) {
+                if (i == 0 && charAt == charAt2 && ((length == 1 || str3.indexOf(str2, i2) == i2) && ((!z || (!b(str, i2 - 1) && !b(str, i2 + str2.length()))) && (!z6 || (c != '*' && c != '/' && c != '+'))))) {
                     arrayList.add(stringBuffer.toString());
                     stringBuffer.setLength(0);
                     i2 += str2.length() - 1;
@@ -107,8 +104,7 @@ public class C1118al {
         return arrayList;
     }
 
-    /* renamed from: a */
-    public static ArrayList m582a(String str, String str2, boolean z) {
+    public static ArrayList a(String str, String str2, boolean z) {
         int i = 0;
         char[] cArr = new char[5];
         StringBuffer stringBuffer = new StringBuffer();
@@ -143,7 +139,7 @@ public class C1118al {
                 if (cArr[i] == c2) {
                     i--;
                 } else {
-                    GameEngine.m5460e("Bad bracket order: '" + str + "' at index:" + i2 + " got " + c2 + " type expected: " + cArr[i]);
+                    GameEngine.m5e("Bad bracket order: '" + str + "' at index:" + i2 + " got " + c2 + " type expected: " + cArr[i]);
                 }
             }
             if (i == 0) {
@@ -151,7 +147,7 @@ public class C1118al {
                 if (charAt == charAt2 && (length == 1 || str.indexOf(str2, i2) == i2)) {
                     z2 = true;
                 }
-                if (z2 && (!z || (!m577b(str, i2 - 1) && !m577b(str, i2 + str2.length())))) {
+                if (z2 && (!z || (!b(str, i2 - 1) && !b(str, i2 + str2.length())))) {
                     arrayList.add(stringBuffer.toString());
                     stringBuffer = new StringBuffer();
                     i2 += str2.length() - 1;
@@ -165,13 +161,11 @@ public class C1118al {
         return arrayList;
     }
 
-    /* renamed from: b */
-    public static String[] m574b(String str, String str2, boolean z) {
-        return !str.contains(str2) ? new String[]{str} : (String[]) m582a(str, str2, z).toArray(new String[0]);
+    public static String[] b(String str, String str2, boolean z) {
+        return !str.contains(str2) ? new String[]{str} : (String[]) a(str, str2, z).toArray(new String[0]);
     }
 
-    /* renamed from: a */
-    public static int m588a(String str, int i) {
+    public static int a(String str, int i) {
         if (str.charAt(i) != '(') {
             GameEngine.print("getBracketEnd: Did not start on a bracket");
             return -1;
@@ -194,8 +188,7 @@ public class C1118al {
         }
     }
 
-    /* renamed from: a */
-    public static int m590a(String str) {
+    public static int a(String str) {
         char[] charArray;
         int i = 0;
         boolean z = false;
@@ -226,8 +219,7 @@ public class C1118al {
         return i;
     }
 
-    /* renamed from: b */
-    public static int m579b(String str) {
+    public static int b(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             char charAt = str.charAt(i2);
@@ -240,8 +232,7 @@ public class C1118al {
         return i;
     }
 
-    /* renamed from: a */
-    public static String[] m589a(String str, char c) {
+    public static String[] a(String str, char c) {
         char[] charArray;
         ArrayList arrayList = new ArrayList();
         boolean z = false;
@@ -276,8 +267,7 @@ public class C1118al {
         return (String[]) arrayList.toArray(new String[0]);
     }
 
-    /* renamed from: b */
-    public static String[] m578b(String str, char c) {
+    public static String[] b(String str, char c) {
         char[] charArray;
         ArrayList arrayList = new ArrayList();
         boolean z = false;
@@ -305,8 +295,7 @@ public class C1118al {
         return (String[]) arrayList.toArray(new String[0]);
     }
 
-    /* renamed from: a */
-    public static String m580a(String[] strArr) {
+    public static String a(String[] strArr) {
         StringBuffer stringBuffer = new StringBuffer();
         boolean z = true;
         int length = strArr.length;
@@ -328,13 +317,11 @@ public class C1118al {
         return stringBuffer.toString();
     }
 
-    /* renamed from: a */
-    public static int m586a(String str, String str2) {
-        return m585a(str, str2, 0);
+    public static int a(String str, String str2) {
+        return a(str, str2, 0);
     }
 
-    /* renamed from: a */
-    public static int m585a(String str, String str2, int i) {
+    public static int a(String str, String str2, int i) {
         int i2 = 0;
         char charAt = str2.charAt(0);
         int length = str2.length();
@@ -352,8 +339,7 @@ public class C1118al {
         return -1;
     }
 
-    /* renamed from: b */
-    public static int m575b(String str, String str2, int i) {
+    public static int b(String str, String str2, int i) {
         int i2 = 0;
         char[] cArr = new char[5];
         boolean z = false;
@@ -399,7 +385,7 @@ public class C1118al {
                     if (cArr[i2] == c2) {
                         i2--;
                     } else {
-                        GameEngine.m5460e("Bad bracket order: '" + str + "' at index:" + i3 + " got " + c2 + " type expected: " + cArr[i2]);
+                        GameEngine.m5e("Bad bracket order: '" + str + "' at index:" + i3 + " got " + c2 + " type expected: " + cArr[i2]);
                     }
                 }
                 if ((i4 == 0 || i2 == 0) && charAt == charAt2 && (length == 1 || str.indexOf(str2, i3) == i3)) {
@@ -410,8 +396,7 @@ public class C1118al {
         return -1;
     }
 
-    /* renamed from: b */
-    public static boolean m577b(String str, int i) {
+    public static boolean b(String str, int i) {
         if (i < 0 || i >= str.length()) {
             return false;
         }
@@ -419,8 +404,7 @@ public class C1118al {
         return Character.isLetter(charAt) || Character.isDigit(charAt);
     }
 
-    /* renamed from: a */
-    public static int m584a(String str, String str2, String str3) {
+    public static int a(String str, String str2, String str3) {
         int indexOf = str.indexOf(str2);
         int indexOf2 = str.indexOf(str3);
         if (indexOf == -1) {
@@ -432,20 +416,18 @@ public class C1118al {
         return indexOf;
     }
 
-    /* renamed from: a */
-    public static int m587a(String str, int i, String[] strArr) {
+    public static int a(String str, int i, String[] strArr) {
         int i2 = -1;
         for (String str2 : strArr) {
-            int m585a = m585a(str, str2, i);
-            if (m585a != -1 && (i2 > m585a || i2 == -1)) {
-                i2 = m585a;
+            int a = a(str, str2, i);
+            if (a != -1 && (i2 > a || i2 == -1)) {
+                i2 = a;
             }
         }
         return i2;
     }
 
-    /* renamed from: c */
-    public static String m573c(String str) {
+    public static String c(String str) {
         boolean z = false;
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
@@ -464,8 +446,7 @@ public class C1118al {
         return str;
     }
 
-    /* renamed from: b */
-    public static String[] m576b(String str, String str2) {
+    public static String[] b(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf == -1) {
             return null;
@@ -473,17 +454,15 @@ public class C1118al {
         return new String[]{str.substring(0, indexOf), str.substring(indexOf + str2.length())};
     }
 
-    /* renamed from: c */
-    public static String[] m572c(String str, String str2) {
-        int m575b = m575b(str, str2, 0);
-        if (m575b == -1) {
+    public static String[] c(String str, String str2) {
+        int b = b(str, str2, 0);
+        if (b == -1) {
             return null;
         }
-        return new String[]{str.substring(0, m575b), str.substring(m575b + str2.length())};
+        return new String[]{str.substring(0, b), str.substring(b + str2.length())};
     }
 
-    /* renamed from: d */
-    public static final String m571d(String str) {
+    public static final String d(String str) {
         if (str == null) {
             return null;
         }
@@ -493,8 +472,7 @@ public class C1118al {
         return str.substring(0, 1).toUpperCase(Locale.ROOT) + str.substring(1).toLowerCase(Locale.ROOT);
     }
 
-    /* renamed from: e */
-    public static String[] m570e(String str) {
-        return m578b(str, ',');
+    public static String[] e(String str) {
+        return b(str, ',');
     }
 }

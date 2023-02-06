@@ -1,7 +1,7 @@
 package com.corrodinggames.rts.gameFramework.net;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1150w;
+import com.corrodinggames.rts.gameFramework.utility.w;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,43 +11,28 @@ import net.rudp.ReliableSocket;
 /* renamed from: com.corrodinggames.rts.gameFramework.j.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/e.class */
 final class SendSocketOutStream implements Runnable {
+    OutputStream b;
+    BufferedOutputStream c;
+    DataOutputStream d;
+    final /* synthetic */ PlayerConnect f;
+    Boolean a = true;
+    w e = new w();
 
-    /* renamed from: b */
-    OutputStream f6032b;
-
-    /* renamed from: c */
-    BufferedOutputStream f6033c;
-
-    /* renamed from: d */
-    DataOutputStream f6034d;
-
-    /* renamed from: f */
-    final /* synthetic */ PlayerConnect f6036f;
-
-    /* renamed from: a */
-    Boolean f6031a = true;
-
-    /* renamed from: e */
-    C1150w f6035e = new C1150w();
-
-    /* renamed from: a */
-    public synchronized void m1338a(Packet packet) {
-        if (this.f6036f.f5981a) {
+    public synchronized void a(Packet packet) {
+        if (this.f.a) {
             return;
         }
-        this.f6036f.f5986f.add(packet);
+        this.f.f.add(packet);
         notifyAll();
     }
 
-    /* renamed from: a */
-    public synchronized void m1339a() {
+    public synchronized void a() {
         notifyAll();
     }
 
-    /* renamed from: b */
-    public synchronized void m1337b() {
+    public synchronized void b() {
         try {
-            if (this.f6036f.f5986f.isEmpty() && !this.f6036f.f5981a && !this.f6036f.f5982b) {
+            if (this.f.f.isEmpty() && !this.f.a && !this.f.b) {
                 wait(10000L);
             }
         } catch (InterruptedException e) {
@@ -55,91 +40,91 @@ final class SendSocketOutStream implements Runnable {
     }
 
     SendSocketOutStream(PlayerConnect playerConnect) {
-        this.f6036f = playerConnect;
-        this.f6032b = playerConnect.socket.getOutputStream();
-        this.f6033c = new BufferedOutputStream(this.f6032b);
-        this.f6034d = new DataOutputStream(this.f6033c);
+        this.f = playerConnect;
+        this.b = playerConnect.socket.getOutputStream();
+        this.c = new BufferedOutputStream(this.b);
+        this.d = new DataOutputStream(this.c);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:44:0x01e7, code lost:
-        r6.f6036f.f5981a = true;
+        r6.f.a = true;
      */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        C1150w c1150w;
-        GameEngine.m1033aq();
-        Thread.currentThread().setName("SendWorker-" + this.f6036f.m1344g());
+        w wVar;
+        GameEngine.aq();
+        Thread.currentThread().setName("SendWorker-" + this.f.g());
         while (true) {
             try {
-                if (!this.f6031a.booleanValue() || this.f6036f.f5981a) {
+                if (!this.a.booleanValue() || this.f.a) {
                     break;
                 }
-                while (!this.f6036f.f5986f.isEmpty() && !this.f6036f.f5981a) {
-                    Packet packet = (Packet) this.f6036f.f5986f.remove();
-                    if (packet instanceof C0901ay) {
-                        C0901ay c0901ay = (C0901ay) packet;
-                        if (this.f6036f.f5992l == c0901ay.f5972f && this.f6036f.f5998r) {
+                while (!this.f.f.isEmpty() && !this.f.a) {
+                    Packet packet = (Packet) this.f.f.remove();
+                    if (packet instanceof Unk_Packet) {
+                        Unk_Packet unk_Packet = (Unk_Packet) packet;
+                        if (this.f.l == unk_Packet.f && this.f.r) {
                             GameOutputStream gameOutputStream = new GameOutputStream();
-                            gameOutputStream.writeInt(c0901ay.f5973g);
+                            gameOutputStream.writeInt(unk_Packet.g);
                             packet = gameOutputStream.getPacket(176);
                         } else {
                             GameOutputStream gameOutputStream2 = new GameOutputStream();
-                            gameOutputStream2.writeInt(c0901ay.f5973g);
-                            gameOutputStream2.writeInt(c0901ay.f5972f.type);
-                            gameOutputStream2.mo1378a(c0901ay.f5972f.bytes);
+                            gameOutputStream2.writeInt(unk_Packet.g);
+                            gameOutputStream2.writeInt(unk_Packet.f.type);
+                            gameOutputStream2.a(unk_Packet.f.bytes);
                             packet = gameOutputStream2.getPacket(175);
                         }
-                        this.f6036f.f5992l = c0901ay.f5972f;
-                    } else if (this.f6036f.f5997q) {
-                        this.f6036f.f5992l = packet;
+                        this.f.l = unk_Packet.f;
+                    } else if (this.f.q) {
+                        this.f.l = packet;
                     }
-                    if (this.f6036f.socket instanceof RelayForwardedSocket) {
-                        ((RelayForwardedSocket) this.f6036f.socket).m1322a(packet);
-                    } else if (this.f6036f.socket instanceof ReliableSocket) {
+                    if (this.f.socket instanceof RelayForwardedSocket) {
+                        ((RelayForwardedSocket) this.f.socket).a(packet);
+                    } else if (this.f.socket instanceof ReliableSocket) {
                         boolean z = false;
                         if (packet.bytes.length > 500) {
-                            c1150w = new C1150w(8 + packet.bytes.length);
+                            wVar = new w(8 + packet.bytes.length);
                             z = true;
                         } else {
-                            c1150w = this.f6035e;
-                            c1150w.m485a();
+                            wVar = this.e;
+                            wVar.a();
                         }
-                        boolean z2 = packet.f5959e;
-                        DataOutputStream dataOutputStream = new DataOutputStream(c1150w);
+                        boolean z2 = packet.e;
+                        DataOutputStream dataOutputStream = new DataOutputStream(wVar);
                         dataOutputStream.writeInt(packet.bytes.length);
                         dataOutputStream.writeInt(packet.type);
                         dataOutputStream.write(packet.bytes);
                         dataOutputStream.flush();
                         dataOutputStream.close();
-                        ((ReliableSocket) this.f6036f.socket).m5391a(c1150w.f7143a, 0, c1150w.m482b(), z2);
+                        ((ReliableSocket) this.f.socket).a(wVar.a, 0, wVar.b(), z2);
                         if (z) {
-                            c1150w.close();
+                            wVar.close();
                         }
                     } else {
-                        this.f6034d.writeInt(packet.bytes.length);
-                        this.f6034d.writeInt(packet.type);
-                        this.f6034d.write(packet.bytes);
-                        this.f6034d.flush();
+                        this.d.writeInt(packet.bytes.length);
+                        this.d.writeInt(packet.type);
+                        this.d.write(packet.bytes);
+                        this.d.flush();
                     }
-                    if (packet.f7548d != -1) {
+                    if (packet.f0d != -1) {
                         try {
-                            Thread.sleep(packet.f7548d);
+                            Thread.sleep(packet.f0d);
                         } catch (InterruptedException e) {
                         }
                     }
                 }
-                if (this.f6036f.f5982b) {
+                if (this.f.b) {
                     break;
                 }
-                m1337b();
+                b();
             } catch (IOException e2) {
                 e2.printStackTrace();
-                GameEngine.m1015b("network:SendWorker", e2.getMessage());
+                GameEngine.b("network:SendWorker", e2.getMessage());
             }
         }
-        this.f6036f.m1354a(false, true);
+        this.f.a(false, true);
     }
 }

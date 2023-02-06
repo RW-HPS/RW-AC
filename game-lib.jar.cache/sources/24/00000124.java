@@ -8,17 +8,13 @@ import java.net.Socket;
 
 /* renamed from: com.corrodinggames.rts.a.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/a/b.class */
-public class RunnableC0086b implements Runnable {
+public class b implements Runnable {
+    Socket a;
+    final /* synthetic */ ScriptServerSocket b;
 
-    /* renamed from: a */
-    Socket f419a;
-
-    /* renamed from: b */
-    final /* synthetic */ ScriptServerSocket f420b;
-
-    public RunnableC0086b(ScriptServerSocket scriptServerSocket, Socket socket) {
-        this.f420b = scriptServerSocket;
-        this.f419a = socket;
+    public b(ScriptServerSocket scriptServerSocket, Socket socket) {
+        this.b = scriptServerSocket;
+        this.a = socket;
     }
 
     @Override // java.lang.Runnable
@@ -26,23 +22,23 @@ public class RunnableC0086b implements Runnable {
         String readLine;
         try {
             try {
-                PrintWriter printWriter = new PrintWriter(this.f419a.getOutputStream(), true);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f419a.getInputStream()));
-                while (this.f420b.f388b && (readLine = bufferedReader.readLine()) != null) {
-                    printWriter.print(ScriptServerSocket.m5457b(readLine));
+                PrintWriter printWriter = new PrintWriter(this.a.getOutputStream(), true);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a.getInputStream()));
+                while (this.b.b && (readLine = bufferedReader.readLine()) != null) {
+                    printWriter.print(ScriptServerSocket.b(readLine));
                     printWriter.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
                 try {
-                    this.f419a.close();
+                    this.a.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
             }
         } finally {
             try {
-                this.f419a.close();
+                this.a.close();
             } catch (IOException e3) {
                 e3.printStackTrace();
             }

@@ -6,90 +6,65 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.bb */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/bb.class */
-class RunnableC0726bb implements Runnable {
+class RelaySaveRunnable implements Runnable {
+    volatile int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    int g;
+    final /* synthetic */ ReplayEngine k;
+    volatile boolean a = true;
+    boolean h = false;
+    public ConcurrentLinkedQueue i = new ConcurrentLinkedQueue();
+    public long j = 0;
 
-    /* renamed from: b */
-    volatile int f4578b;
-
-    /* renamed from: c */
-    int f4579c;
-
-    /* renamed from: d */
-    int f4580d;
-
-    /* renamed from: e */
-    int f4581e;
-
-    /* renamed from: f */
-    int f4582f;
-
-    /* renamed from: g */
-    int f4583g;
-
-    /* renamed from: k */
-    final /* synthetic */ C0725ba f4587k;
-
-    /* renamed from: a */
-    volatile boolean f4577a = true;
-
-    /* renamed from: h */
-    boolean f4584h = false;
-
-    /* renamed from: i */
-    public ConcurrentLinkedQueue f4585i = new ConcurrentLinkedQueue();
-
-    /* renamed from: j */
-    public long f4586j = 0;
-
-    RunnableC0726bb(C0725ba c0725ba) {
-        this.f4587k = c0725ba;
+    RelaySaveRunnable(ReplayEngine replayEngine) {
+        this.k = replayEngine;
     }
 
-    /* renamed from: a */
-    public synchronized void m2475a(C0728bd c0728bd) {
-        if (this.f4584h) {
-            GameEngine.m5453e("Replay:addCommand skipped due to stopped recording");
+    public synchronized void a(bd bdVar) {
+        if (this.h) {
+            GameEngine.m5e("Replay:addCommand skipped due to stopped recording");
         }
-        this.f4585i.add(c0728bd);
-        this.f4582f = c0728bd.f4591a;
-        if (c0728bd.f4595e != null) {
-            this.f4587k.f4558A++;
+        this.i.add(bdVar);
+        this.f = bdVar.a;
+        if (bdVar.e != null) {
+            this.k.A++;
         }
-        if (c0728bd.f4596f != null) {
-            this.f4587k.f4559B++;
+        if (bdVar.f != null) {
+            this.k.B++;
         }
         notifyAll();
     }
 
-    /* renamed from: a */
-    public synchronized void m2476a() {
+    public synchronized void a() {
         boolean z;
-        this.f4577a = false;
+        this.a = false;
         GameEngine gameEngine = GameEngine.getGameEngine();
-        C0725ba.m2497a("stop requested at:" + gameEngine.tick);
-        z = this.f4587k.f4551P;
+        ReplayEngine.a("stop requested at:" + gameEngine.tick);
+        z = this.k.P;
         if (!z) {
-            C0725ba.m2497a("Replay stop: warning: active==false");
+            ReplayEngine.a("Replay stop: warning: active==false");
         }
-        if (this.f4587k.f4553u) {
-            C0725ba.m2497a("Replay stop: warning: replaying==true");
+        if (this.k.u) {
+            ReplayEngine.a("Replay stop: warning: replaying==true");
         }
-        this.f4578b = gameEngine.tick;
-        this.f4579c = gameEngine.f6315by;
-        this.f4580d = this.f4587k.f4558A;
-        this.f4581e = this.f4587k.f4559B;
-        if (this.f4578b < this.f4582f) {
-            GameEngine.m5453e("Replay: stoppedFrame<lastCommandFrame: " + this.f4578b + "<" + this.f4582f);
-            this.f4578b = this.f4582f;
+        this.b = gameEngine.tick;
+        this.c = gameEngine.by;
+        this.d = this.k.A;
+        this.e = this.k.B;
+        if (this.b < this.f) {
+            GameEngine.m5e("Replay: stoppedFrame<lastCommandFrame: " + this.b + "<" + this.f);
+            this.b = this.f;
         }
-        this.f4586j = 0L;
+        this.j = 0L;
         notifyAll();
     }
 
-    /* renamed from: b */
-    private synchronized void m2474b() {
+    private synchronized void b() {
         try {
-            if (this.f4577a) {
+            if (this.a) {
                 wait();
             }
         } catch (InterruptedException e) {
@@ -98,90 +73,90 @@ class RunnableC0726bb implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        GameEngine.m1032aq();
-        while (this.f4577a) {
-            if (this.f4585i.size() > 0) {
-                C0728bd c0728bd = (C0728bd) this.f4585i.remove();
+        GameEngine.aq();
+        while (this.a) {
+            if (this.i.size() > 0) {
+                bd bdVar = (bd) this.i.remove();
                 try {
-                    if (c0728bd.f4595e != null) {
-                        this.f4587k.f4567J.mo1365e("rc");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        c0728bd.f4595e.write(this.f4587k.f4567J);
-                        this.f4587k.f4567J.endBlock("rc");
-                        this.f4583g = c0728bd.f4591a;
-                    } else if (c0728bd.f4593c != null) {
-                        this.f4587k.f4567J.mo1365e("cs");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.writeLong(c0728bd.f4593c.longValue());
-                        this.f4587k.f4567J.endBlock("cs");
-                    } else if (c0728bd.f4594d != null) {
-                        this.f4587k.f4567J.mo1365e("wait");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.endBlock("wait");
-                        this.f4587k.f4567J.mo1365e("es");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.mo1377a(c0728bd.f4594d);
-                        this.f4587k.f4567J.endBlock("es");
-                    } else if (c0728bd.f4596f != null) {
-                        this.f4587k.f4567J.mo1365e("wait");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.endBlock("wait");
-                        this.f4587k.f4567J.mo1365e("resync");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.writeInt(c0728bd.f4598h);
-                        this.f4587k.f4567J.writeInt(c0728bd.f4599i);
-                        this.f4587k.f4567J.writeFloat(c0728bd.f4600j);
-                        this.f4587k.f4567J.writeFloat(c0728bd.f4601k);
-                        this.f4587k.f4567J.mo1377a(c0728bd.f4596f);
-                        this.f4587k.f4567J.endBlock("resync");
-                    } else if (c0728bd.f4597g != null) {
-                        this.f4587k.f4567J.mo1365e("chat");
-                        this.f4587k.f4567J.writeInt(c0728bd.f4591a);
-                        this.f4587k.f4567J.writeInt(c0728bd.f4597g.f4588a);
-                        this.f4587k.f4567J.writeIsString(c0728bd.f4597g.f4589b);
-                        this.f4587k.f4567J.writeIsString(c0728bd.f4597g.f4590c);
-                        this.f4587k.f4567J.endBlock("chat");
+                    if (bdVar.e != null) {
+                        this.k.J.e("rc");
+                        this.k.J.writeInt(bdVar.a);
+                        bdVar.e.write(this.k.J);
+                        this.k.J.endBlock("rc");
+                        this.g = bdVar.a;
+                    } else if (bdVar.c != null) {
+                        this.k.J.e("cs");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.writeLong(bdVar.c.longValue());
+                        this.k.J.endBlock("cs");
+                    } else if (bdVar.d != null) {
+                        this.k.J.e("wait");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.endBlock("wait");
+                        this.k.J.e("es");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.a(bdVar.d);
+                        this.k.J.endBlock("es");
+                    } else if (bdVar.f != null) {
+                        this.k.J.e("wait");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.endBlock("wait");
+                        this.k.J.e("resync");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.writeInt(bdVar.h);
+                        this.k.J.writeInt(bdVar.i);
+                        this.k.J.writeFloat(bdVar.j);
+                        this.k.J.writeFloat(bdVar.k);
+                        this.k.J.a(bdVar.f);
+                        this.k.J.endBlock("resync");
+                    } else if (bdVar.g != null) {
+                        this.k.J.e("chat");
+                        this.k.J.writeInt(bdVar.a);
+                        this.k.J.writeInt(bdVar.g.a);
+                        this.k.J.writeIsString(bdVar.g.b);
+                        this.k.J.writeIsString(bdVar.g.c);
+                        this.k.J.endBlock("chat");
                     } else {
                         throw new RuntimeException("Unknown saved command");
                     }
-                    if (this.f4586j == 0 || this.f4586j + 3000 < System.currentTimeMillis()) {
-                        this.f4586j = System.currentTimeMillis();
-                        this.f4587k.f4567J.flashAll();
+                    if (this.j == 0 || this.j + 3000 < System.currentTimeMillis()) {
+                        this.j = System.currentTimeMillis();
+                        this.k.J.flashAll();
                     }
                 } catch (IOException e) {
                     GameEngine gameEngine = GameEngine.getGameEngine();
-                    GameEngine.m1060a("Replay error", (Throwable) e);
-                    gameEngine.f6330bS.f5264h.m1781a(VariableScope.nullOrMissingString, "IO error recording replay, disabling record");
-                    this.f4587k.f4551P = false;
-                    this.f4584h = true;
+                    GameEngine.a("Replay error", (Throwable) e);
+                    gameEngine.bS.h.a(VariableScope.nullOrMissingString, "IO error recording replay, disabling record");
+                    this.k.P = false;
+                    this.h = true;
                     return;
                 }
             }
-            if (this.f4585i.size() == 0) {
-                m2474b();
+            if (this.i.size() == 0) {
+                b();
             }
         }
         try {
-            this.f4587k.f4567J.mo1365e("wait");
-            this.f4587k.f4567J.writeInt(this.f4578b);
-            this.f4587k.f4567J.endBlock("wait");
-            this.f4587k.f4567J.mo1365e("end");
-            this.f4587k.f4567J.endBlock("end");
-            this.f4587k.f4567J.mo1365e("endReplayMetaData");
-            this.f4587k.f4567J.writeByte(0);
-            this.f4587k.f4567J.writeInt(this.f4578b);
-            this.f4587k.f4567J.writeInt(this.f4579c);
-            this.f4587k.f4567J.writeInt(this.f4580d);
-            this.f4587k.f4567J.writeInt(this.f4581e);
-            this.f4587k.f4567J.writeString("{frames:" + this.f4578b + ",time:" + this.f4579c + ",commandCount:" + this.f4580d + ",resyncCount:" + this.f4581e + "}");
-            this.f4587k.f4567J.endBlock("endReplayMetaData");
-            this.f4587k.f4567J.flashAll();
-            C0725ba.m2497a("Background writer stopping");
-            C0725ba.m2497a("Remainding commands: " + this.f4585i.size());
-            C0725ba.m2497a("last command: " + this.f4582f);
-            C0725ba.m2497a("last command write: " + this.f4583g);
-            C0725ba.m2497a("Commands issued: " + this.f4580d);
-            this.f4584h = true;
+            this.k.J.e("wait");
+            this.k.J.writeInt(this.b);
+            this.k.J.endBlock("wait");
+            this.k.J.e("end");
+            this.k.J.endBlock("end");
+            this.k.J.e("endReplayMetaData");
+            this.k.J.writeByte(0);
+            this.k.J.writeInt(this.b);
+            this.k.J.writeInt(this.c);
+            this.k.J.writeInt(this.d);
+            this.k.J.writeInt(this.e);
+            this.k.J.writeString("{frames:" + this.b + ",time:" + this.c + ",commandCount:" + this.d + ",resyncCount:" + this.e + "}");
+            this.k.J.endBlock("endReplayMetaData");
+            this.k.J.flashAll();
+            ReplayEngine.a("Background writer stopping");
+            ReplayEngine.a("Remainding commands: " + this.i.size());
+            ReplayEngine.a("last command: " + this.f);
+            ReplayEngine.a("last command write: " + this.g);
+            ReplayEngine.a("Commands issued: " + this.d);
+            this.h = true;
         } catch (IOException e2) {
             throw new RuntimeException(e2);
         }

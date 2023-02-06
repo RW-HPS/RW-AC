@@ -1,21 +1,17 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/b.class */
-abstract class AbstractC0818b {
+abstract class b {
+    String a;
 
-    /* renamed from: a */
-    String f5225a;
+    abstract void b();
 
-    /* renamed from: b */
-    abstract void mo1914b();
-
-    AbstractC0818b(String str) {
-        this.f5225a = str;
+    b(String str) {
+        this.a = str;
     }
 
-    /* renamed from: a */
-    String m1932a() {
-        return this.f5225a;
+    String a() {
+        return this.a;
     }
 }

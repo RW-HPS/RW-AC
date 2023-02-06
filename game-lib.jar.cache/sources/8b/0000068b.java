@@ -8,68 +8,53 @@ import org.newdawn.slick.util.MiscUtils;
 /* renamed from: com.corrodinggames.rts.java.t */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/t.class */
 public class ImageData implements org.newdawn.slick.opengl.ImageData {
-
-    /* renamed from: a */
-    int f7485a;
-
-    /* renamed from: c */
-    private int f7486c;
-
-    /* renamed from: d */
-    private int f7487d;
-
-    /* renamed from: e */
-    private int f7488e;
-
-    /* renamed from: f */
-    private int f7489f;
-
-    /* renamed from: g */
-    private byte[] f7490g;
-
-    /* renamed from: b */
-    final /* synthetic */ LoadImage f7491b;
+    int a;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private byte[] g;
+    final /* synthetic */ LoadImage b;
 
     public ImageData(LoadImage loadImage, Image image) {
-        this.f7491b = loadImage;
+        this.b = loadImage;
         Texture texture = image.getTexture();
-        this.f7490g = texture.getTextureData();
-        this.f7485a = texture.hasAlpha() ? 32 : 24;
-        this.f7486c = texture.getImageWidth();
-        this.f7487d = texture.getImageHeight();
-        this.f7488e = texture.getTextureWidth();
-        this.f7489f = texture.getTextureHeight();
+        this.g = texture.getTextureData();
+        this.a = texture.hasAlpha() ? 32 : 24;
+        this.c = texture.getImageWidth();
+        this.d = texture.getImageHeight();
+        this.e = texture.getTextureWidth();
+        this.f = texture.getTextureHeight();
     }
 
     public int getDepth() {
-        return this.f7485a;
+        return this.a;
     }
 
     public int getWidth() {
-        return this.f7486c;
+        return this.c;
     }
 
     public int getHeight() {
-        return this.f7487d;
+        return this.d;
     }
 
     public int getTexWidth() {
-        return this.f7488e;
+        return this.e;
     }
 
     public int getTexHeight() {
-        return this.f7489f;
+        return this.f;
     }
 
     public ByteBuffer getImageBufferData() {
-        ByteBuffer createByteBuffer = MiscUtils.createByteBuffer(this.f7490g.length);
-        createByteBuffer.put(this.f7490g);
+        ByteBuffer createByteBuffer = MiscUtils.createByteBuffer(this.g.length);
+        createByteBuffer.put(this.g);
         createByteBuffer.flip();
         return createByteBuffer;
     }
 
-    /* renamed from: a */
-    public byte[] m42a() {
-        return this.f7490g;
+    public byte[] a() {
+        return this.g;
     }
 }

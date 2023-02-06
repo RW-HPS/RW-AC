@@ -11,11 +11,11 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.Log;
-import com.corrodinggames.rts.C0067R;
-import com.corrodinggames.rts.gameFramework.C0773f;
-import com.corrodinggames.rts.gameFramework.EnumC1100u;
+import com.corrodinggames.rts.AssetsID;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.u;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.IntBuffer;
@@ -24,246 +24,176 @@ import java.util.concurrent.locks.Lock;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.x */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/x.class */
-public class C1062x implements InterfaceC1063y {
+public class x implements y {
+    static x a;
+    static e b;
+    static int[] c;
+    static Bitmap d;
+    private Context x;
+    private l y;
+    private l z;
+    private a A;
+    public boolean h;
+    public Bitmap i;
+    public e j;
+    public int k;
+    public int l;
+    private x B;
+    e s;
+    static IntBuffer e = IntBuffer.allocate(0);
+    static IntBuffer f = IntBuffer.allocate(0);
+    static final RectF t = new RectF();
+    static final RectF u = new RectF();
+    static Rect w = new Rect();
+    boolean g = false;
+    final Rect m = new Rect();
+    final Rect n = new Rect();
+    final RectF o = new RectF();
+    final RectF p = new RectF();
+    final Matrix q = new Matrix();
+    final RectF r = new RectF();
+    m v = new m();
 
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
     /* renamed from: a */
-    static C1062x f6782a;
-
-    /* renamed from: b */
-    static C0970e f6783b;
-
-    /* renamed from: c */
-    static int[] f6784c;
-
-    /* renamed from: d */
-    static Bitmap f6785d;
-
-    /* renamed from: x */
-    private Context f6789x;
-
-    /* renamed from: y */
-    private InterfaceC0977l f6790y;
-
-    /* renamed from: z */
-    private InterfaceC0977l f6791z;
-
-    /* renamed from: A */
-    private C0959a f6792A;
-
-    /* renamed from: h */
-    public boolean f6793h;
-
-    /* renamed from: i */
-    public Bitmap f6794i;
-
-    /* renamed from: j */
-    public C0970e f6795j;
-
-    /* renamed from: k */
-    public int f6796k;
-
-    /* renamed from: l */
-    public int f6797l;
-
-    /* renamed from: B */
-    private C1062x f6798B;
-
-    /* renamed from: s */
-    C0970e f6805s;
-
-    /* renamed from: e */
-    static IntBuffer f6786e = IntBuffer.allocate(0);
-
-    /* renamed from: f */
-    static IntBuffer f6787f = IntBuffer.allocate(0);
-
-    /* renamed from: t */
-    static final RectF f6806t = new RectF();
-
-    /* renamed from: u */
-    static final RectF f6807u = new RectF();
-
-    /* renamed from: w */
-    static Rect f6809w = new Rect();
-
-    /* renamed from: g */
-    boolean f6788g = false;
-
-    /* renamed from: m */
-    final Rect f6799m = new Rect();
-
-    /* renamed from: n */
-    final Rect f6800n = new Rect();
-
-    /* renamed from: o */
-    final RectF f6801o = new RectF();
-
-    /* renamed from: p */
-    final RectF f6802p = new RectF();
-
-    /* renamed from: q */
-    final Matrix f6803q = new Matrix();
-
-    /* renamed from: r */
-    final RectF f6804r = new RectF();
-
-    /* renamed from: v */
-    C1136m f6808v = new C1136m();
-
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public InterfaceC1063y mo202a(C0970e c0970e) {
-        C1062x c1062x = (C1062x) mo161b(c0970e);
-        c1062x.f6793h = true;
-        return c1062x;
+    public y mo9a(e eVar) {
+        x xVar = (x) mo10b(eVar);
+        xVar.h = true;
+        return xVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
     /* renamed from: b */
-    public InterfaceC1063y mo161b(C0970e c0970e) {
-        if (this.f6798B != null) {
-            return this.f6798B.mo161b(c0970e);
+    public y mo10b(e eVar) {
+        if (this.B != null) {
+            return this.B.mo10b(eVar);
         }
-        C1062x c1062x = new C1062x();
-        c1062x.mo215a(this.f6789x);
+        x xVar = new x();
+        xVar.a(this.x);
         Canvas canvas = new Canvas();
-        Bitmap mo391b = c0970e.mo391b();
-        canvas.m5252a(mo391b);
-        c1062x.f6790y = new C0975j(canvas);
-        c1062x.f6791z = c1062x.f6790y;
-        c1062x.f6794i = mo391b;
-        c1062x.f6795j = c0970e;
-        c1062x.f6798B = this;
-        if (c0970e != null) {
-            c1062x.f6796k = c0970e.mo387m();
-            c1062x.f6797l = c0970e.mo388l();
+        Bitmap b2 = eVar.b();
+        canvas.a(b2);
+        xVar.y = new j(canvas);
+        xVar.z = xVar.y;
+        xVar.i = b2;
+        xVar.j = eVar;
+        xVar.B = this;
+        if (eVar != null) {
+            xVar.k = eVar.m();
+            xVar.l = eVar.l();
         }
-        return c1062x;
+        return xVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public boolean mo231a() {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public boolean a() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo215a(Context context) {
-        this.f6789x = context;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(Context context) {
+        this.x = context;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo170b() {
-        this.f6805s = new C0963ad(mo222a(C0067R.drawable.error_outmem));
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b() {
+        this.s = new ad(a(AssetsID.drawable.error_outmem));
     }
 
-    /* renamed from: t */
-    private void m832t() {
-        C1062x c1062x;
-        if (f6782a != this) {
-            f6782a = this;
-            if (this.f6798B != null) {
-                c1062x = this.f6798B;
+    private void t() {
+        x xVar;
+        if (a != this) {
+            a = this;
+            if (this.B != null) {
+                xVar = this.B;
             } else {
-                c1062x = this;
+                xVar = this;
             }
-            if (c1062x.m834c()) {
-                InterfaceC0977l interfaceC0977l = this.f6790y;
-                if (this.f6798B != null) {
-                    interfaceC0977l = this.f6798B.f6790y;
+            if (xVar.c()) {
+                l lVar = this.y;
+                if (this.B != null) {
+                    lVar = this.B.y;
                 }
-                if (!this.f6793h) {
-                    if (f6783b != null) {
-                        interfaceC0977l.mo860a((C0970e) null);
-                        f6783b = null;
+                if (!this.h) {
+                    if (b != null) {
+                        lVar.a((e) null);
+                        b = null;
                     }
-                    if (this.f6798B != null) {
-                        this.f6790y = this.f6791z;
+                    if (this.B != null) {
+                        this.y = this.z;
                         return;
                     }
                     return;
                 }
-                if (this.f6798B != null) {
-                    this.f6790y = interfaceC0977l;
+                if (this.B != null) {
+                    this.y = lVar;
                 }
-                if (this.f6795j != f6783b) {
-                    this.f6790y.mo860a(this.f6795j);
-                    f6783b = this.f6795j;
+                if (this.j != b) {
+                    this.y.a(this.j);
+                    b = this.j;
                     return;
                 }
                 return;
             }
-            if (f6783b != null) {
-                InterfaceC0977l interfaceC0977l2 = this.f6790y;
-                if (this.f6798B != null) {
-                    interfaceC0977l2 = this.f6798B.f6790y;
+            if (b != null) {
+                l lVar2 = this.y;
+                if (this.B != null) {
+                    lVar2 = this.B.y;
                 }
-                interfaceC0977l2.mo860a((C0970e) null);
-                f6783b = null;
+                lVar2.a((e) null);
+                b = null;
             }
-            if (this.f6798B != null) {
-                this.f6790y = this.f6791z;
+            if (this.B != null) {
+                this.y = this.z;
             }
         }
     }
 
-    /* renamed from: a */
-    private void m837a(Paint paint, String str) {
-        m836a(paint, true, str, (C0970e) null);
+    private void a(Paint paint, String str) {
+        a(paint, true, str, (e) null);
     }
 
-    /* renamed from: b */
-    private void m835b(Paint paint) {
-        m836a(paint, false, (String) null, (C0970e) null);
+    private void b(Paint paint) {
+        a(paint, false, (String) null, (e) null);
     }
 
-    /* renamed from: a */
-    private void m838a(Paint paint, C0970e c0970e) {
-        m836a(paint, false, (String) null, c0970e);
+    private void a(Paint paint, e eVar) {
+        a(paint, false, (String) null, eVar);
     }
 
-    /* renamed from: c */
-    public boolean m834c() {
-        if ((this.f6790y instanceof C0980o) || (this.f6790y instanceof C0976k)) {
+    public boolean c() {
+        if ((this.y instanceof o) || (this.y instanceof k)) {
             return true;
         }
         return false;
     }
 
-    /* renamed from: a */
-    private void m836a(Paint paint, boolean z, String str, C0970e c0970e) {
-        m832t();
+    private void a(Paint paint, boolean z, String str, e eVar) {
+        t();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: d */
-    public InterfaceC0977l mo148d() {
-        return this.f6790y;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public l d() {
+        return this.y;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo190a(InterfaceC0977l interfaceC0977l) {
-        this.f6790y = interfaceC0977l;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(l lVar) {
+        this.y = lVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo205a(C0959a c0959a) {
-        this.f6792A = c0959a;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(a aVar) {
+        this.A = aVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public C0970e mo222a(int i) {
-        return mo216a(i, true);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e a(int i) {
+        return a(i, true);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public C0970e mo216a(int i, boolean z) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e a(int i, boolean z) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         if (z) {
             options.inPreferredConfig = Bitmap.Config.ARGB_8888;
@@ -271,16 +201,15 @@ public class C1062x implements InterfaceC1063y {
             options.inPreferredConfig = Bitmap.Config.RGB_565;
         }
         options.inScaled = false;
-        Bitmap decodeResource = BitmapFactory.decodeResource(this.f6789x.mo5301e(), i, options);
+        Bitmap decodeResource = BitmapFactory.decodeResource(this.x.e(), i, options);
         if (decodeResource == null) {
             throw new RuntimeException("Could not load image with resId:" + i);
         }
-        return m839a(decodeResource);
+        return a(decodeResource);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public C0970e mo184a(InputStream inputStream, boolean z) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e a(InputStream inputStream, boolean z) {
         if (inputStream == null) {
             throw new RuntimeException("loadImage: steam is null");
         }
@@ -294,36 +223,33 @@ public class C1062x implements InterfaceC1063y {
         try {
             Bitmap decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
             if (decodeStream == null) {
-                GameEngine.m990g("Could not load image from steam");
+                GameEngine.g("Could not load image from steam");
                 return null;
             }
-            Log.m5063d("RustedWarfare", "load a:" + z + " as " + decodeStream.m5264d());
-            return m839a(decodeStream);
-        } catch (OutOfMemoryError e) {
-            GameEngine.m1068a(EnumC1100u.gameImage, e);
-            if (this.f6805s == null) {
-                throw new RuntimeException("outOfMemoryErrorImage==null", e);
+            Log.d("RustedWarfare", "load a:" + z + " as " + decodeStream.d());
+            return a(decodeStream);
+        } catch (OutOfMemoryError e2) {
+            GameEngine.a(u.gameImage, e2);
+            if (this.s == null) {
+                throw new RuntimeException("outOfMemoryErrorImage==null", e2);
             }
-            return this.f6805s;
+            return this.s;
         }
     }
 
-    /* renamed from: a */
-    public C0970e m839a(Bitmap bitmap) {
-        C0970e c0970e = new C0970e();
-        c0970e.mo394a(bitmap);
-        return c0970e;
+    public e a(Bitmap bitmap) {
+        e eVar = new e();
+        eVar.a(bitmap);
+        return eVar;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public C0970e mo219a(int i, int i2, boolean z) {
-        return mo166b(i, i2, z);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e a(int i, int i2, boolean z) {
+        return b(i, i2, z);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public C0970e mo166b(int i, int i2, boolean z) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e b(int i, int i2, boolean z) {
         Bitmap.Config config;
         if (z) {
             config = Bitmap.Config.ARGB_8888;
@@ -331,195 +257,189 @@ public class C1062x implements InterfaceC1063y {
             config = Bitmap.Config.ARGB_8888;
         }
         try {
-            Bitmap m5278a = Bitmap.m5278a(i, i2, config);
-            if (m5278a != null && !z && config == Bitmap.Config.ARGB_8888 && Build.VERSION.SDK_INT >= 12) {
-                m5278a.m5271a(false);
+            Bitmap a2 = Bitmap.a(i, i2, config);
+            if (a2 != null && !z && config == Bitmap.Config.ARGB_8888 && Build.VERSION.SDK_INT >= 12) {
+                a2.a(false);
             }
-            if (m5278a == null) {
+            if (a2 == null) {
                 OutOfMemoryError outOfMemoryError = new OutOfMemoryError("createBitmap returned null, possible out of memory");
-                GameEngine.m1068a(EnumC1100u.gameImageCreate, outOfMemoryError);
-                if (this.f6805s == null) {
+                GameEngine.a(u.gameImageCreate, outOfMemoryError);
+                if (this.s == null) {
                     throw new RuntimeException("outOfMemoryErrorImage==null", outOfMemoryError);
                 }
-                return this.f6805s;
+                return this.s;
             }
-            return m839a(m5278a);
-        } catch (OutOfMemoryError e) {
-            GameEngine.m1068a(EnumC1100u.gameImageCreate, e);
-            if (this.f6805s == null) {
-                throw new RuntimeException("outOfMemoryErrorImage==null", e);
+            return a(a2);
+        } catch (OutOfMemoryError e2) {
+            GameEngine.a(u.gameImageCreate, e2);
+            if (this.s == null) {
+                throw new RuntimeException("outOfMemoryErrorImage==null", e2);
             }
-            return this.f6805s;
+            return this.s;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: e */
-    public void mo145e() {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void e() {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo200a(C0970e c0970e, float f, float f2, float f3, Paint paint) {
-        InterfaceC0977l interfaceC0977l = this.f6790y;
-        interfaceC0977l.mo847b();
-        interfaceC0977l.mo872a(f3 + 90.0f, f, f2);
-        mo160b(c0970e, f - c0970e.f6626t, f2 - c0970e.f6627u, paint);
-        interfaceC0977l.mo874a();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, float f2, float f3, float f4, Paint paint) {
+        l lVar = this.y;
+        lVar.b();
+        lVar.a(f4 + 90.0f, f2, f3);
+        b(eVar, f2 - eVar.t, f3 - eVar.u, paint);
+        lVar.a();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo197a(C0970e c0970e, Rect rect, float f, float f2, float f3, Paint paint) {
-        InterfaceC0977l interfaceC0977l = this.f6790y;
-        interfaceC0977l.mo847b();
-        int m5164b = rect.m5164b() >> 1;
-        int m5160c = rect.m5160c() >> 1;
-        this.f6802p.m5152a(f - m5164b, f2 - m5160c, f + m5164b, f2 + m5160c);
-        interfaceC0977l.mo872a(f3 + 90.0f, f, f2);
-        mo193a(c0970e, rect, this.f6802p, paint);
-        interfaceC0977l.mo874a();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, Rect rect, float f2, float f3, float f4, Paint paint) {
+        l lVar = this.y;
+        lVar.b();
+        int b2 = rect.b() >> 1;
+        int c2 = rect.c() >> 1;
+        this.p.a(f2 - b2, f3 - c2, f2 + b2, f3 + c2);
+        lVar.a(f4 + 90.0f, f2, f3);
+        a(eVar, rect, this.p, paint);
+        lVar.a();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo194a(C0970e c0970e, Rect rect, Rect rect2, Paint paint) {
-        if (m833c(c0970e) != null) {
-            this.f6790y.mo858a(c0970e, rect, rect2, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, Rect rect, Rect rect2, Paint paint) {
+        if (c(eVar) != null) {
+            this.y.a(eVar, rect, rect2, paint);
             return;
         }
         throw new RuntimeException("bitmap was not drawn");
     }
 
-    /* renamed from: c */
-    public Bitmap m833c(C0970e c0970e) {
-        Bitmap mo391b = c0970e.mo391b();
-        if (c0970e.f6612f != c0970e.f6611e) {
-            c0970e.f6612f = c0970e.f6611e;
-            mo148d().mo866a(mo391b);
+    public Bitmap c(e eVar) {
+        Bitmap b2 = eVar.b();
+        if (eVar.f != eVar.e) {
+            eVar.f = eVar.e;
+            d().a(b2);
         }
-        return mo391b;
+        return b2;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo159b(C0970e c0970e, Rect rect, Rect rect2, Paint paint) {
-        if (!this.f6788g) {
-            mo194a(c0970e, rect, rect2, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(e eVar, Rect rect, Rect rect2, Paint paint) {
+        if (!this.g) {
+            a(eVar, rect, rect2, paint);
             return;
         }
-        Bitmap m833c = m833c(c0970e);
-        boolean m899f = c0970e.m899f();
-        if (paint.m5186f() < 255) {
-            m899f = true;
+        Bitmap c2 = c(eVar);
+        boolean f2 = eVar.f();
+        if (paint.f() < 255) {
+            f2 = true;
         }
-        int m5269b = this.f6794i.m5269b();
-        int m5266c = this.f6794i.m5266c();
-        int m5269b2 = m833c.m5269b();
-        m833c.m5266c();
-        c0970e.mo54i();
-        int[] iArr = c0970e.f6616j;
-        if (f6785d != this.f6794i) {
-            mo173a(false);
+        int b2 = this.i.b();
+        int c3 = this.i.c();
+        int b3 = c2.b();
+        c2.c();
+        eVar.i();
+        int[] iArr = eVar.j;
+        if (d != this.i) {
+            a(false);
         }
-        int[] iArr2 = f6784c;
-        int i = rect2.f231b;
-        int i2 = rect2.f233d;
-        int i3 = rect2.f230a;
-        int i4 = rect2.f232c;
-        int i5 = rect.f231b;
-        int i6 = rect.f233d;
-        int i7 = rect.f230a;
-        float f = 1.0f;
-        float f2 = 1.0f;
-        int i8 = rect.f232c - i7;
+        int[] iArr2 = c;
+        int i = rect2.b;
+        int i2 = rect2.d;
+        int i3 = rect2.a;
+        int i4 = rect2.c;
+        int i5 = rect.b;
+        int i6 = rect.d;
+        int i7 = rect.a;
+        float f3 = 1.0f;
+        float f4 = 1.0f;
+        int i8 = rect.c - i7;
         int i9 = i6 - i5;
         int i10 = i4 - i3;
         int i11 = i2 - i;
         if (i11 != 0) {
-            f = i9 / i11;
+            f3 = i9 / i11;
         }
         if (i10 != 0) {
-            f2 = i8 / i10;
+            f4 = i8 / i10;
         }
         if (i < 0) {
-            i5 = (int) (i5 + ((-i) * f));
+            i5 = (int) (i5 + ((-i) * f3));
             i = 0;
         }
-        if (i2 > m5266c - 1) {
-            i2 = m5266c - 1;
+        if (i2 > c3 - 1) {
+            i2 = c3 - 1;
         }
         if (i > i2) {
             return;
         }
         if (i3 < 0) {
-            i7 = (int) (i7 + ((-i3) * f2));
+            i7 = (int) (i7 + ((-i3) * f4));
             i3 = 0;
         }
-        if (i4 > m5269b - 1) {
-            i4 = m5269b - 1;
+        if (i4 > b2 - 1) {
+            i4 = b2 - 1;
         }
         if (i3 > i4) {
             return;
         }
-        int i12 = i * m5269b;
-        int i13 = i5 * m5269b2;
-        int i14 = i2 * m5269b;
-        float f3 = 0.0f;
+        int i12 = i * b2;
+        int i13 = i5 * b3;
+        int i14 = i2 * b2;
+        float f5 = 0.0f;
         int i15 = i3;
         int i16 = i7;
         int i17 = i4;
-        if (!m899f) {
+        if (!f2) {
             while (i12 < i14) {
                 int i18 = i12 + i15;
-                int i19 = i13 + (((int) f3) * m5269b2) + i16;
-                float f4 = 0.0f;
+                int i19 = i13 + (((int) f5) * b3) + i16;
+                float f6 = 0.0f;
                 int i20 = i12 + i17;
                 int i21 = i20 - 4;
                 while (i18 < i21) {
-                    iArr2[i18] = iArr[i19 + ((int) f4)];
-                    float f5 = f4 + f2;
+                    iArr2[i18] = iArr[i19 + ((int) f6)];
+                    float f7 = f6 + f4;
                     int i22 = i18 + 1;
-                    iArr2[i22] = iArr[i19 + ((int) f5)];
-                    float f6 = f5 + f2;
+                    iArr2[i22] = iArr[i19 + ((int) f7)];
+                    float f8 = f7 + f4;
                     int i23 = i22 + 1;
-                    iArr2[i23] = iArr[i19 + ((int) f6)];
-                    float f7 = f6 + f2;
+                    iArr2[i23] = iArr[i19 + ((int) f8)];
+                    float f9 = f8 + f4;
                     int i24 = i23 + 1;
-                    iArr2[i24] = iArr[i19 + ((int) f7)];
-                    f4 = f7 + f2;
+                    iArr2[i24] = iArr[i19 + ((int) f9)];
+                    f6 = f9 + f4;
                     i18 = i24 + 1;
                 }
                 while (i18 < i20) {
-                    iArr2[i18] = iArr[i19 + ((int) f4)];
+                    iArr2[i18] = iArr[i19 + ((int) f6)];
                     i18++;
-                    f4 += f2;
+                    f6 += f4;
                 }
-                i12 += m5269b;
-                f3 += f;
+                i12 += b2;
+                f5 += f3;
             }
             return;
         }
-        int m5188e = paint.m5188e() >>> 24;
+        int e2 = paint.e() >>> 24;
         while (i12 < i14) {
             int i25 = i12 + i15;
-            int i26 = i13 + (((int) f3) * m5269b2) + i16;
-            float f8 = 0.0f;
+            int i26 = i13 + (((int) f5) * b3) + i16;
+            float f10 = 0.0f;
             int i27 = i12 + i17;
             int i28 = -1;
             int i29 = 0;
             int i30 = 0;
             int i31 = 0;
             while (i25 < i27) {
-                int i32 = i26 + ((int) f8);
+                int i32 = i26 + ((int) f10);
                 if (i32 != i28) {
                     int i33 = iArr[i32];
-                    i29 = ((i33 >>> 24) * m5188e) >> 8;
+                    i29 = ((i33 >>> 24) * e2) >> 8;
                     i30 = i33 & 16711935;
                     i31 = i33 & 65280;
                     if (i29 == 0) {
                         i25++;
-                        f8 += f2;
+                        f10 += f4;
                     } else {
                         i28 = i32;
                     }
@@ -529,35 +449,34 @@ public class C1062x implements InterfaceC1063y {
                 int i36 = i34 & 65280;
                 iArr2[i25] = (-16777216) | ((i35 + (((i30 - i35) * i29) >> 8)) & 16711935) | ((i36 + (((i31 - i36) * i29) >> 8)) & 65280);
                 i25++;
-                f8 += f2;
+                f10 += f4;
             }
-            i12 += m5269b;
-            f3 += f;
+            i12 += b2;
+            f5 += f3;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo208a(Rect rect, Paint paint) {
-        if (!this.f6788g) {
-            mo163b(rect, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(Rect rect, Paint paint) {
+        if (!this.g) {
+            b(rect, paint);
             return;
         }
-        if (f6785d != this.f6794i) {
-            mo173a(false);
+        if (d != this.i) {
+            a(false);
         }
-        int m5269b = this.f6794i.m5269b();
-        int m5266c = this.f6794i.m5266c();
-        int[] iArr = f6784c;
-        int i = rect.f231b;
-        int i2 = rect.f233d;
-        int i3 = rect.f230a;
-        int i4 = rect.f232c;
+        int b2 = this.i.b();
+        int c2 = this.i.c();
+        int[] iArr = c;
+        int i = rect.b;
+        int i2 = rect.d;
+        int i3 = rect.a;
+        int i4 = rect.c;
         if (i < 0) {
             i = 0;
         }
-        if (i2 > m5266c - 1) {
-            i2 = m5266c - 1;
+        if (i2 > c2 - 1) {
+            i2 = c2 - 1;
         }
         if (i > i2) {
             return;
@@ -565,35 +484,35 @@ public class C1062x implements InterfaceC1063y {
         if (i3 < 0) {
             i3 = 0;
         }
-        if (i4 > m5269b - 1) {
-            i4 = m5269b - 1;
+        if (i4 > b2 - 1) {
+            i4 = b2 - 1;
         }
         if (i3 > i4) {
             return;
         }
-        int i5 = i * m5269b;
-        int i6 = i2 * m5269b;
+        int i5 = i * b2;
+        int i6 = i2 * b2;
         int i7 = i3;
         int i8 = i4;
-        int m5188e = paint.m5188e();
-        int i9 = m5188e >>> 24;
+        int e2 = paint.e();
+        int i9 = e2 >>> 24;
         if (!(i9 < 255)) {
             while (i5 < i6) {
                 int i10 = i5 + i8;
                 for (int i11 = i5 + i7; i11 < i10; i11++) {
-                    iArr[i11] = m5188e;
+                    iArr[i11] = e2;
                 }
-                i5 += m5269b;
+                i5 += b2;
             }
             return;
         }
-        int i12 = (m5188e >> 16) & 255;
-        int i13 = (m5188e >> 8) & 255;
-        int i14 = m5188e & 255;
-        float f = i9 * 0.003921569f;
-        int i15 = (int) (i12 * f);
-        int i16 = (int) (i13 * f);
-        int i17 = (int) (i14 * f);
+        int i12 = (e2 >> 16) & 255;
+        int i13 = (e2 >> 8) & 255;
+        int i14 = e2 & 255;
+        float f2 = i9 * 0.003921569f;
+        int i15 = (int) (i12 * f2);
+        int i16 = (int) (i13 * f2);
+        int i17 = (int) (i14 * f2);
         int i18 = 255 - i9;
         int i19 = (-16777216) | (i15 << 16) | (i16 << 8) | i17;
         while (i5 < i6) {
@@ -602,390 +521,342 @@ public class C1062x implements InterfaceC1063y {
                 int i22 = iArr[i21];
                 iArr[i21] = (((((i22 & 16711935) * i18) >> 8) & 16711935) | ((((i22 & 65280) * i18) >> 8) & 65280)) + i19;
             }
-            i5 += m5269b;
+            i5 += b2;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo173a(boolean z) {
-        this.f6788g = true;
-        if (f6785d == this.f6794i) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(boolean z) {
+        this.g = true;
+        if (d == this.i) {
             return;
         }
-        int m5269b = this.f6794i.m5269b();
-        int m5266c = this.f6794i.m5266c();
-        int i = m5269b * m5266c;
-        if (f6784c == null || f6784c.length < i) {
-            f6784c = new int[i];
+        int b2 = this.i.b();
+        int c2 = this.i.c();
+        int i = b2 * c2;
+        if (c == null || c.length < i) {
+            c = new int[i];
         }
         if (!z) {
-            this.f6794i.m5270a(f6784c, 0, m5269b, 0, 0, m5269b, m5266c);
+            this.i.a(c, 0, b2, 0, 0, b2, c2);
         }
-        f6785d = this.f6794i;
+        d = this.i;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: f */
-    public void mo142f() {
-        this.f6788g = false;
-        if (f6785d == this.f6794i) {
-            int m5269b = this.f6794i.m5269b();
-            this.f6794i.m5267b(f6784c, 0, m5269b, 0, 0, m5269b, this.f6794i.m5266c());
-            f6785d = null;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void f() {
+        this.g = false;
+        if (d == this.i) {
+            int b2 = this.i.b();
+            this.i.b(c, 0, b2, 0, 0, b2, this.i.c());
+            d = null;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo193a(C0970e c0970e, Rect rect, RectF rectF, Paint paint) {
-        if (m833c(c0970e) != null) {
-            m838a(paint, c0970e);
-            this.f6790y.mo857a(c0970e, rect, rectF, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, Rect rect, RectF rectF, Paint paint) {
+        if (c(eVar) != null) {
+            a(paint, eVar);
+            this.y.a(eVar, rect, rectF, paint);
             return;
         }
         throw new RuntimeException("bitmap was not drawn");
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo199a(C0970e c0970e, float f, float f2, Paint paint) {
-        mo160b(c0970e, f - c0970e.f6626t, f2 - c0970e.f6627u, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, float f2, float f3, Paint paint) {
+        b(eVar, f2 - eVar.t, f3 - eVar.u, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo198a(C0970e c0970e, float f, float f2, Paint paint, float f3, float f4) {
-        InterfaceC0977l interfaceC0977l = this.f6790y;
-        interfaceC0977l.mo847b();
-        if (f3 != 0.0f) {
-            interfaceC0977l.mo872a(f3 + 90.0f, f, f2);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, float f2, float f3, Paint paint, float f4, float f5) {
+        l lVar = this.y;
+        lVar.b();
+        if (f4 != 0.0f) {
+            lVar.a(f4 + 90.0f, f2, f3);
         }
-        interfaceC0977l.mo871a(f4, f4, f, f2);
-        m833c(c0970e);
-        interfaceC0977l.mo859a(c0970e, f, f2, paint);
-        interfaceC0977l.mo874a();
+        lVar.a(f5, f5, f2, f3);
+        c(eVar);
+        lVar.a(eVar, f2, f3, paint);
+        lVar.a();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo160b(C0970e c0970e, float f, float f2, Paint paint) {
-        if (m833c(c0970e) != null) {
-            this.f6790y.mo859a(c0970e, f, f2, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(e eVar, float f2, float f3, Paint paint) {
+        if (c(eVar) != null) {
+            this.y.a(eVar, f2, f3, paint);
             return;
         }
         throw new RuntimeException("bitmap was not drawn");
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo196a(C0970e c0970e, Rect rect, Paint paint) {
-        mo195a(c0970e, rect, paint, 0, 0, 0, 0);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, Rect rect, Paint paint) {
+        a(eVar, rect, paint, 0, 0, 0, 0);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo195a(C0970e c0970e, Rect rect, Paint paint, int i, int i2, int i3, int i4) {
-        C0960aa.m946a(this, c0970e, rect, paint, i, i2, i3, i4);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, Rect rect, Paint paint, int i, int i2, int i3, int i4) {
+        aa.a(this, eVar, rect, paint, i, i2, i3, i4);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo192a(C0970e c0970e, RectF rectF, Paint paint, float f, float f2, int i, int i2) {
-        C0960aa.m944a(this, c0970e, rectF, paint, f, f2, i, i2);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, RectF rectF, Paint paint, float f2, float f3, int i, int i2) {
+        aa.a(this, eVar, rectF, paint, f2, f3, i, i2);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo167b(int i) {
-        m832t();
-        this.f6790y.mo868a(i);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(int i) {
+        t();
+        this.y.a(i);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo218a(int i, PorterDuff.Mode mode) {
-        m832t();
-        this.f6790y.mo867a(i, mode);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(int i, PorterDuff.Mode mode) {
+        t();
+        this.y.a(i, mode);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo181a(String str, float f, float f2, Paint paint, Paint paint2, float f3) {
-        float m5210a = paint.m5210a(str);
-        f6807u.m5152a(f, f2, f + m5210a, f2 + mo180a(str, paint));
-        f6806t.m5150a(f6807u);
-        if (paint.m5181j() == Paint.Align.CENTER) {
-            f6806t.m5153a(-(m5210a / 2.0f), 0.0f);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(String str, float f2, float f3, Paint paint, Paint paint2, float f4) {
+        float a2 = paint.a(str);
+        u.a(f2, f3, f2 + a2, f3 + a(str, paint));
+        t.a(u);
+        if (paint.j() == Paint.Align.CENTER) {
+            t.a(-(a2 / 2.0f), 0.0f);
         }
-        C0773f.m2199a(f6806t, f3);
-        m835b(paint2);
-        this.f6790y.mo862a(f6806t, paint2);
-        mo182a(str, f6807u.f234a + (f3 / 2.0f), f6807u.f237d - (f3 / 2.0f), paint);
+        f.a(t, f4);
+        b(paint2);
+        this.y.a(t, paint2);
+        a(str, u.a + (f4 / 2.0f), u.d - (f4 / 2.0f), paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo182a(String str, float f, float f2, Paint paint) {
-        m837a(paint, str);
-        this.f6790y.mo851a(str, f, f2, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(String str, float f2, float f3, Paint paint) {
+        a(paint, str);
+        this.y.a(str, f2, f3, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo163b(Rect rect, Paint paint) {
-        m835b(paint);
-        this.f6790y.mo864a(rect, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(Rect rect, Paint paint) {
+        b(paint);
+        this.y.a(rect, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo206a(RectF rectF, Paint paint) {
-        m835b(paint);
-        this.f6790y.mo862a(rectF, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(RectF rectF, Paint paint) {
+        b(paint);
+        this.y.a(rectF, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: g */
-    public void mo140g() {
-        if (this.f6808v.size() > 0) {
-            synchronized (this.f6808v) {
-                Iterator it = this.f6808v.iterator();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void g() {
+        if (this.v.size() > 0) {
+            synchronized (this.v) {
+                Iterator it = this.v.iterator();
                 while (it.hasNext()) {
-                    this.f6790y.mo861a((C0964ae) it.next());
+                    this.y.a((ae) it.next());
                 }
-                this.f6808v.clear();
+                this.v.clear();
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: h */
-    public void mo139h() {
-        m832t();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void h() {
+        t();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: c */
-    public void mo152c(Rect rect, Paint paint) {
-        this.f6800n.m5166a(rect.f230a, rect.f231b, rect.f230a + rect.f232c, rect.f231b + rect.f233d);
-        m835b(paint);
-        mo148d().mo864a(this.f6800n, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void c(Rect rect, Paint paint) {
+        this.n.a(rect.a, rect.b, rect.a + rect.c, rect.b + rect.d);
+        b(paint);
+        d().a(this.n, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo209a(Rect rect) {
-        if (this.f6794i != null) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(Rect rect) {
+        if (this.i != null) {
             rect = new Rect(rect);
-            int m5266c = this.f6794i.m5266c() - this.f6797l;
+            int c2 = this.i.c() - this.l;
         }
-        mo148d().mo865a(rect);
+        d().a(rect);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo207a(RectF rectF) {
-        if (this.f6794i != null) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(RectF rectF) {
+        if (this.i != null) {
             rectF = new RectF(rectF);
-            int m5266c = this.f6794i.m5266c() - this.f6797l;
+            int c2 = this.i.c() - this.l;
         }
-        mo148d().mo863a(rectF);
+        d().a(rectF);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo224a(float f, float f2, float f3, Paint paint) {
-        if (f3 < 50.0f) {
-            C0960aa.m947a(this, f, f2, f3, paint, 1.0f);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float f2, float f3, float f4, Paint paint) {
+        if (f4 < 50.0f) {
+            aa.a(this, f2, f3, f4, paint, 1.0f);
             return;
         }
-        m835b(paint);
-        this.f6790y.mo869a(f, f2, f3, paint);
+        b(paint);
+        this.y.a(f2, f3, f4, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo168b(float f, float f2, float f3, Paint paint) {
-        m835b(paint);
-        this.f6790y.mo869a(f, f2, f3, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(float f2, float f3, float f4, Paint paint) {
+        b(paint);
+        this.y.a(f2, f3, f4, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo171a(float[] fArr, int i, int i2, Paint paint) {
-        m835b(paint);
-        mo148d().mo848a(fArr, i, i2, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float[] fArr, int i, int i2, Paint paint) {
+        b(paint);
+        d().a(fArr, i, i2, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: i */
-    public void mo138i() {
-        m832t();
-        this.f6790y.mo847b();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void i() {
+        t();
+        this.y.b();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: j */
-    public void mo137j() {
-        m832t();
-        this.f6790y.mo874a();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void j() {
+        t();
+        this.y.a();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: k */
-    public void mo136k() {
-        m832t();
-        this.f6790y.mo847b();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void k() {
+        t();
+        this.y.b();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: l */
-    public void mo135l() {
-        m832t();
-        this.f6790y.mo874a();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void l() {
+        t();
+        this.y.a();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo228a(float f, float f2, float f3) {
-        this.f6790y.mo872a(f, f2, f3);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float f2, float f3, float f4) {
+        this.y.a(f2, f3, f4);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo229a(float f, float f2) {
-        this.f6790y.mo873a(f, f2);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float f2, float f3) {
+        this.y.a(f2, f3);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo227a(float f, float f2, float f3, float f4) {
-        this.f6790y.mo871a(f, f2, f3, f4);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float f2, float f3, float f4, float f5) {
+        this.y.a(f2, f3, f4, f5);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo169b(float f, float f2) {
-        this.f6790y.mo846b(f, f2);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(float f2, float f3) {
+        this.y.b(f2, f3);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo226a(float f, float f2, float f3, float f4, Paint paint) {
-        m835b(paint);
-        mo148d().mo870a(f, f2, f3, f4, paint);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(float f2, float f3, float f4, float f5, Paint paint) {
+        b(paint);
+        d().a(f2, f3, f4, f5, paint);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo189a(AbstractC0978m abstractC0978m) {
-        mo148d().mo856a(abstractC0978m);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(m mVar) {
+        d().a(mVar);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: m */
-    public int mo134m() {
-        if (this.f6794i != null) {
-            return this.f6796k;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public int m() {
+        if (this.i != null) {
+            return this.k;
         }
-        return (int) GameEngine.getGameEngine().f6397cl;
+        return (int) GameEngine.getGameEngine().cl;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: n */
-    public int mo133n() {
-        if (this.f6794i != null) {
-            return this.f6797l;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public int n() {
+        if (this.i != null) {
+            return this.l;
         }
-        return (int) GameEngine.getGameEngine().f6398cm;
+        return (int) GameEngine.getGameEngine().cm;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo221a(int i, int i2) {
-        this.f6796k = i;
-        this.f6797l = i2;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(int i, int i2) {
+        this.k = i;
+        this.l = i2;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: o */
-    public void mo132o() {
-        m835b((Paint) null);
-        mo218a(0, PorterDuff.Mode.CLEAR);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void o() {
+        b((Paint) null);
+        a(0, PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo214a(Paint paint) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(Paint paint) {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo204a(C0964ae c0964ae) {
-        if (c0964ae != null) {
-            synchronized (this.f6808v) {
-                this.f6808v.add(c0964ae);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(ae aeVar) {
+        if (aeVar != null) {
+            synchronized (this.v) {
+                this.v.add(aeVar);
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: p */
-    public void mo131p() {
-        m832t();
-        if (this.f6794i != null && (this.f6790y instanceof C0975j)) {
-            mo148d().mo866a(this.f6794i);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void p() {
+        t();
+        if (this.i != null && (this.y instanceof j)) {
+            d().a(this.i);
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: q */
-    public void mo130q() {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void q() {
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public int mo180a(String str, Paint paint) {
-        return (int) paint.m5180k();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public int a(String str, Paint paint) {
+        return (int) paint.k();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public int mo158b(String str, Paint paint) {
-        paint.m5208a(str, 0, str.length(), f6809w);
-        return f6809w.f230a + f6809w.m5164b();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public int b(String str, Paint paint) {
+        paint.a(str, 0, str.length(), w);
+        return w.a + w.b();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: r */
-    public C0970e mo129r() {
-        return this.f6805s;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public e r() {
+        return this.s;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo191a(C0970e c0970e, File file) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(e eVar, File file) {
         throw new RuntimeException("writeImageToFile not yet supported");
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: a */
-    public void mo179a(Lock lock) {
-        m832t();
-        this.f6790y.mo850a(lock);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void a(Lock lock) {
+        t();
+        this.y.a(lock);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: b */
-    public void mo157b(Lock lock) {
-        m832t();
-        this.f6790y.mo845b(lock);
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public void b(Lock lock) {
+        t();
+        this.y.b(lock);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.InterfaceC1063y
-    /* renamed from: s */
-    public float mo128s() {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.y
+    public float s() {
         return 1.0f;
     }
 }

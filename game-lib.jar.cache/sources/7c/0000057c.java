@@ -2,7 +2,7 @@ package com.corrodinggames.rts.gameFramework.unitAction;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.p */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/p.class */
-public enum EnumC0982p {
+public enum p {
     clipPath_Path_Op { // from class: com.corrodinggames.rts.gameFramework.m.p.1
     },
     clipPath_Path { // from class: com.corrodinggames.rts.gameFramework.m.p.12

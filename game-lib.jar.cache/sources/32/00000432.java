@@ -1,35 +1,29 @@
 package com.corrodinggames.rts.gameFramework;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.ak */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ak.class */
-public class C0652ak extends AbstractC0647af {
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: a */
-    public boolean mo2758a(AbstractC0647af abstractC0647af) {
+public class ak extends af {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean a(af afVar) {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: a */
-    public boolean mo2759a() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean a() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: b */
-    public boolean mo2757b() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean b() {
         return false;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: c */
-    public String mo2756c() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public String c() {
         return "None";
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: d */
-    public boolean mo2755d() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean d() {
         return false;
     }
 }

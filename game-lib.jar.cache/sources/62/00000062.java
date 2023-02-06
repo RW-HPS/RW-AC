@@ -48,7 +48,7 @@ public class Element {
     public native String getClassNames();
 
     /* renamed from: clone */
-    public native Element m5456clone();
+    public native Element m29clone();
 
     public native void appendChild(Element element);
 
@@ -273,9 +273,9 @@ public class Element {
     }
 
     public Element cloneAndFix() {
-        Element m5479clone = m5479clone();
-        m5479clone.setClassNames(getClassNames());
-        return m5479clone;
+        Element m29clone = m29clone();
+        m29clone.setClassNames(getClassNames());
+        return m29clone;
     }
 
     public boolean isFocused() {

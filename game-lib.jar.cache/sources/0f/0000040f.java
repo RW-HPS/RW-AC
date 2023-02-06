@@ -1,64 +1,53 @@
 package com.corrodinggames.rts.game.units;
 
-/* renamed from: com.corrodinggames.rts.game.units.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/r.class */
-public enum EnumC0618r {
-    f3908a { // from class: com.corrodinggames.rts.game.units.r.1
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: b */
-        public String mo3082b() {
+public enum r {
+    grass { // from class: com.corrodinggames.rts.game.units.r.1
+        @Override // com.corrodinggames.rts.game.units.r
+        public String b() {
             return "terrain/Long Grass.tsx";
         }
 
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: a */
-        public String mo3083a() {
+        @Override // com.corrodinggames.rts.game.units.r
+        public String a() {
             return null;
         }
     },
-    f3909b { // from class: com.corrodinggames.rts.game.units.r.2
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: b */
-        public String mo3082b() {
+    sea { // from class: com.corrodinggames.rts.game.units.r.2
+        @Override // com.corrodinggames.rts.game.units.r
+        public String b() {
             return "terrain/Water.tsx";
         }
 
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: a */
-        public String mo3083a() {
+        @Override // com.corrodinggames.rts.game.units.r
+        public String a() {
             return null;
         }
     },
-    f3910c { // from class: com.corrodinggames.rts.game.units.r.3
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: b */
-        public String mo3082b() {
+    sand { // from class: com.corrodinggames.rts.game.units.r.3
+        @Override // com.corrodinggames.rts.game.units.r
+        public String b() {
             return "terrain/Sand.tsx";
         }
 
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: a */
-        public String mo3083a() {
+        @Override // com.corrodinggames.rts.game.units.r
+        public String a() {
             return "ridges/Sand Nothing - Flat.tsx";
         }
     },
-    f3911d { // from class: com.corrodinggames.rts.game.units.r.4
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: b */
-        public String mo3082b() {
+    dust { // from class: com.corrodinggames.rts.game.units.r.4
+        @Override // com.corrodinggames.rts.game.units.r
+        public String b() {
             return "terrain/Dust.tsx";
         }
 
-        @Override // com.corrodinggames.rts.game.units.EnumC0618r
-        /* renamed from: a */
-        public String mo3083a() {
+        @Override // com.corrodinggames.rts.game.units.r
+        public String a() {
             return "ridges/Nothing Dust - Flat.tsx";
         }
     };
 
-    /* renamed from: a */
-    public abstract String mo3083a();
+    public abstract String a();
 
-    /* renamed from: b */
-    public abstract String mo3082b();
+    public abstract String b();
 }

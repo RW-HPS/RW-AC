@@ -1,9 +1,9 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
-import com.corrodinggames.rts.gameFramework.C0742br;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.java.audio.p051a.C1165a;
-import com.corrodinggames.rts.java.audio.p051a.C1183s;
+import com.corrodinggames.rts.gameFramework.Unit;
+import com.corrodinggames.rts.java.audio.a.a;
+import com.corrodinggames.rts.java.audio.a.s;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -15,19 +15,19 @@ public class Ogg {
         private OggInputStream input;
         private OggInputStream previousInput;
 
-        public Music(OpenALAudio openALAudio, C1165a c1165a) {
-            super(openALAudio, c1165a);
+        public Music(OpenALAudio openALAudio, a aVar) {
+            super(openALAudio, aVar);
             if (openALAudio.noDevice) {
                 return;
             }
-            this.input = new OggInputStream(c1165a.m383a());
+            this.input = new OggInputStream(aVar.a());
             setup(this.input.getChannels(), this.input.getSampleRate());
         }
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         public int read(byte[] bArr) {
             if (this.input == null) {
-                this.input = new OggInputStream(this.file.m383a(), this.previousInput);
+                this.input = new OggInputStream(this.file.a(), this.previousInput);
                 setup(this.input.getChannels(), this.input.getSampleRate());
                 this.previousInput = null;
             }
@@ -36,14 +36,14 @@ public class Ogg {
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         public void reset() {
-            C1183s.m307a(this.input);
+            s.a(this.input);
             this.previousInput = null;
             this.input = null;
         }
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         protected void loop() {
-            C1183s.m307a(this.input);
+            s.a(this.input);
             this.previousInput = this.input;
             this.input = null;
         }
@@ -55,29 +55,29 @@ public class Ogg {
         private OggInputStream previousInput;
         ThreadedWrappingAudioInputStream backgroundInput;
 
-        public MusicWithThreadedLoader(OpenALAudio openALAudio, C1165a c1165a) {
-            super(openALAudio, c1165a);
+        public MusicWithThreadedLoader(OpenALAudio openALAudio, a aVar) {
+            super(openALAudio, aVar);
             if (openALAudio.noDevice) {
                 return;
             }
-            this.input = new OggInputStream(c1165a.m383a());
+            this.input = new OggInputStream(aVar.a());
             setup(this.input.getChannels(), this.input.getSampleRate());
             this.backgroundInput = new ThreadedWrappingAudioInputStream(this.input);
         }
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         public int read(byte[] bArr) {
-            double m2438a;
+            double a;
             if (this.input == null) {
-                this.input = new OggInputStream(this.file.m383a(), this.previousInput);
+                this.input = new OggInputStream(this.file.a(), this.previousInput);
                 setup(this.input.getChannels(), this.input.getSampleRate());
                 this.previousInput = null;
                 this.backgroundInput = new ThreadedWrappingAudioInputStream(this.input);
             }
-            long m2440a = C0742br.m2440a();
+            long loadAllUnitsTook = Unit.loadAllUnitsTook();
             int read = this.backgroundInput.read(bArr);
-            if (C0742br.m2438a(m2440a) > 0.5d) {
-                GameEngine.m5460e("ogg read took:" + C0742br.m2439a(m2438a));
+            if (Unit.a(loadAllUnitsTook) > 0.5d) {
+                GameEngine.m5e("ogg read took:" + Unit.a(a));
             }
             return read;
         }
@@ -95,7 +95,7 @@ public class Ogg {
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         public void reset() {
-            C1183s.m307a(this.input);
+            s.a(this.input);
             this.previousInput = null;
             this.input = null;
             this.backgroundInput.close();
@@ -103,7 +103,7 @@ public class Ogg {
 
         @Override // com.corrodinggames.rts.java.audio.lwjgl.OpenALMusic
         protected void loop() {
-            C1183s.m307a(this.input);
+            s.a(this.input);
             this.previousInput = this.input;
             this.input = null;
             this.backgroundInput.close();
@@ -112,7 +112,7 @@ public class Ogg {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/java/audio/lwjgl/Ogg$Sound.class */
     public class Sound extends OpenALSound {
-        public Sound(OpenALAudio openALAudio, C1165a c1165a) {
+        public Sound(OpenALAudio openALAudio, a aVar) {
             super(openALAudio);
             int read;
             if (openALAudio.noDevice) {
@@ -120,16 +120,16 @@ public class Ogg {
             }
             OggInputStream oggInputStream = null;
             try {
-                oggInputStream = new OggInputStream(c1165a.m383a());
+                oggInputStream = new OggInputStream(aVar.a());
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(4096);
                 byte[] bArr = new byte[2048];
                 while (!oggInputStream.atEnd() && (read = oggInputStream.read(bArr)) != -1) {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 setup(byteArrayOutputStream.toByteArray(), oggInputStream.getChannels(), oggInputStream.getSampleRate());
-                C1183s.m307a(oggInputStream);
+                s.a(oggInputStream);
             } catch (Throwable th) {
-                C1183s.m307a(oggInputStream);
+                s.a(oggInputStream);
                 throw th;
             }
         }

@@ -2,59 +2,49 @@ package com.corrodinggames.rts.game.units;
 
 import com.corrodinggames.rts.game.PlayerData;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.game.units.p013a.AbstractC0229x;
-import com.corrodinggames.rts.game.units.p013a.EnumC0225t;
-import com.corrodinggames.rts.game.units.p013a.EnumC0226u;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.p037f.C0825g;
+import com.corrodinggames.rts.gameFramework.Interface.InterfaceEngine;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.k */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/k.class */
-class C0599k extends AbstractC0229x {
+class k extends com.corrodinggames.rts.game.units.a.x {
+    boolean a;
+    boolean b;
 
-    /* renamed from: a */
-    boolean f3884a;
-
-    /* renamed from: b */
-    boolean f3885b;
-
-    public C0599k(boolean z, boolean z2) {
+    public k(boolean z, boolean z2) {
         super("changeTeam" + z + "d:" + z2);
-        this.f3884a = z;
-        this.f3885b = z2;
+        this.a = z;
+        this.b = z2;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: b */
-    public String mo3095b() {
-        if (this.f3885b) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String b() {
+        if (this.b) {
             return "Selected player";
         }
-        if (this.f3884a) {
+        if (this.a) {
             return "<- Set player";
         }
         return "Set player ->";
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: d */
-    public String mo3123d() {
-        if (!this.f3885b) {
-            if (this.f3884a) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String d() {
+        if (!this.b) {
+            if (this.a) {
                 return "<-";
             }
             return "->";
         }
         GameEngine gameEngine = GameEngine.getGameEngine();
         PlayerData playerData = null;
-        Iterator it = gameEngine.f6330bS.f5427bZ.iterator();
+        Iterator it = gameEngine.bS.bZ.iterator();
         while (it.hasNext()) {
-            AbstractC0244am abstractC0244am = (AbstractC0244am) it.next();
-            if (abstractC0244am instanceof AbstractC0629y) {
-                AbstractC0629y abstractC0629y = (AbstractC0629y) abstractC0244am;
-                if (abstractC0629y.f1649cG && gameEngine.f6330bS.m1806m(abstractC0629y)) {
-                    playerData = abstractC0629y.f1614bX;
+            am amVar = (am) it.next();
+            if (amVar instanceof y) {
+                y yVar = (y) amVar;
+                if (yVar.cG && gameEngine.bS.m(yVar)) {
+                    playerData = yVar.bX;
                 }
             }
         }
@@ -65,45 +55,40 @@ class C0599k extends AbstractC0229x {
         return str;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: a */
-    public String mo3098a() {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public String a() {
         return "Change targeted player for editor";
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: l */
-    public float mo3122l() {
-        if (!C0825g.f5356bP) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public float l() {
+        if (!InterfaceEngine.bP) {
             return 0.8f;
         }
         return 0.5f;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: m */
-    public int mo3121m() {
-        if (this.f3885b) {
+    @Override // com.corrodinggames.rts.game.units.a.s
+    public int m() {
+        if (this.b) {
             return 2;
         }
         return 4;
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0229x, com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: f */
-    public EnumC0225t mo3090f() {
-        if (this.f3885b) {
-            return EnumC0225t.f1475g;
+    @Override // com.corrodinggames.rts.game.units.a.x, com.corrodinggames.rts.game.units.a.s
+    public com.corrodinggames.rts.game.units.a.t f() {
+        if (this.b) {
+            return com.corrodinggames.rts.game.units.a.t.infoOnly;
         }
-        return super.mo3090f();
+        return super.f();
     }
 
-    @Override // com.corrodinggames.rts.game.units.p013a.AbstractC0229x, com.corrodinggames.rts.game.units.p013a.AbstractC0224s
-    /* renamed from: e */
-    public EnumC0226u mo3091e() {
-        if (this.f3885b) {
-            return EnumC0226u.f1487i;
+    @Override // com.corrodinggames.rts.game.units.a.x, com.corrodinggames.rts.game.units.a.s
+    public com.corrodinggames.rts.game.units.a.u e() {
+        if (this.b) {
+            return com.corrodinggames.rts.game.units.a.u.infoOnly;
         }
-        return super.mo3091e();
+        return super.e();
     }
 }

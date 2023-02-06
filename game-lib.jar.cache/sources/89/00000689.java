@@ -2,25 +2,22 @@ package com.corrodinggames.rts.java;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 
-/* renamed from: com.corrodinggames.rts.java.r */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/r.class */
-public class C1223r extends Thread {
+public class r extends Thread {
+    final /* synthetic */ o a;
 
-    /* renamed from: a */
-    final /* synthetic */ C1220o f7470a;
-
-    public C1223r(C1220o c1220o) {
-        this.f7470a = c1220o;
+    public r(o oVar) {
+        this.a = oVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        GameEngine.m1033aq();
+        GameEngine.aq();
         while (true) {
             try {
-                C1221p c1221p = (C1221p) this.f7470a.f7457b.take();
-                c1221p.m77a();
-                this.f7470a.f7458c.m632a(c1221p);
+                p pVar = (p) this.a.b.take();
+                pVar.a();
+                this.a.c.a(pVar);
             } catch (InterruptedException e) {
                 return;
             }

@@ -148,52 +148,42 @@ public class Activity extends ContextWrapper implements ComponentCallbacks2, Key
         return null;
     }
 
-    /* renamed from: a */
-    public void m5320a(Intent intent, int i) {
-        m5319a(intent, i, null);
+    public void a(Intent intent, int i) {
+        a(intent, i, null);
     }
 
-    /* renamed from: a */
-    public void m5319a(Intent intent, int i, Bundle bundle) {
+    public void a(Intent intent, int i, Bundle bundle) {
     }
 
-    /* renamed from: a */
-    public Window m5324a() {
+    public Window a() {
         return null;
     }
 
     @Deprecated
-    /* renamed from: a */
-    public final void m5323a(int i) {
-        m5321a(i, (Bundle) null);
+    public final void a(int i) {
+        a(i, (Bundle) null);
     }
 
     @Deprecated
-    /* renamed from: a */
-    public final boolean m5321a(int i, Bundle bundle) {
+    public final boolean a(int i, Bundle bundle) {
         return true;
     }
 
     @Deprecated
-    /* renamed from: b */
-    public final void m5318b(int i) {
+    public final void b(int i) {
     }
 
-    /* renamed from: b */
-    public void mo4886b() {
+    public void b() {
     }
 
-    /* renamed from: c */
-    public boolean m5317c() {
+    public boolean c() {
         return false;
     }
 
-    /* renamed from: a */
-    public void m5322a(int i, int i2) {
+    public void a(int i, int i2) {
     }
 
-    /* renamed from: a */
-    public boolean mo4930a(Menu menu) {
+    public boolean a(Menu menu) {
         return true;
     }
 }

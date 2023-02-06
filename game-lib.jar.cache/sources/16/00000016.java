@@ -2,17 +2,15 @@ package net.rudp;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import net.rudp.p002a.NULSegment;
+import net.rudp.a.NULSegment;
 
 /* renamed from: a.a.l */
 /* loaded from: game-lib.jar:a/a/l.class */
-class RunnableC0022l implements Runnable {
+class l implements Runnable {
+    final /* synthetic */ ReliableSocket a;
 
-    /* renamed from: a */
-    final /* synthetic */ ReliableSocket f90a;
-
-    private RunnableC0022l(ReliableSocket reliableSocket) {
-        this.f90a = reliableSocket;
+    private l(ReliableSocket reliableSocket) {
+        this.a = reliableSocket;
     }
 
     @Override // java.lang.Runnable
@@ -20,17 +18,17 @@ class RunnableC0022l implements Runnable {
         ArrayList arrayList;
         ArrayList arrayList2;
         boolean z;
-        C0019i c0019i;
-        arrayList = this.f90a.f66u;
+        i iVar;
+        arrayList = this.a.u;
         synchronized (arrayList) {
-            arrayList2 = this.f90a.f66u;
+            arrayList2 = this.a.u;
             if (arrayList2.isEmpty()) {
                 try {
-                    ReliableSocket reliableSocket = this.f90a;
-                    c0019i = this.f90a.f70y;
-                    reliableSocket.m5382e(new NULSegment(c0019i.m5359a()));
+                    ReliableSocket reliableSocket = this.a;
+                    iVar = this.a.y;
+                    reliableSocket.e(new NULSegment(iVar.a()));
                 } catch (IOException e) {
-                    z = ReliableSocket.f81I;
+                    z = ReliableSocket.I;
                     if (z) {
                         e.printStackTrace();
                     }

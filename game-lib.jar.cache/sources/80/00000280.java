@@ -1,8 +1,5 @@
-package com.corrodinggames.rts.game.units.custom.p021e.p022a;
+package com.corrodinggames.rts.game.units.custom.e.a;
 
-import com.corrodinggames.rts.game.units.custom.p021e.C0433a;
-
-/* renamed from: com.corrodinggames.rts.game.units.custom.e.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/e/a/a.class */
-public abstract class AbstractC0434a extends C0433a {
+public abstract class a extends com.corrodinggames.rts.game.units.custom.e.a {
 }

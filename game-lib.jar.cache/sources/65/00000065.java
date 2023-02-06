@@ -27,9 +27,7 @@ public class LibRocket {
 
     /* loaded from: game-lib.jar:com/LibRocket$CompiledGeometry.class */
     public class CompiledGeometry {
-
-        /* renamed from: id */
-        public int f328id;
+        public int id;
         public float[] verticesXY;
         public float[] verticesUV;
         public int[] verticesColors;
@@ -362,7 +360,7 @@ public class LibRocket {
                 if (this.compiledGeometryList.get(i3) != null) {
                     i3++;
                 } else {
-                    compiledGeometry.f328id = i3;
+                    compiledGeometry.id = i3;
                     this.compiledGeometryList.set(i3, compiledGeometry);
                     z2 = true;
                     break;
@@ -372,10 +370,10 @@ public class LibRocket {
             }
         }
         if (!z2) {
-            compiledGeometry.f328id = this.compiledGeometryList.size();
+            compiledGeometry.id = this.compiledGeometryList.size();
             this.compiledGeometryList.add(compiledGeometry);
         }
-        return compiledGeometry.f328id;
+        return compiledGeometry.id;
     }
 
     public void RenderCompiledGeometry(int i, float f, float f2) {

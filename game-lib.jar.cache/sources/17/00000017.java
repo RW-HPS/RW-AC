@@ -1,40 +1,38 @@
 package net.rudp;
 
 import java.io.IOException;
-import net.rudp.p002a.ACKSegment;
-import net.rudp.p002a.EAKSegment;
-import net.rudp.p002a.SYNSegment;
-import net.rudp.p002a.Segment;
+import net.rudp.a.ACKSegment;
+import net.rudp.a.EAKSegment;
+import net.rudp.a.SYNSegment;
+import net.rudp.a.Segment;
 
 /* renamed from: a.a.m */
 /* loaded from: game-lib.jar:a/a/m.class */
-class C0023m extends Thread {
-
-    /* renamed from: a */
-    final /* synthetic */ ReliableSocket f91a;
+class m extends Thread {
+    final /* synthetic */ ReliableSocket a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public C0023m(ReliableSocket reliableSocket) {
+    public m(ReliableSocket reliableSocket) {
         super("ReliableSocket");
-        this.f91a = reliableSocket;
+        this.a = reliableSocket;
         setDaemon(true);
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        Segment m5371i;
+        Segment i;
         while (true) {
             try {
-                m5371i = this.f91a.m5371i();
-                if (m5371i != null) {
-                    if (m5371i instanceof SYNSegment) {
-                        this.f91a.m5406a((SYNSegment) m5371i);
-                    } else if (m5371i instanceof EAKSegment) {
-                        this.f91a.m5407a((EAKSegment) m5371i);
-                    } else if (!(m5371i instanceof ACKSegment)) {
-                        this.f91a.m5376g(m5371i);
+                i = this.a.i();
+                if (i != null) {
+                    if (i instanceof SYNSegment) {
+                        this.a.a((SYNSegment) i);
+                    } else if (i instanceof EAKSegment) {
+                        this.a.a((EAKSegment) i);
+                    } else if (!(i instanceof ACKSegment)) {
+                        this.a.g(i);
                     }
-                    this.f91a.m5389c(m5371i);
+                    this.a.c(i);
                 } else {
                     return;
                 }

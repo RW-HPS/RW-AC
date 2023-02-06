@@ -1,20 +1,15 @@
-package com.corrodinggames.rts.gameFramework.status.p047a;
-
-import com.corrodinggames.rts.gameFramework.status.C1066a;
+package com.corrodinggames.rts.gameFramework.status.a;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.n.a.a */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/n/a/a.class */
-public abstract class AbstractC1067a {
-    /* renamed from: b */
-    public abstract boolean mo803b(C1066a c1066a);
+public abstract class a {
+    public abstract boolean b(com.corrodinggames.rts.gameFramework.status.a aVar);
 
-    /* renamed from: a */
-    public boolean m806a(C1066a c1066a) {
+    public boolean a(com.corrodinggames.rts.gameFramework.status.a aVar) {
         return true;
     }
 
-    /* renamed from: c */
-    public boolean m805c(C1066a c1066a) {
+    public boolean c(com.corrodinggames.rts.gameFramework.status.a aVar) {
         return false;
     }
 }

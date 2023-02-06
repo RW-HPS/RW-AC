@@ -1,13 +1,13 @@
-package com.corrodinggames.rts.game.p012b;
+package com.corrodinggames.rts.game.maps;
 
 /* renamed from: com.corrodinggames.rts.game.b.f */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/b/f.class */
-public class C0179f extends Exception {
-    public C0179f(String str) {
+public class f extends Exception {
+    public f(String str) {
         super(str);
     }
 
-    public C0179f(String str, Exception exc) {
+    public f(String str, Exception exc) {
         super(str, exc);
     }
 }

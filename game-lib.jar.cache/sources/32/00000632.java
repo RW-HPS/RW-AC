@@ -2,45 +2,37 @@ package com.corrodinggames.rts.gameFramework;
 
 import android.os.Process;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.z */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/z.class */
-public class C1158z extends Thread {
+public class z extends Thread {
+    static int a = 0;
+    public boolean b;
+    long c;
 
-    /* renamed from: a */
-    static int f7182a = 0;
-
-    /* renamed from: b */
-    public boolean f7183b;
-
-    /* renamed from: c */
-    long f7184c;
-
-    /* renamed from: a */
-    public synchronized void m416a(boolean z) {
-        this.f7183b = z;
+    public synchronized void a(boolean z) {
+        this.b = z;
     }
 
-    public C1158z() {
-        super("GameThread" + f7182a);
-        this.f7183b = true;
-        f7182a++;
+    public z() {
+        super("GameThread" + a);
+        this.b = true;
+        a++;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         long j;
-        GameEngine.m1033aq();
-        if (!GameEngine.f6418aU) {
+        GameEngine.aq();
+        if (!GameEngine.aU) {
             Process.setThreadPriority(-4);
         }
-        m417a();
-        long j2 = this.f7184c;
+        a();
+        long j2 = this.c;
         GameEngine gameEngine = GameEngine.getGameEngine();
-        while (this.f7183b) {
+        while (this.b) {
             long nanoTime = System.nanoTime();
-            long j3 = this.f7184c;
-            m417a();
-            gameEngine.mo1079a(((float) (this.f7184c - j3)) * 0.060000002f, (int) (this.f7184c - j3));
+            long j3 = this.c;
+            a();
+            gameEngine.a(((float) (this.c - j3)) * 0.060000002f, (int) (this.c - j3));
             if (!gameEngine.settingsEngine.batterySaving) {
             }
             if (gameEngine.settingsEngine.batterySaving) {
@@ -69,8 +61,7 @@ public class C1158z extends Thread {
         }
     }
 
-    /* renamed from: a */
-    public void m417a() {
-        this.f7184c = System.currentTimeMillis();
+    public void a() {
+        this.c = System.currentTimeMillis();
     }
 }

@@ -4,56 +4,48 @@ import android.graphics.Paint;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.i */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/i.class */
-public class C0974i extends C0964ae {
+public class i extends ae {
+    int a;
+    boolean b;
 
-    /* renamed from: a */
-    int f6661a;
-
-    /* renamed from: b */
-    boolean f6662b;
-
-    public C0974i(String str, boolean z) {
+    public i(String str, boolean z) {
         super(str);
-        this.f6661a = -99;
+        this.a = -99;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.C0964ae
-    /* renamed from: a */
-    public boolean mo886a() {
-        return this.f6662b;
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.ae
+    public boolean a() {
+        return this.b;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.C0964ae
-    /* renamed from: b */
-    public boolean mo884b() {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.ae
+    public boolean b() {
         boolean z = false;
-        if (-16711936 != this.f6661a) {
-            m930a("teamColor", -16711936);
+        if (-16711936 != this.a) {
+            a("teamColor", -16711936);
             z = true;
-            this.f6661a = -16711936;
+            this.a = -16711936;
         }
         return z;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.C0964ae
-    /* renamed from: a */
-    public boolean mo885a(Paint paint, C0970e c0970e) {
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.ae
+    public boolean a(Paint paint, e eVar) {
         boolean z = false;
-        if (c0970e instanceof C0973h) {
-            C0973h c0973h = (C0973h) c0970e;
-            if (c0973h.f6657D != this.f6661a) {
-                m930a("teamColor", c0973h.f6657D);
+        if (eVar instanceof h) {
+            h hVar = (h) eVar;
+            if (hVar.D != this.a) {
+                a("teamColor", hVar.D);
                 z = true;
-                this.f6661a = c0973h.f6657D;
+                this.a = hVar.D;
             }
         }
-        super.mo885a(paint, c0970e);
+        super.a(paint, eVar);
         return z;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.unitAction.C0964ae
-    /* renamed from: c */
-    public void mo883c() {
-        super.mo883c();
+    @Override // com.corrodinggames.rts.gameFramework.unitAction.ae
+    public void c() {
+        super.c();
     }
 }

@@ -1,89 +1,69 @@
-package com.corrodinggames.rts.gameFramework.p031b;
+package com.corrodinggames.rts.gameFramework.b;
 
 import android.opengl.GLES20;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.b.al */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/al.class */
-public class C0698al {
+public class al {
+    public final FloatBuffer a;
+    public final ShortBuffer b;
+    public int c;
+    int[] d;
+    int e;
+    final /* synthetic */ aj f;
 
-    /* renamed from: a */
-    public final FloatBuffer f4406a;
-
-    /* renamed from: b */
-    public final ShortBuffer f4407b;
-
-    /* renamed from: c */
-    public int f4408c;
-
-    /* renamed from: d */
-    int[] f4409d;
-
-    /* renamed from: e */
-    int f4410e;
-
-    /* renamed from: f */
-    final /* synthetic */ C0696aj f4411f;
-
-    /* renamed from: a */
-    public void m2650a(float[] fArr, int i, int i2) {
-        this.f4406a.clear();
+    public void a(float[] fArr, int i, int i2) {
+        this.a.clear();
         int i3 = i + i2;
-        this.f4406a.put(fArr, 0, i2);
-        this.f4406a.flip();
-        this.f4408c = i2;
+        this.a.put(fArr, 0, i2);
+        this.a.flip();
+        this.c = i2;
     }
 
-    /* renamed from: a */
-    public void m2652a() {
-        GLES20.glEnableVertexAttribArray(this.f4411f.f4390h.f4403a.f4498a);
-        GLES20.glEnableVertexAttribArray(this.f4411f.f4390h.f4404b.f4498a);
+    public void a() {
+        GLES20.glEnableVertexAttribArray(this.f.h.a.a);
+        GLES20.glEnableVertexAttribArray(this.f.h.b.a);
     }
 
-    /* renamed from: b */
-    public void m2649b() {
-        C0712n.m2539q();
-        if (this.f4409d == null) {
-            this.f4409d = new int[1];
-            GLES20.glGenBuffers(1, this.f4409d, 0);
-            C0712n.m2538r();
+    public void b() {
+        n.q();
+        if (this.d == null) {
+            this.d = new int[1];
+            GLES20.glGenBuffers(1, this.d, 0);
+            n.r();
         }
-        this.f4410e++;
-        if (this.f4410e >= 1) {
-            this.f4410e = 0;
+        this.e++;
+        if (this.e >= 1) {
+            this.e = 0;
         }
-        GLES20.glBindBuffer(34962, this.f4409d[this.f4410e]);
-        GLES20.glBufferData(34962, this.f4408c * 4, this.f4406a, 35040);
-        GLES20.glVertexAttribPointer(this.f4411f.f4390h.f4403a.f4498a, 2, 5126, false, 32, 0);
-        C0712n.m2539q();
-        C0712n.m2539q();
-        GLES20.glVertexAttribPointer(this.f4411f.f4390h.f4404b.f4498a, 4, 5126, false, 32, 16);
-        C0712n.m2539q();
+        GLES20.glBindBuffer(34962, this.d[this.e]);
+        GLES20.glBufferData(34962, this.c * 4, this.a, 35040);
+        GLES20.glVertexAttribPointer(this.f.h.a.a, 2, 5126, false, 32, 0);
+        n.q();
+        n.q();
+        GLES20.glVertexAttribPointer(this.f.h.b.a, 4, 5126, false, 32, 16);
+        n.q();
     }
 
-    /* renamed from: a */
-    public void m2651a(int i, int i2, int i3) {
-        if (this.f4407b != null) {
-            this.f4407b.position(i2);
-            GLES20.glDrawElements(i, i3, 5123, this.f4407b);
+    public void a(int i, int i2, int i3) {
+        if (this.b != null) {
+            this.b.position(i2);
+            GLES20.glDrawElements(i, i3, 5123, this.b);
             return;
         }
         GLES20.glDrawArrays(i, i2, i3);
     }
 
-    /* renamed from: c */
-    public void m2648c() {
+    public void c() {
         GLES20.glBindBuffer(34962, 0);
     }
 
-    /* renamed from: d */
-    public void m2647d() {
-        m2652a();
+    public void d() {
+        a();
     }
 
-    /* renamed from: e */
-    public void m2646e() {
-        GLES20.glDisableVertexAttribArray(this.f4411f.f4390h.f4404b.f4498a);
+    public void e() {
+        GLES20.glDisableVertexAttribArray(this.f.h.b.a);
     }
 }

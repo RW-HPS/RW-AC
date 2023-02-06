@@ -2,71 +2,57 @@ package com.corrodinggames.rts.gameFramework.net;
 
 import com.corrodinggames.rts.game.PlayerData;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.gameFramework.f;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.b */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/b.class */
-public class C0902b {
+public class b {
+    int a;
+    String b;
+    String c;
+    int d;
+    long e;
+    final /* synthetic */ a f;
 
-    /* renamed from: a */
-    int f5974a;
-
-    /* renamed from: b */
-    String f5975b;
-
-    /* renamed from: c */
-    String f5976c;
-
-    /* renamed from: d */
-    int f5977d;
-
-    /* renamed from: e */
-    long f5978e;
-
-    /* renamed from: f */
-    final /* synthetic */ C0862a f5979f;
-
-    C0902b(C0862a c0862a, int i, String str, String str2, PlayerConnect playerConnect) {
-        this.f5979f = c0862a;
-        this.f5974a = i;
-        this.f5975b = str;
-        this.f5976c = str2;
+    b(a aVar, int i, String str, String str2, PlayerConnect playerConnect) {
+        this.f = aVar;
+        this.a = i;
+        this.b = str;
+        this.c = str2;
         if (playerConnect != null) {
-            this.f5977d = playerConnect.connectIndex;
+            this.d = playerConnect.connectIndex;
         }
-        this.f5978e = System.nanoTime();
+        this.e = System.nanoTime();
     }
 
-    /* renamed from: a */
-    public String m1362a() {
+    public String a() {
         String str;
-        if (this.f5975b != null) {
-            str = this.f5975b + ": " + this.f5976c;
+        if (this.b != null) {
+            str = this.b + ": " + this.c;
         } else {
-            str = this.f5976c;
+            str = this.c;
         }
         return str;
     }
 
-    /* renamed from: b */
-    public String m1361b() {
+    public String b() {
         String str = VariableScope.nullOrMissingString;
-        if (this.f5975b != null) {
+        if (this.b != null) {
             int i = -1;
-            if (this.f5974a != -1) {
-                i = PlayerData.m4369i(this.f5974a);
+            if (this.a != -1) {
+                i = PlayerData.i(this.a);
             }
-            str = "<strong> <font color='" + C0773f.m2115h(i) + "'>" + this.f5979f.m1636a(this.f5975b) + ": </font></strong>";
+            str = "<strong> <font color='" + f.h(i) + "'>" + this.f.a(this.b) + ": </font></strong>";
         }
         boolean z = true;
-        for (String str2 : this.f5976c.split("\n")) {
+        for (String str2 : this.c.split("\n")) {
             if (!str2.trim().equals(VariableScope.nullOrMissingString)) {
                 if (z) {
                     z = false;
                 } else {
                     str = str + "<br/>";
                 }
-                str = str + this.f5979f.m1636a(str2);
+                str = str + this.f.a(str2);
             }
         }
         return str;

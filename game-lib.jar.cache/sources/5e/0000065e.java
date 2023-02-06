@@ -1,10 +1,10 @@
 package com.corrodinggames.rts.java.audio.lwjgl;
 
 import com.corrodinggames.rts.java.audio.Music;
-import com.corrodinggames.rts.java.audio.p051a.C1165a;
-import com.corrodinggames.rts.java.audio.p051a.C1166b;
-import com.corrodinggames.rts.java.audio.p051a.C1167c;
-import com.corrodinggames.rts.java.audio.p051a.C1177m;
+import com.corrodinggames.rts.java.audio.a.a;
+import com.corrodinggames.rts.java.audio.a.b;
+import com.corrodinggames.rts.java.audio.a.c;
+import com.corrodinggames.rts.java.audio.a.m;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import org.lwjgl.BufferUtils;
@@ -22,11 +22,11 @@ public abstract class OpenALMusic implements Music {
     private boolean isPlaying;
     private float renderedSeconds;
     private float maxSecondsPerBuffer;
-    protected final C1165a file;
+    protected final a file;
     private static final int bufferSize = 40960;
     private static final byte[] tempBytes = new byte[bufferSize];
     private static final ByteBuffer tempBuffer = BufferUtils.createByteBuffer((int) bufferSize);
-    private C1166b renderedSecondsQueue = new C1166b(3);
+    private b renderedSecondsQueue = new b(3);
     private int sourceID = -1;
     private float volume = 1.0f;
     private float pan = 0.0f;
@@ -35,9 +35,9 @@ public abstract class OpenALMusic implements Music {
 
     public abstract int read(byte[] bArr);
 
-    public OpenALMusic(OpenALAudio openALAudio, C1165a c1165a) {
+    public OpenALMusic(OpenALAudio openALAudio, a aVar) {
         this.audio = openALAudio;
-        this.file = c1165a;
+        this.file = aVar;
     }
 
     protected void setup(int i, int i2) {
@@ -67,7 +67,7 @@ public abstract class OpenALMusic implements Music {
                 AL10.alGenBuffers(this.buffers);
                 int alGetError = AL10.alGetError();
                 if (alGetError != 0) {
-                    throw new C1167c("Unable to allocate audio buffers. AL Error: " + alGetError);
+                    throw new c("Unable to allocate audio buffers. AL Error: " + alGetError);
                 }
             }
             AL10.alSourcei(this.sourceID, 4103, 0);
@@ -105,7 +105,7 @@ public abstract class OpenALMusic implements Music {
         this.audio.freeSource(this.sourceID);
         this.sourceID = -1;
         this.renderedSeconds = 0.0f;
-        this.renderedSecondsQueue.m375c();
+        this.renderedSecondsQueue.c();
         this.isPlaying = false;
     }
 
@@ -158,7 +158,7 @@ public abstract class OpenALMusic implements Music {
         if (this.audio.noDevice || this.sourceID == -1) {
             return;
         }
-        AL10.alSource3f(this.sourceID, 4100, C1177m.m329b(((f - 1.0f) * 3.1415927f) / 2.0f), 0.0f, C1177m.m332a(((f + 1.0f) * 3.1415927f) / 2.0f));
+        AL10.alSource3f(this.sourceID, 4100, m.b(((f - 1.0f) * 3.1415927f) / 2.0f), 0.0f, m.a(((f + 1.0f) * 3.1415927f) / 2.0f));
         AL10.alSourcef(this.sourceID, 4106, f2);
     }
 
@@ -171,8 +171,8 @@ public abstract class OpenALMusic implements Music {
         this.isPlaying = false;
         AL10.alSourceStop(this.sourceID);
         AL10.alSourceUnqueueBuffers(this.sourceID, this.buffers);
-        while (this.renderedSecondsQueue.f7222b > 0) {
-            this.renderedSeconds = this.renderedSecondsQueue.m381a();
+        while (this.renderedSecondsQueue.b > 0) {
+            this.renderedSeconds = this.renderedSecondsQueue.a();
         }
         if (f <= this.renderedSeconds) {
             reset();
@@ -181,7 +181,7 @@ public abstract class OpenALMusic implements Music {
         while (this.renderedSeconds < f - this.maxSecondsPerBuffer && read(tempBytes) > 0) {
             this.renderedSeconds += this.maxSecondsPerBuffer;
         }
-        this.renderedSecondsQueue.m380a(this.renderedSeconds);
+        this.renderedSecondsQueue.a(this.renderedSeconds);
         boolean z2 = false;
         for (int i = 0; i < 3; i++) {
             int i2 = this.buffers.get(i);
@@ -191,7 +191,7 @@ public abstract class OpenALMusic implements Music {
             z2 = true;
             AL10.alSourceQueueBuffers(this.sourceID, i2);
         }
-        this.renderedSecondsQueue.m381a();
+        this.renderedSecondsQueue.a();
         if (!z2) {
             stop();
             if (this.onCompletionListener != null) {
@@ -244,7 +244,7 @@ public abstract class OpenALMusic implements Music {
             if (i <= 0 || (alSourceUnqueueBuffers = AL10.alSourceUnqueueBuffers(this.sourceID)) == 40963) {
                 break;
             }
-            this.renderedSeconds = this.renderedSecondsQueue.m381a();
+            this.renderedSeconds = this.renderedSecondsQueue.a();
             if (!z) {
                 if (fill(alSourceUnqueueBuffers)) {
                     AL10.alSourceQueueBuffers(this.sourceID, alSourceUnqueueBuffers);
@@ -275,14 +275,14 @@ public abstract class OpenALMusic implements Music {
                 if (read <= 0) {
                     return false;
                 }
-                if (this.renderedSecondsQueue.f7222b > 0) {
-                    this.renderedSecondsQueue.m378a(0, 0.0f);
+                if (this.renderedSecondsQueue.b > 0) {
+                    this.renderedSecondsQueue.a(0, 0.0f);
                 }
             } else {
                 return false;
             }
         }
-        this.renderedSecondsQueue.m376b(0, (this.renderedSecondsQueue.f7222b > 0 ? this.renderedSecondsQueue.m377b() : 0.0f) + ((this.maxSecondsPerBuffer * read) / 40960.0f));
+        this.renderedSecondsQueue.b(0, (this.renderedSecondsQueue.b > 0 ? this.renderedSecondsQueue.b() : 0.0f) + ((this.maxSecondsPerBuffer * read) / 40960.0f));
         tempBuffer.put(tempBytes, 0, read).flip();
         AL10.alBufferData(i, this.format, tempBuffer, this.sampleRate);
         return true;

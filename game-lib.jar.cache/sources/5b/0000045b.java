@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.p031b;
+package com.corrodinggames.rts.gameFramework.b;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
@@ -6,271 +6,231 @@ import android.opengl.GLUtils;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.HashMap;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.b.ah */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/b/ah.class */
-public abstract class AbstractC0693ah extends AbstractC0699b {
+public abstract class ah extends b {
+    private static HashMap l = new HashMap();
+    private static ai o = new ai();
+    private boolean p;
+    private boolean q;
+    private boolean r;
+    private boolean s;
+    private boolean t;
+    private static int u;
+    protected Bitmap m;
+    private int v;
+    int n;
 
-    /* renamed from: l */
-    private static HashMap f4369l = new HashMap();
+    protected abstract Bitmap k();
 
-    /* renamed from: o */
-    private static C0695ai f4370o = new C0695ai();
+    protected abstract void a(Bitmap bitmap);
 
-    /* renamed from: p */
-    private boolean f4371p;
-
-    /* renamed from: q */
-    private boolean f4372q;
-
-    /* renamed from: r */
-    private boolean f4373r;
-
-    /* renamed from: s */
-    private boolean f4374s;
-
-    /* renamed from: t */
-    private boolean f4375t;
-
-    /* renamed from: u */
-    private static int f4376u;
-
-    /* renamed from: m */
-    protected Bitmap f4377m;
-
-    /* renamed from: v */
-    private int f4378v;
-
-    /* renamed from: n */
-    int f4379n;
-
-    /* renamed from: k */
-    protected abstract Bitmap mo2628k();
-
-    /* renamed from: a */
-    protected abstract void mo2629a(Bitmap bitmap);
-
-    protected AbstractC0693ah() {
+    protected ah() {
         this(false);
     }
 
-    protected AbstractC0693ah(boolean z) {
+    protected ah(boolean z) {
         super(null, 0, 0);
-        this.f4371p = true;
-        this.f4372q = false;
-        this.f4373r = false;
-        this.f4374s = false;
-        this.f4375t = false;
-        this.f4379n = 9729;
+        this.p = true;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = false;
+        this.n = 9729;
         if (z) {
-            m2639a(true);
-            this.f4378v = 1;
+            a(true);
+            this.v = 1;
         }
     }
 
-    /* renamed from: a */
-    private static Bitmap m2670a(boolean z, Bitmap.Config config, int i) {
-        Bitmap m5284a;
-        C0695ai c0695ai = f4370o;
-        c0695ai.f4380a = z;
-        c0695ai.f4381b = config;
-        c0695ai.f4382c = i;
-        Bitmap bitmap = (Bitmap) f4369l.get(c0695ai);
+    private static Bitmap a(boolean z, Bitmap.Config config, int i) {
+        Bitmap a;
+        ai aiVar = o;
+        aiVar.a = z;
+        aiVar.b = config;
+        aiVar.c = i;
+        Bitmap bitmap = (Bitmap) l.get(aiVar);
         if (bitmap == null) {
             if (z) {
-                m5284a = Bitmap.m5284a(1, i, config);
+                a = Bitmap.a(1, i, config);
             } else {
-                m5284a = Bitmap.m5284a(i, 1, config);
+                a = Bitmap.a(i, 1, config);
             }
-            bitmap = m5284a;
-            f4369l.put(c0695ai.clone(), bitmap);
+            bitmap = a;
+            l.put(aiVar.clone(), bitmap);
         }
         return bitmap;
     }
 
-    /* renamed from: n */
-    private Bitmap m2665n() {
-        if (this.f4377m == null) {
-            this.f4377m = mo2628k();
-            int m5275b = this.f4377m.m5275b() + (this.f4378v * 2);
-            int m5272c = this.f4377m.m5272c() + (this.f4378v * 2);
-            if (this.f4414c == -1) {
-                m2643a(m5275b, m5272c);
+    private Bitmap n() {
+        if (this.m == null) {
+            this.m = k();
+            int b = this.m.b() + (this.v * 2);
+            int c = this.m.c() + (this.v * 2);
+            if (this.c == -1) {
+                a(b, c);
             }
         }
-        return this.f4377m;
+        return this.m;
     }
 
-    /* renamed from: o */
-    private void m2664o() {
-        mo2629a(this.f4377m);
-        this.f4377m = null;
+    private void o() {
+        a(this.m);
+        this.m = null;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: b */
-    public int mo2638b() {
-        if (this.f4414c == -1) {
-            m2665n();
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public int b() {
+        if (this.c == -1) {
+            n();
         }
-        return this.f4414c;
+        return this.c;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: c */
-    public int mo2637c() {
-        if (this.f4414c == -1) {
-            m2665n();
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public int c() {
+        if (this.c == -1) {
+            n();
         }
-        return this.f4415d;
+        return this.d;
     }
 
-    /* renamed from: l */
-    public void m2667l() {
-        if (this.f4377m != null) {
-            m2664o();
+    public void l() {
+        if (this.m != null) {
+            o();
         }
-        this.f4371p = false;
+        this.p = false;
     }
 
-    /* renamed from: m */
-    public boolean m2666m() {
-        return m2633i() && this.f4371p;
+    public boolean m() {
+        return i() && this.p;
     }
 
-    /* renamed from: d */
-    public void m2669d(InterfaceC0709k interfaceC0709k) {
+    public void d(k kVar) {
         int i;
-        if (!m2633i()) {
-            if (this.f4375t) {
-                int i2 = f4376u + 1;
-                f4376u = i2;
+        if (!i()) {
+            if (this.t) {
+                int i2 = u + 1;
+                u = i2;
                 if (i2 > 100) {
                     return;
                 }
             }
-            m2668e(interfaceC0709k);
-        } else if (!this.f4371p) {
-            Bitmap m2665n = m2665n();
-            int internalFormat = GLUtils.getInternalFormat(m2665n);
+            e(kVar);
+        } else if (!this.p) {
+            Bitmap n = n();
+            int internalFormat = GLUtils.getInternalFormat(n);
             try {
-                i = GLUtils.getType(m2665n);
+                i = GLUtils.getType(n);
             } catch (IllegalArgumentException e) {
-                GameEngine.m1061a("updateContent: GLUtils.getType failed, defaulting to GL_UNSIGNED_BYTE", (Throwable) e);
+                GameEngine.a("updateContent: GLUtils.getType failed, defaulting to GL_UNSIGNED_BYTE", (Throwable) e);
                 i = 5121;
             }
-            interfaceC0709k.mo2583a(this, this.f4378v, this.f4378v, m2665n, internalFormat, i);
-            m2664o();
-            this.f4371p = true;
+            kVar.a(this, this.v, this.v, n, internalFormat, i);
+            o();
+            this.p = true;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: b */
-    public void mo2522b(int i) {
-        if (this.f4379n != i) {
-            if (this.f4371p) {
-                int mo2519g = mo2519g();
-                GLES20.glTexParameterf(mo2519g, 10241, i);
-                GLES20.glTexParameterf(mo2519g, 10240, i);
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public void b(int i) {
+        if (this.n != i) {
+            if (this.p) {
+                int g = g();
+                GLES20.glTexParameterf(g, 10241, i);
+                GLES20.glTexParameterf(g, 10240, i);
             }
-            this.f4379n = i;
+            this.n = i;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: h */
-    public int mo2518h() {
-        return this.f4379n;
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public int h() {
+        return this.n;
     }
 
-    /* renamed from: e */
-    private void m2668e(InterfaceC0709k interfaceC0709k) {
+    private void e(k kVar) {
         int i;
-        Bitmap m2665n = m2665n();
-        if (m2665n != null) {
+        Bitmap n = n();
+        if (n != null) {
             try {
-                int m5275b = m2665n.m5275b();
-                int m5272c = m2665n.m5272c();
-                int i2 = m5275b + (this.f4378v * 2);
-                int i3 = m5272c + (this.f4378v * 2);
-                int d = m2636d();
-                int e = m2635e();
-                this.f4412a = interfaceC0709k.mo2604a().mo2530a();
-                this.f4371p = true;
-                interfaceC0709k.mo2553d(this);
-                if (m5275b == d && m5272c == e) {
-                    interfaceC0709k.mo2582a(this, m2665n, 0);
-                    C0712n.m2539q();
+                int b = n.b();
+                int c = n.c();
+                int i2 = b + (this.v * 2);
+                int i3 = c + (this.v * 2);
+                int d = d();
+                int e = e();
+                this.a = kVar.a().a();
+                this.p = true;
+                kVar.d(this);
+                if (b == d && c == e) {
+                    kVar.a(this, n, 0);
+                    n.q();
                 } else {
-                    int internalFormat = GLUtils.getInternalFormat(m2665n);
+                    int internalFormat = GLUtils.getInternalFormat(n);
                     try {
-                        i = GLUtils.getType(m2665n);
+                        i = GLUtils.getType(n);
                     } catch (IllegalArgumentException e2) {
-                        GameEngine.m1061a("uploadToCanvas: GLUtils.getType failed, defaulting to GL_UNSIGNED_BYTE", (Throwable) e2);
+                        GameEngine.a("uploadToCanvas: GLUtils.getType failed, defaulting to GL_UNSIGNED_BYTE", (Throwable) e2);
                         i = 5121;
                     }
-                    Bitmap.Config m5270d = m2665n.m5270d();
-                    interfaceC0709k.mo2585a(this, internalFormat, i, internalFormat);
-                    C0712n.m2539q();
-                    interfaceC0709k.mo2583a(this, this.f4378v, this.f4378v, m2665n, internalFormat, i);
-                    C0712n.m2539q();
-                    if (this.f4378v > 0) {
-                        interfaceC0709k.mo2583a(this, 0, 0, m2670a(true, m5270d, e), internalFormat, i);
-                        interfaceC0709k.mo2583a(this, 0, 0, m2670a(false, m5270d, d), internalFormat, i);
+                    Bitmap.Config d2 = n.d();
+                    kVar.a(this, internalFormat, i, internalFormat);
+                    n.q();
+                    kVar.a(this, this.v, this.v, n, internalFormat, i);
+                    n.q();
+                    if (this.v > 0) {
+                        kVar.a(this, 0, 0, a(true, d2, e), internalFormat, i);
+                        kVar.a(this, 0, 0, a(false, d2, d), internalFormat, i);
                     }
-                    if (this.f4378v > 0) {
-                        if (this.f4378v + m5275b < d) {
-                            interfaceC0709k.mo2583a(this, this.f4378v + m5275b, 0, m2670a(true, m5270d, e), internalFormat, i);
+                    if (this.v > 0) {
+                        if (this.v + b < d) {
+                            kVar.a(this, this.v + b, 0, a(true, d2, e), internalFormat, i);
                         }
-                        if (this.f4378v + m5272c < e) {
-                            interfaceC0709k.mo2583a(this, 0, this.f4378v + m5272c, m2670a(false, m5270d, d), internalFormat, i);
+                        if (this.v + c < e) {
+                            kVar.a(this, 0, this.v + c, a(false, d2, d), internalFormat, i);
                         }
                     }
                 }
-                m2640a(interfaceC0709k);
-                this.f4413b = 1;
-                this.f4371p = true;
+                a(kVar);
+                this.b = 1;
+                this.p = true;
                 return;
             } finally {
-                m2664o();
+                o();
             }
         }
-        this.f4413b = -1;
+        this.b = -1;
         throw new RuntimeException("Texture load fail, no bitmap");
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: c */
-    public boolean mo2520c(InterfaceC0709k interfaceC0709k) {
-        m2669d(interfaceC0709k);
-        this.f4422i++;
-        return m2666m();
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public boolean c(k kVar) {
+        d(kVar);
+        this.i++;
+        return m();
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: b */
-    public void mo2521b(InterfaceC0709k interfaceC0709k) {
-        this.f4412a = interfaceC0709k.mo2604a().mo2530a();
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public void b(k kVar) {
+        this.a = kVar.a().a();
         if (3553 == 3553) {
-            interfaceC0709k.mo2585a(this, 6408, 5121, 6408);
+            kVar.a(this, 6408, 5121, 6408);
         }
-        interfaceC0709k.mo2553d(this);
-        this.f4413b = 1;
-        m2640a(interfaceC0709k);
+        kVar.d(this);
+        this.b = 1;
+        a(kVar);
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: g */
-    public int mo2519g() {
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public int g() {
         return 3553;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.p031b.AbstractC0699b
-    /* renamed from: j */
-    public void mo2632j() {
-        super.mo2632j();
-        if (this.f4377m != null) {
-            m2664o();
+    @Override // com.corrodinggames.rts.gameFramework.b.b
+    public void j() {
+        super.j();
+        if (this.m != null) {
+            o();
         }
     }
 }

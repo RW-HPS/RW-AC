@@ -1,274 +1,195 @@
-package com.corrodinggames.rts.gameFramework.p030a;
+package com.corrodinggames.rts.gameFramework.a;
 
 import android.content.Context;
-import com.corrodinggames.rts.C0067R;
-import com.corrodinggames.rts.gameFramework.C0773f;
-import com.corrodinggames.rts.gameFramework.EnumC1100u;
+import com.corrodinggames.rts.AssetsID;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
+import com.corrodinggames.rts.gameFramework.u;
+import com.corrodinggames.rts.gameFramework.utility.j;
 import java.util.ArrayList;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.a.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/a/e.class */
-public class C0637e {
+public class e {
+    ArrayList a = new ArrayList();
+    public boolean b;
+    public static h c = new a();
+    public static i d;
+    public static i e;
+    public static i f;
+    public static i g;
+    public static i h;
+    public static i i;
+    public static i j;
+    public static i k;
+    public static i l;
+    public static i m;
+    public static i n;
+    public static i o;
+    public static i p;
+    public static i q;
+    public static i r;
+    public static i s;
+    public static i t;
+    public static i u;
+    public static i v;
+    public static i w;
+    public static i x;
+    public static i y;
+    public static i z;
+    public static i A;
+    public static i B;
+    public static i C;
+    public static i D;
+    public static i E;
+    public static i F;
 
-    /* renamed from: a */
-    ArrayList f4067a = new ArrayList();
-
-    /* renamed from: b */
-    public boolean f4068b;
-
-    /* renamed from: c */
-    public static AbstractC0640h f4069c = new C0633a();
-
-    /* renamed from: d */
-    public static AbstractC0641i f4070d;
-
-    /* renamed from: e */
-    public static AbstractC0641i f4071e;
-
-    /* renamed from: f */
-    public static AbstractC0641i f4072f;
-
-    /* renamed from: g */
-    public static AbstractC0641i f4073g;
-
-    /* renamed from: h */
-    public static AbstractC0641i f4074h;
-
-    /* renamed from: i */
-    public static AbstractC0641i f4075i;
-
-    /* renamed from: j */
-    public static AbstractC0641i f4076j;
-
-    /* renamed from: k */
-    public static AbstractC0641i f4077k;
-
-    /* renamed from: l */
-    public static AbstractC0641i f4078l;
-
-    /* renamed from: m */
-    public static AbstractC0641i f4079m;
-
-    /* renamed from: n */
-    public static AbstractC0641i f4080n;
-
-    /* renamed from: o */
-    public static AbstractC0641i f4081o;
-
-    /* renamed from: p */
-    public static AbstractC0641i f4082p;
-
-    /* renamed from: q */
-    public static AbstractC0641i f4083q;
-
-    /* renamed from: r */
-    public static AbstractC0641i f4084r;
-
-    /* renamed from: s */
-    public static AbstractC0641i f4085s;
-
-    /* renamed from: t */
-    public static AbstractC0641i f4086t;
-
-    /* renamed from: u */
-    public static AbstractC0641i f4087u;
-
-    /* renamed from: v */
-    public static AbstractC0641i f4088v;
-
-    /* renamed from: w */
-    public static AbstractC0641i f4089w;
-
-    /* renamed from: x */
-    public static AbstractC0641i f4090x;
-
-    /* renamed from: y */
-    public static AbstractC0641i f4091y;
-
-    /* renamed from: z */
-    public static AbstractC0641i f4092z;
-
-    /* renamed from: A */
-    public static AbstractC0641i f4093A;
-
-    /* renamed from: B */
-    public static AbstractC0641i f4094B;
-
-    /* renamed from: C */
-    public static AbstractC0641i f4095C;
-
-    /* renamed from: D */
-    public static AbstractC0641i f4096D;
-
-    /* renamed from: E */
-    public static AbstractC0641i f4097E;
-
-    /* renamed from: F */
-    public static AbstractC0641i f4098F;
-
-    /* renamed from: a */
-    public boolean m2813a(AbstractC0641i abstractC0641i, float f) {
-        if (this.f4067a.contains(abstractC0641i)) {
+    public boolean a(i iVar, float f2) {
+        if (this.a.contains(iVar)) {
             return false;
         }
-        this.f4067a.add(abstractC0641i);
+        this.a.add(iVar);
         return true;
     }
 
-    /* renamed from: a */
-    public boolean m2816a() {
+    public boolean a() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        return m2815a(gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume);
+        return a(gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume);
     }
 
-    /* renamed from: a */
-    public boolean m2815a(float f) {
+    public boolean a(float f2) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (f < 0.01f || this.f4068b) {
+        if (f2 < 0.01f || this.b) {
             return false;
         }
         return gameEngine.settingsEngine.enableSounds;
     }
 
-    /* renamed from: b */
-    public static void m2808b() {
+    public static void b() {
     }
 
-    /* renamed from: a */
-    public void m2814a(Context context) {
-        f4069c.mo80a(context);
-        f4071e = f4069c.mo81a(C0067R.raw.attack);
-        f4071e.f4100d = 0.2f;
-        f4070d = f4069c.mo81a(C0067R.raw.attack2);
-        f4072f = f4069c.mo81a(C0067R.raw.move);
-        f4073g = f4069c.mo81a(C0067R.raw.click);
-        f4074h = f4069c.mo81a(C0067R.raw.click_add);
-        f4075i = f4069c.mo81a(C0067R.raw.click_remove);
-        f4076j = f4069c.mo81a(C0067R.raw.warning);
-        f4077k = f4069c.mo81a(C0067R.raw.message);
-        f4079m = f4069c.mo81a(C0067R.raw.missile_fire);
-        f4080n = f4069c.mo81a(C0067R.raw.missile_hit);
-        f4081o = f4069c.mo81a(C0067R.raw.unit_explode);
-        f4082p = f4069c.mo81a(C0067R.raw.buiding_explode);
-        f4083q = f4069c.mo81a(C0067R.raw.tank_firing);
-        f4084r = f4069c.mo81a(C0067R.raw.cannon_firing);
-        f4085s = f4069c.mo81a(C0067R.raw.gun_fire);
-        f4090x = f4069c.mo81a(C0067R.raw.lighting_burst);
-        f4091y = f4069c.mo81a(C0067R.raw.plasma_fire);
-        f4092z = f4069c.mo81a(C0067R.raw.plasma_fire2);
-        f4086t = f4069c.mo81a(C0067R.raw.firing3);
-        f4087u = f4069c.mo81a(C0067R.raw.firing4);
-        f4088v = f4069c.mo81a(C0067R.raw.large_gun_fire1);
-        f4089w = f4069c.mo81a(C0067R.raw.large_gun_fire2);
-        f4093A = f4069c.mo81a(C0067R.raw.bug_die);
-        f4094B = f4069c.mo81a(C0067R.raw.bug_attack);
-        f4078l = f4069c.mo81a(C0067R.raw.interface_error);
-        f4095C = f4069c.mo81a(C0067R.raw.nuke_explode);
-        f4096D = f4069c.mo81a(C0067R.raw.nuke_launch);
-        f4097E = f4069c.mo81a(C0067R.raw.laser_deflect);
-        f4098F = f4069c.mo81a(C0067R.raw.laser_deflect2);
-        f4069c.mo82a();
+    public void a(Context context) {
+        c.a(context);
+        e = c.a(AssetsID.raw.attack);
+        e.d = 0.2f;
+        d = c.a(AssetsID.raw.attack2);
+        f = c.a(AssetsID.raw.move);
+        g = c.a(AssetsID.raw.click);
+        h = c.a(AssetsID.raw.click_add);
+        i = c.a(AssetsID.raw.click_remove);
+        j = c.a(AssetsID.raw.warning);
+        k = c.a(AssetsID.raw.message);
+        m = c.a(AssetsID.raw.missile_fire);
+        n = c.a(AssetsID.raw.missile_hit);
+        o = c.a(AssetsID.raw.unit_explode);
+        p = c.a(AssetsID.raw.buiding_explode);
+        q = c.a(AssetsID.raw.tank_firing);
+        r = c.a(AssetsID.raw.cannon_firing);
+        s = c.a(AssetsID.raw.gun_fire);
+        x = c.a(AssetsID.raw.lighting_burst);
+        y = c.a(AssetsID.raw.plasma_fire);
+        z = c.a(AssetsID.raw.plasma_fire2);
+        t = c.a(AssetsID.raw.firing3);
+        u = c.a(AssetsID.raw.firing4);
+        v = c.a(AssetsID.raw.large_gun_fire1);
+        w = c.a(AssetsID.raw.large_gun_fire2);
+        A = c.a(AssetsID.raw.bug_die);
+        B = c.a(AssetsID.raw.bug_attack);
+        l = c.a(AssetsID.raw.interface_error);
+        C = c.a(AssetsID.raw.nuke_explode);
+        D = c.a(AssetsID.raw.nuke_launch);
+        E = c.a(AssetsID.raw.laser_deflect);
+        F = c.a(AssetsID.raw.laser_deflect2);
+        c.a();
     }
 
-    /* renamed from: a */
-    public AbstractC0641i m2810a(String str) {
-        AbstractC0641i abstractC0641i = (AbstractC0641i) f4069c.f4099h.get(str);
-        if (abstractC0641i == null) {
+    public i a(String str) {
+        i iVar = (i) c.h.get(str);
+        if (iVar == null) {
             throw new RuntimeException("Could not find sound:" + str);
         }
-        return abstractC0641i;
+        return iVar;
     }
 
-    /* renamed from: b */
-    public void m2806b(AbstractC0641i abstractC0641i, float f) {
+    public void b(i iVar, float f2) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        float f2 = f * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.interfaceVolume * abstractC0641i.f4100d;
-        if (!m2815a(f2) || f2 < 0.01d || !m2813a(abstractC0641i, f2)) {
+        float f3 = f2 * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.interfaceVolume * iVar.d;
+        if (!a(f3) || f3 < 0.01d || !a(iVar, f3)) {
             return;
         }
-        if (gameEngine.f6298aq) {
-            f2 /= 20.0f;
+        if (gameEngine.aq) {
+            f3 /= 20.0f;
         }
-        abstractC0641i.mo75a(f2, f2, 1, 0, 1.0f);
+        iVar.a(f3, f3, 1, 0, 1.0f);
     }
 
-    /* renamed from: c */
-    public void m2804c(AbstractC0641i abstractC0641i, float f) {
+    public void c(i iVar, float f2) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        float f2 = f * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume * abstractC0641i.f4100d;
-        if (m2815a(f2)) {
-            if (gameEngine.f6298aq) {
+        float f3 = f2 * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume * iVar.d;
+        if (a(f3)) {
+            if (gameEngine.aq) {
+                f3 /= 20.0f;
+            }
+            if (!a(iVar, f3)) {
+                return;
+            }
+            iVar.a(f3, f3, 1, 0, 1.0f);
+        }
+    }
+
+    public void a(i iVar, float f2, float f3, float f4) {
+        a(iVar, f2, 1.0f, f3, f4);
+    }
+
+    public void a(i iVar, float f2, float f3, float f4, float f5) {
+        if (a()) {
+            GameEngine gameEngine = GameEngine.getGameEngine();
+            if (gameEngine.aq) {
                 f2 /= 20.0f;
             }
-            if (!m2813a(abstractC0641i, f2)) {
+            if (gameEngine.replayEngine.j() && gameEngine.bt > 1.5d) {
+                f2 /= gameEngine.bt;
+            }
+            float a = com.corrodinggames.rts.gameFramework.f.a((int) (gameEngine.cw + gameEngine.cI), (int) (gameEngine.cx + gameEngine.cJ), f4, f5);
+            float f6 = gameEngine.cI * 1.72f;
+            if (gameEngine.cX < 0.5d) {
+                f2 = f2 * 4.0f * gameEngine.cX * gameEngine.cX;
+            }
+            if (f2 <= 1.0f && !iVar.f && a > f6 * f6) {
                 return;
             }
-            abstractC0641i.mo75a(f2, f2, 1, 0, 1.0f);
+            float sqrt = (float) Math.sqrt(a);
+            float f7 = 1.0f;
+            if (sqrt > gameEngine.cI) {
+                f7 = 1.0f - ((sqrt - gameEngine.cI) / gameEngine.cI);
+            }
+            float f8 = f7 * f2;
+            if (f8 <= 0.05d && !iVar.f) {
+                return;
+            }
+            if (f8 > 1.0f) {
+                f8 = 1.0f;
+            }
+            float f9 = f8 * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume * iVar.d;
+            if (!a(iVar, f9)) {
+                return;
+            }
+            iVar.a(f9, f9, 1, 0, f3);
         }
     }
 
-    /* renamed from: a */
-    public void m2812a(AbstractC0641i abstractC0641i, float f, float f2, float f3) {
-        m2811a(abstractC0641i, f, 1.0f, f2, f3);
-    }
-
-    /* renamed from: a */
-    public void m2811a(AbstractC0641i abstractC0641i, float f, float f2, float f3, float f4) {
-        if (m2816a()) {
-            GameEngine gameEngine = GameEngine.getGameEngine();
-            if (gameEngine.f6298aq) {
-                f /= 20.0f;
-            }
-            if (gameEngine.f6387cb.m2480j() && gameEngine.f6353bt > 1.5d) {
-                f /= gameEngine.f6353bt;
-            }
-            float m2216a = C0773f.m2216a((int) (gameEngine.f6408cw + gameEngine.f6420cI), (int) (gameEngine.f6409cx + gameEngine.f6421cJ), f3, f4);
-            float f5 = gameEngine.f6420cI * 1.72f;
-            if (gameEngine.f6435cX < 0.5d) {
-                f = f * 4.0f * gameEngine.f6435cX * gameEngine.f6435cX;
-            }
-            if (f <= 1.0f && !abstractC0641i.f4102f && m2216a > f5 * f5) {
-                return;
-            }
-            float sqrt = (float) Math.sqrt(m2216a);
-            float f6 = 1.0f;
-            if (sqrt > gameEngine.f6420cI) {
-                f6 = 1.0f - ((sqrt - gameEngine.f6420cI) / gameEngine.f6420cI);
-            }
-            float f7 = f6 * f;
-            if (f7 <= 0.05d && !abstractC0641i.f4102f) {
-                return;
-            }
-            if (f7 > 1.0f) {
-                f7 = 1.0f;
-            }
-            float f8 = f7 * gameEngine.settingsEngine.masterVolume * gameEngine.settingsEngine.gameVolume * abstractC0641i.f4100d;
-            if (!m2813a(abstractC0641i, f8)) {
-                return;
-            }
-            abstractC0641i.mo75a(f8, f8, 1, 0, f2);
-        }
-    }
-
-    /* renamed from: a */
-    public AbstractC0641i m2809a(String str, C1133j c1133j, boolean z) {
+    public i a(String str, j jVar, boolean z2) {
         try {
-            return f4069c.mo79a(str, c1133j, z);
-        } catch (OutOfMemoryError e) {
-            GameEngine.m1068a(EnumC1100u.gameSound, e);
-            return C0638f.m2802b();
+            return c.a(str, jVar, z2);
+        } catch (OutOfMemoryError e2) {
+            GameEngine.a(u.gameSound, e2);
+            return f.b();
         }
     }
 
-    /* renamed from: b */
-    public AbstractC0641i m2805b(String str) {
-        return C0638f.m2803a(str);
+    public i b(String str) {
+        return f.a(str);
     }
 
-    /* renamed from: b */
-    public void m2807b(float f) {
-        this.f4067a.clear();
+    public void b(float f2) {
+        this.a.clear();
     }
 }

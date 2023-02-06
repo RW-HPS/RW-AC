@@ -1,13 +1,13 @@
 package com.corrodinggames.librocket.scripts;
 
-import com.corrodinggames.librocket.AbstractC0043a;
-import com.corrodinggames.librocket.AbstractC0048b;
+import com.corrodinggames.librocket.a;
+import com.corrodinggames.librocket.b;
 import java.util.HashMap;
 
 /* loaded from: game-lib.jar:com/corrodinggames/librocket/scripts/ScriptContext.class */
 public class ScriptContext {
-    AbstractC0048b libRocket;
+    b libRocket;
     ScriptEngine scriptEngine;
-    AbstractC0043a guiEngine;
+    a guiEngine;
     HashMap methods = new HashMap();
 }

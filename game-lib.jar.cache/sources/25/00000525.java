@@ -2,18 +2,18 @@ package com.corrodinggames.rts.gameFramework.net;
 
 import android.graphics.PointF;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.EnumC0249ar;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
-import com.corrodinggames.rts.game.units.custom.C0453g;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.ar;
+import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.units.custom.g;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.AbstractC1155w;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.file.C0765a;
-import com.corrodinggames.rts.gameFramework.utility.C1133j;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.file.a;
+import com.corrodinggames.rts.gameFramework.utility.j;
+import com.corrodinggames.rts.gameFramework.utility.m;
+import com.corrodinggames.rts.gameFramework.w;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -36,18 +36,16 @@ public class GameOutputStream {
 
     /* renamed from: a */
     private DataOutputStream dataStream;
-
-    /* renamed from: e */
-    private LinkedList f5947e;
+    private LinkedList e;
 
     /* renamed from: d */
     public int packetVersion;
 
     /* renamed from: a */
     public void flashAll() {
-        ListIterator listIterator = this.f5947e.listIterator(this.f5947e.size());
+        ListIterator listIterator = this.e.listIterator(this.e.size());
         while (listIterator.hasPrevious()) {
-            ((GzipDataOutStream) listIterator.previous()).m1393a();
+            ((GzipDataOutStream) listIterator.previous()).a();
         }
         this.useStream.flush();
         if (this.byteStream != null) {
@@ -55,8 +53,7 @@ public class GameOutputStream {
         }
     }
 
-    /* renamed from: b */
-    void mo1377b() {
+    void b() {
         this.dataStream = this.useStream;
     }
 
@@ -66,32 +63,31 @@ public class GameOutputStream {
     }
 
     public GameOutputStream() {
-        this.f5947e = new LinkedList();
+        this.e = new LinkedList();
         this.packetVersion = 999999;
         this.byteStream = new ByteArrayOutputStream();
         this.useStream = new DataOutputStream(this.byteStream);
-        mo1377b();
+        b();
     }
 
     public GameOutputStream(DataOutputStream dataOutputStream) {
-        this.f5947e = new LinkedList();
+        this.e = new LinkedList();
         this.packetVersion = 999999;
         this.useStream = dataOutputStream;
-        mo1377b();
+        b();
     }
 
     /* renamed from: b */
     public Packet getPacket(int type) {
-        return mo1390a(type, -1);
+        return a(type, -1);
     }
 
-    /* renamed from: a */
-    public Packet mo1390a(int i, int i2) {
+    public Packet a(int i, int i2) {
         try {
             flashAll();
             Packet packet = new Packet(i);
             packet.bytes = this.byteStream.toByteArray();
-            packet.f7548d = i2;
+            packet.f0d = i2;
             return packet;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -169,69 +165,62 @@ public class GameOutputStream {
         this.dataStream.writeUTF(str);
     }
 
-    /* renamed from: a */
-    public void m1400a(C0453g c0453g) {
-        if (c0453g == null) {
+    public void a(g gVar) {
+        if (gVar == null) {
             this.dataStream.writeUTF(VariableScope.nullOrMissingString);
         }
-        this.dataStream.writeUTF(c0453g.toString());
+        this.dataStream.writeUTF(gVar.toString());
     }
 
-    /* renamed from: a */
-    public void mo1383a(AbstractC1155w abstractC1155w) {
-        if (abstractC1155w == null) {
+    public void a(w wVar) {
+        if (wVar == null) {
             this.dataStream.writeLong(-1L);
         } else {
-            this.dataStream.writeLong(abstractC1155w.f7166eh);
+            this.dataStream.writeLong(wVar.eh);
         }
     }
 
-    /* renamed from: b */
-    public void mo1374b(AbstractC1155w abstractC1155w) {
-        if (abstractC1155w != null && !abstractC1155w.f7167ej) {
-            this.dataStream.writeLong(abstractC1155w.f7166eh);
+    public void b(w wVar) {
+        if (wVar != null && !wVar.ej) {
+            this.dataStream.writeLong(wVar.eh);
         } else {
             this.dataStream.writeLong(-1L);
         }
     }
 
-    /* renamed from: a */
-    public void m1398a(C1136m c1136m) {
-        if (c1136m == null) {
+    public void a(m mVar) {
+        if (mVar == null) {
             writeInt(0);
             return;
         }
-        writeInt(c1136m.size());
-        Iterator it = c1136m.iterator();
+        writeInt(mVar.size());
+        Iterator it = mVar.iterator();
         while (it.hasNext()) {
-            mo1374b((AbstractC1155w) it.next());
+            b((w) it.next());
         }
     }
 
-    /* renamed from: b */
-    public void mo1375b(AbstractC0244am abstractC0244am) {
-        if (abstractC0244am != null && !abstractC0244am.f7167ej && !abstractC0244am.f1612bV) {
-            mo1383a((AbstractC1155w) abstractC0244am);
+    public void b(am amVar) {
+        if (amVar != null && !amVar.ej && !amVar.bV) {
+            a((w) amVar);
         } else {
-            mo1383a((AbstractC1155w) null);
+            a((w) null);
         }
     }
 
-    /* renamed from: a */
-    public void mo1334a(AbstractC0244am abstractC0244am) {
-        if (abstractC0244am != null && !abstractC0244am.f7167ej) {
-            mo1383a((AbstractC1155w) abstractC0244am);
+    public void a(am amVar) {
+        if (amVar != null && !amVar.ej) {
+            a((w) amVar);
         } else {
-            mo1383a((AbstractC1155w) null);
+            a((w) null);
         }
     }
 
-    /* renamed from: a */
-    public void mo1385a(AbstractC0629y abstractC0629y) {
-        if (abstractC0629y != null && !abstractC0629y.f7167ej) {
-            mo1383a((AbstractC1155w) abstractC0629y);
+    public void a(y yVar) {
+        if (yVar != null && !yVar.ej) {
+            a((w) yVar);
         } else {
-            mo1383a((AbstractC1155w) null);
+            a((w) null);
         }
     }
 
@@ -253,20 +242,18 @@ public class GameOutputStream {
         }
     }
 
-    /* renamed from: a */
-    public void mo1386a(InterfaceC0303as interfaceC0303as) {
-        if (interfaceC0303as == null) {
+    public void a(as asVar) {
+        if (asVar == null) {
             this.dataStream.writeInt(-1);
-        } else if (interfaceC0303as instanceof C0458l) {
+        } else if (asVar instanceof l) {
             this.dataStream.writeInt(-2);
-            writeString(((C0458l) interfaceC0303as).f2952M);
+            writeString(((l) asVar).M);
         } else {
-            this.dataStream.writeInt(((EnumC0249ar) interfaceC0303as).ordinal());
+            this.dataStream.writeInt(((ar) asVar).ordinal());
         }
     }
 
-    /* renamed from: a */
-    public void mo1384a(PlayerConnect playerConnect) {
+    public void a(PlayerConnect playerConnect) {
         if (playerConnect == null) {
             this.dataStream.writeInt(0);
         } else {
@@ -274,43 +261,39 @@ public class GameOutputStream {
         }
     }
 
-    /* renamed from: a */
-    public void mo1387a(PlayerData playerData) {
+    public void a(PlayerData playerData) {
         this.dataStream.writeByte(playerData.site);
     }
 
-    /* renamed from: a */
-    public void mo1381a(File file) {
-        C1133j m2302a = C0765a.m2302a(file);
-        if (m2302a == null) {
+    public void a(File file) {
+        j a = a.a(file);
+        if (a == null) {
             throw new IOException("Failed to read save file data");
         }
         try {
-            mo1380a(m2302a, (int) file.length());
-            if (m2302a != null) {
-                m2302a.close();
+            a(a, (int) file.length());
+            if (a != null) {
+                a.close();
             }
         } catch (Throwable th) {
-            if (m2302a != null) {
-                m2302a.close();
+            if (a != null) {
+                a.close();
             }
             throw th;
         }
     }
 
-    /* renamed from: a */
-    public void m1399a(GameInputStream gameInputStream) {
+    public void a(GameInputStream gameInputStream) {
         InputStream useStream = gameInputStream.getUseStream();
         try {
             useStream.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mo1380a(useStream, useStream.available());
+        a(useStream, useStream.available());
     }
 
-    /* renamed from: a */
-    public void mo1380a(InputStream inputStream, int i) {
+    public void a(InputStream inputStream, int i) {
         int i2 = 0;
         writeInt(i);
         byte[] bArr = new byte[16384];
@@ -320,7 +303,7 @@ public class GameOutputStream {
                 if (i2 + read > i) {
                     int i3 = i - i2;
                     if (i3 < 0) {
-                        GameNetEngine.m1468g("writeStream: bytesTillFull is " + i3);
+                        GameNetEngine.g("writeStream: bytesTillFull is " + i3);
                         return;
                     } else {
                         this.dataStream.write(bArr, 0, i3);
@@ -335,74 +318,66 @@ public class GameOutputStream {
         }
     }
 
-    /* renamed from: a */
-    public void mo1382a(ByteArrayOutputStream byteArrayOutputStream) {
+    public void a(ByteArrayOutputStream byteArrayOutputStream) {
         writeInt(byteArrayOutputStream.size());
         byteArrayOutputStream.writeTo(this.dataStream);
     }
 
-    /* renamed from: a */
-    public void mo1378a(byte[] bArr) {
+    public void a(byte[] bArr) {
         writeInt(bArr.length);
         this.dataStream.write(bArr);
     }
 
-    /* renamed from: b */
-    public void m1396b(byte[] bArr) {
+    public void b(byte[] bArr) {
         this.dataStream.write(bArr);
     }
 
-    /* renamed from: a */
-    public void mo1331a(short s) {
+    public void a(short s) {
         this.dataStream.writeShort(s);
     }
 
-    /* renamed from: e */
-    public void mo1367e() {
-        mo1331a((short) 12345);
+    public void e() {
+        a((short) 12345);
     }
 
-    /* renamed from: d */
-    public void mo1368d(String str) {
+    public void d(String str) {
     }
 
-    /* renamed from: f */
-    public boolean mo1365f() {
+    public boolean f() {
         return false;
     }
 
-    /* renamed from: e */
-    public void mo1366e(String str) {
+    public void e(String str) {
         startBlock(str, false);
     }
 
     /* renamed from: a */
     public void startBlock(String str, boolean z) {
         GzipDataOutStream gzipDataOutStream = new GzipDataOutStream(z);
-        gzipDataOutStream.f5951c = str;
-        this.f5947e.add(gzipDataOutStream);
-        this.dataStream = ((GzipDataOutStream) this.f5947e.getLast()).f5952e;
+        gzipDataOutStream.c = str;
+        this.e.add(gzipDataOutStream);
+        this.dataStream = ((GzipDataOutStream) this.e.getLast()).e;
     }
 
     /* renamed from: a */
     public void endBlock(String str) {
-        GzipDataOutStream gzipDataOutStream = (GzipDataOutStream) this.f5947e.removeLast();
-        if (!gzipDataOutStream.f5951c.equals(str)) {
-            GameEngine.m1015b("OutputNetStream:endBlock", "Name does not match: expected" + str + " , got:" + gzipDataOutStream.f5951c);
+        GzipDataOutStream gzipDataOutStream = (GzipDataOutStream) this.e.removeLast();
+        if (!gzipDataOutStream.c.equals(str)) {
+            GameEngine.b("OutputNetStream:endBlock", "Name does not match: expected" + str + " , got:" + gzipDataOutStream.c);
         }
-        gzipDataOutStream.m1393a();
-        if (this.f5947e.isEmpty()) {
+        gzipDataOutStream.a();
+        if (this.e.isEmpty()) {
             this.dataStream = this.useStream;
         } else {
-            this.dataStream = ((GzipDataOutStream) this.f5947e.getLast()).f5952e;
+            this.dataStream = ((GzipDataOutStream) this.e.getLast()).e;
         }
-        this.dataStream.writeUTF(gzipDataOutStream.f5951c);
-        mo1382a(gzipDataOutStream.f5954d);
+        this.dataStream.writeUTF(gzipDataOutStream.c);
+        a(gzipDataOutStream.d);
         try {
-            gzipDataOutStream.m1392b();
+            gzipDataOutStream.b();
         } catch (Exception e) {
             if (e instanceof DataFormatException) {
-                if (!GameEngine.f6423aZ) {
+                if (!GameEngine.aZ) {
                     GameEngine.print("DataFormatException error calling streamBlock.close() (this is expected on android 4.4)");
                     return;
                 }
@@ -418,8 +393,7 @@ public class GameOutputStream {
         return this.packetVersion;
     }
 
-    /* renamed from: h */
-    public void m1394h() {
+    public void h() {
         this.useStream = null;
         this.dataStream = null;
         try {

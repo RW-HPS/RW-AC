@@ -1,82 +1,64 @@
 package com.corrodinggames.rts.game.units.custom;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.p013a.AbstractC0224s;
-import com.corrodinggames.rts.game.units.p013a.AbstractC0228w;
 import com.corrodinggames.rts.gameFramework.net.GameNetEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.units.custom.u */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/u.class */
-public class C0468u {
+public class u {
+    com.corrodinggames.rts.gameFramework.utility.m a = new com.corrodinggames.rts.gameFramework.utility.m();
+    com.corrodinggames.rts.gameFramework.utility.m b;
+    String c;
+    String d;
 
-    /* renamed from: a */
-    C1136m f3377a = new C1136m();
-
-    /* renamed from: b */
-    C1136m f3378b;
-
-    /* renamed from: c */
-    String f3379c;
-
-    /* renamed from: d */
-    String f3380d;
-
-    /* renamed from: a */
-    public void m3474a(C0458l c0458l) {
+    public void a(l lVar) {
     }
 
-    /* renamed from: b */
-    public void m3473b(C0458l c0458l) {
-        C1136m c1136m = new C1136m();
-        Iterator it = this.f3377a.iterator();
+    public void b(l lVar) {
+        com.corrodinggames.rts.gameFramework.utility.m mVar = new com.corrodinggames.rts.gameFramework.utility.m();
+        Iterator it = this.a.iterator();
         while (it.hasNext()) {
             String str = (String) it.next();
-            AbstractC0224s m3514h = c0458l.m3514h(str);
-            if (m3514h == null) {
-                throw new C0417bo("[" + this.f3380d + "]" + this.f3379c + " Could not find action:" + str + " on unit: " + c0458l.m3535b());
+            com.corrodinggames.rts.game.units.a.s h = lVar.h(str);
+            if (h == null) {
+                throw new bo("[" + this.d + "]" + this.c + " Could not find action:" + str + " on unit: " + lVar.b());
             }
-            if (m3514h instanceof AbstractC0228w) {
-                c1136m.add((AbstractC0228w) m3514h);
+            if (h instanceof com.corrodinggames.rts.game.units.a.w) {
+                mVar.add((com.corrodinggames.rts.game.units.a.w) h);
             } else {
-                throw new C0417bo("[" + this.f3380d + "]" + this.f3379c + " Action:" + str + " on unit: " + c0458l.m3535b() + " doesn't have the right type");
+                throw new bo("[" + this.d + "]" + this.c + " Action:" + str + " on unit: " + lVar.b() + " doesn't have the right type");
             }
         }
-        this.f3378b = c1136m;
+        this.b = mVar;
     }
 
-    /* renamed from: a */
-    public void m3475a(C0456j c0456j, PointF pointF, AbstractC0244am abstractC0244am, int i, int i2) {
-        if (this.f3378b == null) {
-            GameNetEngine.m1468g("Action on " + c0456j.mo1747r().mo3513i() + " has not been linked");
+    public void a(j jVar, PointF pointF, com.corrodinggames.rts.game.units.am amVar, int i, int i2) {
+        if (this.b == null) {
+            GameNetEngine.g("Action on " + jVar.r().i() + " has not been linked");
             return;
         }
-        Iterator it = this.f3378b.iterator();
+        Iterator it = this.b.iterator();
         while (it.hasNext()) {
-            c0456j.m3653a((AbstractC0224s) it.next(), pointF, abstractC0244am, i, i2);
+            jVar.a((com.corrodinggames.rts.game.units.a.s) it.next(), pointF, amVar, i, i2);
         }
     }
 
-    /* renamed from: a */
-    public C1136m m3477a() {
-        if (this.f3378b == null) {
-            GameNetEngine.m1468g("Action on [" + this.f3380d + "]" + this.f3379c + " has not been linked");
-            return new C1136m();
+    public com.corrodinggames.rts.gameFramework.utility.m a() {
+        if (this.b == null) {
+            GameNetEngine.g("Action on [" + this.d + "]" + this.c + " has not been linked");
+            return new com.corrodinggames.rts.gameFramework.utility.m();
         }
-        return this.f3378b;
+        return this.b;
     }
 
-    /* renamed from: a */
-    public void m3476a(C0456j c0456j, PointF pointF, AbstractC0244am abstractC0244am) {
-        if (this.f3378b == null) {
-            GameNetEngine.m1468g("Action on " + c0456j.mo1747r().mo3513i() + " has not been linked");
+    public void a(j jVar, PointF pointF, com.corrodinggames.rts.game.units.am amVar) {
+        if (this.b == null) {
+            GameNetEngine.g("Action on " + jVar.r().i() + " has not been linked");
             return;
         }
-        Iterator it = this.f3378b.iterator();
+        Iterator it = this.b.iterator();
         while (it.hasNext()) {
-            c0456j.f2906dL.m3359a((AbstractC0228w) ((AbstractC0224s) it.next()), false, pointF, abstractC0244am);
+            jVar.dL.a((com.corrodinggames.rts.game.units.a.w) ((com.corrodinggames.rts.game.units.a.s) it.next()), false, pointF, amVar);
         }
     }
 }

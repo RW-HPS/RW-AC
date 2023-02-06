@@ -13,80 +13,72 @@ import java.util.TimerTask;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.j.af */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/af.class */
-final class RunnableC0877af implements Runnable {
-
-    /* renamed from: a */
-    boolean f5845a;
-
-    /* renamed from: b */
-    DatagramSocket f5846b;
-
-    /* renamed from: c */
-    Timer f5847c;
-
-    /* renamed from: d */
-    final /* synthetic */ GameNetEngine f5848d;
+final class af implements Runnable {
+    boolean a;
+    DatagramSocket b;
+    Timer c;
+    final /* synthetic */ GameNetEngine d;
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f5848d.printLog("starting socket for broadcast..");
-            this.f5846b = new DatagramSocket((SocketAddress) null);
-            this.f5846b.setReuseAddress(true);
-            this.f5846b.bind(new InetSocketAddress(this.f5848d.f5777t));
-            this.f5848d.printLog("reading..");
+            this.d.printLog("starting socket for broadcast..");
+            this.b = new DatagramSocket((SocketAddress) null);
+            this.b.setReuseAddress(true);
+            this.b.bind(new InetSocketAddress(this.d.t));
+            this.d.printLog("reading..");
             byte[] bArr = new byte[1500];
             DatagramPacket datagramPacket = new DatagramPacket(bArr, bArr.length);
             TimerTask timerTask = new TimerTask() { // from class: com.corrodinggames.rts.gameFramework.j.af.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
-                    if (!RunnableC0877af.this.f5848d.isServer) {
-                        RunnableC0877af.this.m1427a();
+                    if (!af.this.d.isServer) {
+                        af.this.a();
                     }
                 }
             };
-            this.f5847c = new Timer();
-            this.f5847c.scheduleAtFixedRate(timerTask, 20L, 5000L);
-            while (this.f5845a) {
-                this.f5846b.receive(datagramPacket);
+            this.c = new Timer();
+            this.c.scheduleAtFixedRate(timerTask, 20L, 5000L);
+            while (this.a) {
+                this.b.receive(datagramPacket);
                 String str = new String(datagramPacket.getData(), datagramPacket.getOffset(), datagramPacket.getLength());
-                this.f5848d.printLog("accepted udp socket..");
+                this.d.printLog("accepted udp socket..");
                 GameInputStream gameInputStream = new GameInputStream(str);
                 if (!gameInputStream.readString().equals("com.corrodinggames.rts")) {
-                    this.f5848d.printLog("ignoring udp packet: MAGIC_GAME_ID doesn't match");
+                    this.d.printLog("ignoring udp packet: MAGIC_GAME_ID doesn't match");
                 } else {
                     int readInt = gameInputStream.readInt();
                     gameInputStream.readInt();
                     String readString = gameInputStream.readString();
                     if (readString.equals("ping")) {
-                        this.f5848d.printLog("got ping");
-                        if (this.f5848d.isServer) {
+                        this.d.printLog("got ping");
+                        if (this.d.isServer) {
                             GameOutputStream gameOutputStream = new GameOutputStream();
                             gameOutputStream.writeString("com.corrodinggames.rts");
-                            gameOutputStream.writeInt(this.f5848d.f5822e);
+                            gameOutputStream.writeInt(this.d.e);
                             gameOutputStream.writeInt(0);
                             gameOutputStream.writeString("pong");
-                            gameOutputStream.writeInt(this.f5848d.port);
+                            gameOutputStream.writeInt(this.d.port);
                             String gameOutputStream2 = gameOutputStream.toString();
-                            this.f5846b.send(new DatagramPacket(gameOutputStream2.getBytes(), gameOutputStream2.length(), datagramPacket.getAddress(), this.f5848d.f5777t));
+                            this.b.send(new DatagramPacket(gameOutputStream2.getBytes(), gameOutputStream2.length(), datagramPacket.getAddress(), this.d.t));
                         } else {
-                            this.f5848d.printLog("not server");
+                            this.d.printLog("not server");
                         }
                     } else if (!readString.equals("pong")) {
-                        this.f5848d.printLog("got pong");
+                        this.d.printLog("got pong");
                         ListRoomInfo listRoomInfo = new ListRoomInfo();
-                        listRoomInfo.f6038a = true;
-                        listRoomInfo.f6044g = gameInputStream.readInt();
-                        listRoomInfo.f6040c = datagramPacket.getAddress().toString();
-                        listRoomInfo.f6046j = VariableScope.nullOrMissingString + readInt;
-                        this.f5848d.m1568a(listRoomInfo);
+                        listRoomInfo.a = true;
+                        listRoomInfo.g = gameInputStream.readInt();
+                        listRoomInfo.c = datagramPacket.getAddress().toString();
+                        listRoomInfo.j = VariableScope.nullOrMissingString + readInt;
+                        this.d.a(listRoomInfo);
                     } else {
-                        this.f5848d.printLog("ignoring udp packet: unknown mode:" + readString);
+                        this.d.printLog("ignoring udp packet: unknown mode:" + readString);
                     }
                 }
             }
         } catch (SocketException e) {
-            if (this.f5845a) {
+            if (this.a) {
                 throw new RuntimeException(e);
             }
             e.printStackTrace();
@@ -95,41 +87,39 @@ final class RunnableC0877af implements Runnable {
         }
     }
 
-    /* renamed from: a */
-    public void m1427a() {
-        this.f5848d.printLog("sending ping");
-        if (this.f5846b == null) {
-            this.f5848d.printLog("failed to send a broadcast ping: datagramSocket is null");
+    public void a() {
+        this.d.printLog("sending ping");
+        if (this.b == null) {
+            this.d.printLog("failed to send a broadcast ping: datagramSocket is null");
             return;
         }
-        InetAddress m1538al = this.f5848d.m1538al();
-        if (m1538al == null) {
-            this.f5848d.printLog("failed to send a broadcast ping: could not get a broadcast address");
+        InetAddress al = this.d.al();
+        if (al == null) {
+            this.d.printLog("failed to send a broadcast ping: could not get a broadcast address");
             return;
         }
         try {
             GameOutputStream gameOutputStream = new GameOutputStream();
             gameOutputStream.writeString("com.corrodinggames.rts");
-            gameOutputStream.writeInt(this.f5848d.f5822e);
+            gameOutputStream.writeInt(this.d.e);
             gameOutputStream.writeInt(0);
             gameOutputStream.writeString("ping");
             String gameOutputStream2 = gameOutputStream.toString();
-            this.f5848d.printLog("sending ping on :" + m1538al.toString());
-            this.f5846b.send(new DatagramPacket(gameOutputStream2.getBytes(), gameOutputStream2.length(), m1538al, this.f5848d.f5777t));
+            this.d.printLog("sending ping on :" + al.toString());
+            this.b.send(new DatagramPacket(gameOutputStream2.getBytes(), gameOutputStream2.length(), al, this.d.t));
         } catch (IOException e) {
             e.printStackTrace();
-            this.f5848d.printLog("failed to send a broadcast ping, IOException");
+            this.d.printLog("failed to send a broadcast ping, IOException");
         }
     }
 
-    /* renamed from: b */
-    public void m1426b() {
-        this.f5845a = false;
-        if (this.f5846b != null) {
-            this.f5846b.close();
+    public void b() {
+        this.a = false;
+        if (this.b != null) {
+            this.b.close();
         }
-        if (this.f5847c != null) {
-            this.f5847c.cancel();
+        if (this.c != null) {
+            this.c.cancel();
         }
     }
 }

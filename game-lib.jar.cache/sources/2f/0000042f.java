@@ -1,85 +1,66 @@
 package com.corrodinggames.rts.gameFramework;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.ah */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ah.class */
-public class C0649ah extends AbstractC0647af {
+public class ah extends af {
+    boolean g;
+    float i;
+    int e = -1;
+    int f = -1;
+    int h = -1;
+    boolean j = false;
 
-    /* renamed from: g */
-    boolean f4192g;
-
-    /* renamed from: i */
-    float f4194i;
-
-    /* renamed from: e */
-    int f4190e = -1;
-
-    /* renamed from: f */
-    int f4191f = -1;
-
-    /* renamed from: h */
-    int f4193h = -1;
-
-    /* renamed from: j */
-    boolean f4195j = false;
-
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: a */
-    public boolean mo2759a() {
-        if (mo2757b()) {
-            if (!this.f4187c) {
-                this.f4187c = true;
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean a() {
+        if (b()) {
+            if (!this.c) {
+                this.c = true;
                 return true;
             }
             return false;
-        } else if (this.f4187c) {
-            this.f4187c = false;
+        } else if (this.c) {
+            this.c = false;
             return false;
         } else {
             return false;
         }
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: b */
-    public boolean mo2757b() {
-        return m2760e() > 0.5f;
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean b() {
+        return e() > 0.5f;
     }
 
-    /* renamed from: e */
-    public float m2760e() {
-        return m2761a(false);
+    public float e() {
+        return a(false);
     }
 
-    /* renamed from: a */
-    public float m2761a(boolean z) {
+    public float a(boolean z) {
         float f;
-        if (this.f4193h != -1) {
-            f = C0644ac.f4115b.mo18a(this.f4193h, this.f4190e) ? 0.0f : 1.0f;
+        if (this.h != -1) {
+            f = ac.b.a(this.h, this.e) ? 0.0f : 1.0f;
         } else {
-            float mo16b = C0644ac.f4115b.mo16b(this.f4190e, this.f4191f);
-            f = this.f4192g ? -mo16b : mo16b;
+            float b = ac.b.b(this.e, this.f);
+            f = this.g ? -b : b;
         }
         if (z) {
             return f;
         }
-        if (!this.f4195j && Math.abs(f - this.f4194i) > 0.001f) {
-            this.f4195j = true;
+        if (!this.j && Math.abs(f - this.i) > 0.001f) {
+            this.j = true;
         }
-        if (!this.f4195j) {
+        if (!this.j) {
             return 0.0f;
         }
         return f;
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: c */
-    public String mo2756c() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public String c() {
         return "controller";
     }
 
-    @Override // com.corrodinggames.rts.gameFramework.AbstractC0647af
-    /* renamed from: d */
-    public boolean mo2755d() {
+    @Override // com.corrodinggames.rts.gameFramework.af
+    public boolean d() {
         return false;
     }
 }

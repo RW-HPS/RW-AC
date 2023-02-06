@@ -2,8 +2,8 @@ package com.corrodinggames.rts.java.audio.lwjgl;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
-import com.corrodinggames.rts.java.audio.p051a.C1167c;
-import com.corrodinggames.rts.java.audio.p051a.C1183s;
+import com.corrodinggames.rts.java.audio.a.c;
+import com.corrodinggames.rts.java.audio.a.s;
 import com.jcraft.jogg.Packet;
 import com.jcraft.jogg.Page;
 import com.jcraft.jogg.StreamState;
@@ -71,7 +71,7 @@ public class OggInputStream extends InputStream {
             this.total = inputStream.available();
             init();
         } catch (IOException e) {
-            throw new C1167c(e);
+            throw new c(e);
         }
     }
 
@@ -120,19 +120,19 @@ public class OggInputStream extends InputStream {
                 if (this.bytes < BUFFER_SIZE) {
                     return false;
                 }
-                throw new C1167c("Input does not appear to be an Ogg bitstream.");
+                throw new c("Input does not appear to be an Ogg bitstream.");
             }
             this.streamState.init(this.page.serialno());
             this.oggInfo.init();
             this.comment.init();
             if (this.streamState.pagein(this.page) < 0) {
-                throw new C1167c("Error reading first page of Ogg bitstream.");
+                throw new c("Error reading first page of Ogg bitstream.");
             }
             if (this.streamState.packetout(this.packet) != 1) {
-                throw new C1167c("Error reading initial header packet.");
+                throw new c("Error reading initial header packet.");
             }
             if (this.oggInfo.synthesis_headerin(this.comment, this.packet) < 0) {
-                throw new C1167c("Ogg bitstream does not contain Vorbis audio data.");
+                throw new c("Ogg bitstream does not contain Vorbis audio data.");
             }
             int i = 0;
             while (i < 2) {
@@ -141,7 +141,7 @@ public class OggInputStream extends InputStream {
                         this.streamState.pagein(this.page);
                         while (i < 2 && (packetout = this.streamState.packetout(this.packet)) != 0) {
                             if (packetout == -1) {
-                                throw new C1167c("Corrupt secondary header.");
+                                throw new c("Corrupt secondary header.");
                             }
                             this.oggInfo.synthesis_headerin(this.comment, this.packet);
                             i++;
@@ -156,11 +156,11 @@ public class OggInputStream extends InputStream {
                 try {
                     this.bytes = this.input.read(this.buffer, buffer2, BUFFER_SIZE);
                     if (this.bytes == 0 && i < 2) {
-                        throw new C1167c("End of file before finding all Vorbis headers.");
+                        throw new c("End of file before finding all Vorbis headers.");
                     }
                     this.syncState.wrote(this.bytes);
                 } catch (Exception e) {
-                    throw new C1167c("Failed to read Vorbis.", e);
+                    throw new c("Failed to read Vorbis.", e);
                 }
             }
             this.convsize = BUFFER_SIZE / this.oggInfo.channels;
@@ -168,7 +168,7 @@ public class OggInputStream extends InputStream {
             this.vorbisBlock.init(this.dspState);
             return true;
         } catch (Exception e2) {
-            throw new C1167c("Failure reading Vorbis.", e2);
+            throw new c("Failure reading Vorbis.", e2);
         }
     }
 
@@ -202,7 +202,7 @@ public class OggInputStream extends InputStream {
             while (!this.endOfBitStream) {
                 while (!this.endOfBitStream && (pageout = this.syncState.pageout(this.page)) != 0) {
                     if (pageout == -1) {
-                        GameEngine.m1015b("gdx-audio", "Error reading OGG: Corrupt or missing data in bitstream.");
+                        GameEngine.b("gdx-audio", "Error reading OGG: Corrupt or missing data in bitstream.");
                     } else {
                         this.streamState.pagein(this.page);
                         while (true) {
@@ -243,7 +243,7 @@ public class OggInputStream extends InputStream {
                                             }
                                             int i7 = 2 * this.oggInfo.channels * i;
                                             if (this.outIndex + i7 > this.outBuffer.length) {
-                                                throw new C1167c("Ogg block too big to be buffered: " + i7 + ", " + (this.outBuffer.length - this.outIndex));
+                                                throw new c("Ogg block too big to be buffered: " + i7 + ", " + (this.outBuffer.length - this.outIndex));
                                             }
                                             System.arraycopy(this.convbuffer, 0, this.outBuffer, this.outIndex, i7);
                                             this.outIndex += i7;
@@ -271,7 +271,7 @@ public class OggInputStream extends InputStream {
                         try {
                             this.bytes = this.input.read(this.buffer, buffer, BUFFER_SIZE);
                         } catch (Exception e) {
-                            throw new C1167c("Error during Vorbis decoding.", e);
+                            throw new c("Error during Vorbis decoding.", e);
                         }
                     } else {
                         this.bytes = 0;
@@ -335,6 +335,6 @@ public class OggInputStream extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        C1183s.m307a(this.input);
+        s.a(this.input);
     }
 }

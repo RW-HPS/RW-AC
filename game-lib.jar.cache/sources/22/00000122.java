@@ -1,94 +1,91 @@
 package com.corrodinggames.rts.debug.test;
 
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0458l;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.BooleanParseException;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0742br;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.Unit;
 
 /* renamed from: com.corrodinggames.rts.a.a.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/a/a/m.class */
 public class TestUnitReference extends AbstractScriptTest {
-    /* renamed from: a */
-    public void m5426a() {
-        GameEngine.m5924e("Unit Reference tests");
-        C0458l c0458l = C0458l.f2933b;
-        AbstractC0629y m3761a = C0458l.m3761a(false, c0458l);
-        m3761a.m3079b(PlayerData.f1373i);
-        C0456j m3761a2 = C0458l.m3761a(false, c0458l);
-        m3761a2.m3079b(PlayerData.f1373i);
-        m3761a2.f7172eo = 2.0f;
-        C0456j m3761a3 = C0458l.m3761a(false, c0458l);
-        m3761a3.m3079b(PlayerData.f1373i);
-        m3761a3.f7172eo = 3.0f;
-        C0456j m3761a4 = C0458l.m3761a(false, c0458l);
-        m3761a4.m3079b(PlayerData.f1373i);
-        m3761a4.f7172eo = 3.0f;
-        m3761a2.m3943C(m3761a3);
-        m3761a2.m3943C(m3761a4);
-        C0456j m3761a5 = C0458l.m3761a(false, c0458l);
-        m3761a5.m3079b(PlayerData.f1373i);
-        C0456j m3761a6 = C0458l.m3761a(false, c0458l);
-        m3761a6.m3079b(PlayerData.f1373i);
-        C0456j m3761a7 = C0458l.m3761a(false, c0458l);
-        m3761a7.m3079b(PlayerData.f1373i);
-        m3761a.f1584bu = m3761a5;
-        m3761a5.f1585bv = m3761a6;
-        m3761a3.f1585bv = m3761a6;
-        m3761a2.f1584bu = m3761a7;
-        GameEngine.m5924e("=== unit reference tests == (runs:2)");
-        Long valueOf = Long.valueOf(C0742br.m2574a());
+    public void a() {
+        GameEngine.m5e("Unit Reference tests");
+        l lVar = l.b;
+        y a = l.a(false, lVar);
+        a.b(PlayerData.i);
+        j a2 = l.a(false, lVar);
+        a2.b(PlayerData.i);
+        a2.eo = 2.0f;
+        j a3 = l.a(false, lVar);
+        a3.b(PlayerData.i);
+        a3.eo = 3.0f;
+        j a4 = l.a(false, lVar);
+        a4.b(PlayerData.i);
+        a4.eo = 3.0f;
+        a2.C(a3);
+        a2.C(a4);
+        j a5 = l.a(false, lVar);
+        a5.b(PlayerData.i);
+        am a6 = l.a(false, lVar);
+        a6.b(PlayerData.i);
+        am a7 = l.a(false, lVar);
+        a7.b(PlayerData.i);
+        a.bu = a5;
+        a5.bv = a6;
+        a3.bv = a6;
+        a2.bu = a7;
+        GameEngine.m5e("=== unit reference tests == (runs:2)");
+        Long valueOf = Long.valueOf(Unit.loadAllUnitsTook());
         for (int i = 0; i < 2; i++) {
-            m5424a(m3761a, m5423a("self"), m3761a);
-            m5424a(m3761a, m5423a("self.parent"), null);
-            m5422a("self.unknown", true);
-            m5424a(m3761a, m5423a("self.parent"), null);
-            m5424a(m3761a, m5423a("nullUnit"), null);
-            m5424a(m3761a, m5423a("self.customTarget1"), m3761a5);
-            m5424a(m3761a, m5423a("self.customTarget1.customTarget2"), m3761a6);
-            m5424a(m3761a, m5423a("self.customTarget2"), null);
-            m5424a(m3761a, m5423a("self.nullUnit"), null);
-            m5424a(m3761a, m5423a("nullUnit.nullUnit"), null);
-            m5424a(m3761a3, m5423a("self.parent.customTarget1"), m3761a7);
-            m5424a(m3761a2, m5423a("self.transporting(slot=0)"), m3761a3);
-            m5424a(m3761a2, m5423a("self.transporting(SLOT=0)"), m3761a3);
-            m5422a("self.transporting(MISS=0)", true);
-            m5424a(m3761a2, m5423a("self.transporting(slot=3)"), null);
-            m5424a(m3761a2, m5423a("self.transporting"), m3761a3);
-            m5424a(m3761a2, m5423a("self.transporting(slot=0).customTarget2"), m3761a6);
-            m5424a(m3761a2, m5423a("self.self.transporting(slot=0).customTarget2"), m3761a6);
-            m5424a(m3761a2, m5423a("self.SELF.TRANsporting(slot=0).customTarget2"), m3761a6);
-            m5424a(m3761a2, m5423a("self.SELF.transporting(slot=0).customTarget2"), m3761a6);
-            m5425a(m3761a, m5423a("self.nearestUnit(withinRange=500, withTag='test', relation='any')"));
-            m5422a(VariableScope.nullOrMissingString, true);
+            a(a, a("self"), a);
+            a(a, a("self.parent"), null);
+            a("self.unknown", true);
+            a(a, a("self.parent"), null);
+            a(a, a("nullUnit"), null);
+            a(a, a("self.customTarget1"), a5);
+            a(a, a("self.customTarget1.customTarget2"), a6);
+            a(a, a("self.customTarget2"), null);
+            a(a, a("self.nullUnit"), null);
+            a(a, a("nullUnit.nullUnit"), null);
+            a(a3, a("self.parent.customTarget1"), a7);
+            a(a2, a("self.transporting(slot=0)"), a3);
+            a(a2, a("self.transporting(SLOT=0)"), a3);
+            a("self.transporting(MISS=0)", true);
+            a(a2, a("self.transporting(slot=3)"), null);
+            a(a2, a("self.transporting"), a3);
+            a(a2, a("self.transporting(slot=0).customTarget2"), a6);
+            a(a2, a("self.self.transporting(slot=0).customTarget2"), a6);
+            a(a2, a("self.SELF.TRANsporting(slot=0).customTarget2"), a6);
+            a(a2, a("self.SELF.transporting(slot=0).customTarget2"), a6);
+            a(a, a("self.nearestUnit(withinRange=500, withTag='test', relation='any')"));
+            a(VariableScope.nullOrMissingString, true);
         }
-        GameEngine.m5924e("Took: " + C0742br.m2571a(valueOf.longValue(), Long.valueOf(C0742br.m2574a()).longValue()));
+        GameEngine.m5e("Took: " + Unit.a(valueOf.longValue(), Long.valueOf(Unit.loadAllUnitsTook()).longValue()));
     }
 
-    /* renamed from: a */
-    public void m5422a(String str, boolean z) {
+    public void a(String str, boolean z) {
         try {
-            UnitReference.parseSingleUnitReferenceBlock(C0458l.f2933b, str);
+            UnitReference.parseSingleUnitReferenceBlock(l.b, str);
             throw new RuntimeException("assertCreateError got no error for: " + str);
         } catch (RuntimeException e) {
             if (e.getClass() != RuntimeException.class && e.getClass() != BooleanParseException.class) {
                 throw new RuntimeException(e);
             }
             if (z) {
-                GameEngine.m5924e("(debug)assertCreateError: " + str + " expected-error:" + e.getMessage());
+                GameEngine.m5e("(debug)assertCreateError: " + str + " expected-error:" + e.getMessage());
             }
         }
     }
 
-    /* renamed from: a */
-    public UnitReference m5423a(String str) {
+    public UnitReference a(String str) {
         try {
-            UnitReference parseSingleUnitReferenceBlock = UnitReference.parseSingleUnitReferenceBlock(C0458l.f2933b, str);
+            UnitReference parseSingleUnitReferenceBlock = UnitReference.parseSingleUnitReferenceBlock(l.b, str);
             if (parseSingleUnitReferenceBlock == null) {
                 throw new RuntimeException("Null when parsing [" + str + "]");
             }
@@ -98,16 +95,14 @@ public class TestUnitReference extends AbstractScriptTest {
         }
     }
 
-    /* renamed from: a */
-    public void m5424a(AbstractC0629y abstractC0629y, UnitReference unitReference, AbstractC0244am abstractC0244am) {
-        AbstractC0244am abstractC0244am2 = unitReference.get(abstractC0629y);
-        if (abstractC0244am2 != abstractC0244am) {
-            throw new RuntimeException("assertSame type expected:" + AbstractC0244am.m4693A(abstractC0244am) + " got: " + AbstractC0244am.m4693A(abstractC0244am2));
+    public void a(y yVar, UnitReference unitReference, am amVar) {
+        am amVar2 = unitReference.get(yVar);
+        if (amVar2 != amVar) {
+            throw new RuntimeException("assertSame type expected:" + am.A(amVar) + " got: " + am.A(amVar2));
         }
     }
 
-    /* renamed from: a */
-    public void m5425a(AbstractC0629y abstractC0629y, UnitReference unitReference) {
-        unitReference.get(abstractC0629y);
+    public void a(y yVar, UnitReference unitReference) {
+        unitReference.get(yVar);
     }
 }

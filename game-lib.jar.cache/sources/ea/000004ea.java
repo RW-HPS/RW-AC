@@ -1,32 +1,20 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.q */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/q.class */
-class C0836q {
+class q {
+    public boolean a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    final /* synthetic */ o f;
 
-    /* renamed from: a */
-    public boolean f5530a;
-
-    /* renamed from: b */
-    public int f5531b;
-
-    /* renamed from: c */
-    public int f5532c;
-
-    /* renamed from: d */
-    public float f5533d;
-
-    /* renamed from: e */
-    public float f5534e;
-
-    /* renamed from: f */
-    final /* synthetic */ C0833o f5535f;
-
-    C0836q(C0833o c0833o, float f, int i, int i2, boolean z) {
-        this.f5535f = c0833o;
-        this.f5533d = f;
-        this.f5531b = i;
-        this.f5532c = i2;
-        this.f5530a = z;
+    q(o oVar, float f, int i, int i2, boolean z) {
+        this.f = oVar;
+        this.d = f;
+        this.b = i;
+        this.c = i2;
+        this.a = z;
     }
 }

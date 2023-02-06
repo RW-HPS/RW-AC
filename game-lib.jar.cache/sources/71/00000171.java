@@ -1,126 +1,109 @@
-package com.corrodinggames.rts.game.p010a;
+package com.corrodinggames.rts.game.a;
 
-import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/* renamed from: com.corrodinggames.rts.game.a.h */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/a/h.class */
-public abstract class AbstractC0163h extends AbstractC0170o {
+public abstract class h extends o {
+    ArrayList F;
+    ArrayList G;
 
-    /* renamed from: F */
-    ArrayList f688F;
+    public abstract void c(float f);
 
-    /* renamed from: G */
-    ArrayList f689G;
-
-    /* renamed from: c */
-    public abstract void mo4690c(float f);
-
-    /* renamed from: l */
-    public int m4750l() {
-        return this.f688F.size();
+    public int l() {
+        return this.F.size();
     }
 
-    /* renamed from: a */
-    public boolean mo4755a() {
+    public boolean a() {
         return false;
     }
 
-    /* renamed from: b */
-    public boolean mo4753b() {
+    public boolean b() {
         return false;
     }
 
-    public AbstractC0163h(C0136a c0136a) {
-        super(c0136a);
-        this.f688F = new ArrayList();
-        this.f689G = new ArrayList();
+    public h(a aVar) {
+        super(aVar);
+        this.F = new ArrayList();
+        this.G = new ArrayList();
     }
 
-    /* renamed from: m */
-    public boolean m4749m() {
-        Iterator it = this.f761R.f600bm.iterator();
+    public boolean m() {
+        Iterator it = this.R.bm.iterator();
         while (it.hasNext()) {
-            AbstractC0170o abstractC0170o = (AbstractC0170o) it.next();
-            if ((abstractC0170o instanceof C0169n) && ((C0169n) abstractC0170o).f753m == this) {
+            o oVar = (o) it.next();
+            if ((oVar instanceof n) && ((n) oVar).m == this) {
                 return true;
             }
         }
         return false;
     }
 
-    /* renamed from: n */
-    public void m4748n() {
-        Iterator it = this.f688F.iterator();
+    public void n() {
+        Iterator it = this.F.iterator();
         while (it.hasNext()) {
-            AbstractC0629y abstractC0629y = (AbstractC0629y) it.next();
-            if (abstractC0629y == null || abstractC0629y.f1612bV) {
-                if (abstractC0629y != null && abstractC0629y.f3979aB == this) {
-                    abstractC0629y.f3979aB = null;
+            y yVar = (y) it.next();
+            if (yVar == null || yVar.bV) {
+                if (yVar != null && yVar.aB == this) {
+                    yVar.aB = null;
                 }
-                if (abstractC0629y != null) {
-                    this.f689G.remove(abstractC0629y);
+                if (yVar != null) {
+                    this.G.remove(yVar);
                 }
                 it.remove();
             }
         }
     }
 
-    /* renamed from: o */
-    public void m4747o() {
-        Iterator it = this.f689G.iterator();
+    public void o() {
+        Iterator it = this.G.iterator();
         while (it.hasNext()) {
-            AbstractC0629y abstractC0629y = (AbstractC0629y) it.next();
-            if (abstractC0629y == null || abstractC0629y.f1612bV || abstractC0629y.f1656cN != null || abstractC0629y.f1657cO != null) {
+            y yVar = (y) it.next();
+            if (yVar == null || yVar.bV || yVar.cN != null || yVar.cO != null) {
                 it.remove();
             }
         }
     }
 
-    @Override // com.corrodinggames.rts.game.p010a.AbstractC0170o
-    /* renamed from: p */
-    public void mo4678p() {
-        m4746q();
-        this.f689G.clear();
-        super.mo4678p();
+    @Override // com.corrodinggames.rts.game.a.o
+    public void p() {
+        q();
+        this.G.clear();
+        super.p();
     }
 
-    /* renamed from: a */
-    protected void mo4754a(AbstractC0629y abstractC0629y) {
-        if (abstractC0629y.f3979aB != null) {
-            abstractC0629y.f3979aB.m4751b(abstractC0629y);
+    protected void a(y yVar) {
+        if (yVar.aB != null) {
+            yVar.aB.b(yVar);
         }
-        if (abstractC0629y.f1614bX != null && abstractC0629y.f1614bX != this.f761R) {
-            GameEngine.m990g("unit.team:" + abstractC0629y.f1614bX.site + ", ai:" + this.f761R.site);
+        if (yVar.bX != null && yVar.bX != this.R) {
+            GameEngine.g("unit.team:" + yVar.bX.site + ", ai:" + this.R.site);
         }
-        this.f688F.add(abstractC0629y);
-        abstractC0629y.f3979aB = this;
+        this.F.add(yVar);
+        yVar.aB = this;
     }
 
-    /* renamed from: b */
-    public void m4751b(AbstractC0629y abstractC0629y) {
-        this.f688F.remove(abstractC0629y);
-        this.f689G.remove(abstractC0629y);
-        if (abstractC0629y.f3979aB == this) {
-            abstractC0629y.f3979aB = null;
+    public void b(y yVar) {
+        this.F.remove(yVar);
+        this.G.remove(yVar);
+        if (yVar.aB == this) {
+            yVar.aB = null;
         }
     }
 
-    /* renamed from: q */
-    public void m4746q() {
-        Iterator it = this.f688F.iterator();
+    public void q() {
+        Iterator it = this.F.iterator();
         while (it.hasNext()) {
-            AbstractC0629y abstractC0629y = (AbstractC0629y) it.next();
-            if (abstractC0629y != null && abstractC0629y.f3979aB == this) {
-                abstractC0629y.f3979aB = null;
+            y yVar = (y) it.next();
+            if (yVar != null && yVar.aB == this) {
+                yVar.aB = null;
             }
         }
-        this.f688F.clear();
+        this.F.clear();
     }
 
-    /* renamed from: b */
-    public void mo4752b(float f) {
+    public void b(float f) {
     }
 }

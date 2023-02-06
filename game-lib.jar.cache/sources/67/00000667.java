@@ -2,15 +2,12 @@ package com.corrodinggames.rts.java;
 
 import org.lwjgl.opengl.Display;
 
-/* renamed from: com.corrodinggames.rts.java.c */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/java/c.class */
-public class C1189c extends Thread {
+public class c extends Thread {
+    final /* synthetic */ RWAppGameContainer a;
 
-    /* renamed from: a */
-    final /* synthetic */ RWAppGameContainer f7302a;
-
-    public C1189c(RWAppGameContainer rWAppGameContainer) {
-        this.f7302a = rWAppGameContainer;
+    public c(RWAppGameContainer rWAppGameContainer) {
+        this.a = rWAppGameContainer;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable

@@ -1,30 +1,29 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
 import android.graphics.PointF;
-import com.corrodinggames.rts.game.EnumC0200q;
 import com.corrodinggames.rts.game.PlayerData;
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
-import com.corrodinggames.rts.game.units.C0305au;
-import com.corrodinggames.rts.game.units.C0624t;
-import com.corrodinggames.rts.game.units.InterfaceC0303as;
-import com.corrodinggames.rts.game.units.custom.C0417bo;
-import com.corrodinggames.rts.game.units.custom.C0453g;
-import com.corrodinggames.rts.game.units.custom.C0454h;
-import com.corrodinggames.rts.game.units.custom.C0456j;
-import com.corrodinggames.rts.game.units.custom.C0457k;
-import com.corrodinggames.rts.game.units.custom.C0458l;
-import com.corrodinggames.rts.game.units.custom.C0469v;
+import com.corrodinggames.rts.game.q;
+import com.corrodinggames.rts.game.units.am;
+import com.corrodinggames.rts.game.units.as;
+import com.corrodinggames.rts.game.units.au;
+import com.corrodinggames.rts.game.units.custom.b.n;
+import com.corrodinggames.rts.game.units.custom.bo;
+import com.corrodinggames.rts.game.units.custom.g;
+import com.corrodinggames.rts.game.units.custom.h;
+import com.corrodinggames.rts.game.units.custom.j;
+import com.corrodinggames.rts.game.units.custom.k;
+import com.corrodinggames.rts.game.units.custom.l;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
-import com.corrodinggames.rts.game.units.custom.p018b.C0402n;
-import com.corrodinggames.rts.game.units.p027f.AbstractC0549i;
-import com.corrodinggames.rts.gameFramework.C0773f;
+import com.corrodinggames.rts.game.units.custom.v;
+import com.corrodinggames.rts.game.units.f.i;
+import com.corrodinggames.rts.game.units.t;
+import com.corrodinggames.rts.game.units.y;
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1107ab;
-import com.corrodinggames.rts.gameFramework.utility.C1118al;
-import com.corrodinggames.rts.gameFramework.utility.C1119am;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.f;
+import com.corrodinggames.rts.gameFramework.utility.ab;
+import com.corrodinggames.rts.gameFramework.utility.al;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -40,7 +39,7 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     public class UnitContextChangingContext extends LogicBooleanLoader.LogicBooleanContextWithDefault {
     }
 
-    public abstract AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y);
+    public abstract am getSingleRaw(y yVar);
 
     static {
         addUnitReferenceType(new AttachmentUnitReference(), "attachment");
@@ -64,27 +63,27 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         placeholderUnitContext = new UnitContextChangingContext();
     }
 
-    public final AbstractC0244am get(AbstractC0244am abstractC0244am) {
-        if (!(abstractC0244am instanceof AbstractC0629y)) {
+    public final am get(am amVar) {
+        if (!(amVar instanceof y)) {
             return null;
         }
-        return getSingleRaw((AbstractC0629y) abstractC0244am);
+        return getSingleRaw((y) amVar);
     }
 
-    public final AbstractC0244am get(AbstractC0629y abstractC0629y) {
-        return getSingleRaw(abstractC0629y);
+    public final am get(y yVar) {
+        return getSingleRaw(yVar);
     }
 
-    public final AbstractC0244am getRealUnitOnly(AbstractC0629y abstractC0629y) {
-        AbstractC0244am singleRaw = getSingleRaw(abstractC0629y);
-        if (singleRaw instanceof C0624t) {
+    public final am getRealUnitOnly(y yVar) {
+        am singleRaw = getSingleRaw(yVar);
+        if (singleRaw instanceof t) {
             return null;
         }
         return singleRaw;
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public void forMeta(C0458l c0458l) {
+    public void forMeta(l lVar) {
     }
 
     static void addUnitReferenceType(UnitReference unitReference, String... strArr) {
@@ -96,11 +95,11 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
     }
 
-    public static UnitReferenceOrUnitType parseUnitTypeOrReferenceFromConf(C0458l c0458l, C1107ab c1107ab, String str, String str2, UnitReferenceOrUnitType unitReferenceOrUnitType) {
-        return parseUnitTypeOrReference(c0458l, c1107ab.m666b(str, str2, (String) null), str, str2, unitReferenceOrUnitType);
+    public static UnitReferenceOrUnitType parseUnitTypeOrReferenceFromConf(l lVar, ab abVar, String str, String str2, UnitReferenceOrUnitType unitReferenceOrUnitType) {
+        return parseUnitTypeOrReference(lVar, abVar.b(str, str2, (String) null), str, str2, unitReferenceOrUnitType);
     }
 
-    public static UnitReferenceOrUnitType parseUnitTypeOrReference(C0458l c0458l, String str, String str2, String str3, UnitReferenceOrUnitType unitReferenceOrUnitType) {
+    public static UnitReferenceOrUnitType parseUnitTypeOrReference(l lVar, String str, String str2, String str3, UnitReferenceOrUnitType unitReferenceOrUnitType) {
         if (str == null) {
             return unitReferenceOrUnitType;
         }
@@ -109,20 +108,20 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
             return unitReferenceOrUnitType;
         }
         if (trim.toLowerCase(Locale.ROOT).startsWith("unitref ")) {
-            return new UnitReferenceOrUnitType(parseUnitReference(c0458l, trim, str2, str3, null, true));
+            return new UnitReferenceOrUnitType(parseUnitReference(lVar, trim, str2, str3, null, true));
         }
-        C0469v m3541a = c0458l.m3541a(trim, str3, str2);
-        if (m3541a != null) {
-            m3541a.f3386f = true;
+        v a = lVar.a(trim, str3, str2);
+        if (a != null) {
+            a.f = true;
         }
-        return new UnitReferenceOrUnitType(m3541a);
+        return new UnitReferenceOrUnitType(a);
     }
 
-    public static UnitReference parseUnitReferenceFromConf(C0458l c0458l, C1107ab c1107ab, String str, String str2, UnitReference unitReference) {
-        return parseUnitReference(c0458l, c1107ab.m666b(str, str2, (String) null), str, str2, unitReference, false);
+    public static UnitReference parseUnitReferenceFromConf(l lVar, ab abVar, String str, String str2, UnitReference unitReference) {
+        return parseUnitReference(lVar, abVar.b(str, str2, (String) null), str, str2, unitReference, false);
     }
 
-    public static UnitReference parseUnitReference(C0458l c0458l, String str, String str2, String str3, UnitReference unitReference, boolean z) {
+    public static UnitReference parseUnitReference(l lVar, String str, String str2, String str3, UnitReference unitReference, boolean z) {
         if (str == null) {
             return unitReference;
         }
@@ -140,10 +139,10 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         if (lowerCase.indexOf("(") == -1) {
             lowerCase.length();
         } else if (lowerCase.indexOf(")") != lowerCase.length() - 1) {
-            throw new C0417bo("[" + str2 + "]" + str3 + " UnitReference: Unexpected format for: '" + lowerCase + "'");
+            throw new bo("[" + str2 + "]" + str3 + " UnitReference: Unexpected format for: '" + lowerCase + "'");
         }
         try {
-            UnitReference parseSingleUnitReferenceBlock = parseSingleUnitReferenceBlock(c0458l, lowerCase);
+            UnitReference parseSingleUnitReferenceBlock = parseSingleUnitReferenceBlock(lVar, lowerCase);
             if (parseSingleUnitReferenceBlock == null) {
                 throw new RuntimeException("Unknown function:'" + lowerCase + "'");
             }
@@ -153,7 +152,7 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
     }
 
-    public static UnitReference parseSingleUnitReferenceElement(C0458l c0458l, String str) {
+    public static UnitReference parseSingleUnitReferenceElement(l lVar, String str) {
         String lowerCase = str.split("\\(")[0].trim().toLowerCase(Locale.ROOT);
         UnitReference unitReference = (UnitReference) referenceTypes.get(lowerCase);
         if (unitReference == null) {
@@ -166,31 +165,31 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         if (!trim.startsWith("(") || !trim.endsWith(")")) {
             throw new RuntimeException("Failed to parse unit reference arguments for:'" + str + "'");
         }
-        UnitReference with = unitReference.with(c0458l, trim.substring(1, trim.length() - 1).trim(), lowerCase);
+        UnitReference with = unitReference.with(lVar, trim.substring(1, trim.length() - 1).trim(), lowerCase);
         if (with instanceof NullUnitReference) {
         }
         return with;
     }
 
-    public static UnitReference parseSingleUnitReferenceBlock(C0458l c0458l, String str) {
-        int m579b = C1118al.m579b(str);
-        if (m579b != 0) {
-            if (m579b > 0) {
+    public static UnitReference parseSingleUnitReferenceBlock(l lVar, String str) {
+        int b = al.b(str);
+        if (b != 0) {
+            if (b > 0) {
                 throw new RuntimeException("Brackets unbalanced for: '" + str + "'. A '(' was not closed.");
             }
-            if (m579b < 0) {
+            if (b < 0) {
                 throw new RuntimeException("Brackets unbalanced for: '" + str + "'. Too many ')'.");
             }
         }
         String breakOuterLayerBrackets = LogicBooleanLoader.breakOuterLayerBrackets(str.trim());
-        String[] m574b = C1118al.m574b(breakOuterLayerBrackets, ".", false);
+        String[] b2 = al.b(breakOuterLayerBrackets, ".", false);
         ArrayList arrayList = new ArrayList();
         boolean z = false;
-        for (String str2 : m574b) {
+        for (String str2 : b2) {
             if (str2.equalsIgnoreCase("self")) {
                 z = true;
             } else {
-                UnitReference parseSingleUnitReferenceElement = parseSingleUnitReferenceElement(c0458l, str2);
+                UnitReference parseSingleUnitReferenceElement = parseSingleUnitReferenceElement(lVar, str2);
                 if (parseSingleUnitReferenceElement == null) {
                     throw new RuntimeException("Unknown unit reference:'" + str2 + "'");
                 }
@@ -211,15 +210,15 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
     public UnitReference with(String str) {
-        return with((C0458l) null, str, (String) null);
+        return with((l) null, str, (String) null);
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public UnitReference with(C0458l c0458l, String str, String str2) {
+    public UnitReference with(l lVar, String str, String str2) {
         try {
             UnitReference unitReference = (UnitReference) clone();
-            unitReference.forMeta(c0458l);
-            unitReference.setArgumentsRaw(str, c0458l, str2);
+            unitReference.forMeta(lVar);
+            unitReference.setArgumentsRaw(str, lVar, str2);
             return unitReference;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
@@ -227,13 +226,13 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public boolean read(AbstractC0629y abstractC0629y) {
+    public boolean read(y yVar) {
         return false;
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
-        return getSingleRaw(abstractC0629y);
+    public am readUnit(y yVar) {
+        return getSingleRaw(yVar);
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -246,8 +245,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     }
 
     @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-    public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-        return getClassDebugName() + "(" + AbstractC0244am.m4256A(getSingleRaw(abstractC0629y)) + ")";
+    public String getMatchFailReasonForPlayer(y yVar) {
+        return getClassDebugName() + "(" + am.A(getSingleRaw(yVar)) + ")";
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$ChainedUnitReference.class */
@@ -255,8 +254,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         UnitReference[] chain;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -269,26 +268,26 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
+        public am getSingleRaw(y yVar) {
             UnitReference[] unitReferenceArr = this.chain;
-            AbstractC0629y abstractC0629y2 = abstractC0629y;
-            LogicBoolean.outerUnitParameterContext = abstractC0629y;
+            y yVar2 = yVar;
+            LogicBoolean.outerUnitParameterContext = yVar;
             for (UnitReference unitReference : unitReferenceArr) {
-                abstractC0629y2 = unitReference.get((AbstractC0244am) abstractC0629y2);
-                if (abstractC0629y2 == null) {
+                yVar2 = unitReference.get((am) yVar2);
+                if (yVar2 == null) {
                     return null;
                 }
             }
             LogicBoolean.outerUnitParameterContext = null;
-            return abstractC0629y2;
+            return yVar2;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             UnitReference[] unitReferenceArr = this.chain;
-            AbstractC0629y abstractC0629y2 = abstractC0629y;
-            if (abstractC0629y2 instanceof AbstractC0629y) {
-                LogicBoolean.outerUnitParameterContext = abstractC0629y2;
+            y yVar2 = yVar;
+            if (yVar2 instanceof y) {
+                LogicBoolean.outerUnitParameterContext = yVar2;
             }
             String str = VariableScope.nullOrMissingString + "[";
             int i = 0;
@@ -296,12 +295,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
                 if (i >= unitReferenceArr.length) {
                     break;
                 }
-                str = str + unitReferenceArr[i].getMatchFailReasonForPlayer(abstractC0629y);
+                str = str + unitReferenceArr[i].getMatchFailReasonForPlayer(yVar);
                 if (i != unitReferenceArr.length - 1) {
                     str = str + ",";
                 }
-                abstractC0629y2 = unitReferenceArr[i].get((AbstractC0244am) abstractC0629y2);
-                if (abstractC0629y2 != null) {
+                yVar2 = unitReferenceArr[i].get((am) yVar2);
+                if (yVar2 != null) {
                     i++;
                 } else {
                     str = str + "<null>";
@@ -315,13 +314,13 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$AttachmentUnitReference.class */
     public class AttachmentUnitReference extends UnitReference {
-        C0458l meta;
-        C0453g _withTag;
+        l meta;
+        g _withTag;
         short attachmentId = -1;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -338,45 +337,45 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
-                throw new C1119am("AttachmentUnitReference requires metadata");
+        public void forMeta(l lVar) {
+            if (lVar == null) {
+                throw new com.corrodinggames.rts.gameFramework.utility.am("AttachmentUnitReference requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3677c(str);
+            this._withTag = g.c(str);
         }
 
         @LogicBoolean.Parameter
         public void slot(String str) {
-            C0402n m3512i = this.meta.m3512i(str);
-            if (m3512i == null) {
-                throw new C1119am("No attachment slot with name: " + str + " found");
+            n i = this.meta.i(str);
+            if (i == null) {
+                throw new com.corrodinggames.rts.gameFramework.utility.am("No attachment slot with name: " + str + " found");
             }
-            this.attachmentId = m3512i.m3917a();
+            this.attachmentId = i.a();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            if (!(abstractC0629y instanceof C0456j)) {
+        public am getSingleRaw(y yVar) {
+            if (!(yVar instanceof j)) {
                 return null;
             }
-            C0456j c0456j = (C0456j) abstractC0629y;
-            if (c0456j.f2896C == null) {
+            j jVar = (j) yVar;
+            if (jVar.C == null) {
                 return null;
             }
-            Object[] m535a = c0456j.f2896C.m535a();
-            for (int i = c0456j.f2896C.f7109a - 1; i >= 0; i--) {
-                AbstractC0629y abstractC0629y2 = (AbstractC0629y) m535a[i];
-                if (abstractC0629y2 != null && (this.attachmentId == -1 || i == this.attachmentId)) {
+            Object[] a = jVar.C.a();
+            for (int i = jVar.C.a - 1; i >= 0; i--) {
+                y yVar2 = (y) a[i];
+                if (yVar2 != null && (this.attachmentId == -1 || i == this.attachmentId)) {
                     if (this._withTag != null) {
-                        if (!C0453g.m3685a(this._withTag, abstractC0629y2.mo3599de())) {
+                        if (!g.a(this._withTag, yVar2.de())) {
                         }
                     }
-                    return abstractC0629y2;
+                    return yVar2;
                 }
             }
             return null;
@@ -390,13 +389,13 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$TransportingUnitReference.class */
     public class TransportingUnitReference extends UnitReference {
-        C0458l meta;
+        l meta;
         @LogicBoolean.Parameter
         public int slot = -1;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -405,27 +404,27 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
-            if (c0458l == null) {
-                throw new C1119am("TransportingUnitReference requires metadata");
+        public void forMeta(l lVar) {
+            if (lVar == null) {
+                throw new com.corrodinggames.rts.gameFramework.utility.am("TransportingUnitReference requires metadata");
             }
-            this.meta = c0458l;
+            this.meta = lVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am abstractC0244am = null;
-            C1136m mo2886bz = abstractC0629y.mo2886bz();
-            if (mo2886bz != null) {
+        public am getSingleRaw(y yVar) {
+            am amVar = null;
+            m bz = yVar.bz();
+            if (bz != null) {
                 if (this.slot == -1) {
-                    if (mo2886bz.size() > 0) {
-                        abstractC0244am = (AbstractC0244am) mo2886bz.get(0);
+                    if (bz.size() > 0) {
+                        amVar = (am) bz.get(0);
                     }
-                } else if (this.slot >= 0 && this.slot < mo2886bz.size()) {
-                    abstractC0244am = (AbstractC0244am) mo2886bz.get(this.slot);
+                } else if (this.slot >= 0 && this.slot < bz.size()) {
+                    amVar = (am) bz.get(this.slot);
                 }
             }
-            return abstractC0244am;
+            return amVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -437,8 +436,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$ParentUnitReference.class */
     public class ParentUnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -447,12 +446,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.m4199dr();
+        public am getSingleRaw(y yVar) {
+            return yVar.dr();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
+        public String getMatchFailReasonForPlayer(y yVar) {
             return "parent";
         }
     }
@@ -460,8 +459,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$Memory1UnitReference.class */
     public class Memory1UnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -470,12 +469,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am abstractC0244am = abstractC0629y.f1584bu;
-            if (abstractC0244am == null || abstractC0244am.f1612bV) {
+        public am getSingleRaw(y yVar) {
+            am amVar = yVar.bu;
+            if (amVar == null || amVar.bV) {
                 return null;
             }
-            return abstractC0244am;
+            return amVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -487,8 +486,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$Memory2UnitReference.class */
     public class Memory2UnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -497,12 +496,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am abstractC0244am = abstractC0629y.f1585bv;
-            if (abstractC0244am == null || abstractC0244am.f1612bV) {
+        public am getSingleRaw(y yVar) {
+            am amVar = yVar.bv;
+            if (amVar == null || amVar.bV) {
                 return null;
             }
-            return abstractC0244am;
+            return amVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -514,8 +513,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$LastDamagedByUnitReference.class */
     public class LastDamagedByUnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -524,12 +523,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am abstractC0244am = abstractC0629y.f1583bt;
-            if (abstractC0244am == null || abstractC0244am.f1612bV) {
+        public am getSingleRaw(y yVar) {
+            am amVar = yVar.bt;
+            if (amVar == null || amVar.bV) {
                 return null;
             }
-            return abstractC0244am;
+            return amVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -540,18 +539,18 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$NearestUnitReference.class */
     public class NearestUnitReference extends UnitReference {
-        public C0453g _withTag;
-        public C0453g _withoutTag;
+        public g _withTag;
+        public g _withoutTag;
         @LogicBoolean.Parameter
         public boolean incompleteBuildings;
         public static final HandleCallbackNearest handleCallbackNearest = new HandleCallbackNearest();
         public float withinRange = 500.0f;
         public float withinRangeSq = this.withinRange * this.withinRange;
-        public EnumC0200q relation = EnumC0200q.f1397f;
+        public q relation = q.any;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -567,7 +566,7 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         @LogicBoolean.Parameter
         public void withinRange(float f) {
             if (f > 1500.0f) {
-                throw new C1119am("NearestUnit distance cannot be over 1500 is: " + f);
+                throw new com.corrodinggames.rts.gameFramework.utility.am("NearestUnit distance cannot be over 1500 is: " + f);
             }
             this.withinRange = f;
             this.withinRangeSq = f * f;
@@ -575,80 +574,80 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3677c(str);
+            this._withTag = g.c(str);
         }
 
         @LogicBoolean.Parameter
         public void withoutTag(String str) {
-            this._withoutTag = C0453g.m3677c(str);
+            this._withoutTag = g.c(str);
         }
 
         @LogicBoolean.Parameter
         public void relation(String str) {
             try {
-                this.relation = (EnumC0200q) C1107ab.m693a(str, EnumC0200q.f1397f, EnumC0200q.class);
-            } catch (C0417bo e) {
-                throw new C1119am(e.getMessage(), e);
+                this.relation = (q) ab.a(str, q.any, q.class);
+            } catch (bo e) {
+                throw new com.corrodinggames.rts.gameFramework.utility.am(e.getMessage(), e);
             }
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
+        public am getSingleRaw(y yVar) {
             handleCallbackNearest.nearest = null;
             handleCallbackNearest.withinRangeSq = this.withinRangeSq;
             handleCallbackNearest.tag = this._withTag;
             handleCallbackNearest.withoutTag = this._withoutTag;
             handleCallbackNearest.incompleteBuildings = this.incompleteBuildings;
             handleCallbackNearest.relation = this.relation;
-            GameEngine.getGameEngine().f6340cc.m3208a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, this.withinRange, abstractC0629y, 0.0f, handleCallbackNearest);
+            GameEngine.getGameEngine().cc.a(yVar.eo, yVar.ep, this.withinRange, yVar, 0.0f, handleCallbackNearest);
             return handleCallbackNearest.nearest;
         }
 
         /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$NearestUnitReference$HandleCallbackNearest.class */
-        public class HandleCallbackNearest extends AbstractC0549i {
-            public C0453g tag;
-            public C0453g withoutTag;
+        public class HandleCallbackNearest extends i {
+            public g tag;
+            public g withoutTag;
             public float withinRangeSq;
             public boolean incompleteBuildings;
-            public EnumC0200q relation = EnumC0200q.f1397f;
-            public AbstractC0244am nearest;
+            public q relation = q.any;
+            public am nearest;
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public void setup(AbstractC0629y abstractC0629y, float f) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public void setup(y yVar, float f) {
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public int excludeTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public int excludeTeam(y yVar) {
                 return -3;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyEnemiesOfTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyEnemiesOfTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0549i
-            public PlayerData onlyTeam(AbstractC0629y abstractC0629y) {
+            @Override // com.corrodinggames.rts.game.units.f.i
+            public PlayerData onlyTeam(y yVar) {
                 return null;
             }
 
-            @Override // com.corrodinggames.rts.game.units.p027f.AbstractC0550j
-            public void callback(AbstractC0629y abstractC0629y, float f, AbstractC0244am abstractC0244am) {
-                if ((this.relation != EnumC0200q.f1397f && !abstractC0629y.f1614bX.m4440a(this.relation, abstractC0244am.f1614bX)) || abstractC0629y == abstractC0244am) {
+            @Override // com.corrodinggames.rts.game.units.f.j
+            public void callback(y yVar, float f, am amVar) {
+                if ((this.relation != q.any && !yVar.bX.a(this.relation, amVar.bX)) || yVar == amVar) {
                     return;
                 }
-                C0454h mo3599de = abstractC0244am.mo3599de();
-                if (this.tag == null || (mo3599de != null && C0453g.m3685a(this.tag, mo3599de))) {
-                    float m2216a = C0773f.m2216a(abstractC0629y.f7172eo, abstractC0629y.f7173ep, abstractC0244am.f7172eo, abstractC0244am.f7173ep);
-                    if (m2216a < this.withinRangeSq) {
-                        if (abstractC0244am.f1629cm < 1.0f && !this.incompleteBuildings) {
+                h de = amVar.de();
+                if (this.tag == null || (de != null && g.a(this.tag, de))) {
+                    float a = f.a(yVar.eo, yVar.ep, amVar.eo, amVar.ep);
+                    if (a < this.withinRangeSq) {
+                        if (amVar.cm < 1.0f && !this.incompleteBuildings) {
                             return;
                         }
-                        if (this.withoutTag != null && mo3599de != null && C0453g.m3685a(this.withoutTag, mo3599de)) {
+                        if (this.withoutTag != null && de != null && g.a(this.withoutTag, de)) {
                             return;
                         }
-                        this.withinRangeSq = m2216a;
-                        this.nearest = abstractC0244am;
+                        this.withinRangeSq = a;
+                        this.nearest = amVar;
                     }
                 }
             }
@@ -657,14 +656,14 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$FirstUnitReference.class */
     public class FirstUnitReference extends UnitReference {
-        public C0453g _withTag;
-        public EnumC0200q relation = EnumC0200q.f1397f;
+        public g _withTag;
+        public q relation = q.any;
         @LogicBoolean.Parameter
         public boolean incompleteBuildings;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -679,28 +678,28 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
         @LogicBoolean.Parameter
         public void withTag(String str) {
-            this._withTag = C0453g.m3677c(str);
+            this._withTag = g.c(str);
         }
 
         @LogicBoolean.Parameter
         public void relation(String str) {
             try {
-                this.relation = (EnumC0200q) C1107ab.m693a(str, (Enum) null, EnumC0200q.class);
-            } catch (C0417bo e) {
-                throw new C1119am(e.getMessage(), e);
+                this.relation = (q) ab.a(str, (Enum) null, q.class);
+            } catch (bo e) {
+                throw new com.corrodinggames.rts.gameFramework.utility.am(e.getMessage(), e);
             }
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am[] m499a = AbstractC0244am.f1594bE.m499a();
-            int size = AbstractC0244am.f1594bE.size();
+        public am getSingleRaw(y yVar) {
+            am[] a = am.bE.a();
+            int size = am.bE.size();
             for (int i = 0; i < size; i++) {
-                AbstractC0244am abstractC0244am = m499a[i];
-                if ((this.relation == EnumC0200q.f1397f || abstractC0629y.f1614bX.m4440a(this.relation, abstractC0244am.f1614bX)) && abstractC0629y != abstractC0244am) {
-                    C0454h mo3599de = abstractC0244am.mo3599de();
-                    if ((this._withTag == null || (mo3599de != null && C0453g.m3685a(this._withTag, mo3599de))) && (abstractC0244am.f1629cm >= 1.0f || this.incompleteBuildings)) {
-                        return abstractC0244am;
+                am amVar = a[i];
+                if ((this.relation == q.any || yVar.bX.a(this.relation, amVar.bX)) && yVar != amVar) {
+                    h de = amVar.de();
+                    if ((this._withTag == null || (de != null && g.a(this._withTag, de))) && (amVar.cm >= 1.0f || this.incompleteBuildings)) {
+                        return amVar;
                     }
                 }
             }
@@ -711,8 +710,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$PlaceholderUnitReference.class */
     public abstract class PlaceholderUnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -729,13 +728,9 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$GetOffsetAbsolute.class */
     public class GetOffsetAbsolute extends PlaceholderUnitReference {
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number, positional = 0)
-
-        /* renamed from: x */
-        public LogicBoolean f3337x = LogicBoolean.StaticValueBoolean.static_0;
+        public LogicBoolean x = LogicBoolean.StaticValueBoolean.static_0;
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number, positional = 1)
-
-        /* renamed from: y */
-        public LogicBoolean f3338y = LogicBoolean.StaticValueBoolean.static_0;
+        public LogicBoolean y = LogicBoolean.StaticValueBoolean.static_0;
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number)
         public LogicBoolean height = LogicBoolean.StaticValueBoolean.static_0;
 
@@ -745,27 +740,23 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0629y abstractC0629y2 = abstractC0629y.f1614bX.f1316t;
-            AbstractC0629y parameterContext = getParameterContext(abstractC0629y);
-            abstractC0629y2.f1623cg = abstractC0629y.f1623cg;
-            abstractC0629y2.f7172eo = abstractC0629y.f7172eo + this.f3337x.readNumber(parameterContext);
-            abstractC0629y2.f7173ep = abstractC0629y.f7173ep + this.f3338y.readNumber(parameterContext);
-            abstractC0629y2.f7174eq = abstractC0629y.f7174eq + this.height.readNumber(parameterContext);
-            return abstractC0629y2;
+        public am getSingleRaw(y yVar) {
+            y yVar2 = yVar.bX.t;
+            y parameterContext = getParameterContext(yVar);
+            yVar2.cg = yVar.cg;
+            yVar2.eo = yVar.eo + this.x.readNumber(parameterContext);
+            yVar2.ep = yVar.ep + this.y.readNumber(parameterContext);
+            yVar2.eq = yVar.eq + this.height.readNumber(parameterContext);
+            return yVar2;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$GetOffsetRelative.class */
     public class GetOffsetRelative extends PlaceholderUnitReference {
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number, positional = 0)
-
-        /* renamed from: x */
-        public LogicBoolean f3339x = LogicBoolean.StaticValueBoolean.static_0;
+        public LogicBoolean x = LogicBoolean.StaticValueBoolean.static_0;
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number, positional = 1)
-
-        /* renamed from: y */
-        public LogicBoolean f3340y = LogicBoolean.StaticValueBoolean.static_0;
+        public LogicBoolean y = LogicBoolean.StaticValueBoolean.static_0;
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number)
         public LogicBoolean height = LogicBoolean.StaticValueBoolean.static_0;
         @LogicBoolean.Parameter(type = LogicBoolean.ReturnType.number)
@@ -782,33 +773,29 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0629y abstractC0629y2 = abstractC0629y.f1614bX.f1316t;
-            AbstractC0629y parameterContext = getParameterContext(abstractC0629y);
-            float readNumber = abstractC0629y.f1623cg + this.dirOffset.readNumber(parameterContext);
-            float m2107k = C0773f.m2107k(readNumber);
-            float m2110j = C0773f.m2110j(readNumber);
-            float readNumber2 = this.f3339x.readNumber(parameterContext);
-            float readNumber3 = this.f3340y.readNumber(parameterContext);
-            float f = (m2107k * readNumber3) - (m2110j * readNumber2);
-            abstractC0629y2.f1623cg = readNumber;
-            abstractC0629y2.f7172eo = abstractC0629y.f7172eo + f;
-            abstractC0629y2.f7173ep = abstractC0629y.f7173ep + (m2110j * readNumber3) + (m2107k * readNumber2);
-            abstractC0629y2.f7174eq = abstractC0629y.f7174eq + this.height.readNumber(parameterContext);
-            return abstractC0629y2;
+        public am getSingleRaw(y yVar) {
+            y yVar2 = yVar.bX.t;
+            y parameterContext = getParameterContext(yVar);
+            float readNumber = yVar.cg + this.dirOffset.readNumber(parameterContext);
+            float k = f.k(readNumber);
+            float j = f.j(readNumber);
+            float readNumber2 = this.x.readNumber(parameterContext);
+            float readNumber3 = this.y.readNumber(parameterContext);
+            float f = (k * readNumber3) - (j * readNumber2);
+            yVar2.cg = readNumber;
+            yVar2.eo = yVar.eo + f;
+            yVar2.ep = yVar.ep + (j * readNumber3) + (k * readNumber2);
+            yVar2.eq = yVar.eq + this.height.readNumber(parameterContext);
+            return yVar2;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$GetOffsetRelativeStatic.class */
     public class GetOffsetRelativeStatic extends PlaceholderUnitReference {
         @LogicBoolean.Parameter(positional = 0)
-
-        /* renamed from: x */
-        public float f3341x;
+        public float x;
         @LogicBoolean.Parameter(positional = 1)
-
-        /* renamed from: y */
-        public float f3342y;
+        public float y;
         @LogicBoolean.Parameter
         public float height;
         @LogicBoolean.Parameter
@@ -820,19 +807,19 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0629y abstractC0629y2 = abstractC0629y.f1614bX.f1316t;
-            float f = abstractC0629y.f1623cg + this.dirOffset;
-            float m2107k = C0773f.m2107k(f);
-            float m2110j = C0773f.m2110j(f);
-            float f2 = this.f3341x;
-            float f3 = this.f3342y;
-            float f4 = (m2107k * f3) - (m2110j * f2);
-            abstractC0629y2.f1623cg = f;
-            abstractC0629y2.f7172eo = abstractC0629y.f7172eo + f4;
-            abstractC0629y2.f7173ep = abstractC0629y.f7173ep + (m2110j * f3) + (m2107k * f2);
-            abstractC0629y2.f7174eq = abstractC0629y.f7174eq + this.height;
-            return abstractC0629y2;
+        public am getSingleRaw(y yVar) {
+            y yVar2 = yVar.bX.t;
+            float f = yVar.cg + this.dirOffset;
+            float k = f.k(f);
+            float j = f.j(f);
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (k * f3) - (j * f2);
+            yVar2.cg = f;
+            yVar2.eo = yVar.eo + f4;
+            yVar2.ep = yVar.ep + (j * f3) + (k * f2);
+            yVar2.eq = yVar.eq + this.height;
+            return yVar2;
         }
     }
 
@@ -844,21 +831,21 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0629y abstractC0629y2 = abstractC0629y.f1614bX.f1316t;
-            abstractC0629y2.f1623cg = abstractC0629y.f1623cg;
-            abstractC0629y2.f7172eo = abstractC0629y.f7172eo;
-            abstractC0629y2.f7173ep = abstractC0629y.f7173ep;
-            abstractC0629y2.f7174eq = abstractC0629y.f7174eq;
-            return abstractC0629y2;
+        public am getSingleRaw(y yVar) {
+            y yVar2 = yVar.bX.t;
+            yVar2.cg = yVar.cg;
+            yVar2.eo = yVar.eo;
+            yVar2.ep = yVar.ep;
+            yVar2.eq = yVar.eq;
+            return yVar2;
         }
     }
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$ThisActionTargetReference.class */
     public class ThisActionTargetReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -867,19 +854,19 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            AbstractC0244am abstractC0244am = C0456j.f2904dN;
-            if (abstractC0244am != null) {
-                return abstractC0244am;
+        public am getSingleRaw(y yVar) {
+            am amVar = j.dN;
+            if (amVar != null) {
+                return amVar;
             }
-            PointF pointF = C0456j.f2903dM;
+            PointF pointF = j.dM;
             if (pointF != null) {
-                AbstractC0629y abstractC0629y2 = PlayerData.f1373i.f1316t;
-                abstractC0629y2.f1623cg = 0.0f;
-                abstractC0629y2.f7172eo = pointF.x;
-                abstractC0629y2.f7173ep = pointF.y;
-                abstractC0629y2.f7174eq = 0.0f;
-                return abstractC0629y2;
+                y yVar2 = PlayerData.i.t;
+                yVar2.cg = 0.0f;
+                yVar2.eo = pointF.x;
+                yVar2.ep = pointF.y;
+                yVar2.eq = 0.0f;
+                return yVar2;
             }
             return null;
         }
@@ -893,8 +880,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$EventSourceReference.class */
     public class EventSourceReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -903,12 +890,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            C0457k c0457k = LogicBoolean.activeEvent;
-            if (c0457k == null) {
+        public am getSingleRaw(y yVar) {
+            k kVar = LogicBoolean.activeEvent;
+            if (kVar == null) {
                 return null;
             }
-            return c0457k.f2930c;
+            return kVar.c;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -920,8 +907,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$ActiveWaypointTargetReference.class */
     public class ActiveWaypointTargetReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -930,12 +917,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            C0305au m2943ar = abstractC0629y.m2943ar();
-            if (m2943ar == null) {
+        public am getSingleRaw(y yVar) {
+            au ar = yVar.ar();
+            if (ar == null) {
                 return null;
             }
-            return m2943ar.m4132l();
+            return ar.l();
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -947,8 +934,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$AttackingReference.class */
     public class AttackingReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -957,8 +944,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            return abstractC0629y.f3928R;
+        public am getSingleRaw(y yVar) {
+            return yVar.R;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -970,8 +957,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$NullUnitReference.class */
     public class NullUnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -980,7 +967,7 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
+        public am getSingleRaw(y yVar) {
             return null;
         }
 
@@ -990,7 +977,7 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
+        public String readString(y yVar) {
             return null;
         }
     }
@@ -998,8 +985,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$SelfUnitReference.class */
     public class SelfUnitReference extends UnitReference {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1008,8 +995,8 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
-            return abstractC0629y;
+        public am getSingleRaw(y yVar) {
+            return yVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
@@ -1020,11 +1007,11 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$LockedUnitReference.class */
     public class LockedUnitReference extends UnitReference {
-        AbstractC0244am target;
+        am target;
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public /* bridge */ /* synthetic */ LogicBoolean with(C0458l c0458l, String str, String str2) {
-            return super.with(c0458l, str, str2);
+        public /* bridge */ /* synthetic */ LogicBoolean with(l lVar, String str, String str2) {
+            return super.with(lVar, str, str2);
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference, com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
@@ -1032,12 +1019,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
             return super.with(str);
         }
 
-        public LockedUnitReference(AbstractC0244am abstractC0244am) {
-            this.target = abstractC0244am;
+        public LockedUnitReference(am amVar) {
+            this.target = amVar;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.UnitReference
-        public AbstractC0244am getSingleRaw(AbstractC0629y abstractC0629y) {
+        public am getSingleRaw(y yVar) {
             return this.target;
         }
 
@@ -1049,43 +1036,43 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
 
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/UnitReference$UnitReferenceOrUnitType.class */
     public class UnitReferenceOrUnitType {
-        C0469v unitType;
+        v unitType;
         UnitReference unitReference;
 
-        UnitReferenceOrUnitType(C0469v c0469v) {
-            this.unitType = c0469v;
+        UnitReferenceOrUnitType(v vVar) {
+            this.unitType = vVar;
         }
 
         UnitReferenceOrUnitType(UnitReference unitReference) {
             this.unitReference = unitReference;
         }
 
-        public AbstractC0244am getUnitOrSharedUnit(AbstractC0244am abstractC0244am) {
-            AbstractC0244am abstractC0244am2;
+        public am getUnitOrSharedUnit(am amVar) {
+            am amVar2;
             if (this.unitType != null) {
-                return AbstractC0244am.m4223c(this.unitType.mo3471c());
+                return am.c(this.unitType.c());
             }
-            if (this.unitReference != null && (abstractC0244am2 = this.unitReference.get(abstractC0244am)) != null) {
-                return abstractC0244am2;
+            if (this.unitReference != null && (amVar2 = this.unitReference.get(amVar)) != null) {
+                return amVar2;
             }
             return null;
         }
 
-        public AbstractC0244am getUnitReferenceOrNull(AbstractC0244am abstractC0244am) {
-            AbstractC0244am abstractC0244am2;
-            if (this.unitReference != null && (abstractC0244am2 = this.unitReference.get(abstractC0244am)) != null) {
-                return abstractC0244am2;
+        public am getUnitReferenceOrNull(am amVar) {
+            am amVar2;
+            if (this.unitReference != null && (amVar2 = this.unitReference.get(amVar)) != null) {
+                return amVar2;
             }
             return null;
         }
 
-        public InterfaceC0303as getTypeOrNull(AbstractC0244am abstractC0244am) {
-            AbstractC0244am abstractC0244am2;
+        public as getTypeOrNull(am amVar) {
+            am amVar2;
             if (this.unitType != null) {
-                return this.unitType.mo3471c();
+                return this.unitType.c();
             }
-            if (this.unitReference != null && (abstractC0244am2 = this.unitReference.get(abstractC0244am)) != null) {
-                return abstractC0244am2.mo5458r();
+            if (this.unitReference != null && (amVar2 = this.unitReference.get(amVar)) != null) {
+                return amVar2.mo1r();
             }
             return null;
         }
@@ -1143,30 +1130,30 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
             return super.setChild(logicBoolean);
         }
 
-        public AbstractC0629y getUnitContext(AbstractC0629y abstractC0629y) {
+        public y getUnitContext(y yVar) {
             if (this.dynamicContextChain != null) {
-                AbstractC0629y abstractC0629y2 = abstractC0629y;
+                y yVar2 = yVar;
                 for (LogicBoolean logicBoolean : this.dynamicContextChain) {
-                    AbstractC0244am readUnit = logicBoolean.readUnit(abstractC0629y2);
-                    if (!(readUnit instanceof AbstractC0629y)) {
+                    am readUnit = logicBoolean.readUnit(yVar2);
+                    if (!(readUnit instanceof y)) {
                         return null;
                     }
-                    abstractC0629y2 = (AbstractC0629y) readUnit;
+                    yVar2 = (y) readUnit;
                 }
-                return abstractC0629y2;
+                return yVar2;
             }
-            AbstractC0244am readUnit2 = this.dynamicContext.readUnit(abstractC0629y);
-            if (!(readUnit2 instanceof AbstractC0629y)) {
+            am readUnit2 = this.dynamicContext.readUnit(yVar);
+            if (!(readUnit2 instanceof y)) {
                 return null;
             }
-            return (AbstractC0629y) readUnit2;
+            return (y) readUnit2;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+        public boolean read(y yVar) {
+            LogicBoolean.setOuterUnitParameterContext(yVar);
             try {
-                AbstractC0629y unitContext = getUnitContext(abstractC0629y);
+                y unitContext = getUnitContext(yVar);
                 if (unitContext != null) {
                     boolean read = this.targetBoolean.read(unitContext);
                     LogicBoolean.clearOuterUnitParameterContext();
@@ -1181,10 +1168,10 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+        public float readNumber(y yVar) {
+            LogicBoolean.setOuterUnitParameterContext(yVar);
             try {
-                AbstractC0629y unitContext = getUnitContext(abstractC0629y);
+                y unitContext = getUnitContext(yVar);
                 if (unitContext != null) {
                     float readNumber = this.targetBoolean.readNumber(unitContext);
                     LogicBoolean.clearOuterUnitParameterContext();
@@ -1199,10 +1186,10 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+        public String readString(y yVar) {
+            LogicBoolean.setOuterUnitParameterContext(yVar);
             try {
-                AbstractC0629y unitContext = getUnitContext(abstractC0629y);
+                y unitContext = getUnitContext(yVar);
                 if (unitContext != null) {
                     String readString = this.targetBoolean.readString(unitContext);
                     LogicBoolean.clearOuterUnitParameterContext();
@@ -1217,12 +1204,12 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public AbstractC0244am readUnit(AbstractC0629y abstractC0629y) {
-            LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+        public am readUnit(y yVar) {
+            LogicBoolean.setOuterUnitParameterContext(yVar);
             try {
-                AbstractC0629y unitContext = getUnitContext(abstractC0629y);
+                y unitContext = getUnitContext(yVar);
                 if (unitContext != null) {
-                    AbstractC0244am readUnit = this.targetBoolean.readUnit(unitContext);
+                    am readUnit = this.targetBoolean.readUnit(unitContext);
                     LogicBoolean.clearOuterUnitParameterContext();
                     return readUnit;
                 }
@@ -1235,11 +1222,11 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public void forMeta(C0458l c0458l) {
+        public void forMeta(l lVar) {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public UnitContextChangingBooleanByLogic with(C0458l c0458l, String str, String str2) {
+        public UnitContextChangingBooleanByLogic with(l lVar, String str, String str2) {
             return this;
         }
 
@@ -1249,37 +1236,37 @@ public abstract class UnitReference extends LogicBoolean implements Cloneable {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String getMatchFailReasonForPlayer(AbstractC0629y abstractC0629y) {
-            AbstractC0244am readUnit;
+        public String getMatchFailReasonForPlayer(y yVar) {
+            am readUnit;
             String str;
             LogicBoolean[] logicBooleanArr;
             if (this.dynamicContextChain != null) {
                 String str2 = VariableScope.nullOrMissingString;
-                AbstractC0629y abstractC0629y2 = abstractC0629y;
-                LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+                y yVar2 = yVar;
+                LogicBoolean.setOuterUnitParameterContext(yVar);
                 try {
                     for (LogicBoolean logicBoolean : this.dynamicContextChain) {
-                        String str3 = str2 + logicBoolean.getMatchFailReasonForPlayer(abstractC0629y2);
-                        AbstractC0244am readUnit2 = logicBoolean.readUnit(abstractC0629y2);
-                        if (readUnit2 instanceof AbstractC0629y) {
+                        String str3 = str2 + logicBoolean.getMatchFailReasonForPlayer(yVar2);
+                        am readUnit2 = logicBoolean.readUnit(yVar2);
+                        if (readUnit2 instanceof y) {
                             str2 = str3 + ".";
-                            abstractC0629y2 = (AbstractC0629y) readUnit2;
+                            yVar2 = (y) readUnit2;
                         } else {
                             return str3 + "<unit not found>";
                         }
                     }
-                    return str2 + this.targetBoolean.getMatchFailReasonForPlayer(abstractC0629y2);
+                    return str2 + this.targetBoolean.getMatchFailReasonForPlayer(yVar2);
                 } finally {
                 }
             }
-            LogicBoolean.setOuterUnitParameterContext(abstractC0629y);
+            LogicBoolean.setOuterUnitParameterContext(yVar);
             try {
-                if (!(this.dynamicContext.readUnit(abstractC0629y) instanceof AbstractC0629y)) {
+                if (!(this.dynamicContext.readUnit(yVar) instanceof y)) {
                     str = "=<unit not found> (type:" + this.dynamicContext.getReturnType() + ")";
                 } else {
-                    str = "." + this.targetBoolean.getMatchFailReasonForPlayer((AbstractC0629y) readUnit);
+                    str = "." + this.targetBoolean.getMatchFailReasonForPlayer((y) readUnit);
                 }
-                return this.dynamicContext.getMatchFailReasonForPlayer(abstractC0629y) + str;
+                return this.dynamicContext.getMatchFailReasonForPlayer(yVar) + str;
             } finally {
             }
         }

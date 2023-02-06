@@ -1,33 +1,24 @@
 package com.corrodinggames.rts.gameFramework;
 
 import android.graphics.Paint;
-import com.corrodinggames.rts.gameFramework.unitAction.C0966ag;
 
-/* renamed from: com.corrodinggames.rts.gameFramework.m */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m.class */
-class C0958m {
+class m {
+    float a;
+    Paint b;
+    final /* synthetic */ GameEngine c;
 
-    /* renamed from: a */
-    float f6511a;
-
-    /* renamed from: b */
-    Paint f6512b;
-
-    /* renamed from: c */
-    final /* synthetic */ GameEngine f6513c;
-
-    C0958m(GameEngine gameEngine) {
-        this.f6513c = gameEngine;
+    m(GameEngine gameEngine) {
+        this.c = gameEngine;
     }
 
-    /* renamed from: a */
-    void m955a() {
-        float m999e = this.f6513c.m999e(this.f6511a);
-        if (this.f6512b.m5186k() != m999e) {
-            if (this.f6512b instanceof C0966ag) {
-                ((C0966ag) this.f6512b).m911c(m999e);
+    void a() {
+        float e = this.c.e(this.a);
+        if (this.b.k() != e) {
+            if (this.b instanceof com.corrodinggames.rts.gameFramework.unitAction.ag) {
+                ((com.corrodinggames.rts.gameFramework.unitAction.ag) this.b).c(e);
             } else {
-                this.f6512b.mo913b(m999e);
+                this.b.b(e);
             }
         }
     }

@@ -1,30 +1,18 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.t */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/t.class */
-class C0839t {
+class t {
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    final /* synthetic */ o f;
 
-    /* renamed from: a */
-    public int f5547a;
-
-    /* renamed from: b */
-    public int f5548b;
-
-    /* renamed from: c */
-    public int f5549c;
-
-    /* renamed from: d */
-    public int f5550d;
-
-    /* renamed from: e */
-    public boolean f5551e;
-
-    /* renamed from: f */
-    final /* synthetic */ C0833o f5552f;
-
-    public C0839t(C0833o c0833o, int i, int i2) {
-        this.f5552f = c0833o;
-        this.f5547a = i;
-        this.f5548b = i2;
+    public t(o oVar, int i, int i2) {
+        this.f = oVar;
+        this.a = i;
+        this.b = i2;
     }
 }

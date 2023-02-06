@@ -1,4 +1,4 @@
-package net.rudp.p002a;
+package net.rudp.a;
 
 /* renamed from: a.a.a.b */
 /* loaded from: game-lib.jar:a/a/a/b.class */
@@ -17,24 +17,22 @@ public class DATSegment extends Segment {
         System.arraycopy(bArr, i3, this.data, 0, i4);
     }
 
-    @Override // net.rudp.p002a.Segment
-    /* renamed from: b */
-    public int mo5439b() {
-        return this.data.length + super.mo5439b();
+    @Override // net.rudp.a.Segment
+    public int b() {
+        return this.data.length + super.b();
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: a */
     public String type() {
         return "DAT";
     }
 
-    /* renamed from: c */
-    public byte[] m5454c() {
+    public byte[] c() {
         return this.data;
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: d */
     public byte[] getBytes() {
         byte[] bytes = super.getBytes();
@@ -42,7 +40,7 @@ public class DATSegment extends Segment {
         return bytes;
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: a */
     public void parseBytes(byte[] bArr, int i, int i2) {
         super.parseBytes(bArr, i, i2);

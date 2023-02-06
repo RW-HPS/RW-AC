@@ -1,10 +1,10 @@
 package com.corrodinggames.rts.game.units.custom.logicBooleans;
 
-import com.corrodinggames.rts.game.units.AbstractC0244am;
-import com.corrodinggames.rts.game.units.AbstractC0629y;
+import com.corrodinggames.rts.game.units.am;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBooleanLoader;
 import com.corrodinggames.rts.game.units.custom.logicBooleans.LogicString;
+import com.corrodinggames.rts.game.units.y;
 
 /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/CompareJoinerBoolean.class */
 public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
@@ -116,10 +116,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            boolean read = this.children[0].read(abstractC0629y);
+        public boolean read(y yVar) {
+            boolean read = this.children[0].read(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                if (this.children[i].read(abstractC0629y) != read) {
+                if (this.children[i].read(yVar) != read) {
                     return false;
                 }
             }
@@ -135,10 +135,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
-            boolean read = this.children[0].read(abstractC0629y);
+        public boolean read(y yVar) {
+            boolean read = this.children[0].read(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                boolean read2 = this.children[i].read(abstractC0629y);
+                boolean read2 = this.children[i].read(yVar);
                 if (read2 == read) {
                     return false;
                 }
@@ -176,11 +176,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber2 - 1.0E-4f > readNumber || readNumber2 + 1.0E-4f < readNumber) {
                     return false;
                 }
@@ -198,11 +198,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber2 - 1.0E-4f <= readNumber && readNumber2 + 1.0E-4f >= readNumber) {
                     return false;
                 }
@@ -220,14 +220,14 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            String readString = logicBooleanArr[0].readString(abstractC0629y);
+            String readString = logicBooleanArr[0].readString(yVar);
             if (readString == null) {
                 readString = VariableScope.nullOrMissingString;
             }
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                String readString2 = logicBooleanArr[i].readString(abstractC0629y);
+                String readString2 = logicBooleanArr[i].readString(yVar);
                 if (readString2 == null) {
                     readString2 = VariableScope.nullOrMissingString;
                 }
@@ -248,14 +248,14 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            String readString = logicBooleanArr[0].readString(abstractC0629y);
+            String readString = logicBooleanArr[0].readString(yVar);
             if (readString == null) {
                 readString = VariableScope.nullOrMissingString;
             }
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                String readString2 = logicBooleanArr[i].readString(abstractC0629y);
+                String readString2 = logicBooleanArr[i].readString(yVar);
                 if (readString2 == null) {
                     readString2 = VariableScope.nullOrMissingString;
                 }
@@ -276,11 +276,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            AbstractC0244am readUnit = logicBooleanArr[0].readUnit(abstractC0629y);
+            am readUnit = logicBooleanArr[0].readUnit(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                AbstractC0244am readUnit2 = logicBooleanArr[i].readUnit(abstractC0629y);
+                am readUnit2 = logicBooleanArr[i].readUnit(yVar);
                 if (readUnit != readUnit2) {
                     return false;
                 }
@@ -298,11 +298,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            AbstractC0244am readUnit = logicBooleanArr[0].readUnit(abstractC0629y);
+            am readUnit = logicBooleanArr[0].readUnit(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                AbstractC0244am readUnit2 = logicBooleanArr[i].readUnit(abstractC0629y);
+                am readUnit2 = logicBooleanArr[i].readUnit(yVar);
                 if (readUnit == readUnit2) {
                     return false;
                 }
@@ -320,11 +320,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber <= readNumber2) {
                     return false;
                 }
@@ -342,11 +342,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber >= readNumber2) {
                     return false;
                 }
@@ -364,11 +364,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber < readNumber2) {
                     return false;
                 }
@@ -386,11 +386,11 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             LogicBoolean[] logicBooleanArr = this.children;
-            float readNumber = logicBooleanArr[0].readNumber(abstractC0629y);
+            float readNumber = logicBooleanArr[0].readNumber(yVar);
             for (int i = 1; i < logicBooleanArr.length; i++) {
-                float readNumber2 = logicBooleanArr[i].readNumber(abstractC0629y);
+                float readNumber2 = logicBooleanArr[i].readNumber(yVar);
                 if (readNumber > readNumber2) {
                     return false;
                 }
@@ -403,7 +403,7 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
     /* loaded from: game-lib.jar:com/corrodinggames/rts/game/units/custom/logicBooleans/CompareJoinerBoolean$MathJoinerBoolean.class */
     public abstract class MathJoinerBoolean extends CompareJoinerBoolean {
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             return false;
         }
 
@@ -474,16 +474,16 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public String readString(AbstractC0629y abstractC0629y) {
-            String readString = this.children[0].readString(abstractC0629y);
+        public String readString(y yVar) {
+            String readString = this.children[0].readString(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readString = readString + this.children[i].readString(abstractC0629y);
+                readString = readString + this.children[i].readString(yVar);
             }
             return readString;
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public boolean read(AbstractC0629y abstractC0629y) {
+        public boolean read(y yVar) {
             return false;
         }
 
@@ -501,10 +501,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            float readNumber = this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            float readNumber = this.children[0].readNumber(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readNumber += this.children[i].readNumber(abstractC0629y);
+                readNumber += this.children[i].readNumber(yVar);
             }
             return readNumber;
         }
@@ -518,10 +518,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            float readNumber = this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            float readNumber = this.children[0].readNumber(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readNumber -= this.children[i].readNumber(abstractC0629y);
+                readNumber -= this.children[i].readNumber(yVar);
             }
             return readNumber;
         }
@@ -535,10 +535,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            float readNumber = this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            float readNumber = this.children[0].readNumber(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readNumber *= this.children[i].readNumber(abstractC0629y);
+                readNumber *= this.children[i].readNumber(yVar);
             }
             return readNumber;
         }
@@ -552,10 +552,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            float readNumber = this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            float readNumber = this.children[0].readNumber(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readNumber %= this.children[i].readNumber(abstractC0629y);
+                readNumber %= this.children[i].readNumber(yVar);
             }
             return readNumber;
         }
@@ -569,10 +569,10 @@ public abstract class CompareJoinerBoolean extends LogicBoolean.JoinerBoolean {
         }
 
         @Override // com.corrodinggames.rts.game.units.custom.logicBooleans.LogicBoolean
-        public float readNumber(AbstractC0629y abstractC0629y) {
-            float readNumber = this.children[0].readNumber(abstractC0629y);
+        public float readNumber(y yVar) {
+            float readNumber = this.children[0].readNumber(yVar);
             for (int i = 1; i < this.children.length; i++) {
-                readNumber /= this.children[i].readNumber(abstractC0629y);
+                readNumber /= this.children[i].readNumber(yVar);
             }
             return readNumber;
         }

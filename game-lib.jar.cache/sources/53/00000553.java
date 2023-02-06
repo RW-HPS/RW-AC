@@ -1,14 +1,11 @@
-package com.corrodinggames.rts.gameFramework.p043k;
+package com.corrodinggames.rts.gameFramework.path;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.k.j */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/k/j.class */
-public abstract class AbstractC0941j {
-    /* renamed from: a */
-    public abstract void mo1198a(C0945n c0945n);
+public abstract class j {
+    public abstract void a(n nVar);
 
-    /* renamed from: a */
-    public abstract C0945n mo1199a();
+    public abstract n a();
 
-    /* renamed from: b */
-    public abstract void mo1197b();
+    public abstract void b();
 }

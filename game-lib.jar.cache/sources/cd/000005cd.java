@@ -11,205 +11,140 @@ import java.util.concurrent.locks.Lock;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.m.y */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/m/y.class */
-public interface InterfaceC1063y {
+public interface y {
     /* renamed from: b */
-    InterfaceC1063y mo161b(C0970e c0970e);
+    y mo10b(e eVar);
 
     /* renamed from: a */
-    InterfaceC1063y mo202a(C0970e c0970e);
+    y mo9a(e eVar);
 
-    /* renamed from: a */
-    boolean mo231a();
+    boolean a();
 
-    /* renamed from: a */
-    void mo215a(Context context);
+    void a(Context context);
 
-    /* renamed from: b */
-    void mo170b();
+    void b();
 
-    /* renamed from: d */
-    InterfaceC0977l mo148d();
+    l d();
 
-    /* renamed from: a */
-    void mo190a(InterfaceC0977l interfaceC0977l);
+    void a(l lVar);
 
-    /* renamed from: a */
-    void mo205a(C0959a c0959a);
+    void a(a aVar);
 
-    /* renamed from: a */
-    C0970e mo222a(int i);
+    e a(int i);
 
-    /* renamed from: a */
-    C0970e mo216a(int i, boolean z);
+    e a(int i, boolean z);
 
-    /* renamed from: a */
-    C0970e mo184a(InputStream inputStream, boolean z);
+    e a(InputStream inputStream, boolean z);
 
-    /* renamed from: a */
-    C0970e mo219a(int i, int i2, boolean z);
+    e a(int i, int i2, boolean z);
 
-    /* renamed from: b */
-    C0970e mo166b(int i, int i2, boolean z);
+    e b(int i, int i2, boolean z);
 
-    /* renamed from: e */
-    void mo145e();
+    void e();
 
-    /* renamed from: a */
-    void mo200a(C0970e c0970e, float f, float f2, float f3, Paint paint);
+    void a(e eVar, float f, float f2, float f3, Paint paint);
 
-    /* renamed from: a */
-    void mo197a(C0970e c0970e, Rect rect, float f, float f2, float f3, Paint paint);
+    void a(e eVar, Rect rect, float f, float f2, float f3, Paint paint);
 
-    /* renamed from: a */
-    void mo194a(C0970e c0970e, Rect rect, Rect rect2, Paint paint);
+    void a(e eVar, Rect rect, Rect rect2, Paint paint);
 
-    /* renamed from: a */
-    void mo193a(C0970e c0970e, Rect rect, RectF rectF, Paint paint);
+    void a(e eVar, Rect rect, RectF rectF, Paint paint);
 
-    /* renamed from: a */
-    void mo199a(C0970e c0970e, float f, float f2, Paint paint);
+    void a(e eVar, float f, float f2, Paint paint);
 
-    /* renamed from: a */
-    void mo198a(C0970e c0970e, float f, float f2, Paint paint, float f3, float f4);
+    void a(e eVar, float f, float f2, Paint paint, float f3, float f4);
 
-    /* renamed from: b */
-    void mo160b(C0970e c0970e, float f, float f2, Paint paint);
+    void b(e eVar, float f, float f2, Paint paint);
 
-    /* renamed from: b */
-    void mo159b(C0970e c0970e, Rect rect, Rect rect2, Paint paint);
+    void b(e eVar, Rect rect, Rect rect2, Paint paint);
 
-    /* renamed from: a */
-    void mo208a(Rect rect, Paint paint);
+    void a(Rect rect, Paint paint);
 
-    /* renamed from: a */
-    void mo173a(boolean z);
+    void a(boolean z);
 
-    /* renamed from: f */
-    void mo142f();
+    void f();
 
-    /* renamed from: a */
-    void mo196a(C0970e c0970e, Rect rect, Paint paint);
+    void a(e eVar, Rect rect, Paint paint);
 
-    /* renamed from: a */
-    void mo195a(C0970e c0970e, Rect rect, Paint paint, int i, int i2, int i3, int i4);
+    void a(e eVar, Rect rect, Paint paint, int i, int i2, int i3, int i4);
 
-    /* renamed from: a */
-    void mo192a(C0970e c0970e, RectF rectF, Paint paint, float f, float f2, int i, int i2);
+    void a(e eVar, RectF rectF, Paint paint, float f, float f2, int i, int i2);
 
-    /* renamed from: b */
-    void mo167b(int i);
+    void b(int i);
 
-    /* renamed from: a */
-    void mo218a(int i, PorterDuff.Mode mode);
+    void a(int i, PorterDuff.Mode mode);
 
-    /* renamed from: a */
-    void mo181a(String str, float f, float f2, Paint paint, Paint paint2, float f3);
+    void a(String str, float f, float f2, Paint paint, Paint paint2, float f3);
 
-    /* renamed from: a */
-    void mo182a(String str, float f, float f2, Paint paint);
+    void a(String str, float f, float f2, Paint paint);
 
-    /* renamed from: b */
-    void mo163b(Rect rect, Paint paint);
+    void b(Rect rect, Paint paint);
 
-    /* renamed from: a */
-    void mo206a(RectF rectF, Paint paint);
+    void a(RectF rectF, Paint paint);
 
-    /* renamed from: g */
-    void mo140g();
+    void g();
 
-    /* renamed from: h */
-    void mo139h();
+    void h();
 
-    /* renamed from: c */
-    void mo152c(Rect rect, Paint paint);
+    void c(Rect rect, Paint paint);
 
-    /* renamed from: a */
-    void mo209a(Rect rect);
+    void a(Rect rect);
 
-    /* renamed from: a */
-    void mo207a(RectF rectF);
+    void a(RectF rectF);
 
-    /* renamed from: a */
-    void mo224a(float f, float f2, float f3, Paint paint);
+    void a(float f, float f2, float f3, Paint paint);
 
-    /* renamed from: b */
-    void mo168b(float f, float f2, float f3, Paint paint);
+    void b(float f, float f2, float f3, Paint paint);
 
-    /* renamed from: a */
-    void mo171a(float[] fArr, int i, int i2, Paint paint);
+    void a(float[] fArr, int i, int i2, Paint paint);
 
-    /* renamed from: i */
-    void mo138i();
+    void i();
 
-    /* renamed from: j */
-    void mo137j();
+    void j();
 
-    /* renamed from: k */
-    void mo136k();
+    void k();
 
-    /* renamed from: l */
-    void mo135l();
+    void l();
 
-    /* renamed from: a */
-    void mo228a(float f, float f2, float f3);
+    void a(float f, float f2, float f3);
 
-    /* renamed from: a */
-    void mo229a(float f, float f2);
+    void a(float f, float f2);
 
-    /* renamed from: a */
-    void mo227a(float f, float f2, float f3, float f4);
+    void a(float f, float f2, float f3, float f4);
 
-    /* renamed from: b */
-    void mo169b(float f, float f2);
+    void b(float f, float f2);
 
-    /* renamed from: a */
-    void mo189a(AbstractC0978m abstractC0978m);
+    void a(m mVar);
 
-    /* renamed from: a */
-    void mo226a(float f, float f2, float f3, float f4, Paint paint);
+    void a(float f, float f2, float f3, float f4, Paint paint);
 
-    /* renamed from: m */
-    int mo134m();
+    int m();
 
-    /* renamed from: n */
-    int mo133n();
+    int n();
 
-    /* renamed from: a */
-    void mo221a(int i, int i2);
+    void a(int i, int i2);
 
-    /* renamed from: o */
-    void mo132o();
+    void o();
 
-    /* renamed from: a */
-    void mo214a(Paint paint);
+    void a(Paint paint);
 
-    /* renamed from: p */
-    void mo131p();
+    void p();
 
-    /* renamed from: q */
-    void mo130q();
+    void q();
 
-    /* renamed from: a */
-    int mo180a(String str, Paint paint);
+    int a(String str, Paint paint);
 
-    /* renamed from: b */
-    int mo158b(String str, Paint paint);
+    int b(String str, Paint paint);
 
-    /* renamed from: r */
-    C0970e mo129r();
+    e r();
 
-    /* renamed from: a */
-    void mo191a(C0970e c0970e, File file);
+    void a(e eVar, File file);
 
-    /* renamed from: a */
-    void mo179a(Lock lock);
+    void a(Lock lock);
 
-    /* renamed from: b */
-    void mo157b(Lock lock);
+    void b(Lock lock);
 
-    /* renamed from: a */
-    void mo204a(C0964ae c0964ae);
+    void a(ae aeVar);
 
-    /* renamed from: s */
-    float mo128s();
+    float s();
 }

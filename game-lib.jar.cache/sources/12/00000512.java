@@ -6,50 +6,36 @@ import java.io.IOException;
 /* renamed from: com.corrodinggames.rts.gameFramework.j.ae */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/j/ae.class */
 public class EnterPasswordCallback {
+    public String b;
+    public int c;
+    public boolean d;
+    public String e;
+    public String f;
+    public String g;
 
-    /* renamed from: b */
-    public String f5839b;
-
-    /* renamed from: c */
-    public int f5840c;
-
-    /* renamed from: d */
-    public boolean f5841d;
-
-    /* renamed from: e */
-    public String f5842e;
-
-    /* renamed from: f */
-    public String f5843f;
-
-    /* renamed from: g */
-    public String f5844g;
-
-    /* renamed from: a */
-    public void mo1444a(String str) {
+    public void a(String str) {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        if (this.f5841d) {
+        if (this.d) {
             try {
                 GameOutputStream gameOutputStream = new GameOutputStream();
                 gameOutputStream.writeByte(1);
-                gameOutputStream.writeInt(this.f5840c);
+                gameOutputStream.writeInt(this.c);
                 gameOutputStream.writeString(str);
-                gameEngine.netEngine.m1507d(gameOutputStream.getPacket(118));
+                gameEngine.netEngine.d(gameOutputStream.getPacket(118));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else if (gameEngine.netEngine.isServer) {
-            GameEngine.m1074a("Cannot enter a password when we are a server");
+            GameEngine.a("Cannot enter a password when we are a server");
         } else {
             gameEngine.netEngine.passwd = str;
-            gameEngine.netEngine.m1616X();
+            gameEngine.netEngine.X();
         }
     }
 
-    /* renamed from: a */
-    public void mo1445a() {
+    public void a() {
         GameEngine gameEngine = GameEngine.getGameEngine();
         gameEngine.netEngine.closeServer("exited password");
-        gameEngine.netEngine.m1629K();
+        gameEngine.netEngine.K();
     }
 }

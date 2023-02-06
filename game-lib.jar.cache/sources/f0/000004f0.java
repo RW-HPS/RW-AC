@@ -1,4 +1,4 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,31 +10,25 @@ import android.view.View;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.w */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/w.class */
-public class MenuItemC0842w implements MenuItem {
-
-    /* renamed from: a */
-    CharSequence f5556a;
-
-    /* renamed from: b */
-    Drawable f5557b;
-
-    /* renamed from: c */
-    int f5558c;
+public class w implements MenuItem {
+    CharSequence a;
+    Drawable b;
+    int c;
 
     @Override // android.view.MenuItem
     public MenuItem setTitle(CharSequence charSequence) {
-        this.f5556a = charSequence;
+        this.a = charSequence;
         return this;
     }
 
     @Override // android.view.MenuItem
     public CharSequence getTitle() {
-        return this.f5556a;
+        return this.a;
     }
 
     @Override // android.view.MenuItem
     public MenuItem setIcon(Drawable drawable) {
-        this.f5557b = drawable;
+        this.b = drawable;
         return this;
     }
 
@@ -45,17 +39,16 @@ public class MenuItemC0842w implements MenuItem {
 
     @Override // android.view.MenuItem
     public Drawable getIcon() {
-        return this.f5557b;
+        return this.b;
     }
 
     @Override // android.view.MenuItem
     public int getItemId() {
-        return this.f5558c;
+        return this.c;
     }
 
-    /* renamed from: a */
-    public MenuItem m1751a(int i) {
-        this.f5558c = i;
+    public MenuItem a(int i) {
+        this.c = i;
         return this;
     }
 

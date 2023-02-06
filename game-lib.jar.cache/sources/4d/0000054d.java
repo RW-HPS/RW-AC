@@ -1,290 +1,240 @@
-package com.corrodinggames.rts.gameFramework.p043k;
+package com.corrodinggames.rts.gameFramework.path;
 
 import com.corrodinggames.rts.gameFramework.GameEngine;
-import com.corrodinggames.rts.gameFramework.utility.C1136m;
+import com.corrodinggames.rts.gameFramework.utility.m;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.k.d */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/k/d.class */
-public final class C0935d extends AbstractC0941j {
+public final class d extends j {
+    public static int a;
+    public static int b;
+    public static int c;
+    public static int d;
+    public static int e;
+    public static int f;
+    public static int g;
+    public static double h;
+    public static double i;
+    int j;
+    int k;
+    int l;
+    int m;
+    int n;
+    n[] o = new n[975];
+    m p = new m(100);
+    final PriorityQueue q = new PriorityQueue();
+    final m r = new m(300);
+    int s;
+    int t;
+    public static int u;
 
-    /* renamed from: a */
-    public static int f6133a;
-
-    /* renamed from: b */
-    public static int f6134b;
-
-    /* renamed from: c */
-    public static int f6135c;
-
-    /* renamed from: d */
-    public static int f6136d;
-
-    /* renamed from: e */
-    public static int f6137e;
-
-    /* renamed from: f */
-    public static int f6138f;
-
-    /* renamed from: g */
-    public static int f6139g;
-
-    /* renamed from: h */
-    public static double f6140h;
-
-    /* renamed from: i */
-    public static double f6141i;
-
-    /* renamed from: j */
-    int f6142j;
-
-    /* renamed from: k */
-    int f6143k;
-
-    /* renamed from: l */
-    int f6144l;
-
-    /* renamed from: m */
-    int f6145m;
-
-    /* renamed from: n */
-    int f6146n;
-
-    /* renamed from: o */
-    C0945n[] f6147o = new C0945n[975];
-
-    /* renamed from: p */
-    C1136m f6148p = new C1136m(100);
-
-    /* renamed from: q */
-    final PriorityQueue f6149q = new PriorityQueue();
-
-    /* renamed from: r */
-    final C1136m f6150r = new C1136m(300);
-
-    /* renamed from: s */
-    int f6151s;
-
-    /* renamed from: t */
-    int f6152t;
-
-    /* renamed from: u */
-    public static int f6153u;
-
-    /* renamed from: c */
-    private void m1347c() {
-        if (this.f6143k == this.f6145m) {
-            m1345d();
+    private void c() {
+        if (this.k == this.m) {
+            d();
             return;
         }
-        int i = this.f6146n;
-        C0945n[] c0945nArr = this.f6147o;
-        if (this.f6142j == -2) {
-            for (int i2 = 0; i2 <= i; i2++) {
-                int i3 = c0945nArr[i2].f6258c;
-                if (this.f6143k == i3) {
-                    this.f6142j = i2;
-                    this.f6143k = i3;
+        int i2 = this.n;
+        n[] nVarArr = this.o;
+        if (this.j == -2) {
+            for (int i3 = 0; i3 <= i2; i3++) {
+                int i4 = nVarArr[i3].c;
+                if (this.k == i4) {
+                    this.j = i3;
+                    this.k = i4;
                     return;
                 }
             }
         }
-        int i4 = -1;
-        int i5 = Integer.MAX_VALUE;
-        for (int i6 = 0; i6 <= i; i6++) {
-            int i7 = c0945nArr[i6].f6258c;
-            if (i5 > i7) {
-                i4 = i6;
+        int i5 = -1;
+        int i6 = Integer.MAX_VALUE;
+        for (int i7 = 0; i7 <= i2; i7++) {
+            int i8 = nVarArr[i7].c;
+            if (i6 > i8) {
                 i5 = i7;
+                i6 = i8;
             }
         }
-        if (this.f6143k != i5) {
-            f6139g++;
+        if (this.k != i6) {
+            g++;
         }
-        this.f6142j = i4;
-        this.f6143k = i5;
+        this.j = i5;
+        this.k = i6;
     }
 
-    /* renamed from: a */
-    private void m1350a(int i, C0945n c0945n) {
-        this.f6147o[i] = c0945n;
-        int i2 = c0945n.f6258c;
-        if (this.f6142j == -1 || this.f6143k >= i2) {
-            if (this.f6143k > i2) {
+    private void a(int i2, n nVar) {
+        this.o[i2] = nVar;
+        int i3 = nVar.c;
+        if (this.j == -1 || this.k >= i3) {
+            if (this.k > i3) {
             }
-            if (this.f6143k != i2) {
-                f6139g++;
+            if (this.k != i3) {
+                g++;
             }
-            this.f6142j = i;
-            this.f6143k = i2;
+            this.j = i2;
+            this.k = i3;
         }
-        if (this.f6144l == -1 || this.f6145m < i2) {
-            this.f6144l = i;
-            this.f6145m = i2;
-        }
-    }
-
-    /* renamed from: d */
-    private void m1345d() {
-        this.f6142j = -1;
-        this.f6143k = Integer.MAX_VALUE;
-        this.f6144l = -1;
-        this.f6145m = Integer.MIN_VALUE;
-        for (int i = 0; i <= this.f6146n; i++) {
-            C0945n c0945n = this.f6147o[i];
-            if (c0945n == null) {
-                GameEngine.m5907e("n:" + i);
-                GameEngine.m5907e("lowestBufferLastIndex:" + this.f6146n);
-                throw new RuntimeException("null with n:" + i + ", lowestBufferLastIndex:" + this.f6146n);
-            }
-            int i2 = c0945n.f6258c;
-            if (this.f6143k > i2) {
-                this.f6142j = i;
-                this.f6143k = i2;
-            }
-            if (this.f6145m < i2) {
-                this.f6144l = i;
-                this.f6145m = i2;
-            }
+        if (this.l == -1 || this.m < i3) {
+            this.l = i2;
+            this.m = i3;
         }
     }
 
-    /* renamed from: e */
-    private void m1344e() {
-        if (this.f6146n < 30) {
-            C0945n c0945n = (C0945n) this.f6149q.poll();
-            if (c0945n != null) {
-                m1348b(c0945n);
+    private void d() {
+        this.j = -1;
+        this.k = Integer.MAX_VALUE;
+        this.l = -1;
+        this.m = Integer.MIN_VALUE;
+        for (int i2 = 0; i2 <= this.n; i2++) {
+            n nVar = this.o[i2];
+            if (nVar == null) {
+                GameEngine.m5e("n:" + i2);
+                GameEngine.m5e("lowestBufferLastIndex:" + this.n);
+                throw new RuntimeException("null with n:" + i2 + ", lowestBufferLastIndex:" + this.n);
             }
-            C0945n c0945n2 = (C0945n) this.f6149q.peek();
-            if (c0945n2 != null) {
-                this.f6151s = c0945n2.f6258c;
+            int i3 = nVar.c;
+            if (this.k > i3) {
+                this.j = i2;
+                this.k = i3;
+            }
+            if (this.m < i3) {
+                this.l = i2;
+                this.m = i3;
+            }
+        }
+    }
+
+    private void e() {
+        if (this.n < 30) {
+            n nVar = (n) this.q.poll();
+            if (nVar != null) {
+                b(nVar);
+            }
+            n nVar2 = (n) this.q.peek();
+            if (nVar2 != null) {
+                this.s = nVar2.c;
                 return;
             }
             return;
         }
-        this.f6151s = Integer.MAX_VALUE;
-        C0945n c0945n3 = (C0945n) this.f6149q.peek();
-        if (c0945n3 != null) {
-            this.f6151s = c0945n3.f6258c;
+        this.s = Integer.MAX_VALUE;
+        n nVar3 = (n) this.q.peek();
+        if (nVar3 != null) {
+            this.s = nVar3.c;
         }
     }
 
-    public C0935d() {
-        m1343f();
+    public d() {
+        f();
     }
 
-    /* renamed from: b */
-    private void m1348b(C0945n c0945n) {
-        this.f6146n++;
-        m1350a(this.f6146n, c0945n);
-        if (this.f6146n > f6133a) {
-            f6133a = this.f6146n;
+    private void b(n nVar) {
+        this.n++;
+        a(this.n, nVar);
+        if (this.n > a) {
+            a = this.n;
         }
     }
 
-    /* renamed from: c */
-    private void m1346c(C0945n c0945n) {
-        this.f6149q.offer(c0945n);
-        if (c0945n.f6258c < this.f6151s) {
-            this.f6151s = c0945n.f6258c;
+    private void c(n nVar) {
+        this.q.offer(nVar);
+        if (nVar.c < this.s) {
+            this.s = nVar.c;
         }
-        if (this.f6149q.size() > f6134b) {
-            f6134b = this.f6149q.size();
+        if (this.q.size() > b) {
+            b = this.q.size();
         }
     }
 
-    /* renamed from: a */
-    public void mo1305a(C0945n c0945n) {
-        f6136d++;
+    @Override // com.corrodinggames.rts.gameFramework.path.j
+    public void a(n nVar) {
+        d++;
         boolean z = false;
-        if (this.f6146n < this.f6147o.length - 1) {
+        if (this.n < this.o.length - 1) {
             z = true;
         }
         if (z) {
-            if (c0945n.f6258c <= this.f6151s) {
-                m1348b(c0945n);
+            if (nVar.c <= this.s) {
+                b(nVar);
             } else {
-                m1346c(c0945n);
+                c(nVar);
             }
-        } else if (c0945n.f6258c < this.f6145m) {
-            C0945n c0945n2 = this.f6147o[this.f6144l];
-            this.f6147o[this.f6144l] = c0945n;
-            m1345d();
-            m1346c(c0945n2);
+        } else if (nVar.c < this.m) {
+            n nVar2 = this.o[this.l];
+            this.o[this.l] = nVar;
+            d();
+            c(nVar2);
         } else {
-            m1346c(c0945n);
+            c(nVar);
         }
     }
 
-    /* renamed from: a */
-    public C0945n mo1306a() {
-        if (this.f6142j == -2) {
-            int i = this.f6143k;
-            m1347c();
-            this.f6152t++;
-            if (f6153u < this.f6152t) {
-                f6153u = this.f6152t;
+    @Override // com.corrodinggames.rts.gameFramework.path.j
+    public n a() {
+        if (this.j == -2) {
+            int i2 = this.k;
+            c();
+            this.t++;
+            if (u < this.t) {
+                u = this.t;
             }
-            f6137e++;
-            if (i == this.f6143k) {
-                f6138f++;
+            e++;
+            if (i2 == this.k) {
+                f++;
             }
         } else {
-            this.f6152t = 0;
+            this.t = 0;
         }
-        if (this.f6143k < this.f6151s && this.f6142j != -1) {
-            C0945n[] c0945nArr = this.f6147o;
-            C0945n c0945n = c0945nArr[this.f6142j];
-            if (this.f6146n != this.f6142j) {
-                c0945nArr[this.f6142j] = c0945nArr[this.f6146n];
-                c0945nArr[this.f6146n] = null;
+        if (this.k < this.s && this.j != -1) {
+            n[] nVarArr = this.o;
+            n nVar = nVarArr[this.j];
+            if (this.n != this.j) {
+                nVarArr[this.j] = nVarArr[this.n];
+                nVarArr[this.n] = null;
             } else {
-                c0945nArr[this.f6146n] = null;
+                nVarArr[this.n] = null;
             }
-            this.f6146n--;
-            this.f6142j = -2;
-            return c0945n;
+            this.n--;
+            this.j = -2;
+            return nVar;
         }
-        C0945n c0945n2 = (C0945n) this.f6149q.poll();
-        m1344e();
-        return c0945n2;
+        n nVar2 = (n) this.q.poll();
+        e();
+        return nVar2;
     }
 
-    /* renamed from: b */
-    public void mo1304b() {
-        m1349a((C0944m) null);
+    @Override // com.corrodinggames.rts.gameFramework.path.j
+    public void b() {
+        a((m) null);
     }
 
-    /* renamed from: a */
-    public void m1349a(C0944m c0944m) {
-        for (int i = 0; i < this.f6147o.length; i++) {
-            if (this.f6147o[i] != null) {
-                if (c0944m != null) {
-                    c0944m.m1254a(this.f6147o[i]);
+    public void a(m mVar) {
+        for (int i2 = 0; i2 < this.o.length; i2++) {
+            if (this.o[i2] != null) {
+                if (mVar != null) {
+                    mVar.a(this.o[i2]);
                 }
-                this.f6147o[i] = null;
+                this.o[i2] = null;
             }
         }
-        this.f6146n = -1;
-        Iterator it = this.f6149q.iterator();
+        this.n = -1;
+        Iterator it = this.q.iterator();
         while (it.hasNext()) {
-            C0945n c0945n = (C0945n) it.next();
-            if (c0944m != null) {
-                c0944m.m1254a(c0945n);
+            n nVar = (n) it.next();
+            if (mVar != null) {
+                mVar.a(nVar);
             }
         }
-        this.f6149q.clear();
-        m1343f();
+        this.q.clear();
+        f();
     }
 
-    /* renamed from: f */
-    private void m1343f() {
-        this.f6142j = -1;
-        this.f6143k = Integer.MAX_VALUE;
-        this.f6144l = -1;
-        this.f6145m = Integer.MIN_VALUE;
-        this.f6151s = Integer.MAX_VALUE;
+    private void f() {
+        this.j = -1;
+        this.k = Integer.MAX_VALUE;
+        this.l = -1;
+        this.m = Integer.MIN_VALUE;
+        this.s = Integer.MAX_VALUE;
     }
 }

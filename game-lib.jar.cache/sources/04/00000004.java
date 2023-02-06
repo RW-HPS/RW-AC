@@ -1,4 +1,4 @@
-package net.rudp.p002a;
+package net.rudp.a;
 
 /* renamed from: a.a.a.d */
 /* loaded from: game-lib.jar:a/a/a/d.class */
@@ -10,7 +10,7 @@ public class FINSegment extends Segment {
         init(2, i, 6);
     }
 
-    @Override // net.rudp.p002a.Segment
+    @Override // net.rudp.a.Segment
     /* renamed from: a */
     public String type() {
         return "FIN";

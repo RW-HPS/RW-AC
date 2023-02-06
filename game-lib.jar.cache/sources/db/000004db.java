@@ -1,64 +1,55 @@
-package com.corrodinggames.rts.gameFramework.p037f;
+package com.corrodinggames.rts.gameFramework.Interface;
 
 import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
-import com.corrodinggames.rts.gameFramework.C0739bo;
-import com.corrodinggames.rts.gameFramework.C0773f;
 import com.corrodinggames.rts.gameFramework.GameEngine;
+import com.corrodinggames.rts.gameFramework.TeamStats;
+import com.corrodinggames.rts.gameFramework.f;
 import java.util.ArrayList;
 
 /* renamed from: com.corrodinggames.rts.gameFramework.f.e */
 /* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/f/e.class */
-public class C0821e {
+public class DisplayedStat {
+    public String a;
+    public String b;
+    public float c;
+    public float d;
 
-    /* renamed from: a */
-    public String f5236a;
-
-    /* renamed from: b */
-    public String f5237b;
-
-    /* renamed from: c */
-    public float f5238c;
-
-    /* renamed from: d */
-    public float f5239d;
-
-    public C0821e(String str, String str2) {
-        this.f5236a = str;
-        this.f5237b = str2;
+    public DisplayedStat(String str, String str2) {
+        this.a = str;
+        this.b = str2;
     }
 
-    public C0821e(String str, float f) {
-        this.f5236a = str;
-        this.f5238c = f;
-        this.f5237b = null;
+    public DisplayedStat(String str, float f) {
+        this.a = str;
+        this.c = f;
+        this.b = null;
     }
 
-    /* renamed from: a */
-    public static ArrayList m1921a() {
+    public static ArrayList a() {
         GameEngine gameEngine = GameEngine.getGameEngine();
-        ArrayList arrayList = new ArrayList();
-        C0739bo c0739bo = null;
-        if (gameEngine.f6312bs != null) {
-            c0739bo = gameEngine.f6336bY.m2465a(gameEngine.f6312bs);
+        ArrayList displayedEndStats = new ArrayList();
+        TeamStats teamStats = null;
+        if (gameEngine.playerTeam != null) {
+            teamStats = gameEngine.stats.getTeamStatsFromTeam(gameEngine.playerTeam);
         }
-        if (c0739bo != null) {
-            if (gameEngine.f6342ce != null && gameEngine.f6342ce.f6881k) {
-                arrayList.add(new C0821e("Lasted till wave: " + gameEngine.f6342ce.f6895r, VariableScope.nullOrMissingString));
-                if (!gameEngine.f6342ce.f6882l) {
-                    arrayList.add(new C0821e("Wave difficulty: " + gameEngine.f6335bX.m1505c(gameEngine.f6342ce.f6902y), VariableScope.nullOrMissingString));
+        if (teamStats != null) {
+            if (gameEngine.ce != null && gameEngine.ce.k) {
+                displayedEndStats.add(new DisplayedStat("Lasted till wave: " + gameEngine.ce.r, VariableScope.nullOrMissingString));
+                if (!gameEngine.ce.l) {
+                    displayedEndStats.add(new DisplayedStat("Wave difficulty: " + gameEngine.netEngine.c(gameEngine.ce.y), VariableScope.nullOrMissingString));
                 }
             }
-            arrayList.add(new C0821e("Game Time", C0773f.m2206a(gameEngine.f6315by / 1000)));
-            arrayList.add(new C0821e("=============================", VariableScope.nullOrMissingString));
-            arrayList.add(new C0821e("Units Killed", c0739bo.f4636c));
-            arrayList.add(new C0821e("Buildings Killed", c0739bo.f4637d));
-            arrayList.add(new C0821e("Experimentals Killed", c0739bo.f4638e));
-            arrayList.add(new C0821e("=============================", VariableScope.nullOrMissingString));
-            arrayList.add(new C0821e("Units Lost", c0739bo.f4639f));
-            arrayList.add(new C0821e("Buildings Lost", c0739bo.f4640g));
-            arrayList.add(new C0821e("Experimentals Lost", c0739bo.f4641h));
-            arrayList.add(new C0821e("=============================", VariableScope.nullOrMissingString));
+            displayedEndStats.add(new DisplayedStat("Game Time", f.a(gameEngine.by / 1000)));
+            displayedEndStats.add(new DisplayedStat("=============================", VariableScope.nullOrMissingString));
+            displayedEndStats.add(new DisplayedStat("Units Killed", teamStats.unitsKilled));
+            displayedEndStats.add(new DisplayedStat("Buildings Killed", teamStats.buildingsKilled));
+            displayedEndStats.add(new DisplayedStat("Experimentals Killed", teamStats.experimentalsKilled));
+            displayedEndStats.add(new DisplayedStat("=============================", VariableScope.nullOrMissingString));
+            displayedEndStats.add(new DisplayedStat("Units Lost", teamStats.unitsLost));
+            displayedEndStats.add(new DisplayedStat("Buildings Lost", teamStats.buildingsLost));
+            displayedEndStats.add(new DisplayedStat("Experimentals Lost", teamStats.experimentalsLost));
+            displayedEndStats.add(new DisplayedStat("=============================", VariableScope.nullOrMissingString));
         }
-        return arrayList;
+        return displayedEndStats;
     }
 }
