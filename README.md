@@ -7,7 +7,9 @@
 **是一组开放的、不受阻碍的 Rusted Warfare混淆映射，每个人都可以在知识共享零许可下免费使用。其目的是让每个人都可以自由、公开地修改 Rusted Warfare，同时还能够按照他们认为合适的方式创新和处理映射。**
 
 ## Why This Project / 为什么有这个项目
-避免污染 `Tape` 项目
+避免污染 `Tape` 项目  
+**Here is a by-product of the RW-HPS writing process, as a personal understanding of the source code anti-obfuscation**  
+**这里是 RW-HPS 编写过程的副产物， 作为一个个人理解的源码反混淆**  
 
 ## Thanks Project
 
